@@ -64,7 +64,7 @@ def generate_article(title, content, source_url, source_name):
 
 
 def generate_featured_image(image_prompt, tags=None):
-    """Google Imagen 3 を使ってアイキャッチ画像を生成"""
+    """Gemini を使ってアイキャッチ画像を生成（Google AI Studio 対応）"""
     import os
     from google import genai
     from google.genai import types
@@ -76,13 +76,16 @@ def generate_featured_image(image_prompt, tags=None):
     full_prompt = f"{base_prompt}, professional digital art, clean modern design, high quality"
 
     client = genai.Client(api_key=api_key)
-    logger.info("アイキャッチ画像を生成中（Imagen 3）...")
-    response = client.models.generate_images(
-        model="imagen-3.0-generate-002",
-        prompt=full_prompt,
-        config=types.GenerateImagesConfig(
-            number_of_images=1,
-            aspect_ratio="16:9",
+    logger.info("アイキャッチ画像を生成中（Gemini）...")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-exp-image-generation",
+        contents=full_prompt,
+        config=types.GenerateContentConfig(
+            response_modalities=["IMAGE"]
         ),
     )
-    return response.generated_images[0].image.image_bytes
+    for part in response.candidates[0].content.parts:
+        if part.inline_data is not None:
+            return part.inline_data.data
+
+    raise ValueError("画像データが返されませんでした")
