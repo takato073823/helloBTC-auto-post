@@ -26,8 +26,23 @@ except ImportError:
 SEO_ARTICLE_TYPES = ["コラム", "DeFi", "基礎知識", "取引所"]
 
 
-def generate_article(title, content, source_url, source_name):
+def generate_article(title, content, source_url, source_name, tweet_urls=None):
     """英語ニュースから SEO 最適化された日本語記事を生成"""
+
+    # ツイートURLがある場合の追加指示
+    if tweet_urls:
+        tweet_list = "\n".join(tweet_urls)
+        tweet_instruction = f"""
+【公式ソース（ツイート/X投稿）】
+以下のURLは、記事内で言及されているプロジェクトや組織の公式発表ツイートです:
+{tweet_list}
+
+上記のツイートについて言及した段落の直後に、以下の形式で埋め込んでください（WordPressが自動でツイートカードに変換します）:
+<p>https://twitter.com/... または https://x.com/...</p>
+
+ただし、記事の流れに自然に合う箇所にのみ挿入すること。不自然な箇所には挿入しない。"""
+    else:
+        tweet_instruction = ""
 
     prompt = f"""以下の英語の仮想通貨ニュースを基に、SEO最適化された日本語のブログ記事を作成してください。
 
@@ -36,7 +51,7 @@ def generate_article(title, content, source_url, source_name):
 出典: {source_name} ({source_url})
 内容:
 {content}
-
+{tweet_instruction}
 【サイト情報】
 - サイト名: helloBTC
 - テーマ: 仮想通貨・ビットコイン情報
@@ -50,6 +65,7 @@ def generate_article(title, content, source_url, source_name):
 5. 参照リンクや出典の記載は一切不要
 6. コピペと判定されないよう、文章構成・表現・順序を元記事から大きく変える
 7. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
+8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{

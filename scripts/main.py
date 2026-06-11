@@ -75,8 +75,11 @@ def main():
         logger.info(f"処理中: {title[:70]}")
 
         try:
-            # 元記事の本文を取得
-            content = fetch_article_content(url)
+            # 元記事の本文とツイートURLを取得
+            article_data = fetch_article_content(url)
+            content = article_data["text"]
+            tweet_urls = article_data["tweet_urls"]
+
             if len(content) < MIN_CONTENT_LENGTH:
                 logger.warning(f"本文が短すぎるためスキップ: {url}")
                 posted_urls.add(url)  # 再試行しないようにスキップ済みとして記録
@@ -89,6 +92,7 @@ def main():
                 content=content,
                 source_url=url,
                 source_name=article.get("source", ""),
+                tweet_urls=tweet_urls,
             )
 
             # アイキャッチ画像を生成してアップロード

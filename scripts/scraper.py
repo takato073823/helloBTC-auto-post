@@ -96,12 +96,44 @@ def fetch_from_rss(max_per_feed=5):
     return articles
 
 
+def _extract_tweet_urls(soup) -> list:
+    """ページから Twitter/X の公式ツイートURLを最大3件抽出する"""
+    tweet_urls = []
+    seen = set()
+
+    # blockquote.twitter-tweet の最後の <a> が permalink
+    for bq in soup.find_all("blockquote", class_=lambda c: c and "twitter" in " ".join(c)):
+        links = bq.find_all("a", href=True)
+        if links:
+            href = links[-1]["href"].split("?")[0]
+            if "/status/" in href and href not in seen:
+                seen.add(href)
+                tweet_urls.append(href)
+
+    # フォールバック: ページ内リンクから twitter.com/x.com の status URL を探す
+    if not tweet_urls:
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if "/status/" in href and ("twitter.com" in href or "x.com" in href):
+                clean = href.split("?")[0]
+                if clean not in seen:
+                    seen.add(clean)
+                    tweet_urls.append(clean)
+                    if len(tweet_urls) >= 3:
+                        break
+
+    return tweet_urls[:3]
+
+
 def fetch_article_content(url, max_length=4000):
-    """元記事の本文を取得"""
+    """元記事の本文とツイートURLを取得して dict で返す"""
     try:
         response = requests.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "lxml")
+
+        # ツイートURLはタグ除去前に抽出する
+        tweet_urls = _extract_tweet_urls(soup)
 
         for tag in soup(["script", "style", "nav", "footer", "header", "aside", "form", "iframe"]):
             tag.decompose()
@@ -115,22 +147,28 @@ def fetch_article_content(url, max_length=4000):
             '[class*="article-content"]',
             "main",
         ]
+        text = ""
         for selector in selectors:
             el = soup.select_one(selector)
             if el:
-                text = el.get_text(separator="\n", strip=True)
-                if len(text) > 300:
-                    return text[:max_length]
+                candidate = el.get_text(separator="\n", strip=True)
+                if len(candidate) > 300:
+                    text = candidate[:max_length]
+                    break
 
-        # フォールバック: body 全体
-        body = soup.find("body")
-        if body:
-            return body.get_text(separator="\n", strip=True)[:max_length]
+        if not text:
+            body = soup.find("body")
+            if body:
+                text = body.get_text(separator="\n", strip=True)[:max_length]
 
-        return ""
+        if tweet_urls:
+            logger.info(f"ツイートURL {len(tweet_urls)} 件を抽出: {tweet_urls}")
+
+        return {"text": text, "tweet_urls": tweet_urls}
+
     except Exception as e:
         logger.error(f"記事取得失敗 ({url}): {e}")
-        return ""
+        return {"text": "", "tweet_urls": []}
 
 
 def get_latest_articles(count=20):
