@@ -83,17 +83,16 @@ def generate_featured_image(image_prompt, tags=None):
 
     # 試行するモデル（優先度順）
     image_models = [
-        "imagen-3.0-generate-002",
-        "imagen-3.0-generate-001",
-        "imagen-3.0-fast-generate-001",
-        "gemini-2.0-flash-exp-image-generation",
-        "gemini-2.0-flash-preview-image-generation",
+        ("imagen-4.0-fast-generate-001", "imagen"),
+        ("imagen-4.0-generate-001", "imagen"),
+        ("gemini-2.5-flash-image", "gemini"),
+        ("gemini-3.1-flash-image", "gemini"),
     ]
 
-    for model_name in image_models:
+    for model_name, model_type in image_models:
         try:
             logger.info(f"アイキャッチ画像を生成中（{model_name}）...")
-            if "imagen" in model_name:
+            if model_type == "imagen":
                 response = client.models.generate_images(
                     model=model_name,
                     prompt=full_prompt,
