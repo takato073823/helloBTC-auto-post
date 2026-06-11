@@ -74,7 +74,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "excerpt": "記事の要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
-  "image_prompt": "simple close-up photo concept for this article (single subject on dark background, e.g. gold coin, stacked coins, glowing screen, physical chart, metallic token — NO brand names, NO person names, NO text, NO complex scenes, Max 12 words)"
+  "image_prompt": "Bloomberg-style editorial photo subject for this article. Single concrete object, close-up, dark background. Choose from: gold coins stacked, trading screen with charts, server rack hardware, physical gold bar, smartphone displaying graph, circuit board, safe vault door, stock market display. NO brand names, NO person names, NO text in image. Max 12 words."
 }}"""
 
     message = client.messages.create(
@@ -107,12 +107,14 @@ def generate_featured_image(image_prompt, tags=None):
     from PIL import Image
 
     api_key = os.environ["GOOGLE_API_KEY"]
-    base_prompt = image_prompt or "single gold coin on dark surface, close-up, studio lighting"
+    base_prompt = image_prompt or "gold bitcoin coin on dark reflective surface, close-up"
     full_prompt = (
-        f"{base_prompt}, "
-        "clean minimalist photography, single subject, dark background, "
-        "simple composition, professional studio lighting, sharp focus, "
-        "no text, no letters, no watermark, no people, high quality"
+        f"{base_prompt}. "
+        "Bloomberg editorial photography style. "
+        "Photorealistic, professional DSLR camera shot, shallow depth of field, "
+        "dramatic side lighting, clean dark background, high contrast, "
+        "sharp focus on subject, cinematic quality. "
+        "No text, no watermark, no people, no faces."
     )
 
     client = genai.Client(api_key=api_key)
@@ -223,10 +225,10 @@ def generate_seo_article(article_type: str) -> dict:
   "content": "<h3>見出し1</h3><p>本文...</p>{{IMAGE_1}}<h3>見出し2</h3><p>本文...</p><h3>見出し3</h3><p>本文...</p>{{CHART}}<h3>見出し4</h3><p>本文...</p>{{IMAGE_2}}<h3>見出し5</h3><p>本文...</p>",
   "excerpt": "記事の要約（100〜150文字）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
-  "featured_image_prompt": "simple close-up photo concept (single subject on dark background, e.g. gold coin, glowing screen, metallic token, stacked coins — NO brand/person names, NO text, NO complex scenes, max 12 words)",
+  "featured_image_prompt": "Bloomberg editorial photo subject: single concrete object close-up, dark background (e.g. gold coins, trading screen, server hardware, gold bar, circuit board). NO brand/person names, NO text. Max 12 words.",
   "article_image_prompts": [
-    "simple close-up photo concept 1 (single subject on dark background, NO brand/person names, NO text, max 12 words)",
-    "simple close-up photo concept 2 (single subject on dark background, NO brand/person names, NO text, max 12 words)"
+    "Bloomberg editorial photo subject 1: single concrete object close-up, dark background. NO brand/person names, NO text. Max 12 words.",
+    "Bloomberg editorial photo subject 2: single concrete object close-up, dark background. NO brand/person names, NO text. Max 12 words."
   ],
   "chart": {{
     "type": "bar",
