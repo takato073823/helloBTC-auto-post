@@ -4,6 +4,7 @@ Claude API を使って日本語 SEO 記事を生成する
 import anthropic
 import json
 import logging
+import io
 
 logger = logging.getLogger(__name__)
 client = anthropic.Anthropic()
@@ -39,7 +40,7 @@ def generate_article(title, content, source_url, source_name):
   "excerpt": "記事の要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
-  "image_prompt": "cryptocurrency news illustration in English describing the article topic (for AI image generation, 20 words max)"
+  "image_prompt": "visual concept in English for this article (NO brand names, NO model names, NO person names, NO text — use visual metaphors like glowing coins, blockchain network, price charts, golden bitcoin, digital finance, etc. Max 15 words)"
 }}"""
 
     message = client.messages.create(
@@ -69,19 +70,18 @@ def generate_featured_image(image_prompt, tags=None):
     from google import genai
     from google.genai import types
 
+    from PIL import Image
+
     api_key = os.environ["GOOGLE_API_KEY"]
-    base_prompt = image_prompt or "cryptocurrency bitcoin blockchain technology news illustration"
-    if tags:
-        base_prompt += f", {', '.join(tags[:2])}"
-    full_prompt = f"{base_prompt}, professional digital art, clean modern design, high quality"
+    base_prompt = image_prompt or "golden bitcoin coin glowing on dark background, financial technology"
+    full_prompt = (
+        f"{base_prompt}, "
+        "photorealistic digital art, no text, no letters, no watermark, "
+        "professional finance illustration, high quality, 4:3 aspect ratio"
+    )
 
     client = genai.Client(api_key=api_key)
 
-    # 利用可能な画像生成モデルを確認してログ出力
-    available = [m.name for m in client.models.list() if "image" in m.name.lower() or "imagen" in m.name.lower()]
-    logger.info(f"画像生成対応モデル一覧: {available}")
-
-    # 試行するモデル（優先度順）
     image_models = [
         ("imagen-4.0-fast-generate-001", "imagen"),
         ("imagen-4.0-generate-001", "imagen"),
@@ -89,6 +89,7 @@ def generate_featured_image(image_prompt, tags=None):
         ("gemini-3.1-flash-image", "gemini"),
     ]
 
+    raw_bytes = None
     for model_name, model_type in image_models:
         try:
             logger.info(f"アイキャッチ画像を生成中（{model_name}）...")
@@ -96,9 +97,12 @@ def generate_featured_image(image_prompt, tags=None):
                 response = client.models.generate_images(
                     model=model_name,
                     prompt=full_prompt,
-                    config=types.GenerateImagesConfig(number_of_images=1),
+                    config=types.GenerateImagesConfig(
+                        number_of_images=1,
+                        aspect_ratio="4:3",
+                    ),
                 )
-                return response.generated_images[0].image.image_bytes
+                raw_bytes = response.generated_images[0].image.image_bytes
             else:
                 response = client.models.generate_content(
                     model=model_name,
@@ -107,9 +111,20 @@ def generate_featured_image(image_prompt, tags=None):
                 )
                 for part in response.candidates[0].content.parts:
                     if part.inline_data is not None:
-                        return part.inline_data.data
+                        raw_bytes = part.inline_data.data
+            if raw_bytes:
+                break
         except Exception as e:
             logger.warning(f"{model_name} 失敗: {e}")
             continue
 
-    raise ValueError("利用可能な画像生成モデルが見つかりません")
+    if not raw_bytes:
+        raise ValueError("利用可能な画像生成モデルが見つかりません")
+
+    # 1100×800 にリサイズ
+    img = Image.open(io.BytesIO(raw_bytes))
+    img = img.resize((1100, 800), Image.LANCZOS)
+    output = io.BytesIO()
+    img.save(output, format="JPEG", quality=92)
+    logger.info("画像を1100×800にリサイズ完了")
+    return output.getvalue()
