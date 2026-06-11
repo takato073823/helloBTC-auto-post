@@ -1,0 +1,28 @@
+name: helloBTC WordPress SEO セットアップ（手動・一回限り）
+
+on:
+  workflow_dispatch:  # GitHub の「Actions」タブから手動実行
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 依存パッケージをインストール
+        run: pip install requests
+
+      - name: WordPress SEO セットアップを実行
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        working-directory: scripts
+        run: python setup_seo.py
