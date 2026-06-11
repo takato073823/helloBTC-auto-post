@@ -53,7 +53,7 @@ class WordPressAPI:
             return None
 
     def upload_media(self, image_data, filename="featured.jpg"):
-        """画像を WordPress メディアライブラリにアップロードして ID を返す"""
+        """画像を WordPress メディアライブラリにアップロードして (ID, URL) を返す"""
         upload_headers = {
             "Authorization": self.headers["Authorization"],
             "Content-Disposition": f'attachment; filename="{filename}"',
@@ -66,12 +66,15 @@ class WordPressAPI:
             timeout=60,
         )
         response.raise_for_status()
-        media_id = response.json()["id"]
+        resp_data = response.json()
+        media_id = resp_data["id"]
+        media_url = resp_data.get("source_url", "")
         logger.info(f"画像アップロード完了 (ID: {media_id})")
-        return media_id
+        return media_id, media_url
 
-    def post_article(self, title, content, excerpt, tags=None, category_id=None, featured_media_id=None):
-        """WordPress に記事を投稿"""
+    def post_article(self, title, content, excerpt, tags=None, category_id=None,
+                     featured_media_id=None, status="publish"):
+        """WordPress に記事を投稿。status は 'publish' または 'draft'"""
         tag_ids = []
         if tags:
             for tag_name in tags[:8]:
@@ -83,7 +86,7 @@ class WordPressAPI:
             "title": title,
             "content": content,
             "excerpt": excerpt,
-            "status": "publish",
+            "status": status,
             "tags": tag_ids,
         }
 

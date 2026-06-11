@@ -1,0 +1,36 @@
+name: helloBTC SEO特集記事（下書き）
+
+on:
+  schedule:
+    # 1日2回 SEO記事を下書き保存 (日本時間: 10:00・20:00)
+    - cron: "0 1 * * *"   # JST 10:00
+    - cron: "0 11 * * *"  # JST 20:00
+  workflow_dispatch:  # 手動実行ボタン
+
+jobs:
+  post-seo-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install -r requirements.txt
+
+      - name: SEO記事を生成して下書き保存
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          RUN_MODE: seo
+        working-directory: scripts
+        run: python main.py

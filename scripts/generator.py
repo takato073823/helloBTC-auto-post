@@ -9,6 +9,22 @@ import io
 logger = logging.getLogger(__name__)
 client = anthropic.Anthropic()
 
+# matplotlib は SEO 記事のグラフ生成にのみ使用（未インストール時はスキップ）
+_matplotlib_available = False
+try:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    try:
+        import japanize_matplotlib  # noqa: F401 — 日本語フォントを自動設定
+    except ImportError:
+        pass
+    _matplotlib_available = True
+except ImportError:
+    pass
+
+SEO_ARTICLE_TYPES = ["コラム", "DeFi", "基礎知識", "取引所"]
+
 
 def generate_article(title, content, source_url, source_name):
     """英語ニュースから SEO 最適化された日本語記事を生成"""
@@ -122,10 +138,159 @@ def generate_featured_image(image_prompt, tags=None):
     if not raw_bytes:
         raise ValueError("利用可能な画像生成モデルが見つかりません")
 
-    # 1100×800 にリサイズ
+    # 1200×630 にリサイズ
     img = Image.open(io.BytesIO(raw_bytes))
     img = img.resize((1200, 630), Image.LANCZOS)
     output = io.BytesIO()
     img.save(output, format="JPEG", quality=92)
     logger.info("画像を1200×630にリサイズ完了")
+    return output.getvalue()
+
+
+def get_seo_article_type() -> str:
+    """日付と実行回数（時間帯）でSEO記事カテゴリをローテーションする"""
+    import datetime
+    now = datetime.datetime.now()
+    day_idx = now.timetuple().tm_yday
+    slot = 0 if now.hour < 15 else 1  # 朝=0、夕=1
+    return SEO_ARTICLE_TYPES[(day_idx * 2 + slot) % len(SEO_ARTICLE_TYPES)]
+
+
+def generate_seo_article(article_type: str) -> dict:
+    """SEO強化記事を Claude Haiku で生成する（カテゴリ: コラム/DeFi/基礎知識/取引所）"""
+    type_descriptions = {
+        "コラム": "仮想通貨・ブロックチェーン業界の最新トレンド・時事コラム。市場動向の背景にある社会的・経済的要因を深堀りした考察記事",
+        "DeFi": "分散型金融（DeFi）の仕組み・主要プロトコル・リスク・利回り・最新動向の解説記事",
+        "取引所": "仮想通貨取引所の選び方・手数料比較・セキュリティ・機能・使い方の解説記事",
+        "基礎知識": "特定のアルトコインやブロックチェーン技術の仕組み・特徴・将来性をまとめた入門解説記事",
+    }
+    chart_hints = {
+        "コラム": "仮想通貨の市場シェアや価格推移の比較グラフ",
+        "DeFi": "主要DeFiプロトコルのTVL（ロック総額）比較棒グラフ",
+        "取引所": "国内外の主要取引所の手数料・取引量比較グラフ",
+        "基礎知識": "そのコインの時価総額推移や主要コインとの比較グラフ",
+    }
+
+    prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTCサイト向けに以下のカテゴリで日本語記事を作成してください。
+
+カテゴリ: {article_type}
+テーマ: {type_descriptions[article_type]}
+
+【サイト情報】
+- サイト名: helloBTC（仮想通貨・ビットコイン情報）
+- ターゲット読者: 仮想通貨に興味がある日本人（初心者〜中級者）
+
+【記事作成ルール】
+1. 2026年現在の状況を踏まえた具体的な内容を書く
+2. 日本の読者向けにわかりやすく書く（専門用語には簡単な説明を添える）
+3. SEOキーワードを自然に含め、検索意図に応える充実した内容にする
+4. H3見出しは4〜5つ設ける。全て具体的・内容を表すタイトルにする（「まとめ」「概要」禁止）
+5. 各セクションは充実した内容で書く
+6. 参照リンクや出典の記載は一切不要
+7. コピペと判定されないよう独自の表現・構成にする
+
+【画像プロンプトのルール】
+- 英語で15語以内
+- 固有名詞・ブランド名・会社名・人物名は一切禁止
+- 抽象的なビジュアルメタファーのみ（光るコイン、ネットワーク図、チャート、デジタルアートなど）
+
+【グラフデータのルール】
+- {chart_hints[article_type]}を想定する
+- 記事内容に合ったリアルで説得力ある値にする
+- ラベルは日本語でOK
+
+必ず以下のJSON形式のみで出力してください（前後に余計なテキスト・コードブロックマーカー不要）:
+{{
+  "title": "SEO最適化された日本語タイトル（30〜60文字、具体的な数字や情報を含む）",
+  "content": "<h3>見出し1</h3><p>本文...</p>{{IMAGE_1}}<h3>見出し2</h3><p>本文...</p><h3>見出し3</h3><p>本文...</p>{{CHART}}<h3>見出し4</h3><p>本文...</p>{{IMAGE_2}}<h3>見出し5</h3><p>本文...</p>",
+  "excerpt": "記事の要約（100〜150文字）",
+  "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
+  "featured_image_prompt": "visual concept for featured image in English (NO brand/model/person names, NO text, visual metaphors only, max 15 words)",
+  "article_image_prompts": [
+    "visual concept 1 for article body in English (NO brand/model/person names, NO text, max 15 words)",
+    "visual concept 2 for article body in English (NO brand/model/person names, NO text, max 15 words)"
+  ],
+  "chart": {{
+    "type": "bar",
+    "title": "グラフのタイトル",
+    "labels": ["ラベル1", "ラベル2", "ラベル3", "ラベル4", "ラベル5"],
+    "values": [10.5, 8.2, 5.1, 3.8, 2.4],
+    "unit": "単位（例: 十億ドル、%、億円）",
+    "caption": "※数値は概算・参考値です"
+  }}
+}}"""
+
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=3000,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    response_text = message.content[0].text.strip()
+    start = response_text.find("{")
+    end = response_text.rfind("}") + 1
+    if start == -1 or end <= start:
+        raise ValueError(f"JSON が見つかりません: {response_text[:200]}")
+
+    try:
+        return json.loads(response_text[start:end])
+    except json.JSONDecodeError as e:
+        logger.error(f"SEO記事 JSON パースエラー: {e}\nレスポンス: {response_text[start:end][:500]}")
+        raise
+
+
+def generate_chart_image(chart_data: dict) -> bytes:
+    """matplotlib でグラフ画像（1200×675px）を生成して JPEG バイト列を返す"""
+    if not _matplotlib_available:
+        raise RuntimeError("matplotlib がインストールされていません")
+
+    labels = chart_data.get("labels", [])
+    values = chart_data.get("values", [])
+    unit = chart_data.get("unit", "")
+    chart_type = chart_data.get("type", "bar")
+    colors = ["#F7931A", "#627EEA", "#26A17B", "#E84142", "#8247E5",
+              "#00D4FF", "#FFB800", "#FF6B35"]
+
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    fig.patch.set_facecolor("#1a1a2e")
+    ax.set_facecolor("#16213e")
+
+    if chart_type == "line":
+        ax.plot(labels, values, marker="o", linewidth=2.5,
+                color="#F7931A", markersize=8, markerfacecolor="white")
+        ax.fill_between(range(len(labels)), values, alpha=0.15, color="#F7931A")
+        for i, val in enumerate(values):
+            ax.text(i, val + max(values) * 0.02, f"{val:,.1f}",
+                    ha="center", va="bottom", color="white", fontsize=10)
+    else:
+        bars = ax.bar(labels, values, color=colors[:len(labels)],
+                      width=0.6, edgecolor="none")
+        for bar, val in zip(bars, values):
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                bar.get_height() + max(values) * 0.02,
+                f"{val:,.1f}",
+                ha="center", va="bottom", color="white", fontsize=10, fontweight="bold",
+            )
+
+    ax.set_title(chart_data.get("title", ""), color="white", fontsize=13,
+                 fontweight="bold", pad=15)
+    ax.set_ylabel(unit, color="#aaaaaa", fontsize=10)
+    ax.tick_params(colors="#aaaaaa", labelsize=9)
+    for spine in ax.spines.values():
+        spine.set_color("#333355")
+    ax.yaxis.grid(True, linestyle="--", alpha=0.3, color="#444466")
+    ax.set_axisbelow(True)
+
+    caption = chart_data.get("caption", "")
+    if caption:
+        fig.text(0.5, 0.01, caption, ha="center", color="#888888", fontsize=8)
+
+    plt.tight_layout(rect=[0, 0.04, 1, 1])
+
+    output = io.BytesIO()
+    plt.savefig(output, format="JPEG", quality=90, bbox_inches="tight",
+                dpi=150, facecolor=fig.get_facecolor())
+    plt.close(fig)
+    logger.info("グラフ画像生成完了")
     return output.getvalue()
