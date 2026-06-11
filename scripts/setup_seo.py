@@ -13,6 +13,7 @@ import json
 import logging
 import requests
 import base64
+from urllib.parse import quote
 
 logging.basicConfig(
     level=logging.INFO,
@@ -75,17 +76,20 @@ def list_plugins():
 # ─────────────────────────────────────────────────────────────────────────────
 
 def delete_plugin(plugin_path: str, display_name: str):
+    """スラッシュを %2F にエンコードして正しい REST エンドポイントを構築"""
     logger.info(f"\n--- {display_name} を削除 ---")
+    encoded = quote(plugin_path, safe="")   # "wp-foo/bar" → "wp-foo%2Fbar"
+    endpoint_url = f"{BASE}/plugins/{encoded}"
 
     # 停止
-    r = session.post(f"{BASE}/plugins/{plugin_path}", json={"status": "inactive"}, timeout=30)
+    r = session.post(endpoint_url, json={"status": "inactive"}, timeout=30)
     if r.ok:
         logger.info(f"  停止: OK")
     else:
-        logger.warning(f"  停止スキップ（既に停止中）: {r.status_code}")
+        logger.warning(f"  停止スキップ（既に停止中 or 不要）: {r.status_code}")
 
     # 削除
-    r = session.delete(f"{BASE}/plugins/{plugin_path}", timeout=30)
+    r = session.delete(endpoint_url, timeout=30)
     if r.ok:
         logger.info(f"  ✅ 削除完了: {display_name}")
     else:
@@ -97,7 +101,7 @@ def step_delete_plugins():
     logger.info("STEP 2: 不要プラグイン削除")
     logger.info("=" * 60)
     delete_plugin("hello-dolly/hello", "Hello Dolly")
-    delete_plugin("file-manager/file_folder_manager", "WP File Manager")
+    delete_plugin("wp-file-manager/file_folder_manager", "WP File Manager")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -152,9 +156,9 @@ def step_check_news_sitemap():
     logger.info("=" * 60)
 
     urls_to_check = [
+        f"{WP_URL}/sitemap-news.xml",      # XML Sitemap & Google News の実際のURL
         f"{WP_URL}/news-sitemap.xml",
         f"{WP_URL}/?feed=news-sitemap",
-        f"{WP_URL}/sitemap-news.xml",
     ]
 
     found = False
@@ -208,7 +212,7 @@ def step_check_regular_sitemap():
             MANUAL_ACTIONS.append(
                 "robots.txt にニュースサイトマップを追記\n"
                 "   SEO SIMPLE PACK → robots.txt 編集 に以下を追加:\n"
-                "   Sitemap: https://hellobtc.jp/news-sitemap.xml"
+                "   Sitemap: https://hellobtc.jp/sitemap-news.xml"
             )
 
 
@@ -281,8 +285,8 @@ def step_news_publisher_instructions():
         "Google News Publisher Center 登録\n"
         "   ① publishercenter.google.com にアクセス\n"
         "   ② 「出版物を追加」→ hellobtc.jp\n"
-        "   ③ ニュースサイトマップURLを登録: https://hellobtc.jp/news-sitemap.xml\n"
-        "   ※ ニュースサイトマップが生成されてから実施"
+        "   ③ ニュースサイトマップURLを登録: https://hellobtc.jp/sitemap-news.xml\n"
+        "   ※ ニュースサイトマップが既に稼働中（sitemap-news.xml）"
     )
     MANUAL_ACTIONS.append(
         "プラグインのアップデート（8件）\n"
@@ -290,7 +294,7 @@ def step_news_publisher_instructions():
     )
     MANUAL_ACTIONS.append(
         "Google Search Console にニュースサイトマップを追加\n"
-        "   Search Console → サイトマップ → 「news-sitemap.xml」を追加送信"
+        "   Search Console → サイトマップ → 「sitemap-news.xml」を追加送信"
     )
     MANUAL_ACTIONS.append(
         "SEO SIMPLE PACK の OGP/Twitter Card を確認\n"
