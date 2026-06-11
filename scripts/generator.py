@@ -4,7 +4,6 @@ Claude API を使って日本語 SEO 記事を生成する
 import anthropic
 import json
 import logging
-import requests
 
 logger = logging.getLogger(__name__)
 client = anthropic.Anthropic()
@@ -65,19 +64,25 @@ def generate_article(title, content, source_url, source_name):
 
 
 def generate_featured_image(image_prompt, tags=None):
-    """Hugging Face FLUX を使ってアイキャッチ画像を生成（無料）"""
+    """Google Imagen 3 を使ってアイキャッチ画像を生成"""
     import os
+    from google import genai
+    from google.genai import types
 
-    hf_token = os.environ.get("HF_API_TOKEN", "")
+    api_key = os.environ["GOOGLE_API_KEY"]
     base_prompt = image_prompt or "cryptocurrency bitcoin blockchain technology news illustration"
     if tags:
         base_prompt += f", {', '.join(tags[:2])}"
     full_prompt = f"{base_prompt}, professional digital art, clean modern design, high quality"
 
-    api_url = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
-    headers = {"Authorization": f"Bearer {hf_token}"}
-
-    logger.info("アイキャッチ画像を生成中...")
-    response = requests.post(api_url, headers=headers, json={"inputs": full_prompt}, timeout=120)
-    response.raise_for_status()
-    return response.content
+    client = genai.Client(api_key=api_key)
+    logger.info("アイキャッチ画像を生成中（Imagen 3）...")
+    response = client.models.generate_images(
+        model="imagen-3.0-generate-002",
+        prompt=full_prompt,
+        config=types.GenerateImagesConfig(
+            number_of_images=1,
+            aspect_ratio="16:9",
+        ),
+    )
+    return response.generated_images[0].image.image_bytes
