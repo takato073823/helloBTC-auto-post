@@ -1,0 +1,49 @@
+name: helloBTC 自動記事投稿
+
+on:
+  schedule:
+    # 1日6回投稿 (日本時間: 7時・9時・11時・13時・15時・17時)
+    - cron: "0 22 * * *"  # JST 7:00
+    - cron: "0 0 * * *"   # JST 9:00
+    - cron: "0 2 * * *"   # JST 11:00
+    - cron: "0 4 * * *"   # JST 13:00
+    - cron: "0 6 * * *"   # JST 15:00
+    - cron: "0 8 * * *"   # JST 17:00
+  workflow_dispatch:  # 手動実行ボタン
+
+jobs:
+  post-article:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # posted_urls.json をコミットするために必要
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install -r requirements.txt
+
+      - name: 記事を自動投稿
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        working-directory: scripts
+        run: python main.py
+
+      - name: 投稿済み URL リストをコミット
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/posted_urls.json
+          git diff --staged --quiet || git commit -m "chore: update posted URLs [skip ci]"
+          git push
