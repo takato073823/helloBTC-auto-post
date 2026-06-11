@@ -74,7 +74,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "excerpt": "記事の要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
-  "image_prompt": "visual concept in English for this article (NO brand names, NO model names, NO person names, NO text — use visual metaphors like glowing coins, blockchain network, price charts, golden bitcoin, digital finance, etc. Max 15 words)"
+  "image_prompt": "simple close-up photo concept for this article (single subject on dark background, e.g. gold coin, stacked coins, glowing screen, physical chart, metallic token — NO brand names, NO person names, NO text, NO complex scenes, Max 12 words)"
 }}"""
 
     message = client.messages.create(
@@ -107,11 +107,12 @@ def generate_featured_image(image_prompt, tags=None):
     from PIL import Image
 
     api_key = os.environ["GOOGLE_API_KEY"]
-    base_prompt = image_prompt or "golden bitcoin coin glowing on dark background, financial technology"
+    base_prompt = image_prompt or "single gold coin on dark surface, close-up, studio lighting"
     full_prompt = (
         f"{base_prompt}, "
-        "photorealistic digital art, no text, no letters, no watermark, "
-        "professional finance illustration, high quality, 4:3 aspect ratio"
+        "clean minimalist photography, single subject, dark background, "
+        "simple composition, professional studio lighting, sharp focus, "
+        "no text, no letters, no watermark, no people, high quality"
     )
 
     client = genai.Client(api_key=api_key)
@@ -222,10 +223,10 @@ def generate_seo_article(article_type: str) -> dict:
   "content": "<h3>見出し1</h3><p>本文...</p>{{IMAGE_1}}<h3>見出し2</h3><p>本文...</p><h3>見出し3</h3><p>本文...</p>{{CHART}}<h3>見出し4</h3><p>本文...</p>{{IMAGE_2}}<h3>見出し5</h3><p>本文...</p>",
   "excerpt": "記事の要約（100〜150文字）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
-  "featured_image_prompt": "visual concept for featured image in English (NO brand/model/person names, NO text, visual metaphors only, max 15 words)",
+  "featured_image_prompt": "simple close-up photo concept (single subject on dark background, e.g. gold coin, glowing screen, metallic token, stacked coins — NO brand/person names, NO text, NO complex scenes, max 12 words)",
   "article_image_prompts": [
-    "visual concept 1 for article body in English (NO brand/model/person names, NO text, max 15 words)",
-    "visual concept 2 for article body in English (NO brand/model/person names, NO text, max 15 words)"
+    "simple close-up photo concept 1 (single subject on dark background, NO brand/person names, NO text, max 12 words)",
+    "simple close-up photo concept 2 (single subject on dark background, NO brand/person names, NO text, max 12 words)"
   ],
   "chart": {{
     "type": "bar",

@@ -29,7 +29,7 @@ jobs:
           cache: "pip"
 
       - name: 依存パッケージをインストール
-        run: pip install -r requirements.txt
+        run: pip install --timeout 120 -r requirements.txt
 
       - name: 記事を自動投稿
         env:

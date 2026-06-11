@@ -22,7 +22,7 @@ jobs:
           cache: "pip"
 
       - name: 依存パッケージをインストール
-        run: pip install -r requirements.txt
+        run: pip install --timeout 120 -r requirements.txt
 
       - name: SEO記事を生成して下書き保存
         env:
