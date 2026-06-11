@@ -124,8 +124,8 @@ def generate_featured_image(image_prompt, tags=None):
 
     # 1100×800 にリサイズ
     img = Image.open(io.BytesIO(raw_bytes))
-    img = img.resize((1100, 800), Image.LANCZOS)
+    img = img.resize((1200, 630), Image.LANCZOS)
     output = io.BytesIO()
     img.save(output, format="JPEG", quality=92)
-    logger.info("画像を1100×800にリサイズ完了")
+    logger.info("画像を1200×630にリサイズ完了")
     return output.getvalue()
