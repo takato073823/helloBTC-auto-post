@@ -171,6 +171,26 @@ def fetch_article_content(url, max_length=4000):
         return {"text": "", "tweet_urls": []}
 
 
+def fetch_tweet_embed_html(tweet_url: str) -> str:
+    """Twitter/X の oEmbed API からツイートの埋め込み HTML を取得する"""
+    try:
+        params = {"url": tweet_url, "dnt": "true", "lang": "ja", "theme": "light"}
+        response = requests.get(
+            "https://publish.twitter.com/oembed",
+            params=params,
+            timeout=15,
+            headers=HEADERS,
+        )
+        response.raise_for_status()
+        embed_html = response.json().get("html", "")
+        if embed_html:
+            logger.info(f"ツイート埋め込みHTML取得成功: {tweet_url}")
+        return embed_html
+    except Exception as e:
+        logger.warning(f"ツイート埋め込みHTML取得失敗 ({tweet_url}): {e}")
+        return ""
+
+
 def get_latest_articles(count=20):
     """NewsNow + RSS から最新記事を取得（NewsNow 優先）"""
     # NewsNow からトレンド記事を取得

@@ -9,7 +9,7 @@ import logging
 import time
 from pathlib import Path
 
-from scraper import get_latest_articles, fetch_article_content
+from scraper import get_latest_articles, fetch_article_content, fetch_tweet_embed_html
 from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
@@ -94,6 +94,18 @@ def main():
                 source_name=article.get("source", ""),
                 tweet_urls=tweet_urls,
             )
+
+            # ツイートプレースホルダーを埋め込みカードHTMLに置換
+            article_content = generated["content"]
+            for i, tweet_url in enumerate(tweet_urls, 1):
+                placeholder = "{TWEET_" + str(i) + "}"
+                if placeholder in article_content:
+                    embed_html = fetch_tweet_embed_html(tweet_url)
+                    article_content = article_content.replace(placeholder, embed_html)
+            # 未置換のプレースホルダーを除去
+            import re as _re
+            article_content = _re.sub(r"\{TWEET_\d+\}", "", article_content)
+            generated["content"] = article_content
 
             # アイキャッチ画像を生成してアップロード
             featured_media_id = None

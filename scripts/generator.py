@@ -31,16 +31,16 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 
     # ツイートURLがある場合の追加指示
     if tweet_urls:
-        tweet_list = "\n".join(tweet_urls)
+        numbered = "\n".join(f"  {i+1}. {u}" for i, u in enumerate(tweet_urls))
         tweet_instruction = f"""
 【公式ソース（ツイート/X投稿）】
-以下のURLは、記事内で言及されているプロジェクトや組織の公式発表ツイートです:
-{tweet_list}
+以下は元記事で引用されている公式発表ツイートのURLです:
+{numbered}
 
-上記のツイートについて言及した段落の直後に、以下の形式で埋め込んでください（WordPressが自動でツイートカードに変換します）:
-<p>https://twitter.com/... または https://x.com/...</p>
-
-ただし、記事の流れに自然に合う箇所にのみ挿入すること。不自然な箇所には挿入しない。"""
+「公式に発表した」「X（旧Twitter）で明らかにした」などの文脈で言及した段落の直後に、
+{{{{TWEET_1}}}} というプレースホルダーを1つだけ挿入してください。
+（後で実際のツイートカードHTMLに自動置換されます）
+記事の流れに合わない場合は挿入しなくてよい。"""
     else:
         tweet_instruction = ""
 
