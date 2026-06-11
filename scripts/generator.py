@@ -38,7 +38,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 {numbered}
 
 「公式に発表した」「X（旧Twitter）で明らかにした」などの文脈で言及した段落の直後に、
-{{{{TWEET_1}}}} というプレースホルダーを1つだけ挿入してください。
+{{TWEET_1}} というプレースホルダーを1つだけ挿入してください。
 （後で実際のツイートカードHTMLに自動置換されます）
 記事の流れに合わない場合は挿入しなくてよい。"""
     else:
