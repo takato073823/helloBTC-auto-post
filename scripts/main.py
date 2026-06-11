@@ -109,12 +109,13 @@ def main():
 
             # アイキャッチ画像を生成してアップロード
             featured_media_id = None
+            featured_image_url = None
             try:
                 image_data = generate_featured_image(
                     image_prompt=generated.get("image_prompt", ""),
                     tags=generated.get("tags", []),
                 )
-                featured_media_id, _ = wp.upload_media(
+                featured_media_id, featured_image_url = wp.upload_media(
                     image_data, filename=f"featured-{int(time.time())}.jpg"
                 )
             except Exception as e:
@@ -128,6 +129,9 @@ def main():
                 tags=generated.get("tags", []),
                 category_id=news_category_id,
                 featured_media_id=featured_media_id,
+                slug=generated.get("slug"),
+                featured_image_url=featured_image_url,
+                article_section="ニュース",
             )
 
             posted_urls.add(url)
@@ -181,9 +185,10 @@ def run_seo_article():
 
     # ── アイキャッチ画像 ─────────────────────────────────
     featured_media_id = None
+    featured_image_url = None
     try:
         img_data = generate_featured_image(image_prompt=generated.get("featured_image_prompt", ""))
-        featured_media_id, _ = wp.upload_media(img_data, filename=f"seo-featured-{ts}.jpg")
+        featured_media_id, featured_image_url = wp.upload_media(img_data, filename=f"seo-featured-{ts}.jpg")
     except Exception as e:
         logger.warning(f"アイキャッチ生成失敗（続行）: {e}")
 
@@ -240,6 +245,9 @@ def run_seo_article():
         category_id=category_id,
         featured_media_id=featured_media_id,
         status="draft",
+        slug=generated.get("slug"),
+        featured_image_url=featured_image_url,
+        article_section=article_type,
     )
     logger.info(f"SEO記事を下書き保存しました: {result.get('link', '')}")
 
