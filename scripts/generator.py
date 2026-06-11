@@ -74,7 +74,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "excerpt": "記事の要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
-  "image_prompt": "Bloomberg-style editorial photo subject for this article. Single concrete object, close-up, dark background. Choose from: gold coins stacked, trading screen with charts, server rack hardware, physical gold bar, smartphone displaying graph, circuit board, safe vault door, stock market display. NO brand names, NO person names, NO text in image. Max 12 words."
+  "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words."
 }}"""
 
     message = client.messages.create(
@@ -107,14 +107,15 @@ def generate_featured_image(image_prompt, tags=None):
     from PIL import Image
 
     api_key = os.environ["GOOGLE_API_KEY"]
-    base_prompt = image_prompt or "gold bitcoin coin on dark reflective surface, close-up"
+    base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
     full_prompt = (
         f"{base_prompt}. "
-        "Bloomberg editorial photography style. "
-        "Photorealistic, professional DSLR camera shot, shallow depth of field, "
-        "dramatic side lighting, clean dark background, high contrast, "
-        "sharp focus on subject, cinematic quality. "
-        "No text, no watermark, no people, no faces."
+        "Photojournalism, Reuters news photography style. "
+        "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
+        "Professional studio lighting or natural window light, realistic textures and materials. "
+        "Muted color grading, slightly desaturated, cool tones. "
+        "Sharp focus on subject, news magazine quality, high resolution. "
+        "No text, no watermark, no people, no faces, no logos."
     )
 
     client = genai.Client(api_key=api_key)
@@ -225,10 +226,10 @@ def generate_seo_article(article_type: str) -> dict:
   "content": "<h3>見出し1</h3><p>本文...</p>{{IMAGE_1}}<h3>見出し2</h3><p>本文...</p><h3>見出し3</h3><p>本文...</p>{{CHART}}<h3>見出し4</h3><p>本文...</p>{{IMAGE_2}}<h3>見出し5</h3><p>本文...</p>",
   "excerpt": "記事の要約（100〜150文字）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
-  "featured_image_prompt": "Bloomberg editorial photo subject: single concrete object close-up, dark background (e.g. gold coins, trading screen, server hardware, gold bar, circuit board). NO brand/person names, NO text. Max 12 words.",
+  "featured_image_prompt": "One specific photorealistic news photo scene (subject + lighting + setting). Examples: 'stacked gold coins on dark marble, side lighting', 'trading monitor with red chart, blue glow', 'gold bar on black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
   "article_image_prompts": [
-    "Bloomberg editorial photo subject 1: single concrete object close-up, dark background. NO brand/person names, NO text. Max 12 words.",
-    "Bloomberg editorial photo subject 2: single concrete object close-up, dark background. NO brand/person names, NO text. Max 12 words."
+    "One specific photorealistic news photo scene 1 (subject + lighting). NO people, NO brand names, NO text. Max 15 words.",
+    "One specific photorealistic news photo scene 2 (subject + lighting). NO people, NO brand names, NO text. Max 15 words."
   ],
   "chart": {{
     "type": "bar",
