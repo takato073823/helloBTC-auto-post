@@ -9,7 +9,7 @@ import time
 from pathlib import Path
 
 from scraper import get_latest_articles, fetch_article_content
-from generator import generate_article
+from generator import generate_article, generate_featured_image
 from wp_poster import WordPressAPI
 
 logging.basicConfig(
@@ -48,6 +48,10 @@ def main():
     wp = WordPressAPI(wp_url, wp_username, wp_app_password)
     posted_urls = load_posted_urls()
 
+    # 「ニュース」カテゴリの ID を取得（なければ自動作成）
+    news_category_id = wp.get_or_create_category("ニュース")
+    logger.info(f"カテゴリ「ニュース」ID: {news_category_id}")
+
     logger.info("最新ニュースを取得中...")
     candidates = get_latest_articles(count=30)
     new_articles = [a for a in candidates if a["url"] not in posted_urls]
@@ -83,12 +87,25 @@ def main():
                 source_name=article.get("source", ""),
             )
 
+            # アイキャッチ画像を生成してアップロード
+            featured_media_id = None
+            try:
+                image_data = generate_featured_image(
+                    image_prompt=generated.get("image_prompt", ""),
+                    tags=generated.get("tags", []),
+                )
+                featured_media_id = wp.upload_media(image_data, filename=f"featured-{int(time.time())}.jpg")
+            except Exception as e:
+                logger.warning(f"画像生成/アップロード失敗（記事投稿は続行）: {e}")
+
             # WordPress に投稿
             wp.post_article(
                 title=generated["title"],
                 content=generated["content"],
                 excerpt=generated["excerpt"],
                 tags=generated.get("tags", []),
+                category_id=news_category_id,
+                featured_media_id=featured_media_id,
             )
 
             posted_urls.add(url)
