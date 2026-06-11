@@ -73,7 +73,7 @@ def generate_featured_image(image_prompt, tags=None):
     full_prompt = f"{base_prompt}, professional digital art, clean modern design, high quality"
 
     encoded = urllib.parse.quote(full_prompt)
-    url = f"https://image.pollinations.ai/prompt/{encoded}?width=1200&height=630&nologo=true&model=flux"
+    url = f"https://image.pollinations.ai/prompt/{encoded}?width=1200&height=630&model=turbo"
 
     logger.info("アイキャッチ画像を生成中...")
     response = requests.get(url, timeout=120)
