@@ -19,7 +19,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 POSTED_URLS_FILE = Path(__file__).parent / "posted_urls.json"
-ARTICLES_PER_RUN = 4  # 一時的に4本（通常は1）
+ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（1日6回 × 1本 = 6本/日）
 MIN_CONTENT_LENGTH = 200  # 最低限必要な記事本文の長さ
 
 
