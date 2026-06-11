@@ -75,7 +75,8 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
-  "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words."
+  "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
+  "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
 }}"""
 
     message = client.messages.create(
@@ -228,6 +229,7 @@ def generate_seo_article(article_type: str) -> dict:
   "excerpt": "記事の要約（100〜150文字）",
   "slug": "defi-protocol-yield-guide (英語・小文字・ハイフン区切り・3〜5単語)",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
+  "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"],
   "featured_image_prompt": "One specific photorealistic news photo scene (subject + lighting + setting). Examples: 'stacked gold coins on dark marble, side lighting', 'trading monitor with red chart, blue glow', 'gold bar on black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
   "article_image_prompts": [
     "One specific photorealistic news photo scene 1 (subject + lighting). NO people, NO brand names, NO text. Max 15 words.",

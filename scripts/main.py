@@ -138,7 +138,13 @@ def main():
             # X (Twitter) に投稿
             article_url = result.get("link", "")
             if article_url:
-                post_tweet(generated["title"], article_url, generated.get("tags", []))
+                post_tweet(
+                    title=generated["title"],
+                    article_url=article_url,
+                    tags=generated.get("tags", []),
+                    tweet_bullets=generated.get("tweet_bullets"),
+                    article_section="ニュース",
+                )
 
             posted_urls.add(url)
             save_posted_urls(posted_urls)
