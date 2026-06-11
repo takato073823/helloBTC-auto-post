@@ -37,6 +37,7 @@ jobs:
           WP_USERNAME: ${{ secrets.WP_USERNAME }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
         working-directory: scripts
         run: python main.py
 
