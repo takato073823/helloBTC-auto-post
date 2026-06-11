@@ -15,6 +15,7 @@ from generator import (
     generate_seo_article, generate_chart_image, get_seo_article_type,
 )
 from wp_poster import WordPressAPI
+from x_poster import post_tweet
 
 logging.basicConfig(
     level=logging.INFO,
@@ -122,7 +123,7 @@ def main():
                 logger.warning(f"画像生成/アップロード失敗（記事投稿は続行）: {e}")
 
             # WordPress に投稿
-            wp.post_article(
+            result = wp.post_article(
                 title=generated["title"],
                 content=generated["content"],
                 excerpt=generated["excerpt"],
@@ -133,6 +134,11 @@ def main():
                 featured_image_url=featured_image_url,
                 article_section="ニュース",
             )
+
+            # X (Twitter) に投稿
+            article_url = result.get("link", "")
+            if article_url:
+                post_tweet(generated["title"], article_url, generated.get("tags", []))
 
             posted_urls.add(url)
             save_posted_urls(posted_urls)
