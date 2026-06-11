@@ -64,7 +64,7 @@ def generate_article(title, content, source_url, source_name):
 
 
 def generate_featured_image(image_prompt, tags=None):
-    """Gemini を使ってアイキャッチ画像を生成（Google AI Studio 対応）"""
+    """Gemini / Imagen を使ってアイキャッチ画像を生成（Google AI Studio 対応）"""
     import os
     from google import genai
     from google.genai import types
@@ -76,16 +76,41 @@ def generate_featured_image(image_prompt, tags=None):
     full_prompt = f"{base_prompt}, professional digital art, clean modern design, high quality"
 
     client = genai.Client(api_key=api_key)
-    logger.info("アイキャッチ画像を生成中（Gemini）...")
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-exp-image-generation",
-        contents=full_prompt,
-        config=types.GenerateContentConfig(
-            response_modalities=["IMAGE"]
-        ),
-    )
-    for part in response.candidates[0].content.parts:
-        if part.inline_data is not None:
-            return part.inline_data.data
 
-    raise ValueError("画像データが返されませんでした")
+    # 利用可能な画像生成モデルを確認してログ出力
+    available = [m.name for m in client.models.list() if "image" in m.name.lower() or "imagen" in m.name.lower()]
+    logger.info(f"画像生成対応モデル一覧: {available}")
+
+    # 試行するモデル（優先度順）
+    image_models = [
+        "imagen-3.0-generate-002",
+        "imagen-3.0-generate-001",
+        "imagen-3.0-fast-generate-001",
+        "gemini-2.0-flash-exp-image-generation",
+        "gemini-2.0-flash-preview-image-generation",
+    ]
+
+    for model_name in image_models:
+        try:
+            logger.info(f"アイキャッチ画像を生成中（{model_name}）...")
+            if "imagen" in model_name:
+                response = client.models.generate_images(
+                    model=model_name,
+                    prompt=full_prompt,
+                    config=types.GenerateImagesConfig(number_of_images=1),
+                )
+                return response.generated_images[0].image.image_bytes
+            else:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=full_prompt,
+                    config=types.GenerateContentConfig(response_modalities=["IMAGE"]),
+                )
+                for part in response.candidates[0].content.parts:
+                    if part.inline_data is not None:
+                        return part.inline_data.data
+        except Exception as e:
+            logger.warning(f"{model_name} 失敗: {e}")
+            continue
+
+    raise ValueError("利用可能な画像生成モデルが見つかりません")
