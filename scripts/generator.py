@@ -228,13 +228,18 @@ def generate_seo_article(article_type: str) -> dict:
 
 
 def _call_haiku(prompt: str, max_tokens: int = 8192) -> str:
-    """Claude Haiku 4.5 を呼び出してテキストを返す。"""
+    """Claude Haiku 4.5 を呼び出してテキストを返す。コードブロックマーカーを除去する。"""
     msg = client.messages.create(
         model="claude-haiku-4-5-20251001",
         max_tokens=max_tokens,
         messages=[{"role": "user", "content": prompt}],
     )
-    return msg.content[0].text.strip()
+    text = msg.content[0].text.strip()
+    # ```html や ``` などのコードブロックマーカーを除去
+    import re as _re
+    text = _re.sub(r"^```[a-zA-Z]*\n?", "", text)
+    text = _re.sub(r"\n?```$", "", text)
+    return text.strip()
 
 
 def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -> dict:
