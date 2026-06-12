@@ -256,12 +256,12 @@ def run_seo_article():
         tags=generated.get("tags", []),
         category_id=category_id,
         featured_media_id=featured_media_id,
-        status="draft",
+        status="publish",
         slug=generated.get("slug"),
         featured_image_url=featured_image_url,
         article_section=article_type,
     )
-    logger.info(f"SEO記事を下書き保存しました: {result.get('link', '')}")
+    logger.info(f"SEO記事を公開しました: {result.get('link', '')}")
 
 
 if __name__ == "__main__":
