@@ -102,7 +102,188 @@ EXCHANGE_CONFIGS: dict = {
             },
         ],
     },
-    # 他取引所はここに追加
+    "bybit": {
+        "name": "Bybit",
+        "invite_code": "YOUR_BYBIT_CODE",          # ← 自分の招待コードに変更
+        "invite_url": "https://www.bybit.com/invite?ref=YOUR_BYBIT_CODE",  # ← 変更
+        "category": "取引所",
+        "slug": "bybit-registration-guide",
+        "tags": ["Bybit", "仮想通貨取引所", "口座開設", "先物取引", "コピートレード"],
+        "tweet_bullets": [
+            "招待コードで手数料割引特典あり",
+            "先物・現物・コピートレード対応",
+            "日本語完全対応の大手取引所",
+        ],
+        "public_screenshots": [
+            {
+                "key": "top",
+                "url": "https://www.bybit.com/en/",
+                "description": "Bybitトップページ",
+                "viewport": {"width": 1280, "height": 800},
+                "wait_ms": 4000,
+            },
+            {
+                "key": "register",
+                "url": "https://www.bybit.com/en/register",
+                "description": "Bybit新規登録フォーム",
+                "viewport": {"width": 1280, "height": 800},
+                "wait_ms": 4000,
+            },
+            {
+                "key": "trading",
+                "url": "https://www.bybit.com/en/trade/spot/BTCUSDT",
+                "description": "BTC/USDT現物取引チャート",
+                "viewport": {"width": 1440, "height": 900},
+                "wait_ms": 6000,
+            },
+            {
+                "key": "copy_trade",
+                "url": "https://www.bybit.com/en/copytrading/",
+                "description": "コピートレード画面",
+                "viewport": {"width": 1440, "height": 900},
+                "wait_ms": 6000,
+            },
+        ],
+        "imagen_screenshots": [
+            {
+                "key": "kyc",
+                "prompt": "smartphone screen showing document identity verification scan, blue beam light, dark background",
+                "description": "本人確認（KYC）イメージ",
+            },
+            {
+                "key": "deposit",
+                "prompt": "crypto wallet QR code on smartphone screen, glowing digital interface, dark minimalist design",
+                "description": "仮想通貨入金・ウォレットイメージ",
+            },
+            {
+                "key": "security",
+                "prompt": "glowing digital padlock on dark background, blue security shield, cyber protection",
+                "description": "セキュリティ・2FA設定イメージ",
+            },
+        ],
+    },
+
+    "binance": {
+        "name": "Binance",
+        "invite_code": "YOUR_BINANCE_CODE",        # ← 自分の招待コードに変更
+        "invite_url": "https://www.binance.com/referral/earn-together?ref=YOUR_BINANCE_CODE",  # ← 変更
+        "category": "取引所",
+        "slug": "binance-registration-guide",
+        "tags": ["Binance", "仮想通貨取引所", "口座開設", "世界最大", "先物取引"],
+        "tweet_bullets": [
+            "世界最大の取引量を誇る取引所",
+            "招待コードで手数料20%割引",
+            "600種類以上の銘柄に対応",
+        ],
+        "public_screenshots": [
+            {
+                "key": "top",
+                "url": "https://www.binance.com/en",
+                "description": "Binanceトップページ",
+                "viewport": {"width": 1280, "height": 800},
+                "wait_ms": 5000,
+            },
+            {
+                "key": "register",
+                "url": "https://www.binance.com/en/register",
+                "description": "Binance新規登録フォーム",
+                "viewport": {"width": 1280, "height": 800},
+                "wait_ms": 4000,
+            },
+            {
+                "key": "trading",
+                "url": "https://www.binance.com/en/trade/BTC_USDT",
+                "description": "BTC/USDT現物取引チャート",
+                "viewport": {"width": 1440, "height": 900},
+                "wait_ms": 7000,
+            },
+            {
+                "key": "futures",
+                "url": "https://www.binance.com/en/futures/BTCUSDT",
+                "description": "先物取引（BTCUSDT無期限契約）画面",
+                "viewport": {"width": 1440, "height": 900},
+                "wait_ms": 7000,
+            },
+        ],
+        "imagen_screenshots": [
+            {
+                "key": "kyc",
+                "prompt": "smartphone screen showing identity document scan with blue verification light, dark UI",
+                "description": "本人確認（KYC）イメージ",
+            },
+            {
+                "key": "deposit",
+                "prompt": "digital crypto wallet address QR code on screen, soft neon glow, dark interface",
+                "description": "仮想通貨入金・ウォレットイメージ",
+            },
+            {
+                "key": "security",
+                "prompt": "two factor authentication code display on smartphone, secure padlock icon, dark background",
+                "description": "セキュリティ・2FA設定イメージ",
+            },
+        ],
+    },
+
+    "okx": {
+        "name": "OKX",
+        "invite_code": "YOUR_OKX_CODE",            # ← 自分の招待コードに変更
+        "invite_url": "https://www.okx.com/join/YOUR_OKX_CODE",  # ← 変更
+        "category": "取引所",
+        "slug": "okx-registration-guide",
+        "tags": ["OKX", "仮想通貨取引所", "口座開設", "コピートレード", "Web3"],
+        "tweet_bullets": [
+            "招待コードで手数料割引＋ボーナス",
+            "Web3ウォレット・DEX内蔵の多機能取引所",
+            "コピートレードで自動運用も可能",
+        ],
+        "public_screenshots": [
+            {
+                "key": "top",
+                "url": "https://www.okx.com/",
+                "description": "OKXトップページ",
+                "viewport": {"width": 1280, "height": 800},
+                "wait_ms": 4000,
+            },
+            {
+                "key": "register",
+                "url": "https://www.okx.com/register",
+                "description": "OKX新規登録フォーム",
+                "viewport": {"width": 1280, "height": 800},
+                "wait_ms": 4000,
+            },
+            {
+                "key": "trading",
+                "url": "https://www.okx.com/trade-spot/btc-usdt",
+                "description": "BTC/USDT現物取引チャート",
+                "viewport": {"width": 1440, "height": 900},
+                "wait_ms": 6000,
+            },
+            {
+                "key": "copy_trade",
+                "url": "https://www.okx.com/copy-trading",
+                "description": "コピートレード画面",
+                "viewport": {"width": 1440, "height": 900},
+                "wait_ms": 6000,
+            },
+        ],
+        "imagen_screenshots": [
+            {
+                "key": "kyc",
+                "prompt": "smartphone showing biometric face scan verification interface, glowing blue dots, dark UI",
+                "description": "本人確認（KYC）イメージ",
+            },
+            {
+                "key": "deposit",
+                "prompt": "web3 digital wallet interface on screen, blockchain network visualization, dark futuristic design",
+                "description": "Web3ウォレット・入金イメージ",
+            },
+            {
+                "key": "security",
+                "prompt": "encrypted security lock icon on dark digital grid background, blue cyber protection glow",
+                "description": "セキュリティ・2FA設定イメージ",
+            },
+        ],
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -252,7 +433,7 @@ def generate_article_text(exchange_config: dict, available_keys: list[str]) -> d
 4. 本人確認（KYC）手順 → {{{{IMG_KYC}}}}
 5. 入金方法（2種類） → {{{{IMG_DEPOSIT}}}}
 6. 現物取引の始め方 → {{{{IMG_TRADING}}}}
-7. コピートレードの始め方 → {{{{IMG_COPY_TRADE}}}}
+7. コピートレード／先物取引の始め方 → {{{{IMG_COPY_TRADE}}}} or {{{{IMG_FUTURES}}}}
 8. セキュリティ設定（必須項目） → {{{{IMG_SECURITY}}}}
 9. まとめ（招待コード特典ボックスを再掲）
 
