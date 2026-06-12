@@ -275,63 +275,149 @@ def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -
 
 
 def _generate_rich_article(article_type: str) -> dict:
-    """コラム・DeFi・取引所カテゴリ向けリッチデザインHTML記事を生成する。"""
+    """コラム・DeFi・取引所カテゴリ向けSWELLブロック記法記事を生成する。"""
 
     type_configs = {
         "コラム": {
             "theme": "仮想通貨・ブロックチェーン業界の最新トレンド・時事コラム。市場動向の背景にある社会的・経済的要因を深堀りした考察記事",
             "chart_hint": "仮想通貨の市場シェア・価格推移・時価総額変動の比較グラフ",
-            "table_hint": "市場データや各国の規制状況・機関投資家の参入状況などを表形式でまとめる",
             "topics": "市場サイクル・機関投資家・規制動向・ビットコインETF・AI×ブロックチェーン・RWA・ステーブルコイン政策など",
-            "qa_hint": "読者が「なぜ」「どうなる」と疑問を持ちやすいトピックを3問",
         },
         "DeFi": {
             "theme": "分散型金融（DeFi）の仕組み・主要プロトコル・リスク・利回り・最新動向の解説記事",
             "chart_hint": "主要DeFiプロトコルのTVL（ロック総額）または APY（利回り）比較棒グラフ",
-            "table_hint": "主要プロトコルの比較表（TVL・チェーン・利回り・リスクレベルなど）",
             "topics": "Uniswap・Aave・Compound・Curve・Lido・EigenLayer・Pendle・LST・LRT・イールドファーミング・流動性プールなど",
-            "qa_hint": "DeFiの安全性・始め方・リスク管理に関する初心者向け3問",
         },
         "取引所": {
             "theme": "仮想通貨取引所の選び方・手数料比較・セキュリティ・機能・使い方の解説記事",
             "chart_hint": "国内外の主要取引所の取引量・手数料・取扱銘柄数の比較グラフ",
-            "table_hint": "取引所の比較表（手数料・セキュリティ・日本語対応・取扱銘柄数・入出金方法など）",
             "topics": "取引所比較・セキュリティ・スプレッド・IEO・コピートレード・レバレッジ・税金・スマートフォンアプリなど",
-            "qa_hint": "取引所の安全性・選び方・手数料に関する実用的な3問",
         },
     }
 
     cfg = type_configs.get(article_type, type_configs["コラム"])
 
-    # ── Pass 1: HTML本文のみ生成（JSON不使用でトークン切れを回避）────────
-    html_prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けに「{article_type}」カテゴリの記事HTML本文のみを出力してください。JSONは不要です。
+    # ── Pass 1: Gutenbergブロック本文のみ生成（JSON不使用でトークン切れを回避）────
+    html_prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC（WordPress SWELLテーマ）向けに「{article_type}」カテゴリの記事を書いてください。
+出力はWordPress Gutenbergブロック記法のみ。JSONは不要。コードブロック（```）も不要。
 
 【テーマ】{cfg['theme']}
-参考トピック例: {cfg['topics']}
+参考トピック: {cfg['topics']}
 
-【構成（この順番でHTMLのみ出力）】
-① リード文（p タグ、150〜200文字）
-② 目次ボックス:
-<div style='background:#f5f5f5;border:2px solid #e0e0e0;border-radius:8px;padding:20px 28px;margin:24px 0;'><p style='font-weight:700;font-size:1.05em;margin:0 0 12px;color:#333;'>📋 目次</p><ol style='margin:0;padding-left:22px;line-height:2.1;color:#555;font-size:0.95em;'><li>実際のタイトル</li>...</ol></div>
-③〜⑦ 各セクション（5〜6個）:
-  - バナー見出し: <div style='background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:18px 24px;border-radius:6px;border-left:5px solid #f7931a;margin:36px 0 20px;font-size:1.1em;font-weight:700;'>🔷 タイトル</div>
-  - 本文 p タグ
-  - 必要に応じてinfoボックス・テーブル・リストを使う
-⑧ Q&Aセクション（3問、バナー見出し＋Q&Aアイテム）:
-  Q&Aアイテム: <div style='margin:20px 0;'><div style='background:#1a1a2e;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;font-weight:600;'>Q. 質問</div><div style='background:#fffbf0;border:1px solid #f7931a;border-top:none;border-radius:0 0 8px 8px;padding:14px 20px;'><strong>A.</strong> 回答</div></div>
-⑨ 免責文: <p style='font-size:0.85em;color:#888;margin-top:32px;'>※本記事は情報提供を目的としており、投資助言ではありません。</p>
+【使用するブロックパターン（このフォーマットを忠実に使うこと）】
 
-【デザインパーツ（必要に応じて使う）】
-グリーン: <div style='background:#e8f5e9;border-left:5px solid #4caf50;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>✅ ポイント</strong><br>内容</div>
-オレンジ: <div style='background:#fff3e0;border-left:5px solid #ff9800;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>⚠️ 注意点</strong><br>内容</div>
-赤: <div style='background:#fce4ec;border-left:5px solid #e91e63;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>🔴 リスク</strong><br>内容</div>
-テーブル: <div style='overflow-x:auto;margin:24px 0;'><table style='width:100%;border-collapse:collapse;font-size:0.93em;'><thead><tr style='background:#f7931a;color:#fff;'><th style='padding:12px 14px;border:1px solid #e6881a;'>項目</th><th style='padding:12px 14px;border:1px solid #e6881a;'>A</th><th style='padding:12px 14px;border:1px solid #e6881a;'>B</th></tr></thead><tbody><tr style='background:#fff8e1;'><td style='padding:10px 14px;border:1px solid #ddd;font-weight:600;'>名前</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td></tr></tbody></table></div>
+■ 段落（インラインで <span class="swl-marker mark_orange">強調</span> を使う）:
+<!-- wp:paragraph -->
+<p>本文テキスト。<span class="swl-marker mark_orange">重要語句</span>はマーカーで強調。</p>
+<!-- /wp:paragraph -->
 
-【プレースホルダー（必ず含める）】{{IMAGE_1}} {{IMAGE_2}} {{CHART}}
+■ 区切り線＋H2見出し（各セクション冒頭に必ず使う）:
+<!-- wp:separator --><hr class="wp-block-separator has-alpha-channel-opacity" /><!-- /wp:separator -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">セクションタイトル</h2>
+<!-- /wp:heading -->
 
-【ルール】文体:言い切り調。本文1800〜2200文字。HTMLの属性はシングルクォート。JSON不要。HTMLのみ出力。"""
+■ H3見出し:
+<!-- wp:heading {{"level":3}} -->
+<h3 class="wp-block-heading">小見出し</h3>
+<!-- /wp:heading -->
 
-    logger.info(f"  Pass1: {article_type} HTML本文生成中...")
+■ ポイントボックス（重要情報・まとめ）:
+<!-- wp:loos/cap-block {{"dataColSet":"col1","className":"is-style-onborder_ttl"}} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl" data-colset="col1">
+<div class="cap_box_ttl"><span>✅ ポイント</span></div>
+<div class="cap_box_content"><!-- wp:paragraph -->
+<p>内容テキスト</p>
+<!-- /wp:paragraph --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+
+■ 注意・リストボックス（複数項目の注意・リスクなど）:
+<!-- wp:loos/cap-block {{"dataColSet":"col1","className":"is-style-onborder_ttl2"}} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl2" data-colset="col1">
+<div class="cap_box_ttl"><span>⚠️ 注意点</span></div>
+<div class="cap_box_content"><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>項目1</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>項目2</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+
+■ 重要ポイント強調段落（ひとこと要約）:
+<!-- wp:paragraph {{"className":"is-style-big_icon_point"}} -->
+<p class="is-style-big_icon_point"><strong>重要ポイントを1文で</strong></p>
+<!-- /wp:paragraph -->
+
+■ テーブル（SWELL）:
+<!-- wp:table {{"swlScrollable":"sp","swlTableWidth":"800px","swlFz":"13px"}} -->
+<figure class="wp-block-table">
+<table class="has-fixed-layout">
+<thead>
+<tr>
+<th class="has-text-align-center" data-align="center">項目</th>
+<th class="has-text-align-center" data-align="center">A</th>
+<th class="has-text-align-center" data-align="center">B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="has-text-align-center" data-align="center"><strong>名称</strong></td>
+<td class="has-text-align-center" data-align="center">値</td>
+<td class="has-text-align-center" data-align="center">値</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<!-- /wp:table -->
+
+■ リスト:
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>項目</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+■ 画像プレースホルダー（この形式で含める）:
+<!-- wp:html -->
+{{IMAGE_1}}
+<!-- /wp:html -->
+
+■ Q&Aアイテム（よくある質問セクションで使用）:
+<!-- wp:loos/cap-block {{"dataColSet":"col1","className":"is-style-onborder_ttl"}} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl" data-colset="col1">
+<div class="cap_box_ttl"><span>Q. 質問文をここに</span></div>
+<div class="cap_box_content"><!-- wp:paragraph -->
+<p><strong>A.</strong> 回答テキスト</p>
+<!-- /wp:paragraph --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+
+【記事構成（この順番で出力）】
+① リード文（<!-- wp:paragraph --> × 2〜3）
+② 目次（cap-block内にordered list、実際の見出し名を列挙）:
+<!-- wp:loos/cap-block {{"dataColSet":"col1","className":"is-style-onborder_ttl2"}} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl2" data-colset="col1">
+<div class="cap_box_ttl"><span>📋 目次</span></div>
+<div class="cap_box_content"><!-- wp:list {{"ordered":true}} -->
+<ol class="wp-block-list"><!-- wp:list-item --><li>見出し1</li><!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+③〜⑥ H2セクション × 4〜5個（separator→heading→段落・table・box）
+⑦ 「よくある質問」セクション（H2 + Q&A cap-block × 3問）
+⑧ 免責文:
+<!-- wp:paragraph -->
+<p style="font-size:0.85em;color:#888;">※本記事は情報提供を目的としており、投資助言ではありません。</p>
+<!-- /wp:paragraph -->
+
+【必ず含めるプレースホルダー】記事内の適切な位置に <!-- wp:html -->{{IMAGE_1}}<!-- /wp:html -->・<!-- wp:html -->{{IMAGE_2}}<!-- /wp:html -->・<!-- wp:html -->{{CHART}}<!-- /wp:html --> を1つずつ配置。
+
+【ルール】文体:言い切り調。テキスト量1800〜2200文字相当。JSONなし。Gutenbergブロック記法のみ出力。"""
+
+    logger.info(f"  Pass1: {article_type} Gutenbergブロック本文生成中...")
     html_content = _call_haiku(html_prompt, max_tokens=8192)
 
     # ── Pass 2: メタデータJSON生成（小さいのでパース安定）────────────────
@@ -342,44 +428,145 @@ def _generate_rich_article(article_type: str) -> dict:
 
 
 def _generate_kiso_article() -> dict:
-    """アルトコイン基礎知識記事を2パスで生成（Pass1=HTML本文、Pass2=メタデータJSON）。"""
+    """アルトコイン基礎知識記事を2パスで生成（Pass1=SWELLブロック本文、Pass2=メタデータJSON）。"""
 
-    # ── Pass 1: HTML本文のみ生成 ──────────────────────────────────────────
-    html_prompt = """あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けにアルトコイン・ブロックチェーン「基礎知識」記事のHTML本文のみを出力してください。JSONは不要です。
+    # ── Pass 1: SWELLブロック本文のみ生成 ────────────────────────────────
+    html_prompt = """あなたはSEOに強い仮想通貨専門ライターです。helloBTC（WordPress SWELLテーマ）向けにアルトコイン基礎知識記事を書いてください。
+出力はWordPress Gutenbergブロック記法のみ。JSONは不要。コードブロック（```）も不要。
 
-【テーマ選定】2026年時点でSEO需要が高いトピックを1つ選ぶ:
+【テーマ選定】2026年時点でSEO需要が高いコインを1つ選ぶ:
 Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon・TON・SUI・NEAR・Aptos・Arbitrum・Optimism・Cosmos・Filecoin・Render・Injective・Celestia・Starknet
 
-【構成（HTMLのみ。JSONなし）】
-① リード文（pタグ、150〜200文字）
-② 目次ボックス:
-<div style='background:#f5f5f5;border:2px solid #e0e0e0;border-radius:8px;padding:20px 28px;margin:24px 0;'><p style='font-weight:700;font-size:1.05em;margin:0 0 12px;color:#333;'>📋 目次</p><ol style='margin:0;padding-left:22px;line-height:2.1;color:#555;'><li>タイトル</li>...</ol></div>
-③ セクション1「[コイン名]とは？基本情報」
-  - バナー見出し（下記スタイル）
-  - 基本情報テーブル（名称/ティッカー/設立年/発行上限/合意アルゴリズム/時価総額順位）
-  - グリーンポイントボックス
-  - {IMAGE_1}
-④ セクション2「仕組みと技術的特徴」
-  - バナー見出し・本文・オレンジ注意ボックス
-⑤ セクション3「ユースケースと活用事例」
-  - バナー見出し・ul箇条書き3〜5例・{IMAGE_2}
-⑥ セクション4「競合プロジェクトとの比較」
-  - バナー見出し・比較テーブル（3社比較）・{CHART}
-⑦ セクション5「将来性・課題・投資リスク」
-  - バナー見出し・本文・赤リスクボックス
-⑧ Q&Aセクション（バナー見出し「よくある質問」＋Q&Aアイテム3問）
-⑨ 免責文: <p style='font-size:0.85em;color:#888;margin-top:32px;'>※本記事は情報提供を目的としており投資助言ではありません。</p>
+【使用するブロックパターン（忠実に使うこと）】
 
-【デザインパーツ】
-バナー見出し: <div style='background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:18px 24px;border-radius:6px;border-left:5px solid #f7931a;margin:36px 0 20px;font-size:1.1em;font-weight:700;'>🔷 タイトル</div>
-基本情報テーブル: <div style='overflow-x:auto;margin:20px 0;'><table style='width:100%;border-collapse:collapse;'><thead><tr style='background:#f7931a;color:#fff;'><th style='padding:12px;border:1px solid #e6881a;'>項目</th><th style='padding:12px;border:1px solid #e6881a;'>内容</th></tr></thead><tbody><tr style='background:#fff8e1;'><td style='padding:10px;border:1px solid #ddd;font-weight:600;'>名称</td><td style='padding:10px;border:1px solid #ddd;'>〇〇</td></tr></tbody></table></div>
-比較テーブル: <div style='overflow-x:auto;margin:24px 0;'><table style='width:100%;border-collapse:collapse;font-size:0.93em;'><thead><tr style='background:#1a1a2e;color:#fff;'><th style='padding:12px;border:1px solid #333;'>比較項目</th><th style='padding:12px;border:1px solid #333;background:#f7931a;'>コイン名</th><th style='padding:12px;border:1px solid #333;'>競合A</th><th style='padding:12px;border:1px solid #333;'>競合B</th></tr></thead><tbody><tr style='background:#fff8e1;'><td style='padding:10px;border:1px solid #ddd;font-weight:600;'>項目</td><td style='padding:10px;border:1px solid #ddd;'>値</td><td style='padding:10px;border:1px solid #ddd;'>値</td><td style='padding:10px;border:1px solid #ddd;'>値</td></tr></tbody></table></div>
-グリーン: <div style='background:#e8f5e9;border-left:5px solid #4caf50;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>✅ ポイント</strong><br>内容</div>
-オレンジ: <div style='background:#fff3e0;border-left:5px solid #ff9800;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>⚠️ 注意点</strong><br>内容</div>
-赤: <div style='background:#fce4ec;border-left:5px solid #e91e63;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>🔴 リスク</strong><br>内容</div>
-Q&A: <div style='margin:20px 0;'><div style='background:#1a1a2e;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;font-weight:600;'>Q. 質問</div><div style='background:#fffbf0;border:1px solid #f7931a;border-top:none;border-radius:0 0 8px 8px;padding:14px 20px;'><strong>A.</strong> 回答</div></div>
+■ 段落（<span class="swl-marker mark_orange">強調</span> でキーワードをハイライト）:
+<!-- wp:paragraph -->
+<p>本文テキスト。<span class="swl-marker mark_orange">重要語句</span>はマーカーで強調。</p>
+<!-- /wp:paragraph -->
 
-【ルール】文体:言い切り調。本文1800〜2200文字。属性はシングルクォート。HTMLのみ出力。"""
+■ 区切り線＋H2見出し（各セクション冒頭）:
+<!-- wp:separator --><hr class="wp-block-separator has-alpha-channel-opacity" /><!-- /wp:separator -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">見出し</h2>
+<!-- /wp:heading -->
+
+■ H3見出し:
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">小見出し</h3>
+<!-- /wp:heading -->
+
+■ ポイントボックス（重要情報）:
+<!-- wp:loos/cap-block {"dataColSet":"col1","className":"is-style-onborder_ttl"} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl" data-colset="col1">
+<div class="cap_box_ttl"><span>✅ ポイント</span></div>
+<div class="cap_box_content"><!-- wp:paragraph -->
+<p>内容</p>
+<!-- /wp:paragraph --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+
+■ リスト・注意ボックス:
+<!-- wp:loos/cap-block {"dataColSet":"col1","className":"is-style-onborder_ttl2"} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl2" data-colset="col1">
+<div class="cap_box_ttl"><span>⚠️ リスク・注意点</span></div>
+<div class="cap_box_content"><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>項目1</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>項目2</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+
+■ 重要ポイント強調段落:
+<!-- wp:paragraph {"className":"is-style-big_icon_point"} -->
+<p class="is-style-big_icon_point"><strong>重要ポイントを1文で</strong></p>
+<!-- /wp:paragraph -->
+
+■ 基本情報テーブル（2列）:
+<!-- wp:table {"swlScrollable":"sp","swlTableWidth":"700px","swlFz":"13px"} -->
+<figure class="wp-block-table">
+<table class="has-fixed-layout">
+<thead>
+<tr>
+<th class="has-text-align-center" data-align="center">項目</th>
+<th class="has-text-align-center" data-align="center">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="has-text-align-center" data-align="center"><strong>名称</strong></td>
+<td class="has-text-align-center" data-align="center">〇〇</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<!-- /wp:table -->
+
+■ 比較テーブル（4列）:
+<!-- wp:table {"swlScrollable":"sp","swlTableWidth":"800px","swlFz":"12px"} -->
+<figure class="wp-block-table">
+<table class="has-fixed-layout">
+<thead>
+<tr>
+<th class="has-text-align-center" data-align="center">比較項目</th>
+<th class="has-text-align-center" data-align="center">このコイン</th>
+<th class="has-text-align-center" data-align="center">競合A</th>
+<th class="has-text-align-center" data-align="center">競合B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="has-text-align-center" data-align="center">項目</td>
+<td class="has-text-align-center" data-align="center">値</td>
+<td class="has-text-align-center" data-align="center">値</td>
+<td class="has-text-align-center" data-align="center">値</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<!-- /wp:table -->
+
+■ リスト:
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>項目</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+■ 画像プレースホルダー:
+<!-- wp:html -->
+{IMAGE_1}
+<!-- /wp:html -->
+
+■ Q&Aアイテム:
+<!-- wp:loos/cap-block {"dataColSet":"col1","className":"is-style-onborder_ttl"} -->
+<div class="swell-block-capbox cap_box is-style-onborder_ttl" data-colset="col1">
+<div class="cap_box_ttl"><span>Q. 質問文</span></div>
+<div class="cap_box_content"><!-- wp:paragraph -->
+<p><strong>A.</strong> 回答テキスト</p>
+<!-- /wp:paragraph --></div>
+</div>
+<!-- /wp:loos/cap-block -->
+
+【記事構成】
+① リード文（段落 × 2〜3）
+② 目次（cap-block + ordered list、実際の見出し名を列挙）
+③ 「[コイン名]とは？基本情報」（H2 + 基本情報テーブル + ポイントボックス + {IMAGE_1}）
+④ 「仕組みと技術的特徴」（H2 + 段落 + ポイントボックス）
+⑤ 「ユースケースと活用事例」（H2 + リスト + {IMAGE_2}）
+⑥ 「競合プロジェクトとの比較」（H2 + 比較テーブル + {CHART}）
+⑦ 「将来性・課題・投資リスク」（H2 + 段落 + リスト・注意ボックス）
+⑧ 「よくある質問」（H2 + Q&A cap-block × 3問）
+⑨ 免責文:
+<!-- wp:paragraph -->
+<p style="font-size:0.85em;color:#888;">※本記事は情報提供を目的としており投資助言ではありません。</p>
+<!-- /wp:paragraph -->
+
+【必ず含める】{IMAGE_1}・{IMAGE_2}・{CHART} を <!-- wp:html --> ブロック内に1つずつ配置。
+
+【ルール】言い切り調。テキスト量1800〜2200文字相当。JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info("  Pass1: 基礎知識 HTML本文生成中...")
     html_content = _call_haiku(html_prompt, max_tokens=8192)
