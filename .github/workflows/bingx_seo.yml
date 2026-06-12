@@ -1,0 +1,51 @@
+name: BingX SEO記事 自動生成（1日1記事）
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # JST 09:00（既存スケジュールの隙間）
+  workflow_dispatch:       # 手動実行ボタン
+
+jobs:
+  bingx-seo-post:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # bingx_posted_topics.json をコミットするために必要
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: Playwright Chromium をインストール
+        run: playwright install chromium --with-deps
+
+      - name: BingX SEO記事を生成・公開
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python bingx_seo.py
+
+      - name: 投稿済みトピックリストをコミット
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/bingx_posted_topics.json
+          git diff --staged --quiet || git commit -m "chore: update BingX posted topics [skip ci]"
+          git push
