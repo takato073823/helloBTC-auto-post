@@ -6,6 +6,52 @@ import json
 import logging
 import io
 
+
+def _repair_and_parse_json(text: str) -> dict:
+    """LLMが生成したJSONをパース。文字列内の生の改行・タブを修復してから試みる。"""
+    start = text.find("{")
+    end = text.rfind("}") + 1
+    if start == -1 or end <= start:
+        raise ValueError(f"JSON が見つかりません: {text[:200]}")
+
+    raw = text[start:end]
+
+    # まず直接パース
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        pass
+
+    # 修復: JSON文字列値の内部にある生の改行・タブをエスケープする
+    repaired = []
+    in_string = False
+    skip_next = False
+    for ch in raw:
+        if skip_next:
+            repaired.append(ch)
+            skip_next = False
+        elif ch == "\\" and in_string:
+            repaired.append(ch)
+            skip_next = True
+        elif ch == '"':
+            in_string = not in_string
+            repaired.append(ch)
+        elif in_string and ch == "\n":
+            repaired.append("\\n")
+        elif in_string and ch == "\r":
+            repaired.append("\\r")
+        elif in_string and ch == "\t":
+            repaired.append("\\t")
+        else:
+            repaired.append(ch)
+
+    try:
+        return json.loads("".join(repaired))
+    except json.JSONDecodeError as e:
+        raise json.JSONDecodeError(
+            f"修復後もパース失敗: {e.msg}", e.doc, e.pos
+        ) from e
+
 logger = logging.getLogger(__name__)
 client = anthropic.Anthropic()
 
@@ -87,16 +133,11 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 
     response_text = message.content[0].text.strip()
 
-    # JSON 部分を抽出
-    start = response_text.find("{")
-    end = response_text.rfind("}") + 1
-    if start == -1 or end <= start:
-        raise ValueError(f"JSON が見つかりません: {response_text[:200]}")
-
+    # JSON 部分を抽出・修復してパース
     try:
-        return json.loads(response_text[start:end])
-    except json.JSONDecodeError as e:
-        logger.error(f"JSON パースエラー: {e}\nレスポンス: {response_text[start:end][:500]}")
+        return _repair_and_parse_json(response_text)
+    except (ValueError, json.JSONDecodeError) as e:
+        logger.error(f"JSON パースエラー: {e}\nレスポンス: {response_text[:500]}")
         raise
 
 
@@ -186,6 +227,48 @@ def generate_seo_article(article_type: str) -> dict:
     return _generate_rich_article(article_type)
 
 
+def _call_haiku(prompt: str, max_tokens: int = 8192) -> str:
+    """Claude Haiku 4.5 を呼び出してテキストを返す。"""
+    msg = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=max_tokens,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return msg.content[0].text.strip()
+
+
+def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -> dict:
+    """生成済みHTMLを元にタイトル・スラッグ等のメタデータをJSON生成（小さいのでパース安定）。"""
+    prompt = f"""以下のHTML記事（{article_type}カテゴリ）を読んで、メタデータをJSONで出力してください。
+
+記事の冒頭（参考）:
+{html_content[:800]}
+
+必ず以下のJSONのみ出力してください（前後にテキスト不要）:
+{{
+  "title": "SEO最適化された日本語タイトル（35〜65文字、具体的な数字・年を含む）",
+  "excerpt": "記事の要約（100〜150文字）",
+  "slug": "article-topic-keyword（英語・ハイフン区切り・3〜5単語）",
+  "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
+  "tweet_bullets": ["要点1（25文字以内）", "要点2（25文字以内）", "要点3（25文字以内）"],
+  "featured_image_prompt": "Photorealistic scene, dramatic lighting, dark background. NO people, NO brand names, NO text. Max 15 words.",
+  "article_image_prompts": [
+    "Photorealistic scene 1, dramatic lighting. NO people, NO brand names, NO text. Max 15 words.",
+    "Photorealistic scene 2, dramatic lighting. NO people, NO brand names, NO text. Max 15 words."
+  ],
+  "chart": {{
+    "type": "bar",
+    "title": "{chart_hint}",
+    "labels": ["ラベル1", "ラベル2", "ラベル3", "ラベル4", "ラベル5"],
+    "values": [10.5, 8.2, 5.1, 3.8, 2.4],
+    "unit": "単位",
+    "caption": "※数値は概算・参考値です（2026年時点）"
+  }}
+}}"""
+    raw = _call_haiku(prompt, max_tokens=1024)
+    return _repair_and_parse_json(raw)
+
+
 def _generate_rich_article(article_type: str) -> dict:
     """コラム・DeFi・取引所カテゴリ向けリッチデザインHTML記事を生成する。"""
 
@@ -215,332 +298,92 @@ def _generate_rich_article(article_type: str) -> dict:
 
     cfg = type_configs.get(article_type, type_configs["コラム"])
 
-    prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けに「{article_type}」カテゴリの長文SEO記事を作成してください。
+    # ── Pass 1: HTML本文のみ生成（JSON不使用でトークン切れを回避）────────
+    html_prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けに「{article_type}」カテゴリの記事HTML本文のみを出力してください。JSONは不要です。
 
-【テーマ・方向性】
-{cfg['theme']}
-参考トピック例（自由に選択・組み合わせ）: {cfg['topics']}
+【テーマ】{cfg['theme']}
+参考トピック例: {cfg['topics']}
 
-【必須コンテンツ構成（この順番で出力）】
+【構成（この順番でHTMLのみ出力）】
+① リード文（p タグ、150〜200文字）
+② 目次ボックス:
+<div style='background:#f5f5f5;border:2px solid #e0e0e0;border-radius:8px;padding:20px 28px;margin:24px 0;'><p style='font-weight:700;font-size:1.05em;margin:0 0 12px;color:#333;'>📋 目次</p><ol style='margin:0;padding-left:22px;line-height:2.1;color:#555;font-size:0.95em;'><li>実際のタイトル</li>...</ol></div>
+③〜⑦ 各セクション（5〜6個）:
+  - バナー見出し: <div style='background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:18px 24px;border-radius:6px;border-left:5px solid #f7931a;margin:36px 0 20px;font-size:1.1em;font-weight:700;'>🔷 タイトル</div>
+  - 本文 p タグ
+  - 必要に応じてinfoボックス・テーブル・リストを使う
+⑧ Q&Aセクション（3問、バナー見出し＋Q&Aアイテム）:
+  Q&Aアイテム: <div style='margin:20px 0;'><div style='background:#1a1a2e;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;font-weight:600;'>Q. 質問</div><div style='background:#fffbf0;border:1px solid #f7931a;border-top:none;border-radius:0 0 8px 8px;padding:14px 20px;'><strong>A.</strong> 回答</div></div>
+⑨ 免責文: <p style='font-size:0.85em;color:#888;margin-top:32px;'>※本記事は情報提供を目的としており、投資助言ではありません。</p>
 
-① リード文（150〜200文字）
-  - 読者の悩みや疑問に直接応える書き出し
+【デザインパーツ（必要に応じて使う）】
+グリーン: <div style='background:#e8f5e9;border-left:5px solid #4caf50;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>✅ ポイント</strong><br>内容</div>
+オレンジ: <div style='background:#fff3e0;border-left:5px solid #ff9800;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>⚠️ 注意点</strong><br>内容</div>
+赤: <div style='background:#fce4ec;border-left:5px solid #e91e63;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>🔴 リスク</strong><br>内容</div>
+テーブル: <div style='overflow-x:auto;margin:24px 0;'><table style='width:100%;border-collapse:collapse;font-size:0.93em;'><thead><tr style='background:#f7931a;color:#fff;'><th style='padding:12px 14px;border:1px solid #e6881a;'>項目</th><th style='padding:12px 14px;border:1px solid #e6881a;'>A</th><th style='padding:12px 14px;border:1px solid #e6881a;'>B</th></tr></thead><tbody><tr style='background:#fff8e1;'><td style='padding:10px 14px;border:1px solid #ddd;font-weight:600;'>名前</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td></tr></tbody></table></div>
 
-② 目次ボックス（下記HTMLをそのまま使う。項目数は5〜6）:
-<div style='background:#f5f5f5;border:2px solid #e0e0e0;border-radius:8px;padding:20px 28px;margin:24px 0;'>
-<p style='font-weight:700;font-size:1.05em;margin:0 0 12px;color:#333;'>📋 目次</p>
-<ol style='margin:0;padding-left:22px;line-height:2.1;color:#555;font-size:0.95em;'>
-<li>実際の記事セクションタイトル1</li>
-<li>実際の記事セクションタイトル2</li>
-...
-</ol>
-</div>
+【プレースホルダー（必ず含める）】{{IMAGE_1}} {{IMAGE_2}} {{CHART}}
 
-③〜⑦ 各セクション（5〜6セクション）
-各セクションは以下の構成:
-  - バナー見出し（ダーク背景・下記スタイル必須）
-  - 本文（2〜3段落）
-  - 適所にinfoボックス・テーブル・リスト・プレースホルダーを配置
+【ルール】文体:言い切り調。本文1800〜2200文字。HTMLの属性はシングルクォート。JSON不要。HTMLのみ出力。"""
 
-⑧ Q&Aセクション（3問）
-⑨ 免責文
+    logger.info(f"  Pass1: {article_type} HTML本文生成中...")
+    html_content = _call_haiku(html_prompt, max_tokens=8192)
 
-【デザインHTMLパーツ（必ずこのスタイルを正確に使う）】
-
-バナー見出し:
-<div style='background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:18px 24px;border-radius:6px;border-left:5px solid #f7931a;margin:36px 0 20px;font-size:1.1em;font-weight:700;'>🔷 セクションタイトル</div>
-
-グリーンボックス（ポイント・まとめ）:
-<div style='background:#e8f5e9;border-left:5px solid #4caf50;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>✅ ポイント</strong><br>内容</div>
-
-オレンジボックス（注意・重要）:
-<div style='background:#fff3e0;border-left:5px solid #ff9800;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>⚠️ 注意点</strong><br>内容</div>
-
-赤ボックス（リスク・警告）:
-<div style='background:#fce4ec;border-left:5px solid #e91e63;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>🔴 リスク</strong><br>内容</div>
-
-データ・比較テーブル（{cfg['table_hint']}）:
-<div style='overflow-x:auto;margin:24px 0;'><table style='width:100%;border-collapse:collapse;font-size:0.93em;'>
-<thead><tr style='background:#f7931a;color:#fff;'>
-<th style='padding:12px 14px;border:1px solid #e6881a;'>項目</th>
-<th style='padding:12px 14px;border:1px solid #e6881a;'>内容A</th>
-<th style='padding:12px 14px;border:1px solid #e6881a;'>内容B</th>
-</tr></thead>
-<tbody>
-<tr style='background:#fff8e1;'><td style='padding:10px 14px;border:1px solid #ddd;font-weight:600;'>項目名</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td></tr>
-<tr style='background:#fff;'><td style='padding:10px 14px;border:1px solid #ddd;font-weight:600;'>項目名</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td><td style='padding:10px 14px;border:1px solid #ddd;'>値</td></tr>
-</tbody></table></div>
-
-Q&Aアイテム:
-<div style='margin:20px 0;'><div style='background:#1a1a2e;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;font-weight:600;'>Q. 質問文</div><div style='background:#fffbf0;border:1px solid #f7931a;border-top:none;border-radius:0 0 8px 8px;padding:14px 20px;color:#333;'><strong>A.</strong> 回答文</div></div>
-
-免責文:
-<p style='font-size:0.85em;color:#888;margin-top:32px;'>※本記事は情報提供を目的としており、投資助言ではありません。仮想通貨への投資はリスクを伴います。余裕資金の範囲内でご判断ください。</p>
-
-【プレースホルダー配置（必ず含める）】
-- {{IMAGE_1}}: セクション2〜3の末尾
-- {{IMAGE_2}}: セクション4〜5の末尾
-- {{CHART}}: 比較・データセクションの末尾
-
-【ライティングルール】
-- 文体：「〜した」「〜だ」「〜である」（丁寧語禁止）
-- 本文：2000〜2800文字
-- HTMLの属性はすべてシングルクォート（'）で統一（JSON破損防止）
-- 参照リンク・出典記載は不要
-- 2026年現在の最新状況を踏まえた内容
-
-【グラフデータ】
-- {cfg['chart_hint']}
-- 記事内容に合ったリアルで説得力ある値
-- ラベルは日本語
-
-【画像プロンプト】
-- 英語15語以内、人物・ブランド名・固有名詞禁止
-
-必ず以下のJSONのみ出力（前後に余計なテキスト不要）:
-{{
-  "title": "SEO最適化された日本語タイトル（35〜65文字、具体的な数字・年を含む）",
-  "content": "<完全なHTML記事本文（目次〜免責文、IMAGE_1/IMAGE_2/CHARTプレースホルダー含む）>",
-  "excerpt": "記事の要約（100〜150文字）",
-  "slug": "article-topic-keyword（英語・ハイフン区切り・3〜5単語）",
-  "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
-  "tweet_bullets": ["要点1（25文字以内）", "要点2（25文字以内）", "要点3（25文字以内）"],
-  "featured_image_prompt": "Photorealistic scene on dark surface, dramatic lighting. NO people, NO brand names, NO text. Max 15 words.",
-  "article_image_prompts": [
-    "Photorealistic scene 1, dramatic lighting, dark background. NO people, NO brand names, NO text. Max 15 words.",
-    "Photorealistic scene 2, dramatic lighting, dark background. NO people, NO brand names, NO text. Max 15 words."
-  ],
-  "chart": {{
-    "type": "bar",
-    "title": "グラフのタイトル",
-    "labels": ["ラベル1", "ラベル2", "ラベル3", "ラベル4", "ラベル5"],
-    "values": [10.5, 8.2, 5.1, 3.8, 2.4],
-    "unit": "単位（例: 十億ドル、%）",
-    "caption": "※数値は概算・参考値です（2026年時点）"
-  }}
-}}"""
-
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    response_text = message.content[0].text.strip()
-    start = response_text.find("{")
-    end = response_text.rfind("}") + 1
-    if start == -1 or end <= start:
-        raise ValueError(f"JSON が見つかりません: {response_text[:200]}")
-
-    try:
-        return json.loads(response_text[start:end])
-    except json.JSONDecodeError as e:
-        logger.error(f"SEO記事 JSON パースエラー: {e}\nレスポンス: {response_text[start:end][:500]}")
-        raise
+    # ── Pass 2: メタデータJSON生成（小さいのでパース安定）────────────────
+    logger.info(f"  Pass2: メタデータJSON生成中...")
+    meta = _generate_meta_json(html_content, article_type, cfg["chart_hint"])
+    meta["content"] = html_content
+    return meta
 
 
 def _generate_kiso_article() -> dict:
-    """アルトコイン基礎知識記事をリッチデザインHTMLで生成する。
+    """アルトコイン基礎知識記事を2パスで生成（Pass1=HTML本文、Pass2=メタデータJSON）。"""
 
-    参考記事のデザイン要素:
-    - 目次ボックス（番号付き）
-    - ダーク背景バナー見出し（グラデーション＋オレンジ左ボーダー）
-    - オレンジヘッダーの基本情報テーブル・比較テーブル
-    - カラーinfoボックス（緑=ポイント / オレンジ=注意 / 赤=リスク）
-    - Q&Aセクション（ダーク質問行＋薄黄回答行）
-    """
+    # ── Pass 1: HTML本文のみ生成 ──────────────────────────────────────────
+    html_prompt = """あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けにアルトコイン・ブロックチェーン「基礎知識」記事のHTML本文のみを出力してください。JSONは不要です。
 
-    # ---- HTML パーツ定義（シングルクォートで属性を書きJSON破損を防ぐ） ----
-    TOC_TEMPLATE = (
-        "<div style='background:#f5f5f5;border:2px solid #e0e0e0;border-radius:8px;"
-        "padding:20px 28px;margin:24px 0;'>"
-        "<p style='font-weight:700;font-size:1.05em;margin:0 0 12px;color:#333;'>"
-        "📋 目次</p>"
-        "<ol style='margin:0;padding-left:22px;line-height:2.1;color:#555;font-size:0.95em;'>"
-        "%%TOC_ITEMS%%"
-        "</ol></div>"
-    )
+【テーマ選定】2026年時点でSEO需要が高いトピックを1つ選ぶ:
+Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon・TON・SUI・NEAR・Aptos・Arbitrum・Optimism・Cosmos・Filecoin・Render・Injective・Celestia・Starknet
 
-    BANNER_H2 = (
-        "<div style='background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;"
-        "padding:18px 24px;border-radius:6px;border-left:5px solid #f7931a;"
-        "margin:36px 0 20px;font-size:1.1em;font-weight:700;'>"
-        "%%TITLE%%</div>"
-    )
-
-    INFO_TABLE = (
-        "<div style='overflow-x:auto;margin:20px 0;'>"
-        "<table style='width:100%;border-collapse:collapse;font-size:0.95em;'>"
-        "<thead><tr style='background:#f7931a;color:#fff;'>"
-        "<th style='padding:12px 16px;text-align:left;border:1px solid #e6881a;min-width:110px;'>項目</th>"
-        "<th style='padding:12px 16px;text-align:left;border:1px solid #e6881a;'>内容</th>"
-        "</tr></thead>"
-        "<tbody>%%ROWS%%</tbody></table></div>"
-    )
-
-    CMP_TABLE = (
-        "<div style='overflow-x:auto;margin:24px 0;'>"
-        "<table style='width:100%;border-collapse:collapse;font-size:0.9em;'>"
-        "<thead><tr style='background:#1a1a2e;color:#fff;'>"
-        "<th style='padding:12px 14px;border:1px solid #333;'>比較項目</th>"
-        "<th style='padding:12px 14px;border:1px solid #333;background:#f7931a;'>%%COIN%%</th>"
-        "<th style='padding:12px 14px;border:1px solid #333;'>競合A</th>"
-        "<th style='padding:12px 14px;border:1px solid #333;'>競合B</th>"
-        "</tr></thead>"
-        "<tbody>%%CMP_ROWS%%</tbody></table></div>"
-    )
-
-    GREEN_BOX = (
-        "<div style='background:#e8f5e9;border-left:5px solid #4caf50;"
-        "padding:16px 20px;margin:20px 0;border-radius:4px;'>"
-        "<strong>✅ ポイント</strong><br>%%BODY%%</div>"
-    )
-
-    ORANGE_BOX = (
-        "<div style='background:#fff3e0;border-left:5px solid #ff9800;"
-        "padding:16px 20px;margin:20px 0;border-radius:4px;'>"
-        "<strong>⚠️ 注意点</strong><br>%%BODY%%</div>"
-    )
-
-    RED_BOX = (
-        "<div style='background:#fce4ec;border-left:5px solid #e91e63;"
-        "padding:16px 20px;margin:20px 0;border-radius:4px;'>"
-        "<strong>🔴 リスク</strong><br>%%BODY%%</div>"
-    )
-
-    QA_ITEM = (
-        "<div style='margin:20px 0;'>"
-        "<div style='background:#1a1a2e;color:#fff;border-radius:8px 8px 0 0;"
-        "padding:14px 20px;font-weight:600;'>Q. %%Q%%</div>"
-        "<div style='background:#fffbf0;border:1px solid #f7931a;border-top:none;"
-        "border-radius:0 0 8px 8px;padding:14px 20px;color:#333;'>"
-        "<strong>A.</strong> %%A%%</div></div>"
-    )
-
-    prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けにアルトコイン・ブロックチェーン技術の「基礎知識」記事を作成してください。
-
-【テーマ選定】
-以下から2026年時点でSEO需要が高いトピックを1つ自由に選ぶ:
-Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・MATIC（Polygon）・TON・SUI・NEAR・Aptos・Arbitrum・Optimism・Cosmos・Filecoin・Render・Injective・Celestia・Starknet など
-
-【記事の必須構成（この順番で出力）】
-
-① リード文（150〜200文字）
-  - 「〜とは何か」「なぜ注目されているか」を簡潔に伝える
-  - 読者の検索意図に応える冒頭
-
-② 目次ボックス（以下のHTML構造で出力）:
-{TOC_TEMPLATE.replace("%%TOC_ITEMS%%", "<li>項目1</li><li>項目2</li>...")}
-
-③ セクション1「[コイン名]とは？基本情報まとめ」
-  - バナー見出し（ダーク背景）
-  - 基本情報テーブル（名称 / ティッカー / 設立年 / 発行上限 / 合意アルゴリズム / 時価総額順位 / 公式サイト）
-  - グリーンポイントボックスで「一言でいうと何か」を強調
-  - {{IMAGE_1}} を配置
-
+【構成（HTMLのみ。JSONなし）】
+① リード文（pタグ、150〜200文字）
+② 目次ボックス:
+<div style='background:#f5f5f5;border:2px solid #e0e0e0;border-radius:8px;padding:20px 28px;margin:24px 0;'><p style='font-weight:700;font-size:1.05em;margin:0 0 12px;color:#333;'>📋 目次</p><ol style='margin:0;padding-left:22px;line-height:2.1;color:#555;'><li>タイトル</li>...</ol></div>
+③ セクション1「[コイン名]とは？基本情報」
+  - バナー見出し（下記スタイル）
+  - 基本情報テーブル（名称/ティッカー/設立年/発行上限/合意アルゴリズム/時価総額順位）
+  - グリーンポイントボックス
+  - {IMAGE_1}
 ④ セクション2「仕組みと技術的特徴」
-  - バナー見出し
-  - 2〜3段落の詳細説明
-  - オレンジ注意ボックスで技術的な落とし穴や制約を説明
-
-⑤ セクション3「ユースケースと実際の活用事例」
-  - バナー見出し
-  - 箇条書き（ul）で3〜5例
-  - {{IMAGE_2}} を配置
-
+  - バナー見出し・本文・オレンジ注意ボックス
+⑤ セクション3「ユースケースと活用事例」
+  - バナー見出し・ul箇条書き3〜5例・{IMAGE_2}
 ⑥ セクション4「競合プロジェクトとの比較」
-  - バナー見出し
-  - 比較テーブル（4行・3社比較）
-  - {{CHART}} を配置
-
+  - バナー見出し・比較テーブル（3社比較）・{CHART}
 ⑦ セクション5「将来性・課題・投資リスク」
-  - バナー見出し
-  - 将来性のポジティブ評価
-  - 赤リスクボックスで投資リスクを明示
+  - バナー見出し・本文・赤リスクボックス
+⑧ Q&Aセクション（バナー見出し「よくある質問」＋Q&Aアイテム3問）
+⑨ 免責文: <p style='font-size:0.85em;color:#888;margin-top:32px;'>※本記事は情報提供を目的としており投資助言ではありません。</p>
 
-⑧ Q&Aセクション（3問）
-  - バナー見出し「よくある質問（Q&A）」
-  - Q&A形式で3問（初心者が検索しそうな疑問）
+【デザインパーツ】
+バナー見出し: <div style='background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:18px 24px;border-radius:6px;border-left:5px solid #f7931a;margin:36px 0 20px;font-size:1.1em;font-weight:700;'>🔷 タイトル</div>
+基本情報テーブル: <div style='overflow-x:auto;margin:20px 0;'><table style='width:100%;border-collapse:collapse;'><thead><tr style='background:#f7931a;color:#fff;'><th style='padding:12px;border:1px solid #e6881a;'>項目</th><th style='padding:12px;border:1px solid #e6881a;'>内容</th></tr></thead><tbody><tr style='background:#fff8e1;'><td style='padding:10px;border:1px solid #ddd;font-weight:600;'>名称</td><td style='padding:10px;border:1px solid #ddd;'>〇〇</td></tr></tbody></table></div>
+比較テーブル: <div style='overflow-x:auto;margin:24px 0;'><table style='width:100%;border-collapse:collapse;font-size:0.93em;'><thead><tr style='background:#1a1a2e;color:#fff;'><th style='padding:12px;border:1px solid #333;'>比較項目</th><th style='padding:12px;border:1px solid #333;background:#f7931a;'>コイン名</th><th style='padding:12px;border:1px solid #333;'>競合A</th><th style='padding:12px;border:1px solid #333;'>競合B</th></tr></thead><tbody><tr style='background:#fff8e1;'><td style='padding:10px;border:1px solid #ddd;font-weight:600;'>項目</td><td style='padding:10px;border:1px solid #ddd;'>値</td><td style='padding:10px;border:1px solid #ddd;'>値</td><td style='padding:10px;border:1px solid #ddd;'>値</td></tr></tbody></table></div>
+グリーン: <div style='background:#e8f5e9;border-left:5px solid #4caf50;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>✅ ポイント</strong><br>内容</div>
+オレンジ: <div style='background:#fff3e0;border-left:5px solid #ff9800;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>⚠️ 注意点</strong><br>内容</div>
+赤: <div style='background:#fce4ec;border-left:5px solid #e91e63;padding:16px 20px;margin:20px 0;border-radius:4px;'><strong>🔴 リスク</strong><br>内容</div>
+Q&A: <div style='margin:20px 0;'><div style='background:#1a1a2e;color:#fff;border-radius:8px 8px 0 0;padding:14px 20px;font-weight:600;'>Q. 質問</div><div style='background:#fffbf0;border:1px solid #f7931a;border-top:none;border-radius:0 0 8px 8px;padding:14px 20px;'><strong>A.</strong> 回答</div></div>
 
-⑨ 免責文
-  <p style='font-size:0.85em;color:#888;margin-top:32px;'>※本記事は情報提供を目的としており、投資助言ではありません。仮想通貨への投資は価格変動リスクを伴います。余裕資金の範囲内でご判断ください。</p>
+【ルール】文体:言い切り調。本文1800〜2200文字。属性はシングルクォート。HTMLのみ出力。"""
 
-【デザインHTMLパーツ（正確にこのスタイルで使う）】
+    logger.info("  Pass1: 基礎知識 HTML本文生成中...")
+    html_content = _call_haiku(html_prompt, max_tokens=8192)
 
-バナー見出し:
-{BANNER_H2.replace("%%TITLE%%", "🔷 セクションタイトル")}
-
-基本情報テーブル:
-{INFO_TABLE.replace("%%ROWS%%", "<tr style='background:#fff8e1;'><td style='padding:10px 16px;border:1px solid #ddd;font-weight:600;'>名称</td><td style='padding:10px 16px;border:1px solid #ddd;'>〇〇〇</td></tr>")}
-
-比較テーブル:
-{CMP_TABLE.replace("%%COIN%%", "対象コイン").replace("%%CMP_ROWS%%", "<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>")}
-
-グリーンボックス:
-{GREEN_BOX.replace("%%BODY%%", "ポイント内容")}
-
-オレンジボックス:
-{ORANGE_BOX.replace("%%BODY%%", "注意内容")}
-
-赤ボックス:
-{RED_BOX.replace("%%BODY%%", "リスク内容")}
-
-Q&A:
-{QA_ITEM.replace("%%Q%%", "質問").replace("%%A%%", "回答")}
-
-【ライティングルール】
-- 文体：「〜した」「〜だ」「〜である」（丁寧語禁止）
-- 本文：2000〜2800文字
-- HTMLの属性はすべてシングルクォート（'）を使う（JSON破損防止）
-- 参照リンク・出典記載は不要
-
-【グラフデータルール】
-- 比較コインの時価総額・取引量・TPS・TVLなどのリアルな数値で比較グラフを作成
-- ラベルは日本語
-
-【画像プロンプトルール】
-- 英語15語以内、人物・ブランド名禁止、抽象的なビジュアルメタファーのみ
-
-必ず以下のJSONのみ出力（前後に余計なテキスト不要）:
-{{
-  "title": "SEO最適化された日本語タイトル（35〜65文字、コイン名・数字・年を含む）",
-  "content": "<完全なHTML記事本文（目次〜免責文まで、IMAGE_1/IMAGE_2/CHARTプレースホルダー含む）>",
-  "excerpt": "記事の要約（100〜150文字）",
-  "slug": "coin-name-beginner-guide（英語・ハイフン区切り・3〜5単語）",
-  "tags": ["コイン名", "仮想通貨", "ブロックチェーン", "関連タグ4", "基礎知識"],
-  "tweet_bullets": ["要点1（25文字以内）", "要点2（25文字以内）", "要点3（25文字以内）"],
-  "featured_image_prompt": "Photorealistic scene: glowing crypto coin on dark surface, dramatic side lighting. NO people, NO text, NO brand. Max 15 words.",
-  "article_image_prompts": [
-    "Photorealistic blockchain network visualization, glowing nodes, dark background. NO people, NO text. Max 15 words.",
-    "Photorealistic digital technology concept, abstract circuit light, dark aesthetic. NO people, NO text. Max 15 words."
-  ],
-  "chart": {{
-    "type": "bar",
-    "title": "主要コインの比較（例: 取引処理速度 TPS）",
-    "labels": ["対象コイン", "競合A", "競合B", "競合C", "競合D"],
-    "values": [65000, 45000, 15, 6000, 30000],
-    "unit": "TPS",
-    "caption": "※数値は概算・参考値です（2026年時点）"
-  }}
-}}"""
-
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    response_text = message.content[0].text.strip()
-    start = response_text.find("{")
-    end = response_text.rfind("}") + 1
-    if start == -1 or end <= start:
-        raise ValueError(f"基礎知識 JSON が見つかりません: {response_text[:200]}")
-
-    try:
-        return json.loads(response_text[start:end])
-    except json.JSONDecodeError as e:
-        logger.error(f"基礎知識 JSON パースエラー: {e}\nレスポンス: {response_text[start:end][:500]}")
-        raise
+    # ── Pass 2: メタデータJSON生成 ────────────────────────────────────────
+    logger.info("  Pass2: メタデータJSON生成中...")
+    meta = _generate_meta_json(html_content, "基礎知識", "主要コインのTPS・時価総額・TVL比較")
+    meta["content"] = html_content
+    return meta
 
 
 def generate_chart_image(chart_data: dict) -> bytes:
