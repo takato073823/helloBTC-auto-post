@@ -61,10 +61,12 @@ def main():
   td {{ padding: 9px 12px; border: 1px solid #ddd; text-align: center; }}
   tr:nth-child(even) {{ background: #fff8e1; }}
   hr.wp-block-separator {{ border: none; border-top: 2px solid #e0e0e0; margin: 28px 0 0; }}
-  /* SWELL swl-marker */
-  .swl-marker.mark_orange {{ background: linear-gradient(transparent 60%, #ffd54f 60%); }}
-  .swl-marker.mark_yellow {{ background: linear-gradient(transparent 60%, #fff176 60%); }}
-  .swl-marker.mark_blue   {{ background: linear-gradient(transparent 60%, #81d4fa 60%); }}
+  /* SWELL マーカー */
+  .swl-marker.mark_orange {{ background: linear-gradient(transparent 55%, #ffd54f 55%); font-weight: 600; }}
+  .swl-marker.mark_yellow {{ background: linear-gradient(transparent 55%, #fff176 55%); }}
+  .swl-marker.mark_pink   {{ background: linear-gradient(transparent 55%, #f8bbd0 55%); }}
+  .swl-marker.mark_blue   {{ background: linear-gradient(transparent 55%, #bbdefb 55%); }}
+  .swl-marker.mark_green  {{ background: linear-gradient(transparent 55%, #c8e6c9 55%); }}
   /* SWELL cap-block */
   .swell-block-capbox {{ border: 2px solid #e0e0e0; border-radius: 8px; margin: 24px 0; overflow: hidden; }}
   .swell-block-capbox.is-style-onborder_ttl  {{ border-color: #4caf50; }}
@@ -73,11 +75,38 @@ def main():
   .is-style-onborder_ttl  .cap_box_ttl {{ background: #e8f5e9; color: #2e7d32; }}
   .is-style-onborder_ttl2 .cap_box_ttl {{ background: #fff3e0; color: #e65100; }}
   .cap_box_content {{ padding: 14px 18px; }}
-  /* SWELL big_icon_point */
-  p.is-style-big_icon_point {{ background: #fff8e1; border-left: 5px solid #f7931a; padding: 14px 18px; border-radius: 4px; }}
+  /* SWELL big_icon 段落スタイル */
+  p.is-style-big_icon_point   {{ background: #fff8e1; border-left: 5px solid #f7931a; padding: 14px 18px; border-radius: 4px; margin: 16px 0; }}
+  p.is-style-big_icon_point::before  {{ content: "💡 "; }}
+  p.is-style-big_icon_check   {{ background: #e8f5e9; border-left: 5px solid #4caf50; padding: 14px 18px; border-radius: 4px; margin: 12px 0; }}
+  p.is-style-big_icon_check::before  {{ content: "✅ "; }}
+  p.is-style-big_icon_caution {{ background: #fff3e0; border-left: 5px solid #ff9800; padding: 14px 18px; border-radius: 4px; margin: 12px 0; }}
+  p.is-style-big_icon_caution::before {{ content: "⚠️ "; }}
+  p.is-style-big_icon_memo    {{ background: #f3e5f5; border-left: 5px solid #9c27b0; padding: 14px 18px; border-radius: 4px; margin: 12px 0; }}
+  p.is-style-big_icon_memo::before    {{ content: "📝 "; }}
+  /* SWELL ステップブロック */
+  .swell-block-step {{ margin: 24px 0; }}
+  .swell-block-step__item {{ display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }}
+  .swell-block-step__number {{ background: #f7931a; color: #fff; border-radius: 50%; width: 56px; height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }}
+  .swell-block-step__number .__label {{ font-size: 0.6em; font-weight: 700; line-height: 1; }}
+  .swell-block-step__number .__num {{ font-size: 1.4em; font-weight: 900; line-height: 1; }}
+  .swell-block-step__title {{ font-weight: 700; font-size: 1.05em; margin-bottom: 6px; color: #222; }}
+  .swell-block-step__body {{ flex: 1; }}
+  /* SWELL FAQブロック */
+  .swell-block-faq {{ margin: 24px 0; }}
+  .swell-block-faq.is-style-faq-box .swell-block-faq__item {{ border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }}
+  .faq_q {{ background: #1a1a2e; color: #fff; padding: 14px 18px; font-weight: 700; }}
+  .faq_q::before {{ content: "Q. "; color: #f7931a; }}
+  .faq_a {{ padding: 14px 18px; background: #fafafa; }}
+  .faq_a::before {{ content: "A. "; font-weight: 700; color: #f7931a; }}
+  /* SWELL 用語定義リスト */
+  .swell-block-dl {{ margin: 20px 0; }}
+  .swell-block-dl.is-style-border_left .swell-block-dl__item {{ border-left: 4px solid #f7931a; padding: 8px 0 8px 16px; margin-bottom: 12px; }}
+  .swell-block-dl__dt {{ font-weight: 700; color: #222; margin-bottom: 4px; }}
+  .swell-block-dl__dd {{ color: #555; font-size: 0.95em; }}
   /* SWELL inline color */
-  .swl-inline-color.has-swl-deep-01-color {{ color: #f7931a; }}
-  .swl-inline-color.has-swl-deep-02-color {{ color: #1976d2; }}
+  .swl-inline-color.has-swl-deep-01-color {{ color: #f7931a; font-weight: 600; }}
+  .swl-inline-color.has-swl-deep-02-color {{ color: #1976d2; font-weight: 600; }}
 </style>
 </head>
 <body>
