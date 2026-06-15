@@ -74,7 +74,7 @@ class WordPressAPI:
         logger.info(f"画像アップロード完了 (ID: {media_id})")
         return media_id, media_url
 
-    def _build_news_schema(self, title, excerpt, article_url, image_url=None, section="ニュース"):
+    def _build_news_schema(self, title, excerpt, article_url, image_url=None, section="ニュース", tags=None):
         """Google News 対応 NewsArticle JSON-LD スキーマを生成して script タグで返す"""
         jst = timezone(timedelta(hours=9))
         now_iso = datetime.now(jst).isoformat()
@@ -91,7 +91,7 @@ class WordPressAPI:
             "isAccessibleForFree": True,
             "articleSection": section,
             "author": [{
-                "@type": "Organization",
+                "@type": "Person",
                 "name": "helloBTC編集部",
                 "url": self.base_url,
             }],
@@ -107,6 +107,9 @@ class WordPressAPI:
                 },
             },
         }
+
+        if tags:
+            schema["keywords"] = ",".join(tags[:10])
 
         if image_url:
             schema["image"] = {
@@ -139,7 +142,7 @@ class WordPressAPI:
 
         # NewsArticle スキーマをコンテンツ先頭に追加
         schema_html = self._build_news_schema(title, excerpt, article_url,
-                                              featured_image_url, article_section)
+                                              featured_image_url, article_section, tags)
         content_with_schema = schema_html + content
 
         post_data = {
