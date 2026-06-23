@@ -611,17 +611,66 @@ def generate_article(topic: dict, image_keys: list[str]) -> dict:
   "excerpt": "記事の要約（100〜150文字）"
 }}"""
 
-    resp = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    text = resp.content[0].text.strip()
+    last_err: Exception | None = None
+    for attempt in range(1, 4):  # 最大3回リトライ
+        resp = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=8192,  # 1800〜2500字のHTML記事はJSON込みで4096を超えるため余裕を持たせる
+            messages=[{"role": "user", "content": prompt}],
+        )
+        # トークン上限で途中打ち切り → JSONが壊れるので作り直す
+        if resp.stop_reason == "max_tokens":
+            last_err = ValueError("レスポンスがmax_tokensで打ち切られました")
+            logger.warning(f"  記事生成リトライ {attempt}/3: {last_err}")
+            continue
+
+        text = resp.content[0].text.strip()
+        try:
+            return _parse_article_json(text)
+        except (json.JSONDecodeError, ValueError) as e:
+            last_err = e
+            logger.warning(f"  記事生成リトライ {attempt}/3: JSONパース失敗 ({e})")
+
+    raise RuntimeError(f"記事生成に3回失敗しました: {last_err}")
+
+
+def _parse_article_json(text: str) -> dict:
+    """LLM出力からJSONを取り出してパース。文字列内の生の改行・タブを修復してから再試行する。"""
     start = text.find("{")
     end = text.rfind("}") + 1
     if start == -1 or end <= start:
         raise ValueError(f"JSON が見つかりません: {text[:200]}")
-    return json.loads(text[start:end])
+
+    raw = text[start:end]
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        pass
+
+    # JSON文字列値の内部にある生の改行・タブをエスケープして再パース
+    repaired = []
+    in_string = False
+    skip_next = False
+    for ch in raw:
+        if skip_next:
+            repaired.append(ch)
+            skip_next = False
+        elif ch == "\\" and in_string:
+            repaired.append(ch)
+            skip_next = True
+        elif ch == '"':
+            in_string = not in_string
+            repaired.append(ch)
+        elif in_string and ch == "\n":
+            repaired.append("\\n")
+        elif in_string and ch == "\r":
+            repaired.append("\\r")
+        elif in_string and ch == "\t":
+            repaired.append("\\t")
+        else:
+            repaired.append(ch)
+
+    return json.loads("".join(repaired))
 
 
 # ---------------------------------------------------------------------------
