@@ -621,6 +621,135 @@ TOPICS = [
             "backup key written on paper next to smartphone, recovery concept, dark aesthetic",
         ],
     },
+    # -----------------------------------------------------------------------
+    # キーワードギャップ（競合大手が専用記事を持たない＝穴。SERP調査で検証済み）
+    # -----------------------------------------------------------------------
+    {
+        "id": "account-delete",
+        "keyword": "BingX 退会 アカウント削除 方法",
+        "slug": "bingx-account-deletion-guide",
+        "tags": ["BingX", "退会", "アカウント削除", "解約", "海外取引所"],
+        "type": "tutorial",
+        "article_guide": (
+            "BingXの退会・アカウント削除の方法を解説する記事。"
+            "削除前にやるべきこと（全資産の出金・未決済注文の決済）、"
+            "カスタマーサービス経由での削除申請手順、必要書類（本人確認書類＋手書きメモの自撮り）、"
+            "処理にかかる期間（1〜5営業日）、削除は取り消し不可という注意点を解説する。"
+            "「使わないなら放置でよいのか／削除すべきか」の判断も添える。"
+            "※競合の仮想通貨メディアが専用記事を持たない穴キーワード。網羅性で上位を狙う。"
+        ),
+        "tweet_bullets": ["削除前に全資産の出金を忘れずに", "削除はサポート経由で申請（1〜5営業日）", "一度削除すると復旧不可・要注意"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "account deletion trash bin icon on dark screen, closing account concept",
+            "step by step removal process flow on dark interface, formal concept",
+        ],
+    },
+    {
+        "id": "jpy-withdraw",
+        "keyword": "BingX 日本円 出金 方法 国内取引所 送金",
+        "slug": "bingx-jpy-withdrawal-guide",
+        "tags": ["BingX", "日本円出金", "国内取引所", "送金", "ビットフライヤー"],
+        "type": "tutorial",
+        "article_guide": (
+            "「BingXから日本円を出金する方法」を解説する記事。"
+            "BingXは銀行への直接の日本円出金に原則対応していないため、"
+            "①BingXでUSDT等をビットコイン/XRP等に替える→②国内取引所（bitFlyer/bitbank/Coincheck等）へ送金→"
+            "③国内取引所で日本円に換金して銀行出金、という現実的な手順をステップで解説する。"
+            "送金時のネットワーク選択・手数料・反映時間・宛先アドレス登録の注意点を含める。"
+            "※「海外取引所→国内→日本円」の導線は競合がBingX向けに作れていない穴。"
+        ),
+        "tweet_bullets": ["BingXは直接の日本円出金に非対応", "国内取引所へ送金→換金が王道ルート", "送金ネットワークの選択ミスに注意"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "cryptocurrency converting to japanese yen banknotes, exchange concept, dark background",
+            "money transfer route diagram between two exchanges, glowing path, dark interface",
+        ],
+    },
+    {
+        "id": "api-guide",
+        "keyword": "BingX API キー 作成 自動売買 bot 連携",
+        "slug": "bingx-api-key-guide",
+        "tags": ["BingX", "API", "自動売買", "bot", "連携"],
+        "type": "tutorial",
+        "article_guide": (
+            "BingXのAPIキーの作成方法と、外部の自動売買ツール（bot）との連携手順を日本語で解説する記事。"
+            "API管理画面でのキー作成手順、権限設定（読み取り/取引は許可・出金権限はオフが鉄則）、"
+            "IPホワイトリスト設定によるセキュリティ強化、"
+            "代表的な連携先（TradingView・各種botサービス）の概要、APIキー流出時のリスクと対策を解説する。"
+            "※日本語の解説がほぼ無く英語ソースばかりの穴キーワード。日本語で網羅し独占を狙う。"
+        ),
+        "tweet_bullets": ["APIキーは出金権限を必ずオフに", "IPホワイトリストでセキュリティ強化", "日本語で分かるBingX API連携ガイド"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "API key generation screen with code strings, developer concept, dark interface",
+            "connected nodes between trading platforms, integration concept, glowing dark background",
+        ],
+    },
+    {
+        "id": "tradingview-guide",
+        "keyword": "BingX TradingView 連携 自動売買 やり方",
+        "slug": "bingx-tradingview-integration",
+        "tags": ["BingX", "TradingView", "自動売買", "シグナル取引", "連携"],
+        "type": "tutorial",
+        "article_guide": (
+            "BingXとTradingViewを連携して自動売買する方法を日本語で解説する記事。"
+            "①TradingViewから直接BingXで取引する簡易連携（口座リンク手順・対応はUSDT建て先物）、"
+            "②Signal Trading機能でTradingViewのアラートから自動売買する方法（ストラテジー設定の流れ）、"
+            "の2パターンをステップで解説する。メリット・注意点・リスク管理も含める。"
+            "※英語ソースと公式ブログしか無い穴。日本語の実践ガイドで上位を狙う。"
+        ),
+        "tweet_bullets": ["TradingViewから直接BingXで発注できる", "シグナル連携でアラート自動売買も可能", "対応はUSDT建て先物が中心"],
+        "screenshot_pages": [
+            {"key": "tv", "url": "https://bingx.com/en/tradingView/", "description": "BingX TradingView連携ページ", "viewport": {"width": 1440, "height": 900}, "wait_ms": 6000},
+        ],
+        "imagen_prompts": [
+            "trading chart with automated signal arrows, algorithmic concept, dark interface",
+        ],
+    },
+    {
+        "id": "wealth-guide",
+        "keyword": "BingX Wealth Earn デュアル投資 資産運用 利息",
+        "slug": "bingx-wealth-earn-guide",
+        "tags": ["BingX", "Wealth", "Earn", "デュアル投資", "資産運用"],
+        "type": "guide",
+        "article_guide": (
+            "BingXの資産運用機能（Wealth / Earn / デュアル投資）で利息・不労所得を得る方法を解説する記事。"
+            "①Wealth/Earn（柔軟・固定の利息運用、APRの目安、利息の計算例）、"
+            "②デュアル投資（Buy Low / Sell High の仕組み、どんな相場で使うか）、"
+            "を初心者向けに整理する。元本リスク・注意点・他の運用（コピー/グリッド）との違いも触れる。"
+            "※公式と海外サイトしか無い穴。日本語で網羅し『BingXで増やす』需要を取る。"
+        ),
+        "tweet_bullets": ["余剰USDTを利息運用できるBingX Earn", "デュアル投資はBuy Low/Sell Highで利息獲得", "固定・柔軟から選べる資産運用"],
+        "screenshot_pages": [
+            {"key": "earn", "url": "https://bingx.com/en/wealth/earn/", "description": "BingX Earn 資産運用ページ", "viewport": {"width": 1440, "height": 900}, "wait_ms": 6000},
+        ],
+        "imagen_prompts": [
+            "passive income growing coins with upward arrow, savings concept, dark background",
+            "percentage yield APR glowing on financial screen, interest concept, dark interface",
+        ],
+    },
+    {
+        "id": "tax-tool",
+        "keyword": "BingX 取引履歴 ダウンロード 損益計算 やり方",
+        "slug": "bingx-trade-history-export",
+        "tags": ["BingX", "取引履歴", "損益計算", "Gtax", "確定申告"],
+        "type": "tutorial",
+        "article_guide": (
+            "BingXの取引履歴をダウンロードし、損益計算ツールで集計するまでの手順を解説する記事。"
+            "資産履歴/取引履歴のエクスポート手順（期間指定・Excel/CSV出力）、"
+            "損益計算ツール（Gtax・クリプタクト等）へのインポート方法、"
+            "計算結果を確定申告にどう使うかの流れを解説する。"
+            "（税制の詳細は別記事「BingXの税金・確定申告」へ内部リンクで誘導し、本記事は“手順”に特化）"
+            "※ツールベンダーの断片的ヘルプしか無く、まとめた解説が無い穴キーワード。"
+        ),
+        "tweet_bullets": ["資産履歴からCSV/Excelで履歴を出力", "Gtaxやクリプタクトに取込んで自動集計", "確定申告前の損益計算をこれ1本で"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "spreadsheet with transaction history rows on screen, data export concept, dark interface",
+            "calculator and tax documents with crypto coins, accounting concept, dark desk",
+        ],
+    },
 ]
 
 # ---------------------------------------------------------------------------
@@ -668,6 +797,13 @@ CLUSTER_ANCHORS = {
     "demo-trade":        "BingXのデモトレードのやり方",
     "card-deposit-trouble": "BingXでクレカ入金できないときの対処法",
     "2fa-guide":         "BingXの2段階認証（2FA）の設定方法",
+    # キーワードギャップ
+    "account-delete":    "BingXの退会・アカウント削除の方法",
+    "jpy-withdraw":      "BingXから日本円に出金する方法（国内取引所経由）",
+    "api-guide":         "BingXのAPIキー作成・bot連携のやり方",
+    "tradingview-guide": "BingX×TradingViewで自動売買するやり方",
+    "wealth-guide":      "BingXのWealth/Earn・デュアル投資で利息を得る方法",
+    "tax-tool":          "BingXの取引履歴ダウンロードと損益計算の手順",
 }
 
 # スラッグ → トピックid の逆引き
