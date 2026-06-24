@@ -424,6 +424,203 @@ TOPICS = [
             "beginner holding smartphone with crypto trading app, learning concept, dark aesthetic",
         ],
     },
+    # -----------------------------------------------------------------------
+    # ロングテール（競合が薄く検索意図が深い・新規ドメインでも上位を取りやすい）
+    # -----------------------------------------------------------------------
+    {
+        "id": "japan-legal",
+        "keyword": "BingX 日本人 使える 違法 安全",
+        "slug": "bingx-japan-legal-safe",
+        "tags": ["BingX", "日本人", "違法", "安全性", "海外取引所"],
+        "type": "guide",
+        "article_guide": (
+            "「BingXは日本人が使っても違法ではないのか・安全なのか」という不安に答える記事。"
+            "海外取引所を日本居住者が利用すること自体は違法ではない点（金融庁の登録有無との関係を正確に説明）、"
+            "利用上の自己責任・税務申告の義務、日本語対応状況、出金実績やセキュリティ面から見た安全性を解説する。"
+            "結論として「ルールを理解して使えば問題ない」と安心材料を提示する。"
+        ),
+        "tweet_bullets": ["海外取引所の利用自体は違法ではない", "日本語対応で初心者でも安心", "税務申告の義務だけは要注意"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "japanese flag and digital scales of justice concept, legal compliance, dark background",
+            "secure digital shield over world map, global access concept, dark interface",
+        ],
+    },
+    {
+        "id": "withdraw-trouble",
+        "keyword": "BingX 出金できない 原因 対処法",
+        "slug": "bingx-withdrawal-troubleshooting",
+        "tags": ["BingX", "出金できない", "対処法", "トラブル", "海外取引所"],
+        "type": "tutorial",
+        "article_guide": (
+            "「BingXで出金できない」ときの原因と対処法を網羅する記事。"
+            "①KYС未完了、②出金アドレス/ネットワークの誤り、③出金上限・最低額未達、"
+            "④セキュリティ審査（24時間出金制限・新規アドレス）、⑤メンテナンス、の原因別に"
+            "チェックリストと解決手順を示す。問い合わせ先（サポート）への連絡方法も含める。"
+        ),
+        "tweet_bullets": ["まずKYC完了とネットワーク選択を確認", "新規アドレスは24時間出金制限あり", "原因別チェックリストで即解決"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "error warning triangle on cryptocurrency wallet screen, troubleshooting concept, dark UI",
+            "checklist with red and green marks on dark screen, problem solving concept",
+        ],
+    },
+    {
+        "id": "deposit-trouble",
+        "keyword": "BingX 入金 反映されない 対処法",
+        "slug": "bingx-deposit-not-credited",
+        "tags": ["BingX", "入金反映されない", "対処法", "USDT", "トラブル"],
+        "type": "tutorial",
+        "article_guide": (
+            "「BingXに入金したのに反映されない」ときの原因と対処法を解説する記事。"
+            "①ネットワーク選択ミス（TRC20/ERC20/BEP20の取り違え）、②必要承認数の待機、"
+            "③タグ/メモの記入漏れ、④最低入金額未達、⑤送金先アドレス誤り、を原因別に解説。"
+            "ブロックチェーンエクスプローラーでの着金確認方法と、サポートへの問い合わせ手順も含める。"
+        ),
+        "tweet_bullets": ["原因の多くはネットワーク選択ミス", "エクスプローラーで着金状況を確認", "承認数待ちなら時間で反映される"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "pending transaction hourglass on blockchain network, waiting concept, dark background",
+            "cryptocurrency network selection menu on phone screen, glowing options, dark UI",
+        ],
+    },
+    {
+        "id": "login-trouble",
+        "keyword": "BingX ログインできない 対処法 パスワード",
+        "slug": "bingx-login-troubleshooting",
+        "tags": ["BingX", "ログインできない", "パスワード", "2段階認証", "対処法"],
+        "type": "tutorial",
+        "article_guide": (
+            "「BingXにログインできない」ときの原因と対処法を解説する記事。"
+            "①パスワード忘れ（リセット手順）、②2段階認証（2FA）コードが通らない、"
+            "③メール/SMS認証コードが届かない、④アカウントロック、⑤端末変更時の確認、"
+            "を原因別に解決手順で示す。2FA端末を紛失した場合の復旧申請方法も含める。"
+        ),
+        "tweet_bullets": ["パスワードはメールから即リセット可能", "2FAコードは端末の時刻ズレが原因のことも", "認証コード未着はスパムフォルダを確認"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "locked padlock on login screen, access denied concept, dark interface",
+            "two factor authentication code on smartphone, security verification, dark background",
+        ],
+    },
+    {
+        "id": "min-deposit",
+        "keyword": "BingX 最低入金額 少額 いくらから",
+        "slug": "bingx-minimum-deposit",
+        "tags": ["BingX", "最低入金額", "少額", "初心者", "入金"],
+        "type": "guide",
+        "article_guide": (
+            "「BingXは最低いくらから始められるのか」に答える記事。"
+            "仮想通貨入金・クレジットカード購入・P2Pそれぞれの最低額の目安、"
+            "コピートレード（10 USDT〜）や現物・先物の最小注文額、"
+            "少額から始める初心者向けのおすすめ手順（まず少額で操作に慣れる）を解説する。"
+        ),
+        "tweet_bullets": ["コピートレードは10 USDTから可能", "少額で操作に慣れるのが初心者の鉄則", "入金方法ごとに最低額が異なる"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "small stack of coins growing into larger stack, small start concept, dark background",
+            "minimum amount input field on trading app, glowing numbers, dark interface",
+        ],
+    },
+    {
+        "id": "invite-code-where",
+        "keyword": "BingX 招待コード 入力 どこ 後から",
+        "slug": "bingx-invite-code-where-to-enter",
+        "tags": ["BingX", "招待コード", "入力方法", "登録", "特典"],
+        "type": "tutorial",
+        "article_guide": (
+            "「BingXの招待コードはどこに入力するのか・後から入力できるのか」に答える記事。"
+            f"登録画面での招待コード{INVITE_CODE}の入力位置を画像付きで示し、"
+            "入力し忘れた場合に後から適用できるか（基本は登録時のみ）、"
+            "招待コードを入れるメリット（手数料割引・ボーナス）を具体的に解説する。"
+            "招待コードが反映されているかの確認方法も含める。"
+        ),
+        "tweet_bullets": [f"招待コードは登録画面で{INVITE_CODE}を入力", "後からの追加は原則不可・登録時に必ず入力", "入力で手数料割引＆ボーナスが適用"],
+        "screenshot_pages": [
+            {"key": "invite", "url": "https://bingxdao.com/invite/XXCCJX/", "description": "BingX招待コード入力ページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
+        ],
+        "imagen_prompts": [
+            "referral code input box highlighted on registration screen, glowing field, dark UI",
+        ],
+    },
+    {
+        "id": "withdraw-time",
+        "keyword": "BingX 出金 時間 反映 どのくらい かかる",
+        "slug": "bingx-withdrawal-time",
+        "tags": ["BingX", "出金時間", "反映時間", "送金", "手数料"],
+        "type": "guide",
+        "article_guide": (
+            "「BingXの出金はどのくらい時間がかかるのか」に答える記事。"
+            "出金申請から着金までの一般的な所要時間（通常数分〜数十分）、"
+            "ネットワーク別の速度・混雑時の遅延、初回出金やセキュリティ審査による遅延、"
+            "出金が遅いときに確認すべきポイントを解説する。早く着金させるコツも含める。"
+        ),
+        "tweet_bullets": ["通常は数分〜数十分で着金", "ネットワーク混雑時は遅延することも", "初回や新規アドレスは審査で遅くなる"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "stopwatch over cryptocurrency transfer, speed concept, dark background",
+            "fast moving digital coins through network tunnel, transfer speed, dark interface",
+        ],
+    },
+    {
+        "id": "demo-trade",
+        "keyword": "BingX デモトレード やり方 練習",
+        "slug": "bingx-demo-trading-guide",
+        "tags": ["BingX", "デモトレード", "練習", "初心者", "先物取引"],
+        "type": "tutorial",
+        "article_guide": (
+            "BingXのデモトレード（仮想資金での練習取引）のやり方を解説する記事。"
+            "デモ口座への切り替え手順、仮想USDTの取得・リセット方法、"
+            "デモで練習すべきこと（注文方法・レバレッジ・損切り設定）、"
+            "本番に移行するタイミングの目安を初心者向けに解説する。"
+        ),
+        "tweet_bullets": ["仮想資金でノーリスク練習が可能", "注文・レバレッジ操作に慣れてから本番へ", "デモ資金はリセットして何度でも練習"],
+        "screenshot_pages": [
+            {"key": "futures", "url": "https://bingx.com/en-us/perpetual/BTCUSDT/", "description": "先物取引画面（デモ切替）", "viewport": {"width": 1440, "height": 900}, "wait_ms": 7000},
+        ],
+        "imagen_prompts": [
+            "practice mode simulation on trading screen, training concept, dark interface",
+        ],
+    },
+    {
+        "id": "card-deposit-trouble",
+        "keyword": "BingX クレジットカード 入金できない 対処",
+        "slug": "bingx-card-deposit-failed",
+        "tags": ["BingX", "クレジットカード", "入金できない", "対処法", "決済"],
+        "type": "tutorial",
+        "article_guide": (
+            "「BingXでクレジットカード入金（仮想通貨購入）ができない」ときの原因と対処法を解説する記事。"
+            "①カード会社による海外/暗号資産決済のブロック、②3Dセキュア未対応、"
+            "③限度額・利用可能枠不足、④対応ブランドの確認、⑤本人確認(KYC)未完了、を原因別に解説。"
+            "代替手段（仮想通貨送金・P2P）への切り替えも案内する。"
+        ),
+        "tweet_bullets": ["カード会社が暗号資産決済をブロックしがち", "3Dセキュア対応カードを使う", "ダメなら仮想通貨送金/P2Pが確実"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "declined credit card with red cross on payment screen, error concept, dark background",
+            "alternative payment methods icons glowing on dark interface, options concept",
+        ],
+    },
+    {
+        "id": "2fa-guide",
+        "keyword": "BingX 2段階認証 設定 解除 やり方",
+        "slug": "bingx-2fa-setup-guide",
+        "tags": ["BingX", "2段階認証", "2FA", "セキュリティ", "設定"],
+        "type": "tutorial",
+        "article_guide": (
+            "BingXの2段階認証（2FA）の設定・解除・変更方法を解説する記事。"
+            "Google Authenticatorを使った2FA設定手順、"
+            "バックアップキー（復旧コード）の保管の重要性、"
+            "端末を機種変更/紛失したときの2FA再設定・復旧手順、解除方法を画像付きで解説する。"
+            "2FA設定がなぜ重要か（不正出金防止）も触れる。"
+        ),
+        "tweet_bullets": ["Google Authenticatorで2FAを設定", "バックアップキーは必ず保管", "機種変更前に2FA解除or移行を忘れずに"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "authenticator app generating security code, two factor concept, dark background",
+            "backup key written on paper next to smartphone, recovery concept, dark aesthetic",
+        ],
+    },
 ]
 
 # ---------------------------------------------------------------------------
@@ -460,6 +657,17 @@ CLUSTER_ANCHORS = {
     "vs-binance":        "BingXとBinanceを比較",
     "earn-guide":        "BingXで稼ぐ方法・投資戦略",
     "tax-guide":         "BingXの税金・確定申告の方法",
+    # ロングテール
+    "japan-legal":       "BingXは日本人が使っても違法・危険ではない？",
+    "withdraw-trouble":  "BingXで出金できないときの原因と対処法",
+    "deposit-trouble":   "BingXの入金が反映されないときの対処法",
+    "login-trouble":     "BingXにログインできないときの対処法",
+    "min-deposit":       "BingXは最低いくらから？最低入金額まとめ",
+    "invite-code-where": "BingXの招待コードはどこに入力する？",
+    "withdraw-time":     "BingXの出金にかかる時間の目安",
+    "demo-trade":        "BingXのデモトレードのやり方",
+    "card-deposit-trouble": "BingXでクレカ入金できないときの対処法",
+    "2fa-guide":         "BingXの2段階認証（2FA）の設定方法",
 }
 
 # スラッグ → トピックid の逆引き
