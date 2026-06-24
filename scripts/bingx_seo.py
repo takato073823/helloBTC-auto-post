@@ -427,6 +427,179 @@ TOPICS = [
 ]
 
 # ---------------------------------------------------------------------------
+# 内部リンク・トピッククラスター
+# ---------------------------------------------------------------------------
+# 公開済みのBingX記事同士を相互リンクし、「BingXといえばhelloBTC」という
+# トピカルオーソリティをGoogleに認識させる。新記事の公開ごとに既存記事の
+# クラスターも作り直し、双方向リンクを維持する（ハブ&スポーク構造）。
+# ---------------------------------------------------------------------------
+
+CLUSTER_START = "<!--BINGX_CLUSTER_START-->"
+CLUSTER_END = "<!--BINGX_CLUSTER_END-->"
+
+# ピラー（ハブ）記事 — 全記事がここへ集約しリンクする
+PILLAR_ID = "beginner-guide"
+
+# クラスター内のリンク文言（descriptive anchor — SEO上、説明的なアンカーが有効）
+CLUSTER_ANCHORS = {
+    "beginner-guide":    "BingXの始め方・完全ガイド【初心者向け】",
+    "kyc-guide":         "BingXの本人確認（KYC）のやり方",
+    "deposit-guide":     "BingXの入金方法（仮想通貨・クレカ・P2P）",
+    "withdraw-guide":    "BingXの出金・送金方法と手数料",
+    "spot-trade-guide":  "BingXの現物取引のやり方・注文方法",
+    "futures-guide":     "BingXの先物取引・レバレッジの使い方",
+    "leverage-guide":    "BingXのレバレッジ設定と証拠金の計算",
+    "copy-trade-guide":  "BingXのコピートレードの始め方",
+    "grid-trade-guide":  "BingXのグリッドトレード（自動売買）設定",
+    "app-guide":         "BingXスマホアプリの使い方",
+    "fees-guide":        "BingXの手数料を徹底解説",
+    "bonus-guide":       "BingXの招待コード・ボーナス特典",
+    "review":            "BingXの評判・口コミとメリット/デメリット",
+    "security-guide":    "BingXの安全性・セキュリティ",
+    "vs-bybit":          "BingXとBybitを比較",
+    "vs-binance":        "BingXとBinanceを比較",
+    "earn-guide":        "BingXで稼ぐ方法・投資戦略",
+    "tax-guide":         "BingXの税金・確定申告の方法",
+}
+
+# スラッグ → トピックid の逆引き
+_SLUG_TO_ID = {t["slug"]: t["id"] for t in TOPICS}
+
+
+def _build_cluster_html(published: list[dict], current_slug: str) -> str:
+    """current 以外の公開済みBingX記事へのリンク集（クラスターボックス）を生成。
+    ピラー（完全ガイド）を先頭に配置する。published は {slug, link} のリスト。"""
+    others = [p for p in published if p["slug"] != current_slug]
+    if not others:
+        return ""
+
+    def sort_key(p):
+        tid = _SLUG_TO_ID.get(p["slug"], "")
+        return (0 if tid == PILLAR_ID else 1, tid)
+
+    others.sort(key=sort_key)
+
+    items = []
+    for p in others:
+        tid = _SLUG_TO_ID.get(p["slug"], "")
+        anchor = CLUSTER_ANCHORS.get(tid, p.get("title", "BingX関連記事"))
+        items.append(
+            f'<li style="margin:6px 0;"><a href="{p["link"]}">{anchor}</a></li>'
+        )
+
+    box = (
+        '<div style="background:#f5f7fa;border:1px solid #e0e0e0;'
+        'padding:18px 22px;margin:32px 0;border-radius:8px;">'
+        '<strong style="display:block;margin-bottom:10px;font-size:1.05em;">'
+        '📚 BingXをもっと知る（関連記事）</strong>'
+        f'<ul style="margin:0;padding-left:1.2em;line-height:1.7;">{"".join(items)}</ul>'
+        "</div>"
+    )
+    return f"{CLUSTER_START}{box}{CLUSTER_END}"
+
+
+def _upsert_cluster(content: str, cluster_html: str) -> str:
+    """記事本文にクラスターを差し込む。既存ブロックがあれば置換、なければ
+    末尾の免責文の直前（無ければ最後）に挿入する。冪等。"""
+    if not cluster_html:
+        return content
+
+    # 既存クラスターを置換
+    pattern = re.compile(
+        re.escape(CLUSTER_START) + ".*?" + re.escape(CLUSTER_END),
+        re.DOTALL,
+    )
+    if pattern.search(content):
+        return pattern.sub(cluster_html, content)
+
+    # 免責文の直前に挿入
+    disclaimer = re.search(r'<p style="font-size:0\.85em', content)
+    if disclaimer:
+        idx = disclaimer.start()
+        return content[:idx] + cluster_html + content[idx:]
+
+    return content + cluster_html
+
+
+def sync_clusters(wp) -> None:
+    """公開済みの全BingX記事を取得し、各記事の内部リンククラスターを
+    最新状態に作り直す。これにより新記事↔既存記事の双方向リンクが張られる。"""
+    slugs = [t["slug"] for t in TOPICS]
+    posts = wp.get_posts_by_slugs(slugs)
+    if not posts:
+        logger.info("  クラスター同期: 公開済みBingX記事が見つかりません")
+        return
+
+    published = [
+        {"slug": p["slug"], "link": p["link"], "id": p["id"],
+         "raw": p.get("content", {}).get("raw", ""),
+         "title": p.get("title", {}).get("raw", "")}
+        for p in posts
+    ]
+    logger.info(f"  クラスター同期: {len(published)}記事を相互リンク")
+
+    updated = 0
+    for p in published:
+        cluster = _build_cluster_html(published, p["slug"])
+        new_content = _upsert_cluster(p["raw"], cluster)
+        if new_content != p["raw"]:
+            try:
+                wp.update_post_content(p["id"], new_content)
+                updated += 1
+            except Exception as e:
+                logger.warning(f"  ✗ クラスター更新失敗 (post {p['id']}): {e}")
+    logger.info(f"  ✓ クラスター更新: {updated}/{len(published)}記事")
+
+
+# ---------------------------------------------------------------------------
+# FAQ 構造化データ（FAQPage JSON-LD）
+# ---------------------------------------------------------------------------
+
+def build_faq_schema_html(faq: list[dict]) -> str:
+    """記事の faq 配列から FAQPage JSON-LD を生成。リッチリザルト獲得を狙う。"""
+    entries = []
+    for item in faq:
+        q = (item.get("q") or "").strip()
+        a = (item.get("a") or "").strip()
+        if not q or not a:
+            continue
+        entries.append({
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": {"@type": "Answer", "text": a},
+        })
+    if not entries:
+        return ""
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": entries,
+    }
+    schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
+    return f'<script type="application/ld+json">{schema_json}</script>\n'
+
+
+def build_faq_section_html(faq: list[dict]) -> str:
+    """記事末尾に表示するFAQセクション（可視）を生成。"""
+    rows = []
+    for item in faq:
+        q = (item.get("q") or "").strip()
+        a = (item.get("a") or "").strip()
+        if not q or not a:
+            continue
+        rows.append(
+            f'<dt style="font-weight:bold;margin-top:14px;">Q. {q}</dt>'
+            f'<dd style="margin:6px 0 0;padding-left:1em;">A. {a}</dd>'
+        )
+    if not rows:
+        return ""
+    return (
+        '<h3>よくある質問（FAQ）</h3>'
+        f'<dl style="margin:16px 0;">{"".join(rows)}</dl>'
+    )
+
+
+# ---------------------------------------------------------------------------
 # 投稿済みトピック管理
 # ---------------------------------------------------------------------------
 
@@ -608,8 +781,14 @@ def generate_article(topic: dict, image_keys: list[str]) -> dict:
 {{
   "title": "SEO最適化された日本語タイトル（35〜65文字、具体的・数字・年を含む）",
   "content": "<HTML記事本文>",
-  "excerpt": "記事の要約（100〜150文字）"
-}}"""
+  "excerpt": "記事の要約（100〜150文字。絵文字や記号は使わない）",
+  "faq": [
+    {{"q": "この記事のテーマに関する具体的な検索質問", "a": "簡潔で的確な回答（80〜120文字）"}},
+    {{"q": "...", "a": "..."}},
+    {{"q": "...", "a": "..."}}
+  ]
+}}
+※ faq は実際にユーザーが検索する自然な疑問文を3〜5個。回答は事実ベースで具体的に。"""
 
     last_err: Exception | None = None
     for attempt in range(1, 4):  # 最大3回リトライ
@@ -758,6 +937,22 @@ async def main():
     content = re.sub(r"<figure>\{\{IMG_[A-Z0-9_]+\}\}</figure>", "", content)
     content = re.sub(r"\{\{IMG_[A-Z0-9_]+\}\}", "", content)
 
+    # FAQ（可視セクション + FAQPage構造化データ）を挿入
+    faq = article.get("faq") or []
+    if faq:
+        faq_section = build_faq_section_html(faq)
+        faq_schema = build_faq_schema_html(faq)
+        # 可視FAQは免責文の直前へ、schemaは先頭へ
+        disclaimer = re.search(r'<p style="font-size:0\.85em', content)
+        if faq_section:
+            if disclaimer:
+                idx = disclaimer.start()
+                content = content[:idx] + faq_section + content[idx:]
+            else:
+                content = content + faq_section
+        content = faq_schema + content
+        logger.info(f"  ✓ FAQ {len(faq)}件を挿入")
+
     # 5. WordPress 投稿
     logger.info("[5/5] WordPress 投稿...")
     category_id = wp.get_or_create_category("取引所")
@@ -777,6 +972,13 @@ async def main():
 
     article_url = result.get("link", "")
     logger.info(f"=== 公開完了: {article_url} ===")
+
+    # 5.5 内部リンククラスターを全BingX記事で同期（新記事↔既存記事を相互リンク）
+    logger.info("[6/6] 内部リンククラスター同期...")
+    try:
+        sync_clusters(wp)
+    except Exception as e:
+        logger.warning(f"  クラスター同期でエラー: {e}")
 
     # X 投稿
     post_tweet(

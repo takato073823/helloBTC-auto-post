@@ -54,6 +54,30 @@ class WordPressAPI:
             logger.warning(f"カテゴリ '{name}' の処理失敗: {e}")
             return None
 
+    def get_posts_by_slugs(self, slugs):
+        """指定スラッグの公開済み記事を一括取得して返す（編集用に raw content 込み）。
+        内部リンククラスターの構築・同期に使う。"""
+        if not slugs:
+            return []
+        try:
+            return self._request(
+                "GET", "posts",
+                params={
+                    "slug": slugs,
+                    "per_page": 100,
+                    "status": "publish",
+                    "context": "edit",  # content.raw を取得するため
+                    "_fields": "id,slug,link,title,content",
+                },
+            )
+        except Exception as e:
+            logger.warning(f"記事の一括取得に失敗: {e}")
+            return []
+
+    def update_post_content(self, post_id, content):
+        """既存記事の本文を更新する（内部リンククラスターの差し込み・同期用）。"""
+        return self._request("POST", f"posts/{post_id}", json={"content": content})
+
     def upload_media(self, image_data, filename="featured.jpg"):
         """画像を WordPress メディアライブラリにアップロードして (ID, URL) を返す"""
         upload_headers = {
