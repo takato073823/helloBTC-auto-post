@@ -60,10 +60,13 @@ class WordPressAPI:
         if not slugs:
             return []
         try:
+            # 注意: params={"slug": [...]} だと slug=a&slug=b となり PHP が
+            # 最後の1件に潰してしまう。WP の wp_parse_slug_list が解釈できる
+            # カンマ区切り文字列で渡すことで全スラッグを配列として検索する。
             return self._request(
                 "GET", "posts",
                 params={
-                    "slug": slugs,
+                    "slug": ",".join(slugs),
                     "per_page": 100,
                     "status": "publish",
                     "context": "edit",  # content.raw を取得するため
