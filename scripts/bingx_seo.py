@@ -53,6 +53,22 @@ INFO_BOX_OPEN  = '<div style="background:#e8f5e9;border-left:4px solid #4caf50;p
 WARN_BOX_OPEN  = '<div style="background:#fff3e0;border-left:4px solid #ff9800;padding:14px 18px;margin:20px 0;border-radius:4px;">'
 BOX_CLOSE      = "</div>"
 
+# 出典リンクボックス（記事末尾に挿入。LLMにURLを作らせず確実な公式ソースのみ）
+SOURCE_BOX = (
+    '<div style="background:#f5f7fa;border:1px solid #e0e0e0;'
+    'padding:14px 18px;margin:24px 0;border-radius:6px;font-size:0.9em;">'
+    "<strong>参考・出典</strong>"
+    '<ul style="margin:8px 0 0;padding-left:1.2em;">'
+    '<li><a href="https://bingx.com/" target="_blank" rel="nofollow noopener">BingX公式サイト</a></li>'
+    '<li><a href="https://bingxservice.zendesk.com/hc/ja" target="_blank" rel="nofollow noopener">'
+    "BingX公式ヘルプセンター（日本語）</a></li>"
+    "</ul></div>"
+)
+
+# 地域制限(米国IP)・URL変更により bingx.com のライブ撮影は失敗し、
+# 「Access prohibited」や404画面を撮ってしまうため無効化。Imagen概念画像のみ使う。
+USE_LIVE_SCREENSHOTS = False
+
 # ---------------------------------------------------------------------------
 # 18 トピック定義
 # ---------------------------------------------------------------------------
@@ -896,6 +912,49 @@ def sync_clusters(wp) -> None:
 
 
 # ---------------------------------------------------------------------------
+# 重複タイトルチェック
+# ---------------------------------------------------------------------------
+
+def fetch_existing_titles(wp, query: str = "BingX") -> list[str]:
+    """公開済み記事のタイトル一覧を取得（重複回避のため）。"""
+    try:
+        posts = wp._request(
+            "GET", "posts",
+            params={"search": query, "per_page": 100, "status": "publish", "_fields": "title"},
+        )
+        import html as _html
+        return [_html.unescape(p.get("title", {}).get("rendered", "")) for p in posts]
+    except Exception as e:
+        logger.warning(f"  既存タイトル取得に失敗: {e}")
+        return []
+
+
+def _normalize_title(t: str) -> str:
+    """比較用にタイトルを正規化（記号・空白・年号などを除去）。"""
+    t = re.sub(r"[【】\[\]｜|（）()・,、。\s〜~\-—_:：!！?？]", "", t)
+    t = re.sub(r"20\d{2}年?", "", t)
+    return t.lower()
+
+
+def is_duplicate_title(title: str, existing: list[str]) -> bool:
+    """既存タイトルと「ほぼ同一」かを判定する最終セーフティネット。
+    意味的な類似（言い換え）は誤検出を避けるためここでは弾かず、LLMへの
+    既存タイトル提示（avoid_titles）側で防ぐ。ここは正規化後の一致率0.95以上のみ。
+    ※「入金方法ガイド」と「出金方法ガイド」のような別記事は弾かない閾値。"""
+    import difflib
+    n = _normalize_title(title)
+    if len(n) < 6:
+        return False
+    for e in existing:
+        ne = _normalize_title(e)
+        if not ne:
+            continue
+        if n == ne or difflib.SequenceMatcher(None, n, ne).ratio() >= 0.95:
+            return True
+    return False
+
+
+# ---------------------------------------------------------------------------
 # FAQ 構造化データ（FAQPage JSON-LD）
 # ---------------------------------------------------------------------------
 
@@ -1014,6 +1073,9 @@ async def _take_screenshot(browser, sc_cfg: dict) -> bytes | None:
 
 
 async def capture_screenshots(pages: list) -> dict[str, bytes | None]:
+    if not USE_LIVE_SCREENSHOTS:
+        logger.info("  ライブ撮影は無効（地域制限対策）。Imagen概念画像のみ使用します。")
+        return {}
     if not pages:
         return {}
     results = {}
@@ -1078,13 +1140,23 @@ _TYPE_INSTRUCTIONS = {
 }
 
 
-def generate_article(topic: dict, image_keys: list[str]) -> dict:
+def generate_article(topic: dict, image_keys: list[str], avoid_titles: list[str] | None = None) -> dict:
     client = anthropic.Anthropic()
 
     img_placeholders = "\n".join(
         f"- {{{{IMG_{k.upper()}}}}}: 対応する画像を配置" for k in image_keys
     )
     type_guide = _TYPE_INSTRUCTIONS.get(topic["type"], "")
+
+    # 重複タイトル回避: 既存記事のタイトルをプロンプトに渡す
+    if avoid_titles:
+        listed = "\n".join(f"  - {t}" for t in avoid_titles[:40])
+        avoid_block = (
+            "\n【重複禁止】helloBTCには既に以下のタイトルの記事が存在する。"
+            "これらと同一・酷似しないタイトルにすること:\n" + listed + "\n"
+        )
+    else:
+        avoid_block = ""
 
     prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けにBingXについての記事を作成してください。
 
@@ -1117,13 +1189,13 @@ def generate_article(topic: dict, image_keys: list[str]) -> dict:
 - 文体: 「〜した」「〜だ」「〜である」（丁寧語禁止）
 - ターゲット: 仮想通貨初心者〜中級者の日本人
 - 本文: 1800〜2500文字
-- 見出し: h3タグ（4〜6個）
+- 見出し: 最初の見出しだけ<h2>タグ、それ以降の見出しはすべて<h3>タグにする（h2は記事内で1個だけ。残り3〜5個はh3）
 - 画像プレースホルダー: <figure>{{{{IMG_xxx}}}}</figure> 形式で配置
 - 末尾: <p style="font-size:0.85em;color:#888;">※仮想通貨への投資はリスクを伴います。余裕資金の範囲内で行ってください。</p>
-
+{avoid_block}
 必ず以下のJSONのみ出力（前後に余計なテキスト不要）:
 {{
-  "title": "SEO最適化された日本語タイトル（35〜65文字、具体的・数字・年を含む）",
+  "title": "SEO最適化された日本語タイトル（30文字以内・厳守。具体的で数字を含む。helloBTCの他記事と重複しない独自の表現にする）",
   "content": "<HTML記事本文>",
   "excerpt": "記事の要約（100〜150文字。絵文字や記号は使わない）",
   "faq": [
@@ -1262,9 +1334,22 @@ async def main():
     available_keys = list(image_map.keys())
     logger.info(f"  利用可能: {available_keys}")
 
-    # 4. 記事生成
+    # 4. 記事生成（重複タイトル回避）
     logger.info("[4/5] Claude 記事生成...")
-    article = generate_article(topic, available_keys)
+    existing_titles = fetch_existing_titles(wp)
+    article = generate_article(topic, available_keys, avoid_titles=existing_titles)
+
+    # タイトル重複チェック → 重複なら再生成（最大2回）
+    for _ in range(2):
+        if not is_duplicate_title(article["title"], existing_titles):
+            break
+        logger.warning(f"  タイトル重複検出: 「{article['title']}」→ 再生成")
+        article = generate_article(topic, available_keys, avoid_titles=existing_titles)
+
+    # タイトル30字以内を保証（超過時は安全に切り詰め）
+    if len(article["title"]) > 30:
+        logger.info(f"  タイトル30字超過のため切り詰め: {article['title']}")
+        article["title"] = article["title"][:30]
 
     # プレースホルダーを img タグに置換
     content = article["content"]
@@ -1296,6 +1381,15 @@ async def main():
                 content = content + faq_section
         content = faq_schema + content
         logger.info(f"  ✓ FAQ {len(faq)}件を挿入")
+
+    # 出典リンクボックスを免責文の直前に挿入
+    disclaimer = re.search(r'<p style="font-size:0\.85em', content)
+    if disclaimer:
+        idx = disclaimer.start()
+        content = content[:idx] + SOURCE_BOX + content[idx:]
+    else:
+        content = content + SOURCE_BOX
+    logger.info("  ✓ 出典リンクを挿入")
 
     # 5. WordPress 投稿
     logger.info("[5/5] WordPress 投稿...")
