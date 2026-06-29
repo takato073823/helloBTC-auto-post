@@ -81,6 +81,12 @@ class WordPressAPI:
         """既存記事の本文を更新する（内部リンククラスターの差し込み・同期用）。"""
         return self._request("POST", f"posts/{post_id}", json={"content": content})
 
+    def update_post(self, post_id, **fields):
+        """記事の任意フィールド（slug など）を更新する。
+        slug を変更すると WordPress が旧スラッグを _wp_old_slug に記録し、
+        旧URL → 新URL の301リダイレクトを自動で行う。"""
+        return self._request("POST", f"posts/{post_id}", json=fields)
+
     def upload_media(self, image_data, filename="featured.jpg"):
         """画像を WordPress メディアライブラリにアップロードして (ID, URL) を返す"""
         upload_headers = {
