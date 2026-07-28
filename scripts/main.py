@@ -7,13 +7,14 @@ import os
 import json
 import logging
 import time
+from html import escape
 from pathlib import Path
 
 from scraper import get_latest_articles, fetch_article_content, fetch_tweet_embed_html
 from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
-    prepend_lead_heading, resolve_logo_brand,
+    is_duplicate_seo_topic, normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -175,7 +176,7 @@ def _make_img_html(media_url: str, alt: str = "", media_id: int = 0) -> str:
     """WordPress 向けの figure+img タグを生成する"""
     return (
         f'<figure class="wp-block-image size-full">'
-        f'<img src="{media_url}" alt="{alt}" class="wp-image-{media_id}"/>'
+        f'<img src="{media_url}" alt="{escape(alt)}" class="wp-image-{media_id}"/>'
         f"</figure>"
     )
 
@@ -183,8 +184,8 @@ def _make_img_html(media_url: str, alt: str = "", media_id: int = 0) -> str:
 def _make_chart_html(media_url: str, caption: str, media_id: int = 0) -> str:
     return (
         f'<figure class="wp-block-image size-full">'
-        f'<img src="{media_url}" alt="{caption}" class="wp-image-{media_id}"/>'
-        f'<figcaption class="wp-element-caption">{caption}</figcaption>'
+        f'<img src="{media_url}" alt="{escape(caption)}" class="wp-image-{media_id}"/>'
+        f'<figcaption class="wp-element-caption">{escape(caption)}</figcaption>'
         f"</figure>"
     )
 
@@ -203,7 +204,14 @@ def run_seo_article():
     generated = generate_seo_article(article_type)
     logger.info(f"生成タイトル: {generated['title']}")
 
-    content = generated["content"]
+    existing_titles = wp.get_published_titles()
+    if is_duplicate_seo_topic(
+        generated.get("primary_topic", ""), generated["title"], existing_titles
+    ):
+        logger.warning("既存記事との競合を避けるため、今回のSEO記事は投稿しません")
+        return
+
+    content = normalize_swell_html(generated["content"])
     ts = int(time.time())
 
     # ── アイキャッチ画像 ─────────────────────────────────
@@ -222,7 +230,9 @@ def run_seo_article():
         prompt1 = img1_prompts[0] if img1_prompts else "glowing cryptocurrency network digital art"
         img1_data = generate_featured_image(image_prompt=prompt1)
         img1_id, img1_url = wp.upload_media(img1_data, filename=f"seo-img1-{ts}.jpg")
-        img1_html = _make_img_html(img1_url, "関連画像1", img1_id)
+        img1_html = _make_img_html(
+            img1_url, f"{generated['title']}に関する解説画像", img1_id
+        )
     except Exception as e:
         logger.warning(f"記事内画像1 生成失敗（続行）: {e}")
 
@@ -232,7 +242,9 @@ def run_seo_article():
         prompt2 = img1_prompts[1] if len(img1_prompts) > 1 else "blockchain technology abstract visualization"
         img2_data = generate_featured_image(image_prompt=prompt2)
         img2_id, img2_url = wp.upload_media(img2_data, filename=f"seo-img2-{ts}.jpg")
-        img2_html = _make_img_html(img2_url, "関連画像2", img2_id)
+        img2_html = _make_img_html(
+            img2_url, f"{generated['title']}に関する参考画像", img2_id
+        )
     except Exception as e:
         logger.warning(f"記事内画像2 生成失敗（続行）: {e}")
 
@@ -255,6 +267,7 @@ def run_seo_article():
     content = content.replace("{IMAGE_1}", img1_html)
     content = content.replace("{IMAGE_2}", img2_html)
     content = content.replace("{CHART}", chart_html)
+    content = normalize_swell_html(content)
 
     # ── WordPress にカテゴリ取得 → 下書きで投稿 ─────────────
     category_id = wp.get_or_create_category(article_type)
@@ -267,7 +280,8 @@ def run_seo_article():
         tags=generated.get("tags", []),
         category_id=category_id,
         featured_media_id=featured_media_id,
-        status="publish",
+        # SEO特集は品質・正確性を確認してから公開する。
+        status="draft",
         slug=generated.get("slug"),
         featured_image_url=featured_image_url,
         article_section=article_type,

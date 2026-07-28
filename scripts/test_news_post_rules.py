@@ -6,7 +6,9 @@ import unittest
 # 行わないこのテストではダミー値を与える。
 os.environ.setdefault("ANTHROPIC_API_KEY", "test-key-not-used")
 
-from generator import prepend_lead_heading, resolve_logo_brand
+from generator import (
+    is_duplicate_seo_topic, normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
+)
 
 
 class NewsPostRuleTests(unittest.TestCase):
@@ -29,6 +31,20 @@ class NewsPostRuleTests(unittest.TestCase):
             resolve_logo_brand("BitMart、取引所事業を段階的に終了へ", ["暗号資産"]),
             ("BitMart", "bitmart.com"),
         )
+
+    def test_closes_an_incomplete_swell_box(self):
+        broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'
+        self.assertEqual(
+            normalize_swell_html(broken),
+            broken + "</p></div></div>",
+        )
+
+    def test_blocks_a_near_duplicate_seo_topic(self):
+        self.assertTrue(is_duplicate_seo_topic(
+            "Solana",
+            "Solana（SOL）とは？2026年最新版｜高速・低コストの次世代ブロックチェーン完全ガイド",
+            ["Solana（SOL）とは？2024年最新版・ブロックチェーン技術から購入方法まで完全ガイド"],
+        ))
 
 
 if __name__ == "__main__":

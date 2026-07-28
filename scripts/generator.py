@@ -6,6 +6,7 @@ import json
 import logging
 import io
 import re
+from difflib import SequenceMatcher
 from html import escape, unescape
 
 import requests
@@ -100,6 +101,43 @@ KNOWN_BRAND_DOMAINS = {
     "Ripple": "ripple.com",
 }
 
+_VOID_HTML_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+_BALANCED_HTML_TAGS = {"div", "p", "ul", "ol", "li", "dl", "dt", "dd", "figure", "table", "thead", "tbody", "tr", "th", "td", "span", "strong", "h2", "h3"}
+_HTML_TAG_RE = re.compile(r"</?([a-zA-Z][a-zA-Z0-9-]*)\b[^>]*>")
+
+
+def normalize_swell_html(content: str) -> str:
+    """生成HTMLの未閉鎖タグを補い、SWELLのボックス崩れを防ぐ。
+
+    LLMの出力が途中で終わると cap-block の ``div`` が閉じず、以降の本文全体が
+    色付きボックスとして描画される。投稿前に不足分を末尾へ補完する最後の安全網。
+    """
+    stack: list[str] = []
+    for match in _HTML_TAG_RE.finditer(content):
+        tag = match.group(0)
+        name = match.group(1).lower()
+        if name not in _BALANCED_HTML_TAGS:
+            continue
+        if tag.startswith("</"):
+            if name in stack:
+                # HTMLの慣用的な自動閉鎖と同じく、内側の未閉鎖要素を先に閉じる。
+                while stack and stack[-1] != name:
+                    stack.pop()
+                stack.pop()
+        elif not tag.rstrip().endswith("/>") and name not in _VOID_HTML_TAGS:
+            stack.append(name)
+
+    if not stack:
+        return content
+
+    logger.warning("未閉鎖HTMLタグを補完して投稿: %s", ", ".join(stack))
+    return content + "".join(f"</{name}>" for name in reversed(stack))
+
+
+def validate_swell_html(content: str) -> bool:
+    """SWELLボックスを含む記事に、未閉鎖の主要タグがないか判定する。"""
+    return normalize_swell_html(content) == content
+
 
 def prepend_lead_heading(content: str, article_title: str, lead_heading: str | None = None) -> str:
     """本文の先頭に、投稿タイトルと同一ではない h2 を必ず置く。"""
@@ -141,6 +179,25 @@ def resolve_logo_brand(title: str, tags: list[str] | None = None,
     clean_domain = _valid_logo_domain(logo_domain)
     clean_brand = re.sub(r"\s+", " ", (logo_brand or "")).strip()[:60] or None
     return (clean_brand, clean_domain) if clean_brand and clean_domain else (None, None)
+
+
+def is_duplicate_seo_topic(primary_topic: str, title: str, existing_titles: list[str]) -> bool:
+    """同じ検索意図の記事を増やさないための公開前チェック。"""
+    def normalise(value: str) -> str:
+        plain = unescape(re.sub(r"<[^>]+>", "", value)).lower()
+        plain = re.sub(r"20\d{2}年?(最新|最新版)?", "", plain)
+        return re.sub(r"[\s　｜|・、】【（）()!?！？，、:：\-ー]", "", plain)
+
+    topic = primary_topic.strip().lower()
+    normalized_title = normalise(title)
+    for existing in existing_titles:
+        normalized_existing = normalise(existing)
+        similar = SequenceMatcher(None, normalized_title, normalized_existing).ratio()
+        same_topic = len(topic) >= 3 and topic in existing.lower()
+        if similar >= 0.62 or (same_topic and similar >= 0.42):
+            logger.warning("類似SEO記事を検出: %s", unescape(existing))
+            return True
+    return False
 
 
 def generate_article(title, content, source_url, source_name, tweet_urls=None):
@@ -361,6 +418,9 @@ def _call_haiku(prompt: str, max_tokens: int = 8192) -> str:
         max_tokens=max_tokens,
         messages=[{"role": "user", "content": prompt}],
     )
+    if msg.stop_reason == "max_tokens":
+        # 途中で途切れたHTMLは、未閉鎖のSWELLボックスを生み表示を壊す。
+        raise RuntimeError("記事HTMLが出力上限で途中終了しました")
     text = msg.content[0].text.strip()
     # ```html や ``` などのコードブロックマーカーを除去
     import re as _re
@@ -379,6 +439,7 @@ def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -
 必ず以下のJSONのみ出力してください（前後にテキスト不要）:
 {{
   "title": "SEO最適化された日本語タイトル（35〜65文字、具体的な数字・年を含む）",
+  "primary_topic": "この記事が答える中心テーマ（例: Solana、暗号資産の税金）",
   "excerpt": "記事の要約（100〜150文字）",
   "slug": "article-topic-keyword（英語・ハイフン区切り・3〜5単語）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
@@ -435,7 +496,7 @@ def _generate_rich_article(article_type: str) -> dict:
 ・各H2セクションは「読者の疑問1つ」に完全に答えて完結する
 ・300〜400文字ごとに必ず視覚要素（テーブル・ステップ・ボックスのいずれか1つ）を挟む
 ・専門用語は初出時に必ず括弧で簡潔に説明する
-・数値・具体例を積極的に使う（「多い」ではなく「〇〇件以上」）
+・数値は、変動しない仕様・公式に確認できるデータだけを使う。価格、時価総額、手数料、順位など変動する数値は根拠なしに書かない
 ・段落は3〜5文で完結、1段落あたり100〜150文字を目安にする
 
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -541,7 +602,7 @@ def _generate_rich_article(article_type: str) -> dict:
    ・1段落目：読者の悩み・疑問を具体的に提示
    ・2段落目：この記事を読むと何が解決するかを明示
    ・3段落目（任意）：記事の信頼性・根拠への言及
-③ 目次ボックス（cap-block is-style-onborder_ttl2、タイトル「📋 目次」+ ordered list）
+③ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
 
 【本文：H2セクション × 4〜5個】
 各セクションのルール：
@@ -572,7 +633,7 @@ def _generate_rich_article(article_type: str) -> dict:
 <!-- wp:paragraph -->
 <p>本記事では〇〇について解説した。（記事の要旨を1〜2文で振り返る）</p>
 <!-- /wp:paragraph -->
-cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 5〜6個：
+cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 3個：
   各項目：<p class="is-style-big_icon_check"><strong>キーワード：</strong>1文の要点</p>
 <!-- wp:paragraph -->
 <p>（読者への次のアクション・締めの一文）</p>
@@ -591,9 +652,11 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ・文体：ですます調（〜です・〜ます・〜ています）で統一する
 ・1段落：3〜5文・100〜150文字を目安
 ・専門用語：初出時に必ず（）内で説明
-・数値：「多い」→「〇〇件以上」、「高い」→「〇〇%以上」など具体化
+・数値は、変動しない仕様・公式に確認できるデータだけを使う。価格、時価総額、手数料、順位など変動する数値は根拠なしに書かない
 ・マーカー：各段落に1〜2箇所、重要キーワードに使う
-・テキスト総量：2000〜2500文字（まとめを含む）
+・テキスト総量：1800〜2200文字（まとめを含む）。出力の途中終了を防ぐため、冗長な繰り返しは書かない
+・赤・オレンジ系の注意cap-block（is-style-onborder_ttl2）は、実際の安全上・投資上の注意が必要な箇所で最大1個だけ使用する。目次や通常説明には使わない
+・cap-blockは記事全体で最大3個まで。各cap-blockの最後に必ず </div></div> と <!-- /wp:loos/cap-block --> を記述する
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info(f"  Pass1: {article_type} SWELLブロック本文生成中...")
@@ -602,7 +665,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
     # ── Pass 2: メタデータJSON生成（小さいのでパース安定）────────────────
     logger.info(f"  Pass2: メタデータJSON生成中...")
     meta = _generate_meta_json(html_content, article_type, cfg["chart_hint"])
-    meta["content"] = html_content
+    meta["content"] = normalize_swell_html(html_content)
     return meta
 
 
@@ -728,7 +791,7 @@ Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon�
 ② リード文（段落 × 2〜3）
    ・1段落目：このコインへの関心・疑問を読者目線で提示
    ・2段落目：この記事で解決できることを明示
-③ 目次ボックス（cap-block is-style-onborder_ttl2、タイトル「📋 目次」+ ordered list）
+③ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
 
 【本文：H2セクション × 5個（各セクションのルールを必ず守る）】
 セクションルール：
@@ -761,7 +824,7 @@ S5「[コイン名]の将来性とリスク」
 <!-- wp:paragraph -->
 <p>本記事では[コイン名]の基本情報・仕組み・始め方・リスクについて解説した。</p>
 <!-- /wp:paragraph -->
-cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 5〜6個：
+cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 3個：
   各項目：<p class="is-style-big_icon_check"><strong>キーワード：</strong>要点1文</p>
 <!-- wp:paragraph -->
 <p>（読者への次のアクション・投資判断への一言）</p>
@@ -780,9 +843,11 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ━━━━━━━━━━━━━━━━━━━━━━
 ・文体：ですます調（〜です・〜ます・〜ています）で統一する
 ・専門用語：初出時に（）内で説明（例：TPS（1秒あたりの処理件数））
-・数値：必ず具体的な数字を使う（「高速」→「最大65,000TPS」）
+・数値は、変動しない仕様・公式に確認できるデータだけを使う。価格、時価総額、手数料、順位など変動する数値は根拠なしに書かない
 ・マーカー：各段落に1〜2箇所
-・テキスト総量：2000〜2500文字
+・テキスト総量：1800〜2200文字。出力の途中終了を防ぐため、同じ内容を繰り返さない
+・赤・オレンジ系の注意cap-block（is-style-onborder_ttl2）は、実際の安全上・投資上の注意が必要な箇所で最大1個だけ使用する。目次や通常説明には使わない
+・cap-blockは記事全体で最大3個まで。各cap-blockの最後に必ず </div></div> と <!-- /wp:loos/cap-block --> を記述する
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info("  Pass1: 基礎知識 SWELLブロック本文生成中...")
@@ -791,7 +856,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
     # ── Pass 2: メタデータJSON生成 ────────────────────────────────────────
     logger.info("  Pass2: メタデータJSON生成中...")
     meta = _generate_meta_json(html_content, "基礎知識", "主要コインのTPS・時価総額・TVL比較")
-    meta["content"] = html_content
+    meta["content"] = normalize_swell_html(html_content)
     return meta
 
 
