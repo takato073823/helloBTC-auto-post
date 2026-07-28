@@ -29,6 +29,7 @@ def main():
     )
     updated = 0
     checked = 0
+    failed = 0
 
     for post in wp.get_published_posts_with_content():
         checked += 1
@@ -43,11 +44,16 @@ def main():
         if repaired == raw:
             continue
 
-        wp.update_post_content(post["id"], repaired)
-        updated += 1
-        logger.info("本文レイアウトを修正: %s", post.get("slug"))
+        try:
+            wp.update_post_content(post["id"], repaired)
+            updated += 1
+            logger.info("本文レイアウトを修正: %s", post.get("slug"))
+        except Exception as e:
+            # 一部の旧記事が壊れていても、他の記事の修正を中断させない。
+            failed += 1
+            logger.error("本文修正をスキップ: %s (%s)", post.get("slug"), e)
 
-    logger.info("レイアウト保守完了: 確認=%d件、修正=%d件", checked, updated)
+    logger.info("レイアウト保守完了: 確認=%d件、修正=%d件、保留=%d件", checked, updated, failed)
 
 
 if __name__ == "__main__":
