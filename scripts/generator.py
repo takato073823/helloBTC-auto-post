@@ -5,6 +5,11 @@ import anthropic
 import json
 import logging
 import io
+import re
+from difflib import SequenceMatcher
+from html import escape, unescape
+
+import requests
 
 
 def _repair_and_parse_json(text: str) -> dict:
@@ -71,6 +76,129 @@ except ImportError:
 
 SEO_ARTICLE_TYPES = ["コラム", "DeFi", "基礎知識", "取引所"]
 
+# 主要サービスは、記事生成AIの回答に依存せず公式ドメインを固定する。
+# ファビコンをロゴマークとして画像に合成するため、商標名を画像生成モデルに
+# 描かせず、文字化け・誤ったロゴを避けられる。
+KNOWN_BRAND_DOMAINS = {
+    "BitMart": "bitmart.com",
+    "Binance": "binance.com",
+    "Coinbase": "coinbase.com",
+    "Kraken": "kraken.com",
+    "OKX": "okx.com",
+    "Bybit": "bybit.com",
+    "BingX": "bingx.com",
+    "MEXC": "mexc.com",
+    "KuCoin": "kucoin.com",
+    "Gate.io": "gate.io",
+    "bitFlyer": "bitflyer.com",
+    "Coincheck": "coincheck.com",
+    "GMOコイン": "coin.z.com",
+    "SBI VCトレード": "sbivc.co.jp",
+    "楽天ウォレット": "wallet.rakuten.co.jp",
+    "MetaMask": "metamask.io",
+    "Ethereum": "ethereum.org",
+    "Solana": "solana.com",
+    "Ripple": "ripple.com",
+}
+
+_VOID_HTML_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+_BALANCED_HTML_TAGS = {"div", "p", "ul", "ol", "li", "dl", "dt", "dd", "figure", "table", "thead", "tbody", "tr", "th", "td", "span", "strong", "h2", "h3"}
+_HTML_TAG_RE = re.compile(r"</?([a-zA-Z][a-zA-Z0-9-]*)\b[^>]*>")
+
+
+def normalize_swell_html(content: str) -> str:
+    """生成HTMLの未閉鎖タグを補い、SWELLのボックス崩れを防ぐ。
+
+    LLMの出力が途中で終わると cap-block の ``div`` が閉じず、以降の本文全体が
+    色付きボックスとして描画される。投稿前に不足分を末尾へ補完する最後の安全網。
+    """
+    stack: list[str] = []
+    for match in _HTML_TAG_RE.finditer(content):
+        tag = match.group(0)
+        name = match.group(1).lower()
+        if name not in _BALANCED_HTML_TAGS:
+            continue
+        if tag.startswith("</"):
+            if name in stack:
+                # HTMLの慣用的な自動閉鎖と同じく、内側の未閉鎖要素を先に閉じる。
+                while stack and stack[-1] != name:
+                    stack.pop()
+                stack.pop()
+        elif not tag.rstrip().endswith("/>") and name not in _VOID_HTML_TAGS:
+            stack.append(name)
+
+    if not stack:
+        return content
+
+    logger.warning("未閉鎖HTMLタグを補完して投稿: %s", ", ".join(stack))
+    return content + "".join(f"</{name}>" for name in reversed(stack))
+
+
+def validate_swell_html(content: str) -> bool:
+    """SWELLボックスを含む記事に、未閉鎖の主要タグがないか判定する。"""
+    return normalize_swell_html(content) == content
+
+
+def prepend_lead_heading(content: str, article_title: str, lead_heading: str | None = None) -> str:
+    """本文の先頭に、投稿タイトルと同一ではない h2 を必ず置く。"""
+    proposed = re.sub(r"<[^>]+>", "", lead_heading or "")
+    proposed = re.sub(r"\s+", " ", unescape(proposed)).strip()
+    title_text = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", article_title))).strip()
+
+    # AIが投稿タイトルをそのまま返した場合でも、同じテキストを使わない。
+    if not proposed or proposed == title_text:
+        proposed = f"{title_text}を解説"
+
+    heading = f"<h2>{escape(proposed)}</h2>"
+    # AIが先頭に h2 を出力しても、投稿前に必ず上記の見出しへ統一する。
+    return re.sub(r"^\s*<h2\b[^>]*>.*?</h2>\s*", heading, content, count=1,
+                  flags=re.IGNORECASE | re.DOTALL) if re.match(
+                      r"^\s*<h2\b", content, flags=re.IGNORECASE
+                  ) else heading + content
+
+
+def _valid_logo_domain(domain: str | None) -> str | None:
+    """外部URL取得に使える、スキームを含まない正規ドメインだけを受け入れる。"""
+    if not domain:
+        return None
+    candidate = domain.strip().lower().removeprefix("https://").removeprefix("http://").split("/")[0]
+    return candidate if re.fullmatch(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9-]+)+", candidate) else None
+
+
+def resolve_logo_brand(title: str, tags: list[str] | None = None,
+                       logo_brand: str | None = None, logo_domain: str | None = None) -> tuple[str | None, str | None]:
+    """記事の中心となる組織のロゴ名・公式ドメインを決定する。"""
+    searchable = " ".join([title, *(tags or []), logo_brand or ""])
+    searchable_lower = searchable.lower()
+    for brand, domain in KNOWN_BRAND_DOMAINS.items():
+        if brand.lower() in searchable_lower:
+            return brand, domain
+
+    # 未登録の組織は、AIが明示した有効な公式ドメインがある場合だけ採用する。
+    # 推測によるロゴの取り違えを避けるため、ドメインが空ならロゴを載せない。
+    clean_domain = _valid_logo_domain(logo_domain)
+    clean_brand = re.sub(r"\s+", " ", (logo_brand or "")).strip()[:60] or None
+    return (clean_brand, clean_domain) if clean_brand and clean_domain else (None, None)
+
+
+def is_duplicate_seo_topic(primary_topic: str, title: str, existing_titles: list[str]) -> bool:
+    """同じ検索意図の記事を増やさないための公開前チェック。"""
+    def normalise(value: str) -> str:
+        plain = unescape(re.sub(r"<[^>]+>", "", value)).lower()
+        plain = re.sub(r"20\d{2}年?(最新|最新版)?", "", plain)
+        return re.sub(r"[\s　｜|・、】【（）()!?！？，、:：\-ー]", "", plain)
+
+    topic = primary_topic.strip().lower()
+    normalized_title = normalise(title)
+    for existing in existing_titles:
+        normalized_existing = normalise(existing)
+        similar = SequenceMatcher(None, normalized_title, normalized_existing).ratio()
+        same_topic = len(topic) >= 3 and topic in existing.lower()
+        if similar >= 0.62 or (same_topic and similar >= 0.42):
+            logger.warning("類似SEO記事を検出: %s", unescape(existing))
+            return True
+    return False
+
 
 def generate_article(title, content, source_url, source_name, tweet_urls=None):
     """英語ニュースから SEO 最適化された日本語記事を生成"""
@@ -112,16 +240,21 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 6. コピペと判定されないよう、文章構成・表現・順序を元記事から大きく変える
 7. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
 8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
+9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
+10. 取引所・企業・財団など、記事の中心となる組織がある場合は、その組織名と公式サイトのドメインを指定する。公式サイトのドメインを確信できない場合は空文字にする
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
   "title": "SEO最適化された日本語タイトル（30〜60文字、数字や具体的な情報を含む）",
+  "lead_heading": "投稿タイトルとは少し表現を変えた、本文冒頭用の日本語h2見出し",
   "content": "<h3>具体的な見出し1</h3><p>本文...</p><h3>具体的な見出し2</h3><p>本文...</p><h3>具体的な見出し3</h3><p>本文...</p>",
   "excerpt": "記事の要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
   "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
+  "logo_brand": "記事の中心となる組織名。該当しなければ空文字",
+  "logo_domain": "logo_brandの公式サイトドメイン。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
 }}"""
 
@@ -141,7 +274,49 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
         raise
 
 
-def generate_featured_image(image_prompt, tags=None):
+def _fetch_brand_logo(domain: str):
+    """Google favicon service から組織のロゴマークを取得する。"""
+    response = requests.get(
+        "https://www.google.com/s2/favicons",
+        params={"domain": domain, "sz": 256},
+        headers={"User-Agent": "helloBTC image publisher/1.0"},
+        timeout=12,
+    )
+    response.raise_for_status()
+    from PIL import Image
+    return Image.open(io.BytesIO(response.content)).convert("RGBA")
+
+
+def _overlay_brand_logo(image_data: bytes, brand_name: str, brand_domain: str) -> bytes:
+    """生成済み画像の右上に公式ロゴマークをカード表示で合成する。"""
+    from PIL import Image, ImageDraw
+
+    image = Image.open(io.BytesIO(image_data)).convert("RGBA")
+    logo = _fetch_brand_logo(brand_domain)
+    logo.thumbnail((170, 170), Image.LANCZOS)
+    if logo.width < 12 or logo.height < 12:
+        raise ValueError("取得したロゴ画像が小さすぎます")
+
+    padding = 24
+    card_width = logo.width + padding * 2
+    card_height = logo.height + padding * 2
+    card = Image.new("RGBA", (card_width, card_height), (255, 255, 255, 0))
+    draw = ImageDraw.Draw(card)
+    draw.rounded_rectangle(
+        (0, 0, card_width - 1, card_height - 1), radius=16,
+        fill=(255, 255, 255, 235), outline=(255, 255, 255, 255), width=2,
+    )
+    card.alpha_composite(logo, (padding, padding))
+    margin = 30
+    image.alpha_composite(card, (image.width - card_width - margin, margin))
+
+    output = io.BytesIO()
+    image.convert("RGB").save(output, format="JPEG", quality=92)
+    logger.info("アイキャッチに%sのロゴを追加", brand_name)
+    return output.getvalue()
+
+
+def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domain=None):
     """Gemini / Imagen を使ってアイキャッチ画像を生成（Google AI Studio 対応）"""
     import os
     from google import genai
@@ -208,7 +383,16 @@ def generate_featured_image(image_prompt, tags=None):
     output = io.BytesIO()
     img.save(output, format="JPEG", quality=92)
     logger.info("画像を1200×630にリサイズ完了")
-    return output.getvalue()
+    image_data = output.getvalue()
+
+    domain = _valid_logo_domain(logo_domain)
+    if logo_brand and domain:
+        try:
+            return _overlay_brand_logo(image_data, str(logo_brand), domain)
+        except Exception as e:
+            # ロゴ取得の一時失敗で、記事全体の公開を止めない。
+            logger.warning("%sのロゴ追加に失敗: %s", logo_brand, e)
+    return image_data
 
 
 def get_seo_article_type() -> str:
@@ -234,6 +418,9 @@ def _call_haiku(prompt: str, max_tokens: int = 8192) -> str:
         max_tokens=max_tokens,
         messages=[{"role": "user", "content": prompt}],
     )
+    if msg.stop_reason == "max_tokens":
+        # 途中で途切れたHTMLは、未閉鎖のSWELLボックスを生み表示を壊す。
+        raise RuntimeError("記事HTMLが出力上限で途中終了しました")
     text = msg.content[0].text.strip()
     # ```html や ``` などのコードブロックマーカーを除去
     import re as _re
@@ -252,6 +439,7 @@ def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -
 必ず以下のJSONのみ出力してください（前後にテキスト不要）:
 {{
   "title": "SEO最適化された日本語タイトル（35〜65文字、具体的な数字・年を含む）",
+  "primary_topic": "この記事が答える中心テーマ（例: Solana、暗号資産の税金）",
   "excerpt": "記事の要約（100〜150文字）",
   "slug": "article-topic-keyword（英語・ハイフン区切り・3〜5単語）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
@@ -308,7 +496,7 @@ def _generate_rich_article(article_type: str) -> dict:
 ・各H2セクションは「読者の疑問1つ」に完全に答えて完結する
 ・300〜400文字ごとに必ず視覚要素（テーブル・ステップ・ボックスのいずれか1つ）を挟む
 ・専門用語は初出時に必ず括弧で簡潔に説明する
-・数値・具体例を積極的に使う（「多い」ではなく「〇〇件以上」）
+・数値は、変動しない仕様・公式に確認できるデータだけを使う。価格、時価総額、手数料、順位など変動する数値は根拠なしに書かない
 ・段落は3〜5文で完結、1段落あたり100〜150文字を目安にする
 
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -414,7 +602,7 @@ def _generate_rich_article(article_type: str) -> dict:
    ・1段落目：読者の悩み・疑問を具体的に提示
    ・2段落目：この記事を読むと何が解決するかを明示
    ・3段落目（任意）：記事の信頼性・根拠への言及
-③ 目次ボックス（cap-block is-style-onborder_ttl2、タイトル「📋 目次」+ ordered list）
+③ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
 
 【本文：H2セクション × 4〜5個】
 各セクションのルール：
@@ -445,7 +633,7 @@ def _generate_rich_article(article_type: str) -> dict:
 <!-- wp:paragraph -->
 <p>本記事では〇〇について解説した。（記事の要旨を1〜2文で振り返る）</p>
 <!-- /wp:paragraph -->
-cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 5〜6個：
+cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 3個：
   各項目：<p class="is-style-big_icon_check"><strong>キーワード：</strong>1文の要点</p>
 <!-- wp:paragraph -->
 <p>（読者への次のアクション・締めの一文）</p>
@@ -464,9 +652,11 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ・文体：ですます調（〜です・〜ます・〜ています）で統一する
 ・1段落：3〜5文・100〜150文字を目安
 ・専門用語：初出時に必ず（）内で説明
-・数値：「多い」→「〇〇件以上」、「高い」→「〇〇%以上」など具体化
+・数値は、変動しない仕様・公式に確認できるデータだけを使う。価格、時価総額、手数料、順位など変動する数値は根拠なしに書かない
 ・マーカー：各段落に1〜2箇所、重要キーワードに使う
-・テキスト総量：2000〜2500文字（まとめを含む）
+・テキスト総量：1800〜2200文字（まとめを含む）。出力の途中終了を防ぐため、冗長な繰り返しは書かない
+・赤・オレンジ系の注意cap-block（is-style-onborder_ttl2）は、実際の安全上・投資上の注意が必要な箇所で最大1個だけ使用する。目次や通常説明には使わない
+・cap-blockは記事全体で最大3個まで。各cap-blockの最後に必ず </div></div> と <!-- /wp:loos/cap-block --> を記述する
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info(f"  Pass1: {article_type} SWELLブロック本文生成中...")
@@ -475,7 +665,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
     # ── Pass 2: メタデータJSON生成（小さいのでパース安定）────────────────
     logger.info(f"  Pass2: メタデータJSON生成中...")
     meta = _generate_meta_json(html_content, article_type, cfg["chart_hint"])
-    meta["content"] = html_content
+    meta["content"] = normalize_swell_html(html_content)
     return meta
 
 
@@ -601,7 +791,7 @@ Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon�
 ② リード文（段落 × 2〜3）
    ・1段落目：このコインへの関心・疑問を読者目線で提示
    ・2段落目：この記事で解決できることを明示
-③ 目次ボックス（cap-block is-style-onborder_ttl2、タイトル「📋 目次」+ ordered list）
+③ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
 
 【本文：H2セクション × 5個（各セクションのルールを必ず守る）】
 セクションルール：
@@ -634,7 +824,7 @@ S5「[コイン名]の将来性とリスク」
 <!-- wp:paragraph -->
 <p>本記事では[コイン名]の基本情報・仕組み・始め方・リスクについて解説した。</p>
 <!-- /wp:paragraph -->
-cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 5〜6個：
+cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」）内に big_icon_check × 3個：
   各項目：<p class="is-style-big_icon_check"><strong>キーワード：</strong>要点1文</p>
 <!-- wp:paragraph -->
 <p>（読者への次のアクション・投資判断への一言）</p>
@@ -653,9 +843,11 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ━━━━━━━━━━━━━━━━━━━━━━
 ・文体：ですます調（〜です・〜ます・〜ています）で統一する
 ・専門用語：初出時に（）内で説明（例：TPS（1秒あたりの処理件数））
-・数値：必ず具体的な数字を使う（「高速」→「最大65,000TPS」）
+・数値は、変動しない仕様・公式に確認できるデータだけを使う。価格、時価総額、手数料、順位など変動する数値は根拠なしに書かない
 ・マーカー：各段落に1〜2箇所
-・テキスト総量：2000〜2500文字
+・テキスト総量：1800〜2200文字。出力の途中終了を防ぐため、同じ内容を繰り返さない
+・赤・オレンジ系の注意cap-block（is-style-onborder_ttl2）は、実際の安全上・投資上の注意が必要な箇所で最大1個だけ使用する。目次や通常説明には使わない
+・cap-blockは記事全体で最大3個まで。各cap-blockの最後に必ず </div></div> と <!-- /wp:loos/cap-block --> を記述する
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info("  Pass1: 基礎知識 SWELLブロック本文生成中...")
@@ -664,7 +856,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
     # ── Pass 2: メタデータJSON生成 ────────────────────────────────────────
     logger.info("  Pass2: メタデータJSON生成中...")
     meta = _generate_meta_json(html_content, "基礎知識", "主要コインのTPS・時価総額・TVL比較")
-    meta["content"] = html_content
+    meta["content"] = normalize_swell_html(html_content)
     return meta
 
 

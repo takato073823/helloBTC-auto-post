@@ -87,6 +87,49 @@ class WordPressAPI:
         旧URL → 新URL の301リダイレクトを自動で行う。"""
         return self._request("POST", f"posts/{post_id}", json=fields)
 
+    def get_published_titles(self, per_page=100):
+        """公開済み記事のタイトルを取得する（類似テーマの重複投稿防止用）。"""
+        try:
+            posts = self._request(
+                "GET", "posts",
+                params={
+                    "per_page": min(per_page, 100),
+                    "status": "publish",
+                    "_fields": "title",
+                },
+            )
+            return [p.get("title", {}).get("rendered", "") for p in posts]
+        except Exception as e:
+            logger.warning(f"公開済みタイトルの取得に失敗: {e}")
+            return []
+
+    def get_published_posts_with_content(self):
+        """公開済み記事をraw本文付きで全件取得する（保守作業専用）。"""
+        posts = []
+        page = 1
+        while True:
+            try:
+                batch = self._request(
+                    "GET", "posts",
+                    params={
+                        "per_page": 100,
+                        "page": page,
+                        "status": "publish",
+                        "context": "edit",
+                        "_fields": "id,slug,title,content",
+                    },
+                )
+            except Exception as e:
+                # 最終ページはWordPressが400を返す。1ページ目の失敗だけはログに残す。
+                if page == 1:
+                    logger.warning(f"公開済み本文の取得に失敗: {e}")
+                break
+            posts.extend(batch)
+            if len(batch) < 100:
+                break
+            page += 1
+        return posts
+
     def upload_media(self, image_data, filename="featured.jpg"):
         """画像を WordPress メディアライブラリにアップロードして (ID, URL) を返す"""
         upload_headers = {
@@ -153,7 +196,14 @@ class WordPressAPI:
             }
 
         schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
-        return f'<script type="application/ld+json">{schema_json}</script>\n'
+        # JSON-LD は Gutenberg のHTMLブロックとして保存する。生のscriptタグを
+        # 本文へ直接混ぜると、テーマのブロック解析が後続のSWELLボックスまで
+        # 巻き込んでレイアウトを崩すことがある。
+        return (
+            "<!-- wp:html -->\n"
+            f'<script type="application/ld+json">{schema_json}</script>\n'
+            "<!-- /wp:html -->\n"
+        )
 
     def post_article(self, title, content, excerpt, tags=None, category_id=None,
                      featured_media_id=None, status="publish", slug=None,
