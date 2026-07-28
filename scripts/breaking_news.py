@@ -18,7 +18,7 @@ import time
 
 import anthropic
 
-from generator import generate_featured_image
+from generator import generate_featured_image, prepend_lead_heading, resolve_logo_brand
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
 
@@ -53,6 +53,7 @@ def generate_breaking_article() -> dict:
     """
     return {
         "title": "BitMart、取引所事業を段階的に終了へ　8月26日に全取引停止",
+        "lead_heading": "BitMartが取引所事業を段階的に終了、8月26日に全取引を停止",
         "content": """<p>暗号資産取引所BitMart（ビットマート）は7月26日、取引プラットフォームの運営を段階的に終了すると発表した。すでに新規登録、入金、新規注文などの受付を順次停止しており、8月26日には現物・先物を含むすべての取引サービスを止める予定だ。プラットフォーム運営の正式終了は2027年1月31日15時59分（UTC、日本時間2月1日0時59分）とされている。</p>
 <p>同社は決定の背景について、事業運営の状況、市場環境、今後の戦略を総合的に検討した結果だと説明した。利用者にとっては、保有資産、未約定注文、先物ポジション、利用中の関連サービスを早めに確認する局面となる。</p>
 
@@ -82,6 +83,8 @@ def generate_breaking_article() -> dict:
         "tags": ["BitMart", "仮想通貨取引所", "暗号資産", "取引停止", "出金"],
         "slug": "bitmart-exchange-shutdown-2026",
         "image_prompt": "dark cryptocurrency exchange server room, muted blue monitors, cinematic news photography, no text, no people",
+        "logo_brand": "BitMart",
+        "logo_domain": "bitmart.com",
         "tweet_bullets": ["8月26日10時に全取引停止予定", "新規登録・入金・注文は順次停止", "出金・未決済ポジションを早めに確認"],
     }
 
@@ -103,17 +106,21 @@ def generate_breaking_article() -> dict:
 - パニックを煽らない。利用者に必要な確認事項を整理し、特定の売買や資産移転先を推奨しない（YMYL配慮）。
 - 「出金可能」と「出金申請を早めるよう推奨」は区別して記述する。公式発表にない理由、資産の安全性、具体的な出金期限を断定しない。
 - 見出しはh3タグ。本文中の重要ポイントは <div style="background:#fff3e0;border-left:4px solid #ff9800;padding:14px 18px;margin:20px 0;border-radius:4px;">…</div> の注意ボックスで強調してよい。
+- 本文の最上部には、投稿タイトルと意味は同じだが表現を少し変えた h2 見出しを置く。投稿タイトルをそのままコピーしない。
 - 記事の最後に出典注記を入れる: <p style="font-size:0.85em;color:#888;">{SOURCES_NOTE}</p>
 - さらに末尾に: <p style="font-size:0.85em;color:#888;">※本記事は情報提供を目的としたものであり、特定の暗号資産の売買を推奨するものではありません。投資は自己責任で、余裕資金の範囲内で行ってください。</p>
 
 必ず以下のJSONのみ出力（前後に余計なテキスト不要）:
 {{
   "title": "SEO最適化された日本語タイトル（35〜60文字、具体的・数字を含む。例: ビットコイン6万ドル割れ…）",
+  "lead_heading": "投稿タイトルと表現を少し変えた、本文最上部用の日本語h2見出し",
   "content": "<HTML記事本文>",
   "excerpt": "記事の要約（100〜150文字、絵文字や記号は使わない）",
   "tags": ["BitMart","仮想通貨取引所","暗号資産","取引停止","出金"],
   "slug": "bitmart-exchange-shutdown-2026",
   "image_prompt": "英語の画像生成プロンプト（暗い取引所サーバールームと暗号資産取引画面を連想させる抽象的・報道写真風。テキストや人物は含めない）",
+  "logo_brand": "BitMart",
+  "logo_domain": "bitmart.com",
   "tweet_bullets": ["要点1（20字前後）","要点2","要点3"]
 }}"""
 
@@ -152,6 +159,13 @@ def main():
     logger.info("速報記事を生成中...")
     article = generate_breaking_article()
     logger.info(f"生成タイトル: {article['title']}")
+    article["content"] = prepend_lead_heading(
+        article["content"], article["title"], article.get("lead_heading")
+    )
+    logo_brand, logo_domain = resolve_logo_brand(
+        article["title"], article.get("tags"),
+        article.get("logo_brand"), article.get("logo_domain"),
+    )
 
     # アイキャッチ画像（失敗しても公開は続行）
     featured_media_id = None
@@ -160,6 +174,8 @@ def main():
         img = generate_featured_image(
             image_prompt=article.get("image_prompt", "falling red cryptocurrency price chart, dramatic market crash, dark"),
             tags=article.get("tags", []),
+            logo_brand=logo_brand,
+            logo_domain=logo_domain,
         )
         featured_media_id, featured_image_url = wp.upload_media(
             img, filename=f"breaking-{int(time.time())}.jpg"

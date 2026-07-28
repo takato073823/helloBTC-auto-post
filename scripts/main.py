@@ -13,6 +13,7 @@ from scraper import get_latest_articles, fetch_article_content, fetch_tweet_embe
 from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
+    prepend_lead_heading, resolve_logo_brand,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -106,7 +107,15 @@ def main():
             # 未置換のプレースホルダーを除去
             import re as _re
             article_content = _re.sub(r"\{TWEET_\d+\}", "", article_content)
-            generated["content"] = article_content
+            # 投稿タイトルのコピーではない h2 を、本文の最上部に必ず置く。
+            generated["content"] = prepend_lead_heading(
+                article_content, generated["title"], generated.get("lead_heading")
+            )
+
+            logo_brand, logo_domain = resolve_logo_brand(
+                generated["title"], generated.get("tags"),
+                generated.get("logo_brand"), generated.get("logo_domain"),
+            )
 
             # アイキャッチ画像を生成してアップロード
             featured_media_id = None
@@ -115,6 +124,8 @@ def main():
                 image_data = generate_featured_image(
                     image_prompt=generated.get("image_prompt", ""),
                     tags=generated.get("tags", []),
+                    logo_brand=logo_brand,
+                    logo_domain=logo_domain,
                 )
                 featured_media_id, featured_image_url = wp.upload_media(
                     image_data, filename=f"featured-{int(time.time())}.jpg"

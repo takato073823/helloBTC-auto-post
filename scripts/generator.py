@@ -5,6 +5,10 @@ import anthropic
 import json
 import logging
 import io
+import re
+from html import escape, unescape
+
+import requests
 
 
 def _repair_and_parse_json(text: str) -> dict:
@@ -71,6 +75,73 @@ except ImportError:
 
 SEO_ARTICLE_TYPES = ["コラム", "DeFi", "基礎知識", "取引所"]
 
+# 主要サービスは、記事生成AIの回答に依存せず公式ドメインを固定する。
+# ファビコンをロゴマークとして画像に合成するため、商標名を画像生成モデルに
+# 描かせず、文字化け・誤ったロゴを避けられる。
+KNOWN_BRAND_DOMAINS = {
+    "BitMart": "bitmart.com",
+    "Binance": "binance.com",
+    "Coinbase": "coinbase.com",
+    "Kraken": "kraken.com",
+    "OKX": "okx.com",
+    "Bybit": "bybit.com",
+    "BingX": "bingx.com",
+    "MEXC": "mexc.com",
+    "KuCoin": "kucoin.com",
+    "Gate.io": "gate.io",
+    "bitFlyer": "bitflyer.com",
+    "Coincheck": "coincheck.com",
+    "GMOコイン": "coin.z.com",
+    "SBI VCトレード": "sbivc.co.jp",
+    "楽天ウォレット": "wallet.rakuten.co.jp",
+    "MetaMask": "metamask.io",
+    "Ethereum": "ethereum.org",
+    "Solana": "solana.com",
+    "Ripple": "ripple.com",
+}
+
+
+def prepend_lead_heading(content: str, article_title: str, lead_heading: str | None = None) -> str:
+    """本文の先頭に、投稿タイトルと同一ではない h2 を必ず置く。"""
+    proposed = re.sub(r"<[^>]+>", "", lead_heading or "")
+    proposed = re.sub(r"\s+", " ", unescape(proposed)).strip()
+    title_text = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", article_title))).strip()
+
+    # AIが投稿タイトルをそのまま返した場合でも、同じテキストを使わない。
+    if not proposed or proposed == title_text:
+        proposed = f"{title_text}を解説"
+
+    heading = f"<h2>{escape(proposed)}</h2>"
+    # AIが先頭に h2 を出力しても、投稿前に必ず上記の見出しへ統一する。
+    return re.sub(r"^\s*<h2\b[^>]*>.*?</h2>\s*", heading, content, count=1,
+                  flags=re.IGNORECASE | re.DOTALL) if re.match(
+                      r"^\s*<h2\b", content, flags=re.IGNORECASE
+                  ) else heading + content
+
+
+def _valid_logo_domain(domain: str | None) -> str | None:
+    """外部URL取得に使える、スキームを含まない正規ドメインだけを受け入れる。"""
+    if not domain:
+        return None
+    candidate = domain.strip().lower().removeprefix("https://").removeprefix("http://").split("/")[0]
+    return candidate if re.fullmatch(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9-]+)+", candidate) else None
+
+
+def resolve_logo_brand(title: str, tags: list[str] | None = None,
+                       logo_brand: str | None = None, logo_domain: str | None = None) -> tuple[str | None, str | None]:
+    """記事の中心となる組織のロゴ名・公式ドメインを決定する。"""
+    searchable = " ".join([title, *(tags or []), logo_brand or ""])
+    searchable_lower = searchable.lower()
+    for brand, domain in KNOWN_BRAND_DOMAINS.items():
+        if brand.lower() in searchable_lower:
+            return brand, domain
+
+    # 未登録の組織は、AIが明示した有効な公式ドメインがある場合だけ採用する。
+    # 推測によるロゴの取り違えを避けるため、ドメインが空ならロゴを載せない。
+    clean_domain = _valid_logo_domain(logo_domain)
+    clean_brand = re.sub(r"\s+", " ", (logo_brand or "")).strip()[:60] or None
+    return (clean_brand, clean_domain) if clean_brand and clean_domain else (None, None)
+
 
 def generate_article(title, content, source_url, source_name, tweet_urls=None):
     """英語ニュースから SEO 最適化された日本語記事を生成"""
@@ -112,16 +183,21 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 6. コピペと判定されないよう、文章構成・表現・順序を元記事から大きく変える
 7. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
 8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
+9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
+10. 取引所・企業・財団など、記事の中心となる組織がある場合は、その組織名と公式サイトのドメインを指定する。公式サイトのドメインを確信できない場合は空文字にする
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
   "title": "SEO最適化された日本語タイトル（30〜60文字、数字や具体的な情報を含む）",
+  "lead_heading": "投稿タイトルとは少し表現を変えた、本文冒頭用の日本語h2見出し",
   "content": "<h3>具体的な見出し1</h3><p>本文...</p><h3>具体的な見出し2</h3><p>本文...</p><h3>具体的な見出し3</h3><p>本文...</p>",
   "excerpt": "記事の要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
   "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
+  "logo_brand": "記事の中心となる組織名。該当しなければ空文字",
+  "logo_domain": "logo_brandの公式サイトドメイン。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
 }}"""
 
@@ -141,7 +217,49 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
         raise
 
 
-def generate_featured_image(image_prompt, tags=None):
+def _fetch_brand_logo(domain: str):
+    """Google favicon service から組織のロゴマークを取得する。"""
+    response = requests.get(
+        "https://www.google.com/s2/favicons",
+        params={"domain": domain, "sz": 256},
+        headers={"User-Agent": "helloBTC image publisher/1.0"},
+        timeout=12,
+    )
+    response.raise_for_status()
+    from PIL import Image
+    return Image.open(io.BytesIO(response.content)).convert("RGBA")
+
+
+def _overlay_brand_logo(image_data: bytes, brand_name: str, brand_domain: str) -> bytes:
+    """生成済み画像の右上に公式ロゴマークをカード表示で合成する。"""
+    from PIL import Image, ImageDraw
+
+    image = Image.open(io.BytesIO(image_data)).convert("RGBA")
+    logo = _fetch_brand_logo(brand_domain)
+    logo.thumbnail((170, 170), Image.LANCZOS)
+    if logo.width < 12 or logo.height < 12:
+        raise ValueError("取得したロゴ画像が小さすぎます")
+
+    padding = 24
+    card_width = logo.width + padding * 2
+    card_height = logo.height + padding * 2
+    card = Image.new("RGBA", (card_width, card_height), (255, 255, 255, 0))
+    draw = ImageDraw.Draw(card)
+    draw.rounded_rectangle(
+        (0, 0, card_width - 1, card_height - 1), radius=16,
+        fill=(255, 255, 255, 235), outline=(255, 255, 255, 255), width=2,
+    )
+    card.alpha_composite(logo, (padding, padding))
+    margin = 30
+    image.alpha_composite(card, (image.width - card_width - margin, margin))
+
+    output = io.BytesIO()
+    image.convert("RGB").save(output, format="JPEG", quality=92)
+    logger.info("アイキャッチに%sのロゴを追加", brand_name)
+    return output.getvalue()
+
+
+def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domain=None):
     """Gemini / Imagen を使ってアイキャッチ画像を生成（Google AI Studio 対応）"""
     import os
     from google import genai
@@ -208,7 +326,16 @@ def generate_featured_image(image_prompt, tags=None):
     output = io.BytesIO()
     img.save(output, format="JPEG", quality=92)
     logger.info("画像を1200×630にリサイズ完了")
-    return output.getvalue()
+    image_data = output.getvalue()
+
+    domain = _valid_logo_domain(logo_domain)
+    if logo_brand and domain:
+        try:
+            return _overlay_brand_logo(image_data, str(logo_brand), domain)
+        except Exception as e:
+            # ロゴ取得の一時失敗で、記事全体の公開を止めない。
+            logger.warning("%sのロゴ追加に失敗: %s", logo_brand, e)
+    return image_data
 
 
 def get_seo_article_type() -> str:
