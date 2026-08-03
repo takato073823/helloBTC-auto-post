@@ -4,7 +4,7 @@ BingX IB特化 SEO記事 完全自動生成
 18トピックを順番に1日1記事公開し、IB報酬の流入を最大化する。
 
 - 公開ページ → Playwright スクリーンショット
-- ログイン必須ページ → Imagen 概念イメージ
+- ログイン必須ページ → ローカル概念イメージ（追加API費用なし）
 - 全記事に招待コード XXCCJX の CTAボックスを挿入
 - bingx_posted_topics.json で投稿済みを管理（全完了後は最初に戻る）
 """
@@ -19,7 +19,6 @@ import sys
 import time
 from pathlib import Path
 
-import anthropic
 from PIL import Image
 from playwright.async_api import TimeoutError as PlaywrightTimeout
 from playwright.async_api import async_playwright
@@ -27,6 +26,8 @@ from playwright.async_api import async_playwright
 sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
+from llm_client import generate_json
+from local_images import create_editorial_image
 
 logging.basicConfig(
     level=logging.INFO,
@@ -66,14 +67,14 @@ SOURCE_BOX = (
 )
 
 # 地域制限(米国IP)・URL変更により bingx.com のライブ撮影は失敗し、
-# 「Access prohibited」や404画面を撮ってしまうため無効化。Imagen概念画像のみ使う。
+# 「Access prohibited」や404画面を撮ってしまうため無効化。ローカル概念画像のみ使う。
 USE_LIVE_SCREENSHOTS = False
 
 # ---------------------------------------------------------------------------
 # 18 トピック定義
 # ---------------------------------------------------------------------------
 # screenshot_pages: 公開URLがあればPlaywrightで撮影
-# imagen_prompts  : Imagenで生成する概念イメージ（featured含む）
+# imagen_prompts  : ローカルで生成する概念イメージ（featured含む）
 # type            : tutorial | review | comparison | guide
 # ---------------------------------------------------------------------------
 
@@ -1074,7 +1075,7 @@ async def _take_screenshot(browser, sc_cfg: dict) -> bytes | None:
 
 async def capture_screenshots(pages: list) -> dict[str, bytes | None]:
     if not USE_LIVE_SCREENSHOTS:
-        logger.info("  ライブ撮影は無効（地域制限対策）。Imagen概念画像のみ使用します。")
+        logger.info("  ライブ撮影は無効（地域制限対策）。ローカル概念画像のみ使用します。")
         return {}
     if not pages:
         return {}
@@ -1091,33 +1092,16 @@ async def capture_screenshots(pages: list) -> dict[str, bytes | None]:
 
 
 # ---------------------------------------------------------------------------
-# Imagen 画像生成
+# ローカル画像生成
 # ---------------------------------------------------------------------------
 
 def generate_imagen(prompt: str) -> bytes | None:
     try:
-        from google import genai
-        from google.genai import types
-
-        full = (
-            f"{prompt}. "
-            "Photojournalism Reuters style, muted cool tones, professional lighting. "
-            "No text, no people, no faces, no brand logos, no watermarks."
-        )
-        client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
-        resp = client.models.generate_images(
-            model="imagen-4.0-fast-generate-001",
-            prompt=full,
-            config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
-        )
-        raw = resp.generated_images[0].image.image_bytes
-        img = Image.open(io.BytesIO(raw)).resize((1200, 675), Image.LANCZOS)
-        out = io.BytesIO()
-        img.save(out, format="JPEG", quality=90)
-        logger.info("  ✓ imagen generated")
-        return out.getvalue()
+        result = create_editorial_image(prompt, width=1200, height=675)
+        logger.info("  ✓ ローカル画像を生成（API費用なし）")
+        return result
     except Exception as e:
-        logger.warning(f"  ✗ imagen failed: {e}")
+        logger.warning(f"  ✗ ローカル画像生成に失敗: {e}")
         return None
 
 
@@ -1129,7 +1113,7 @@ def resize_jpeg(raw: bytes) -> bytes:
 
 
 # ---------------------------------------------------------------------------
-# Claude 記事生成
+# OpenAI 記事生成
 # ---------------------------------------------------------------------------
 
 _TYPE_INSTRUCTIONS = {
@@ -1139,10 +1123,31 @@ _TYPE_INSTRUCTIONS = {
     "guide":    "解説ガイド記事。見出しごとに情報を整理し、初心者でも理解できるよう専門用語には説明を添える。",
 }
 
+BINGX_ARTICLE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "content": {"type": "string"},
+        "excerpt": {"type": "string"},
+        "faq": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "q": {"type": "string"},
+                    "a": {"type": "string"},
+                },
+                "required": ["q", "a"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["title", "content", "excerpt", "faq"],
+    "additionalProperties": False,
+}
+
 
 def generate_article(topic: dict, image_keys: list[str], avoid_titles: list[str] | None = None) -> dict:
-    client = anthropic.Anthropic()
-
     img_placeholders = "\n".join(
         f"- {{{{IMG_{k.upper()}}}}}: 対応する画像を配置" for k in image_keys
     )
@@ -1206,27 +1211,12 @@ def generate_article(topic: dict, image_keys: list[str], avoid_titles: list[str]
 }}
 ※ faq は実際にユーザーが検索する自然な疑問文を3〜5個。回答は事実ベースで具体的に。"""
 
-    last_err: Exception | None = None
-    for attempt in range(1, 4):  # 最大3回リトライ
-        resp = client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=8192,  # 1800〜2500字のHTML記事はJSON込みで4096を超えるため余裕を持たせる
-            messages=[{"role": "user", "content": prompt}],
-        )
-        # トークン上限で途中打ち切り → JSONが壊れるので作り直す
-        if resp.stop_reason == "max_tokens":
-            last_err = ValueError("レスポンスがmax_tokensで打ち切られました")
-            logger.warning(f"  記事生成リトライ {attempt}/3: {last_err}")
-            continue
-
-        text = resp.content[0].text.strip()
-        try:
-            return _parse_article_json(text)
-        except (json.JSONDecodeError, ValueError) as e:
-            last_err = e
-            logger.warning(f"  記事生成リトライ {attempt}/3: JSONパース失敗 ({e})")
-
-    raise RuntimeError(f"記事生成に3回失敗しました: {last_err}")
+    return generate_json(
+        prompt,
+        schema_name="bingx_seo_article",
+        schema=BINGX_ARTICLE_SCHEMA,
+        max_output_tokens=8192,
+    )
 
 
 def _parse_article_json(text: str) -> dict:
@@ -1286,8 +1276,8 @@ async def main():
     logger.info("[1/5] Playwright スクリーンショット...")
     screenshots = await capture_screenshots(topic["screenshot_pages"])
 
-    # 2. Imagen 画像
-    logger.info("[2/5] Imagen 画像生成...")
+    # 2. ローカル画像
+    logger.info("[2/5] ローカル画像生成...")
     imagen_images = {}
     for i, prompt in enumerate(topic["imagen_prompts"]):
         key = f"img{i+1}"
@@ -1335,7 +1325,7 @@ async def main():
     logger.info(f"  利用可能: {available_keys}")
 
     # 4. 記事生成（重複タイトル回避）
-    logger.info("[4/5] Claude 記事生成...")
+    logger.info("[4/5] OpenAI 記事生成...")
     existing_titles = fetch_existing_titles(wp)
     article = generate_article(topic, available_keys, avoid_titles=existing_titles)
 

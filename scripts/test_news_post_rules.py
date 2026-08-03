@@ -1,10 +1,5 @@
 """ニュース投稿の恒常ルールに対する軽量テスト。"""
-import os
 import unittest
-
-# generator.py はクライアント初期化時にキーの存在を確認するため、API呼び出しを
-# 行わないこのテストではダミー値を与える。
-os.environ.setdefault("ANTHROPIC_API_KEY", "test-key-not-used")
 
 from generator import (
     is_duplicate_seo_topic, normalize_swell_html, prepend_lead_heading, resolve_logo_brand,

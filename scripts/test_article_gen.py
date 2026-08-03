@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 記事生成テスト（WordPress投稿なし・HTMLプレビューのみ）
-使い方: ANTHROPIC_API_KEY=xxx python3 test_article_gen.py [基礎知識|コラム|DeFi|取引所]
+使い方: OPENAI_API_KEY=xxx python3 test_article_gen.py [基礎知識|コラム|DeFi|取引所]
 """
 import json
 import sys
@@ -9,12 +9,12 @@ import os
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-PLACEHOLDER_IMG  = '<div style="background:#e0e0e0;padding:40px;text-align:center;border-radius:6px;color:#999;margin:16px 0;font-size:0.9em;">📷 画像（本番ではImagenで生成）</div>'
+PLACEHOLDER_IMG  = '<div style="background:#e0e0e0;padding:40px;text-align:center;border-radius:6px;color:#999;margin:16px 0;font-size:0.9em;">📷 画像（本番では無料のローカル生成）</div>'
 PLACEHOLDER_CHART = '<div style="background:#e0e0e0;padding:40px;text-align:center;border-radius:6px;color:#999;margin:16px 0;font-size:0.9em;">📊 グラフ（本番ではmatplotlibで生成）</div>'
 
 def main():
     category = sys.argv[1] if len(sys.argv) > 1 else "基礎知識"
-    print(f"「{category}」カテゴリの記事を生成中... (Claude Haiku 4.5)")
+    print(f"「{category}」カテゴリの記事を生成中... (OpenAI gpt-5.6-luna)")
 
     from generator import generate_seo_article
     result = generate_seo_article(category)
@@ -111,7 +111,7 @@ def main():
 </head>
 <body>
 <p style="background:#fff3e0;padding:10px 16px;border-radius:4px;font-size:0.85em;color:#e65100;">
-  ℹ️ プレビュー表示 — カテゴリ: {category} | SWELLブロック記法 | 本番ではImagenとmatplotlibの画像が入ります
+  ℹ️ プレビュー表示 — カテゴリ: {category} | SWELLブロック記法 | 本番ではローカル生成とmatplotlibの画像が入ります
 </p>
 <h1>{result['title']}</h1>
 <p style="color:#888;font-size:0.88em;">タグ: {' / '.join(result.get('tags', []))}</p>

@@ -7,10 +7,6 @@ SWELLのcap-blockが閉じられないと、後続の本文が色付きボック
 import logging
 import os
 
-# このスクリプトはClaudeを呼び出さないが、generatorのクライアント初期化には
-# 環境変数が必要なため、未設定時だけダミー値を使う。
-os.environ.setdefault("ANTHROPIC_API_KEY", "not-used-by-layout-repair")
-
 from generator import normalize_swell_html, prepend_lead_heading
 from wp_poster import WordPressAPI
 

@@ -8,16 +8,16 @@
 
 ## 実装済み機能
 
-### 1. 記事自動生成（Claude Haiku 4.5）
+### 1. 記事自動生成（OpenAI gpt-5.6-luna）
 - 英語ニュース（CoinDesk / CoinTelegraph / Decrypt / The Block / Bitcoin Magazine）を RSS で取得
-- Claude Haiku 4.5 で日本語リライト
-- JSON 出力：title / content / excerpt / tags / slug / image_prompt / tweet_bullets
+- 低コスト・大量処理向けの gpt-5.6-luna で日本語リライト
+- Structured Outputs で title / content / excerpt / tags / slug / image_prompt / tweet_bullets の形式を固定
 - ツイート埋め込み（公式 X ポストの oEmbed HTML）対応
 
-### 2. アイキャッチ画像生成（Google Imagen 4 Fast）
-- スタイル：Reuters/フォトジャーナリズム風、85mm f/2.0 bokeh、muted cool tones
+### 2. アイキャッチ画像生成（Pillow・API費用なし）
+- GitHub Actions 内で暗号資産向けのチャート／ネットワーク画像を生成
 - サイズ：1200×630 px（OGP 最適）
-- フォールバック：imagen-4.0-generate-001 → gemini-flash-image
+- Google 画像APIを呼び出さないため、画像生成費は0円
 
 ### 3. WordPress 自動公開
 - REST API + Application Password 認証
@@ -72,8 +72,7 @@
 | `WP_URL` | WordPress サイト URL |
 | `WP_USERNAME` | WordPress ユーザー名 |
 | `WP_APP_PASSWORD` | WordPress アプリケーションパスワード |
-| `ANTHROPIC_API_KEY` | Claude API |
-| `GOOGLE_API_KEY` | Google Imagen API |
+| `OPENAI_API_KEY` | OpenAI API（記事生成） |
 | `X_API_KEY` | X API Key（Consumer Key） |
 | `X_API_KEY_SECRET` | X API Key Secret |
 | `X_ACCESS_TOKEN` | X Access Token |
@@ -88,7 +87,9 @@ helloBTC_自動記事投稿/
 ├── requirements.txt          # Python 依存パッケージ
 ├── scripts/
 │   ├── main.py               # メインスクリプト（ニュース記事）
-│   ├── generator.py          # Claude で記事・画像プロンプト生成
+│   ├── generator.py          # OpenAI で記事生成
+│   ├── llm_client.py         # OpenAI Responses API 共通処理
+│   ├── local_images.py       # 無料のローカル画像生成
 │   ├── scraper.py            # RSS・記事本文スクレイピング
 │   ├── wp_poster.py          # WordPress REST API 投稿
 │   ├── x_poster.py           # X（Twitter）自動投稿
@@ -101,21 +102,18 @@ helloBTC_自動記事投稿/
 
 ---
 
-## コスト試算（6記事/日）
+## コスト方針
 
-| サービス | 1日 | 1ヶ月 |
-|---|---|---|
-| Claude Haiku 4.5（記事生成） | ~$0.06 | ~$1.80 |
-| Google Imagen 4 Fast（画像生成） | ~$0.18 | ~$5.40 |
-| X API Pay Per Use（ツイート） | - | ~$6（概算） |
-| GitHub Actions | 無料 | 無料 |
-| **合計** | **~$0.24+** | **約$13（¥1,950）** |
+- 記事生成: gpt-5.6-luna（入力 $0.20 / 100万トークン、出力 $1.20 / 100万トークン）
+- 画像生成: $0（Pillowでローカル生成）
+- GitHub Actions: GitHub側の利用枠内で実行。PCの起動は不要
+- X API: X側の契約・使用量による（別請求）
 
-※ コストの大半は Imagen（画像生成）。削減したい場合は画像生成頻度を下げることで対応可能。
+記事生成の実費は入出力トークン数による。記事数と長さが現状程度であれば、月数ドル以内を目安に運用し、OpenAIの使用上限も設定する。
 
 ---
 
-## 動作確認済み（2026-06-11）
+## 動作確認済み（2026-08-03 更新）
 
 - WordPress 記事公開 ✅
 - 英語スラッグ生成 ✅

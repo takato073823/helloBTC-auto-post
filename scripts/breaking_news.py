@@ -2,23 +2,21 @@
 """
 速報記事の単発公開スクリプト（手動トリガー専用）
 
-検証済みのファクトだけを Claude に渡して日本語ニュース記事を生成し、
+検証済みのファクトだけを OpenAI に渡して日本語ニュース記事を生成し、
 ニュースと同じ導線（アイキャッチ生成 → WordPress 公開 → X 投稿）で公開する。
 数値・固有名詞のハルシネーションを防ぐため、本文の事実は FACTS のみを根拠にする。
 
 使い方:
-  RUN_MODE 不要。環境変数（WP_*, ANTHROPIC_API_KEY, GOOGLE_API_KEY, X_*）を
+  RUN_MODE 不要。環境変数（WP_*, OPENAI_API_KEY, X_*）を
   設定した上で `python breaking_news.py` を実行（GitHub Actions の workflow_dispatch 経由）。
 """
-import json
 import logging
 import os
 import re
 import time
 
-import anthropic
-
 from generator import generate_featured_image, prepend_lead_heading, resolve_logo_brand
+from llm_client import generate_json
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
 
@@ -31,6 +29,27 @@ logger = logging.getLogger(__name__)
 # 本文の数値・固有名詞はこの範囲のみを根拠とする（推測の数値を足さない）。
 # ---------------------------------------------------------------------------
 HEADLINE = "Bitget、日本居住者向けサービス終了へ　11月から段階的に制限"
+
+BREAKING_ARTICLE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "lead_heading": {"type": "string"},
+        "content": {"type": "string"},
+        "excerpt": {"type": "string"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "slug": {"type": "string"},
+        "image_prompt": {"type": "string"},
+        "logo_brand": {"type": "string"},
+        "logo_domain": {"type": "string"},
+        "tweet_bullets": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": [
+        "title", "lead_heading", "content", "excerpt", "tags", "slug",
+        "image_prompt", "logo_brand", "logo_domain", "tweet_bullets",
+    ],
+    "additionalProperties": False,
+}
 
 FACTS = """
 - Bitgetは2026年8月3日、日本の規制遵守に向けた継続的な取り組みの一環として、日本居住者へのサービス提供を終了すると発表した。
@@ -130,8 +149,6 @@ def generate_breaking_article() -> dict:
         "tweet_bullets": ["8月26日10時に全取引停止予定", "新規登録・入金・注文は順次停止", "出金・未決済ポジションを早めに確認"],
     }
 
-    client = anthropic.Anthropic()
-
     prompt = f"""あなたはSEOに強い仮想通貨専門の日本人ニュースライターです。helloBTC向けに「BitMartの取引プラットフォーム終了」の速報記事を作成してください。
 
 【記事の骨子（見出し相当）】
@@ -166,29 +183,12 @@ def generate_breaking_article() -> dict:
   "tweet_bullets": ["要点1（20字前後）","要点2","要点3"]
 }}"""
 
-    last_err = None
-    for attempt in range(1, 4):
-        resp = client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=8192,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        if resp.stop_reason == "max_tokens":
-            last_err = "max_tokensで打ち切り"
-            logger.warning(f"  リトライ {attempt}/3: {last_err}")
-            continue
-        text = resp.content[0].text.strip()
-        start, end = text.find("{"), text.rfind("}") + 1
-        if start == -1 or end <= start:
-            last_err = "JSONが見つからない"
-            logger.warning(f"  リトライ {attempt}/3: {last_err}")
-            continue
-        try:
-            return json.loads(text[start:end])
-        except json.JSONDecodeError as e:
-            last_err = e
-            logger.warning(f"  リトライ {attempt}/3: JSONパース失敗 ({e})")
-    raise RuntimeError(f"記事生成に3回失敗: {last_err}")
+    return generate_json(
+        prompt,
+        schema_name="breaking_news_article",
+        schema=BREAKING_ARTICLE_SCHEMA,
+        max_output_tokens=8192,
+    )
 
 
 def main():

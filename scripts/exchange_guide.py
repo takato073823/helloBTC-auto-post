@@ -2,8 +2,8 @@
 """
 取引所登録ガイド記事の完全自動生成
   1. Playwright   → 公開ページのスクリーンショット
-  2. Imagen       → KYC / 入金 / セキュリティの概念イメージ
-  3. Claude Haiku → 記事テキスト生成（画像プレースホルダー付き）
+  2. Pillow       → KYC / 入金 / セキュリティの概念イメージ
+  3. OpenAI       → 記事テキスト生成（画像プレースホルダー付き）
   4. WordPress    → 画像アップロード → 記事投稿
   5. X            → 自動ツイート
 
@@ -12,14 +12,12 @@
 
 import asyncio
 import io
-import json
 import logging
 import os
 import re
 import sys
 from pathlib import Path
 
-import anthropic
 import requests
 from PIL import Image
 from playwright.async_api import TimeoutError as PlaywrightTimeout
@@ -28,6 +26,8 @@ from playwright.async_api import async_playwright
 sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
+from llm_client import generate_json
+from local_images import create_editorial_image
 
 logging.basicConfig(
     level=logging.INFO,
@@ -83,7 +83,7 @@ EXCHANGE_CONFIGS: dict = {
                 "wait_ms": 6000,
             },
         ],
-        # Imagen で生成する概念イメージ（ログイン必須ページの代替）
+        # ローカル生成する概念イメージ（ログイン必須ページの代替）
         "imagen_screenshots": [
             {
                 "key": "kyc",
@@ -351,33 +351,16 @@ async def capture_public_screenshots(exchange_config: dict) -> dict[str, bytes |
 
 
 # ---------------------------------------------------------------------------
-# Imagen 画像生成
+# ローカル画像生成
 # ---------------------------------------------------------------------------
 
 def generate_imagen_image(prompt: str) -> bytes | None:
     try:
-        from google import genai
-        from google.genai import types
-
-        full_prompt = (
-            f"{prompt}. "
-            "Photojournalism Reuters style, muted cool tones, professional lighting. "
-            "No text, no people, no faces, no brand logos, no watermarks."
-        )
-        client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
-        response = client.models.generate_images(
-            model="imagen-4.0-fast-generate-001",
-            prompt=full_prompt,
-            config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
-        )
-        raw = response.generated_images[0].image.image_bytes
-        img = Image.open(io.BytesIO(raw)).resize((1200, 675), Image.LANCZOS)
-        out = io.BytesIO()
-        img.save(out, format="JPEG", quality=90)
-        logger.info(f"  ✓ imagen: {len(out.getvalue()):,} bytes")
-        return out.getvalue()
+        result = create_editorial_image(prompt, width=1200, height=675)
+        logger.info(f"  ✓ ローカル画像: {len(result):,} bytes（API費用なし）")
+        return result
     except Exception as e:
-        logger.warning(f"  ✗ imagen failed: {e}")
+        logger.warning(f"  ✗ ローカル画像生成失敗: {e}")
         return None
 
 
@@ -393,11 +376,21 @@ def resize_to_1200x675(raw: bytes) -> bytes:
 
 
 # ---------------------------------------------------------------------------
-# Claude 記事生成
+# OpenAI 記事生成
 # ---------------------------------------------------------------------------
 
+EXCHANGE_ARTICLE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "content": {"type": "string"},
+        "excerpt": {"type": "string"},
+    },
+    "required": ["title", "content", "excerpt"],
+    "additionalProperties": False,
+}
+
 def generate_article_text(exchange_config: dict, available_keys: list[str]) -> dict:
-    client = anthropic.Anthropic()
     name = exchange_config["name"]
     invite_code = exchange_config["invite_code"]
     invite_url = exchange_config["invite_url"]
@@ -460,18 +453,12 @@ def generate_article_text(exchange_config: dict, available_keys: list[str]) -> d
   "excerpt": "記事の要約（100〜150文字）"
 }}"""
 
-    response = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
+    return generate_json(
+        prompt,
+        schema_name="exchange_guide_article",
+        schema=EXCHANGE_ARTICLE_SCHEMA,
+        max_output_tokens=4096,
     )
-
-    text = response.content[0].text.strip()
-    start = text.find("{")
-    end = text.rfind("}") + 1
-    if start == -1 or end <= start:
-        raise ValueError(f"JSON が見つかりません: {text[:200]}")
-    return json.loads(text[start:end])
 
 
 # ---------------------------------------------------------------------------
@@ -497,8 +484,8 @@ async def main():
     logger.info("[1/5] Playwright でスクリーンショット取得...")
     screenshots = await capture_public_screenshots(config)
 
-    # 2. Imagen 画像生成
-    logger.info("[2/5] Imagen で概念イメージを生成...")
+    # 2. ローカル画像生成
+    logger.info("[2/5] 追加API費用なしで概念イメージを生成...")
     imagen_images: dict[str, tuple[bytes | None, str]] = {}
     for img_cfg in config["imagen_screenshots"]:
         imagen_images[img_cfg["key"]] = (
@@ -538,7 +525,7 @@ async def main():
     logger.info(f"  利用可能な画像: {available_keys}")
 
     # 4. 記事テキスト生成
-    logger.info("[4/5] Claude で記事テキストを生成...")
+    logger.info("[4/5] OpenAI で記事テキストを生成...")
     article = generate_article_text(config, available_keys)
 
     # プレースホルダーを <img> タグに置換

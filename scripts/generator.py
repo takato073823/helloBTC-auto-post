@@ -1,7 +1,4 @@
-"""
-Claude API を使って日本語 SEO 記事を生成する
-"""
-import anthropic
+"""OpenAI API を使って日本語 SEO 記事を生成する。"""
 import json
 import logging
 import io
@@ -10,6 +7,9 @@ from difflib import SequenceMatcher
 from html import escape, unescape
 
 import requests
+
+from llm_client import generate_json, generate_text
+from local_images import create_editorial_image
 
 
 def _repair_and_parse_json(text: str) -> dict:
@@ -58,7 +58,6 @@ def _repair_and_parse_json(text: str) -> dict:
         ) from e
 
 logger = logging.getLogger(__name__)
-client = anthropic.Anthropic()
 
 # matplotlib は SEO 記事のグラフ生成にのみ使用（未インストール時はスキップ）
 _matplotlib_available = False
@@ -75,6 +74,64 @@ except ImportError:
     pass
 
 SEO_ARTICLE_TYPES = ["コラム", "DeFi", "基礎知識", "取引所"]
+
+NEWS_ARTICLE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "lead_heading": {"type": "string"},
+        "content": {"type": "string"},
+        "excerpt": {"type": "string"},
+        "meta_description": {"type": "string"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "slug": {"type": "string"},
+        "image_prompt": {"type": "string"},
+        "logo_brand": {"type": "string"},
+        "logo_domain": {"type": "string"},
+        "tweet_bullets": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": [
+        "title", "lead_heading", "content", "excerpt", "meta_description",
+        "tags", "slug", "image_prompt", "logo_brand", "logo_domain",
+        "tweet_bullets",
+    ],
+    "additionalProperties": False,
+}
+
+SEO_METADATA_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "primary_topic": {"type": "string"},
+        "excerpt": {"type": "string"},
+        "slug": {"type": "string"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "tweet_bullets": {"type": "array", "items": {"type": "string"}},
+        "featured_image_prompt": {"type": "string"},
+        "article_image_prompts": {
+            "type": "array",
+            "items": {"type": "string"},
+        },
+        "chart": {
+            "type": "object",
+            "properties": {
+                "type": {"type": "string"},
+                "title": {"type": "string"},
+                "labels": {"type": "array", "items": {"type": "string"}},
+                "values": {"type": "array", "items": {"type": "number"}},
+                "unit": {"type": "string"},
+                "caption": {"type": "string"},
+            },
+            "required": ["type", "title", "labels", "values", "unit", "caption"],
+            "additionalProperties": False,
+        },
+    },
+    "required": [
+        "title", "primary_topic", "excerpt", "slug", "tags", "tweet_bullets",
+        "featured_image_prompt", "article_image_prompts", "chart",
+    ],
+    "additionalProperties": False,
+}
 
 # 主要サービスは、記事生成AIの回答に依存せず公式ドメインを固定する。
 # ファビコンをロゴマークとして画像に合成するため、商標名を画像生成モデルに
@@ -259,20 +316,12 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
 }}"""
 
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=2048,
-        messages=[{"role": "user", "content": prompt}],
+    return generate_json(
+        prompt,
+        schema_name="news_article",
+        schema=NEWS_ARTICLE_SCHEMA,
+        max_output_tokens=2048,
     )
-
-    response_text = message.content[0].text.strip()
-
-    # JSON 部分を抽出・修復してパース
-    try:
-        return _repair_and_parse_json(response_text)
-    except (ValueError, json.JSONDecodeError) as e:
-        logger.error(f"JSON パースエラー: {e}\nレスポンス: {response_text[:500]}")
-        raise
 
 
 def _fetch_brand_logo(domain: str):
@@ -349,73 +398,12 @@ def _overlay_brand_logo(image_data: bytes, brand_name: str, brand_domain: str) -
 
 
 def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domain=None):
-    """Gemini / Imagen を使ってアイキャッチ画像を生成（Google AI Studio 対応）"""
-    import os
-    from google import genai
-    from google.genai import types
-
-    from PIL import Image
-
-    api_key = os.environ["GOOGLE_API_KEY"]
-    base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
-    full_prompt = (
-        f"{base_prompt}. "
-        "Photojournalism, Reuters news photography style. "
-        "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
-        "Professional studio lighting or natural window light, realistic textures and materials. "
-        "Muted color grading, slightly desaturated, cool tones. "
-        "Sharp focus on subject, news magazine quality, high resolution. "
-        "No text, no watermark, no people, no faces, no logos."
+    """GitHub runner上で、追加API費用なしのアイキャッチ画像を生成する。"""
+    seed = " | ".join(
+        part for part in [image_prompt or "bitcoin market", " ".join(tags or [])] if part
     )
-
-    client = genai.Client(api_key=api_key)
-
-    image_models = [
-        ("imagen-4.0-fast-generate-001", "imagen"),
-        ("imagen-4.0-generate-001", "imagen"),
-        ("gemini-2.5-flash-image", "gemini"),
-        ("gemini-3.1-flash-image", "gemini"),
-    ]
-
-    raw_bytes = None
-    for model_name, model_type in image_models:
-        try:
-            logger.info(f"アイキャッチ画像を生成中（{model_name}）...")
-            if model_type == "imagen":
-                response = client.models.generate_images(
-                    model=model_name,
-                    prompt=full_prompt,
-                    config=types.GenerateImagesConfig(
-                        number_of_images=1,
-                        aspect_ratio="4:3",
-                    ),
-                )
-                raw_bytes = response.generated_images[0].image.image_bytes
-            else:
-                response = client.models.generate_content(
-                    model=model_name,
-                    contents=full_prompt,
-                    config=types.GenerateContentConfig(response_modalities=["IMAGE"]),
-                )
-                for part in response.candidates[0].content.parts:
-                    if part.inline_data is not None:
-                        raw_bytes = part.inline_data.data
-            if raw_bytes:
-                break
-        except Exception as e:
-            logger.warning(f"{model_name} 失敗: {e}")
-            continue
-
-    if not raw_bytes:
-        raise ValueError("利用可能な画像生成モデルが見つかりません")
-
-    # 1200×630 にリサイズ
-    img = Image.open(io.BytesIO(raw_bytes))
-    img = img.resize((1200, 630), Image.LANCZOS)
-    output = io.BytesIO()
-    img.save(output, format="JPEG", quality=92)
-    logger.info("画像を1200×630にリサイズ完了")
-    image_data = output.getvalue()
+    image_data = create_editorial_image(seed, width=1200, height=630)
+    logger.info("ローカルアイキャッチ画像を生成しました（API費用なし）")
 
     domain = _valid_logo_domain(logo_domain)
     if logo_brand and domain:
@@ -437,23 +425,15 @@ def get_seo_article_type() -> str:
 
 
 def generate_seo_article(article_type: str) -> dict:
-    """SEO強化記事を Claude Haiku で生成する（カテゴリ: コラム/DeFi/基礎知識/取引所）"""
+    """SEO強化記事を低コストOpenAIモデルで生成する。"""
     if article_type == "基礎知識":
         return _generate_kiso_article()
     return _generate_rich_article(article_type)
 
 
-def _call_haiku(prompt: str, max_tokens: int = 8192) -> str:
-    """Claude Haiku 4.5 を呼び出してテキストを返す。コードブロックマーカーを除去する。"""
-    msg = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=max_tokens,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    if msg.stop_reason == "max_tokens":
-        # 途中で途切れたHTMLは、未閉鎖のSWELLボックスを生み表示を壊す。
-        raise RuntimeError("記事HTMLが出力上限で途中終了しました")
-    text = msg.content[0].text.strip()
+def _call_llm(prompt: str, max_tokens: int = 8192) -> str:
+    """OpenAIを呼び出してテキストを返し、コードブロックマーカーを除去する。"""
+    text = generate_text(prompt, max_output_tokens=max_tokens)
     # ```html や ``` などのコードブロックマーカーを除去
     import re as _re
     text = _re.sub(r"^```[a-zA-Z]*\n?", "", text)
@@ -490,8 +470,12 @@ def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -
     "caption": "※数値は概算・参考値です（2026年時点）"
   }}
 }}"""
-    raw = _call_haiku(prompt, max_tokens=1024)
-    return _repair_and_parse_json(raw)
+    return generate_json(
+        prompt,
+        schema_name="seo_metadata",
+        schema=SEO_METADATA_SCHEMA,
+        max_output_tokens=1024,
+    )
 
 
 def _generate_rich_article(article_type: str) -> dict:
@@ -692,7 +676,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info(f"  Pass1: {article_type} SWELLブロック本文生成中...")
-    html_content = _call_haiku(html_prompt, max_tokens=8192)
+    html_content = _call_llm(html_prompt, max_tokens=8192)
 
     # ── Pass 2: メタデータJSON生成（小さいのでパース安定）────────────────
     logger.info(f"  Pass2: メタデータJSON生成中...")
@@ -883,7 +867,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
 
     logger.info("  Pass1: 基礎知識 SWELLブロック本文生成中...")
-    html_content = _call_haiku(html_prompt, max_tokens=8192)
+    html_content = _call_llm(html_prompt, max_tokens=8192)
 
     # ── Pass 2: メタデータJSON生成 ────────────────────────────────────────
     logger.info("  Pass2: メタデータJSON生成中...")

@@ -50,7 +50,7 @@ def main():
     wp_url = os.environ["WP_URL"]
     wp_username = os.environ["WP_USERNAME"]
     wp_app_password = os.environ["WP_APP_PASSWORD"]
-    # ANTHROPIC_API_KEY は anthropic ライブラリが自動で読み込む
+    # OPENAI_API_KEY は記事生成時に使用する。
 
     wp = WordPressAPI(wp_url, wp_username, wp_app_password)
     posted_urls = load_posted_urls()
@@ -69,6 +69,7 @@ def main():
         return
 
     posted_count = 0
+    failure_count = 0
     for article in new_articles:
         if posted_count >= ARTICLES_PER_RUN:
             break
@@ -88,7 +89,7 @@ def main():
                 posted_urls.add(url)  # 再試行しないようにスキップ済みとして記録
                 continue
 
-            # Claude で日本語記事を生成
+            # OpenAI で日本語記事を生成
             logger.info("記事を生成中...")
             generated = generate_article(
                 title=title,
@@ -166,10 +167,16 @@ def main():
             time.sleep(2)  # API レート制限対策
 
         except Exception as e:
+            failure_count += 1
             logger.error(f"処理失敗 ({url}): {e}")
             continue
 
     logger.info(f"完了。今回 {posted_count} 件投稿しました。")
+    if posted_count == 0 and failure_count > 0:
+        raise RuntimeError(
+            f"未投稿のまま {failure_count} 件の処理が失敗しました。"
+            "GitHub Actionsのログを確認してください。"
+        )
 
 
 def _make_img_html(media_url: str, alt: str = "", media_id: int = 0) -> str:
@@ -286,7 +293,7 @@ def run_seo_article():
         featured_image_url=featured_image_url,
         article_section=article_type,
     )
-    logger.info(f"SEO記事を公開しました: {result.get('link', '')}")
+    logger.info(f"SEO記事を下書き保存しました: {result.get('link', '')}")
 
 
 if __name__ == "__main__":
