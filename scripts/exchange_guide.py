@@ -40,13 +40,13 @@ logger = logging.getLogger(__name__)
 EXCHANGE_CONFIGS: dict = {
     "bingx": {
         "name": "BingX",
-        "invite_code": "XXCCJX",
-        "invite_url": "https://bingxdao.com/invite/XXCCJX/",
+        "invite_code": "FIKYOA",
+        "invite_url": "https://bingxdao.com/invite/FIKYOA/",
         "category": "取引所",
         "slug": "bingx-registration-guide",
         "tags": ["BingX", "仮想通貨取引所", "コピートレード", "口座開設", "先物取引"],
         "tweet_bullets": [
-            "招待コードXXCCJXで手数料割引特典",
+            "招待コードFIKYOAで手数料割引特典",
             "コピートレードで初心者でも運用可能",
             "600銘柄以上・完全日本語対応",
         ],
@@ -54,14 +54,14 @@ EXCHANGE_CONFIGS: dict = {
         "public_screenshots": [
             {
                 "key": "top",
-                "url": "https://bingxdao.com/invite/XXCCJX/",
+                "url": "https://bingxdao.com/invite/FIKYOA/",
                 "description": "BingX招待ページ・トップ画面",
                 "viewport": {"width": 1280, "height": 800},
                 "wait_ms": 4000,
             },
             {
                 "key": "register",
-                "url": "https://bingx.com/en-us/account/register/?ref=XXCCJX",
+                "url": "https://bingxdao.com/invite/FIKYOA/",
                 "description": "BingX新規登録フォーム",
                 "viewport": {"width": 1280, "height": 800},
                 "wait_ms": 4000,

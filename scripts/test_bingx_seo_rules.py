@@ -10,6 +10,7 @@ from pathlib import Path
 
 SOURCE_PATH = Path(__file__).with_name("bingx_seo.py")
 SOURCE = SOURCE_PATH.read_text(encoding="utf-8")
+EXCHANGE_GUIDE_SOURCE = Path(__file__).with_name("exchange_guide.py").read_text(encoding="utf-8")
 
 
 class _Logger:
@@ -112,6 +113,14 @@ class BingxSeoRulesTests(unittest.TestCase):
             all(isinstance(topic["source_box"], ast.Name) and topic["source_box"].id == "BITGET_MIGRATION_SOURCE_BOX"
                 for topic in bitget_topics)
         )
+
+    def test_bingx_invite_code_and_url_are_consistent(self):
+        expected_url = "https://bingxdao.com/invite/FIKYOA/"
+        self.assertIn('INVITE_CODE = "FIKYOA"', SOURCE)
+        self.assertIn(f'INVITE_URL  = "{expected_url}"', SOURCE)
+        self.assertIn(expected_url, EXCHANGE_GUIDE_SOURCE)
+        self.assertIn("招待コードFIKYOA", EXCHANGE_GUIDE_SOURCE)
+        self.assertNotIn("XXCCJX", SOURCE + EXCHANGE_GUIDE_SOURCE)
 
 
 if __name__ == "__main__":
