@@ -1,0 +1,56 @@
+name: 既存記事のアイキャッチ再生成（手動）
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_slug:
+        description: WordPress記事のスラッグ
+        required: true
+        type: string
+      image_prompt:
+        description: Google画像生成用の英語プロンプト
+        required: true
+        type: string
+      image_tags:
+        description: カンマ区切りの関連タグ
+        required: false
+        type: string
+      logo_brand:
+        description: 合成するロゴのブランド名
+        required: false
+        type: string
+      logo_domain:
+        description: 公式ロゴ取得用ドメイン
+        required: false
+        type: string
+
+jobs:
+  replace-featured-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: アイキャッチを生成して差し替え
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          POST_SLUG: ${{ inputs.post_slug }}
+          IMAGE_PROMPT: ${{ inputs.image_prompt }}
+          IMAGE_TAGS: ${{ inputs.image_tags }}
+          LOGO_BRAND: ${{ inputs.logo_brand }}
+          LOGO_DOMAIN: ${{ inputs.logo_domain }}
+        working-directory: scripts
+        run: python replace_featured_image.py
