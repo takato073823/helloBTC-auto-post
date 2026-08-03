@@ -33,8 +33,8 @@ logger = logging.getLogger(__name__)
 
 POSTED_FILE = Path(__file__).parent / "bingx_posted_topics.json"
 
-INVITE_CODE = "XXCCJX"
-INVITE_URL  = "https://bingxdao.com/invite/XXCCJX/"
+INVITE_CODE = "FIKYOA"
+INVITE_URL  = "https://bingxdao.com/invite/FIKYOA/"
 
 AFFILIATE_BOX = (
     '<div style="background:#fff8e1;border-left:5px solid #f7931a;'
@@ -248,7 +248,7 @@ TOPICS = [
         ),
         "tweet_bullets": ["コピートレードの評判が特に高い", "手数料の安さは国内外トップクラス", "日本語サポートあり・初心者向け"],
         "screenshot_pages": [
-            {"key": "top", "url": "https://bingxdao.com/invite/XXCCJX/", "description": "BingXトップページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
+            {"key": "top", "url": "https://bingxdao.com/invite/FIKYOA/", "description": "BingXトップページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
         ],
         "imagen_prompts": [
             "five star rating review concept on dark background, golden stars glowing",
@@ -346,7 +346,7 @@ TOPICS = [
         ),
         "tweet_bullets": [f"招待コード{INVITE_CODE}で特典GET", "新規登録で最大○○ドルのボーナス", "入金額に応じた追加ボーナスあり"],
         "screenshot_pages": [
-            {"key": "invite", "url": "https://bingxdao.com/invite/XXCCJX/", "description": "BingX招待・特典ページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
+            {"key": "invite", "url": "https://bingxdao.com/invite/FIKYOA/", "description": "BingX招待・特典ページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
         ],
         "imagen_prompts": [
             "gift box with glowing golden coins, bonus reward concept, dark background",
@@ -452,7 +452,7 @@ TOPICS = [
         ),
         "tweet_bullets": ["登録〜初取引まで最短30分", "初心者はコピートレードがおすすめ", "日本語完全対応で安心して使える"],
         "screenshot_pages": [
-            {"key": "top", "url": "https://bingxdao.com/invite/XXCCJX/", "description": "BingX招待・登録トップ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
+            {"key": "top", "url": "https://bingxdao.com/invite/FIKYOA/", "description": "BingX招待・登録トップ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
             {"key": "copy_top", "url": "https://bingx.com/en-us/copyTrade/", "description": "コピートレード画面", "viewport": {"width": 1440, "height": 900}, "wait_ms": 6000},
         ],
         "imagen_prompts": [
@@ -572,7 +572,7 @@ TOPICS = [
         ),
         "tweet_bullets": [f"招待コードは登録画面で{INVITE_CODE}を入力", "後からの追加は原則不可・登録時に必ず入力", "入力で手数料割引＆ボーナスが適用"],
         "screenshot_pages": [
-            {"key": "invite", "url": "https://bingxdao.com/invite/XXCCJX/", "description": "BingX招待コード入力ページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
+            {"key": "invite", "url": "https://bingxdao.com/invite/FIKYOA/", "description": "BingX招待コード入力ページ", "viewport": {"width": 1280, "height": 800}, "wait_ms": 4000},
         ],
         "imagen_prompts": [
             "referral code input box highlighted on registration screen, glowing field, dark UI",
