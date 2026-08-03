@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-"""
-BingX IB特化 SEO記事 完全自動生成
-18トピックを順番に1日1記事公開し、IB報酬の流入を最大化する。
+"""BingX関連の解説記事を、重複を避けて順番に生成・公開する。
 
-- 公開ページ → Playwright スクリーンショット
-- ログイン必須ページ → Imagen 概念イメージ
-- 全記事に招待コード XXCCJX の CTAボックスを挿入
-- bingx_posted_topics.json で投稿済みを管理（全完了後は最初に戻る）
+記事は広告・PRであることを明示し、日本居住者の利用可否・登録状況・
+居住地制限を公式情報で確認するよう案内する。全テーマの公開後に同じURLを
+再投稿することはせず、新しいテーマの追加または既存記事の更新を待つ。
 """
 
 import asyncio
@@ -42,10 +39,11 @@ INVITE_URL  = "https://bingxdao.com/invite/XXCCJX/"
 AFFILIATE_BOX = (
     '<div style="background:#fff8e1;border-left:5px solid #f7931a;'
     'padding:18px 22px;margin:28px 0;border-radius:6px;">'
-    "<strong>🎁 BingX 招待特典</strong><br>"
+    '<small>広告・PR</small><br>'
+    "<strong>BingX 招待プログラム</strong><br>"
     f"招待コード：<strong>{INVITE_CODE}</strong><br>"
     f'▶ <a href="{INVITE_URL}" target="_blank" rel="nofollow noopener">'
-    "こちらから登録する（特典・手数料割引が自動適用）</a></div>"
+    "登録ページで現在の対象地域・特典条件を確認する</a></div>"
 )
 
 INFO_BOX_OPEN  = '<div style="background:#e8f5e9;border-left:4px solid #4caf50;padding:14px 18px;margin:20px 0;border-radius:4px;">'
@@ -62,6 +60,28 @@ SOURCE_BOX = (
     '<li><a href="https://bingxservice.zendesk.com/hc/ja" target="_blank" rel="nofollow noopener">'
     "BingX公式ヘルプセンター（日本語）</a></li>"
     "</ul></div>"
+)
+
+BITGET_MIGRATION_SOURCE_BOX = (
+    '<div style="background:#f5f7fa;border:1px solid #e0e0e0;'
+    'padding:14px 18px;margin:24px 0;border-radius:6px;font-size:0.9em;">'
+    "<strong>参考・出典</strong>"
+    '<ul style="margin:8px 0 0;padding-left:1.2em;">'
+    '<li><a href="https://www.bitget.com/ja/support/articles/12560603890270" target="_blank" rel="nofollow noopener">'
+    "Bitget公式：日本居住者への重要なお知らせ</a></li>"
+    '<li><a href="https://www.bitget.com/ja/support/articles/12560603890271" target="_blank" rel="nofollow noopener">'
+    "Bitget公式：日本居住者向けFAQ</a></li>"
+    '<li><a href="https://www.fsa.go.jp/menkyo/menkyoj/kasoutuka.pdf" target="_blank" rel="noopener">'
+    "金融庁：暗号資産交換業者登録一覧</a></li>"
+    "</ul></div>"
+)
+
+JAPAN_RESIDENT_NOTICE = (
+    '<p class="hellobtc-japan-resident-notice"><strong>日本居住者の方へ：</strong>'
+    '本記事は広告・PRを含む情報提供であり、特定の取引所の利用を勧めるものではない。'
+    '海外取引所の利用可否・居住地制限・登録状況・手数料・出金条件は変わり得るため、'
+    '<a href="https://www.fsa.go.jp/menkyo/menkyoj/kasoutuka.pdf" target="_blank" rel="noopener">金融庁の登録一覧</a>'
+    'と各事業者の公式規約を確認したうえで判断すること。</p>'
 )
 
 # 地域制限(米国IP)・URL変更により bingx.com のライブ撮影は失敗し、
@@ -283,7 +303,7 @@ TOPICS = [
             "BingX vs Bybit を徹底比較する記事。"
             "比較項目：手数料・取扱銘柄数・コピートレード機能・セキュリティ・日本語対応・初心者のしやすさ。"
             "比較表（HTMLのtableタグ）を必ず入れる。"
-            "最後に「どんな人にBingXが向いているか」でBingXを推奨する結論にする。"
+            "最後に、利用目的ごとの確認項目を整理する。BingX・Bybitのいずれかを一律に推奨しない。"
         ),
         "tweet_bullets": ["コピートレードはBingXが使いやすい", "手数料はBingXがわずかに有利", "日本語対応は両取引所ともに充実"],
         "screenshot_pages": [
@@ -303,7 +323,7 @@ TOPICS = [
             "BingX vs Binance を比較する記事。"
             "比較項目：手数料・取扱銘柄数・コピートレード有無・UI/UXのわかりやすさ・日本語対応・最低入金額。"
             "比較表（HTMLのtableタグ）を必ず入れる。"
-            "Binanceは規模で大きいが、コピートレードと使いやすさでBingXを推奨する結論にする。"
+            "各項目の確認方法と利用目的ごとの留意点を整理する。BingX・Binanceのいずれかを一律に推奨しない。"
         ),
         "tweet_bullets": ["Binanceは銘柄数最多だが複雑", "BingXのコピートレードは初心者に最適", "手数料はほぼ同水準で拮抗"],
         "screenshot_pages": [],
@@ -427,8 +447,8 @@ TOPICS = [
         "article_guide": (
             "BingX初心者向け完全ガイド。"
             "「BingXとは何か」から「口座開設→本人確認→入金→最初の取引」まで一気通貫で解説する。"
-            "初心者には現物取引かコピートレードから始めることを推奨する。"
-            "よくある疑問（日本から使える？安全？出金できる？）もQ&A形式で答える。"
+            "初めて取引する場合の少額テスト・リスク管理・公式規約の確認を解説する。"
+            "よくある疑問（利用条件・出金・本人確認）は、断定せず公式情報の確認方法を示す。"
         ),
         "tweet_bullets": ["登録〜初取引まで最短30分", "初心者はコピートレードがおすすめ", "日本語完全対応で安心して使える"],
         "screenshot_pages": [
@@ -450,9 +470,9 @@ TOPICS = [
         "type": "guide",
         "article_guide": (
             "「BingXは日本人が使っても違法ではないのか・安全なのか」という不安に答える記事。"
-            "海外取引所を日本居住者が利用すること自体は違法ではない点（金融庁の登録有無との関係を正確に説明）、"
-            "利用上の自己責任・税務申告の義務、日本語対応状況、出金実績やセキュリティ面から見た安全性を解説する。"
-            "結論として「ルールを理解して使えば問題ない」と安心材料を提示する。"
+            "法的評価や利用可否を本文だけで断定せず、金融庁の登録一覧、利用規約、居住地制限を確認する手順を示す。"
+            "利用上の自己責任・税務申告・カストディや出金に伴うリスクを解説し、必要に応じて専門家へ相談するよう案内する。"
+            "結論は、個別の取引所を勧めず、公式情報を確認したうえで判断することとする。"
         ),
         "tweet_bullets": ["海外取引所の利用自体は違法ではない", "日本語対応で初心者でも安心", "税務申告の義務だけは要注意"],
         "screenshot_pages": [],
@@ -765,6 +785,71 @@ TOPICS = [
             "calculator and tax documents with crypto coins, accounting concept, dark desk",
         ],
     },
+    # 日本居住者向けの確認・比較ニーズ。Bitgetの利用条件変更を機に検索され得る
+    # テーマだが、BingXへの移行を事実として扱ったり、利用を推奨したりしない。
+    {
+        "id": "japan-terms-check",
+        "keyword": "BingX 日本居住者 利用条件 確認",
+        "slug": "bingx-japan-resident-terms-check",
+        "tags": ["BingX", "日本居住者", "利用条件", "暗号資産取引所", "注意点"],
+        "type": "guide",
+        "article_guide": (
+            "日本居住者がBingXを検討する前に確認すべき項目を、公式規約・本人確認・"
+            "居住地制限・入出金条件・金融庁の登録一覧という観点で整理する。"
+            "利用できる、合法、安全と断定しない。BingXの登録状況は閲覧時点の金融庁資料と"
+            "公式情報で必ず確認するよう案内し、国内の登録業者も比較対象になり得ることを説明する。"
+        ),
+        "tweet_bullets": ["利用可否は居住地・公式規約で確認", "登録状況と出金条件を事前に確認", "送金前は少額テストを行う"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "cryptocurrency exchange terms checklist on a laptop screen, Japanese city at night, calm editorial style, no logos, no text",
+            "secure crypto wallet transfer preparation, checklist and shield icon, dark blue background, no logos, no text",
+        ],
+    },
+    {
+        "id": "bitget-asset-checklist",
+        "keyword": "Bitget 出金 資産移動 確認項目 BingX",
+        "slug": "bitget-asset-transfer-checklist-bingx",
+        "tags": ["Bitget", "BingX", "出金", "資産移動", "仮想通貨取引所"],
+        "type": "guide",
+        "include_affiliate_cta": False,
+        "source_box": BITGET_MIGRATION_SOURCE_BOX,
+        "article_guide": (
+            "Bitgetの日本居住者向け公式案内を確認するための資産移動チェックリストを作る。"
+            "出金期限・対象サービス・本人確認・送金先アドレス・ネットワーク・少額テスト・"
+            "取引履歴の保存を、公式告知への確認導線とともに説明する。"
+            "BingXは送金先候補の一例として触れるに留め、公式な移行先・推奨先と表現しない。"
+            "出金期限や利用可否など変動する事実は本文で断定せず、公式告知を確認するよう案内する。"
+        ),
+        "tweet_bullets": ["まずBitget公式告知で対象・期限を確認", "送金先とネットワークを二重確認", "初回は少額テストから進める"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "cryptocurrency asset transfer checklist with secure wallet and verification steps, professional editorial style, no logos, no text",
+            "blockchain transfer route between wallets with shield icon, dark blue financial technology concept, no logos, no text",
+        ],
+    },
+    {
+        "id": "bitget-alternative-check",
+        "keyword": "Bitget 代替 取引所 比較 BingX 日本居住者",
+        "slug": "bitget-alternatives-bingx-checklist",
+        "tags": ["Bitget", "BingX", "取引所比較", "日本居住者", "暗号資産"],
+        "type": "comparison",
+        "include_affiliate_cta": False,
+        "source_box": BITGET_MIGRATION_SOURCE_BOX,
+        "article_guide": (
+            "Bitgetの利用条件変更を受けて取引所を比較する際の確認項目を解説する。"
+            "国内の登録業者、海外取引所、自己管理ウォレットという選択肢を分け、"
+            "登録状況・居住地制限・取扱資産・送金・手数料・カストディリスクを中立に比較する。"
+            "BingXは海外取引所の一例として扱うだけで、Bitget利用者が移行している、"
+            "またはBingXが安全な後継先であるとは書かない。"
+        ),
+        "tweet_bullets": ["比較前に金融庁の登録一覧を確認", "利用条件と出金先を個別に確認", "特定の取引所を一律に推奨しない"],
+        "screenshot_pages": [],
+        "imagen_prompts": [
+            "neutral cryptocurrency exchange comparison checklist, multiple generic exchange panels, Japanese editorial style, no brand logos, no text",
+            "digital asset custody choices with wallet and exchange icons, balanced neutral infographic style, no logos, no text",
+        ],
+    },
 ]
 
 # ---------------------------------------------------------------------------
@@ -819,6 +904,10 @@ CLUSTER_ANCHORS = {
     "tradingview-guide": "BingX×TradingViewで自動売買するやり方",
     "wealth-guide":      "BingXのWealth/Earn・デュアル投資で利息を得る方法",
     "tax-tool":          "BingXの取引履歴ダウンロードと損益計算の手順",
+    # 日本居住者向け確認・Bitget関連
+    "japan-terms-check": "BingXを検討する前の日本居住者向け確認項目",
+    "bitget-asset-checklist": "Bitgetからの資産移動で確認するチェックリスト",
+    "bitget-alternative-check": "Bitgetの代替候補を比較する際の確認項目",
 }
 
 # スラッグ → トピックid の逆引き
@@ -1001,6 +1090,27 @@ def build_faq_section_html(faq: list[dict]) -> str:
     )
 
 
+def insert_required_notice(content: str) -> str:
+    """広告・PRと日本居住者向け確認事項を、本文上部に一度だけ表示する。"""
+    if "hellobtc-japan-resident-notice" in content:
+        return content
+    first_paragraph = re.search(r"</p>", content, flags=re.IGNORECASE)
+    if first_paragraph:
+        return content[:first_paragraph.end()] + JAPAN_RESIDENT_NOTICE + content[first_paragraph.end():]
+    return JAPAN_RESIDENT_NOTICE + content
+
+
+def safe_tweet_bullets(topic: dict) -> list[str]:
+    """数値や優位性を断定しない、記事公開告知用の要点だけを返す。"""
+    if topic["id"].startswith("bitget-"):
+        return topic["tweet_bullets"]
+    return [
+        "利用条件・対象地域は公式情報で確認",
+        "送金・出金前に手数料とネットワークを確認",
+        "暗号資産取引には価格変動などのリスクがある",
+    ]
+
+
 # ---------------------------------------------------------------------------
 # 投稿済みトピック管理
 # ---------------------------------------------------------------------------
@@ -1015,16 +1125,35 @@ def save_posted_ids(ids: list):
     POSTED_FILE.write_text(json.dumps(ids, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def pick_next_topic() -> dict:
-    """未投稿トピックを順番に返す。全完了なら最初に戻す。"""
+def pick_next_topic(existing_slugs: set[str] | None = None) -> dict | None:
+    """未公開のテーマを順番に返す。
+
+    既に同じスラッグの記事があるテーマは投稿済みとして記録し、全テーマを
+    消化した後は ``None`` を返す。同じURLでの記事再投稿を防ぐため、リセットは
+    行わない。
+    """
+    existing_slugs = existing_slugs or set()
     posted = load_posted_ids()
+    posted_set = set(posted)
+    changed = False
+
     for topic in TOPICS:
-        if topic["id"] not in posted:
-            return topic
-    # 全部完了 → リセットして最初から
-    logger.info("全トピック投稿済み。リセットして再開します。")
-    save_posted_ids([])
-    return TOPICS[0]
+        if topic["id"] in posted_set:
+            continue
+        if topic["slug"] in existing_slugs:
+            logger.info("既存スラッグのためスキップ: %s", topic["slug"])
+            posted.append(topic["id"])
+            posted_set.add(topic["id"])
+            changed = True
+            continue
+        if changed:
+            save_posted_ids(posted)
+        return topic
+
+    if changed:
+        save_posted_ids(posted)
+    logger.info("未公開のBingXテーマはありません。新しいテーマの追加または既存記事の更新を待ちます。")
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -1129,7 +1258,7 @@ def resize_jpeg(raw: bytes) -> bytes:
 _TYPE_INSTRUCTIONS = {
     "tutorial": "手順解説記事。ステップ番号付きのol/ulリストを多用し、注意事項はinfoボックスで強調する。",
     "review":   "評判・レビュー記事。メリット・デメリットをリストアップし、総合評価で締める。客観的・公平な視点で書く。",
-    "comparison": "比較記事。HTMLのtableタグで比較表を作成し、最終的にBingXを推奨する結論にする。",
+    "comparison": "比較記事。HTMLのtableタグで比較表を作成し、用途・確認項目ごとの違いを中立に示す。特定の取引所を推奨する結論にしない。",
     "guide":    "解説ガイド記事。見出しごとに情報を整理し、初心者でも理解できるよう専門用語には説明を添える。",
 }
 
@@ -1173,6 +1302,18 @@ def generate_article(topic: dict, image_keys: list[str], avoid_titles: list[str]
     else:
         avoid_block = ""
 
+    if topic.get("include_affiliate_cta", True):
+        affiliate_block = (
+            "【広告・PR表記と招待プログラムHTML（リード文の末尾と記事末の2箇所に必ず挿入）】\n"
+            + AFFILIATE_BOX
+        )
+    else:
+        affiliate_block = (
+            "【広告・PR表記】\n"
+            "本文の冒頭に「本記事は広告・PRを含む」と明記する。"
+            "招待コード・登録リンク・登録を促すCTAは挿入しない。"
+        )
+
     prompt = f"""あなたはSEOに強い仮想通貨専門ライターです。helloBTC向けにBingXについての記事を作成してください。
 
 【記事テーマ】
@@ -1182,13 +1323,12 @@ def generate_article(topic: dict, image_keys: list[str], avoid_titles: list[str]
 
 【BingX 基本情報（記事中に必要に応じて活用）】
 - 招待コード: {INVITE_CODE} / 招待URL: {INVITE_URL}
-- 特徴: コピートレード・600銘柄以上・先物/現物・日本語対応・最大150倍レバレッジ
+- 機能・対応資産・手数料・対象地域・利用可否は変更され得る。断定せず、公式情報での確認を促す。
 
 【使用できる画像プレースホルダー（適切な位置に配置）】
 {img_placeholders if img_placeholders else "（画像なし）"}
 
-【アフィリエイトボックスHTML（リード文の末尾と記事末の2箇所に必ず挿入）】
-{AFFILIATE_BOX}
+{affiliate_block}
 
 【情報ボックスHTML（ポイント・注意事項に使用）】
 {INFO_BOX_OPEN}ここに内容{BOX_CLOSE}
@@ -1207,6 +1347,17 @@ def generate_article(topic: dict, image_keys: list[str], avoid_titles: list[str]
 - 見出し: 最初の見出しだけ<h2>タグ、それ以降の見出しはすべて<h3>タグにする（h2は記事内で1個だけ。残り3〜5個はh3）
 - 画像プレースホルダー: <figure>{{{{IMG_xxx}}}}</figure> 形式で配置
 - 末尾: <p style="font-size:0.85em;color:#888;">※仮想通貨への投資はリスクを伴います。余裕資金の範囲内で行ってください。</p>
+- 外部URLは生成・推測しない。公式URLは投稿処理で別途追加される。
+- 数値（手数料、レバレッジ、対応銘柄数、出金時間、特典額など）は、公式出典を本文内で確認できない限り、具体値で断定しない。
+
+【禁止表現】
+- 「Bitget利用者がBingXへ移行・乗り換えしている／増えている」といった、根拠のない利用動向の断定。
+- BingXをBitgetの公式移行先・推奨先・安全な後継先と表現すること。
+- BingXが金融庁登録済み、日本で認可済み、日本居住者が安全に使い続けられる、規制の影響を受けない、と断定すること。
+- 「必ず稼げる」「確実」「最適」「安全」といった保証・優位性の表現。
+- Bitgetの利用条件変更を利用した登録の煽り、期限を利用した登録の誘導。
+- 特典額、手数料割引、対応機能を根拠なしに保証すること。
+- 日本居住者向け記事では、金融庁の登録一覧と各事業者の公式規約・居住地制限を確認するよう必ず案内する。
 {avoid_block}
 必ず以下のJSONのみ出力（前後に余計なテキスト不要）:
 {{
@@ -1273,14 +1424,22 @@ def _parse_article_json(text: str) -> dict:
 # ---------------------------------------------------------------------------
 
 async def main():
-    topic = pick_next_topic()
-    logger.info(f"=== BingX SEO記事生成: [{topic['id']}] {topic['keyword']} ===")
-
     wp = WordPressAPI(
         os.environ["WP_URL"],
         os.environ["WP_USERNAME"],
         os.environ["WP_APP_PASSWORD"],
     )
+
+    # WordPress上に同一スラッグ（下書きを含む）がないテーマだけを選ぶ。
+    # 画像生成より前に確認することで、重複投稿と不要なAPI利用を防ぐ。
+    existing_posts = wp.get_posts_by_slugs(
+        [topic["slug"] for topic in TOPICS], status="any"
+    )
+    existing_slugs = {post.get("slug", "") for post in existing_posts}
+    topic = pick_next_topic(existing_slugs)
+    if topic is None:
+        return
+    logger.info(f"=== BingX SEO記事生成: [{topic['id']}] {topic['keyword']} ===")
 
     # 1. スクリーンショット
     logger.info("[1/5] Playwright スクリーンショット...")
@@ -1366,6 +1525,9 @@ async def main():
     content = re.sub(r"<figure>\{\{IMG_[A-Z0-9_]+\}\}</figure>", "", content)
     content = re.sub(r"\{\{IMG_[A-Z0-9_]+\}\}", "", content)
 
+    # すべてのBingX記事で広告・PRと日本居住者向けの確認事項を明記
+    content = insert_required_notice(content)
+
     # FAQ（可視セクション + FAQPage構造化データ）を挿入
     faq = article.get("faq") or []
     if faq:
@@ -1382,13 +1544,14 @@ async def main():
         content = faq_schema + content
         logger.info(f"  ✓ FAQ {len(faq)}件を挿入")
 
-    # 出典リンクボックスを免責文の直前に挿入
+    # 出典リンクボックスを免責文の直前に挿入。Bitget関連テーマは公式告知を使う。
+    source_box = topic.get("source_box", SOURCE_BOX)
     disclaimer = re.search(r'<p style="font-size:0\.85em', content)
     if disclaimer:
         idx = disclaimer.start()
-        content = content[:idx] + SOURCE_BOX + content[idx:]
+        content = content[:idx] + source_box + content[idx:]
     else:
-        content = content + SOURCE_BOX
+        content = content + source_box
     logger.info("  ✓ 出典リンクを挿入")
 
     # 5. WordPress 投稿
@@ -1423,7 +1586,7 @@ async def main():
         title=article["title"],
         article_url=article_url,
         tags=topic["tags"],
-        tweet_bullets=topic["tweet_bullets"],
+        tweet_bullets=safe_tweet_bullets(topic),
         article_section="取引所",
     )
 
