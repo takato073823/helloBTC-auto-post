@@ -169,6 +169,12 @@ def main():
         except Exception as e:
             failure_count += 1
             logger.error(f"処理失敗 ({url}): {e}")
+            error_text = str(e).lower()
+            if "insufficient_quota" in error_text or "current quota" in error_text:
+                raise RuntimeError(
+                    "OpenAI APIの利用残高がありません。"
+                    "OpenAI PlatformのBilling画面でクレジットを追加してください。"
+                ) from e
             continue
 
     logger.info(f"完了。今回 {posted_count} 件投稿しました。")
