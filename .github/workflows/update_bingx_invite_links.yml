@@ -1,0 +1,35 @@
+name: BingX招待URL・コードの既存記事更新
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: '実際に更新する場合は true（false は確認のみ）'
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  update-bingx-invites:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 旧BingX招待参照を確認または更新
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        working-directory: scripts
+        run: python update_bingx_invite_links.py ${{ inputs.apply && '--apply' || '' }}
