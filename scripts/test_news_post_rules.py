@@ -44,7 +44,8 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("official Bitget brand mark", prompt)
         self.assertIn("part of the environment", prompt)
         self.assertIn("never on a standalone card", prompt)
-        self.assertIn("under 12 percent of the frame", prompt)
+        self.assertIn("between 8 and 15 percent of the frame", prompt)
+        self.assertIn("not omitted", prompt)
 
     def test_unapproved_logo_is_excluded_from_prompt(self):
         prompt = _build_imagen_prompt("United States Capitol dome", "CoinDesk", "coindesk.com")

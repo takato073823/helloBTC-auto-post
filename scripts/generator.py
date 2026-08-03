@@ -335,9 +335,10 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
     trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
     if trusted_brand:
         logo_instruction = (
-            f"Naturally integrate the official {trusted_brand} brand mark as a small element of the background "
-            "architecture or an operational monitor interface, matching the perspective, ambient lighting, "
-            "reflections, texture, and depth of field. Keep it under 12 percent of the frame. It must feel "
+            f"The official {trusted_brand} brand mark must be clearly recognizable and visible as an integrated "
+            "element of the background, not omitted. Place it within the background architecture or an "
+            "operational monitor interface, matching the perspective, ambient lighting, reflections, texture, "
+            "and depth of field. Keep it between 8 and 15 percent of the frame. It must feel "
             "photographed as part of the environment, never on a standalone card, sign, plaque, placard, paper, "
             "foreground panel, floating corner badge, sticker, white box, watermark, or separate overlay. "
             "Do not include any other logo or media branding. "
