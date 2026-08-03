@@ -43,12 +43,14 @@ class NewsPostRuleTests(unittest.TestCase):
         prompt = _build_imagen_prompt("dark exchange server room", "Bitget", "bitget.com")
         self.assertIn("official Bitget brand mark", prompt)
         self.assertIn("part of the environment", prompt)
-        self.assertIn("never a floating corner badge", prompt)
+        self.assertIn("never on a standalone card", prompt)
+        self.assertIn("under 12 percent of the frame", prompt)
 
     def test_unapproved_logo_is_excluded_from_prompt(self):
         prompt = _build_imagen_prompt("United States Capitol dome", "CoinDesk", "coindesk.com")
         self.assertNotIn("CoinDesk", prompt)
         self.assertIn("No logos, media branding", prompt)
+        self.assertIn("coin must be completely unbranded", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'

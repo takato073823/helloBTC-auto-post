@@ -335,13 +335,18 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
     trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
     if trusted_brand:
         logo_instruction = (
-            f"Naturally integrate the official {trusted_brand} brand mark into a physical surface "
-            "within the scene, matching the perspective, lighting, reflections, texture, and depth of field. "
-            "It must feel photographed as part of the environment, never a floating corner badge, sticker, "
-            "white card, watermark, or separate overlay. Do not include any other logo or media branding. "
+            f"Naturally integrate the official {trusted_brand} brand mark as a small element of the background "
+            "architecture or an operational monitor interface, matching the perspective, ambient lighting, "
+            "reflections, texture, and depth of field. Keep it under 12 percent of the frame. It must feel "
+            "photographed as part of the environment, never on a standalone card, sign, plaque, placard, paper, "
+            "foreground panel, floating corner badge, sticker, white box, watermark, or separate overlay. "
+            "Do not include any other logo or media branding. "
         )
     else:
-        logo_instruction = "No logos, media branding, watermarks, or publisher marks. "
+        logo_instruction = (
+            "No logos, media branding, watermarks, publisher marks, trademarks, emblems, lettering, or symbols "
+            "on coins, screens, buildings, or any other object. Any coin must be completely unbranded. "
+        )
 
     return (
         f"{base_prompt}. "
