@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
 from llm_client import generate_json
-from image_processing import fit_image_to_jpeg
+from image_processing import SAFE_COMPOSITION_PROMPT, fit_image_to_jpeg
 
 logging.basicConfig(
     level=logging.INFO,
@@ -1235,6 +1235,7 @@ def generate_imagen(prompt: str) -> bytes | None:
         full = (
             f"{prompt}. "
             "Photojournalism Reuters style, muted cool tones, professional lighting. "
+            f"{SAFE_COMPOSITION_PROMPT}"
             "No text, no people, no faces, no brand logos, no watermarks."
         )
         client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])

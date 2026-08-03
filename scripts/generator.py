@@ -7,7 +7,7 @@ from difflib import SequenceMatcher
 from html import escape, unescape
 
 from llm_client import generate_json, generate_text
-from image_processing import fit_image_to_jpeg
+from image_processing import SAFE_COMPOSITION_PROMPT, fit_image_to_jpeg
 
 
 def _repair_and_parse_json(text: str) -> dict:
@@ -358,15 +358,7 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
         "Professional studio lighting or natural window light, realistic textures and materials. "
         "Muted color grading, slightly desaturated, cool tones. "
         "Sharp focus on subject, news magazine quality, high resolution. "
-        "All objects must keep natural, geometrically accurate proportions with no stretching, compression, or warping. "
-        "Use a balanced editorial composition: keep every primary subject fully inside the frame with at least "
-        "8 percent safe margin from all four edges. Never crop a building dome, roof, logo, monitor, coin, or other "
-        "important object. The main subject should occupy about 35 to 60 percent of the frame, with intentional "
-        "negative space and no extreme close-up. Compose for a final 1.91:1 crop and keep important details within "
-        "the central 80 percent of the image height. For architecture, always use a distant wide establishing "
-        "shot that shows the complete structure from its visible ground line or foundation through the roof, "
-        "dome, or statue, with clear sky above and visible ground below; the building must occupy no more than "
-        "55 percent of the image height. "
+        f"{SAFE_COMPOSITION_PROMPT}"
         f"{logo_instruction}"
         "No text, no people, no faces."
     )
