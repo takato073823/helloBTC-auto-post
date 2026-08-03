@@ -46,6 +46,7 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("never on a standalone card", prompt)
         self.assertIn("between 8 and 15 percent of the frame", prompt)
         self.assertIn("not omitted", prompt)
+        self.assertIn("never stretch, compress, skew, warp", prompt)
 
     def test_unapproved_logo_is_excluded_from_prompt(self):
         prompt = _build_imagen_prompt("United States Capitol dome", "CoinDesk", "coindesk.com")

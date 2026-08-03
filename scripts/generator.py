@@ -7,6 +7,7 @@ from difflib import SequenceMatcher
 from html import escape, unescape
 
 from llm_client import generate_json, generate_text
+from image_processing import fit_image_to_jpeg
 
 
 def _repair_and_parse_json(text: str) -> dict:
@@ -341,6 +342,7 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
             "and depth of field. Keep it between 8 and 15 percent of the frame. It must feel "
             "photographed as part of the environment, never on a standalone card, sign, plaque, placard, paper, "
             "foreground panel, floating corner badge, sticker, white box, watermark, or separate overlay. "
+            "Preserve the authentic logo proportions; never stretch, compress, skew, warp, or redraw it. "
             "Do not include any other logo or media branding. "
         )
     else:
@@ -356,6 +358,7 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
         "Professional studio lighting or natural window light, realistic textures and materials. "
         "Muted color grading, slightly desaturated, cool tones. "
         "Sharp focus on subject, news magazine quality, high resolution. "
+        "All objects must keep natural, geometrically accurate proportions with no stretching, compression, or warping. "
         f"{logo_instruction}"
         "No text, no people, no faces."
     )
@@ -366,7 +369,6 @@ def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domai
     import os
     from google import genai
     from google.genai import types
-    from PIL import Image
 
     api_key = os.environ["GOOGLE_API_KEY"]
     base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
@@ -388,14 +390,17 @@ def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domai
                 response = client.models.generate_images(
                     model=model_name,
                     prompt=full_prompt,
-                    config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="4:3"),
+                    config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
                 )
                 raw_bytes = response.generated_images[0].image.image_bytes
             else:
                 response = client.models.generate_content(
                     model=model_name,
                     contents=full_prompt,
-                    config=types.GenerateContentConfig(response_modalities=["IMAGE"]),
+                    config=types.GenerateContentConfig(
+                        response_modalities=["IMAGE"],
+                        image_config=types.ImageConfig(aspect_ratio="16:9"),
+                    ),
                 )
                 for part in response.candidates[0].content.parts:
                     if part.inline_data is not None:
@@ -408,11 +413,8 @@ def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domai
     if not raw_bytes:
         raise ValueError("利用可能な画像生成モデルが見つかりません")
 
-    image = Image.open(io.BytesIO(raw_bytes)).resize((1200, 630), Image.LANCZOS)
-    output = io.BytesIO()
-    image.save(output, format="JPEG", quality=92)
-    logger.info("画像を1200×630にリサイズ完了")
-    image_data = output.getvalue()
+    image_data = fit_image_to_jpeg(raw_bytes, width=1200, height=630, quality=92)
+    logger.info("縦横比を維持して1200×630に中央トリミング完了")
 
     return image_data
 

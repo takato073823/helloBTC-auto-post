@@ -11,7 +11,6 @@
 """
 
 import asyncio
-import io
 import logging
 import os
 import re
@@ -19,7 +18,6 @@ import sys
 from pathlib import Path
 
 import requests
-from PIL import Image
 from playwright.async_api import TimeoutError as PlaywrightTimeout
 from playwright.async_api import async_playwright
 
@@ -27,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
 from llm_client import generate_json
+from image_processing import fit_image_to_jpeg
 
 logging.basicConfig(
     level=logging.INFO,
@@ -370,11 +369,9 @@ def generate_imagen_image(prompt: str) -> bytes | None:
             config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
         )
         raw = response.generated_images[0].image.image_bytes
-        image = Image.open(io.BytesIO(raw)).resize((1200, 675), Image.LANCZOS)
-        output = io.BytesIO()
-        image.save(output, format="JPEG", quality=90)
-        logger.info("  ✓ imagen: %s bytes", f"{len(output.getvalue()):,}")
-        return output.getvalue()
+        output = fit_image_to_jpeg(raw, width=1200, height=675, quality=90)
+        logger.info("  ✓ imagen: %s bytes", f"{len(output):,}")
+        return output
     except Exception as e:
         logger.warning(f"  ✗ imagen failed: {e}")
         return None
@@ -385,10 +382,7 @@ def generate_imagen_image(prompt: str) -> bytes | None:
 # ---------------------------------------------------------------------------
 
 def resize_to_1200x675(raw: bytes) -> bytes:
-    img = Image.open(io.BytesIO(raw)).resize((1200, 675), Image.LANCZOS)
-    out = io.BytesIO()
-    img.save(out, format="JPEG", quality=88)
-    return out.getvalue()
+    return fit_image_to_jpeg(raw, width=1200, height=675, quality=88)
 
 
 # ---------------------------------------------------------------------------
