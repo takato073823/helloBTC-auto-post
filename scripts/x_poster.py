@@ -16,11 +16,35 @@ X API v2 (tweepy) + OAuth 1.0a
 """
 import os
 import logging
+import re
 import tweepy
 
 logger = logging.getLogger(__name__)
 
 _REQUIRED_ENV = ("X_API_KEY", "X_API_KEY_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET")
+
+# X は ``crypto.com`` のようなサービス名も外部リンクとして解釈することがある。
+# 本文中の名称だけを非リンク化し、記事URLはそのままカード表示に使う。
+_SERVICE_DOMAIN_RE = re.compile(
+    r"(?<![@\w.-])(?P<name>[A-Za-z0-9][A-Za-z0-9-]{1,62})\."
+    r"(?P<tld>com|io|net|org|ai|jp|co|app|xyz|exchange|finance|market|global|us|me|tv)"
+    r"(?![\w.-])",
+    re.IGNORECASE,
+)
+
+
+def _neutralize_service_domains(text: str) -> str:
+    """サービス名に見えるドメインだけを非リンク表記へ変換する。
+
+    例: ``Crypto.com`` → ``Crypto(.)com``。メールアドレスや実URLは変更しない。
+    """
+    def replace(match: re.Match) -> str:
+        # ``https://crypto.com`` のように、直前がURLスキームなら実URLとして保持する。
+        if text[max(0, match.start() - 3):match.start()].lower() == "://":
+            return match.group(0)
+        return f"{match.group('name')}(.){match.group('tld')}"
+
+    return _SERVICE_DOMAIN_RE.sub(replace, text)
 
 
 def _secrets_available() -> bool:
@@ -40,7 +64,7 @@ def _build_hashtags(tags: list[str]) -> str:
     seen = set()
     result = []
     for tag in tags:
-        ht = tag.strip().replace(" ", "").replace("　", "")
+        ht = _neutralize_service_domains(tag.strip()).replace(" ", "").replace("　", "")
         if ht and ht not in seen:
             seen.add(ht)
             result.append(f"#{ht}")
@@ -59,13 +83,16 @@ def _build_tweet(
     tags: list[str],
 ) -> str:
     category = article_section or "ニュース"
-    # タイトルは長すぎる場合は省略
-    short_title = title[:45] + "…" if len(title) > 45 else title
+    # サービス名に含まれるドメインを先に非リンク化してから、長さを調整する。
+    safe_title = _neutralize_service_domains(title)
+    short_title = safe_title[:45] + "…" if len(safe_title) > 45 else safe_title
 
     header = f"【{category}】{short_title}"
 
     if tweet_bullets:
-        bullets = "\n".join(f"・{b}" for b in tweet_bullets[:3])
+        bullets = "\n".join(
+            f"・{_neutralize_service_domains(b)}" for b in tweet_bullets[:3]
+        )
         body = f"{header}\n\n{bullets}"
     else:
         body = header
