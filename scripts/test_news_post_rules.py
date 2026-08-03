@@ -60,6 +60,8 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("Never crop a building dome", prompt)
         self.assertIn("35 to 60 percent of the frame", prompt)
         self.assertIn("final 1.91:1 crop", prompt)
+        self.assertIn("complete structure from its visible ground line", prompt)
+        self.assertIn("no more than 55 percent of the image height", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'

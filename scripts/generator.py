@@ -363,7 +363,10 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
         "8 percent safe margin from all four edges. Never crop a building dome, roof, logo, monitor, coin, or other "
         "important object. The main subject should occupy about 35 to 60 percent of the frame, with intentional "
         "negative space and no extreme close-up. Compose for a final 1.91:1 crop and keep important details within "
-        "the central 80 percent of the image height. "
+        "the central 80 percent of the image height. For architecture, always use a distant wide establishing "
+        "shot that shows the complete structure from its visible ground line or foundation through the roof, "
+        "dome, or statue, with clear sky above and visible ground below; the building must occupy no more than "
+        "55 percent of the image height. "
         f"{logo_instruction}"
         "No text, no people, no faces."
     )
