@@ -4,7 +4,7 @@ BingX IB特化 SEO記事 完全自動生成
 18トピックを順番に1日1記事公開し、IB報酬の流入を最大化する。
 
 - 公開ページ → Playwright スクリーンショット
-- ログイン必須ページ → ローカル概念イメージ（追加API費用なし）
+- ログイン必須ページ → Imagen 概念イメージ
 - 全記事に招待コード XXCCJX の CTAボックスを挿入
 - bingx_posted_topics.json で投稿済みを管理（全完了後は最初に戻る）
 """
@@ -27,7 +27,6 @@ sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
 from llm_client import generate_json
-from local_images import create_editorial_image
 
 logging.basicConfig(
     level=logging.INFO,
@@ -67,14 +66,14 @@ SOURCE_BOX = (
 )
 
 # 地域制限(米国IP)・URL変更により bingx.com のライブ撮影は失敗し、
-# 「Access prohibited」や404画面を撮ってしまうため無効化。ローカル概念画像のみ使う。
+# 「Access prohibited」や404画面を撮ってしまうため無効化。Imagen概念画像のみ使う。
 USE_LIVE_SCREENSHOTS = False
 
 # ---------------------------------------------------------------------------
 # 18 トピック定義
 # ---------------------------------------------------------------------------
 # screenshot_pages: 公開URLがあればPlaywrightで撮影
-# imagen_prompts  : ローカルで生成する概念イメージ（featured含む）
+# imagen_prompts  : Imagenで生成する概念イメージ（featured含む）
 # type            : tutorial | review | comparison | guide
 # ---------------------------------------------------------------------------
 
@@ -1075,7 +1074,7 @@ async def _take_screenshot(browser, sc_cfg: dict) -> bytes | None:
 
 async def capture_screenshots(pages: list) -> dict[str, bytes | None]:
     if not USE_LIVE_SCREENSHOTS:
-        logger.info("  ライブ撮影は無効（地域制限対策）。ローカル概念画像のみ使用します。")
+        logger.info("  ライブ撮影は無効（地域制限対策）。Imagen概念画像のみ使用します。")
         return {}
     if not pages:
         return {}
@@ -1092,16 +1091,33 @@ async def capture_screenshots(pages: list) -> dict[str, bytes | None]:
 
 
 # ---------------------------------------------------------------------------
-# ローカル画像生成
+# Imagen 画像生成
 # ---------------------------------------------------------------------------
 
 def generate_imagen(prompt: str) -> bytes | None:
     try:
-        result = create_editorial_image(prompt, width=1200, height=675)
-        logger.info("  ✓ ローカル画像を生成（API費用なし）")
-        return result
+        from google import genai
+        from google.genai import types
+
+        full = (
+            f"{prompt}. "
+            "Photojournalism Reuters style, muted cool tones, professional lighting. "
+            "No text, no people, no faces, no brand logos, no watermarks."
+        )
+        client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
+        response = client.models.generate_images(
+            model="imagen-4.0-fast-generate-001",
+            prompt=full,
+            config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
+        )
+        raw = response.generated_images[0].image.image_bytes
+        image = Image.open(io.BytesIO(raw)).resize((1200, 675), Image.LANCZOS)
+        output = io.BytesIO()
+        image.save(output, format="JPEG", quality=90)
+        logger.info("  ✓ imagen generated")
+        return output.getvalue()
     except Exception as e:
-        logger.warning(f"  ✗ ローカル画像生成に失敗: {e}")
+        logger.warning(f"  ✗ imagen failed: {e}")
         return None
 
 
@@ -1276,8 +1292,8 @@ async def main():
     logger.info("[1/5] Playwright スクリーンショット...")
     screenshots = await capture_screenshots(topic["screenshot_pages"])
 
-    # 2. ローカル画像
-    logger.info("[2/5] ローカル画像生成...")
+    # 2. Imagen 画像
+    logger.info("[2/5] Imagen 画像生成...")
     imagen_images = {}
     for i, prompt in enumerate(topic["imagen_prompts"]):
         key = f"img{i+1}"

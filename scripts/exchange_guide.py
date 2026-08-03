@@ -2,7 +2,7 @@
 """
 取引所登録ガイド記事の完全自動生成
   1. Playwright   → 公開ページのスクリーンショット
-  2. Pillow       → KYC / 入金 / セキュリティの概念イメージ
+  2. Imagen       → KYC / 入金 / セキュリティの概念イメージ
   3. OpenAI       → 記事テキスト生成（画像プレースホルダー付き）
   4. WordPress    → 画像アップロード → 記事投稿
   5. X            → 自動ツイート
@@ -27,7 +27,6 @@ sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
 from llm_client import generate_json
-from local_images import create_editorial_image
 
 logging.basicConfig(
     level=logging.INFO,
@@ -83,7 +82,7 @@ EXCHANGE_CONFIGS: dict = {
                 "wait_ms": 6000,
             },
         ],
-        # ローカル生成する概念イメージ（ログイン必須ページの代替）
+        # Imagen で生成する概念イメージ（ログイン必須ページの代替）
         "imagen_screenshots": [
             {
                 "key": "kyc",
@@ -351,16 +350,33 @@ async def capture_public_screenshots(exchange_config: dict) -> dict[str, bytes |
 
 
 # ---------------------------------------------------------------------------
-# ローカル画像生成
+# Imagen 画像生成
 # ---------------------------------------------------------------------------
 
 def generate_imagen_image(prompt: str) -> bytes | None:
     try:
-        result = create_editorial_image(prompt, width=1200, height=675)
-        logger.info(f"  ✓ ローカル画像: {len(result):,} bytes（API費用なし）")
-        return result
+        from google import genai
+        from google.genai import types
+
+        full_prompt = (
+            f"{prompt}. "
+            "Photojournalism Reuters style, muted cool tones, professional lighting. "
+            "No text, no people, no faces, no brand logos, no watermarks."
+        )
+        client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
+        response = client.models.generate_images(
+            model="imagen-4.0-fast-generate-001",
+            prompt=full_prompt,
+            config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
+        )
+        raw = response.generated_images[0].image.image_bytes
+        image = Image.open(io.BytesIO(raw)).resize((1200, 675), Image.LANCZOS)
+        output = io.BytesIO()
+        image.save(output, format="JPEG", quality=90)
+        logger.info("  ✓ imagen: %s bytes", f"{len(output.getvalue()):,}")
+        return output.getvalue()
     except Exception as e:
-        logger.warning(f"  ✗ ローカル画像生成失敗: {e}")
+        logger.warning(f"  ✗ imagen failed: {e}")
         return None
 
 
@@ -484,8 +500,8 @@ async def main():
     logger.info("[1/5] Playwright でスクリーンショット取得...")
     screenshots = await capture_public_screenshots(config)
 
-    # 2. ローカル画像生成
-    logger.info("[2/5] 追加API費用なしで概念イメージを生成...")
+    # 2. Imagen 画像生成
+    logger.info("[2/5] Imagen で概念イメージを生成...")
     imagen_images: dict[str, tuple[bytes | None, str]] = {}
     for img_cfg in config["imagen_screenshots"]:
         imagen_images[img_cfg["key"]] = (

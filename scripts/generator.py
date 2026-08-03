@@ -9,7 +9,6 @@ from html import escape, unescape
 import requests
 
 from llm_client import generate_json, generate_text
-from local_images import create_editorial_image
 
 
 def _repair_and_parse_json(text: str) -> dict:
@@ -398,12 +397,65 @@ def _overlay_brand_logo(image_data: bytes, brand_name: str, brand_domain: str) -
 
 
 def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domain=None):
-    """GitHub runner上で、追加API費用なしのアイキャッチ画像を生成する。"""
-    seed = " | ".join(
-        part for part in [image_prompt or "bitcoin market", " ".join(tags or [])] if part
+    """Gemini / Imagen を使ってアイキャッチ画像を生成（Google AI Studio 対応）。"""
+    import os
+    from google import genai
+    from google.genai import types
+    from PIL import Image
+
+    api_key = os.environ["GOOGLE_API_KEY"]
+    base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
+    full_prompt = (
+        f"{base_prompt}. "
+        "Photojournalism, Reuters news photography style. "
+        "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
+        "Professional studio lighting or natural window light, realistic textures and materials. "
+        "Muted color grading, slightly desaturated, cool tones. "
+        "Sharp focus on subject, news magazine quality, high resolution. "
+        "No text, no watermark, no people, no faces, no logos."
     )
-    image_data = create_editorial_image(seed, width=1200, height=630)
-    logger.info("ローカルアイキャッチ画像を生成しました（API費用なし）")
+
+    client = genai.Client(api_key=api_key)
+    image_models = [
+        ("imagen-4.0-fast-generate-001", "imagen"),
+        ("imagen-4.0-generate-001", "imagen"),
+        ("gemini-2.5-flash-image", "gemini"),
+        ("gemini-3.1-flash-image", "gemini"),
+    ]
+
+    raw_bytes = None
+    for model_name, model_type in image_models:
+        try:
+            logger.info("アイキャッチ画像を生成中（%s）...", model_name)
+            if model_type == "imagen":
+                response = client.models.generate_images(
+                    model=model_name,
+                    prompt=full_prompt,
+                    config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="4:3"),
+                )
+                raw_bytes = response.generated_images[0].image.image_bytes
+            else:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=full_prompt,
+                    config=types.GenerateContentConfig(response_modalities=["IMAGE"]),
+                )
+                for part in response.candidates[0].content.parts:
+                    if part.inline_data is not None:
+                        raw_bytes = part.inline_data.data
+            if raw_bytes:
+                break
+        except Exception as e:
+            logger.warning("%s 失敗: %s", model_name, e)
+
+    if not raw_bytes:
+        raise ValueError("利用可能な画像生成モデルが見つかりません")
+
+    image = Image.open(io.BytesIO(raw_bytes)).resize((1200, 630), Image.LANCZOS)
+    output = io.BytesIO()
+    image.save(output, format="JPEG", quality=92)
+    logger.info("画像を1200×630にリサイズ完了")
+    image_data = output.getvalue()
 
     domain = _valid_logo_domain(logo_domain)
     if logo_brand and domain:
