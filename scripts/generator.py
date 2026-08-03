@@ -6,8 +6,6 @@ import re
 from difflib import SequenceMatcher
 from html import escape, unescape
 
-import requests
-
 from llm_client import generate_json, generate_text
 
 
@@ -132,9 +130,8 @@ SEO_METADATA_SCHEMA = {
     "additionalProperties": False,
 }
 
-# 主要サービスは、記事生成AIの回答に依存せず公式ドメインを固定する。
-# ファビコンをロゴマークとして画像に合成するため、商標名を画像生成モデルに
-# 描かせず、文字化け・誤ったロゴを避けられる。
+# ロゴ利用を許可する当事者プロジェクトと公式ドメイン。
+# 出典メディアや未確認ブランドを画像へ混入させないための許可リストとして使う。
 KNOWN_BRAND_DOMAINS = {
     "BitMart": "bitmart.com",
     "Binance": "binance.com",
@@ -224,18 +221,17 @@ def _valid_logo_domain(domain: str | None) -> str | None:
 
 def resolve_logo_brand(title: str, tags: list[str] | None = None,
                        logo_brand: str | None = None, logo_domain: str | None = None) -> tuple[str | None, str | None]:
-    """記事の中心となる組織のロゴ名・公式ドメインを決定する。"""
-    searchable = " ".join([title, *(tags or []), logo_brand or ""])
+    """記事タイトル・タグに明記された当事者プロジェクトだけを許可する。
+
+    出典メディアやLLMの推測によるロゴ採用を防ぐため、任意のブランド名・
+    ドメインは採用せず、管理済みリストと記事タイトル／タグだけで判定する。
+    """
+    searchable = " ".join([title, *(tags or [])])
     searchable_lower = searchable.lower()
     for brand, domain in KNOWN_BRAND_DOMAINS.items():
         if brand.lower() in searchable_lower:
             return brand, domain
-
-    # 未登録の組織は、AIが明示した有効な公式ドメインがある場合だけ採用する。
-    # 推測によるロゴの取り違えを避けるため、ドメインが空ならロゴを載せない。
-    clean_domain = _valid_logo_domain(logo_domain)
-    clean_brand = re.sub(r"\s+", " ", (logo_brand or "")).strip()[:60] or None
-    return (clean_brand, clean_domain) if clean_brand and clean_domain else (None, None)
+    return None, None
 
 
 def is_duplicate_seo_topic(primary_topic: str, title: str, existing_titles: list[str]) -> bool:
@@ -298,7 +294,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 7. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
 8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
-10. 取引所・企業・財団など、記事の中心となる組織がある場合は、その組織名と公式サイトのドメインを指定する。公式サイトのドメインを確信できない場合は空文字にする
+10. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
@@ -310,8 +306,8 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
   "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
-  "logo_brand": "記事の中心となる組織名。該当しなければ空文字",
-  "logo_domain": "logo_brandの公式サイトドメイン。確信できなければ空文字。https://やパスは含めない",
+  "logo_brand": "ニュースを発表した当事者プロジェクト名。出典メディアは禁止。該当しなければ空文字",
+  "logo_domain": "当事者プロジェクトの公式サイトドメイン。出典メディアは禁止。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
 }}"""
 
@@ -323,77 +319,40 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
     )
 
 
-def _fetch_brand_logo(domain: str):
-    """Google favicon service から組織のロゴマークを取得する。"""
-    response = requests.get(
-        "https://www.google.com/s2/favicons",
-        params={"domain": domain, "sz": 256},
-        headers={"User-Agent": "helloBTC image publisher/1.0"},
-        timeout=12,
+def _trusted_project_logo(logo_brand: str | None, logo_domain: str | None) -> str | None:
+    """管理済みの当事者プロジェクトと公式ドメインが一致する場合だけ返す。"""
+    if not logo_brand:
+        return None
+    clean_domain = _valid_logo_domain(logo_domain)
+    for brand, official_domain in KNOWN_BRAND_DOMAINS.items():
+        if brand.lower() == logo_brand.strip().lower() and clean_domain == official_domain:
+            return brand
+    return None
+
+
+def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: str | None) -> str:
+    """報道写真の条件と、許可された当事者ロゴの融合条件を組み立てる。"""
+    trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
+    if trusted_brand:
+        logo_instruction = (
+            f"Naturally integrate the official {trusted_brand} brand mark into a physical surface "
+            "within the scene, matching the perspective, lighting, reflections, texture, and depth of field. "
+            "It must feel photographed as part of the environment, never a floating corner badge, sticker, "
+            "white card, watermark, or separate overlay. Do not include any other logo or media branding. "
+        )
+    else:
+        logo_instruction = "No logos, media branding, watermarks, or publisher marks. "
+
+    return (
+        f"{base_prompt}. "
+        "Photojournalism, Reuters news photography style. "
+        "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
+        "Professional studio lighting or natural window light, realistic textures and materials. "
+        "Muted color grading, slightly desaturated, cool tones. "
+        "Sharp focus on subject, news magazine quality, high resolution. "
+        f"{logo_instruction}"
+        "No text, no people, no faces."
     )
-    response.raise_for_status()
-    from PIL import Image
-    return Image.open(io.BytesIO(response.content)).convert("RGBA")
-
-
-def _remove_white_logo_canvas(logo):
-    """外周につながる白い台紙だけを透過化し、ロゴ本体は残す。"""
-    from collections import deque
-
-    logo = logo.copy().convert("RGBA")
-    width, height = logo.size
-    pixels = logo.load()
-    queue = deque()
-    seen = set()
-
-    def is_light_canvas(x, y):
-        red, green, blue, alpha = pixels[x, y]
-        return alpha > 0 and red >= 242 and green >= 242 and blue >= 242
-
-    for x in range(width):
-        queue.extend(((x, 0), (x, height - 1)))
-    for y in range(height):
-        queue.extend(((0, y), (width - 1, y)))
-
-    while queue:
-        x, y = queue.popleft()
-        if (x, y) in seen or not (0 <= x < width and 0 <= y < height):
-            continue
-        seen.add((x, y))
-        if not is_light_canvas(x, y):
-            continue
-        red, green, blue, _ = pixels[x, y]
-        pixels[x, y] = (red, green, blue, 0)
-        queue.extend(((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)))
-
-    bbox = logo.getchannel("A").getbbox()
-    return logo.crop(bbox) if bbox else logo
-
-
-def _overlay_brand_logo(image_data: bytes, brand_name: str, brand_domain: str) -> bytes:
-    """生成済み画像に、白い台紙を付けず公式ロゴマークだけを合成する。"""
-    from PIL import Image, ImageFilter
-
-    image = Image.open(io.BytesIO(image_data)).convert("RGBA")
-    logo = _remove_white_logo_canvas(_fetch_brand_logo(brand_domain))
-    logo.thumbnail((170, 170), Image.LANCZOS)
-    if logo.width < 12 or logo.height < 12:
-        raise ValueError("取得したロゴ画像が小さすぎます")
-
-    # 背景との視認性を確保するため、カードではなく薄い影だけを敷く。
-    shadow = Image.new("RGBA", logo.size, (0, 0, 0, 0))
-    shadow.putalpha(logo.getchannel("A").point(lambda value: int(value * 0.42)))
-    shadow = shadow.filter(ImageFilter.GaussianBlur(6))
-    margin = 36
-    x = image.width - logo.width - margin
-    y = margin
-    image.alpha_composite(shadow, (x + 4, y + 5))
-    image.alpha_composite(logo, (x, y))
-
-    output = io.BytesIO()
-    image.convert("RGB").save(output, format="JPEG", quality=92)
-    logger.info("アイキャッチに%sのロゴを追加", brand_name)
-    return output.getvalue()
 
 
 def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domain=None):
@@ -405,15 +364,7 @@ def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domai
 
     api_key = os.environ["GOOGLE_API_KEY"]
     base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
-    full_prompt = (
-        f"{base_prompt}. "
-        "Photojournalism, Reuters news photography style. "
-        "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
-        "Professional studio lighting or natural window light, realistic textures and materials. "
-        "Muted color grading, slightly desaturated, cool tones. "
-        "Sharp focus on subject, news magazine quality, high resolution. "
-        "No text, no watermark, no people, no faces, no logos."
-    )
+    full_prompt = _build_imagen_prompt(base_prompt, logo_brand, logo_domain)
 
     client = genai.Client(api_key=api_key)
     image_models = [
@@ -457,13 +408,6 @@ def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domai
     logger.info("画像を1200×630にリサイズ完了")
     image_data = output.getvalue()
 
-    domain = _valid_logo_domain(logo_domain)
-    if logo_brand and domain:
-        try:
-            return _overlay_brand_logo(image_data, str(logo_brand), domain)
-        except Exception as e:
-            # ロゴ取得の一時失敗で、記事全体の公開を止めない。
-            logger.warning("%sのロゴ追加に失敗: %s", logo_brand, e)
     return image_data
 
 

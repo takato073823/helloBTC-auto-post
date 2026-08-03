@@ -2,7 +2,8 @@
 import unittest
 
 from generator import (
-    is_duplicate_seo_topic, normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
+    _build_imagen_prompt, is_duplicate_seo_topic, normalize_swell_html,
+    prepend_lead_heading, resolve_logo_brand,
 )
 
 
@@ -26,6 +27,28 @@ class NewsPostRuleTests(unittest.TestCase):
             resolve_logo_brand("BitMart、取引所事業を段階的に終了へ", ["暗号資産"]),
             ("BitMart", "bitmart.com"),
         )
+
+    def test_rejects_source_media_logo(self):
+        self.assertEqual(
+            resolve_logo_brand(
+                "米国の暗号資産法案Clarity Actが正念場",
+                ["米国議会", "暗号資産規制"],
+                "CoinDesk",
+                "coindesk.com",
+            ),
+            (None, None),
+        )
+
+    def test_project_logo_is_integrated_not_overlaid(self):
+        prompt = _build_imagen_prompt("dark exchange server room", "Bitget", "bitget.com")
+        self.assertIn("official Bitget brand mark", prompt)
+        self.assertIn("part of the environment", prompt)
+        self.assertIn("never a floating corner badge", prompt)
+
+    def test_unapproved_logo_is_excluded_from_prompt(self):
+        prompt = _build_imagen_prompt("United States Capitol dome", "CoinDesk", "coindesk.com")
+        self.assertNotIn("CoinDesk", prompt)
+        self.assertIn("No logos, media branding", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'
