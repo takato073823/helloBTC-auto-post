@@ -57,6 +57,19 @@ class BingxSeoRulesTests(unittest.TestCase):
         functions["load_posted_ids"] = lambda: ["already-there", "next"]
         self.assertIsNone(functions["pick_next_topic"]())
 
+    def test_priority_topic_is_selected_before_older_unposted_topics(self):
+        functions = _load_functions("pick_next_topic")
+        functions["TOPICS"] = [
+            {"id": "older", "slug": "older"},
+            {"id": "priority", "slug": "priority", "priority": True},
+        ]
+        functions["load_posted_ids"] = lambda: []
+        functions["save_posted_ids"] = lambda _ids: None
+        self.assertEqual(
+            "priority",
+            functions["pick_next_topic"]()["id"],
+        )
+
     def test_safe_social_copy_does_not_reuse_unverified_topic_claims(self):
         functions = _load_functions("safe_tweet_bullets")
         bullets = functions["safe_tweet_bullets"](

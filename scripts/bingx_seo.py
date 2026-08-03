@@ -793,6 +793,7 @@ TOPICS = [
         "slug": "bingx-japan-resident-terms-check",
         "tags": ["BingX", "日本居住者", "利用条件", "暗号資産取引所", "注意点"],
         "type": "guide",
+        "priority": True,
         "article_guide": (
             "日本居住者がBingXを検討する前に確認すべき項目を、公式規約・本人確認・"
             "居住地制限・入出金条件・金融庁の登録一覧という観点で整理する。"
@@ -812,6 +813,7 @@ TOPICS = [
         "slug": "bitget-asset-transfer-checklist-bingx",
         "tags": ["Bitget", "BingX", "出金", "資産移動", "仮想通貨取引所"],
         "type": "guide",
+        "priority": True,
         "include_affiliate_cta": False,
         "source_box": BITGET_MIGRATION_SOURCE_BOX,
         "article_guide": (
@@ -834,6 +836,7 @@ TOPICS = [
         "slug": "bitget-alternatives-bingx-checklist",
         "tags": ["Bitget", "BingX", "取引所比較", "日本居住者", "暗号資産"],
         "type": "comparison",
+        "priority": True,
         "include_affiliate_cta": False,
         "source_box": BITGET_MIGRATION_SOURCE_BOX,
         "article_guide": (
@@ -1137,7 +1140,9 @@ def pick_next_topic(existing_slugs: set[str] | None = None) -> dict | None:
     posted_set = set(posted)
     changed = False
 
-    for topic in TOPICS:
+    # 時事性の高い確認・比較テーマを先に出し、その後は従来の順番を保つ。
+    ordered_topics = sorted(TOPICS, key=lambda topic: not topic.get("priority", False))
+    for topic in ordered_topics:
         if topic["id"] in posted_set:
             continue
         if topic["slug"] in existing_slugs:
