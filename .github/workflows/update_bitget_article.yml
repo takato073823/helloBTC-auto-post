@@ -1,0 +1,30 @@
+name: Bitget記事の公式ソース・画像更新
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-bitget-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: Bitget記事を更新
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        working-directory: scripts
+        run: python update_bitget_article.py
