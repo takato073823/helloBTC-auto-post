@@ -54,9 +54,12 @@ class WordPressAPI:
             logger.warning(f"カテゴリ '{name}' の処理失敗: {e}")
             return None
 
-    def get_posts_by_slugs(self, slugs):
-        """指定スラッグの公開済み記事を一括取得して返す（編集用に raw content 込み）。
-        内部リンククラスターの構築・同期に使う。"""
+    def get_posts_by_slugs(self, slugs, status="publish"):
+        """指定スラッグの記事を一括取得して返す（編集用に raw content 込み）。
+
+        ``status="any"`` を指定すれば下書きも含めて確認できる。新規投稿前の
+        スラッグ重複防止と、公開済み記事の内部リンク同期に使う。
+        """
         if not slugs:
             return []
         try:
@@ -68,7 +71,7 @@ class WordPressAPI:
                 params={
                     "slug": ",".join(slugs),
                     "per_page": 100,
-                    "status": "publish",
+                    "status": status,
                     "context": "edit",  # content.raw を取得するため
                     "_fields": "id,slug,link,title,content",
                 },
