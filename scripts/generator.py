@@ -86,6 +86,7 @@ KNOWN_BRAND_DOMAINS = {
     "Kraken": "kraken.com",
     "OKX": "okx.com",
     "Bybit": "bybit.com",
+    "Bitget": "bitget.com",
     "BingX": "bingx.com",
     "MEXC": "mexc.com",
     "KuCoin": "kucoin.com",
@@ -287,28 +288,59 @@ def _fetch_brand_logo(domain: str):
     return Image.open(io.BytesIO(response.content)).convert("RGBA")
 
 
+def _remove_white_logo_canvas(logo):
+    """外周につながる白い台紙だけを透過化し、ロゴ本体は残す。"""
+    from collections import deque
+
+    logo = logo.copy().convert("RGBA")
+    width, height = logo.size
+    pixels = logo.load()
+    queue = deque()
+    seen = set()
+
+    def is_light_canvas(x, y):
+        red, green, blue, alpha = pixels[x, y]
+        return alpha > 0 and red >= 242 and green >= 242 and blue >= 242
+
+    for x in range(width):
+        queue.extend(((x, 0), (x, height - 1)))
+    for y in range(height):
+        queue.extend(((0, y), (width - 1, y)))
+
+    while queue:
+        x, y = queue.popleft()
+        if (x, y) in seen or not (0 <= x < width and 0 <= y < height):
+            continue
+        seen.add((x, y))
+        if not is_light_canvas(x, y):
+            continue
+        red, green, blue, _ = pixels[x, y]
+        pixels[x, y] = (red, green, blue, 0)
+        queue.extend(((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)))
+
+    bbox = logo.getchannel("A").getbbox()
+    return logo.crop(bbox) if bbox else logo
+
+
 def _overlay_brand_logo(image_data: bytes, brand_name: str, brand_domain: str) -> bytes:
-    """生成済み画像の右上に公式ロゴマークをカード表示で合成する。"""
-    from PIL import Image, ImageDraw
+    """生成済み画像に、白い台紙を付けず公式ロゴマークだけを合成する。"""
+    from PIL import Image, ImageFilter
 
     image = Image.open(io.BytesIO(image_data)).convert("RGBA")
-    logo = _fetch_brand_logo(brand_domain)
+    logo = _remove_white_logo_canvas(_fetch_brand_logo(brand_domain))
     logo.thumbnail((170, 170), Image.LANCZOS)
     if logo.width < 12 or logo.height < 12:
         raise ValueError("取得したロゴ画像が小さすぎます")
 
-    padding = 24
-    card_width = logo.width + padding * 2
-    card_height = logo.height + padding * 2
-    card = Image.new("RGBA", (card_width, card_height), (255, 255, 255, 0))
-    draw = ImageDraw.Draw(card)
-    draw.rounded_rectangle(
-        (0, 0, card_width - 1, card_height - 1), radius=16,
-        fill=(255, 255, 255, 235), outline=(255, 255, 255, 255), width=2,
-    )
-    card.alpha_composite(logo, (padding, padding))
-    margin = 30
-    image.alpha_composite(card, (image.width - card_width - margin, margin))
+    # 背景との視認性を確保するため、カードではなく薄い影だけを敷く。
+    shadow = Image.new("RGBA", logo.size, (0, 0, 0, 0))
+    shadow.putalpha(logo.getchannel("A").point(lambda value: int(value * 0.42)))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(6))
+    margin = 36
+    x = image.width - logo.width - margin
+    y = margin
+    image.alpha_composite(shadow, (x + 4, y + 5))
+    image.alpha_composite(logo, (x, y))
 
     output = io.BytesIO()
     image.convert("RGB").save(output, format="JPEG", quality=92)
