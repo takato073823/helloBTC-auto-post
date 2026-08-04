@@ -18,7 +18,15 @@
     "jgb_10y_auction_2026_08_04",
     "inu_auto_3e6067c2d9b345"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-04-22",
+      "post_id": "inu_auto_4a97112af3087b",
+      "source_url": "https://cointelegraph.com/news/what-happened-in-crypto-today",
+      "topic_type": "reported_breaking_news",
+      "reserved_at": "2026-08-04T13:50:34.972334+00:00"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
