@@ -8,6 +8,14 @@
       "text": "🇺🇸 ビットコイン現物ETFの資金が反転\n\n8月3日は1.701億ドルの純流入。IBITだけで1.114億ドル、全体の65%を占めました。\n\n7月31日は2.654億ドルの流出。僕は、全面的な買い戻しではなく、IBITに集中した資金回帰と見ています。\n\n出典: Farside Investors\n#ビットコイン #BTC",
       "media_path": "assets/inu/source/bitcoin-etf-flow-2026-08-03.png",
       "source_manifest": "assets/inu/source/bitcoin-etf-flow-2026-08-03.source.json"
+    },
+    {
+      "id": "bitget_japan_service_end_2026_08_03",
+      "topic_type": "breaking_news",
+      "visual_route": "official_text_crop",
+      "text": "【重要】Bitget、日本向けサービス終了へ\n\n公式発表では、新規登録は8月3日で停止。11月1日から段階的に制限され、12月31日以降は残存ポジションが強制決済されます。\n\n僕は、資産・建玉・取引履歴を早めに整理することが重要だと考えます。\n\n※Bitget公式（8月3日）",
+      "media_path": "assets/inu/source/bitget-japan-service-end-2026-08-03.png",
+      "source_manifest": "assets/inu/source/bitget-japan-service-end-2026-08-03.source.json"
     }
   ]
 }

@@ -10,7 +10,7 @@ on:
         type: string
 
 concurrency:
-  group: inu-x-info-test-post
+  group: inu-x-publish
   cancel-in-progress: false
 
 permissions:
