@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import datetime as dt
 import unittest
+from unittest.mock import patch
 
 import inu_auto_hourly
 
@@ -121,6 +122,29 @@ class INUAutoHourlyTests(unittest.TestCase):
         inu_auto_hourly.validate_post(text)
         self.assertIn("僕は", text)
         self.assertIn("出典:", text)
+
+    def test_trusted_media_fallback_keeps_the_rss_url(self):
+        signals = [
+            {
+                "title": "BlackRock tokenizes European money market funds with Kinexys",
+                "source": "Decrypt",
+                "published": "Tue, 04 Aug 2026 11:40:44 +0000",
+                "url": "https://decrypt.co/374894/blackrock-tokenizes-funds",
+                "summary": "BlackRock expanded tokenized access to European money market funds using JPMorgan's Kinexys network.",
+            }
+        ]
+        copy = {
+            "hook": "ブラックロックが欧州MMFのトークン化を拡大",
+            "facts": ["対象は欧州のマネー・マーケット・ファンドです。"],
+            "opinion": "僕は、RWAの実利用が広がる動きとして注目しています。",
+            "tags": ["RWA"],
+        }
+        with patch.object(inu_auto_hourly, "generate_json", return_value=copy):
+            item = inu_auto_hourly.build_trusted_media_candidate(
+                NOW, {"history": []}, signals
+            )
+        self.assertEqual(signals[0]["url"], item["source_url"])
+        self.assertEqual(signals[0]["title"], item["evidence_anchor"])
 
 
 if __name__ == "__main__":

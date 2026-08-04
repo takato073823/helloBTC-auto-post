@@ -11,6 +11,7 @@ import json
 import logging
 import os
 import re
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
@@ -22,7 +23,7 @@ from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
-from llm_client import generate_web_json
+from llm_client import generate_json, generate_web_json
 from scraper import fetch_from_rss
 
 
@@ -139,6 +140,27 @@ CANDIDATE_SCHEMA = {
         "is_primary_source",
     ],
 }
+REPORT_COPY_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "hook": {"type": "string"},
+        "facts": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1,
+            "maxItems": 2,
+        },
+        "opinion": {"type": "string"},
+        "tags": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1,
+            "maxItems": 2,
+        },
+    },
+    "required": ["hook", "facts", "opinion", "tags"],
+}
 
 
 def normalize_url(value: str) -> str:
@@ -234,7 +256,9 @@ visual_routeは数字・表・チャートが根拠ならofficial_data_crop、�
 """.strip()
 
 
-def research_candidate(now: dt.datetime, state: dict) -> tuple[dict, list[dict[str, str]]]:
+def research_candidate(
+    now: dt.datetime, state: dict
+) -> tuple[dict, list[dict[str, str]], list[dict[str, str]]]:
     signals = collect_discovery_signals()
     candidate, sources = generate_web_json(
         build_research_prompt(now, state, signals),
@@ -254,7 +278,77 @@ def research_candidate(now: dt.datetime, state: dict) -> tuple[dict, list[dict[s
         candidate["visual_route"] = policy.visual_route
         if candidate["topic_type"] == "reported_breaking_news":
             candidate["is_primary_source"] = False
-    return candidate, sources
+    return candidate, sources, signals
+
+
+def _is_near_recent_topic(title: str, state: dict) -> bool:
+    recent = " ".join(str(row.get("hook", "")) for row in _recent_history(state)).lower()
+    normalized = re.sub(r"[^a-z0-9一-鿿ぁ-んァ-ン]+", " ", title.lower())
+    common = {"bitcoin", "crypto", "market", "latest", "today", "reports", "says"}
+    tokens = {token for token in normalized.split() if len(token) >= 5 and token not in common}
+    return any(token in recent for token in tokens)
+
+
+def build_trusted_media_candidate(
+    now: dt.datetime,
+    state: dict,
+    signals: list[dict[str, str]],
+) -> dict:
+    eligible: list[tuple[dt.datetime, dict[str, str]]] = []
+    for signal in signals:
+        host = (urlsplit(signal.get("url", "")).hostname or "").lower().removeprefix("www.")
+        if not any(host == allowed or host.endswith(f".{allowed}") for allowed in TRUSTED_MEDIA_HOSTS):
+            continue
+        try:
+            published = parsedate_to_datetime(signal.get("published", "")).astimezone(
+                dt.timezone.utc
+            )
+        except (TypeError, ValueError, OverflowError):
+            continue
+        age = now.astimezone(dt.timezone.utc) - published
+        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=2):
+            continue
+        if _is_near_recent_topic(signal.get("title", ""), state):
+            continue
+        eligible.append((published, signal))
+    if not eligible:
+        raise LookupError("2時間以内で重複しない主要メディア速報がありません")
+    published, signal = max(eligible, key=lambda row: row[0])
+    title = signal["title"].strip()
+    summary = " ".join(signal.get("summary", "").split()).strip()
+    if len(title) < 12 or len(summary) < 40:
+        raise LookupError("速報元記事の見出しまたは要約が不足しています")
+
+    copy = generate_json(
+        f"""
+次の信頼できるニュースメディアの見出しとRSS要約だけを根拠に、INUのX投稿文を作成してください。
+外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100文字程度を目標にします。
+hookは具体的な速報見出し。factsは重要な事実を1〜2文。opinionは必ず「僕は」で始め、売買推奨や価格予想をしません。
+元記事: {title}
+RSS要約: {summary}
+媒体: {signal['source']}
+""".strip(),
+        schema_name="inu_reported_breaking_copy",
+        schema=REPORT_COPY_SCHEMA,
+        max_output_tokens=1200,
+        model=os.environ.get("INU_COPY_MODEL", "gpt-5.6-luna"),
+    )
+    return {
+        "has_candidate": True,
+        "skip_reason": "",
+        "topic_type": "reported_breaking_news",
+        "hook": copy["hook"],
+        "facts": copy["facts"],
+        "opinion": copy["opinion"],
+        "source_name": signal["source"],
+        "source_url": signal["url"],
+        "published_at": published.isoformat(),
+        "evidence_anchor": title,
+        "visual_route": "reported_text_crop",
+        "tags": copy["tags"],
+        "why_now": "2時間以内に配信された主要メディアの速報",
+        "is_primary_source": False,
+    }
 
 
 def _compact_text(value: str) -> str:
@@ -431,14 +525,19 @@ def prepare(args: argparse.Namespace) -> int:
         _emit_output("ready", "false")
         return 0
 
-    candidate, sources = research_candidate(now, state)
+    candidate, sources, signals = research_candidate(now, state)
     try:
         validate_candidate(candidate, sources, state, now)
-        verified_url = fetch_and_verify_source(candidate)
-    except LookupError as exc:
-        logger.info("今時間の投稿を見送り: %s", exc)
-        _emit_output("ready", "false")
-        return 0
+    except (LookupError, ValueError) as exc:
+        logger.warning("一次資料候補を採用できないため確認済みRSSへ移行: %s", exc)
+        try:
+            candidate = build_trusted_media_candidate(now, state, signals)
+            validate_candidate(candidate, sources, state, now)
+        except LookupError as fallback_exc:
+            logger.info("今時間の投稿を見送り: %s", fallback_exc)
+            _emit_output("ready", "false")
+            return 0
+    verified_url = fetch_and_verify_source(candidate)
     candidate["source_url"] = verified_url
 
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
