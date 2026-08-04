@@ -31,6 +31,10 @@ jobs:
       - name: 依存パッケージをインストール
         run: pip install --timeout 120 -r requirements.txt
 
+      - name: 投稿とSEOのルールを検証
+        working-directory: scripts
+        run: python -m unittest test_news_post_rules.py test_wp_poster_seo.py
+
       - name: 記事を自動投稿
         env:
           WP_URL: ${{ secrets.WP_URL }}
