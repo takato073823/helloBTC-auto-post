@@ -6,7 +6,15 @@
     "coldcard_entropy_actions_2026_08_04",
     "jgb_10y_auction_2026_08_04"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-04-21",
+      "post_id": "inu_auto_3e6067c2d9b345",
+      "source_url": "https://www.coindesk.com/business/2026/08/04/bny-to-add-crypto-staking-to-digital-asset-custody-platform",
+      "topic_type": "reported_breaking_news",
+      "reserved_at": "2026-08-04T12:43:02.331737+00:00"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
