@@ -32,12 +32,6 @@ on:
           - gpt_explainer
           - gpt_timeline
           - gpt_creative
-      live:
-        description: "検査後に実際のXへ投稿する"
-        required: true
-        default: false
-        type: boolean
-
 concurrency:
   group: inu-x-preview
   cancel-in-progress: false
@@ -67,7 +61,6 @@ jobs:
         run: python -m unittest test_inu_content_system.py test_x_poster_rules.py
 
       - name: ドライランで画像と本文を生成
-        if: inputs.live != true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           HOOK: ${{ inputs.hook }}
@@ -79,31 +72,6 @@ jobs:
         working-directory: scripts
         run: >-
           python inu_preview.py
-          --hook "$HOOK"
-          --fact "$FACT"
-          --opinion "$OPINION"
-          --source "$SOURCE_LABEL"
-          --image-headline "$IMAGE_HEADLINE"
-          --visual-type "$VISUAL_TYPE"
-
-      - name: 検査後にXへ投稿
-        if: inputs.live == true
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-          HOOK: ${{ inputs.hook }}
-          FACT: ${{ inputs.fact }}
-          OPINION: ${{ inputs.opinion }}
-          SOURCE_LABEL: ${{ inputs.source }}
-          IMAGE_HEADLINE: ${{ inputs.image_headline }}
-          VISUAL_TYPE: ${{ inputs.visual_type }}
-        working-directory: scripts
-        run: >-
-          python inu_preview.py
-          --live
           --hook "$HOOK"
           --fact "$FACT"
           --opinion "$OPINION"
