@@ -20,7 +20,7 @@ from bs4 import BeautifulSoup
 from inu_content_types import get_content_policy
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
-from inu_post import compose_post, validate_post
+from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from llm_client import generate_web_json
 from scraper import fetch_from_rss
@@ -219,7 +219,7 @@ def build_research_prompt(
 - まず一次資料を優先する。見つからなくても、下記「大手メディアの最新見出し」に2時間以内の重要記事があれば、その元記事をreported_breaking_newsとして必ず1件選ぶ。has_candidate=falseは、一次資料も2時間以内の許可メディア記事もない場合だけにする。古い話題で穴埋めしない。
 - 投稿文は日本語。hookは短く具体的にし、factsは重要な数字・変更点を1〜2文。
 - opinionには必ず「僕は」または「個人的には」を使い、事実と見解を分ける。
-- 投稿全体がXの280文字制限に収まるよう非常に簡潔にする。
+- 投稿全体は日本語の全角換算を考慮して240以内を目標にし、非常に簡潔にする。
 - 出典名とハッシュタグを含めても、本文にURLは書かない。
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
@@ -334,7 +334,7 @@ def validate_candidate(
 
 
 def compose_candidate_text(candidate: dict) -> str:
-    return compose_post(
+    text = compose_post(
         hook=candidate["hook"],
         facts=candidate["facts"],
         opinion=candidate["opinion"],
@@ -342,6 +342,24 @@ def compose_candidate_text(candidate: dict) -> str:
         # 共通タグ処理が #仮想通貨 を補うため、固有タグは1件に限定する。
         tags=candidate["tags"][:1],
     )
+    if weighted_length(text) <= MAX_WEIGHTED_LENGTH:
+        return text
+
+    def clip(value: str, limit: int) -> str:
+        clean = " ".join(value.split()).strip()
+        return clean if len(clean) <= limit else clean[: max(1, limit - 1)].rstrip("、。 ") + "…"
+
+    # APIを再呼び出しせず、事実・僕の見解・出典を残して確実に収める。
+    compact = compose_post(
+        hook=clip(candidate["hook"], 26),
+        facts=[clip(candidate["facts"][0], 34)],
+        opinion=clip(candidate["opinion"], 32),
+        source_label=clip(candidate["source_name"], 18),
+        tags=[],
+    )
+    if weighted_length(compact) > MAX_WEIGHTED_LENGTH:
+        raise ValueError("投稿文を安全に280文字以内へ短縮できません")
+    return compact
 
 
 def _candidate_id(candidate: dict) -> str:

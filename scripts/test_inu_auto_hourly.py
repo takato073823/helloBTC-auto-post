@@ -110,6 +110,18 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn("https://", text)
         inu_auto_hourly.validate_post(text)
 
+    def test_long_generated_copy_is_compacted_without_another_api_call(self):
+        item = candidate(
+            hook="重要な市場ニュースです" * 12,
+            facts=["公式発表で重要な数値が更新されました。" * 12],
+            opinion="僕は、この変化が次の市場の焦点になると見ています。" * 10,
+            source_name="Example Official Investor Relations Department" * 4,
+        )
+        text = inu_auto_hourly.compose_candidate_text(item)
+        inu_auto_hourly.validate_post(text)
+        self.assertIn("僕は", text)
+        self.assertIn("出典:", text)
+
 
 if __name__ == "__main__":
     unittest.main()
