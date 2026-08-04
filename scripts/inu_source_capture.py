@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from PIL import Image, ImageChops
 
 
-EVIDENCE_TYPES = {"official_text_crop", "official_data_crop"}
+EVIDENCE_TYPES = {"official_text_crop", "official_data_crop", "reported_text_crop"}
 BROAD_SELECTORS = {"*", "html", "body", "main", "article"}
 
 
@@ -33,7 +33,7 @@ def validate_capture_spec(spec: SourceCaptureSpec) -> None:
     parsed = urlparse(spec.source_url)
     if parsed.scheme != "https" or not parsed.netloc:
         raise ValueError("一次資料のHTTPS URLが必要です")
-    if not spec.is_primary_source:
+    if spec.evidence_type.startswith("official_") and not spec.is_primary_source:
         raise ValueError("まとめサイトや転載画像は証拠画像に使えません")
     if not spec.source_name.strip():
         raise ValueError("発信元の名称が必要です")

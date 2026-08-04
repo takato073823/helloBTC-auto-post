@@ -41,6 +41,7 @@ CONTENT_TYPES = {
     policy.key: policy
     for policy in (
         _policy("breaking_news", "公式速報", "official_text_crop", "hybrid", True, 100),
+        _policy("reported_breaking_news", "主要メディア速報", "reported_text_crop", "hybrid", False, 92),
         _policy("security_incident", "セキュリティ速報", "official_text_crop", "manual", True, 100),
         _policy("crypto_market", "仮想通貨価格急変", "live_chart", "auto", False, 95),
         _policy("trending_token", "話題トークン価格", "live_chart", "hybrid", False, 88),
@@ -92,4 +93,3 @@ def get_content_policy(topic_type: str) -> ContentTypePolicy:
         return CONTENT_TYPES[topic_type]
     except KeyError as exc:
         raise ValueError(f"投稿対象外の系統です: {topic_type}") from exc
-

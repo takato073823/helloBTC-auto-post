@@ -38,6 +38,7 @@ MAX_HISTORY = 1000
 
 AUTO_TOPIC_TYPES = (
     "breaking_news",
+    "reported_breaking_news",
     "developing_story",
     "market_microstructure",
     "etf_flow",
@@ -52,6 +53,7 @@ AUTO_TOPIC_TYPES = (
 )
 MAX_AGE_HOURS = {
     "breaking_news": 2,
+    "reported_breaking_news": 2,
     "developing_story": 6,
     "market_microstructure": 8,
     "etf_flow": 12,
@@ -75,6 +77,15 @@ SECONDARY_HOSTS = {
     "reuters.com",
     "theblock.co",
     "yahoo.co.jp",
+}
+TRUSTED_MEDIA_HOSTS = {
+    "bloomberg.com",
+    "coindesk.com",
+    "cointelegraph.com",
+    "decrypt.co",
+    "nikkei.com",
+    "reuters.com",
+    "theblock.co",
 }
 TRACKING_KEYS = {"gclid", "fbclid", "ref", "source"}
 USER_AGENT = "Mozilla/5.0 (compatible; INUPrimarySourceVerifier/1.0)"
@@ -100,7 +111,7 @@ CANDIDATE_SCHEMA = {
         "evidence_anchor": {"type": "string"},
         "visual_route": {
             "type": "string",
-            "enum": ["official_text_crop", "official_data_crop"],
+            "enum": ["official_text_crop", "official_data_crop", "reported_text_crop"],
         },
         "tags": {
             "type": "array",
@@ -172,6 +183,9 @@ def collect_discovery_signals() -> list[dict[str, str]]:
                     "source": str(article.get("source", ""))[:60],
                     "published": str(article.get("published", ""))[:80],
                     "url": str(article.get("url", ""))[:500],
+                    "summary": re.sub(
+                        r"<[^>]+>", " ", str(article.get("description", ""))
+                    )[:700],
                 }
             )
     except Exception as exc:
@@ -197,6 +211,7 @@ def build_research_prompt(
 - 少なくとも「暗号資産公式」「ETF・オンチェーン」「米国企業IR・AI」
   「日本企業IR」「中央銀行・規制当局」「Xで話題になった公式発表」の観点を分けて検索してから比較する。
 - ニュースメディアやXの話題は発見に使ってよいが、最終source_urlは発表主体の公式サイト、規制当局、中央銀行、取引所、上場企業IR、ETF発行体、公式データ提供元などの一次資料にする。
+- 一次資料へ到達できない速報だけは、Reuters、Nikkei、Bloomberg、CoinDesk、Cointelegraph、Decrypt、The Blockの元記事をsource_urlにしてよい。その場合topic_typeはreported_breaking_news、visual_routeはreported_text_crop、is_primary_source=falseにする。
 - source_urlは今回のWeb検索結果に実際に含まれるURLだけを使う。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
 - evidence_anchorは一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。
@@ -213,19 +228,26 @@ def build_research_prompt(
 {json.dumps(discovery_signals or [], ensure_ascii=False)}
 次は直近と異なる系統を優先する。選択可能なtopic_typeは:
 {', '.join(AUTO_TOPIC_TYPES)}
-visual_routeは数字・表・チャートが根拠ならofficial_data_crop、それ以外はofficial_text_crop。
+visual_routeは数字・表・チャートが根拠ならofficial_data_crop、それ以外はofficial_text_crop。主要メディア速報だけreported_text_crop。
 """.strip()
 
 
 def research_candidate(now: dt.datetime, state: dict) -> tuple[dict, list[dict[str, str]]]:
-    return generate_web_json(
-        build_research_prompt(now, state, collect_discovery_signals()),
+    signals = collect_discovery_signals()
+    candidate, sources = generate_web_json(
+        build_research_prompt(now, state, signals),
         schema_name="inu_live_candidate",
         schema=CANDIDATE_SCHEMA,
         max_output_tokens=2200,
         # 複数市場から一次資料まで辿る必要があるため、検索選定はTerraを使う。
         model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
     )
+    sources.extend(
+        {"url": row["url"], "title": row["title"]}
+        for row in signals
+        if row.get("url")
+    )
+    return candidate, sources
 
 
 def _compact_text(value: str) -> str:
@@ -237,7 +259,11 @@ def fetch_and_verify_source(candidate: dict) -> str:
     parts = urlsplit(url)
     if parts.scheme != "https" or not parts.netloc:
         raise ValueError("一次資料URLがHTTPSではありません")
-    if _host_is_secondary(parts.hostname or ""):
+    host = (parts.hostname or "").lower().removeprefix("www.")
+    if candidate["topic_type"] == "reported_breaking_news":
+        if not any(host == allowed or host.endswith(f".{allowed}") for allowed in TRUSTED_MEDIA_HOSTS):
+            raise ValueError("主要メディア速報の許可ドメインではありません")
+    elif _host_is_secondary(host):
         raise ValueError("報道・まとめサイトは最終一次資料にできません")
     response = requests.get(url, timeout=25, headers={"User-Agent": USER_AGENT})
     response.raise_for_status()
@@ -274,8 +300,10 @@ def validate_candidate(
         raise ValueError("手動確認専用の系統です")
     if candidate.get("visual_route") != policy.visual_route:
         raise ValueError("投稿系統と画像形式が一致しません")
-    if not candidate.get("is_primary_source"):
+    if policy.requires_primary_source and not candidate.get("is_primary_source"):
         raise ValueError("一次資料として選定されていません")
+    if topic_type == "reported_breaking_news" and candidate.get("is_primary_source"):
+        raise ValueError("主要メディア速報の出典区分が不正です")
 
     selected = normalize_url(candidate.get("source_url", ""))
     cited = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
@@ -384,7 +412,7 @@ def prepare(args: argparse.Namespace) -> int:
         published_at=_parse_timestamp(candidate["published_at"]).date().isoformat(),
         evidence_type=candidate["visual_route"],
         selector="[data-inu-auto-evidence]",
-        is_primary_source=True,
+        is_primary_source=bool(candidate["is_primary_source"]),
     )
     asyncio.run(
         capture_official_evidence(

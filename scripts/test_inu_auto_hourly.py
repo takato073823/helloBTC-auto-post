@@ -89,6 +89,21 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_trusted_media_breaking_news_can_be_non_primary(self):
+        item = candidate(
+            topic_type="reported_breaking_news",
+            source_url="https://www.coindesk.com/tech/2026/08/04/latest",
+            published_at="2026-08-04T11:30:00Z",
+            visual_route="reported_text_crop",
+            is_primary_source=False,
+        )
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "latest"}],
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            NOW,
+        )
+
     def test_media_and_text_are_always_required_by_prepared_item(self):
         text = inu_auto_hourly.compose_candidate_text(candidate())
         self.assertIn("僕は", text)
