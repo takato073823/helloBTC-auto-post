@@ -1,0 +1,13 @@
+Use case: infographic-diagram
+Asset type: original X post visual direction sample for INU, portrait 4:5
+Input images: Image 1 is reference only for strong mobile information hierarchy and visual impact; Image 2 is reference only for easy-to-follow storytelling and friendly editorial illustration. Do not reproduce either composition, color palette, characters, logos, typography, tables, or branded elements.
+Primary request: Create a completely original Japanese editorial infographic explaining INU's content structure.
+Exact headline text: "INUの投稿設計"
+Exact section texts, verbatim: "いま何が起きた？" / "数字・証拠" / "INUの見方"
+Small exact footer text: "事実を見せて、意味を伝える。"
+Scene/backdrop: sophisticated warm off-white editorial canvas with charcoal and Bitcoin-orange accents, plus one restrained teal accent.
+Subject: three connected visual moments shown as an original flowing editorial composition: a breaking signal, a real evidence document/chart motif, and a thoughtful analysis lens. Use expressive icons and visual metaphors, not website UI cards.
+Style/medium: premium Japanese magazine infographic mixed with tasteful hand-drawn editorial illustration, clean, modern, memorable, high design quality.
+Composition/framing: portrait 4:5, one clear focal flow from top to bottom, large readable Japanese typography, strong spacing, designed for phone viewing.
+Constraints: no dog character, no real people, no company logos, no trademarks, no QR code, no watermark, no fake prices or statistics, no dense paragraphs. The supplied Japanese text must be rendered correctly and no extra claims may be added.
+Avoid: HTML/CSS dashboard appearance, black generic news-card template, copying SOU, blue BingX campaign styling, copying the comic panels or characters from the references.

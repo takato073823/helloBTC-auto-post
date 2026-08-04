@@ -1,0 +1,120 @@
+name: INU X投稿プレビュー
+
+on:
+  workflow_dispatch:
+    inputs:
+      hook:
+        description: "投稿の冒頭"
+        required: true
+        type: string
+      fact:
+        description: "事実・要点（1段落）"
+        required: true
+        type: string
+      opinion:
+        description: "INUの見解（「僕は」で始める）"
+        required: true
+        type: string
+      source:
+        description: "出典名と日付"
+        required: true
+        type: string
+      image_headline:
+        description: "画像内の短い見出し"
+        required: true
+        type: string
+      visual_type:
+        description: "画像の種類"
+        required: true
+        default: "gpt_explainer"
+        type: choice
+        options:
+          - gpt_explainer
+          - gpt_timeline
+          - gpt_creative
+      live:
+        description: "検査後に実際のXへ投稿する"
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: inu-x-preview
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: INUルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_content_system.py test_x_poster_rules.py
+
+      - name: ドライランで画像と本文を生成
+        if: inputs.live != true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          HOOK: ${{ inputs.hook }}
+          FACT: ${{ inputs.fact }}
+          OPINION: ${{ inputs.opinion }}
+          SOURCE_LABEL: ${{ inputs.source }}
+          IMAGE_HEADLINE: ${{ inputs.image_headline }}
+          VISUAL_TYPE: ${{ inputs.visual_type }}
+        working-directory: scripts
+        run: >-
+          python inu_preview.py
+          --hook "$HOOK"
+          --fact "$FACT"
+          --opinion "$OPINION"
+          --source "$SOURCE_LABEL"
+          --image-headline "$IMAGE_HEADLINE"
+          --visual-type "$VISUAL_TYPE"
+
+      - name: 検査後にXへ投稿
+        if: inputs.live == true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          HOOK: ${{ inputs.hook }}
+          FACT: ${{ inputs.fact }}
+          OPINION: ${{ inputs.opinion }}
+          SOURCE_LABEL: ${{ inputs.source }}
+          IMAGE_HEADLINE: ${{ inputs.image_headline }}
+          VISUAL_TYPE: ${{ inputs.visual_type }}
+        working-directory: scripts
+        run: >-
+          python inu_preview.py
+          --live
+          --hook "$HOOK"
+          --fact "$FACT"
+          --opinion "$OPINION"
+          --source "$SOURCE_LABEL"
+          --image-headline "$IMAGE_HEADLINE"
+          --visual-type "$VISUAL_TYPE"
+
+      - name: プレビューを保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inu-x-preview
+          path: scripts/artifacts/inu-preview/
+          if-no-files-found: warn
