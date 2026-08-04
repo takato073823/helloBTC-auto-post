@@ -31,6 +31,17 @@
       "published_at": "2026-08-04T15:50:20+00:00",
       "posted_at": "2026-08-04T16:11:01.339064+00:00",
       "hook": "Bitdeer、ノルウェーでAIデータセンターを拡大"
+    },
+    {
+      "slot": "2026-08-05-03",
+      "post_id": "inu_auto_d65ad95418cd98",
+      "tweet_id": "2084707110206796202",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "source_url": "https://decrypt.co/374906/alibaba-best-ai-model-qwen-free-claude-chatgpt",
+      "published_at": "2026-08-04T17:16:49+00:00",
+      "posted_at": "2026-08-04T18:24:41.920088+00:00",
+      "hook": "速報：Alibaba、最高性能AIモデルを無料公開へ"
     }
   ],
   "posted_ids": [
@@ -40,18 +51,10 @@
     "inu_auto_3e6067c2d9b345",
     "inu_auto_4a97112af3087b",
     "inu_breaking_us_indices_record_2026-08-04",
-    "inu_auto_ece17867c4052d"
+    "inu_auto_ece17867c4052d",
+    "inu_auto_d65ad95418cd98"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-05-03",
-      "post_id": "inu_auto_d65ad95418cd98",
-      "source_url": "https://decrypt.co/374906/alibaba-best-ai-model-qwen-free-claude-chatgpt",
-      "topic_type": "reported_breaking_news",
-      "priority": "scheduled",
-      "reserved_at": "2026-08-04T18:24:15.533723+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -118,6 +121,17 @@
       "published_at": "2026-08-04T15:50:20+00:00",
       "posted_at": "2026-08-04T16:11:01.339064+00:00",
       "hook": "Bitdeer、ノルウェーでAIデータセンターを拡大"
+    },
+    {
+      "slot": "2026-08-05-03",
+      "post_id": "inu_auto_d65ad95418cd98",
+      "tweet_id": "2084707110206796202",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "source_url": "https://decrypt.co/374906/alibaba-best-ai-model-qwen-free-claude-chatgpt",
+      "published_at": "2026-08-04T17:16:49+00:00",
+      "posted_at": "2026-08-04T18:24:41.920088+00:00",
+      "hook": "速報：Alibaba、最高性能AIモデルを無料公開へ"
     }
   ]
 }
