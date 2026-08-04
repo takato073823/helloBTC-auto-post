@@ -1,0 +1,28 @@
+name: SEO変更チェック
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: Pythonテスト
+        working-directory: scripts
+        run: python -m unittest discover -p 'test_*.py'
+
+      - name: WordPressプラグインの構文チェック
+        run: php -l wordpress-plugin/hellobtc-search-visibility/hellobtc-search-visibility.php

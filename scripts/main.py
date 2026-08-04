@@ -14,7 +14,8 @@ from scraper import get_latest_articles, fetch_article_content, fetch_tweet_embe
 from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
-    is_duplicate_seo_topic, normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
+    append_source_attribution, is_duplicate_seo_topic, normalize_swell_html,
+    prepend_lead_heading, resolve_logo_brand,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -113,6 +114,9 @@ def main():
             generated["content"] = prepend_lead_heading(
                 article_content, generated["title"], generated.get("lead_heading")
             )
+            generated["content"] = append_source_attribution(
+                generated["content"], article.get("source", ""), url
+            )
 
             logo_brand, logo_domain = resolve_logo_brand(
                 generated["title"], generated.get("tags"),
@@ -140,6 +144,7 @@ def main():
                 title=generated["title"],
                 content=generated["content"],
                 excerpt=generated["excerpt"],
+                meta_description=generated.get("meta_description") or generated.get("excerpt", ""),
                 tags=generated.get("tags", []),
                 category_id=news_category_id,
                 featured_media_id=featured_media_id,

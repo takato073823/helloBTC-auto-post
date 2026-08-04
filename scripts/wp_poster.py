@@ -1,11 +1,9 @@
 """
 WordPress REST API を使って記事を投稿する
 """
-import json
 import requests
 import base64
 import logging
-from datetime import datetime, timezone, timedelta
 
 logger = logging.getLogger(__name__)
 
@@ -92,19 +90,29 @@ class WordPressAPI:
 
     def get_published_titles(self, per_page=100):
         """公開済み記事のタイトルを取得する（類似テーマの重複投稿防止用）。"""
-        try:
-            posts = self._request(
-                "GET", "posts",
-                params={
-                    "per_page": min(per_page, 100),
-                    "status": "publish",
-                    "_fields": "title",
-                },
-            )
-            return [p.get("title", {}).get("rendered", "") for p in posts]
-        except Exception as e:
-            logger.warning(f"公開済みタイトルの取得に失敗: {e}")
-            return []
+        posts = []
+        page = 1
+        page_size = max(1, min(per_page, 100))
+        while True:
+            try:
+                batch = self._request(
+                    "GET", "posts",
+                    params={
+                        "per_page": page_size,
+                        "page": page,
+                        "status": "publish",
+                        "_fields": "title",
+                    },
+                )
+            except Exception as e:
+                if page == 1:
+                    logger.warning(f"公開済みタイトルの取得に失敗: {e}")
+                break
+            posts.extend(batch)
+            if len(batch) < page_size:
+                break
+            page += 1
+        return [p.get("title", {}).get("rendered", "") for p in posts]
 
     def get_published_posts_with_content(self):
         """公開済み記事をraw本文付きで全件取得する（保守作業専用）。"""
@@ -153,64 +161,10 @@ class WordPressAPI:
         logger.info(f"画像アップロード完了 (ID: {media_id})")
         return media_id, media_url
 
-    def _build_news_schema(self, title, excerpt, article_url, image_url=None, section="ニュース", tags=None):
-        """Google News 対応 NewsArticle JSON-LD スキーマを生成して script タグで返す"""
-        jst = timezone(timedelta(hours=9))
-        now_iso = datetime.now(jst).isoformat()
-
-        schema = {
-            "@context": "https://schema.org",
-            "@type": "NewsArticle",
-            "headline": title[:110],
-            "description": excerpt,
-            "url": article_url,
-            "datePublished": now_iso,
-            "dateModified": now_iso,
-            "inLanguage": "ja-JP",
-            "isAccessibleForFree": True,
-            "articleSection": section,
-            "author": [{
-                "@type": "Person",
-                "name": "helloBTC編集部",
-                "url": self.base_url,
-            }],
-            "publisher": {
-                "@type": "Organization",
-                "name": "helloBTC",
-                "url": self.base_url,
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": f"{self.base_url}/wp-content/uploads/hellobtc-logo.png",
-                    "width": 200,
-                    "height": 60,
-                },
-            },
-        }
-
-        if tags:
-            schema["keywords"] = ",".join(tags[:10])
-
-        if image_url:
-            schema["image"] = {
-                "@type": "ImageObject",
-                "url": image_url,
-                "width": 1200,
-                "height": 630,
-            }
-
-        schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
-        # JSON-LD は Gutenberg のHTMLブロックとして保存する。生のscriptタグを
-        # 本文へ直接混ぜると、テーマのブロック解析が後続のSWELLボックスまで
-        # 巻き込んでレイアウトを崩すことがある。
-        return (
-            "<!-- wp:html -->\n"
-            f'<script type="application/ld+json">{schema_json}</script>\n'
-            "<!-- /wp:html -->\n"
-        )
-
     def post_article(self, title, content, excerpt, tags=None, category_id=None,
                      featured_media_id=None, status="publish", slug=None,
-                     featured_image_url=None, article_section="ニュース"):
+                     featured_image_url=None, article_section="ニュース",
+                     meta_description=None):
         """WordPress に記事を投稿。status は 'publish' または 'draft'"""
         tag_ids = []
         if tags:
@@ -219,22 +173,15 @@ class WordPressAPI:
                 if tag_id:
                     tag_ids.append(tag_id)
 
-        # スラッグから記事 URL を構築（schema に埋め込む）
+        # スラッグに説明書きが混じった場合も、URLに使う先頭部分だけに絞る。
         if slug:
             clean_slug = slug.split(" ")[0].strip().lower()  # 説明書き除去
-            article_url = f"{self.base_url}/{clean_slug}/"
-        else:
-            article_url = self.base_url
-
-        # NewsArticle スキーマをコンテンツ先頭に追加
-        schema_html = self._build_news_schema(title, excerpt, article_url,
-                                              featured_image_url, article_section, tags)
-        content_with_schema = schema_html + content
 
         post_data = {
             "title": title,
-            "content": content_with_schema,
-            "excerpt": excerpt,
+            "content": content,
+            # SEO SIMPLE PACK 連携プラグインがこの抜粋を meta description に使う。
+            "excerpt": meta_description or excerpt,
             "status": status,
             "tags": tag_ids,
         }

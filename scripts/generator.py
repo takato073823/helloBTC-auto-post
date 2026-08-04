@@ -5,6 +5,7 @@ import io
 import re
 from difflib import SequenceMatcher
 from html import escape, unescape
+from urllib.parse import urlparse
 
 from llm_client import generate_json, generate_text
 from image_processing import SAFE_COMPOSITION_PROMPT, fit_image_to_jpeg
@@ -212,6 +213,25 @@ def prepend_lead_heading(content: str, article_title: str, lead_heading: str | N
                   ) else heading + content
 
 
+def append_source_attribution(content: str, source_name: str, source_url: str) -> str:
+    """ニュース本文の末尾に、読者が確認できる出典リンクを追加する。"""
+    clean_url = (source_url or "").strip()
+    parsed = urlparse(clean_url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        logger.warning("無効な出典URLのため出典表記を追加しません: %s", source_url)
+        return content
+
+    label = re.sub(r"\s+", " ", unescape(source_name or "")).strip() or parsed.netloc
+    source_block = (
+        '<!-- wp:paragraph {"className":"hellobtc-source"} -->\n'
+        '<p class="hellobtc-source">出典：'
+        f'<a href="{escape(clean_url, quote=True)}" target="_blank" '
+        f'rel="noopener noreferrer">{escape(label)}</a></p>\n'
+        '<!-- /wp:paragraph -->'
+    )
+    return content.rstrip() + "\n" + source_block
+
+
 def _valid_logo_domain(domain: str | None) -> str | None:
     """外部URL取得に使える、スキームを含まない正規ドメインだけを受け入れる。"""
     if not domain:
@@ -286,12 +306,12 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 - ターゲット読者: 仮想通貨に興味がある日本人（初心者〜中級者）
 
 【記事作成ルール】
-1. 元記事をそのまま翻訳せず、独自の視点・解説・背景情報を加えて完全にリライトする
+1. 元記事の事実関係と意味を正確に保ち、確認できない数値・発言・背景を追加しない
 2. 日本の読者向けにわかりやすい言葉で書く（専門用語には簡単な説明を添える）
 3. 重要なキーワードを自然に含める
 4. H3見出しは3つ設ける。全ての見出しは記事の内容を具体的に表すタイトルにする（「まとめ」「概要」などの汎用的な言葉は使わない）
-5. 参照リンクや出典の記載は一切不要
-6. コピペと判定されないよう、文章構成・表現・順序を元記事から大きく変える
+5. 元記事の要約だけで終わらせず、元記事内で確認できる事実を使って、日本の投資家への影響や用語の解説などの独自価値を加える
+6. 読者が事実と解説を区別できる独立した構成で書く。出典リンクは投稿時にシステムが本文末尾へ追加するため、本文中に偽の出典やURLを作らない
 7. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
 8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない

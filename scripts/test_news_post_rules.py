@@ -2,8 +2,8 @@
 import unittest
 
 from generator import (
-    _build_imagen_prompt, is_duplicate_seo_topic, normalize_swell_html,
-    prepend_lead_heading, resolve_logo_brand,
+    _build_imagen_prompt, append_source_attribution, is_duplicate_seo_topic,
+    normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
 )
 
 
@@ -76,6 +76,21 @@ class NewsPostRuleTests(unittest.TestCase):
             "Solana（SOL）とは？2026年最新版｜高速・低コストの次世代ブロックチェーン完全ガイド",
             ["Solana（SOL）とは？2024年最新版・ブロックチェーン技術から購入方法まで完全ガイド"],
         ))
+
+    def test_appends_a_safe_visible_source_link(self):
+        actual = append_source_attribution(
+            "<p>本文</p>", "CoinDesk & News", "https://example.com/news?id=1&lang=en"
+        )
+        self.assertIn('class="hellobtc-source"', actual)
+        self.assertIn('href="https://example.com/news?id=1&amp;lang=en"', actual)
+        self.assertIn("CoinDesk &amp; News", actual)
+        self.assertIn('rel="noopener noreferrer"', actual)
+
+    def test_does_not_append_an_invalid_source_url(self):
+        self.assertEqual(
+            append_source_attribution("<p>本文</p>", "source", "javascript:alert(1)"),
+            "<p>本文</p>",
+        )
 
 
 if __name__ == "__main__":
