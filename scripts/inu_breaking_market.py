@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""主要市場の歴史的な値動きを検知し、画像付き速報を安全に公開する。"""
+"""主要市場の歴史的な値動きを検知し、実サービス画面付きで速報する。"""
 
 from __future__ import annotations
 
@@ -11,22 +11,15 @@ import math
 import os
 import re
 from dataclasses import dataclass
-from importlib.util import find_spec
 from pathlib import Path
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
-import matplotlib
-
-matplotlib.use("Agg")
-
-import matplotlib.dates as mdates
-import matplotlib.pyplot as plt
-from matplotlib import font_manager
 import requests
 
 from inu_hourly_dispatcher import load_state, save_state
 from inu_live_post import publish_test_item, validate_test_item
+from inu_tradingview_capture import capture_tradingview_screenshot
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -44,30 +37,6 @@ MAX_QUOTE_AGE = dt.timedelta(minutes=20)
 MIN_RECORD_BREAK = 0.00005
 MAX_HISTORY = 1000
 
-BLACK = "#111111"
-MUTED = "#687078"
-GRID = "#E1E5E8"
-CANVAS = "#F5F6F7"
-ORANGE = "#F7931A"
-GREEN = "#0A9B72"
-RED = "#E5484D"
-
-
-def _enable_japanese_font() -> None:
-    """japanize-matplotlib同梱フォントを、旧distutilsへ依存せず登録する。"""
-    spec = find_spec("japanize_matplotlib")
-    roots = list(spec.submodule_search_locations or []) if spec else []
-    if not roots:
-        raise RuntimeError("日本語チャート用フォントがありません")
-    font_path = Path(roots[0]) / "fonts" / "ipaexg.ttf"
-    if not font_path.is_file():
-        raise RuntimeError("日本語チャート用フォントファイルがありません")
-    font_manager.fontManager.addfont(font_path)
-    plt.rcParams["font.family"] = "IPAexGothic"
-
-
-_enable_japanese_font()
-
 
 @dataclass(frozen=True)
 class MarketSpec:
@@ -76,13 +45,27 @@ class MarketSpec:
     family: str
     timezone: str
     priority: int
+    tradingview_symbol: str
+    tradingview_label: str
 
 
 MARKETS = (
-    MarketSpec("^GSPC", "S&P 500", "us_indices", "America/New_York", 100),
-    MarketSpec("^IXIC", "NASDAQ総合", "us_indices", "America/New_York", 90),
-    MarketSpec("^DJI", "NYダウ", "us_indices", "America/New_York", 80),
-    MarketSpec("^N225", "日経平均", "jp_indices", "Asia/Tokyo", 100),
+    MarketSpec(
+        "^GSPC", "S&P 500", "us_indices", "America/New_York", 100,
+        "FOREXCOM:SPXUSD", "S&P 500",
+    ),
+    MarketSpec(
+        "^NDX", "NASDAQ 100", "us_indices", "America/New_York", 90,
+        "FOREXCOM:NSXUSD", "NASDAQ 100",
+    ),
+    MarketSpec(
+        "^DJI", "NYダウ", "us_indices", "America/New_York", 80,
+        "FOREXCOM:DJI", "NYダウ",
+    ),
+    MarketSpec(
+        "^N225", "日経平均", "jp_indices", "Asia/Tokyo", 100,
+        "FOREXCOM:JPXJPY", "日経平均",
+    ),
 )
 
 
@@ -190,6 +173,8 @@ def detect_record(spec: MarketSpec, now: dt.datetime | None = None) -> dict | No
         "previous_record": prior_high,
         "previous_record_date": prior_date.isoformat(),
         "change_percent": (current_price / previous_close - 1) * 100,
+        "tradingview_symbol": spec.tradingview_symbol,
+        "tradingview_label": spec.tradingview_label,
     }
 
 
@@ -243,75 +228,23 @@ def build_text(event: dict) -> str:
         f"前日終値比は{direction}{event['change_percent']:.2f}%。\n\n"
         "市場が未知の価格帯へ入った重要な節目です。\n\n"
         "僕は、上昇が大型株以外にも広がるかを見ています。\n\n"
-        "※Yahoo Finance／1分足"
+        "※価格確認: Yahoo Finance／画像: TradingView"
     )
     return text
 
 
 def render_chart(event: dict, points: list[tuple[dt.datetime, float]], output: Path) -> Path:
-    dates = [mdates.date2num(row[0].astimezone(JST)) for row in points]
-    values = [row[1] for row in points]
-    change_color = GREEN if event["change_percent"] >= 0 else RED
-
-    fig = plt.figure(figsize=(12, 6.75), dpi=120, facecolor=CANVAS)
-    ax = fig.add_axes([0.065, 0.18, 0.87, 0.47])
-    ax.set_facecolor(CANVAS)
-    ax.plot(dates, values, color=ORANGE, linewidth=2.4, zorder=3)
-    ax.fill_between(dates, values, min(values), color=ORANGE, alpha=0.10, zorder=2)
-    ax.axhline(
-        event["previous_record"],
-        color=MUTED,
-        linewidth=1.2,
-        linestyle=(0, (5, 5)),
-        alpha=0.85,
+    """検知データと照合後、TradingViewの白背景画面を4:5で撮影する。"""
+    if not points:
+        raise ValueError("市場速報の照合データがありません")
+    capture_tradingview_screenshot(
+        tradingview_symbol=event["tradingview_symbol"],
+        label=event["tradingview_label"],
+        date_range="12m|1D",
+        expected_price=event["current_price"],
+        tolerance=0.02,
+        output_path=output,
     )
-    ax.annotate(
-        f" 過去最高値 {_number(event['previous_record'])} ",
-        xy=(dates[0], event["previous_record"]),
-        xytext=(8, 8),
-        textcoords="offset points",
-        color=MUTED,
-        fontsize=9,
-        fontweight="bold",
-    )
-    ax.scatter([dates[-1]], [values[-1]], color=ORANGE, s=45, zorder=4)
-    ax.grid(axis="y", color=GRID, linewidth=0.8)
-    ax.grid(axis="x", visible=False)
-    ax.spines[["top", "left", "bottom"]].set_visible(False)
-    ax.spines["right"].set_color(GRID)
-    ax.yaxis.tick_right()
-    ax.tick_params(axis="both", colors=MUTED, labelsize=9, length=0, pad=8)
-    ax.yaxis.set_major_formatter(lambda value, _position: f"{value:,.0f}")
-    ax.xaxis.set_major_locator(mdates.AutoDateLocator(minticks=4, maxticks=7))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%m/%d\n%H:%M", tz=JST))
-    padding = (max(values) - min(values)) * 0.14 or 1
-    ax.set_ylim(min(min(values), event["previous_record"]) - padding, max(values) + padding)
-
-    fig.text(0.065, 0.925, "INU MARKET ALERT", fontsize=13, fontweight="bold", color=ORANGE)
-    fig.text(0.065, 0.845, f"{event['label']} 史上最高値を更新", fontsize=30, fontweight="bold", color=BLACK)
-    fig.text(0.065, 0.770, _number(event["current_high"]), fontsize=35, fontweight="bold", color=BLACK)
-    fig.text(
-        0.305,
-        0.785,
-        f"前日比 {event['change_percent']:+.2f}%",
-        fontsize=15,
-        fontweight="bold",
-        color=change_color,
-    )
-    retrieved = dt.datetime.fromisoformat(event["quote_time"]).astimezone(JST)
-    fig.text(0.065, 0.080, "1-MINUTE MARKET DATA", fontsize=9, fontweight="bold", color=MUTED)
-    fig.text(
-        0.065,
-        0.043,
-        f"Source: Yahoo Finance  ·  Data through {retrieved:%Y-%m-%d %H:%M} JST",
-        fontsize=9,
-        color=MUTED,
-    )
-    fig.text(0.935, 0.043, "INU", fontsize=10, fontweight="bold", ha="right", color=BLACK)
-
-    output.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output, format="png", facecolor=CANVAS, edgecolor=CANVAS)
-    plt.close(fig)
     return output
 
 
@@ -350,9 +283,14 @@ def prepare(args: argparse.Namespace) -> int:
     render_chart(event, points, image_path)
     manifest_path = image_path.with_suffix(".source.json")
     manifest = {
-        "evidence_type": "live_chart",
+        "evidence_type": "market_service_screenshot",
         "data_verified": True,
-        "source_url": f"https://finance.yahoo.com/quote/{quote(event['symbol'], safe='')}/",
+        "capture_type": "service_screenshot",
+        "screenshot_provider": "TradingView",
+        "attribution_visible": True,
+        "white_background": True,
+        "source_url": f"https://www.tradingview.com/symbols/{event['tradingview_symbol'].replace(':', '-')}/",
+        "detection_source_url": f"https://finance.yahoo.com/quote/{quote(event['symbol'], safe='')}/",
         "data_endpoint": YAHOO_CHART_URL.format(symbol=quote(event["symbol"], safe="")),
         "retrieved_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "symbol": event["symbol"],
@@ -363,7 +301,7 @@ def prepare(args: argparse.Namespace) -> int:
     item = {
         "id": f"inu_breaking_{event['event_key']}",
         "topic_type": "historical_milestone",
-        "visual_route": "live_chart",
+        "visual_route": "market_service_screenshot",
         "text": build_text(event),
         "media_path": _repo_relative(image_path),
         "source_manifest": _repo_relative(manifest_path),

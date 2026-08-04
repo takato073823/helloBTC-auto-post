@@ -30,6 +30,13 @@ class XPriceChartPostTests(unittest.TestCase):
     def setUp(self):
         self.now = dt.datetime(2026, 8, 4, 6, 30, tzinfo=dt.timezone.utc)
 
+    @staticmethod
+    def fake_capture(**kwargs):
+        output = Path(kwargs["output_path"])
+        output.parent.mkdir(parents=True, exist_ok=True)
+        Image.new("RGB", (1080, 1350), "white").save(output)
+        return output, "64000.00"
+
     def test_in_progress_candle_is_dropped_and_rows_are_sorted(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
         self.assertEqual(len(candles), 72)
@@ -62,13 +69,20 @@ class XPriceChartPostTests(unittest.TestCase):
         self.assertIn("Coinbase XRP-USD", text)
         self.assertIn("僕は", text)
 
-    def test_chart_is_1080_by_1350(self):
+    def test_tradingview_screenshot_is_1080_by_1350(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
         with tempfile.TemporaryDirectory() as tmp:
-            path = x_price_chart_post.render_chart(candles, Path(tmp) / "chart.png")
+            with patch.object(
+                x_price_chart_post,
+                "capture_tradingview_screenshot",
+                side_effect=self.fake_capture,
+            ) as capture:
+                path = x_price_chart_post.render_chart(candles, Path(tmp) / "chart.png")
             with Image.open(path) as image:
                 self.assertEqual(image.size, (1080, 1350))
-                self.assertEqual(image.convert("RGB").getpixel((0, 0)), (245, 246, 247))
+                self.assertEqual(image.convert("RGB").getpixel((0, 0)), (255, 255, 255))
+            self.assertEqual("COINBASE:BTCUSD", capture.call_args.kwargs["tradingview_symbol"])
+            self.assertEqual("1m|30", capture.call_args.kwargs["date_range"])
 
     def test_dry_run_never_posts_or_writes_state(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
@@ -76,9 +90,15 @@ class XPriceChartPostTests(unittest.TestCase):
             state = Path(tmp) / "state.json"
             output = Path(tmp) / "chart.png"
             args = argparse.Namespace(live=False, key="test", state=str(state), output=str(output))
-            with patch.object(x_price_chart_post, "fetch_closed_candles", return_value=candles), patch.object(
-                x_price_chart_post, "post_info_tweet"
-            ) as post:
+            with (
+                patch.object(x_price_chart_post, "fetch_closed_candles", return_value=candles),
+                patch.object(
+                    x_price_chart_post,
+                    "capture_tradingview_screenshot",
+                    side_effect=self.fake_capture,
+                ),
+                patch.object(x_price_chart_post, "post_info_tweet") as post,
+            ):
                 self.assertEqual(x_price_chart_post.run(args), 0)
             post.assert_not_called()
             self.assertFalse(state.exists())
@@ -89,9 +109,15 @@ class XPriceChartPostTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             state = Path(tmp) / "state.json"
             args = argparse.Namespace(live=True, key="once", state=str(state), output=str(Path(tmp) / "chart.png"))
-            with patch.object(x_price_chart_post, "fetch_closed_candles", return_value=candles), patch.object(
-                x_price_chart_post, "post_info_tweet", return_value="123"
-            ) as post:
+            with (
+                patch.object(x_price_chart_post, "fetch_closed_candles", return_value=candles),
+                patch.object(
+                    x_price_chart_post,
+                    "capture_tradingview_screenshot",
+                    side_effect=self.fake_capture,
+                ),
+                patch.object(x_price_chart_post, "post_info_tweet", return_value="123") as post,
+            ):
                 self.assertEqual(x_price_chart_post.run(args), 0)
                 self.assertEqual(x_price_chart_post.run(args), 0)
             self.assertEqual(post.call_count, 1)
@@ -115,6 +141,11 @@ class XPriceChartPostTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "再実行"):
                     x_price_chart_post.run(args)
             post.assert_not_called()
+
+    def test_price_post_source_contains_no_custom_chart_renderer(self):
+        source = Path(x_price_chart_post.__file__).read_text(encoding="utf-8")
+        self.assertNotIn("matplotlib", source)
+        self.assertNotIn("fig.savefig", source)
 
 
 if __name__ == "__main__":

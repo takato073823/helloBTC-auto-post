@@ -34,7 +34,7 @@ jobs:
           cache: "pip"
 
       - name: 必要なパッケージをインストール
-        run: pip install --timeout 120 requests Pillow matplotlib japanize-matplotlib tweepy
+        run: pip install --timeout 120 requests Pillow tweepy playwright
 
       - name: 市場速報ルールを検証
         working-directory: scripts

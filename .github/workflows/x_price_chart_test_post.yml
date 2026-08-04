@@ -54,7 +54,7 @@ jobs:
         working-directory: scripts
         run: python -m unittest test_x_price_chart_post.py test_x_poster_rules.py
 
-      - name: 市場価格チャートを生成
+      - name: TradingView市場画面を撮影
         if: inputs.live != true && inputs.live != 'true'
         env:
           POST_KEY: ${{ inputs.post_key }}
@@ -74,7 +74,7 @@ jobs:
         working-directory: scripts
         run: python x_price_chart_post.py --live --key "$POST_KEY" --product "$PRODUCT" --output ../artifacts/inu-market-chart.png
 
-      - name: 生成画像を保存
+      - name: 撮影画像を保存
         if: always() && hashFiles('artifacts/inu-market-chart.png') != ''
         uses: actions/upload-artifact@v4
         with:

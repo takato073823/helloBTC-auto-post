@@ -27,7 +27,10 @@ class INUContentSystemTests(unittest.TestCase):
         self.assertEqual("reject", select_visual_route("basic_knowledge").route)
 
     def test_evidence_routes_are_not_synthetic(self):
-        self.assertEqual("live_chart", select_visual_route("crypto_market").route)
+        self.assertEqual(
+            "market_service_screenshot",
+            select_visual_route("crypto_market").route,
+        )
         self.assertEqual("official_data_crop", select_visual_route("onchain").route)
         self.assertEqual("official_text_crop", select_visual_route("breaking_news").route)
         self.assertEqual("official_text_crop", select_visual_route("security_incident").route)
@@ -90,6 +93,14 @@ class INUContentSystemTests(unittest.TestCase):
             source = (scripts_dir / name).read_text(encoding="utf-8")
             self.assertNotIn(".create_tweet(", source, name)
             self.assertIn("post_info_tweet", source if name != "inu_hourly_dispatcher.py" else (scripts_dir / "inu_live_post.py").read_text(encoding="utf-8"))
+
+    def test_market_posters_use_service_screenshots_not_custom_charts(self):
+        scripts_dir = Path(__file__).resolve().parent
+        for name in ("x_price_chart_post.py", "inu_breaking_market.py"):
+            source = (scripts_dir / name).read_text(encoding="utf-8")
+            self.assertIn("capture_tradingview_screenshot", source)
+            self.assertNotIn("matplotlib", source)
+            self.assertNotIn("fig.savefig", source)
 
     def test_timeline_is_only_used_when_needed(self):
         decision = select_visual_route("security_incident", needs_timeline=True)

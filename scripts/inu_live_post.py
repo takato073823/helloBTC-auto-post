@@ -100,8 +100,21 @@ def validate_test_item(item: dict) -> tuple[str, Path]:
             raise ValueError("生成画像内の事実確認が完了していません")
         if policy.requires_primary_source and not manifest.get("facts_primary_source"):
             raise ValueError("図解の根拠が一次資料で確認されていません")
-    elif visual_route == "live_chart" and not manifest.get("data_verified"):
-        raise ValueError("チャートの実データ検証が完了していません")
+    elif visual_route == "market_service_screenshot":
+        required_screenshot_fields = {
+            "data_verified": True,
+            "capture_type": "service_screenshot",
+            "screenshot_provider": "TradingView",
+            "attribution_visible": True,
+            "white_background": True,
+        }
+        invalid = [
+            key
+            for key, expected in required_screenshot_fields.items()
+            if manifest.get(key) != expected
+        ]
+        if invalid:
+            raise ValueError(f"実サービス画面の検証が完了していません: {invalid}")
     source_url = str(manifest.get("source_url", ""))
     if policy.requires_primary_source and not source_url.startswith("https://"):
         raise ValueError("出典URLが不正です")

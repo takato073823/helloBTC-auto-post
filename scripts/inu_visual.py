@@ -28,7 +28,7 @@ def select_visual_route(topic_type: str, *, needs_timeline: bool = False) -> Vis
     return VisualDecision(
         route,
         {
-            "live_chart": "価格と値動きは実データで示す",
+            "market_service_screenshot": "価格は出典表示のある実サービス画面で示す",
             "official_data_crop": "見出し・軸・単位・出典を残した公式データを示す",
             "manual_quote_with_source_media": "元画像を含むX投稿を手動引用して文脈を残す",
             "official_text_crop": "発信元と日付を確認できる一次資料の重要部分を示す",

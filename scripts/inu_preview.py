@@ -42,7 +42,7 @@ def run(args: argparse.Namespace) -> int:
 
     decision = select_visual_route(args.topic_type, needs_timeline=args.needs_timeline)
     policy = get_content_policy(args.topic_type)
-    if decision.route in {"live_chart", "manual_quote_with_source_media"}:
+    if decision.route in {"market_service_screenshot", "manual_quote_with_source_media"}:
         raise ValueError(
             f"{args.topic_type}は専用経路で画像を用意してください: {decision.route}"
         )

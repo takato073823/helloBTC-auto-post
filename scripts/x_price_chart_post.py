@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""実データからBTC価格チャートを生成し、INUのXへ画像付き投稿する。"""
+"""Coinbaseで価格を検証し、TradingView画面を添えてINUのXへ投稿する。"""
 
 from __future__ import annotations
 
@@ -12,17 +12,10 @@ import os
 import re
 import tempfile
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
-import matplotlib
-
-matplotlib.use("Agg")
-
-import matplotlib.dates as mdates
-import matplotlib.pyplot as plt
 import requests
-from matplotlib.patches import Rectangle
 
+from inu_tradingview_capture import capture_tradingview_screenshot
 from x_info_poster import BLOCKING_PATTERNS, MAX_WEIGHTED_LENGTH, weighted_length
 from x_poster import _neutralize_service_domains, post_info_tweet
 
@@ -34,25 +27,15 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 STATE_PATH = SCRIPT_DIR / "x_price_chart_state.json"
 COINBASE_CANDLES_URL = "https://api.exchange.coinbase.com/products/{product}/candles"
 SUPPORTED_PRODUCTS = {
-    "BTC-USD": {"symbol": "BTC", "name": "Bitcoin", "decimals": 0},
-    "ETH-USD": {"symbol": "ETH", "name": "Ethereum", "decimals": 0},
-    "SOL-USD": {"symbol": "SOL", "name": "Solana", "decimals": 2},
-    "XRP-USD": {"symbol": "XRP", "name": "XRP", "decimals": 4},
-    "DOGE-USD": {"symbol": "DOGE", "name": "Dogecoin", "decimals": 5},
-    "ADA-USD": {"symbol": "ADA", "name": "Cardano", "decimals": 4},
+    "BTC-USD": {"symbol": "BTC", "name": "Bitcoin", "decimals": 0, "tv": "COINBASE:BTCUSD", "tv_label": "ビットコイン／米ドル"},
+    "ETH-USD": {"symbol": "ETH", "name": "Ethereum", "decimals": 0, "tv": "COINBASE:ETHUSD", "tv_label": "イーサリアム／米ドル"},
+    "SOL-USD": {"symbol": "SOL", "name": "Solana", "decimals": 2, "tv": "COINBASE:SOLUSD", "tv_label": "ソラナ／米ドル"},
+    "XRP-USD": {"symbol": "XRP", "name": "XRP", "decimals": 4, "tv": "COINBASE:XRPUSD", "tv_label": "XRP／米ドル"},
+    "DOGE-USD": {"symbol": "DOGE", "name": "Dogecoin", "decimals": 5, "tv": "COINBASE:DOGEUSD", "tv_label": "ドージコイン／米ドル"},
+    "ADA-USD": {"symbol": "ADA", "name": "Cardano", "decimals": 4, "tv": "COINBASE:ADAUSD", "tv_label": "カルダノ／米ドル"},
 }
-JST = ZoneInfo("Asia/Tokyo")
 GRANULARITY_SECONDS = 3600
 DISPLAY_CANDLES = 72
-
-BLACK = "#111111"
-MUTED = "#687078"
-GRID = "#E7E9EC"
-CANVAS = "#F5F6F7"
-ORANGE = "#F7931A"
-GREEN = "#0A9B72"
-RED = "#E5484D"
-
 
 def parse_closed_candles(rows: list, now: dt.datetime | None = None) -> list[dict]:
     """Coinbaseの配列を検証し、確定済みの時間足だけ昇順で返す。"""
@@ -171,7 +154,7 @@ def build_tweet(metrics: dict, *, product: str = "BTC-USD") -> str:
         f"直近確定値は{_price(metrics['last_close'], decimals)}。24時間で{_signed_percent(change)}。\n"
         f"過去3日の高値{_price(metrics['period_high'], decimals)}、安値{_price(metrics['period_low'], decimals)}。\n\n"
         f"僕は、{focus}に注目しています。\n\n"
-        f"※Coinbase {product}／1時間足"
+        f"※価格データ: Coinbase {product}／画像: TradingView"
     )
     return _neutralize_service_domains(text)
 
@@ -193,81 +176,17 @@ def render_chart(
     *,
     product: str = "BTC-USD",
 ) -> Path:
+    """自作描画は行わず、公式TradingViewウィジェットの実画面を撮影する。"""
     asset = SUPPORTED_PRODUCTS[product]
-    decimals = asset["decimals"]
     metrics = calculate_metrics(candles)
-    dates = [mdates.date2num(candle["time"].astimezone(JST)) for candle in candles]
-    candle_width = (1 / 24) * 0.64
-
-    fig = plt.figure(figsize=(8, 10), dpi=135, facecolor=CANVAS)
-    # 右側の価格目盛りと現在値ラベルが画像外へ切れない余白を確保する。
-    ax = fig.add_axes([0.055, 0.15, 0.835, 0.59])
-    ax.set_facecolor(CANVAS)
-
-    for x, candle in zip(dates, candles):
-        color = GREEN if candle["close"] >= candle["open"] else RED
-        ax.vlines(x, candle["low"], candle["high"], color=color, linewidth=1.15, zorder=2)
-        bottom = min(candle["open"], candle["close"])
-        height = abs(candle["close"] - candle["open"])
-        if height == 0:
-            ax.hlines(candle["close"], x - candle_width / 2, x + candle_width / 2, color=color, linewidth=1.6)
-        else:
-            ax.add_patch(
-                Rectangle(
-                    (x - candle_width / 2, bottom),
-                    candle_width,
-                    height,
-                    facecolor=color,
-                    edgecolor=color,
-                    linewidth=0.6,
-                    zorder=3,
-                )
-            )
-
-    ax.axhline(metrics["last_close"], color=ORANGE, linewidth=1.15, linestyle=(0, (4, 4)), alpha=0.9)
-    ax.annotate(
-        f" {_price(metrics['last_close'], decimals)} ",
-        xy=(1.0, metrics["last_close"]),
-        xycoords=("axes fraction", "data"),
-        ha="left",
-        va="center",
-        fontsize=10,
-        color="white",
-        bbox={"boxstyle": "round,pad=0.25", "facecolor": ORANGE, "edgecolor": ORANGE},
-        clip_on=False,
+    capture_tradingview_screenshot(
+        tradingview_symbol=asset["tv"],
+        label=asset["tv_label"],
+        date_range="1m|30",
+        expected_price=metrics["last_close"],
+        tolerance=0.02,
+        output_path=output_path,
     )
-
-    ax.grid(axis="y", color=GRID, linewidth=0.8)
-    ax.grid(axis="x", visible=False)
-    ax.spines[["top", "left", "bottom"]].set_visible(False)
-    ax.spines["right"].set_color(GRID)
-    ax.yaxis.tick_right()
-    ax.tick_params(axis="y", colors=MUTED, labelsize=9, length=0, pad=8)
-    ax.tick_params(axis="x", colors=MUTED, labelsize=9, length=0, pad=10)
-    ax.yaxis.set_major_formatter(lambda value, _position: _price(value, decimals))
-    ax.xaxis.set_major_locator(mdates.HourLocator(interval=12, tz=JST))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%m/%d\n%H:%M", tz=JST))
-    ax.set_xlim(dates[0] - candle_width, dates[-1] + candle_width * 4)
-    price_padding = (metrics["period_high"] - metrics["period_low"]) * 0.08 or 1
-    ax.set_ylim(metrics["period_low"] - price_padding, metrics["period_high"] + price_padding)
-
-    fig.text(0.055, 0.960, "INU MARKET", fontsize=12, fontweight="bold", color=ORANGE)
-    fig.text(0.055, 0.915, f"{asset['name']} / US Dollar", fontsize=24, fontweight="bold", color=BLACK)
-    fig.text(0.055, 0.881, f"{product.replace('-', '')}  ·  COINBASE  ·  1H", fontsize=10.5, fontweight="bold", color=MUTED)
-    fig.text(0.055, 0.815, _price(metrics['last_close'], max(decimals, 2)), fontsize=30, fontweight="bold", color=BLACK)
-    change_color = GREEN if metrics["change_24h"] >= 0 else RED
-    fig.text(0.055, 0.778, f"24H  {_signed_percent(metrics['change_24h'])}", fontsize=12, fontweight="bold", color=change_color)
-    fig.text(0.295, 0.778, f"3D  {_signed_percent(metrics['change_period'])}", fontsize=12, fontweight="bold", color=MUTED)
-    fig.add_artist(plt.Line2D([0.055, 0.945], [0.765, 0.765], color=GRID, linewidth=1))
-
-    closed_at = metrics["closed_at"].astimezone(JST)
-    fig.text(0.055, 0.075, "72 CLOSED HOURLY CANDLES", fontsize=9, fontweight="bold", color=MUTED)
-    fig.text(0.055, 0.037, f"Source: Coinbase Exchange  ·  Data through {closed_at:%Y-%m-%d %H:%M} JST", fontsize=8.5, color=MUTED)
-    fig.text(0.945, 0.037, "INU", fontsize=9, fontweight="bold", ha="right", color=BLACK)
-
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output_path, facecolor=CANVAS, format="png", dpi=135)
-    plt.close(fig)
     return output_path
 
 
