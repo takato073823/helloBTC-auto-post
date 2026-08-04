@@ -68,6 +68,7 @@ class XPriceChartPostTests(unittest.TestCase):
             path = x_price_chart_post.render_chart(candles, Path(tmp) / "chart.png")
             with Image.open(path) as image:
                 self.assertEqual(image.size, (1080, 1350))
+                self.assertEqual(image.convert("RGB").getpixel((0, 0)), (245, 246, 247))
 
     def test_dry_run_never_posts_or_writes_state(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)

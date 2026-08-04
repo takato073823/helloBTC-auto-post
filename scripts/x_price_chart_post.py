@@ -48,6 +48,7 @@ DISPLAY_CANDLES = 72
 BLACK = "#111111"
 MUTED = "#687078"
 GRID = "#E7E9EC"
+CANVAS = "#F5F6F7"
 ORANGE = "#F7931A"
 GREEN = "#0A9B72"
 RED = "#E5484D"
@@ -198,10 +199,10 @@ def render_chart(
     dates = [mdates.date2num(candle["time"].astimezone(JST)) for candle in candles]
     candle_width = (1 / 24) * 0.64
 
-    fig = plt.figure(figsize=(8, 10), dpi=135, facecolor="white")
+    fig = plt.figure(figsize=(8, 10), dpi=135, facecolor=CANVAS)
     # 右側の価格目盛りと現在値ラベルが画像外へ切れない余白を確保する。
-    ax = fig.add_axes([0.10, 0.16, 0.76, 0.55])
-    ax.set_facecolor("white")
+    ax = fig.add_axes([0.055, 0.15, 0.835, 0.59])
+    ax.set_facecolor(CANVAS)
 
     for x, candle in zip(dates, candles):
         color = GREEN if candle["close"] >= candle["open"] else RED
@@ -250,22 +251,22 @@ def render_chart(
     price_padding = (metrics["period_high"] - metrics["period_low"]) * 0.08 or 1
     ax.set_ylim(metrics["period_low"] - price_padding, metrics["period_high"] + price_padding)
 
-    fig.text(0.10, 0.930, "INU MARKET", fontsize=12, fontweight="bold", color=ORANGE)
-    fig.text(0.10, 0.875, f"{asset['name']} / US Dollar", fontsize=24, fontweight="bold", color=BLACK)
-    fig.text(0.10, 0.842, f"{product.replace('-', '')}  ·  COINBASE  ·  1H", fontsize=10.5, fontweight="bold", color=MUTED)
-    fig.text(0.10, 0.775, _price(metrics['last_close'], max(decimals, 2)), fontsize=30, fontweight="bold", color=BLACK)
+    fig.text(0.055, 0.960, "INU MARKET", fontsize=12, fontweight="bold", color=ORANGE)
+    fig.text(0.055, 0.915, f"{asset['name']} / US Dollar", fontsize=24, fontweight="bold", color=BLACK)
+    fig.text(0.055, 0.881, f"{product.replace('-', '')}  ·  COINBASE  ·  1H", fontsize=10.5, fontweight="bold", color=MUTED)
+    fig.text(0.055, 0.815, _price(metrics['last_close'], max(decimals, 2)), fontsize=30, fontweight="bold", color=BLACK)
     change_color = GREEN if metrics["change_24h"] >= 0 else RED
-    fig.text(0.10, 0.738, f"24H  {_signed_percent(metrics['change_24h'])}", fontsize=12, fontweight="bold", color=change_color)
-    fig.text(0.34, 0.738, f"3D  {_signed_percent(metrics['change_period'])}", fontsize=12, fontweight="bold", color=MUTED)
-    fig.add_artist(plt.Line2D([0.10, 0.93], [0.725, 0.725], color=GRID, linewidth=1))
+    fig.text(0.055, 0.778, f"24H  {_signed_percent(metrics['change_24h'])}", fontsize=12, fontweight="bold", color=change_color)
+    fig.text(0.295, 0.778, f"3D  {_signed_percent(metrics['change_period'])}", fontsize=12, fontweight="bold", color=MUTED)
+    fig.add_artist(plt.Line2D([0.055, 0.945], [0.765, 0.765], color=GRID, linewidth=1))
 
     closed_at = metrics["closed_at"].astimezone(JST)
-    fig.text(0.10, 0.090, "72 CLOSED HOURLY CANDLES", fontsize=9, fontweight="bold", color=MUTED)
-    fig.text(0.10, 0.060, f"Source: Coinbase Exchange  ·  Data through {closed_at:%Y-%m-%d %H:%M} JST", fontsize=8.5, color=MUTED)
-    fig.text(0.90, 0.060, "INU", fontsize=9, fontweight="bold", ha="right", color=BLACK)
+    fig.text(0.055, 0.075, "72 CLOSED HOURLY CANDLES", fontsize=9, fontweight="bold", color=MUTED)
+    fig.text(0.055, 0.037, f"Source: Coinbase Exchange  ·  Data through {closed_at:%Y-%m-%d %H:%M} JST", fontsize=8.5, color=MUTED)
+    fig.text(0.945, 0.037, "INU", fontsize=9, fontweight="bold", ha="right", color=BLACK)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output_path, facecolor="white", format="png", dpi=135)
+    fig.savefig(output_path, facecolor=CANVAS, format="png", dpi=135)
     plt.close(fig)
     return output_path
 
