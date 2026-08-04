@@ -1,0 +1,51 @@
+name: INU 情報投稿テスト
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "検証済み投稿ID（同じIDを複数回実行しない）"
+        required: true
+        default: "btc_etf_flow_2026_08_03"
+        type: string
+
+concurrency:
+  group: inu-x-info-test-post
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  test-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 投稿内容と公開ゲートを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_content_system.py test_inu_live_post.py test_x_poster_rules.py
+
+      - name: Xへ画像付き投稿
+        id: publish
+        env:
+          POST_ID: ${{ inputs.post_id }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python scripts/inu_live_post.py --live --post-id "$POST_ID"
+
+      - name: 投稿URLを表示
+        run: echo "${{ steps.publish.outputs.tweet_url }}"
