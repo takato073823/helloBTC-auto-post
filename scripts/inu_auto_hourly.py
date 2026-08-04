@@ -249,6 +249,11 @@ def research_candidate(now: dt.datetime, state: dict) -> tuple[dict, list[dict[s
         for row in signals
         if row.get("url")
     )
+    if candidate.get("has_candidate") and candidate.get("topic_type") in AUTO_TOPIC_TYPES:
+        policy = get_content_policy(candidate["topic_type"])
+        candidate["visual_route"] = policy.visual_route
+        if candidate["topic_type"] == "reported_breaking_news":
+            candidate["is_primary_source"] = False
     return candidate, sources
 
 
