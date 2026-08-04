@@ -20,6 +20,17 @@
       "published_at": "2026-08-04T13:45:02+00:00",
       "posted_at": "2026-08-04T13:51:12.389161+00:00",
       "hook": "暗号資産市場で本日起きた主要ニュースを総括"
+    },
+    {
+      "slot": "2026-08-05-01",
+      "post_id": "inu_auto_ece17867c4052d",
+      "tweet_id": "2084673468692320766",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "source_url": "https://cointelegraph.com/news/bitdeer-ai-data-center-lease-norway",
+      "published_at": "2026-08-04T15:50:20+00:00",
+      "posted_at": "2026-08-04T16:11:01.339064+00:00",
+      "hook": "Bitdeer、ノルウェーでAIデータセンターを拡大"
     }
   ],
   "posted_ids": [
@@ -28,18 +39,10 @@
     "jgb_10y_auction_2026_08_04",
     "inu_auto_3e6067c2d9b345",
     "inu_auto_4a97112af3087b",
-    "inu_breaking_us_indices_record_2026-08-04"
+    "inu_breaking_us_indices_record_2026-08-04",
+    "inu_auto_ece17867c4052d"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-05-01",
-      "post_id": "inu_auto_ece17867c4052d",
-      "source_url": "https://cointelegraph.com/news/bitdeer-ai-data-center-lease-norway",
-      "topic_type": "reported_breaking_news",
-      "priority": "scheduled",
-      "reserved_at": "2026-08-04T16:10:33.727761+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -95,6 +98,17 @@
       "published_at": "2026-08-04T14:41:05+00:00",
       "posted_at": "2026-08-04T14:41:11.688735+00:00",
       "hook": "S&P 500が史上最高値を更新"
+    },
+    {
+      "slot": "2026-08-05-01",
+      "post_id": "inu_auto_ece17867c4052d",
+      "tweet_id": "2084673468692320766",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "source_url": "https://cointelegraph.com/news/bitdeer-ai-data-center-lease-norway",
+      "published_at": "2026-08-04T15:50:20+00:00",
+      "posted_at": "2026-08-04T16:11:01.339064+00:00",
+      "hook": "Bitdeer、ノルウェーでAIデータセンターを拡大"
     }
   ]
 }
