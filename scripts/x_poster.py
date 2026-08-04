@@ -17,6 +17,7 @@ X API v2 (tweepy) + OAuth 1.0a
 import os
 import logging
 import re
+from pathlib import Path
 import tweepy
 
 logger = logging.getLogger(__name__)
@@ -26,9 +27,13 @@ _REQUIRED_ENV = ("X_API_KEY", "X_API_KEY_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TO
 # X は ``crypto.com`` のようなサービス名も外部リンクとして解釈することがある。
 # 本文中の名称だけを非リンク化し、記事URLはそのままカード表示に使う。
 _SERVICE_DOMAIN_RE = re.compile(
-    r"(?<![@\w.-])(?P<name>[A-Za-z0-9][A-Za-z0-9-]{1,62})\."
+    # ``\w`` は日本語も含むため使わない。サービス名の前後に日本語が
+    # 続く ``Crypto.comの情報`` も変換しつつ、ASCIIのドメイン境界は守る。
+    r"(?<![@A-Za-z0-9_.-])(?P<name>[A-Za-z0-9][A-Za-z0-9-]{1,62})\."
     r"(?P<tld>com|io|net|org|ai|jp|co|app|xyz|exchange|finance|market|global|us|me|tv)"
-    r"(?![\w.-])",
+    # 文末のピリオドやハイフン接続はサービス名として変換する一方、
+    # ``crypto.com.example`` のようにドメインが続く場合は触らない。
+    r"(?![A-Za-z0-9_]|\.[A-Za-z0-9])",
     re.IGNORECASE,
 )
 
@@ -58,6 +63,17 @@ def _get_client() -> tweepy.Client:
         access_token=os.environ["X_ACCESS_TOKEN"],
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
+
+
+def _get_oauth1_api() -> tweepy.API:
+    """画像アップロード用のOAuth 1.0a APIクライアントを返す。"""
+    auth = tweepy.OAuth1UserHandler(
+        os.environ["X_API_KEY"],
+        os.environ["X_API_KEY_SECRET"],
+        os.environ["X_ACCESS_TOKEN"],
+        os.environ["X_ACCESS_TOKEN_SECRET"],
+    )
+    return tweepy.API(auth)
 
 
 def _build_hashtags(tags: list[str]) -> str:
@@ -127,4 +143,32 @@ def post_tweet(
         return tweet_id
     except Exception as e:
         logger.warning(f"X投稿失敗（記事投稿は続行）: {e}")
+        return None
+
+
+def post_info_tweet(text: str, media_path: str | Path) -> str | None:
+    """独立した情報投稿を画像付きで送る。
+
+    既存の記事投稿とは呼び出し元を分離する。画像アップロードまたは投稿に
+    失敗した場合は文字だけで代替せず、Noneを返して安全にスキップする。
+    """
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のため情報投稿をスキップ")
+        return None
+
+    path = Path(media_path)
+    if not path.is_file():
+        logger.warning("X情報投稿をスキップ（画像が存在しません）: %s", path)
+        return None
+
+    try:
+        safe_text = _neutralize_service_domains(text)
+        media = _get_oauth1_api().media_upload(filename=str(path))
+        media_id = str(getattr(media, "media_id_string", None) or media.media_id)
+        response = _get_client().create_tweet(text=safe_text, media_ids=[media_id])
+        tweet_id = response.data["id"]
+        logger.info("X情報投稿完了: https://x.com/i/web/status/%s", tweet_id)
+        return tweet_id
+    except Exception as e:
+        logger.warning("X情報投稿失敗（既存の記事投稿には影響しません）: %s", e)
         return None

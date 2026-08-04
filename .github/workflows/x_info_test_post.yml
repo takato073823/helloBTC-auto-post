@@ -1,0 +1,57 @@
+name: INU 情報投稿テスト
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "投稿ライブラリのID"
+        required: true
+        default: "btc_supply_limit"
+        type: string
+
+concurrency:
+  group: inu-x-info-test-post
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  test-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 投稿ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_x_info_poster.py test_x_poster_rules.py
+
+      - name: Xへ画像付きテスト投稿
+        env:
+          POST_ID: ${{ inputs.post_id }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python x_info_poster.py --live --post-id "$POST_ID"
+
+      - name: 投稿履歴を保存
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/x_info_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU X test post [skip ci]"
+          git pull --rebase
+          git push
