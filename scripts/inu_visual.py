@@ -4,34 +4,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from inu_content_types import CONTENT_TYPES, get_content_policy
 
-TIMELY_TOPIC_TYPES = {
-    "crypto_market",
-    "trending_token",
-    "us_stock",
-    "jp_stock",
-    "macro_geopolitics",
-    "etf_flow",
-    "onchain",
-    "x_reaction",
-    "breaking_news",
-    "security_incident",
-    "campaign",
-}
-
-EVIDENCE_ROUTES = {
-    "crypto_market": "live_chart",
-    "trending_token": "live_chart",
-    "us_stock": "live_chart",
-    "jp_stock": "live_chart",
-    "macro_geopolitics": "official_text_crop",
-    "etf_flow": "official_data_crop",
-    "onchain": "official_data_crop",
-    "x_reaction": "native_quote",
-    "breaking_news": "official_text_crop",
-    "security_incident": "official_text_crop",
-    "campaign": "gpt_creative",
-}
+TIMELY_TOPIC_TYPES = set(CONTENT_TYPES)
+EVIDENCE_ROUTES = {key: policy.visual_route for key, policy in CONTENT_TYPES.items()}
 
 
 @dataclass(frozen=True)
@@ -39,25 +15,29 @@ class VisualDecision:
     route: str
     reason: str
     gpt_image_allowed: bool
+    review_mode: str = "manual"
 
 
 def select_visual_route(topic_type: str, *, needs_timeline: bool = False) -> VisualDecision:
     if topic_type not in TIMELY_TOPIC_TYPES:
         return VisualDecision("reject", "基礎知識・不明な題材は投稿対象外", False)
+    policy = get_content_policy(topic_type)
     if needs_timeline:
-        return VisualDecision("gpt_timeline", "複数の出来事を1枚で説明する", True)
-    route = EVIDENCE_ROUTES[topic_type]
+        return VisualDecision("gpt_timeline", "複数の出来事を1枚で説明する", True, "manual")
+    route = policy.visual_route
     return VisualDecision(
         route,
         {
             "live_chart": "価格と値動きは実データで示す",
             "official_data_crop": "見出し・軸・単位・出典を残した公式データを示す",
-            "native_quote": "X上の発言はネイティブ引用で文脈を残す",
+            "manual_quote_with_source_media": "元画像を含むX投稿を手動引用して文脈を残す",
             "official_text_crop": "発信元と日付を確認できる一次資料の重要部分を示す",
             "gpt_timeline": "時系列はオリジナル図解で整理する",
             "gpt_creative": "キャンペーンはGPT Imageで視認性を作る",
+            "gpt_explainer": "確認済みの情報だけをオリジナル図解で整理する",
         }[route],
         route.startswith("gpt_"),
+        policy.review_mode,
     )
 
 

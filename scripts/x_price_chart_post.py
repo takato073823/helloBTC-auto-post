@@ -148,7 +148,7 @@ def build_tweet(metrics: dict) -> str:
         f"{headline}\n\n"
         f"直近確定値は${metrics['last_close']:,.0f}。24時間で{_signed_percent(change)}。\n"
         f"過去3日の高値${metrics['period_high']:,.0f}、安値${metrics['period_low']:,.0f}。\n\n"
-        f"INUは{focus}に注目しています。\n\n"
+        f"僕は、{focus}に注目しています。\n\n"
         "※Coinbase BTC-USD／1時間足"
     )
     return _neutralize_service_domains(text)

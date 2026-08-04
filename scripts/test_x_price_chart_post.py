@@ -47,6 +47,8 @@ class XPriceChartPostTests(unittest.TestCase):
         text = x_price_chart_post.build_tweet(x_price_chart_post.calculate_metrics(candles))
         x_price_chart_post.validate_tweet(text)
         self.assertIn("Coinbase BTC-USD", text)
+        self.assertIn("僕は", text)
+        self.assertNotIn("INUは", text)
         self.assertNotIn("http", text)
         self.assertNotIn("買うべき", text)
 

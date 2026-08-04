@@ -23,17 +23,36 @@ on:
         description: "画像内の短い見出し"
         required: true
         type: string
-      visual_type:
-        description: "画像の種類"
+      topic_type:
+        description: "投稿の系統"
         required: true
-        default: "gpt_explainer"
+        default: "breaking_news"
         type: choice
         options:
-          - official_text_crop
-          - official_data_crop
-          - gpt_explainer
-          - gpt_timeline
-          - gpt_creative
+          - breaking_news
+          - security_incident
+          - market_microstructure
+          - etf_flow
+          - institutional_flow
+          - onchain
+          - whale_treasury
+          - earnings
+          - supply_event
+          - adoption_kpi
+          - policy_household
+          - macro_event
+          - macro_geopolitics
+          - developing_story
+          - timeline_explainer
+          - public_figure_statement
+          - ai_comparison
+          - market_meme
+          - campaign
+      needs_timeline:
+        description: "複数の出来事を時系列図にする"
+        required: true
+        default: false
+        type: boolean
       source_url:
         description: "公式スクリーンショット時の一次資料URL"
         required: false
@@ -78,8 +97,19 @@ jobs:
         working-directory: scripts
         run: python -m unittest test_inu_content_system.py test_x_poster_rules.py
 
+      - name: 画像経路を決定
+        id: route
+        env:
+          TOPIC_TYPE: ${{ inputs.topic_type }}
+          NEEDS_TIMELINE: ${{ inputs.needs_timeline }}
+        working-directory: scripts
+        shell: bash
+        run: |
+          route=$(python -c 'import os; from inu_visual import select_visual_route; print(select_visual_route(os.environ["TOPIC_TYPE"], needs_timeline=os.environ["NEEDS_TIMELINE"] == "true").route)')
+          echo "visual_route=$route" >> "$GITHUB_OUTPUT"
+
       - name: 公式ページ撮影用ブラウザを準備
-        if: startsWith(inputs.visual_type, 'official_')
+        if: startsWith(steps.route.outputs.visual_route, 'official_')
         run: python -m playwright install --with-deps chromium
 
       - name: ドライランで画像と本文を生成
@@ -90,24 +120,29 @@ jobs:
           OPINION: ${{ inputs.opinion }}
           SOURCE_LABEL: ${{ inputs.source }}
           IMAGE_HEADLINE: ${{ inputs.image_headline }}
-          VISUAL_TYPE: ${{ inputs.visual_type }}
+          TOPIC_TYPE: ${{ inputs.topic_type }}
+          NEEDS_TIMELINE: ${{ inputs.needs_timeline }}
           SOURCE_URL: ${{ inputs.source_url }}
           SOURCE_NAME: ${{ inputs.source_name }}
           PUBLISHED_AT: ${{ inputs.published_at }}
           SOURCE_SELECTOR: ${{ inputs.source_selector }}
         working-directory: scripts
-        run: >-
-          python inu_preview.py
-          --hook "$HOOK"
-          --fact "$FACT"
-          --opinion "$OPINION"
-          --source "$SOURCE_LABEL"
-          --image-headline "$IMAGE_HEADLINE"
-          --visual-type "$VISUAL_TYPE"
-          --source-url "$SOURCE_URL"
-          --source-name "$SOURCE_NAME"
-          --published-at "$PUBLISHED_AT"
-          --source-selector "$SOURCE_SELECTOR"
+        shell: bash
+        run: |
+          args=(
+            --hook "$HOOK"
+            --fact "$FACT"
+            --opinion "$OPINION"
+            --source "$SOURCE_LABEL"
+            --image-headline "$IMAGE_HEADLINE"
+            --topic-type "$TOPIC_TYPE"
+            --source-url "$SOURCE_URL"
+            --source-name "$SOURCE_NAME"
+            --published-at "$PUBLISHED_AT"
+            --source-selector "$SOURCE_SELECTOR"
+          )
+          if [[ "$NEEDS_TIMELINE" == "true" ]]; then args+=(--needs-timeline); fi
+          python inu_preview.py "${args[@]}"
 
       - name: プレビューを保存
         if: always()

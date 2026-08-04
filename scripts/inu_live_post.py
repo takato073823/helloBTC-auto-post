@@ -13,6 +13,7 @@ from typing import Callable
 
 from PIL import Image
 
+from inu_content_types import get_content_policy
 from inu_post import validate_post
 from x_poster import _neutralize_service_domains, post_info_tweet
 
@@ -46,13 +47,25 @@ def load_test_item(post_id: str) -> dict:
 
 
 def validate_test_item(item: dict) -> tuple[str, Path]:
-    required = {"id", "text", "media_path", "source_manifest"}
+    required = {
+        "id",
+        "topic_type",
+        "visual_route",
+        "text",
+        "media_path",
+        "source_manifest",
+    }
     missing = sorted(required - set(item))
     if missing:
         raise ValueError(f"投稿データが不足しています: {missing}")
 
     safe_text = _neutralize_service_domains(item["text"].strip())
     validate_post(safe_text)
+    policy = get_content_policy(item["topic_type"])
+    if item["visual_route"] != policy.visual_route:
+        raise ValueError("投稿系統と画像形式が一致しません")
+    if policy.review_mode == "manual":
+        raise ValueError("手動確認専用の投稿系統は自動公開できません")
     blocked = [pattern for pattern in BLOCKING_PATTERNS if pattern in safe_text]
     if blocked:
         raise ValueError(f"禁止表現があります: {blocked}")
@@ -76,11 +89,21 @@ def validate_test_item(item: dict) -> tuple[str, Path]:
     if REPO_ROOT not in manifest_path.parents or not manifest_path.is_file():
         raise ValueError("出典メタデータがありません")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if not manifest.get("is_primary_source"):
-        raise ValueError("一次資料として確認されていません")
-    if manifest.get("evidence_type") not in {"official_text_crop", "official_data_crop"}:
-        raise ValueError("公式ソース画像ではありません")
-    if not str(manifest.get("source_url", "")).startswith("https://"):
+    visual_route = item["visual_route"]
+    if manifest.get("evidence_type") != visual_route:
+        raise ValueError("画像の出典形式が投稿データと一致しません")
+    if visual_route.startswith("official_"):
+        if not manifest.get("is_primary_source"):
+            raise ValueError("一次資料として確認されていません")
+    elif visual_route.startswith("gpt_"):
+        if not manifest.get("generated_image") or not manifest.get("facts_verified"):
+            raise ValueError("生成画像内の事実確認が完了していません")
+        if policy.requires_primary_source and not manifest.get("facts_primary_source"):
+            raise ValueError("図解の根拠が一次資料で確認されていません")
+    elif visual_route == "live_chart" and not manifest.get("data_verified"):
+        raise ValueError("チャートの実データ検証が完了していません")
+    source_url = str(manifest.get("source_url", ""))
+    if policy.requires_primary_source and not source_url.startswith("https://"):
         raise ValueError("出典URLが不正です")
 
     return safe_text, media_path

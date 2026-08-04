@@ -9,6 +9,7 @@ from tempfile import TemporaryDirectory
 from PIL import Image
 
 from inu_budget import estimate_monthly_cost_yen
+from inu_content_types import CONTENT_TYPES, get_content_policy
 from inu_persona import lint_voice
 from inu_post import compose_post, validate_post
 from inu_source_capture import SourceCaptureSpec, crop_source_image, validate_capture_spec
@@ -29,8 +30,63 @@ class INUContentSystemTests(unittest.TestCase):
         self.assertEqual("official_data_crop", select_visual_route("onchain").route)
         self.assertEqual("official_text_crop", select_visual_route("breaking_news").route)
         self.assertEqual("official_text_crop", select_visual_route("security_incident").route)
-        self.assertEqual("native_quote", select_visual_route("x_reaction").route)
+        self.assertEqual(
+            "manual_quote_with_source_media",
+            select_visual_route("x_reaction").route,
+        )
         self.assertFalse(select_visual_route("etf_flow").gpt_image_allowed)
+
+    def test_all_requested_timely_types_have_an_image_route(self):
+        required = {
+            "market_microstructure",
+            "etf_flow",
+            "institutional_flow",
+            "whale_treasury",
+            "earnings",
+            "supply_event",
+            "adoption_kpi",
+            "policy_household",
+            "macro_event",
+            "developing_story",
+            "historical_milestone",
+            "cross_asset",
+            "timeline_explainer",
+            "security_incident",
+            "market_meme",
+            "campaign",
+        }
+        self.assertTrue(required.issubset(CONTENT_TYPES))
+        for key in required:
+            self.assertNotIn(get_content_policy(key).visual_route, {"", "none", "text_only"})
+
+    def test_risky_types_are_never_fully_automatic(self):
+        for key in {
+            "translation_quote",
+            "x_reaction",
+            "public_figure_statement",
+            "security_incident",
+            "market_meme",
+            "campaign",
+            "ai_comparison",
+        }:
+            self.assertEqual("manual", get_content_policy(key).review_mode)
+
+    def test_translation_requires_source_media(self):
+        policy = get_content_policy("translation_quote")
+        self.assertTrue(policy.requires_source_media)
+        self.assertEqual("manual_quote_with_source_media", policy.visual_route)
+
+    def test_inu_publish_modules_do_not_create_text_only_posts(self):
+        scripts_dir = Path(__file__).resolve().parent
+        publish_modules = [
+            "inu_live_post.py",
+            "inu_hourly_dispatcher.py",
+            "x_price_chart_post.py",
+        ]
+        for name in publish_modules:
+            source = (scripts_dir / name).read_text(encoding="utf-8")
+            self.assertNotIn(".create_tweet(", source, name)
+            self.assertIn("post_info_tweet", source if name != "inu_hourly_dispatcher.py" else (scripts_dir / "inu_live_post.py").read_text(encoding="utf-8"))
 
     def test_timeline_is_only_used_when_needed(self):
         decision = select_visual_route("security_incident", needs_timeline=True)

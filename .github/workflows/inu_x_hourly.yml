@@ -1,0 +1,66 @@
+name: INU 画像付き毎時投稿
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      live:
+        description: "実際にXへ投稿する"
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: inu-x-hourly
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  dispatch:
+    if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: INU投稿ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_live_post.py test_x_poster_rules.py
+
+      - name: 手動ドライラン
+        if: github.event_name == 'workflow_dispatch' && inputs.live != true
+        working-directory: scripts
+        run: python inu_hourly_dispatcher.py
+
+      - name: 画像付き投稿を1件公開
+        if: github.event_name == 'schedule' || inputs.live == true
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python inu_hourly_dispatcher.py --live
+
+      - name: 毎時投稿履歴を保存
+        if: github.event_name == 'schedule' || inputs.live == true
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU hourly post [skip ci]"
+          git pull --rebase
+          git push
