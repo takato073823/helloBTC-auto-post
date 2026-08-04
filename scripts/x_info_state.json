@@ -1,6 +1,14 @@
 {
   "version": 1,
-  "cursor": 0,
-  "posted_slots": [],
-  "posted_ids": []
+  "cursor": 1,
+  "posted_slots": [
+    {
+      "slot": "2026-08-04-15",
+      "post_id": "btc_supply_limit",
+      "tweet_id": "2084522091013935496"
+    }
+  ],
+  "posted_ids": [
+    "btc_supply_limit"
+  ]
 }
