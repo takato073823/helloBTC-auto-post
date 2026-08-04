@@ -34,6 +34,11 @@ class XPosterRulesTests(unittest.TestCase):
         neutralize = self.helpers["_neutralize_service_domains"]
         self.assertEqual("Crypto(.)com", neutralize("Crypto.com"))
         self.assertEqual("BingX(.)com", neutralize("BingX.com"))
+        self.assertEqual("Crypto(.)comの情報", neutralize("Crypto.comの情報"))
+        self.assertEqual("取引所Crypto(.)com", neutralize("取引所Crypto.com"))
+        self.assertEqual("Crypto(.)com-X", neutralize("Crypto.com-X"))
+        self.assertEqual("Crypto(.)com.", neutralize("Crypto.com."))
+        self.assertEqual("crypto.com.example", neutralize("crypto.com.example"))
 
     def test_real_urls_and_email_addresses_are_not_changed(self):
         neutralize = self.helpers["_neutralize_service_domains"]
