@@ -149,7 +149,7 @@ async def capture_official_evidence(
             )
             is_data = spec.evidence_type == "official_data_crop"
             top = max(0, float(box["y"]) - (260 if is_data else 80))
-            height = min(1120.0 if is_data else 380.0, float(document_height) - top)
+            height = min(1120.0 if is_data else 300.0, float(document_height) - top)
             if height < 180:
                 raise ValueError("根拠箇所を読める範囲で切り抜けません")
             await page.screenshot(
