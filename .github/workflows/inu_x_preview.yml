@@ -29,9 +29,27 @@ on:
         default: "gpt_explainer"
         type: choice
         options:
+          - official_text_crop
+          - official_data_crop
           - gpt_explainer
           - gpt_timeline
           - gpt_creative
+      source_url:
+        description: "公式スクリーンショット時の一次資料URL"
+        required: false
+        type: string
+      source_name:
+        description: "公式スクリーンショット時の発信元名"
+        required: false
+        type: string
+      published_at:
+        description: "公式スクリーンショット時の公開日（YYYY-MM-DD）"
+        required: false
+        type: string
+      source_selector:
+        description: "重要部分を指定するCSS selector（bodyなどページ全体は禁止）"
+        required: false
+        type: string
 concurrency:
   group: inu-x-preview
   cancel-in-progress: false
@@ -60,6 +78,10 @@ jobs:
         working-directory: scripts
         run: python -m unittest test_inu_content_system.py test_x_poster_rules.py
 
+      - name: 公式ページ撮影用ブラウザを準備
+        if: startsWith(inputs.visual_type, 'official_')
+        run: python -m playwright install --with-deps chromium
+
       - name: ドライランで画像と本文を生成
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -69,6 +91,10 @@ jobs:
           SOURCE_LABEL: ${{ inputs.source }}
           IMAGE_HEADLINE: ${{ inputs.image_headline }}
           VISUAL_TYPE: ${{ inputs.visual_type }}
+          SOURCE_URL: ${{ inputs.source_url }}
+          SOURCE_NAME: ${{ inputs.source_name }}
+          PUBLISHED_AT: ${{ inputs.published_at }}
+          SOURCE_SELECTOR: ${{ inputs.source_selector }}
         working-directory: scripts
         run: >-
           python inu_preview.py
@@ -78,6 +104,10 @@ jobs:
           --source "$SOURCE_LABEL"
           --image-headline "$IMAGE_HEADLINE"
           --visual-type "$VISUAL_TYPE"
+          --source-url "$SOURCE_URL"
+          --source-name "$SOURCE_NAME"
+          --published-at "$PUBLISHED_AT"
+          --source-selector "$SOURCE_SELECTOR"
 
       - name: プレビューを保存
         if: always()

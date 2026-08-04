@@ -3,10 +3,15 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+
+from PIL import Image
 
 from inu_budget import estimate_monthly_cost_yen
 from inu_persona import lint_voice
 from inu_post import compose_post, validate_post
+from inu_source_capture import SourceCaptureSpec, crop_source_image, validate_capture_spec
 from inu_visual import build_gpt_image_prompt, select_visual_route
 
 
@@ -21,9 +26,45 @@ class INUContentSystemTests(unittest.TestCase):
 
     def test_evidence_routes_are_not_synthetic(self):
         self.assertEqual("live_chart", select_visual_route("crypto_market").route)
-        self.assertEqual("source_data", select_visual_route("onchain").route)
+        self.assertEqual("official_data_crop", select_visual_route("onchain").route)
+        self.assertEqual("official_text_crop", select_visual_route("breaking_news").route)
+        self.assertEqual("official_text_crop", select_visual_route("security_incident").route)
         self.assertEqual("native_quote", select_visual_route("x_reaction").route)
         self.assertFalse(select_visual_route("etf_flow").gpt_image_allowed)
+
+    def test_timeline_is_only_used_when_needed(self):
+        decision = select_visual_route("security_incident", needs_timeline=True)
+        self.assertEqual("gpt_timeline", decision.route)
+        self.assertTrue(decision.gpt_image_allowed)
+
+    def test_source_capture_rejects_non_primary_or_full_page(self):
+        with self.assertRaises(ValueError):
+            validate_capture_spec(
+                SourceCaptureSpec(
+                    source_url="https://example.com/news",
+                    source_name="転載メディア",
+                    published_at="2026-08-04",
+                    evidence_type="official_text_crop",
+                    selector="body",
+                    is_primary_source=False,
+                )
+            )
+
+    def test_source_crop_keeps_manifest(self):
+        spec = SourceCaptureSpec(
+            source_url="https://example.com/official-release",
+            source_name="Example公式",
+            published_at="2026-08-04",
+            evidence_type="official_text_crop",
+            selector="section.release-body",
+        )
+        with TemporaryDirectory() as directory:
+            source = Path(directory) / "source.png"
+            output = Path(directory) / "evidence.png"
+            Image.new("RGB", (1000, 800), "white").save(source)
+            crop_source_image(spec, source, output, (100, 100, 900, 600))
+            self.assertTrue(output.exists())
+            self.assertTrue(output.with_suffix(".source.json").exists())
 
     def test_gpt_prompt_requires_original_visual(self):
         prompt = build_gpt_image_prompt(
@@ -53,4 +94,3 @@ class INUContentSystemTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
