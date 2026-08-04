@@ -27,17 +27,10 @@
     "coldcard_entropy_actions_2026_08_04",
     "jgb_10y_auction_2026_08_04",
     "inu_auto_3e6067c2d9b345",
-    "inu_auto_4a97112af3087b"
+    "inu_auto_4a97112af3087b",
+    "inu_breaking_us_indices_record_2026-08-04"
   ],
-  "reservations": [
-    {
-      "event_key": "us_indices_record_2026-08-04",
-      "post_id": "inu_breaking_us_indices_record_2026-08-04",
-      "topic_type": "historical_milestone",
-      "priority": "breaking",
-      "reserved_at": "2026-08-04T14:41:08.062058+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -82,6 +75,17 @@
       "published_at": "2026-08-04T13:45:02+00:00",
       "posted_at": "2026-08-04T13:51:12.389161+00:00",
       "hook": "暗号資産市場で本日起きた主要ニュースを総括"
+    },
+    {
+      "event_key": "us_indices_record_2026-08-04",
+      "post_id": "inu_breaking_us_indices_record_2026-08-04",
+      "tweet_id": "2084650863407378770",
+      "topic_type": "historical_milestone",
+      "priority": "breaking",
+      "source_url": "https://finance.yahoo.com/quote/%5EGSPC/",
+      "published_at": "2026-08-04T14:41:05+00:00",
+      "posted_at": "2026-08-04T14:41:11.688735+00:00",
+      "hook": "S&P 500が史上最高値を更新"
     }
   ]
 }
