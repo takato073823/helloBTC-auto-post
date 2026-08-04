@@ -212,11 +212,11 @@ def build_research_prompt(
   「日本企業IR」「中央銀行・規制当局」「Xで話題になった公式発表」の観点を分けて検索してから比較する。
 - ニュースメディアやXの話題は発見に使ってよいが、最終source_urlは発表主体の公式サイト、規制当局、中央銀行、取引所、上場企業IR、ETF発行体、公式データ提供元などの一次資料にする。
 - 一次資料へ到達できない速報だけは、Reuters、Nikkei、Bloomberg、CoinDesk、Cointelegraph、Decrypt、The Blockの元記事をsource_urlにしてよい。その場合topic_typeはreported_breaking_news、visual_routeはreported_text_crop、is_primary_source=falseにする。
-- source_urlは今回のWeb検索結果に実際に含まれるURLだけを使う。
+- source_urlは今回のWeb検索結果に実際に含まれるURLを使う。ただしreported_breaking_newsだけは、下記「大手メディアの最新見出し」に含まれる元記事URLも使える。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
-- evidence_anchorは一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。
+- evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
-- 適切な候補がなければhas_candidate=falseにする。古い話題で穴埋めしない。
+- まず一次資料を優先する。見つからなくても、下記「大手メディアの最新見出し」に2時間以内の重要記事があれば、その元記事をreported_breaking_newsとして必ず1件選ぶ。has_candidate=falseは、一次資料も2時間以内の許可メディア記事もない場合だけにする。古い話題で穴埋めしない。
 - 投稿文は日本語。hookは短く具体的にし、factsは重要な数字・変更点を1〜2文。
 - opinionには必ず「僕は」または「個人的には」を使い、事実と見解を分ける。
 - 投稿全体がXの280文字制限に収まるよう非常に簡潔にする。
@@ -224,7 +224,7 @@ def build_research_prompt(
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
-大手メディアの最新見出し（発見専用。最終出典には使わない）:
+大手メディアの最新見出し（一次資料探索に使い、一次資料がない場合はreported_breaking_newsの最終出典として使用可）:
 {json.dumps(discovery_signals or [], ensure_ascii=False)}
 次は直近と異なる系統を優先する。選択可能なtopic_typeは:
 {', '.join(AUTO_TOPIC_TYPES)}
