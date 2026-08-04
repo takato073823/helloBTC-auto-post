@@ -19,15 +19,24 @@ class INUTradingViewCaptureTests(unittest.TestCase):
     def test_widget_is_white_candlestick_and_keeps_attribution(self):
         html = build_widget_html(
             tradingview_symbol="COINBASE:BTCUSD",
-            label="ビットコイン／米ドル",
+            label="Bitcoin / U.S. Dollar",
             date_range="1m|30",
         )
         self.assertIn('"colorTheme":"light"', html)
         self.assertIn('"chartType":"candlesticks"', html)
         self.assertIn('"backgroundColor":"#ffffff"', html)
+        self.assertIn('"locale":"en"', html)
         self.assertIn("by TradingView", html)
         self.assertIn("1080px", html)
         self.assertIn("1350px", html)
+
+    def test_non_ascii_label_is_rejected_to_prevent_missing_glyphs(self):
+        with self.assertRaises(ValueError):
+            build_widget_html(
+                tradingview_symbol="COINBASE:BTCUSD",
+                label="ビットコイン／米ドル",
+                date_range="1m|30",
+            )
 
     def test_price_must_match_detection_source(self):
         text = "Bitcoin / U.S. Dollar 64,031.25 USD +1.2%"

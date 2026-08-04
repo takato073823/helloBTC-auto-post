@@ -27,12 +27,12 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 STATE_PATH = SCRIPT_DIR / "x_price_chart_state.json"
 COINBASE_CANDLES_URL = "https://api.exchange.coinbase.com/products/{product}/candles"
 SUPPORTED_PRODUCTS = {
-    "BTC-USD": {"symbol": "BTC", "name": "Bitcoin", "decimals": 0, "tv": "COINBASE:BTCUSD", "tv_label": "ビットコイン／米ドル"},
-    "ETH-USD": {"symbol": "ETH", "name": "Ethereum", "decimals": 0, "tv": "COINBASE:ETHUSD", "tv_label": "イーサリアム／米ドル"},
-    "SOL-USD": {"symbol": "SOL", "name": "Solana", "decimals": 2, "tv": "COINBASE:SOLUSD", "tv_label": "ソラナ／米ドル"},
-    "XRP-USD": {"symbol": "XRP", "name": "XRP", "decimals": 4, "tv": "COINBASE:XRPUSD", "tv_label": "XRP／米ドル"},
-    "DOGE-USD": {"symbol": "DOGE", "name": "Dogecoin", "decimals": 5, "tv": "COINBASE:DOGEUSD", "tv_label": "ドージコイン／米ドル"},
-    "ADA-USD": {"symbol": "ADA", "name": "Cardano", "decimals": 4, "tv": "COINBASE:ADAUSD", "tv_label": "カルダノ／米ドル"},
+    "BTC-USD": {"symbol": "BTC", "name": "Bitcoin", "decimals": 0, "tv": "COINBASE:BTCUSD", "tv_label": "Bitcoin / U.S. Dollar"},
+    "ETH-USD": {"symbol": "ETH", "name": "Ethereum", "decimals": 0, "tv": "COINBASE:ETHUSD", "tv_label": "Ethereum / U.S. Dollar"},
+    "SOL-USD": {"symbol": "SOL", "name": "Solana", "decimals": 2, "tv": "COINBASE:SOLUSD", "tv_label": "Solana / U.S. Dollar"},
+    "XRP-USD": {"symbol": "XRP", "name": "XRP", "decimals": 4, "tv": "COINBASE:XRPUSD", "tv_label": "XRP / U.S. Dollar"},
+    "DOGE-USD": {"symbol": "DOGE", "name": "Dogecoin", "decimals": 5, "tv": "COINBASE:DOGEUSD", "tv_label": "Dogecoin / U.S. Dollar"},
+    "ADA-USD": {"symbol": "ADA", "name": "Cardano", "decimals": 4, "tv": "COINBASE:ADAUSD", "tv_label": "Cardano / U.S. Dollar"},
 }
 GRANULARITY_SECONDS = 3600
 DISPLAY_CANDLES = 72

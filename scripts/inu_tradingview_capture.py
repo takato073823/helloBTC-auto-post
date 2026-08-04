@@ -24,6 +24,7 @@ ALLOWED_RANGES = {
     "all|1M",
 }
 SYMBOL_PATTERN = re.compile(r"^[A-Z0-9_]+:[A-Z0-9.!_-]+$")
+LABEL_PATTERN = re.compile(r"^[A-Za-z0-9 .&/()_-]+$")
 ERROR_MARKERS = (
     "only available on tradingview",
     "このシンボルはtradingview上でのみ",
@@ -44,7 +45,11 @@ def build_widget_html(
         raise ValueError(f"TradingView銘柄コードが不正です: {tradingview_symbol}")
     if date_range not in ALLOWED_RANGES:
         raise ValueError(f"TradingView表示期間が不正です: {date_range}")
-    if not label.strip() or len(label) > 60:
+    if (
+        not label.strip()
+        or len(label) > 60
+        or not LABEL_PATTERN.fullmatch(label.strip())
+    ):
         raise ValueError("TradingView表示名が不正です")
 
     interval = date_range.split("|", 1)[1]
@@ -53,7 +58,7 @@ def build_widget_html(
         "chartOnly": False,
         "width": WIDTH,
         "height": WIDGET_HEIGHT,
-        "locale": "ja",
+        "locale": "en",
         "colorTheme": "light",
         "autosize": False,
         "showVolume": False,

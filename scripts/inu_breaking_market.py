@@ -60,11 +60,11 @@ MARKETS = (
     ),
     MarketSpec(
         "^DJI", "NYダウ", "us_indices", "America/New_York", 80,
-        "FOREXCOM:DJI", "NYダウ",
+        "FOREXCOM:DJI", "Dow Jones",
     ),
     MarketSpec(
         "^N225", "日経平均", "jp_indices", "Asia/Tokyo", 100,
-        "FOREXCOM:JPXJPY", "日経平均",
+        "FOREXCOM:JPXJPY", "Nikkei 225",
     ),
 )
 
