@@ -31,6 +31,7 @@ on:
         options:
           - breaking_news
           - security_incident
+          - risk_alert
           - market_microstructure
           - etf_flow
           - institutional_flow
@@ -53,6 +54,16 @@ on:
         required: true
         default: false
         type: boolean
+      risk_theme:
+        description: "重大リスク画像の種類（risk_alertのみ）"
+        required: false
+        type: choice
+        options:
+          - ""
+          - exchange_shutdown
+          - withdrawal_halt
+          - hack
+          - custody_risk
       source_url:
         description: "公式スクリーンショット時の一次資料URL"
         required: false
@@ -122,6 +133,7 @@ jobs:
           IMAGE_HEADLINE: ${{ inputs.image_headline }}
           TOPIC_TYPE: ${{ inputs.topic_type }}
           NEEDS_TIMELINE: ${{ inputs.needs_timeline }}
+          RISK_THEME: ${{ inputs.risk_theme }}
           SOURCE_URL: ${{ inputs.source_url }}
           SOURCE_NAME: ${{ inputs.source_name }}
           PUBLISHED_AT: ${{ inputs.published_at }}
@@ -141,6 +153,7 @@ jobs:
             --published-at "$PUBLISHED_AT"
             --source-selector "$SOURCE_SELECTOR"
           )
+          if [[ -n "$RISK_THEME" ]]; then args+=(--risk-theme "$RISK_THEME"); fi
           if [[ "$NEEDS_TIMELINE" == "true" ]]; then args+=(--needs-timeline); fi
           python inu_preview.py "${args[@]}"
 

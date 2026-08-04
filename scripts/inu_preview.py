@@ -13,6 +13,7 @@ from inu_budget import assert_within_budget
 from inu_content_types import CONTENT_TYPES, get_content_policy
 from inu_gpt_image import generate_image
 from inu_post import compose_post, validate_post
+from inu_risk_visual import generate_risk_alert_visual
 from inu_source_capture import SourceCaptureSpec, capture_official_element
 from inu_visual import build_gpt_image_prompt
 from inu_visual import select_visual_route
@@ -78,14 +79,24 @@ def run(args: argparse.Namespace) -> int:
                 raise ValueError(
                     f"図解の事実確認に必要な一次資料がありません: {', '.join(missing)}"
                 )
-        prompt = build_gpt_image_prompt(
-            visual_type=visual_type,
-            headline=args.image_headline or args.hook,
-            key_points=args.fact,
-            visual_direction=args.visual_direction,
-        )
-        prompt_path.write_text(prompt + "\n", encoding="utf-8")
-        generate_image(prompt, image_path)
+        if visual_type == "gpt_risk_alert":
+            if not args.risk_theme:
+                raise ValueError("重大リスク画像にはrisk-themeが必要です")
+            prompt = generate_risk_alert_visual(
+                theme=args.risk_theme,
+                headline=args.image_headline,
+                output_path=image_path,
+                prompt_path=prompt_path,
+            )
+        else:
+            prompt = build_gpt_image_prompt(
+                visual_type=visual_type,
+                headline=args.image_headline or args.hook,
+                key_points=args.fact,
+                visual_direction=args.visual_direction,
+            )
+            prompt_path.write_text(prompt + "\n", encoding="utf-8")
+            generate_image(prompt, image_path)
         manifest = {
             "source_url": args.source_url or "",
             "source_name": args.source_name or args.source,
@@ -96,6 +107,10 @@ def run(args: argparse.Namespace) -> int:
             "facts_verified": False,
             "generated_image": True,
             "topic_type": args.topic_type,
+            "risk_theme": args.risk_theme or "",
+            "overlay_text": args.image_headline or "",
+            "no_brand_or_logo": visual_type == "gpt_risk_alert",
+            "landscape": visual_type == "gpt_risk_alert",
         }
         image_path.with_suffix(".source.json").write_text(
             json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
@@ -124,11 +139,16 @@ def build_parser() -> argparse.ArgumentParser:
             "gpt_timeline",
             "gpt_creative",
             "gpt_explainer",
+            "gpt_risk_alert",
         ),
         default=None,
     )
     parser.add_argument("--image-headline")
     parser.add_argument("--visual-direction", default="")
+    parser.add_argument(
+        "--risk-theme",
+        choices=("exchange_shutdown", "withdrawal_halt", "hack", "custody_risk"),
+    )
     parser.add_argument("--source-url")
     parser.add_argument("--source-name")
     parser.add_argument("--published-at")

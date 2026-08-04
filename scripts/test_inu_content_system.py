@@ -12,6 +12,7 @@ from inu_budget import estimate_monthly_cost_yen
 from inu_content_types import CONTENT_TYPES, get_content_policy
 from inu_persona import lint_voice
 from inu_post import compose_post, validate_post
+from inu_risk_visual import apply_risk_alert_overlay, build_risk_alert_prompt
 from inu_source_capture import SourceCaptureSpec, crop_source_image, validate_capture_spec
 from inu_visual import build_gpt_image_prompt, select_visual_route
 
@@ -52,6 +53,7 @@ class INUContentSystemTests(unittest.TestCase):
             "cross_asset",
             "timeline_explainer",
             "security_incident",
+            "risk_alert",
             "market_meme",
             "campaign",
         }
@@ -65,6 +67,7 @@ class INUContentSystemTests(unittest.TestCase):
             "x_reaction",
             "public_figure_statement",
             "security_incident",
+            "risk_alert",
             "market_meme",
             "campaign",
             "ai_comparison",
@@ -132,6 +135,54 @@ class INUContentSystemTests(unittest.TestCase):
         self.assertIn("Do not copy", prompt)
         self.assertIn("no invented prices", prompt)
         self.assertNotIn("Create it in SOU style", prompt)
+
+    def test_risk_alert_is_manual_primary_source_only(self):
+        policy = get_content_policy("risk_alert")
+        self.assertEqual("gpt_risk_alert", policy.visual_route)
+        self.assertEqual("manual", policy.review_mode)
+        self.assertTrue(policy.requires_primary_source)
+        with self.assertRaises(ValueError):
+            build_gpt_image_prompt(
+                visual_type="gpt_risk_alert",
+                headline="専用経路のみ",
+                key_points=["一次情報"],
+            )
+
+    def test_risk_alert_prompt_reserves_headline_and_forbids_brands(self):
+        prompt = build_risk_alert_prompt("hack")
+        self.assertIn("leave a dark, uncluttered area", prompt)
+        self.assertIn("no text", prompt)
+        self.assertIn("no text, letters, numbers", prompt)
+        self.assertIn("logos", prompt)
+        self.assertIn("Do not copy", prompt)
+
+    def test_risk_alert_rejects_unknown_theme(self):
+        with self.assertRaises(ValueError):
+            build_risk_alert_prompt("unknown")
+
+    def test_risk_alert_overlay_is_landscape_png(self):
+        with TemporaryDirectory() as directory:
+            source = Path(directory) / "source.png"
+            output = Path(directory) / "output.png"
+            Image.new("RGB", (900, 600), "#A0006A").save(source)
+            apply_risk_alert_overlay(
+                source,
+                output,
+                headline="全資産を失う前に\n見直すこと。",
+            )
+            with Image.open(output) as image:
+                self.assertEqual("PNG", image.format)
+                self.assertEqual((1536, 864), image.size)
+
+    def test_risk_alert_rejects_invalid_headline_length(self):
+        with TemporaryDirectory() as directory:
+            source = Path(directory) / "source.png"
+            output = Path(directory) / "output.png"
+            Image.new("RGB", (900, 600), "#A0006A").save(source)
+            with self.assertRaises(ValueError):
+                apply_risk_alert_overlay(source, output, headline="")
+            with self.assertRaises(ValueError):
+                apply_risk_alert_overlay(source, output, headline="長" * 43)
 
     def test_post_uses_natural_paragraphs_and_inu_opinion(self):
         text = compose_post(

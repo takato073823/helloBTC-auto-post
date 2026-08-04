@@ -35,6 +35,7 @@ def select_visual_route(topic_type: str, *, needs_timeline: bool = False) -> Vis
             "gpt_timeline": "時系列はオリジナル図解で整理する",
             "gpt_creative": "キャンペーンはGPT Imageで視認性を作る",
             "gpt_explainer": "確認済みの情報だけをオリジナル図解で整理する",
+            "gpt_risk_alert": "重大リスクは、確認済み事実と強い警戒ビジュアルを分離して伝える",
         }[route],
         route.startswith("gpt_"),
         policy.review_mode,
