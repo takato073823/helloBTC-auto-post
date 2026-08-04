@@ -29,7 +29,15 @@
     "inu_auto_3e6067c2d9b345",
     "inu_auto_4a97112af3087b"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "event_key": "us_indices_record_2026-08-04",
+      "post_id": "inu_breaking_us_indices_record_2026-08-04",
+      "topic_type": "historical_milestone",
+      "priority": "breaking",
+      "reserved_at": "2026-08-04T14:41:08.062058+00:00"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
