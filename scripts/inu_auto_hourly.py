@@ -296,6 +296,10 @@ def build_trusted_media_candidate(
 ) -> dict:
     eligible: list[tuple[dt.datetime, dict[str, str]]] = []
     for signal in signals:
+        title = signal.get("title", "").strip()
+        summary = " ".join(signal.get("summary", "").split()).strip()
+        if len(title) < 12 or len(summary) < 40:
+            continue
         host = (urlsplit(signal.get("url", "")).hostname or "").lower().removeprefix("www.")
         if not any(host == allowed or host.endswith(f".{allowed}") for allowed in TRUSTED_MEDIA_HOSTS):
             continue
@@ -316,8 +320,6 @@ def build_trusted_media_candidate(
     published, signal = max(eligible, key=lambda row: row[0])
     title = signal["title"].strip()
     summary = " ".join(signal.get("summary", "").split()).strip()
-    if len(title) < 12 or len(summary) < 40:
-        raise LookupError("速報元記事の見出しまたは要約が不足しています")
 
     copy = generate_json(
         f"""
