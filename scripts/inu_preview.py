@@ -11,7 +11,6 @@ from inu_budget import assert_within_budget
 from inu_gpt_image import generate_image
 from inu_post import compose_post, validate_post
 from inu_visual import build_gpt_image_prompt
-from x_poster import post_info_tweet
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -46,13 +45,6 @@ def run(args: argparse.Namespace) -> int:
     logger.info("INU投稿プレビューを生成: %s", output_dir)
     logger.info("\n%s", text)
 
-    if not args.live:
-        return 0
-    tweet_id = post_info_tweet(text, image_path)
-    if not tweet_id:
-        logger.warning("X投稿に失敗。他の投稿処理には影響しません")
-        return 0
-    logger.info("INUテスト投稿完了: https://x.com/i/web/status/%s", tweet_id)
     return 0
 
 
@@ -71,10 +63,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--image-headline")
     parser.add_argument("--visual-direction", default="")
     parser.add_argument("--output-dir", default="artifacts/inu-preview")
-    parser.add_argument("--live", action="store_true")
     return parser
 
 
 if __name__ == "__main__":
     raise SystemExit(run(build_parser().parse_args()))
-
