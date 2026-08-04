@@ -18,10 +18,22 @@ SCRIPT_URL = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-
 ALLOWED_RANGES = {
     "1d|1",
     "1m|30",
+    "1m|1D",
     "3m|60",
     "12m|1D",
+    "12m|1W",
     "60m|1W",
     "all|1M",
+}
+RANGE_LABELS = {
+    "1d|1": "1-minute candles / Past day",
+    "1m|30": "30-minute candles / Past month",
+    "1m|1D": "1D candles / Past month",
+    "3m|60": "1-hour candles / Past 3 months",
+    "12m|1D": "1D candles / Past year",
+    "12m|1W": "1W candles / Past year",
+    "60m|1W": "1W candles / Past 5 years",
+    "all|1M": "1M candles / All time",
 }
 SYMBOL_PATTERN = re.compile(r"^[A-Z0-9_]+:[A-Z0-9.!_-]+$")
 LABEL_PATTERN = re.compile(r"^[A-Za-z0-9 .&/()_-]+$")
@@ -69,7 +81,7 @@ def build_widget_html(
         "scalePosition": "right",
         "scaleMode": "Normal",
         "fontFamily": "-apple-system, BlinkMacSystemFont, Arial, sans-serif",
-        "fontSize": "14",
+        "fontSize": "16",
         "headerFontSize": "large",
         "noTimeScale": False,
         "valuesTracking": "1",
@@ -88,6 +100,7 @@ def build_widget_html(
     }
     config_json = json.dumps(config, ensure_ascii=False, separators=(",", ":"))
     symbol_path = tradingview_symbol.replace(":", "-")
+    range_label = RANGE_LABELS[date_range]
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -98,7 +111,7 @@ def build_widget_html(
     html, body {{ width: {WIDTH}px; height: {HEIGHT}px; margin: 0; overflow: hidden; background: #fff; }}
     .tradingview-widget-container {{ width: {WIDTH}px; height: {HEIGHT}px; background: #fff; }}
     .tradingview-widget-container__widget {{ width: {WIDTH}px; height: {WIDGET_HEIGHT}px; }}
-    .tradingview-widget-copyright {{ height: {HEIGHT - WIDGET_HEIGHT}px; padding: 8px 20px 0; text-align: right; color: #667085; font: 16px/24px -apple-system, BlinkMacSystemFont, Arial, sans-serif; background: #fff; }}
+    .tradingview-widget-copyright {{ height: {HEIGHT - WIDGET_HEIGHT}px; padding: 7px 20px 0; display: flex; justify-content: space-between; color: #667085; font: 17px/24px -apple-system, BlinkMacSystemFont, Arial, sans-serif; background: #fff; }}
     .tradingview-widget-copyright a {{ color: #2962ff; text-decoration: none; }}
   </style>
 </head>
@@ -106,7 +119,8 @@ def build_widget_html(
   <div class="tradingview-widget-container">
     <div class="tradingview-widget-container__widget"></div>
     <div class="tradingview-widget-copyright">
-      <a href="https://www.tradingview.com/symbols/{symbol_path}/" rel="noopener nofollow">{label.strip()}</a> by TradingView
+      <span>{range_label}</span>
+      <span><a href="https://www.tradingview.com/symbols/{symbol_path}/" rel="noopener nofollow">{label.strip()}</a> by TradingView</span>
     </div>
     <script type="text/javascript" src="{SCRIPT_URL}" async>{config_json}</script>
   </div>

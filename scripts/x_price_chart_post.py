@@ -182,7 +182,7 @@ def render_chart(
     capture_tradingview_screenshot(
         tradingview_symbol=asset["tv"],
         label=asset["tv_label"],
-        date_range="1m|30",
+        date_range="12m|1W",
         expected_price=metrics["last_close"],
         tolerance=0.02,
         output_path=output_path,

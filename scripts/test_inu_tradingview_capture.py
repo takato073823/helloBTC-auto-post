@@ -20,12 +20,13 @@ class INUTradingViewCaptureTests(unittest.TestCase):
         html = build_widget_html(
             tradingview_symbol="COINBASE:BTCUSD",
             label="Bitcoin / U.S. Dollar",
-            date_range="1m|30",
+            date_range="12m|1W",
         )
         self.assertIn('"colorTheme":"light"', html)
         self.assertIn('"chartType":"candlesticks"', html)
         self.assertIn('"backgroundColor":"#ffffff"', html)
         self.assertIn('"locale":"en"', html)
+        self.assertIn("1W candles / Past year", html)
         self.assertIn("by TradingView", html)
         self.assertIn("1080px", html)
         self.assertIn("1350px", html)
@@ -35,7 +36,7 @@ class INUTradingViewCaptureTests(unittest.TestCase):
             build_widget_html(
                 tradingview_symbol="COINBASE:BTCUSD",
                 label="ビットコイン／米ドル",
-                date_range="1m|30",
+                date_range="12m|1W",
             )
 
     def test_price_must_match_detection_source(self):

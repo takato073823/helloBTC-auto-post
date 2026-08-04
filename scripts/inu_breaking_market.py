@@ -240,7 +240,7 @@ def render_chart(event: dict, points: list[tuple[dt.datetime, float]], output: P
     capture_tradingview_screenshot(
         tradingview_symbol=event["tradingview_symbol"],
         label=event["tradingview_label"],
-        date_range="12m|1D",
+        date_range="12m|1W",
         expected_price=event["current_price"],
         tolerance=0.02,
         output_path=output,
