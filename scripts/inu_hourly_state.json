@@ -1,20 +1,24 @@
 {
   "version": 1,
-  "posted_slots": [],
-  "posted_ids": [
-    "yamaha_motor_q2_2026_08_04",
-    "coldcard_entropy_actions_2026_08_04",
-    "jgb_10y_auction_2026_08_04"
-  ],
-  "reservations": [
+  "posted_slots": [
     {
       "slot": "2026-08-04-21",
       "post_id": "inu_auto_3e6067c2d9b345",
-      "source_url": "https://www.coindesk.com/business/2026/08/04/bny-to-add-crypto-staking-to-digital-asset-custody-platform",
+      "tweet_id": "2084621245254173027",
       "topic_type": "reported_breaking_news",
-      "reserved_at": "2026-08-04T12:43:02.331737+00:00"
+      "source_url": "https://www.coindesk.com/business/2026/08/04/bny-to-add-crypto-staking-to-digital-asset-custody-platform",
+      "published_at": "2026-08-04T12:30:00+00:00",
+      "posted_at": "2026-08-04T12:43:30.110069+00:00",
+      "hook": "BNYが暗号資産カストディにステーキングを追加へ"
     }
   ],
+  "posted_ids": [
+    "yamaha_motor_q2_2026_08_04",
+    "coldcard_entropy_actions_2026_08_04",
+    "jgb_10y_auction_2026_08_04",
+    "inu_auto_3e6067c2d9b345"
+  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -39,6 +43,16 @@
       "source_url": "https://www.mof.go.jp/jgbs/auction/calendar/nyusatsu/resul20260804.htm",
       "hook": "財務省の10年国債入札結果",
       "posted_at": "2026-08-04T10:30:00+00:00"
+    },
+    {
+      "slot": "2026-08-04-21",
+      "post_id": "inu_auto_3e6067c2d9b345",
+      "tweet_id": "2084621245254173027",
+      "topic_type": "reported_breaking_news",
+      "source_url": "https://www.coindesk.com/business/2026/08/04/bny-to-add-crypto-staking-to-digital-asset-custody-platform",
+      "published_at": "2026-08-04T12:30:00+00:00",
+      "posted_at": "2026-08-04T12:43:30.110069+00:00",
+      "hook": "BNYが暗号資産カストディにステーキングを追加へ"
     }
   ]
 }
