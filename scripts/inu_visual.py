@@ -24,12 +24,12 @@ EVIDENCE_ROUTES = {
     "trending_token": "live_chart",
     "us_stock": "live_chart",
     "jp_stock": "live_chart",
-    "macro_geopolitics": "source_crop",
-    "etf_flow": "source_data",
-    "onchain": "source_data",
+    "macro_geopolitics": "official_text_crop",
+    "etf_flow": "official_data_crop",
+    "onchain": "official_data_crop",
     "x_reaction": "native_quote",
-    "breaking_news": "source_crop",
-    "security_incident": "gpt_timeline",
+    "breaking_news": "official_text_crop",
+    "security_incident": "official_text_crop",
     "campaign": "gpt_creative",
 }
 
@@ -51,9 +51,9 @@ def select_visual_route(topic_type: str, *, needs_timeline: bool = False) -> Vis
         route,
         {
             "live_chart": "価格と値動きは実データで示す",
-            "source_data": "ETF・オンチェーンは出典付きデータを示す",
+            "official_data_crop": "見出し・軸・単位・出典を残した公式データを示す",
             "native_quote": "X上の発言はネイティブ引用で文脈を残す",
-            "source_crop": "速報は一次資料の重要箇所を示す",
+            "official_text_crop": "発信元と日付を確認できる一次資料の重要部分を示す",
             "gpt_timeline": "時系列はオリジナル図解で整理する",
             "gpt_creative": "キャンペーンはGPT Imageで視認性を作る",
         }[route],
@@ -86,4 +86,3 @@ Text: Japanese only. Keep wording exactly as supplied. Use large legible type an
 Constraints: original composition; factual and neutral; no invented prices, percentages, dates, quotes, charts, company logos, trademarks, QR codes, or watermarks. Do not add information that was not supplied. No dog character unless explicitly requested.
 Avoid: HTML/CSS dashboard appearance, black news-card template, dense paragraphs, tiny footnotes, visual imitation of SOU, BingX, or the supplied examples.
 """.strip()
-
