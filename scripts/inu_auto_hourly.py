@@ -281,6 +281,17 @@ def research_candidate(
     return candidate, sources, signals
 
 
+def research_priority_signal(now: dt.datetime, state: dict, priority_url: str) -> tuple[dict, list[dict[str, str]]]:
+    """軽量監視で検知済みの主要メディア記事だけを速報候補にする。"""
+    signals = collect_discovery_signals()
+    selected = normalize_url(priority_url)
+    matches = [row for row in signals if normalize_url(row.get("url", "")) == selected]
+    if not matches:
+        raise LookupError("検知した速報URLが最新RSSに存在しません")
+    candidate = build_trusted_media_candidate(now, state, matches)
+    return candidate, matches
+
+
 def _is_near_recent_topic(title: str, state: dict) -> bool:
     recent = " ".join(str(row.get("hook", "")) for row in _recent_history(state)).lower()
     normalized = re.sub(r"[^a-z0-9一-鿿ぁ-んァ-ン]+", " ", title.lower())
@@ -495,7 +506,15 @@ def _emit_output(name: str, value: str) -> None:
             handle.write(f"{name}={value}\n")
 
 
-def _reserve(state: dict, item: dict, candidate: dict, slot: str, now: dt.datetime) -> dict:
+def _reserve(
+    state: dict,
+    item: dict,
+    candidate: dict,
+    slot: str,
+    now: dt.datetime,
+    *,
+    priority: str = "scheduled",
+) -> dict:
     updated = dict(state)
     reservations = [
         row for row in state.get("reservations", []) if row.get("slot") != slot
@@ -506,6 +525,7 @@ def _reserve(state: dict, item: dict, candidate: dict, slot: str, now: dt.dateti
             "post_id": item["id"],
             "source_url": normalize_url(candidate["source_url"]),
             "topic_type": candidate["topic_type"],
+            "priority": priority,
             "reserved_at": now.isoformat(),
         }
     )
@@ -527,7 +547,18 @@ def prepare(args: argparse.Namespace) -> int:
         _emit_output("ready", "false")
         return 0
 
-    candidate, sources, signals = research_candidate(now, state)
+    priority_url = str(getattr(args, "priority_url", "") or "").strip()
+    priority = "breaking" if priority_url else "scheduled"
+    if priority_url:
+        try:
+            candidate, sources = research_priority_signal(now, state, priority_url)
+            signals = sources
+        except LookupError as exc:
+            logger.info("検知済み速報を採用できないため見送り: %s", exc)
+            _emit_output("ready", "false")
+            return 0
+    else:
+        candidate, sources, signals = research_candidate(now, state)
     try:
         validate_candidate(candidate, sources, state, now)
     except (LookupError, ValueError) as exc:
@@ -579,7 +610,10 @@ def prepare(args: argparse.Namespace) -> int:
         json.dumps(prepared, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     if not args.dry_run:
-        save_state(state_path, _reserve(state, item, candidate, slot, now))
+        save_state(
+            state_path,
+            _reserve(state, item, candidate, slot, now, priority=priority),
+        )
     logger.info("毎時投稿を準備: %s / %s", item["id"], candidate["topic_type"])
     logger.info("投稿本文:\n%s", item["text"])
     _emit_output("ready", "true")
@@ -617,6 +651,7 @@ def publish(args: argparse.Namespace) -> int:
         "post_id": item["id"],
         "tweet_id": str(tweet_id),
         "topic_type": candidate["topic_type"],
+        "priority": str(reservation.get("priority", "scheduled")),
         "source_url": normalize_url(candidate["source_url"]),
         "published_at": candidate["published_at"],
         "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -645,6 +680,7 @@ def build_parser() -> argparse.ArgumentParser:
     mode.add_argument("--publish", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--slot")
+    parser.add_argument("--priority-url", default="")
     parser.add_argument("--state", default=str(STATE_PATH))
     parser.add_argument("--prepared", default=str(PREPARED_PATH))
     return parser

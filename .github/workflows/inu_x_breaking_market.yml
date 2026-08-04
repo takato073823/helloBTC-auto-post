@@ -1,0 +1,92 @@
+name: INU 重要相場速報
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      live:
+        description: "実際にXへ投稿する"
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: inu-x-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    if: github.event_name == 'workflow_dispatch' || vars.INU_BREAKING_ENABLED == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 必要なパッケージをインストール
+        run: pip install --timeout 120 requests Pillow matplotlib japanize-matplotlib tweepy
+
+      - name: 市場速報ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_breaking_market.py test_inu_live_post.py test_x_poster_rules.py
+
+      - name: 手動ドライランを準備
+        id: dry_prepare
+        if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
+        working-directory: scripts
+        run: python inu_breaking_market.py --prepare --dry-run
+
+      - name: 重要相場速報を準備
+        id: prepare
+        if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
+        working-directory: scripts
+        run: python inu_breaking_market.py --prepare
+
+      - name: ドライラン画像を保存
+        if: steps.dry_prepare.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: inu-breaking-market-dry-run
+          path: scripts/artifacts/inu-breaking/
+          retention-days: 3
+
+      - name: 速報予約を先に保存
+        if: steps.prepare.outputs.ready == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json
+          git diff --staged --quiet || git commit -m "chore: reserve INU breaking event [skip ci]"
+          git pull --rebase
+          git push
+
+      - name: 画像付き速報を公開
+        id: publish
+        if: steps.prepare.outputs.ready == 'true'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python inu_breaking_market.py --publish
+
+      - name: 速報履歴を保存
+        if: steps.publish.outcome == 'success'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU breaking event [skip ci]"
+          git pull --rebase
+          git push

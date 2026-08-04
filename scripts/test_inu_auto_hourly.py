@@ -146,6 +146,51 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(signals[0]["url"], item["source_url"])
         self.assertEqual(signals[0]["title"], item["evidence_anchor"])
 
+    def test_priority_signal_cannot_switch_to_another_rss_story(self):
+        selected = {
+            "title": "SEC approves a new spot crypto ETF",
+            "source": "CoinDesk",
+            "published": "Tue, 04 Aug 2026 11:55:00 +0000",
+            "url": "https://www.coindesk.com/policy/selected?utm_source=rss",
+            "summary": "The regulator approved a new spot crypto exchange traded fund after completing its review.",
+        }
+        other = dict(selected, title="Other story", url="https://www.coindesk.com/other")
+        expected = candidate(
+            topic_type="reported_breaking_news",
+            source_url=selected["url"],
+            visual_route="reported_text_crop",
+            is_primary_source=False,
+        )
+        with patch.object(
+            inu_auto_hourly,
+            "collect_discovery_signals",
+            return_value=[other, selected],
+        ), patch.object(
+            inu_auto_hourly,
+            "build_trusted_media_candidate",
+            return_value=expected,
+        ) as build:
+            actual, sources = inu_auto_hourly.research_priority_signal(
+                NOW,
+                {"history": []},
+                "https://www.coindesk.com/policy/selected",
+            )
+        self.assertEqual(expected, actual)
+        self.assertEqual([selected], sources)
+        build.assert_called_once_with(NOW, {"history": []}, [selected])
+
+    def test_breaking_reservation_keeps_priority(self):
+        state = {"reservations": [], "posted_slots": [], "posted_ids": [], "history": []}
+        updated = inu_auto_hourly._reserve(
+            state,
+            {"id": "breaking_1"},
+            candidate(),
+            "breaking_news_123",
+            NOW,
+            priority="breaking",
+        )
+        self.assertEqual("breaking", updated["reservations"][0]["priority"])
+
 
 if __name__ == "__main__":
     unittest.main()
