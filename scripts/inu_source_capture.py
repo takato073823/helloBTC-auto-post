@@ -12,7 +12,7 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 
 EVIDENCE_TYPES = {"official_text_crop", "official_data_crop"}
@@ -91,6 +91,80 @@ async def capture_official_element(
     return output
 
 
+async def capture_official_evidence(
+    spec: SourceCaptureSpec,
+    output_path: str | Path,
+    *,
+    evidence_anchor: str,
+    timeout_ms: int = 30_000,
+) -> Path:
+    """一次資料の見出しまたは根拠箇所を自動で切り抜く。
+
+    Web検索が返したCSS selectorは信用せず、公式ページ内に実在する短い
+    根拠文字列を探す。該当箇所が取れなければ画像なし投稿には切り替えず失敗する。
+    """
+    validate_capture_spec(spec)
+    anchor = " ".join(evidence_anchor.split()).strip()
+    if len(anchor) < 4:
+        raise ValueError("証拠画像を特定できる根拠文字列が必要です")
+
+    output = Path(output_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    from playwright.async_api import async_playwright
+
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=True)
+        page = await browser.new_page(
+            viewport={"width": 1440, "height": 1200},
+            device_scale_factor=1,
+            locale="ja-JP",
+        )
+        try:
+            await page.goto(spec.source_url, wait_until="domcontentloaded", timeout=timeout_ms)
+            await page.wait_for_timeout(1200)
+            for label in ("同意しない", "拒否", "Accept", "I agree", "閉じる"):
+                button = page.get_by_role("button", name=label, exact=False).first
+                try:
+                    if await button.is_visible(timeout=250):
+                        await button.click(timeout=500)
+                except Exception:
+                    pass
+
+            locator = page.get_by_text(anchor, exact=False).first
+            if not await locator.is_visible(timeout=3000):
+                # Search results occasionally normalize punctuation. A stable prefix
+                # still has to exist in the official document.
+                prefix = anchor[: min(32, len(anchor))]
+                locator = page.get_by_text(prefix, exact=False).first
+            if not await locator.is_visible(timeout=3000):
+                raise ValueError("一次資料内に指定された根拠文字列が見つかりません")
+
+            await locator.scroll_into_view_if_needed(timeout=timeout_ms)
+            box = await locator.bounding_box()
+            if not box:
+                raise ValueError("根拠箇所の表示範囲を取得できません")
+
+            document_height = await page.evaluate(
+                "Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)"
+            )
+            top = max(0, float(box["y"]) - 260)
+            height = min(1120.0, float(document_height) - top)
+            if height < 180:
+                raise ValueError("根拠箇所を読める範囲で切り抜けません")
+            await page.screenshot(
+                path=str(output),
+                clip={"x": 0, "y": top, "width": 1440, "height": height},
+                timeout=timeout_ms,
+            )
+        finally:
+            await browser.close()
+
+    _trim_flat_outer_margin(output)
+    _verify_capture(output)
+    write_source_manifest(spec, output)
+    return output
+
+
 def crop_source_image(
     spec: SourceCaptureSpec,
     input_path: str | Path,
@@ -122,6 +196,29 @@ def _verify_capture(path: Path) -> None:
             raise ValueError("重要情報を読める大きさで切り抜いてください")
         if image.width * image.height > 8_000_000:
             raise ValueError("ページ全体ではなく重要部分だけを切り抜いてください")
+
+
+def _trim_flat_outer_margin(path: Path, *, tolerance: int = 10) -> None:
+    """スクリーンショット外周の単色余白だけを除去する。"""
+    with Image.open(path) as original:
+        image = original.convert("RGB")
+        background = Image.new("RGB", image.size, image.getpixel((0, 0)))
+        diff = ImageChops.difference(image, background).convert("L")
+        diff = diff.point(lambda value: 255 if value > tolerance else 0)
+        box = diff.getbbox()
+        if not box:
+            return
+        left, top, right, bottom = box
+        if right - left < 320 or bottom - top < 180:
+            return
+        pad = 12
+        crop = (
+            max(0, left - pad),
+            max(0, top - pad),
+            min(image.width, right + pad),
+            min(image.height, bottom + pad),
+        )
+        image.crop(crop).save(path, format="PNG", optimize=True)
 
 
 def write_source_manifest(spec: SourceCaptureSpec, image_path: str | Path) -> Path:

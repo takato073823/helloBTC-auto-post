@@ -18,6 +18,37 @@ class _FakeResponses:
         return SimpleNamespace(status="completed", output_text=self.output_text)
 
 
+class _FakeWebResponse:
+    status = "completed"
+
+    def __init__(self, output_text: str):
+        self.output_text = output_text
+
+    def model_dump(self):
+        return {
+            "output": [
+                {
+                    "type": "web_search_call",
+                    "action": {
+                        "sources": [
+                            {"url": "https://example.com/official", "title": "Official"}
+                        ]
+                    },
+                }
+            ]
+        }
+
+
+class _FakeWebResponses:
+    def __init__(self, output_text: str):
+        self.response = _FakeWebResponse(output_text)
+        self.kwargs = None
+
+    def create(self, **kwargs):
+        self.kwargs = kwargs
+        return self.response
+
+
 class LlmClientTests(unittest.TestCase):
     def test_text_uses_low_cost_model_and_no_reasoning(self):
         responses = _FakeResponses("  記事本文  ")
@@ -62,6 +93,24 @@ class LlmClientTests(unittest.TestCase):
         )
         with self.assertRaisesRegex(RuntimeError, "途中で終了"):
             llm_client._extract_text(response)
+
+    def test_web_json_requires_search_and_returns_tool_sources(self):
+        responses = _FakeWebResponses('{"title":"速報"}')
+        fake_client = SimpleNamespace(responses=responses)
+        schema = {
+            "type": "object",
+            "properties": {"title": {"type": "string"}},
+            "required": ["title"],
+            "additionalProperties": False,
+        }
+        with patch.object(llm_client, "_get_client", return_value=fake_client):
+            payload, sources = llm_client.generate_web_json(
+                "検索して", schema_name="live", schema=schema
+            )
+        self.assertEqual({"title": "速報"}, payload)
+        self.assertEqual("https://example.com/official", sources[0]["url"])
+        self.assertEqual("required", responses.kwargs["tool_choice"])
+        self.assertEqual("web_search", responses.kwargs["tools"][0]["type"])
 
 
 if __name__ == "__main__":

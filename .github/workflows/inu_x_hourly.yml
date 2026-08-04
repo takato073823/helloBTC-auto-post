@@ -36,27 +36,62 @@ jobs:
       - name: 依存パッケージをインストール
         run: pip install --timeout 120 -r requirements.txt
 
+      - name: 一次資料の画像取得環境をセットアップ
+        run: python -m playwright install --with-deps chromium
+
       - name: INU投稿ルールを検証
         working-directory: scripts
-        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_live_post.py test_x_poster_rules.py
+        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_auto_hourly.py test_inu_live_post.py test_llm_client.py test_x_poster_rules.py
 
-      - name: 手動ドライラン
+      - name: 手動ドライラン候補を準備
+        id: dry_prepare
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          INU_RESEARCH_MODEL: gpt-5.6-luna
         working-directory: scripts
-        run: python inu_hourly_dispatcher.py
+        run: python inu_auto_hourly.py --prepare --dry-run
+
+      - name: 最新の一次情報から投稿候補を準備
+        id: prepare
+        if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          INU_RESEARCH_MODEL: gpt-5.6-luna
+        working-directory: scripts
+        run: python inu_auto_hourly.py --prepare
+
+      - name: ドライラン画像を保存
+        if: steps.dry_prepare.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: inu-hourly-dry-run
+          path: scripts/artifacts/inu-auto/
+          retention-days: 3
+
+      - name: 投稿予約を先に保存
+        if: steps.prepare.outputs.ready == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json
+          git diff --staged --quiet || git commit -m "chore: reserve INU hourly post [skip ci]"
+          git pull --rebase
+          git push
 
       - name: 画像付き投稿を1件公開
-        if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
+        id: publish
+        if: steps.prepare.outputs.ready == 'true'
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         working-directory: scripts
-        run: python inu_hourly_dispatcher.py --live
+        run: python inu_auto_hourly.py --publish
 
       - name: 毎時投稿履歴を保存
-        if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
+        if: steps.publish.outcome == 'success'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"

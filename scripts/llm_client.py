@@ -86,3 +86,52 @@ def generate_json(
         },
     )
     return json.loads(_extract_text(response))
+
+
+def generate_web_json(
+    prompt: str,
+    *,
+    schema_name: str,
+    schema: dict[str, Any],
+    max_output_tokens: int = 4096,
+    model: str | None = None,
+) -> tuple[dict[str, Any], list[dict[str, str]]]:
+    """Search the live web and return schema-constrained JSON plus cited sources.
+
+    The selected URL is validated by the caller against the tool-provided source
+    list; a URL written only in model text is never trusted as evidence.
+    """
+    selected_model = _model_name(model)
+    logger.info("OpenAIのWeb検索で時事候補を調査中（%s）...", selected_model)
+    response = _get_client().responses.create(
+        model=selected_model,
+        input=prompt,
+        tools=[{"type": "web_search", "search_context_size": "low"}],
+        tool_choice="required",
+        include=["web_search_call.action.sources"],
+        max_output_tokens=max_output_tokens,
+        reasoning={"effort": "none"},
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": schema_name,
+                "strict": True,
+                "schema": schema,
+            }
+        },
+    )
+
+    sources: list[dict[str, str]] = []
+    dumped = response.model_dump() if hasattr(response, "model_dump") else {}
+    for item in dumped.get("output", []):
+        if item.get("type") != "web_search_call":
+            continue
+        for source in (item.get("action") or {}).get("sources", []) or []:
+            url = str(source.get("url", "")).strip()
+            if url:
+                sources.append(
+                    {"url": url, "title": str(source.get("title", "")).strip()}
+                )
+    if not sources:
+        raise RuntimeError("Web検索の参照元一覧が返りませんでした")
+    return json.loads(_extract_text(response)), sources
