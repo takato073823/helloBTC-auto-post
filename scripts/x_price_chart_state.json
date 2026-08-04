@@ -1,4 +1,11 @@
 {
   "version": 1,
-  "posts": []
+  "posts": [
+    {
+      "key": "btc_price_chart_test_v1",
+      "tweet_id": "2084546342014099547",
+      "posted_at": "2026-08-04T07:45:51.827752+00:00",
+      "closed_candle_at": "2026-08-04T07:00:00+00:00"
+    }
+  ]
 }
