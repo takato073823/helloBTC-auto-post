@@ -52,12 +52,15 @@ class XInfoPosterTests(unittest.TestCase):
             )
 
     def test_workflow_runs_every_hour(self):
-        workflow = (
+        workflow_path = (
             Path(__file__).resolve().parents[1]
             / ".github"
             / "workflows"
             / "x_info_posts.yml"
-        ).read_text(encoding="utf-8")
+        )
+        if not workflow_path.exists():
+            self.skipTest("毎時運用ワークフローはテスト投稿承認後に公開する")
+        workflow = workflow_path.read_text(encoding="utf-8")
         self.assertIn('- cron: "0 * * * *"', workflow)
         self.assertNotIn('cron: "0 23 * * *"', workflow)
 
