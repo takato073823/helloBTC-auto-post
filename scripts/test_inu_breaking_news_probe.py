@@ -30,6 +30,7 @@ class INUBreakingNewsProbeTests(unittest.TestCase):
     def test_prediction_and_generic_wrapup_are_blocked(self):
         self.assertFalse(inu_breaking_news_probe.is_high_impact_title("Bitcoin price prediction: BTC could reach a new high"))
         self.assertFalse(inu_breaking_news_probe.is_high_impact_title("What happened in crypto today"))
+        self.assertFalse(inu_breaking_news_probe.is_high_impact_title("Daily crypto market roundup: ETF, BTC and XRP"))
 
     def test_old_headline_is_rejected(self):
         item = signal("SEC approves spot crypto ETF", minutes_old=50)

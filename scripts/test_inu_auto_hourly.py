@@ -191,6 +191,58 @@ class INUAutoHourlyTests(unittest.TestCase):
         )
         self.assertEqual("breaking", updated["reservations"][0]["priority"])
 
+    def test_single_source_daily_roundup_is_rejected_by_validation(self):
+        item = candidate(
+            topic_type="reported_breaking_news",
+            hook="暗号資産市場で本日起きた主要ニュースを総括",
+            source_url="https://cointelegraph.com/news/what-happened-in-crypto-today",
+            published_at="2026-08-04T11:30:00Z",
+            evidence_anchor="What happened in crypto today",
+            visual_route="reported_text_crop",
+            is_primary_source=False,
+        )
+        with self.assertRaisesRegex(ValueError, "単一ソースの総括"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "What happened in crypto today"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
+    def test_trusted_media_fallback_skips_daily_roundup(self):
+        signals = [
+            {
+                "title": "What happened in crypto today",
+                "source": "CoinTelegraph",
+                "published": "Tue, 04 Aug 2026 11:40:44 +0000",
+                "url": "https://cointelegraph.com/news/what-happened-in-crypto-today",
+                "summary": "A daily roundup of several unrelated cryptocurrency stories and market events.",
+            }
+        ]
+        with self.assertRaisesRegex(LookupError, "主要メディア速報"):
+            inu_auto_hourly.build_trusted_media_candidate(NOW, {"history": []}, signals)
+
+    def test_discovery_drops_roundup_before_llm_research(self):
+        articles = [
+            {
+                "title": "What happened in crypto today",
+                "source": "CoinTelegraph",
+                "published": "Tue, 04 Aug 2026 11:40:44 +0000",
+                "url": "https://cointelegraph.com/news/what-happened-in-crypto-today",
+                "description": "Daily roundup",
+            },
+            {
+                "title": "BNY adds staking to digital asset custody",
+                "source": "CoinDesk",
+                "published": "Tue, 04 Aug 2026 11:45:00 +0000",
+                "url": "https://www.coindesk.com/business/bny-staking",
+                "description": "BNY plans to add staking to its digital asset custody platform.",
+            },
+        ]
+        with patch.object(inu_auto_hourly, "fetch_from_rss", return_value=articles):
+            signals = inu_auto_hourly.collect_discovery_signals()
+        self.assertEqual([articles[1]["url"]], [row["url"] for row in signals])
+
 
 if __name__ == "__main__":
     unittest.main()

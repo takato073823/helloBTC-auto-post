@@ -36,6 +36,8 @@ HIGH_IMPACT_PATTERNS = (
 )
 BLOCK_PATTERNS = (
     r"what happened.*today",
+    r"\b(daily|weekly|market|crypto)\s+(roundup|wrap(?:-up)?|recap|briefing)\b",
+    r"\b(top|biggest)\s+\d+\s+(crypto\s+)?(news|stories|events)\b",
     r"price prediction",
     r"could (?:rise|fall|hit|reach)",
     r"analyst says",

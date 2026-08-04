@@ -90,6 +90,13 @@ TRUSTED_MEDIA_HOSTS = {
 }
 TRACKING_KEYS = {"gclid", "fbclid", "ref", "source"}
 USER_AGENT = "Mozilla/5.0 (compatible; INUPrimarySourceVerifier/1.0)"
+LOW_VALUE_ROUNDUP_PATTERNS = (
+    r"\bwhat happened\b.*\b(today|this week)\b",
+    r"\b(daily|weekly|market|crypto)\s+(roundup|wrap(?:-up)?|recap|briefing)\b",
+    r"\b(top|biggest)\s+\d+\s+(crypto\s+)?(news|stories|events)\b",
+    r"(?:本日|今日|今週).*(?:まとめ|総括)",
+    r"(?:ニュース|市場).*(?:まとめ|総括)",
+)
 
 CANDIDATE_SCHEMA = {
     "type": "object",
@@ -194,11 +201,20 @@ def _recent_history(state: dict) -> list[dict]:
     return [dict(row) for row in state.get("posted_slots", [])][-24:]
 
 
+def is_low_value_single_source_roundup(value: str) -> bool:
+    """単一記事を引用しただけでは情報価値が出ない総括見出しを検出する。"""
+    normalized = " ".join(str(value).lower().split())
+    return any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in LOW_VALUE_ROUNDUP_PATTERNS)
+
+
 def collect_discovery_signals() -> list[dict[str, str]]:
     """大手暗号資産メディアの最新見出しを、一次資料探索の入口として取得する。"""
     signals: list[dict[str, str]] = []
     try:
         for article in fetch_from_rss(max_per_feed=3):
+            if is_low_value_single_source_roundup(str(article.get("title", ""))):
+                logger.info("単一ソースの総括記事を発見候補から除外: %s", article.get("title", ""))
+                continue
             signals.append(
                 {
                     "title": str(article.get("title", ""))[:180],
@@ -239,6 +255,7 @@ def build_research_prompt(
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
 - evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
+- 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
 - まず一次資料を優先する。見つからなくても、下記「大手メディアの最新見出し」に2時間以内の重要記事があれば、その元記事をreported_breaking_newsとして必ず1件選ぶ。has_candidate=falseは、一次資料も2時間以内の許可メディア記事もない場合だけにする。古い話題で穴埋めしない。
 - 投稿文は日本語。hookは短く具体的にし、factsは重要な数字・変更点を1〜2文。
 - opinionには必ず「僕は」または「個人的には」を使い、事実と見解を分ける。
@@ -309,6 +326,8 @@ def build_trusted_media_candidate(
     for signal in signals:
         title = signal.get("title", "").strip()
         summary = " ".join(signal.get("summary", "").split()).strip()
+        if is_low_value_single_source_roundup(title):
+            continue
         if len(title) < 12 or len(summary) < 40:
             continue
         host = (urlsplit(signal.get("url", "")).hostname or "").lower().removeprefix("www.")
@@ -423,6 +442,18 @@ def validate_candidate(
     cited = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
     if selected not in cited:
         raise ValueError("選定URLがWeb検索の参照元一覧にありません")
+    selected_titles = [
+        str(row.get("title", ""))
+        for row in sources
+        if normalize_url(row.get("url", "")) == selected
+    ]
+    roundup_evidence = [
+        str(candidate.get("hook", "")),
+        str(candidate.get("evidence_anchor", "")),
+        *selected_titles,
+    ]
+    if any(is_low_value_single_source_roundup(value) for value in roundup_evidence):
+        raise ValueError("単一ソースの総括記事は自動投稿できません")
 
     used_urls = {
         normalize_url(row.get("source_url", ""))
