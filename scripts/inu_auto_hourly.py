@@ -23,6 +23,7 @@ from inu_live_post import publish_test_item, validate_test_item
 from inu_post import compose_post, validate_post
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from llm_client import generate_web_json
+from scraper import fetch_from_rss
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -160,7 +161,29 @@ def _recent_history(state: dict) -> list[dict]:
     return [dict(row) for row in state.get("posted_slots", [])][-24:]
 
 
-def build_research_prompt(now: dt.datetime, state: dict) -> str:
+def collect_discovery_signals() -> list[dict[str, str]]:
+    """大手暗号資産メディアの最新見出しを、一次資料探索の入口として取得する。"""
+    signals: list[dict[str, str]] = []
+    try:
+        for article in fetch_from_rss(max_per_feed=3):
+            signals.append(
+                {
+                    "title": str(article.get("title", ""))[:180],
+                    "source": str(article.get("source", ""))[:60],
+                    "published": str(article.get("published", ""))[:80],
+                    "url": str(article.get("url", ""))[:500],
+                }
+            )
+    except Exception as exc:
+        logger.warning("ニュース発見フィードを取得できません: %s", exc)
+    return signals[:15]
+
+
+def build_research_prompt(
+    now: dt.datetime,
+    state: dict,
+    discovery_signals: list[dict[str, str]] | None = None,
+) -> str:
     recent = _recent_history(state)
     recent_topics = [row.get("topic_type", "") for row in recent[-8:] if row.get("topic_type")]
     recent_urls = [row.get("source_url", "") for row in recent if row.get("source_url")]
@@ -186,6 +209,8 @@ def build_research_prompt(now: dt.datetime, state: dict) -> str:
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
+大手メディアの最新見出し（発見専用。最終出典には使わない）:
+{json.dumps(discovery_signals or [], ensure_ascii=False)}
 次は直近と異なる系統を優先する。選択可能なtopic_typeは:
 {', '.join(AUTO_TOPIC_TYPES)}
 visual_routeは数字・表・チャートが根拠ならofficial_data_crop、それ以外はofficial_text_crop。
@@ -194,7 +219,7 @@ visual_routeは数字・表・チャートが根拠ならofficial_data_crop、�
 
 def research_candidate(now: dt.datetime, state: dict) -> tuple[dict, list[dict[str, str]]]:
     return generate_web_json(
-        build_research_prompt(now, state),
+        build_research_prompt(now, state, collect_discovery_signals()),
         schema_name="inu_live_candidate",
         schema=CANDIDATE_SCHEMA,
         max_output_tokens=2200,
