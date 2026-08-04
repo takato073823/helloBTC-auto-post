@@ -1,0 +1,78 @@
+name: INU 引用投稿テスト
+
+on:
+  workflow_dispatch:
+    inputs:
+      live:
+        description: "実際にXへ引用投稿する"
+        required: true
+        default: false
+        type: boolean
+      source_id:
+        description: "引用元の投稿ID"
+        required: true
+        default: "2084214417856889071"
+        type: string
+      post_key:
+        description: "二重投稿防止キー"
+        required: true
+        default: "sou_usdjpy_polymarket_quote_v1"
+        type: string
+
+concurrency:
+  group: inu-x-quote-test
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  quote-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 引用投稿を検証
+        working-directory: scripts
+        run: python -m unittest test_x_quote_post.py test_x_poster_rules.py
+
+      - name: 引用投稿をドライラン
+        if: inputs.live != true
+        env:
+          SOURCE_ID: ${{ inputs.source_id }}
+          POST_KEY: ${{ inputs.post_key }}
+        working-directory: scripts
+        run: python x_quote_post.py --source-id "$SOURCE_ID" --key "$POST_KEY"
+
+      - name: Xへ引用投稿
+        if: inputs.live == true
+        env:
+          SOURCE_ID: ${{ inputs.source_id }}
+          POST_KEY: ${{ inputs.post_key }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python x_quote_post.py --live --source-id "$SOURCE_ID" --key "$POST_KEY"
+
+      - name: 引用投稿履歴を保存
+        if: inputs.live == true
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/x_quote_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU quote test [skip ci]"
+          git pull --rebase
+          git push
