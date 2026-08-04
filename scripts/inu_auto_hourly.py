@@ -171,6 +171,8 @@ def build_research_prompt(now: dt.datetime, state: dict) -> str:
 暗号資産・ビットコイン・米国株・日本株・AI・金融政策・地政学の重要情報を1件だけ選んでください。
 
 最重要条件:
+- 少なくとも「暗号資産公式」「ETF・オンチェーン」「米国企業IR・AI」
+  「日本企業IR」「中央銀行・規制当局」「Xで話題になった公式発表」の観点を分けて検索してから比較する。
 - ニュースメディアやXの話題は発見に使ってよいが、最終source_urlは発表主体の公式サイト、規制当局、中央銀行、取引所、上場企業IR、ETF発行体、公式データ提供元などの一次資料にする。
 - source_urlは今回のWeb検索結果に実際に含まれるURLだけを使う。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
@@ -196,8 +198,8 @@ def research_candidate(now: dt.datetime, state: dict) -> tuple[dict, list[dict[s
         schema_name="inu_live_candidate",
         schema=CANDIDATE_SCHEMA,
         max_output_tokens=2200,
-        # 24回/日の継続運用なので、検索・構造化抽出は低コストのLunaを使う。
-        model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-luna"),
+        # 複数市場から一次資料まで辿る必要があるため、検索選定はTerraを使う。
+        model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
     )
 
 

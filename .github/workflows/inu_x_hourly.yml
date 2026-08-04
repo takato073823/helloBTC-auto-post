@@ -48,7 +48,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          INU_RESEARCH_MODEL: gpt-5.6-luna
+          INU_RESEARCH_MODEL: gpt-5.6-terra
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare --dry-run
 
@@ -57,7 +57,7 @@ jobs:
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          INU_RESEARCH_MODEL: gpt-5.6-luna
+          INU_RESEARCH_MODEL: gpt-5.6-terra
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare
 

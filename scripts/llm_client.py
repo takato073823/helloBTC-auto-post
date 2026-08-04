@@ -106,7 +106,7 @@ def generate_web_json(
     response = _get_client().responses.create(
         model=selected_model,
         input=prompt,
-        tools=[{"type": "web_search", "search_context_size": "low"}],
+        tools=[{"type": "web_search", "search_context_size": "medium"}],
         tool_choice="required",
         include=["web_search_call.action.sources"],
         max_output_tokens=max_output_tokens,
