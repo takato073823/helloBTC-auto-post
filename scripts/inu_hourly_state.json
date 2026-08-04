@@ -1,5 +1,36 @@
 {
   "version": 1,
   "posted_slots": [],
-  "posted_ids": []
+  "posted_ids": [
+    "yamaha_motor_q2_2026_08_04",
+    "coldcard_entropy_actions_2026_08_04",
+    "jgb_10y_auction_2026_08_04"
+  ],
+  "reservations": [],
+  "history": [
+    {
+      "post_id": "yamaha_motor_q2_2026_08_04",
+      "tweet_id": "2084601287300002212",
+      "topic_type": "earnings",
+      "source_url": "https://global.yamaha-motor.com/jp/ir/library/report/pdf/2026/2026explain-q2.pdf",
+      "hook": "ヤマハ発動機の2026年12月期第2四半期決算",
+      "posted_at": "2026-08-04T10:00:00+00:00"
+    },
+    {
+      "post_id": "coldcard_entropy_actions_2026_08_04",
+      "tweet_id": "2084604319131656359",
+      "topic_type": "security_incident",
+      "source_url": "https://blog.coinkite.com/entropy-technical-backgrounder/",
+      "hook": "COLDCARDのセキュリティ対応と利用者が取るべき行動",
+      "posted_at": "2026-08-04T10:15:00+00:00"
+    },
+    {
+      "post_id": "jgb_10y_auction_2026_08_04",
+      "tweet_id": "2084606841808425012",
+      "topic_type": "macro_event",
+      "source_url": "https://www.mof.go.jp/jgbs/auction/calendar/nyusatsu/resul20260804.htm",
+      "hook": "財務省の10年国債入札結果",
+      "posted_at": "2026-08-04T10:30:00+00:00"
+    }
+  ]
 }

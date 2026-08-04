@@ -201,6 +201,7 @@ def build_research_prompt(
     recent = _recent_history(state)
     recent_topics = [row.get("topic_type", "") for row in recent[-8:] if row.get("topic_type")]
     recent_urls = [row.get("source_url", "") for row in recent if row.get("source_url")]
+    recent_headlines = [row.get("hook", "") for row in recent if row.get("hook")]
     local = now.astimezone(JST)
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
@@ -224,6 +225,7 @@ def build_research_prompt(
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
+重複・近似テーマ禁止の直近見出し: {json.dumps(recent_headlines, ensure_ascii=False)}
 大手メディアの最新見出し（一次資料探索に使い、一次資料がない場合はreported_breaking_newsの最終出典として使用可）:
 {json.dumps(discovery_signals or [], ensure_ascii=False)}
 次は直近と異なる系統を優先する。選択可能なtopic_typeは:
@@ -334,16 +336,28 @@ def validate_candidate(
 
 
 def compose_candidate_text(candidate: dict) -> str:
+    tags = [str(tag).lstrip("#＃") for tag in candidate["tags"] if str(tag).strip()]
     text = compose_post(
         hook=candidate["hook"],
         facts=candidate["facts"],
         opinion=candidate["opinion"],
         source_label=candidate["source_name"],
         # 共通タグ処理が #仮想通貨 を補うため、固有タグは1件に限定する。
-        tags=candidate["tags"][:1],
+        tags=tags[:1],
     )
     if weighted_length(text) <= MAX_WEIGHTED_LENGTH:
         return text
+
+    # まず補足事実と固有タグだけを外し、文章自体は自然な一文のまま残す。
+    compact = compose_post(
+        hook=candidate["hook"],
+        facts=[candidate["facts"][0]],
+        opinion=candidate["opinion"],
+        source_label=candidate["source_name"],
+        tags=[],
+    )
+    if weighted_length(compact) <= MAX_WEIGHTED_LENGTH:
+        return compact
 
     def clip(value: str, limit: int) -> str:
         clean = " ".join(value.split()).strip()
@@ -500,6 +514,7 @@ def publish(args: argparse.Namespace) -> int:
         "source_url": normalize_url(candidate["source_url"]),
         "published_at": candidate["published_at"],
         "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "hook": candidate["hook"],
     }
     state["reservations"] = [
         row for row in state.get("reservations", []) if row.get("post_id") != item["id"]
