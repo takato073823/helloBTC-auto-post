@@ -82,7 +82,7 @@ class XPriceChartPostTests(unittest.TestCase):
                 self.assertEqual(image.size, (1080, 1350))
                 self.assertEqual(image.convert("RGB").getpixel((0, 0)), (255, 255, 255))
             self.assertEqual("COINBASE:BTCUSD", capture.call_args.kwargs["tradingview_symbol"])
-            self.assertEqual("12m|1W", capture.call_args.kwargs["date_range"])
+            self.assertEqual("5d|120", capture.call_args.kwargs["date_range"])
 
     def test_dry_run_never_posts_or_writes_state(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)

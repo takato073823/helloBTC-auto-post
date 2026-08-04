@@ -19,7 +19,7 @@ import requests
 
 from inu_hourly_dispatcher import load_state, save_state
 from inu_live_post import publish_test_item, validate_test_item
-from inu_tradingview_capture import capture_tradingview_screenshot
+from inu_tradingview_capture import capture_tradingview_screenshot, select_chart_window
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -237,10 +237,11 @@ def render_chart(event: dict, points: list[tuple[dt.datetime, float]], output: P
     """検知データと照合後、TradingViewの白背景画面を4:5で撮影する。"""
     if not points:
         raise ValueError("市場速報の照合データがありません")
+    window = select_chart_window(24 * 365)
     capture_tradingview_screenshot(
         tradingview_symbol=event["tradingview_symbol"],
         label=event["tradingview_label"],
-        date_range="12m|1W",
+        date_range=window.date_range,
         expected_price=event["current_price"],
         tolerance=0.02,
         output_path=output,

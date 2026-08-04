@@ -15,7 +15,7 @@ from pathlib import Path
 
 import requests
 
-from inu_tradingview_capture import capture_tradingview_screenshot
+from inu_tradingview_capture import capture_tradingview_screenshot, select_chart_window
 from x_info_poster import BLOCKING_PATTERNS, MAX_WEIGHTED_LENGTH, weighted_length
 from x_poster import _neutralize_service_domains, post_info_tweet
 
@@ -179,10 +179,12 @@ def render_chart(
     """自作描画は行わず、公式TradingViewウィジェットの実画面を撮影する。"""
     asset = SUPPORTED_PRODUCTS[product]
     metrics = calculate_metrics(candles)
+    horizon_hours = 24 if abs(metrics["change_24h"]) >= 2 else 72
+    window = select_chart_window(horizon_hours)
     capture_tradingview_screenshot(
         tradingview_symbol=asset["tv"],
         label=asset["tv_label"],
-        date_range="12m|1W",
+        date_range=window.date_range,
         expected_price=metrics["last_close"],
         tolerance=0.02,
         output_path=output_path,

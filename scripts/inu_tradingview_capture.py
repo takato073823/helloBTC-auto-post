@@ -6,6 +6,7 @@ import json
 import math
 import re
 import shutil
+from dataclasses import dataclass
 from pathlib import Path
 
 from PIL import Image, ImageStat
@@ -17,6 +18,8 @@ WIDGET_HEIGHT = 1310
 SCRIPT_URL = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
 ALLOWED_RANGES = {
     "1d|1",
+    "1d|30",
+    "5d|120",
     "1m|30",
     "1m|1D",
     "3m|60",
@@ -27,6 +30,8 @@ ALLOWED_RANGES = {
 }
 RANGE_LABELS = {
     "1d|1": "1-minute candles / Past day",
+    "1d|30": "30-minute candles / Past day",
+    "5d|120": "2-hour candles / Past 5 days",
     "1m|30": "30-minute candles / Past month",
     "1m|1D": "1D candles / Past month",
     "3m|60": "1-hour candles / Past 3 months",
@@ -45,6 +50,26 @@ ERROR_MARKERS = (
     "データなし",
     "シンボルが無効",
 )
+
+
+@dataclass(frozen=True)
+class ChartWindow:
+    date_range: str
+    interval_label: str
+    expected_candles: str
+
+
+def select_chart_window(horizon_hours: float) -> ChartWindow:
+    """値動きの観測期間に合わせ、画面内を約30〜70本の足に保つ。"""
+    if not math.isfinite(horizon_hours) or horizon_hours <= 0:
+        raise ValueError("チャートの観測期間が不正です")
+    if horizon_hours <= 36:
+        return ChartWindow("1d|30", "30-minute", "約48本")
+    if horizon_hours <= 96:
+        return ChartWindow("5d|120", "2-hour", "約60本")
+    if horizon_hours <= 24 * 45:
+        return ChartWindow("1m|1D", "1D", "約30本")
+    return ChartWindow("12m|1W", "1W", "約52本")
 
 
 def build_widget_html(
