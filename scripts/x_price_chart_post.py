@@ -32,7 +32,15 @@ logger = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 STATE_PATH = SCRIPT_DIR / "x_price_chart_state.json"
-COINBASE_CANDLES_URL = "https://api.exchange.coinbase.com/products/BTC-USD/candles"
+COINBASE_CANDLES_URL = "https://api.exchange.coinbase.com/products/{product}/candles"
+SUPPORTED_PRODUCTS = {
+    "BTC-USD": {"symbol": "BTC", "name": "Bitcoin", "decimals": 0},
+    "ETH-USD": {"symbol": "ETH", "name": "Ethereum", "decimals": 0},
+    "SOL-USD": {"symbol": "SOL", "name": "Solana", "decimals": 2},
+    "XRP-USD": {"symbol": "XRP", "name": "XRP", "decimals": 4},
+    "DOGE-USD": {"symbol": "DOGE", "name": "Dogecoin", "decimals": 5},
+    "ADA-USD": {"symbol": "ADA", "name": "Cardano", "decimals": 4},
+}
 JST = ZoneInfo("Asia/Tokyo")
 GRANULARITY_SECONDS = 3600
 DISPLAY_CANDLES = 72
@@ -80,11 +88,17 @@ def parse_closed_candles(rows: list, now: dt.datetime | None = None) -> list[dic
     return candles[-DISPLAY_CANDLES:]
 
 
-def fetch_closed_candles(now: dt.datetime | None = None) -> list[dict]:
+def fetch_closed_candles(
+    now: dt.datetime | None = None,
+    *,
+    product: str = "BTC-USD",
+) -> list[dict]:
+    if product not in SUPPORTED_PRODUCTS:
+        raise ValueError(f"未対応のCoinbase商品です: {product}")
     current = now or dt.datetime.now(dt.timezone.utc)
     start = current - dt.timedelta(hours=DISPLAY_CANDLES + 8)
     response = requests.get(
-        COINBASE_CANDLES_URL,
+        COINBASE_CANDLES_URL.format(product=product),
         params={
             "granularity": GRANULARITY_SECONDS,
             "start": start.isoformat(),
@@ -125,17 +139,24 @@ def _signed_percent(value: float) -> str:
     return f"{value:+.2f}%"
 
 
-def build_tweet(metrics: dict) -> str:
+def _price(value: float, decimals: int) -> str:
+    return f"${value:,.{decimals}f}"
+
+
+def build_tweet(metrics: dict, *, product: str = "BTC-USD") -> str:
+    asset = SUPPORTED_PRODUCTS[product]
+    symbol = asset["symbol"]
+    decimals = asset["decimals"]
     change = metrics["change_24h"]
     position = metrics["position"]
     if abs(change) >= 2:
-        headline = f"【BTC、24時間で{_signed_percent(change)}】"
+        headline = f"【{symbol}、24時間で{_signed_percent(change)}】"
     elif position >= 0.75:
-        headline = "【BTC、3日レンジ上限圏】"
+        headline = f"【{symbol}、3日レンジ上限圏】"
     elif position <= 0.25:
-        headline = "【BTC、3日レンジ下限圏】"
+        headline = f"【{symbol}、3日レンジ下限圏】"
     else:
-        headline = "【BTC、3日レンジの中間圏】"
+        headline = f"【{symbol}、3日レンジの中間圏】"
 
     if position >= 0.75:
         focus = "高値圏を維持できるか"
@@ -146,10 +167,10 @@ def build_tweet(metrics: dict) -> str:
 
     text = (
         f"{headline}\n\n"
-        f"直近確定値は${metrics['last_close']:,.0f}。24時間で{_signed_percent(change)}。\n"
-        f"過去3日の高値${metrics['period_high']:,.0f}、安値${metrics['period_low']:,.0f}。\n\n"
+        f"直近確定値は{_price(metrics['last_close'], decimals)}。24時間で{_signed_percent(change)}。\n"
+        f"過去3日の高値{_price(metrics['period_high'], decimals)}、安値{_price(metrics['period_low'], decimals)}。\n\n"
         f"僕は、{focus}に注目しています。\n\n"
-        "※Coinbase BTC-USD／1時間足"
+        f"※Coinbase {product}／1時間足"
     )
     return _neutralize_service_domains(text)
 
@@ -165,7 +186,14 @@ def validate_tweet(text: str) -> None:
         raise ValueError(f"Xの文字数上限を超えます: {length}/{MAX_WEIGHTED_LENGTH}")
 
 
-def render_chart(candles: list[dict], output_path: Path) -> Path:
+def render_chart(
+    candles: list[dict],
+    output_path: Path,
+    *,
+    product: str = "BTC-USD",
+) -> Path:
+    asset = SUPPORTED_PRODUCTS[product]
+    decimals = asset["decimals"]
     metrics = calculate_metrics(candles)
     dates = [mdates.date2num(candle["time"].astimezone(JST)) for candle in candles]
     candle_width = (1 / 24) * 0.64
@@ -197,7 +225,7 @@ def render_chart(candles: list[dict], output_path: Path) -> Path:
 
     ax.axhline(metrics["last_close"], color=ORANGE, linewidth=1.15, linestyle=(0, (4, 4)), alpha=0.9)
     ax.annotate(
-        f" ${metrics['last_close']:,.0f} ",
+        f" {_price(metrics['last_close'], decimals)} ",
         xy=(1.0, metrics["last_close"]),
         xycoords=("axes fraction", "data"),
         ha="left",
@@ -215,7 +243,7 @@ def render_chart(candles: list[dict], output_path: Path) -> Path:
     ax.yaxis.tick_right()
     ax.tick_params(axis="y", colors=MUTED, labelsize=9, length=0, pad=8)
     ax.tick_params(axis="x", colors=MUTED, labelsize=9, length=0, pad=10)
-    ax.yaxis.set_major_formatter(lambda value, _position: f"${value:,.0f}")
+    ax.yaxis.set_major_formatter(lambda value, _position: _price(value, decimals))
     ax.xaxis.set_major_locator(mdates.HourLocator(interval=12, tz=JST))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%m/%d\n%H:%M", tz=JST))
     ax.set_xlim(dates[0] - candle_width, dates[-1] + candle_width * 4)
@@ -223,9 +251,9 @@ def render_chart(candles: list[dict], output_path: Path) -> Path:
     ax.set_ylim(metrics["period_low"] - price_padding, metrics["period_high"] + price_padding)
 
     fig.text(0.10, 0.930, "INU MARKET", fontsize=12, fontweight="bold", color=ORANGE)
-    fig.text(0.10, 0.875, "Bitcoin / US Dollar", fontsize=24, fontweight="bold", color=BLACK)
-    fig.text(0.10, 0.842, "BTCUSD  ·  COINBASE  ·  1H", fontsize=10.5, fontweight="bold", color=MUTED)
-    fig.text(0.10, 0.775, f"${metrics['last_close']:,.2f}", fontsize=30, fontweight="bold", color=BLACK)
+    fig.text(0.10, 0.875, f"{asset['name']} / US Dollar", fontsize=24, fontweight="bold", color=BLACK)
+    fig.text(0.10, 0.842, f"{product.replace('-', '')}  ·  COINBASE  ·  1H", fontsize=10.5, fontweight="bold", color=MUTED)
+    fig.text(0.10, 0.775, _price(metrics['last_close'], max(decimals, 2)), fontsize=30, fontweight="bold", color=BLACK)
     change_color = GREEN if metrics["change_24h"] >= 0 else RED
     fig.text(0.10, 0.738, f"24H  {_signed_percent(metrics['change_24h'])}", fontsize=12, fontweight="bold", color=change_color)
     fig.text(0.34, 0.738, f"3D  {_signed_percent(metrics['change_period'])}", fontsize=12, fontweight="bold", color=MUTED)
@@ -274,14 +302,18 @@ def run(args: argparse.Namespace) -> int:
         logger.info("この価格チャート投稿は実行済みです: %s", args.key)
         return 0
 
-    candles = fetch_closed_candles()
+    product = getattr(args, "product", "BTC-USD")
+    candles = fetch_closed_candles(product=product)
     metrics = calculate_metrics(candles)
-    tweet = build_tweet(metrics)
+    tweet = build_tweet(metrics, product=product)
     validate_tweet(tweet)
+
+    if args.live and os.environ.get("GITHUB_RUN_ATTEMPT", "1") != "1":
+        raise ValueError("GitHub Actionsの再実行は重複投稿防止のため禁止しています")
 
     if args.output:
         output_path = Path(args.output)
-        render_chart(candles, output_path)
+        render_chart(candles, output_path, product=product)
         logger.info("投稿プレビュー\n%s", tweet)
         logger.info("チャートを保存: %s", output_path)
         if not args.live:
@@ -289,7 +321,11 @@ def run(args: argparse.Namespace) -> int:
         tweet_id = post_info_tweet(tweet, output_path)
     else:
         with tempfile.TemporaryDirectory(prefix="inu-price-chart-") as temp_dir:
-            output_path = render_chart(candles, Path(temp_dir) / "btc-usd.png")
+            output_path = render_chart(
+                candles,
+                Path(temp_dir) / f"{product.lower()}.png",
+                product=product,
+            )
             logger.info("投稿プレビュー\n%s", tweet)
             if not args.live:
                 return 0
@@ -305,6 +341,7 @@ def run(args: argparse.Namespace) -> int:
             "tweet_id": str(tweet_id),
             "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
             "closed_candle_at": metrics["closed_at"].isoformat(),
+            "product": product,
         }
     )
     save_state(state_path, state)
@@ -318,6 +355,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--key", default="btc_price_chart_test_v1", help="二重投稿防止キー")
     parser.add_argument("--state", default=str(STATE_PATH))
     parser.add_argument("--output", help="生成するPNGの保存先")
+    parser.add_argument("--product", choices=sorted(SUPPORTED_PRODUCTS), default="BTC-USD")
     return parser
 
 

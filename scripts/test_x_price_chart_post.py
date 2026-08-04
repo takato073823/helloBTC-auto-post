@@ -52,6 +52,16 @@ class XPriceChartPostTests(unittest.TestCase):
         self.assertNotIn("http", text)
         self.assertNotIn("買うべき", text)
 
+    def test_altcoin_tweet_uses_product_and_first_person(self):
+        candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
+        text = x_price_chart_post.build_tweet(
+            x_price_chart_post.calculate_metrics(candles),
+            product="XRP-USD",
+        )
+        self.assertIn("XRP", text)
+        self.assertIn("Coinbase XRP-USD", text)
+        self.assertIn("僕は", text)
+
     def test_chart_is_1080_by_1350(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
         with tempfile.TemporaryDirectory() as tmp:
@@ -85,6 +95,25 @@ class XPriceChartPostTests(unittest.TestCase):
                 self.assertEqual(x_price_chart_post.run(args), 0)
             self.assertEqual(post.call_count, 1)
             self.assertIn('"tweet_id": "123"', state.read_text(encoding="utf-8"))
+
+    def test_actions_rerun_is_rejected_before_publish(self):
+        candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
+        with tempfile.TemporaryDirectory() as tmp:
+            args = argparse.Namespace(
+                live=True,
+                key="rerun",
+                state=str(Path(tmp) / "state.json"),
+                output=str(Path(tmp) / "chart.png"),
+                product="ETH-USD",
+            )
+            with (
+                patch.object(x_price_chart_post, "fetch_closed_candles", return_value=candles),
+                patch.object(x_price_chart_post, "post_info_tweet") as post,
+                patch.dict("os.environ", {"GITHUB_RUN_ATTEMPT": "2"}),
+            ):
+                with self.assertRaisesRegex(ValueError, "再実行"):
+                    x_price_chart_post.run(args)
+            post.assert_not_called()
 
 
 if __name__ == "__main__":
