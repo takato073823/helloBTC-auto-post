@@ -134,7 +134,8 @@
     "inu_auto_5ee53965598670",
     "inu_auto_7bbe14085d5a4f",
     "inu_auto_b9609a2e967baa",
-    "inu_auto_7c23a07f6248ff"
+    "inu_auto_7c23a07f6248ff",
+    "inu_breaking_us_indices_record_2026-08-05"
   ],
   "reservations": [
     {
@@ -145,13 +146,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "event_key": "us_indices_record_2026-08-05",
-      "post_id": "inu_breaking_us_indices_record_2026-08-05",
-      "topic_type": "historical_milestone",
-      "priority": "breaking",
-      "reserved_at": "2026-08-05T14:12:17.855596+00:00"
     }
   ],
   "history": [
@@ -307,6 +301,17 @@
       "posted_at": "2026-08-05T12:19:22.230406+00:00",
       "hook": "🏦Circle、BlackRock・Visa・DTCCなどをArcのバリデーターに選定",
       "follow_value": "INUでは、Circleの収益、USDC流通量、金融インフラ企業の参入が暗号資産市場に与える影響を追います。"
+    },
+    {
+      "event_key": "us_indices_record_2026-08-05",
+      "post_id": "inu_breaking_us_indices_record_2026-08-05",
+      "tweet_id": "2085006000474488982",
+      "topic_type": "historical_milestone",
+      "priority": "breaking",
+      "source_url": "https://finance.yahoo.com/quote/%5EGSPC/",
+      "published_at": "2026-08-05T14:11:54+00:00",
+      "posted_at": "2026-08-05T14:12:23.015263+00:00",
+      "hook": "S&P 500が史上最高値を更新"
     }
   ],
   "scheduled_checks": [
