@@ -321,7 +321,20 @@ class INUAutoHourlyTests(unittest.TestCase):
     def test_curated_chinese_x_sources_are_prioritized_only_for_discovery(self):
         sources = inu_auto_hourly.load_curated_x_sources()
         self.assertEqual(
-            ["RelaxView", "falali2015", "tun2049", "damobianyuan"],
+            [
+                "RelaxView",
+                "falali2015",
+                "tun2049",
+                "damobianyuan",
+                "huoshan007",
+                "jiao_newlife",
+                "gengdaJ",
+                "lxfater",
+                "AI_jacksaku",
+                "star_okx",
+                "CoinankCN",
+                "CryptoSpill",
+            ],
             [row["handle"] for row in sources],
         )
         prompt = inu_auto_hourly.build_grok_prompt(NOW, {"history": []})

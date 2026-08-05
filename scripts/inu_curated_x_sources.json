@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updated_at": "2026-08-05",
   "provenance": "@revelya_web3 のフォロー中一覧から、プロフィール上の専門領域と検証可能性を基準に手動選定",
   "sources": [
@@ -26,6 +26,54 @@
       "language": "zh",
       "focus": "AI生産性・重要時事・定量取引・インフラ",
       "use_when": "公式リリース、一次データ、再現可能な根拠に結び付く場合のみ"
+    },
+    {
+      "handle": "huoshan007",
+      "language": "zh",
+      "focus": "中国語圏の暗号資産・NFT・BNBエコシステムの動向",
+      "use_when": "プロジェクト、取引所、チェーンの公式発表またはオンチェーン記録で裏付けられる場合のみ"
+    },
+    {
+      "handle": "jiao_newlife",
+      "language": "zh",
+      "focus": "Web3プロダクト・ビルダー視点の業界動向",
+      "use_when": "プロダクトの公式リリース、GitHub、資金調達開示などを確認できる場合のみ"
+    },
+    {
+      "handle": "gengdaJ",
+      "language": "zh",
+      "focus": "中国のAIプロダクト・リーガルテック・事業活用",
+      "use_when": "企業発表、製品ページ、実際のリリースノートまで確認できる場合のみ"
+    },
+    {
+      "handle": "lxfater",
+      "language": "zh",
+      "focus": "AI開発・オープンソース・開発者向けプロダクト",
+      "use_when": "公式リポジトリ、論文、企業発表など一次資料へ到達できる場合のみ"
+    },
+    {
+      "handle": "AI_jacksaku",
+      "language": "zh",
+      "focus": "中国語圏のAIツール・LLMアップデート",
+      "use_when": "モデル提供元、製品公式、評価データを独立に確認できる場合のみ"
+    },
+    {
+      "handle": "star_okx",
+      "language": "zh/en",
+      "focus": "取引所経営・セルフカストディ・オンチェーン市場の経営者発信",
+      "use_when": "OKX等の公式アカウント、規制開示、プロダクト公式情報で確認できる場合のみ"
+    },
+    {
+      "handle": "CoinankCN",
+      "language": "zh-Hant",
+      "focus": "暗号資産デリバティブの注文フロー・建玉・清算データ",
+      "use_when": "数値の取得元、対象取引所、観測時刻を別データで再確認できる場合のみ"
+    },
+    {
+      "handle": "CryptoSpill",
+      "language": "zh",
+      "focus": "暗号資産業界の不正・リスク事案の早期シグナル",
+      "use_when": "被害者・当事者の公式声明、オンチェーン記録、信頼できる複数報道で確認できる場合のみ"
     }
   ]
 }

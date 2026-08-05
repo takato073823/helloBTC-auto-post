@@ -332,7 +332,9 @@ def load_curated_x_sources(path: Path = CURATED_X_SOURCES_PATH) -> list[dict[str
                 "use_when": use_when[:180],
             }
         )
-    return sources[:12]
+    # 設定ファイルは人手レビュー済みの少数リスト。探索範囲を十分に確保しつつ、
+    # Grokの指示が冗長にならないよう上限を20件にする。
+    return sources[:20]
 
 
 def build_grok_prompt(now: dt.datetime, state: dict) -> str:
