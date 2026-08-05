@@ -138,6 +138,17 @@ EARNINGS_RESULT_PATTERN = re.compile(
     r"(?:売上(?:高)?|営業利益|経常利益|純利益|EBITDA|EPS|通期(?:予想|見通し)?|"
     r"業績(?:予想|見通し)|上方修正|下方修正|増収|減収|増益|減益|黒字|赤字|前年比)"
 )
+# 一件の事件・逮捕だけでは、投資家の資産・市場判断に直結しない。取引所侵害や
+# カストディ上の欠陥など、構造的な暗号資産リスクへ発展している場合だけを残す。
+LOCAL_CRIME_PATTERN = re.compile(
+    r"\b(?:robbery|robber|home invasion|kidnap(?:ping)?|arrested|indicted|charged)\b",
+    re.IGNORECASE,
+)
+STRUCTURAL_CRYPTO_RISK_PATTERN = re.compile(
+    r"\b(?:exchange|hack(?:ed|ing)?|breach|exploit|custody|wallet|security|fraud|scam|"
+    r"ransomware|regulat(?:or|ion|ory))\b",
+    re.IGNORECASE,
+)
 
 CANDIDATE_SCHEMA = {
     "type": "object",
@@ -639,6 +650,17 @@ def _is_near_recent_topic(title: str, state: dict) -> bool:
     return any(token in recent for token in tokens)
 
 
+def _is_local_crime_without_structural_crypto_impact(signal: dict[str, str]) -> bool:
+    """局地的な事件を、暗号資産ニュースの穴埋めとして選ばない。"""
+    text = " ".join(
+        [str(signal.get("title", "")), str(signal.get("summary", ""))]
+    )
+    return bool(
+        LOCAL_CRIME_PATTERN.search(text)
+        and not STRUCTURAL_CRYPTO_RISK_PATTERN.search(text)
+    )
+
+
 def trusted_media_signals(
     now: dt.datetime,
     state: dict,
@@ -649,6 +671,8 @@ def trusted_media_signals(
         title = signal.get("title", "").strip()
         summary = " ".join(signal.get("summary", "").split()).strip()
         if is_low_value_single_source_roundup(title):
+            continue
+        if _is_local_crime_without_structural_crypto_impact(signal):
             continue
         if len(title) < 12 or len(summary) < 40:
             continue

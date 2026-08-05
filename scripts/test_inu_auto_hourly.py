@@ -166,6 +166,30 @@ class INUAutoHourlyTests(unittest.TestCase):
         ]
         self.assertEqual([], inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
 
+    def test_local_crime_without_structural_crypto_impact_is_not_scheduled(self):
+        signals = [
+            {
+                "title": "Former officer charged after $350,000 Bitcoin robbery",
+                "source": "Decrypt",
+                "published": "Tue, 04 Aug 2026 11:40:44 +0000",
+                "url": "https://decrypt.co/374999/bitcoin-robbery",
+                "summary": "Police say the suspects entered a private residence and stole Bitcoin worth $350,000.",
+            }
+        ]
+        self.assertEqual([], inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
+
+    def test_exchange_breach_remains_eligible_despite_crime_language(self):
+        signals = [
+            {
+                "title": "Exchange charged after wallet security breach exposes customer funds",
+                "source": "Decrypt",
+                "published": "Tue, 04 Aug 2026 11:40:44 +0000",
+                "url": "https://decrypt.co/375000/exchange-security-breach",
+                "summary": "Regulators charged the exchange after a security breach exposed customer wallet balances.",
+            }
+        ]
+        self.assertEqual(signals, inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
+
     def test_reported_news_builds_a_native_link_card_without_image_capture(self):
         item = candidate(
             topic_type="reported_breaking_news",
