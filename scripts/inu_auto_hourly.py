@@ -51,6 +51,15 @@ GROWTH_TOPIC_ROTATION = (
     "earnings",
     "adoption_kpi",
 )
+# Xの伸びを「投稿本数」ではなく、読者が投稿を開く理由の異なる入口で設計する。
+# 動画で紹介された通知・外部の話題・継続テーマの考え方を、誇張や誘導ではなく
+# 検証済みの情報価値へ変換するための内部ラベル。
+GROWTH_ANGLES = (
+    "alert",        # 今すぐ通知する価値のある新事実
+    "decision",     # 読者の資産・行動・判断に直結する具体情報
+    "conversation", # Xで話題化したシグナルを一次情報で検証したもの
+    "continuity",   # 継続テーマの新しい進展。単なる前投稿の言い換えは禁止
+)
 
 AUTO_TOPIC_TYPES = (
     "breaking_news",
@@ -183,6 +192,7 @@ CANDIDATE_SCHEMA = {
         "why_now": {"type": "string"},
         "reader_interest": {"type": "string"},
         "follow_value": {"type": "string"},
+        "growth_angle": {"type": "string", "enum": list(GROWTH_ANGLES)},
         "is_primary_source": {"type": "boolean"},
     },
     "required": [
@@ -202,6 +212,7 @@ CANDIDATE_SCHEMA = {
         "why_now",
         "reader_interest",
         "follow_value",
+        "growth_angle",
         "is_primary_source",
     ],
 }
@@ -268,6 +279,7 @@ REPORT_COPY_SCHEMA = {
         "opinion": {"type": "string"},
         "reader_interest": {"type": "string"},
         "follow_value": {"type": "string"},
+        "growth_angle": {"type": "string", "enum": list(GROWTH_ANGLES)},
         "tags": {
             "type": "array",
             "items": {"type": "string"},
@@ -275,7 +287,9 @@ REPORT_COPY_SCHEMA = {
             "maxItems": 2,
         },
     },
-    "required": ["hook", "facts", "opinion", "reader_interest", "follow_value", "tags"],
+    "required": [
+        "hook", "facts", "opinion", "reader_interest", "follow_value", "growth_angle", "tags"
+    ],
 }
 
 
@@ -545,6 +559,7 @@ topic_typeが異なる候補を優先してください。
 - 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
 - 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
 - follow_valueへ「この出来事を起点に、INUを継続してフォローすると追える投資テーマ・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。この値は内部の編集判定・振り返り用で、投稿本文には書かない。
+- growth_angleへ、この候補が読者に届く入口を1つだけ指定する。alertは公開2時間以内で、通知を受け取る価値がある価格・制度・資産安全性・需給の急変だけ。decisionは読者の資産・行動・判断に直接関わる具体的な金額・条件・変更があるもの。conversationはGrokのXシグナルで話題を発見し、一次資料で裏取りできたものだけ。continuityは直近と異なる新事実を伴う継続テーマだけに使う。インプレッション目的の煽り、無根拠の質問、フォロー依頼はどの入口でも禁止。
 - hook・factsにも、reader_interestの根拠となる具体的な変更点を必ず入れる。「〜を公表へ」「公式ページでは〜」だけの投稿は禁止。
 - 事実の要約を繰り返さず、opinionでは「何が変わるか」または「次に何を見るか」を具体的に一つ書く。
 - opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い分ける。「僕は、〜と見ています」「〜がポイントです」「節目だと見ています」の定型的な結びは禁止。
@@ -714,7 +729,7 @@ def build_trusted_media_candidate(
         f"""
 次の信頼できるニュースメディアの見出しとRSS要約だけを根拠に、INUのX投稿文を作成してください。
 外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100〜150文字程度を目標にします。
-hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。reader_interestには、読者が今この話題を見る具体的な理由を一文で書きます。follow_valueには、この出来事を起点にINUを継続してフォローすると追える投資テーマ・続報を一文で書きます。follow_valueはreader_interestの言い換えにせず、投稿本文へ入れません。公式ページや資料の存在を述べるだけ、または「公表へ」だけの投稿は作らないでください。金額・増減・決定・規制変更・需給・次の確認点のうち少なくとも一つを、hookかfactsに明示できない場合は投稿不適格です。
+hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。reader_interestには、読者が今この話題を見る具体的な理由を一文で書きます。follow_valueには、この出来事を起点にINUを継続してフォローすると追える投資テーマ・続報を一文で書きます。follow_valueはreader_interestの言い換えにせず、投稿本文へ入れません。growth_angleはalert（公開2時間以内の通知価値がある急変）、decision（資産・行動・判断に直結する具体情報）、conversation（Xで話題となり一次資料で確認済み）、continuity（新事実を伴う継続テーマ）のいずれかにします。公式ページや資料の存在を述べるだけ、または「公表へ」だけの投稿は作らないでください。金額・増減・決定・規制変更・需給・次の確認点のうち少なくとも一つを、hookかfactsに明示できない場合は投稿不適格です。
 opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い、「僕は、〜と見ています」「〜がポイントです」で終えません。売買推奨や価格予想をしません。
 hookの先頭には、出来事の性質を示す絵文字を1個使います。装飾目的ではなく、🚨重要速報、📈上昇・最高値、📉下落、⚠️リスク、🏦政策・金融機関のように事実と一致するものだけを選び、本文中には使いません。
 元記事: {title}
@@ -738,6 +753,7 @@ RSS要約: {summary}
         "opinion": copy["opinion"],
         "reader_interest": copy["reader_interest"],
         "follow_value": copy["follow_value"],
+        "growth_angle": copy["growth_angle"],
         "source_name": signal["source"],
         "source_url": signal["url"],
         "published_at": published.isoformat(),
@@ -839,6 +855,8 @@ def validate_candidate(
     if age > dt.timedelta(hours=MAX_AGE_HOURS[topic_type]):
         raise ValueError("この系統の鮮度上限を超えています")
 
+    _validate_growth_angle(candidate, sources, state, age)
+
     recent_topics = [row.get("topic_type") for row in _recent_history(state)[-2:]]
     # reported_breaking_newsは出典区分であり、暗号資産・AI・株式など内容は別物。
     # URL・見出しの重複検査を通過していれば、区分だけを理由に停止しない。
@@ -901,6 +919,36 @@ def _validate_follow_value(candidate: dict) -> None:
         raise ValueError("継続フォロー価値が公式発表の紹介だけになっています")
     if compact_follow == compact_interest or compact_follow in compact_interest or compact_interest in compact_follow:
         raise ValueError("継続フォロー価値が閲覧理由の言い換えになっています")
+
+
+def _validate_growth_angle(
+    candidate: dict,
+    sources: list[dict[str, str]],
+    state: dict,
+    age: dt.timedelta,
+) -> None:
+    """伸びる入口を多様化しつつ、情報価値のない拡散を防ぐ。"""
+    angle = str(candidate.get("growth_angle", "")).strip()
+    if angle not in GROWTH_ANGLES:
+        raise ValueError("投稿の成長入口が指定されていません")
+    if angle == "alert" and age > dt.timedelta(hours=2):
+        raise ValueError("通知価値を掲げる投稿の鮮度が不足しています")
+    if angle == "conversation" and not any(
+        row.get("discovery_type") == "grok_x_search" for row in sources
+    ):
+        raise ValueError("Xで話題の入口に対応する検証済みシグナルがありません")
+    if angle == "continuity" and not re.search(
+        r"(?:今後|次|継続|引き続き)", str(candidate.get("follow_value", ""))
+    ):
+        raise ValueError("継続テーマとして追う対象が明確ではありません")
+
+    recent_angles = [
+        str(row.get("growth_angle", ""))
+        for row in _recent_history(state)[-2:]
+        if row.get("growth_angle")
+    ]
+    if len(recent_angles) == 2 and all(value == angle for value in recent_angles):
+        raise ValueError("同じ成長入口が3件連続します")
 
 
 def compose_candidate_text(candidate: dict) -> str:
@@ -978,6 +1026,7 @@ def _reserve(
             "post_id": item["id"],
             "source_url": normalize_url(candidate["source_url"]),
             "topic_type": candidate["topic_type"],
+            "growth_angle": candidate["growth_angle"],
             "priority": priority,
             "generated_editorial_visual": bool(candidate.get("generated_editorial_visual")),
             "reserved_at": now.isoformat(),
@@ -1264,6 +1313,7 @@ def publish(args: argparse.Namespace) -> int:
         "post_id": item["id"],
         "tweet_id": str(tweet_id),
         "topic_type": candidate["topic_type"],
+        "growth_angle": candidate["growth_angle"],
         "priority": str(reservation.get("priority", "scheduled")),
         "generated_editorial_visual": bool(reservation.get("generated_editorial_visual")),
         "source_url": normalize_url(candidate["source_url"]),
