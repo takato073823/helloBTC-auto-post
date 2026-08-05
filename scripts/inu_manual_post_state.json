@@ -2,13 +2,7 @@
   "version": 1,
   "posted_slots": [],
   "posted_ids": [],
-  "reservations": [
-    {
-      "post_id": "trump_memecoin_clarity_20260805",
-      "generated_editorial_visual": false,
-      "prepared_at": "2026-08-05T04:09:15.995451+00:00"
-    }
-  ],
+  "reservations": [],
   "posted": [
     {
       "post_id": "fsa_crypto_stablecoin_bureau_20260805",
@@ -16,6 +10,13 @@
       "prepared_at": "2026-08-05T04:07:59.804065+00:00",
       "tweet_id": "2084853918123651195",
       "posted_at": "2026-08-05T04:08:03.778195+00:00"
+    },
+    {
+      "post_id": "trump_memecoin_clarity_20260805",
+      "generated_editorial_visual": false,
+      "prepared_at": "2026-08-05T04:09:15.995451+00:00",
+      "tweet_id": "2084854794527637786",
+      "posted_at": "2026-08-05T04:11:32.647988+00:00"
     }
   ]
 }
