@@ -20,7 +20,14 @@ import requests
 from bs4 import BeautifulSoup
 
 from grok_client import generate_x_json
-from inu_auto_hourly import SECONDARY_HOSTS, USER_AGENT, _compact_text, _parse_timestamp, normalize_url
+from inu_auto_hourly import (
+    SECONDARY_HOSTS,
+    USER_AGENT,
+    _compact_text,
+    _parse_timestamp,
+    load_curated_x_sources,
+    normalize_url,
+)
 from inu_hourly_dispatcher import JST
 from inu_persona import VOICE_PROMPT
 from inu_post import compose_post, validate_post
@@ -45,6 +52,14 @@ EXTERNAL_MEDIA_HOSTS = SECONDARY_HOSTS | {
     "blockworks.co",
     "dlnews.com",
 }
+BOOST_B_KEYWORDS = (
+    "bitcoin", "btc", "ethereum", "eth", "crypto", "cryptocurrency", "stablecoin", "etf",
+    "onchain", "blockchain", "defi", "token", "wallet", "exchange", "web3", "bitcoin",
+    "ビットコイン", "仮想通貨", "暗号資産", "オンチェーン", "ステーブルコイン", "取引所",
+    "米国株", "日本株", "株式", "金利", "インフレ", "ai", "半導体", "比特币", "加密",
+    "链上", "稳定币", "交易所", "美股", "宏观", "人工智能",
+)
+BOOST_B_BLOCKED = ("airdrop", "giveaway", "referral", "招待", "キャンペーン", "プレゼント", "価格予想")
 
 
 BOOST_SCHEMA = {
@@ -202,6 +217,71 @@ def collect_candidates(now: dt.datetime, state: dict) -> list[dict]:
     return [row for row in payload.get("signals", []) if isinstance(row, dict)]
 
 
+def discover_boost_b(now: dt.datetime, state: dict, client=None) -> dict | None:
+    """通知ONの代わりに、厳選リストを定期ポーリングして初動だけを拾う。"""
+    if _daily_count(state, "B", now) >= DAILY_LIMITS["B"]:
+        return None
+    api = client or _get_client()
+    newest: tuple[dt.datetime, dict] | None = None
+    for source in load_curated_x_sources():
+        handle = str(source["handle"])
+        try:
+            user = api.get_user(username=handle, user_auth=True).data
+            user_id = getattr(user, "id", None) or (user.get("id") if isinstance(user, dict) else None)
+            if not user_id:
+                continue
+            response = api.get_users_tweets(
+                user_id,
+                max_results=5,
+                exclude=["retweets", "replies"],
+                tweet_fields=["created_at", "lang"],
+                user_auth=True,
+            )
+        except Exception as exc:
+            logger.info("Bの監視対象を取得できません: @%s / %s", handle, exc)
+            continue
+        for tweet in getattr(response, "data", None) or []:
+            tweet_id = str(getattr(tweet, "id", None) or (tweet.get("id") if isinstance(tweet, dict) else ""))
+            text = str(getattr(tweet, "text", None) or (tweet.get("text", "") if isinstance(tweet, dict) else ""))
+            created = getattr(tweet, "created_at", None) or (tweet.get("created_at") if isinstance(tweet, dict) else None)
+            if not tweet_id or not created:
+                continue
+            try:
+                posted_at = _parse_timestamp(str(created))
+            except (TypeError, ValueError):
+                continue
+            age = now.astimezone(dt.timezone.utc) - posted_at
+            lower = text.lower()
+            if age < dt.timedelta(minutes=-5) or age > dt.timedelta(minutes=MAX_AGE_MINUTES["B"]):
+                continue
+            if not any(keyword.lower() in lower for keyword in BOOST_B_KEYWORDS):
+                continue
+            if any(blocked in lower for blocked in BOOST_B_BLOCKED):
+                continue
+            candidate = {
+                "tactic": "B",
+                "post_url": f"https://x.com/{handle}/status/{tweet_id}",
+                "target_handle": handle,
+                "posted_at": posted_at.isoformat(),
+                "source_name": "",
+                "source_url": "",
+                "source_published_at": "",
+                "evidence_anchor": "",
+                "hook": "",
+                "facts": [],
+                "opinion": "",
+                "reply_text": "",
+                "mention_context": "",
+                "trend_keyword": "",
+                "why_this_matters": "",
+                "why_target": f"{source['focus']}を継続して扱う厳選監視対象の新規投稿のため",
+                "estimated_recent_impressions": 0,
+            }
+            if newest is None or posted_at > newest[0]:
+                newest = (posted_at, candidate)
+    return newest[1] if newest else None
+
+
 def _verify_primary_source(candidate: dict) -> str:
     source_url = normalize_url(str(candidate.get("source_url", "")))
     parts = urlsplit(source_url)
@@ -356,6 +436,18 @@ def run(args: argparse.Namespace) -> int:
     if state.get("stopped"):
         logger.info("ブースト施策は停止中です: %s", state.get("stop_reason", ""))
         save_state(state, Path(args.state))
+        return 0
+    try:
+        # BはGrokの候補抽出を待たず、厳選リストの新規投稿だけを初動で確認する。
+        # これにより「通知ON＋最初のいいね」を10分間隔で自動化する。
+        boost_b = discover_boost_b(now, state)
+    except Exception as exc:
+        logger.warning("Bの初動監視に失敗したため、候補探索へ進みます: %s", exc)
+        boost_b = None
+    if boost_b:
+        tactic = execute_one(state, [boost_b], now)
+        save_state(state, Path(args.state))
+        logger.info("ブースト実行結果: %s", tactic or "候補なし")
         return 0
     try:
         candidates = collect_candidates(now, state)

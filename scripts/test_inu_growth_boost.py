@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime as dt
 import tempfile
 import unittest
+from types import SimpleNamespace
 from pathlib import Path
 from unittest.mock import patch
 
@@ -99,6 +100,38 @@ class GrowthBoostTests(unittest.TestCase):
             inu_growth_boost.validate_candidate(item, self.state(), NOW),
         )
 
+    def test_boost_b_uses_fresh_relevant_post_from_curated_watchlist(self):
+        tweet = SimpleNamespace(
+            id="2085000000000000004",
+            text="比特币ETFの資金フローを確認。",
+            created_at="2026-08-05T11:50:00Z",
+        )
+        client = SimpleNamespace(
+            get_user=lambda **_kwargs: SimpleNamespace(data=SimpleNamespace(id="123")),
+            get_users_tweets=lambda *_args, **_kwargs: SimpleNamespace(data=[tweet]),
+        )
+        with patch("inu_growth_boost.load_curated_x_sources", return_value=[
+            {"handle": "TargetOne", "focus": "ETFフロー"}
+        ]):
+            found = inu_growth_boost.discover_boost_b(NOW, self.state(), client)
+        self.assertIsNotNone(found)
+        self.assertEqual("B", found["tactic"])
+        self.assertEqual("TargetOne", found["target_handle"])
+
+    def test_boost_b_rejects_stale_and_campaign_posts(self):
+        old = SimpleNamespace(
+            id="2085000000000000005",
+            text="Bitcoin ETF giveaway",
+            created_at="2026-08-05T10:00:00Z",
+        )
+        client = SimpleNamespace(
+            get_user=lambda **_kwargs: SimpleNamespace(data=SimpleNamespace(id="123")),
+            get_users_tweets=lambda *_args, **_kwargs: SimpleNamespace(data=[old]),
+        )
+        with patch("inu_growth_boost.load_curated_x_sources", return_value=[
+            {"handle": "TargetOne", "focus": "ETFフロー"}
+        ]):
+            self.assertIsNone(inu_growth_boost.discover_boost_b(NOW, self.state(), client))
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
     def test_daily_limit_and_duplicate_target_are_enforced(self, _source):
         state = self.state()
