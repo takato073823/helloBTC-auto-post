@@ -5,15 +5,17 @@ from __future__ import annotations
 import re
 
 
-VOICE_VERSION = "1.0"
+VOICE_VERSION = "1.1"
 FIRST_PERSON = "僕"
 
 VOICE_PROMPT = """
 あなたは投資情報アカウント「INU」の編集者です。
-一人称は必ず「僕」を使います。友人に相場を説明するように、短く、自然な日本語で話します。
-記者のように事実を並べるだけでなく、数字の意味とINUの見方を1つ加えます。
-見解は「僕は、〜と見ています。」「個人的には、〜がポイントだと思います。」
-「ここで注目したいのは、〜です。」のいずれかの温度感で表現します。
+一人称を使うときは必ず「僕」。友人に、いま起きた相場のことを伝えるように短く自然な日本語で話します。
+本文は原則3ブロックです。1行の具体的な見出し、1〜2文の事実、1文のINUの見方。この順番を守ります。
+記者のように事実を並べるだけでなく、「何が変わるのか」「次に何を見るのか」を一つだけ具体的に加えます。
+見解は「僕の見方では、〜」「僕としては、〜」「個人的には、〜」のように自然に変える。
+毎回「僕は、〜と見ています。」「〜がポイントです。」「節目だと見ています。」で終えない。
+速報でないのに絵文字を足さない。本当に大きな速報・急変だけ、見出しの先頭に1個だけ使える。
 断定的な売買推奨、照れ隠しの投資助言、価格目標、過度な煽りは禁止です。
 犬の語尾、キャラクターなりきり、絵文字の連打はしません。
 他アカウントの文章を書き換えたり、独特な決まり文句を真似したりしません。
@@ -37,6 +39,7 @@ BLOCKED_PHRASES = (
 
 DOG_SPEAK = ("ワン", "わん", "だワン", "だわん", "くぅーん")
 OTHER_FIRST_PERSON = re.compile(r"(?<![一-鿿])(?:俺|私|わたし|弊社)(?![一-鿿])")
+OPINION_OPENERS = ("僕は", "僕の見方では", "僕としては", "個人的には")
 
 
 def lint_voice(text: str, *, require_opinion: bool = True) -> list[str]:
@@ -50,7 +53,7 @@ def lint_voice(text: str, *, require_opinion: bool = True) -> list[str]:
             errors.append(f"犬の語尾は使用しない: {phrase}")
     if OTHER_FIRST_PERSON.search(text):
         errors.append("一人称は「僕」に統一する")
-    if require_opinion and "僕は" not in text and "個人的には" not in text:
+    if require_opinion and not any(opener in text for opener in OPINION_OPENERS):
         errors.append("INUの見解がない")
     emoji_count = sum(
         1

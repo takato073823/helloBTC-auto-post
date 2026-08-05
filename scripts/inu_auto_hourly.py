@@ -22,6 +22,7 @@ from inu_content_types import get_content_policy
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
 from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
+from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from grok_client import generate_x_json
@@ -427,10 +428,15 @@ topic_typeが異なる候補を優先してください。
 - 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
 - まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
 - 候補配列にはhas_candidate=trueの項目だけを入れる。適切な候補がない場合だけ空配列にしてskip_reasonを書く。古い話題で穴埋めしない。
-- 投稿文は日本語。hookは短く具体的にし、factsは重要な数字・変更点を1〜2文。
-- opinionには必ず「僕は」または「個人的には」を使い、事実と見解を分ける。
-- 投稿全体は日本語の全角換算を考慮して240以内を目標にし、非常に簡潔にする。
+- 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
+- 事実の要約を繰り返さず、opinionでは「何が変わるか」または「次に何を見るか」を具体的に一つ書く。
+- opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い分ける。「僕は、〜と見ています」「〜がポイントです」「節目だと見ています」の定型的な結びは禁止。
+- 絵文字は、客観的に大きな速報・相場急変だけhookの先頭に1個まで。本文中では使わない。
+- 投稿全体は日本語の全角換算を考慮して180〜220以内を目標にし、非常に簡潔にする。
 - 出典名とハッシュタグを含めても、本文にURLは書かない。
+
+口調の基準:
+{VOICE_PROMPT}
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
@@ -576,11 +582,16 @@ def build_trusted_media_candidate(
     copy = generate_json(
         f"""
 次の信頼できるニュースメディアの見出しとRSS要約だけを根拠に、INUのX投稿文を作成してください。
-外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100文字程度を目標にします。
-hookは具体的な速報見出し。factsは重要な事実を1〜2文。opinionは必ず「僕は」で始め、売買推奨や価格予想をしません。
+外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100〜150文字程度を目標にします。
+hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。
+opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い、「僕は、〜と見ています」「〜がポイントです」で終えません。売買推奨や価格予想をしません。
+絵文字は原則使わず、客観的に大きな速報ならhookの先頭に1個だけ使えます。
 元記事: {title}
 RSS要約: {summary}
 媒体: {signal['source']}
+
+口調の基準:
+{VOICE_PROMPT}
 """.strip(),
         schema_name="inu_reported_breaking_copy",
         schema=REPORT_COPY_SCHEMA,

@@ -23,7 +23,7 @@ def candidate(**overrides) -> dict:
         "topic_type": "etf_flow",
         "hook": "米国のビットコインETF資金が反転",
         "facts": ["公式集計で1億ドルの純流入を確認しました。"],
-        "opinion": "僕は、流入先の偏りが次の注目点だと見ています。",
+        "opinion": "僕の見方では、次は流入先が広がるかを確認したいです。",
         "source_name": "Example ETF公式",
         "source_url": "https://example.com/official/flow?utm_source=test",
         "published_at": "2026-08-04T08:00:00Z",
@@ -135,7 +135,7 @@ class INUAutoHourlyTests(unittest.TestCase):
 
     def test_media_and_text_are_always_required_by_prepared_item(self):
         text = inu_auto_hourly.compose_candidate_text(candidate())
-        self.assertIn("僕は", text)
+        self.assertIn("僕の見方では", text)
         self.assertNotIn("https://", text)
         inu_auto_hourly.validate_post(text)
 
@@ -143,13 +143,13 @@ class INUAutoHourlyTests(unittest.TestCase):
         item = candidate(
             hook="重要な市場ニュースです" * 12,
             facts=["公式発表で重要な数値が更新されました。" * 12],
-            opinion="僕は、この変化が次の市場の焦点になると見ています。" * 10,
+            opinion="僕としては、次に資金の広がりを確認したいです。" * 10,
             source_name="Example Official Investor Relations Department" * 4,
         )
         text = inu_auto_hourly.compose_candidate_text(item)
         inu_auto_hourly.validate_post(text)
-        self.assertIn("僕は", text)
-        self.assertIn("出典:", text)
+        self.assertIn("僕としては", text)
+        self.assertIn("出典：", text)
 
     def test_trusted_media_fallback_keeps_the_rss_url(self):
         signals = [
@@ -164,7 +164,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         copy = {
             "hook": "ブラックロックが欧州MMFのトークン化を拡大",
             "facts": ["対象は欧州のマネー・マーケット・ファンドです。"],
-            "opinion": "僕は、RWAの実利用が広がる動きとして注目しています。",
+            "opinion": "僕としては、次は実際の利用先が増えるかを確認したいです。",
             "tags": ["RWA"],
         }
         with patch.object(inu_auto_hourly, "generate_json", return_value=copy):

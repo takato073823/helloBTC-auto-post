@@ -19,7 +19,7 @@ from inu_visual import build_gpt_image_prompt, select_visual_route
 
 class INUContentSystemTests(unittest.TestCase):
     def test_voice_is_consistent(self):
-        good = "この数字は資金の偏りを示しています。僕は、過熱感には注意が必要だと見ています。"
+        good = "この数字は資金の偏りを示しています。僕の見方では、次は流入先の広がりを確認したいです。"
         self.assertEqual([], lint_voice(good))
         self.assertTrue(lint_voice("俺は爆上げ確定だと思うワン"))
 
@@ -199,12 +199,14 @@ class INUContentSystemTests(unittest.TestCase):
         text = compose_post(
             hook="⚡️ 米国市場で半導体株に資金が集中",
             facts=["複数のETFで過去最大級の流入が確認されました。"],
-            opinion="僕は、上昇余地よりも過熱感を見る局面だと見ています。",
+            opinion="僕の見方では、次は資金流入が他の分野へ広がるかを確認したいです。",
             source_label="発行体公表データ",
             tags=["米国株"],
         )
         validate_post(text)
         self.assertNotIn("・", text)
+        self.assertIn("\n\n複数のETF", text)
+        self.assertIn("\n\n僕の見方では", text)
 
     def test_hourly_medium_images_stay_under_budget_estimate(self):
         self.assertLessEqual(estimate_monthly_cost_yen(24), 10000)

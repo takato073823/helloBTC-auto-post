@@ -32,8 +32,10 @@ def compose_post(
     ]
     clean_opinion = _neutralize_service_domains(opinion.strip())
     clean_source = _neutralize_service_domains(source_label.strip())
-    body = f"{clean_hook}\n\n" + "\n\n".join(paragraphs)
-    body += f"\n\n{clean_opinion}\n\n出典: {clean_source}"
+    # 事実を一つのブロックにまとめる。1文ごとに改行を空けると、
+    # 公式資料を機械的に抜き出しただけの印象になりやすいため。
+    body = f"{clean_hook}\n\n" + "\n".join(paragraphs)
+    body += f"\n\n{clean_opinion}\n\n出典：{clean_source}"
     hashtags = _build_hashtags((tags or [])[:2])
     if hashtags:
         body += f"\n\n{hashtags}"
@@ -50,4 +52,3 @@ def validate_post(text: str, *, require_opinion: bool = True) -> None:
         errors.append("ハッシュタグは2件まで")
     if errors:
         raise ValueError(" / ".join(errors))
-
