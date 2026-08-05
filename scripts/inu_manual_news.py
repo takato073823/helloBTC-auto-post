@@ -118,15 +118,19 @@ def prepare(args: argparse.Namespace) -> int:
     state.setdefault("reservations", [])
     state.setdefault("posted", [])
     post = _load_post(args.post_id)
-    if any(row.get("post_id") == post["id"] for row in state["reservations"] + state["posted"]):
-        logger.info("この個別投稿は予約済みまたは投稿済みです: %s", post["id"])
+    if any(row.get("post_id") == post["id"] for row in state["posted"]):
+        logger.info("この個別投稿は投稿済みです: %s", post["id"])
         return 0
     item, generated = _build_item(post, state)
     Path(args.prepared).write_text(json.dumps({"item": item, "post": post, "generated": generated}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    state["reservations"].append({
-        "post_id": post["id"], "generated_editorial_visual": generated,
-        "prepared_at": dt.datetime.now(dt.timezone.utc).isoformat(),
-    })
+    existing = next((row for row in state["reservations"] if row.get("post_id") == post["id"]), None)
+    if existing is None:
+        state["reservations"].append({
+            "post_id": post["id"], "generated_editorial_visual": generated,
+            "prepared_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        })
+    else:
+        logger.info("未公開の予約を引き継いで投稿データを再準備: %s", post["id"])
     save_state(Path(args.state), state)
     logger.info("個別投稿を準備: %s", post["id"])
     return 0
