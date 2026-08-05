@@ -19,6 +19,12 @@ import requests
 from bs4 import BeautifulSoup
 
 from inu_content_types import get_content_policy
+from inu_editorial_policy import (
+    AUTO_POST_PLAYBOOK,
+    EDITORIAL_CONSTITUTION,
+    validate_auto_post_quality,
+)
+from inu_growth_insights import load_insight_guidance
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
 from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
@@ -489,6 +495,7 @@ def build_research_prompt(
     recent_urls = [row.get("source_url", "") for row in recent if row.get("source_url")]
     recent_headlines = [row.get("hook", "") for row in recent if row.get("hook")]
     underrepresented_topics = _underrepresented_growth_topics(state, now)
+    insight_guidance = load_insight_guidance()
     local = now.astimezone(JST)
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
@@ -526,6 +533,16 @@ topic_typeが異なる候補を優先してください。
 
 口調の基準:
 {VOICE_PROMPT}
+
+INUの編集憲法:
+{EDITORIAL_CONSTITUTION}
+
+自動投稿の品質ゲート:
+{AUTO_POST_PLAYBOOK}
+
+直近の自アカウント実績からの選定補助（実績不足なら空。鮮度・一次情報・読者価値が同等の候補だけで使い、
+投稿本数を埋める理由にしてはいけない）:
+{json.dumps(insight_guidance, ensure_ascii=False)}
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
 直近7日間で手薄な投稿系統（速報性を損なわない範囲で優先的に検討）: {json.dumps(underrepresented_topics, ensure_ascii=False)}
@@ -730,6 +747,7 @@ def validate_candidate(
 
     _validate_reader_interest(candidate)
     _validate_follow_value(candidate)
+    validate_auto_post_quality(candidate)
 
     used_urls = {
         normalize_url(row.get("source_url", ""))

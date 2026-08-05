@@ -85,6 +85,32 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_candidate_without_material_change_is_rejected(self):
+        item = candidate(
+            hook="公式資料が更新されました",
+            facts=["今回の資料には新しい情報が掲載されています。"],
+            evidence_anchor="Official updated information",
+        )
+        with self.assertRaisesRegex(ValueError, "具体的な変化"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
+    def test_candidate_needs_distinct_why_now(self):
+        item = candidate(
+            why_now="資金流入が継続するかで、ビットコインETFへの需要の強さを確認できるため",
+        )
+        with self.assertRaisesRegex(ValueError, "今投稿する理由と読者価値"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
     def test_reserved_source_is_not_selected_again(self):
         item = candidate()
         state = {

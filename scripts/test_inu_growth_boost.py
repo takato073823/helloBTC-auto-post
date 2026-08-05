@@ -40,6 +40,12 @@ def signal(**overrides) -> dict:
 
 
 class GrowthBoostTests(unittest.TestCase):
+    def setUp(self):
+        # ローカルの実運用ウォッチリストの件数に依存せず、各候補単体の判定を検証する。
+        patcher = patch("inu_growth_boost.active_watchlist_handles", return_value=set())
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
     def state(self) -> dict:
         return {"version": 1, "stopped": False, "actions": []}
 
