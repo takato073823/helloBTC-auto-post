@@ -350,6 +350,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("決算発表予定、IRカレンダー、説明会予定", prompt)
         self.assertIn("候補なしは正常な編集判断", prompt)
         self.assertIn("一目で伝える1枚の画像", prompt)
+        self.assertIn("内容を示す絵文字をhookの先頭に1個", prompt)
 
     def test_priority_signal_cannot_switch_to_another_rss_story(self):
         selected = {
