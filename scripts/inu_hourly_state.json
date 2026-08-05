@@ -66,6 +66,19 @@
       "published_at": "2026-08-05T05:47:42+00:00",
       "posted_at": "2026-08-05T06:13:24.811761+00:00",
       "hook": "米SEC・CFTCの指針で、法案不成立でも暗号資産業界は前進か"
+    },
+    {
+      "slot": "2026-08-05-17",
+      "post_id": "inu_auto_5ee53965598670",
+      "tweet_id": "2084914540412649817",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "source_url": "https://ir.gs-yuasa.com/jp/ir/ir-left-content.html",
+      "published_at": "2026-08-05T15:00:00+09:00",
+      "posted_at": "2026-08-05T08:08:57.205385+00:00",
+      "hook": "GSユアサ、15時に1Q決算を発表予定",
+      "follow_value": "INUではGSユアサの車載・産業用電池の利益率、設備投資、通期ガイダンス修正を追える。"
     }
   ],
   "posted_ids": [
@@ -78,19 +91,10 @@
     "inu_auto_ece17867c4052d",
     "inu_auto_d65ad95418cd98",
     "inu_auto_ad48dd0794f3d3",
-    "inu_auto_0b02699bc225cd"
+    "inu_auto_0b02699bc225cd",
+    "inu_auto_5ee53965598670"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-05-17",
-      "post_id": "inu_auto_5ee53965598670",
-      "source_url": "https://ir.gs-yuasa.com/jp/ir/ir-left-content.html",
-      "topic_type": "earnings",
-      "priority": "scheduled",
-      "generated_editorial_visual": true,
-      "reserved_at": "2026-08-05T08:06:54.304018+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -192,6 +196,19 @@
       "published_at": "2026-08-05T05:47:42+00:00",
       "posted_at": "2026-08-05T06:13:24.811761+00:00",
       "hook": "米SEC・CFTCの指針で、法案不成立でも暗号資産業界は前進か"
+    },
+    {
+      "slot": "2026-08-05-17",
+      "post_id": "inu_auto_5ee53965598670",
+      "tweet_id": "2084914540412649817",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "source_url": "https://ir.gs-yuasa.com/jp/ir/ir-left-content.html",
+      "published_at": "2026-08-05T15:00:00+09:00",
+      "posted_at": "2026-08-05T08:08:57.205385+00:00",
+      "hook": "GSユアサ、15時に1Q決算を発表予定",
+      "follow_value": "INUではGSユアサの車載・産業用電池の利益率、設備投資、通期ガイダンス修正を追える。"
     }
   ]
 }
