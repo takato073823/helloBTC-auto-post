@@ -38,6 +38,7 @@ REPO_ROOT = SCRIPT_DIR.parent
 STATE_PATH = SCRIPT_DIR / "inu_hourly_state.json"
 ARTIFACT_DIR = SCRIPT_DIR / "artifacts" / "inu-auto"
 PREPARED_PATH = ARTIFACT_DIR / "prepared.json"
+CURATED_X_SOURCES_PATH = SCRIPT_DIR / "inu_curated_x_sources.json"
 MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 
@@ -306,9 +307,42 @@ def _is_primary_grok_run() -> bool:
     return event.get("schedule") != "47 * * * *"
 
 
+def load_curated_x_sources(path: Path = CURATED_X_SOURCES_PATH) -> list[dict[str, str]]:
+    """人手で選定したX探索アカウントだけをGrokの優先探索対象にする。"""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        logger.warning("厳選X情報源を読み込めません: %s", exc)
+        return []
+    sources: list[dict[str, str]] = []
+    for row in payload.get("sources", []):
+        if not isinstance(row, dict):
+            continue
+        handle = str(row.get("handle", "")).strip().lstrip("@")
+        focus = str(row.get("focus", "")).strip()
+        use_when = str(row.get("use_when", "")).strip()
+        if not re.fullmatch(r"[A-Za-z0-9_]{1,15}", handle) or not focus or not use_when:
+            logger.warning("形式が不正な厳選X情報源を除外: %s", handle or "(handleなし)")
+            continue
+        sources.append(
+            {
+                "handle": handle,
+                "language": str(row.get("language", "")).strip()[:20],
+                "focus": focus[:120],
+                "use_when": use_when[:180],
+            }
+        )
+    return sources[:12]
+
+
 def build_grok_prompt(now: dt.datetime, state: dict) -> str:
     recent_urls = [row.get("discovery_url", "") for row in _recent_history(state)]
     recent_hooks = [row.get("hook", "") for row in _recent_history(state)]
+    curated_sources = load_curated_x_sources()
+    curated_block = "\n".join(
+        f"- @{row['handle']}（{row['focus']}）：{row['use_when']}"
+        for row in curated_sources
+    ) or "- 現在、厳選情報源の登録はありません。"
     return f"""
 あなたは投資情報アカウントINUのX速報リサーチ担当です。現在時刻は
 {now.astimezone(JST).isoformat()}（日本時間）です。X Searchを実行し、原則6時間以内に
@@ -321,9 +355,13 @@ def build_grok_prompt(now: dt.datetime, state: dict) -> str:
 - 米国株、日本株、AI企業、金利・雇用・物価、地政学で市場が反応する発表
 - 著名人の市場に関する新しい発言、短時間で反応が急増している投稿
 
+優先して確認する厳選X情報源（中国語圏の先行シグナルを拾うための発見専用）:
+{curated_block}
+
 条件:
 - 公式発表、具体的な数値、価格変動の節目、制度変更を優先する。
-- インフルエンサー投稿は発見の手掛かりとして採用できるが、噂・煽り・価格予想・広告・キャンペーンは除外する。
+- 上記の厳選情報源は優先的にX Searchで確認する。ただし、投稿自体を最終根拠・転載元・投稿文の出典には絶対に使わない。
+- インフルエンサー投稿は発見の手掛かりとして採用できるが、噂・煽り・価格予想・広告・キャンペーンは除外する。厳選情報源であっても、公式リンク、トランザクション、企業・取引所・政府の発表、実測データのいずれにも到達できない内容はsignalsに入れない。
 - headlineは何が起きたか、why_trendingはなぜ今すぐ調べる価値があるかを具体的に書く。
 - post_urlはX Searchで実際に確認したstatus URLだけを使う。
 - posted_atは必ずタイムゾーンを含むISO 8601形式（例: 2026-08-05T03:15:00Z）で返す。

@@ -318,6 +318,17 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual([x_signal], signals)
         self.assertNotIn(x_signal["url"], [row["url"] for row in sources])
 
+    def test_curated_chinese_x_sources_are_prioritized_only_for_discovery(self):
+        sources = inu_auto_hourly.load_curated_x_sources()
+        self.assertEqual(
+            ["RelaxView", "falali2015", "tun2049", "damobianyuan"],
+            [row["handle"] for row in sources],
+        )
+        prompt = inu_auto_hourly.build_grok_prompt(NOW, {"history": []})
+        self.assertIn("@RelaxView", prompt)
+        self.assertIn("発見専用", prompt)
+        self.assertIn("最終根拠・転載元・投稿文の出典には絶対に使わない", prompt)
+
     def test_grok_failure_falls_back_to_existing_web_research(self):
         expected = ([candidate()], [{"url": "https://example.com"}], [])
         with patch.object(

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "updated_at": "2026-08-05",
+  "provenance": "@revelya_web3 のフォロー中一覧から、プロフィール上の専門領域と検証可能性を基準に手動選定",
+  "sources": [
+    {
+      "handle": "RelaxView",
+      "language": "zh-Hant",
+      "focus": "オンチェーンの大口資金移動・クジラ追跡",
+      "use_when": "トランザクション、アドレス、取引所入出金などを独立に検証できる場合のみ"
+    },
+    {
+      "handle": "falali2015",
+      "language": "zh",
+      "focus": "中国株・中国テクノロジー・マクロ観測",
+      "use_when": "企業IR、取引所開示、政府統計、公式発表へ到達できる場合のみ"
+    },
+    {
+      "handle": "tun2049",
+      "language": "zh",
+      "focus": "AI・具身知能・投資・社会／マクロの論点整理",
+      "use_when": "一次資料、企業発表、実測データを伴う新しい情報に限る"
+    },
+    {
+      "handle": "damobianyuan",
+      "language": "zh",
+      "focus": "AI生産性・重要時事・定量取引・インフラ",
+      "use_when": "公式リリース、一次データ、再現可能な根拠に結び付く場合のみ"
+    }
+  ]
+}
