@@ -161,18 +161,23 @@ class INUAutoHourlyTests(unittest.TestCase):
             visual_route="reported_text_crop",
             is_primary_source=False,
         )
-        with patch.object(
-            inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
-        ), patch.object(inu_auto_hourly, "capture_official_evidence") as evidence, patch.object(
-            inu_auto_hourly, "capture_source_hero_image"
-        ) as hero:
-            built, _ = inu_auto_hourly._build_item_from_candidate(
-                item,
-                [{"url": item["source_url"], "title": "new rule"}],
-                {"posted_slots": [], "posted_ids": [], "history": []},
-                NOW,
-                "2026-08-04-21",
-            )
+        with tempfile.TemporaryDirectory() as directory:
+            artifact_dir = Path(directory) / "inu-auto"
+            with patch.object(
+                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+            ), patch.object(inu_auto_hourly, "ARTIFACT_DIR", artifact_dir), patch.object(
+                inu_auto_hourly, "capture_official_evidence"
+            ) as evidence, patch.object(
+                inu_auto_hourly, "capture_source_hero_image"
+            ) as hero:
+                built, _ = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    [{"url": item["source_url"], "title": "new rule"}],
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+            self.assertTrue(artifact_dir.is_dir())
         self.assertEqual(item["source_url"], built["link_card_url"])
         self.assertNotIn("media_path", built)
         evidence.assert_not_called()

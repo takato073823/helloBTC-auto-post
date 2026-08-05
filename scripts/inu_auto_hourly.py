@@ -993,6 +993,8 @@ def _build_item_from_candidate(
     validate_candidate(selected, sources, state, now)
     verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url
+    # リンクカード経路でも、次段のprepared.jsonを必ず保存できるようにする。
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
     # 報道記事は画像を再利用せず、共有ボタンと同じネイティブ記事カードを使う。
     # 公式資料・チャート・オンチェーンの投稿は、従来どおり根拠画像を添付する。
@@ -1007,7 +1009,6 @@ def _build_item_from_candidate(
         validate_test_item(item)
         return item, selected
 
-    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     evidence_path = ARTIFACT_DIR / f"{slot}-evidence.png"
     spec = SourceCaptureSpec(
         source_url=verified_url,
