@@ -117,6 +117,15 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
+    },
+    {
+      "slot": "2026-08-05-20",
+      "post_id": "inu_auto_b9609a2e967baa",
+      "source_url": "https://decrypt.co/374941/ex-lapd-officer-gets-life-plus-15-years-over-350k-bitcoin-robbery",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "reserved_at": "2026-08-05T11:14:02.718704+00:00"
     }
   ],
   "history": [
