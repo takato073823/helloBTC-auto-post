@@ -26,7 +26,7 @@ from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from grok_client import generate_x_json
-from llm_client import generate_json, generate_web_json
+from llm_client import generate_web_json
 from scraper import fetch_from_rss
 
 
@@ -63,7 +63,6 @@ GROWTH_ANGLES = (
 
 AUTO_TOPIC_TYPES = (
     "breaking_news",
-    "reported_breaking_news",
     "developing_story",
     "market_microstructure",
     "etf_flow",
@@ -78,7 +77,6 @@ AUTO_TOPIC_TYPES = (
 )
 MAX_AGE_HOURS = {
     "breaking_news": 2,
-    "reported_breaking_news": 4,
     "developing_story": 6,
     "market_microstructure": 8,
     "etf_flow": 12,
@@ -265,34 +263,6 @@ X_SIGNAL_SET_SCHEMA = {
     },
     "required": ["signals", "skip_reason"],
 }
-REPORT_COPY_SCHEMA = {
-    "type": "object",
-    "additionalProperties": False,
-    "properties": {
-        "hook": {"type": "string"},
-        "facts": {
-            "type": "array",
-            "items": {"type": "string"},
-            "minItems": 1,
-            "maxItems": 2,
-        },
-        "opinion": {"type": "string"},
-        "reader_interest": {"type": "string"},
-        "follow_value": {"type": "string"},
-        "growth_angle": {"type": "string", "enum": list(GROWTH_ANGLES)},
-        "tags": {
-            "type": "array",
-            "items": {"type": "string"},
-            "minItems": 1,
-            "maxItems": 2,
-        },
-    },
-    "required": [
-        "hook", "facts", "opinion", "reader_interest", "follow_value", "growth_angle", "tags"
-    ],
-}
-
-
 def normalize_url(value: str) -> str:
     parts = urlsplit(value.strip())
     query = urlencode(
@@ -544,10 +514,10 @@ topic_typeが異なる候補を優先してください。
   「日本企業IR」「中央銀行・規制当局」「Xで話題になった公式発表」の観点を分けて検索してから比較する。
 - ニュースメディアやXの話題は発見に使ってよいが、最終source_urlは発表主体の公式サイト、規制当局、中央銀行、取引所、上場企業IR、ETF発行体、公式データ提供元などの一次資料にする。
 - 「Grok X Search」と記載されたシグナルのX URLは発見専用であり、最終source_urlには絶対に使わない。投稿内容を公式発表・一次データで独立に確認できない場合は候補から除外する。
-- 一次資料へ到達できない速報だけは、Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Blockの元記事をsource_urlにしてよい。その場合topic_typeはreported_breaking_news、visual_routeはreported_text_crop、is_primary_source=falseにする。Cointelegraphはネイティブカードが掲載元の識別可能な画像を表示するため、自動投稿の最終出典に使わない。
-- source_urlは今回のWeb検索結果に実際に含まれるURLを使う。ただしreported_breaking_newsだけは、下記「大手メディアの最新見出し」に含まれる元記事URLも使える。
+- ニュースメディアやXの投稿は発見専用。Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Block、Cointelegraphなど第三者メディアのURLを最終source_urlにしてはいけない。一次資料へ到達できない場合は候補から除外する。外部記事カードはhelloBTCの価値を薄めるため、自動投稿では絶対に使わない。
+- source_urlは今回のWeb検索結果に実際に含まれる、発表主体の一次資料URLだけを使う。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
-- evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。
+- evidence_anchorは、一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。
 - evidence_as_primaryは、根拠スクリーンショット自体が一目で意味の分かる公式資料・表・チャート・図版の場合だけtrueにする。単なる記事見出しや本文、余白の多いページならfalseにする。trueなら画像はその根拠スクリーンショット1枚だけで投稿する。
 - 決算・業績は、売上・利益・通期見通し・修正などの実績または具体的な変更が公開済みの場合だけ選ぶ。決算発表予定、IRカレンダー、説明会予定、発表時刻だけのページは候補から除外する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
@@ -574,7 +544,7 @@ topic_typeが異なる候補を優先してください。
 直近7日間で手薄な投稿系統（速報性を損なわない範囲で優先的に検討）: {json.dumps(underrepresented_topics, ensure_ascii=False)}
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
 重複・近似テーマ禁止の直近見出し: {json.dumps(recent_headlines, ensure_ascii=False)}
-大手メディアの最新見出し（一次資料探索に使い、一次資料がない場合はreported_breaking_newsの最終出典として使用可）:
+大手メディアの最新見出し（一次資料探索だけに使用。最終出典には使用禁止）:
 {json.dumps(discovery_signals or [], ensure_ascii=False)}
 次は直近と異なる系統を優先する。選択可能なtopic_typeは:
 {', '.join(AUTO_TOPIC_TYPES)}
@@ -588,8 +558,6 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
         policy = get_content_policy(normalized["topic_type"])
         normalized["visual_route"] = policy.visual_route
-        if normalized["topic_type"] == "reported_breaking_news":
-            normalized["is_primary_source"] = False
     return normalized
 
 
@@ -647,14 +615,9 @@ def research_candidate(
 
 
 def research_priority_signal(now: dt.datetime, state: dict, priority_url: str) -> tuple[dict, list[dict[str, str]]]:
-    """軽量監視で検知済みの主要メディア記事だけを速報候補にする。"""
-    signals = collect_discovery_signals()
-    selected = normalize_url(priority_url)
-    matches = [row for row in signals if normalize_url(row.get("url", "")) == selected]
-    if not matches:
-        raise LookupError("検知した速報URLが最新RSSに存在しません")
-    candidate = build_trusted_media_candidate(now, state, matches)
-    return candidate, matches
+    """外部記事は発見専用。一次資料がない速報の自動投稿は行わない。"""
+    del now, state, priority_url
+    raise LookupError("外部メディア記事はhelloBTCの自動投稿の最終出典に使いません")
 
 
 def _is_near_recent_topic(title: str, state: dict) -> bool:
@@ -710,61 +673,6 @@ def trusted_media_signals(
     return [signal for _, signal in eligible]
 
 
-def build_trusted_media_candidate(
-    now: dt.datetime,
-    state: dict,
-    signals: list[dict[str, str]],
-) -> dict:
-    eligible = trusted_media_signals(now, state, signals)
-    if not eligible:
-        raise LookupError("4時間以内で重複しない主要メディア速報がありません")
-    signal = eligible[0]
-    published = parsedate_to_datetime(signal.get("published", "")).astimezone(
-        dt.timezone.utc
-    )
-    title = signal["title"].strip()
-    summary = " ".join(signal.get("summary", "").split()).strip()
-
-    copy = generate_json(
-        f"""
-次の信頼できるニュースメディアの見出しとRSS要約だけを根拠に、INUのX投稿文を作成してください。
-外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100〜150文字程度を目標にします。
-hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。reader_interestには、読者が今この話題を見る具体的な理由を一文で書きます。follow_valueには、この出来事を起点にINUを継続してフォローすると追える投資テーマ・続報を一文で書きます。follow_valueはreader_interestの言い換えにせず、投稿本文へ入れません。growth_angleはalert（公開2時間以内の通知価値がある急変）、decision（資産・行動・判断に直結する具体情報）、conversation（Xで話題となり一次資料で確認済み）、continuity（新事実を伴う継続テーマ）のいずれかにします。公式ページや資料の存在を述べるだけ、または「公表へ」だけの投稿は作らないでください。金額・増減・決定・規制変更・需給・次の確認点のうち少なくとも一つを、hookかfactsに明示できない場合は投稿不適格です。
-opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い、「僕は、〜と見ています」「〜がポイントです」で終えません。売買推奨や価格予想をしません。
-hookの先頭には、出来事の性質を示す絵文字を1個使います。装飾目的ではなく、🚨重要速報、📈上昇・最高値、📉下落、⚠️リスク、🏦政策・金融機関のように事実と一致するものだけを選び、本文中には使いません。
-元記事: {title}
-RSS要約: {summary}
-媒体: {signal['source']}
-
-口調の基準:
-{VOICE_PROMPT}
-""".strip(),
-        schema_name="inu_reported_breaking_copy",
-        schema=REPORT_COPY_SCHEMA,
-        max_output_tokens=1200,
-        model=os.environ.get("INU_COPY_MODEL", "gpt-5.6-luna"),
-    )
-    return {
-        "has_candidate": True,
-        "skip_reason": "",
-        "topic_type": "reported_breaking_news",
-        "hook": copy["hook"],
-        "facts": copy["facts"],
-        "opinion": copy["opinion"],
-        "reader_interest": copy["reader_interest"],
-        "follow_value": copy["follow_value"],
-        "growth_angle": copy["growth_angle"],
-        "source_name": signal["source"],
-        "source_url": signal["url"],
-        "published_at": published.isoformat(),
-        "evidence_anchor": title,
-        "visual_route": "reported_text_crop",
-        "tags": copy["tags"],
-        "why_now": "4時間以内に配信された主要メディアの速報",
-        "is_primary_source": False,
-    }
-
-
 def _compact_text(value: str) -> str:
     return re.sub(r"\s+", "", value).lower()
 
@@ -775,10 +683,7 @@ def fetch_and_verify_source(candidate: dict) -> str:
     if parts.scheme != "https" or not parts.netloc:
         raise ValueError("一次資料URLがHTTPSではありません")
     host = (parts.hostname or "").lower().removeprefix("www.")
-    if candidate["topic_type"] == "reported_breaking_news":
-        if not any(host == allowed or host.endswith(f".{allowed}") for allowed in TRUSTED_MEDIA_HOSTS):
-            raise ValueError("主要メディア速報の許可ドメインではありません")
-    elif _host_is_secondary(host):
+    if _host_is_secondary(host):
         raise ValueError("報道・まとめサイトは最終一次資料にできません")
     response = requests.get(url, timeout=25, headers={"User-Agent": USER_AGENT})
     response.raise_for_status()
@@ -808,6 +713,8 @@ def validate_candidate(
     if not candidate.get("has_candidate"):
         raise LookupError(candidate.get("skip_reason") or "適切な一次情報がありません")
     topic_type = candidate.get("topic_type")
+    if topic_type == "reported_breaking_news":
+        raise ValueError("第三者メディアURLの記事カードは自動投稿しません")
     if topic_type not in AUTO_TOPIC_TYPES:
         raise ValueError("自動投稿の対象外系統です")
     policy = get_content_policy(topic_type)
@@ -817,9 +724,6 @@ def validate_candidate(
         raise ValueError("投稿系統と画像形式が一致しません")
     if policy.requires_primary_source and not candidate.get("is_primary_source"):
         raise ValueError("一次資料として選定されていません")
-    if topic_type == "reported_breaking_news" and candidate.get("is_primary_source"):
-        raise ValueError("主要メディア速報の出典区分が不正です")
-
     selected = normalize_url(candidate.get("source_url", ""))
     cited = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
     if selected not in cited:
@@ -858,11 +762,8 @@ def validate_candidate(
     _validate_growth_angle(candidate, sources, state, age)
 
     recent_topics = [row.get("topic_type") for row in _recent_history(state)[-2:]]
-    # reported_breaking_newsは出典区分であり、暗号資産・AI・株式など内容は別物。
-    # URL・見出しの重複検査を通過していれば、区分だけを理由に停止しない。
     if (
-        topic_type != "reported_breaking_news"
-        and len(recent_topics) == 2
+        len(recent_topics) == 2
         and all(value == topic_type for value in recent_topics)
     ):
         raise ValueError("同じ投稿系統が3件連続します")
@@ -1091,19 +992,6 @@ def _build_item_from_candidate(
     # リンクカード経路でも、次段のprepared.jsonを必ず保存できるようにする。
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # 報道記事は画像を再利用せず、共有ボタンと同じネイティブ記事カードを使う。
-    # 公式資料・チャート・オンチェーンの投稿は、従来どおり根拠画像を添付する。
-    if selected["topic_type"] == "reported_breaking_news":
-        item = {
-            "id": _candidate_id(selected),
-            "topic_type": selected["topic_type"],
-            "visual_route": selected["visual_route"],
-            "text": compose_candidate_text(selected),
-            "link_card_url": verified_url,
-        }
-        validate_test_item(item)
-        return item, selected
-
     evidence_path = ARTIFACT_DIR / f"{slot}-evidence.png"
     spec = SourceCaptureSpec(
         source_url=verified_url,
@@ -1239,20 +1127,6 @@ def prepare(args: argparse.Namespace) -> int:
             break
         except Exception as exc:
             logger.warning("投稿候補%dを除外: %s", position, exc)
-
-    if item is None and not priority_url:
-        for signal in trusted_media_signals(now, state, signals):
-            signal_url = normalize_url(signal.get("url", ""))
-            if signal_url in attempted_urls:
-                continue
-            attempted_urls.add(signal_url)
-            try:
-                option = build_trusted_media_candidate(now, state, [signal])
-                item, candidate = _build_item_from_candidate(option, sources, state, now, slot)
-                logger.info("確認済み主要メディア候補を採用: %s", signal.get("source", ""))
-                break
-            except Exception as exc:
-                logger.warning("主要メディア候補を除外: %s / %s", signal.get("title", ""), exc)
 
     if item is None or candidate is None:
         logger.info("今時間の投稿を見送り: 検証と画像取得を通過する最新候補がありません")

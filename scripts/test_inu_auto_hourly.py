@@ -117,7 +117,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
-    def test_reported_news_is_not_blocked_only_by_the_source_category(self):
+    def test_third_party_media_cards_are_rejected_before_posting(self):
         item = candidate(
             topic_type="reported_breaking_news",
             source_url="https://www.coindesk.com/markets/new-topic",
@@ -133,14 +133,15 @@ class INUAutoHourlyTests(unittest.TestCase):
                 {"topic_type": "reported_breaking_news", "hook": "ビットコインETF"},
             ],
         }
-        inu_auto_hourly.validate_candidate(
-            item,
-            [{"url": item["source_url"], "title": "New market structure story"}],
-            state,
-            NOW,
-        )
+        with self.assertRaisesRegex(ValueError, "第三者メディアURL"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "New market structure story"}],
+                state,
+                NOW,
+            )
 
-    def test_trusted_media_breaking_news_can_be_non_primary(self):
+    def test_third_party_media_cannot_be_the_final_source(self):
         item = candidate(
             topic_type="reported_breaking_news",
             source_url="https://www.coindesk.com/tech/2026/08/04/latest",
@@ -148,12 +149,13 @@ class INUAutoHourlyTests(unittest.TestCase):
             visual_route="reported_text_crop",
             is_primary_source=False,
         )
-        inu_auto_hourly.validate_candidate(
-            item,
-            [{"url": item["source_url"], "title": "latest"}],
-            {"posted_slots": [], "posted_ids": [], "history": []},
-            NOW,
-        )
+        with self.assertRaisesRegex(ValueError, "第三者メディアURL"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "latest"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
 
     def test_cointelegraph_is_not_an_automatic_native_card_source(self):
         signals = [
@@ -191,34 +193,21 @@ class INUAutoHourlyTests(unittest.TestCase):
         ]
         self.assertEqual(signals, inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
 
-    def test_reported_news_builds_a_native_link_card_without_image_capture(self):
+    def test_reported_news_never_builds_a_native_link_card(self):
         item = candidate(
             topic_type="reported_breaking_news",
             source_url="https://www.coindesk.com/policy/new-rule",
             visual_route="reported_text_crop",
             is_primary_source=False,
         )
-        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
-            artifact_dir = Path(directory) / "inu-auto"
-            with patch.object(
-                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
-            ), patch.object(inu_auto_hourly, "ARTIFACT_DIR", artifact_dir), patch.object(
-                inu_auto_hourly, "capture_official_evidence"
-            ) as evidence, patch.object(
-                inu_auto_hourly, "capture_source_hero_image"
-            ) as hero:
-                built, _ = inu_auto_hourly._build_item_from_candidate(
-                    item,
-                    [{"url": item["source_url"], "title": "new rule"}],
-                    {"posted_slots": [], "posted_ids": [], "history": []},
-                    NOW,
-                    "2026-08-04-21",
-                )
-            self.assertTrue(artifact_dir.is_dir())
-        self.assertEqual(item["source_url"], built["link_card_url"])
-        self.assertNotIn("media_path", built)
-        evidence.assert_not_called()
-        hero.assert_not_called()
+        with self.assertRaisesRegex(ValueError, "第三者メディアURL"):
+            inu_auto_hourly._build_item_from_candidate(
+                item,
+                [{"url": item["source_url"], "title": "new rule"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+                "2026-08-04-21",
+            )
 
     def test_official_data_post_uses_one_meaningful_evidence_image(self):
         item = candidate(
@@ -273,7 +262,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("僕としては", text)
         self.assertNotIn("出典", text)
 
-    def test_trusted_media_fallback_keeps_the_rss_url(self):
+    def test_trusted_media_is_discovery_only(self):
         signals = [
             {
                 "title": "BlackRock tokenizes European money market funds with Kinexys",
@@ -283,21 +272,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "summary": "BlackRock expanded tokenized access to European money market funds using JPMorgan's Kinexys network.",
             }
         ]
-        copy = {
-            "hook": "ブラックロックが欧州MMFのトークン化を拡大",
-            "facts": ["対象は欧州のマネー・マーケット・ファンドです。"],
-            "opinion": "僕としては、次は実際の利用先が増えるかを確認したいです。",
-            "reader_interest": "トークン化されたMMFの利用先が増えるかで、RWAの実需を判断できるため",
-            "follow_value": "大手機関によるRWAの実装範囲を継続して追えるため",
-            "growth_angle": "decision",
-            "tags": ["RWA"],
-        }
-        with patch.object(inu_auto_hourly, "generate_json", return_value=copy):
-            item = inu_auto_hourly.build_trusted_media_candidate(
-                NOW, {"history": []}, signals
-            )
-        self.assertEqual(signals[0]["url"], item["source_url"])
-        self.assertEqual(signals[0]["title"], item["evidence_anchor"])
+        self.assertEqual(signals, inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
 
     def test_generic_official_announcement_is_rejected_before_posting(self):
         item = candidate(
@@ -430,7 +405,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("一目で伝える1枚の画像", prompt)
         self.assertIn("内容を示す絵文字をhookの先頭に1個", prompt)
 
-    def test_priority_signal_cannot_switch_to_another_rss_story(self):
+    def test_priority_signal_from_third_party_media_is_not_posted(self):
         selected = {
             "title": "SEC approves a new spot crypto ETF",
             "source": "CoinDesk",
@@ -438,30 +413,12 @@ class INUAutoHourlyTests(unittest.TestCase):
             "url": "https://www.coindesk.com/policy/selected?utm_source=rss",
             "summary": "The regulator approved a new spot crypto exchange traded fund after completing its review.",
         }
-        other = dict(selected, title="Other story", url="https://www.coindesk.com/other")
-        expected = candidate(
-            topic_type="reported_breaking_news",
-            source_url=selected["url"],
-            visual_route="reported_text_crop",
-            is_primary_source=False,
-        )
-        with patch.object(
-            inu_auto_hourly,
-            "collect_discovery_signals",
-            return_value=[other, selected],
-        ), patch.object(
-            inu_auto_hourly,
-            "build_trusted_media_candidate",
-            return_value=expected,
-        ) as build:
-            actual, sources = inu_auto_hourly.research_priority_signal(
+        with self.assertRaisesRegex(LookupError, "最終出典"):
+            inu_auto_hourly.research_priority_signal(
                 NOW,
                 {"history": []},
                 "https://www.coindesk.com/policy/selected",
             )
-        self.assertEqual(expected, actual)
-        self.assertEqual([selected], sources)
-        build.assert_called_once_with(NOW, {"history": []}, [selected])
 
     def test_breaking_reservation_keeps_priority(self):
         state = {"reservations": [], "posted_slots": [], "posted_ids": [], "history": []}
@@ -477,13 +434,12 @@ class INUAutoHourlyTests(unittest.TestCase):
 
     def test_single_source_daily_roundup_is_rejected_by_validation(self):
         item = candidate(
-            topic_type="reported_breaking_news",
+            topic_type="etf_flow",
             hook="暗号資産市場で本日起きた主要ニュースを総括",
-            source_url="https://cointelegraph.com/news/what-happened-in-crypto-today",
-            published_at="2026-08-04T11:30:00Z",
+            source_url="https://example.com/official/what-happened-today",
             evidence_anchor="What happened in crypto today",
-            visual_route="reported_text_crop",
-            is_primary_source=False,
+            visual_route="official_data_crop",
+            is_primary_source=True,
         )
         with self.assertRaisesRegex(ValueError, "単一ソースの総括"):
             inu_auto_hourly.validate_candidate(
@@ -493,7 +449,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
-    def test_trusted_media_fallback_skips_daily_roundup(self):
+    def test_trusted_media_discovery_skips_daily_roundup(self):
         signals = [
             {
                 "title": "What happened in crypto today",
@@ -503,8 +459,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "summary": "A daily roundup of several unrelated cryptocurrency stories and market events.",
             }
         ]
-        with self.assertRaisesRegex(LookupError, "主要メディア速報"):
-            inu_auto_hourly.build_trusted_media_candidate(NOW, {"history": []}, signals)
+        self.assertEqual([], inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
 
     def test_discovery_drops_roundup_before_llm_research(self):
         articles = [
@@ -530,8 +485,8 @@ class INUAutoHourlyTests(unittest.TestCase):
     def test_research_returns_ranked_multiple_candidates(self):
         first = candidate()
         second = candidate(
-            topic_type="reported_breaking_news",
-            source_url="https://www.coindesk.com/policy/new-rule",
+            topic_type="onchain",
+            source_url="https://example.com/official/onchain",
             visual_route="official_text_crop",
             is_primary_source=True,
         )
@@ -543,8 +498,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         ):
             candidates, _, _ = inu_auto_hourly.research_candidates(NOW, {"history": []})
         self.assertEqual(2, len(candidates))
-        self.assertEqual("reported_text_crop", candidates[1]["visual_route"])
-        self.assertFalse(candidates[1]["is_primary_source"])
+        self.assertEqual("official_data_crop", candidates[1]["visual_route"])
+        self.assertTrue(candidates[1]["is_primary_source"])
 
     def test_grok_x_signal_is_discovery_only_and_not_a_final_source(self):
         x_signal = {
