@@ -117,6 +117,16 @@ class GrowthBoostTests(unittest.TestCase):
             self.assertTrue(state["stopped"])
             _candidates.assert_not_called()
 
+    @patch("inu_growth_boost.collect_candidates", side_effect=RuntimeError("no X citations"))
+    @patch("inu_growth_boost.follower_count", return_value=42)
+    def test_missing_x_search_citation_is_a_safe_skip(self, _followers, _candidates):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "state.json"
+            result = inu_growth_boost.run(type("Args", (), {"state": str(path)})())
+            self.assertEqual(0, result)
+            state = inu_growth_boost.load_state(path)
+            self.assertIn("x_search_unavailable", state["last_skip_reason"])
+
 
 if __name__ == "__main__":
     unittest.main()

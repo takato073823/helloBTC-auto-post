@@ -342,7 +342,15 @@ def run(args: argparse.Namespace) -> int:
         logger.info("ブースト施策は停止中です: %s", state.get("stop_reason", ""))
         save_state(state, Path(args.state))
         return 0
-    candidates = collect_candidates(now, state)
+    try:
+        candidates = collect_candidates(now, state)
+    except Exception as exc:
+        # X Searchの引用が返らない・一時的に検索できない場合は、古い候補や
+        # 推測で穴埋めせず、この回を候補なしとして終了する。
+        state["last_skip_reason"] = f"x_search_unavailable: {exc}"
+        save_state(state, Path(args.state))
+        logger.warning("ブースト候補を取得できないため今回は見送ります: %s", exc)
+        return 0
     tactic = execute_one(state, candidates, now)
     save_state(state, Path(args.state))
     logger.info("ブースト実行結果: %s", tactic or "候補なし")
