@@ -1,5 +1,5 @@
 {
-  "last_refreshed_at": "2026-08-05T14:32:10+00:00",
+  "last_refreshed_at": "2026-08-05T14:38:08+00:00",
   "last_skip_reason": "",
   "list_id": "2085002840901321119",
   "list_name": "いいね",
@@ -37,17 +37,84 @@
       "language": "ja",
       "last_seen_at": "2026-08-05T03:55:05+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 721,
-      "observed_interactions": 5,
+      "observed_impressions": 453,
+      "observed_interactions": 7,
       "recent_post_url": "https://x.com/39santaisen/status/2084772859029897643",
       "role": "暗号資産政策・オンチェーン専門家",
       "score": 79.0,
       "score_history": [
+        79.0,
         79.0
       ],
       "tier": "member",
       "user_id": "855212570948403200",
       "why_relevant": "米政策とオンチェーン金融を一次資料ベースで継続検証。データ・分析重視で広告・煽りなし。"
+    },
+    "adambliv": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "ETF flows correlations and liquidity metrics",
+      "followers": 84956,
+      "handle": "adambliv",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-05T14:09:36+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 11267,
+      "observed_interactions": 123,
+      "recent_post_url": "https://x.com/AdamBLiv/status/2082642766366978425",
+      "role": "Bitcoin market analyst",
+      "score": 89.0,
+      "score_history": [
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "1881193918206758912",
+      "why_relevant": "Data-driven analysis of ETF flows, stablecoins, and correlations with Bitcoin returns using specific figures and historical context; original research-style post."
+    },
+    "akihisa_ishida": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 19.0,
+      "focus": "金融庁の暗号資産責任準備金・セキュリティ水準",
+      "followers": 6962,
+      "handle": "akihisa_ishida",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T07:02:05+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 129,
+      "observed_interactions": 3,
+      "recent_post_url": "https://x.com/akihisa_ishida/status/2084055960415510877",
+      "role": "Web3 UX・金融制度研究者",
+      "score": 78.6,
+      "score_history": [
+        78.6
+      ],
+      "tier": "member",
+      "user_id": "486606218",
+      "why_relevant": "金融庁説明資料を基にした責任準備金制度の構造的変更分析を一次資料で深掘り"
+    },
+    "angorou7": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 35.0,
+      "focus": "暗号資産交換課税の見直し・最高裁判例",
+      "followers": 121862,
+      "handle": "angorou7",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T01:51:41+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 132313,
+      "observed_interactions": 875,
+      "recent_post_url": "https://x.com/angorou7/status/2081295798831382936",
+      "role": "暗号資産税制・制度分析者",
+      "score": 95.0,
+      "score_history": [
+        95.0
+      ],
+      "tier": "member",
+      "user_id": "1391262362",
+      "why_relevant": "外貨交換課税裁判と最高裁裁判官の意見を基にした日本税制規制の一次資料分析"
     },
     "artofspecuycky": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -93,6 +160,28 @@
       "user_id": "1255181644690001920",
       "why_relevant": "Publishes AI-generated on-chain LTH/STH cohort analyses with specific signals and market structure data."
     },
+    "bitmexsen": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 24.0,
+      "focus": "BTC市場データ・オンチェーン指標（ステーブルコイン流入、Funding、取引所残高など）継続検証",
+      "followers": 63968,
+      "handle": "bitmexsen",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T10:33:20+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 5277,
+      "observed_interactions": 13,
+      "recent_post_url": "https://x.com/bitmexsen/status/2084780731734307001",
+      "role": "暗号資産オンチェーンアナリスト",
+      "score": 84.0,
+      "score_history": [
+        84.0
+      ],
+      "tier": "member",
+      "user_id": "980991706668527616",
+      "why_relevant": "過去14日以内にオリジナルで一次データに基づくBTC定点観測を投稿。価格煽りではなくデータ中心。"
+    },
     "brendanpedersen": {
       "added_at": "2026-08-05T14:32:10+00:00",
       "engagement_component": 35.0,
@@ -101,7 +190,7 @@
       "handle": "brendanpedersen",
       "hard_gate": true,
       "language": "en",
-      "last_seen_at": "2026-08-05T01:11:59+00:00",
+      "last_seen_at": "2026-08-05T14:10:07+00:00",
       "low_score_cycles": 0,
       "observed_impressions": 305881,
       "observed_interactions": 185,
@@ -115,6 +204,50 @@
       "user_id": "307451855",
       "why_relevant": "High-signal journalist adding original context and analysis on crypto market structure bills, policy developments, and primary sources like WSJ editorials; recent original posts within past 14 days focused on data-driven"
     },
+    "cnfinancewatch": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "中美AI产业格局与算力基建空间重构",
+      "followers": 124076,
+      "handle": "cnfinancewatch",
+      "hard_gate": true,
+      "language": "zh",
+      "last_seen_at": "2026-08-05T12:50:34+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 12057,
+      "observed_interactions": 29,
+      "recent_post_url": "https://x.com/cnfinancewatch/status/2083111938712863197",
+      "role": "PhD研究员/投资者",
+      "score": 89.0,
+      "score_history": [
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "137332930",
+      "why_relevant": "深度原创分析中国AI算力革命下的产业空间布局、战略纵深与产能上限，引用具体数据与政策，专注研究而非交易或推广。"
+    },
+    "coindesk": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "crypto legislation, ETF holdings, and market events",
+      "followers": 3920737,
+      "handle": "coindesk",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-05T14:29:00+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 53467,
+      "observed_interactions": 242,
+      "recent_post_url": "https://x.com/CoinDesk/status/2084769959968698878",
+      "role": "data provider",
+      "score": 89.0,
+      "score_history": [
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "1333467482",
+      "why_relevant": "Leading crypto data and news outlet with original reporting on SEC oversight, bank ETF positions, and emerging risks"
+    },
     "coinspace_": {
       "added_at": "",
       "engagement_component": 29.0,
@@ -125,12 +258,13 @@
       "language": "ja",
       "last_seen_at": "2026-08-05T13:47:16+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 197579,
-      "observed_interactions": 568,
+      "observed_impressions": 58945,
+      "observed_interactions": 113,
       "recent_post_url": "",
       "role": "existing_list_member",
       "score": 89.0,
       "score_history": [
+        89.0,
         89.0,
         89.0,
         89.0
@@ -139,9 +273,31 @@
       "user_id": "1336617462138241024",
       "why_relevant": "既存の『いいね』リストから適格性を再評価"
     },
+    "cryptopatel": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 35.0,
+      "focus": "US spot crypto ETF flows and on-chain insights",
+      "followers": 66594,
+      "handle": "cryptopatel",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-05T14:30:00+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 18096,
+      "observed_interactions": 252,
+      "recent_post_url": "https://x.com/CryptoPatel/status/2080888212461945141",
+      "role": "On-chain and ETF researcher",
+      "score": 95.0,
+      "score_history": [
+        95.0
+      ],
+      "tier": "member",
+      "user_id": "812751240",
+      "why_relevant": "Regular detailed ETF flows data updates with breakdowns by issuer and facts tied to mining supply; evidence-based crypto research posts in past 14 days."
+    },
     "cybermonk0x": {
       "added_at": "2026-08-05T14:32:10+00:00",
-      "engagement_component": 25.0,
+      "engagement_component": 19.0,
       "focus": "中美AI算力基础设施与半导体供应链动态",
       "followers": 5673,
       "handle": "cybermonk0x",
@@ -150,16 +306,61 @@
       "last_seen_at": "2026-08-05T13:58:01+00:00",
       "low_score_cycles": 0,
       "observed_impressions": 494,
-      "observed_interactions": 26,
+      "observed_interactions": 6,
       "recent_post_url": "https://x.com/CyberMonk0x/status/2084790500247396520",
       "role": "AI与半导体供应链研究员",
-      "score": 84.4,
+      "score": 78.4,
       "score_history": [
-        84.4
+        84.4,
+        78.4
       ],
       "tier": "member",
       "user_id": "2835554424",
       "why_relevant": "过去14天内原创分析中美贸易对数据中心光模块禁令影响，引用路透消息与中际旭创数据，专注供应链事实与影响，而非价格预测"
+    },
+    "davemacromatrix": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 24.0,
+      "focus": "标普500宏观周期、全球资本流向与多维矩阵分析",
+      "followers": 14664,
+      "handle": "davemacromatrix",
+      "hard_gate": true,
+      "language": "zh",
+      "last_seen_at": "2026-08-05T12:38:02+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 6370,
+      "observed_interactions": 29,
+      "recent_post_url": "https://x.com/davemacromatrix/status/2083662082591875510",
+      "role": "跨学科宏观策略分析师",
+      "score": 84.0,
+      "score_history": [
+        84.0
+      ],
+      "tier": "member",
+      "user_id": "458098544",
+      "why_relevant": "硬核逻辑解构S&P500宏观周期与点位趋势，近期发布大盘逻辑声明与免费章节，数据驱动、无情绪判断，符合条件"
+    },
+    "edwardgofsky": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "US Treasury yields and rates analysis",
+      "followers": 26675,
+      "handle": "edwardgofsky",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-03T23:17:49+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 10389,
+      "observed_interactions": 18,
+      "recent_post_url": "https://x.com/EdwardGofsky/status/2084021686849229174",
+      "role": "Wall Street Researcher",
+      "score": 89.0,
+      "score_history": [
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "489022370",
+      "why_relevant": "Posts multiple original charts on 10y/30y Treasury yields with historical context; rates-focused data analysis without promotional content."
     },
     "elerianm": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -191,19 +392,42 @@
       "handle": "enur72",
       "hard_gate": true,
       "language": "en",
-      "last_seen_at": "2026-08-05T08:01:06+00:00",
+      "last_seen_at": "2026-08-05T10:22:29+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 4750,
-      "observed_interactions": 37,
+      "observed_impressions": 4384,
+      "observed_interactions": 36,
       "recent_post_url": "https://x.com/enur72/status/2080698181151555812",
       "role": "Bitcoin researcher",
       "score": 84.0,
       "score_history": [
+        84.0,
         84.0
       ],
       "tier": "member",
       "user_id": "183550181",
       "why_relevant": "Detailed, sourced analysis of Bitcoin community and development issues with direct evidence checks."
+    },
+    "faryarshirzad": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 40.0,
+      "focus": "regulatory analysis with cited studies, stablecoin mechanics, and CLARITY Act details",
+      "followers": 17236,
+      "handle": "faryarshirzad",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-05T02:08:40+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 59311,
+      "observed_interactions": 253,
+      "recent_post_url": "https://x.com/faryarshirzad/status/2084780545339175404",
+      "role": "crypto policy analyst",
+      "score": 100.0,
+      "score_history": [
+        100.0
+      ],
+      "tier": "member",
+      "user_id": "359126146",
+      "why_relevant": "Detailed original breakdown of policy claims vs evidence from independent studies (incl. White House CEA), focusing on data and primary sources rather than promotion."
     },
     "gaah_im": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -215,17 +439,62 @@
       "language": "en",
       "last_seen_at": "2026-08-05T12:00:02+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 3254,
+      "observed_impressions": 3255,
       "observed_interactions": 17,
       "recent_post_url": "https://x.com/gaah_im/status/2084761306595205608",
       "role": "On-chain data analyst",
       "score": 84.0,
       "score_history": [
+        84.0,
         84.0
       ],
       "tier": "member",
       "user_id": "1393887118028648450",
       "why_relevant": "Posts detailed composite on-chain indices for BTC using SOPR, NUPL, MVRV with data-backed ranges and historical context."
+    },
+    "grayscale": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "institutional crypto investment analysis and ETPs",
+      "followers": 682091,
+      "handle": "grayscale",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-05T14:08:22+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 164047,
+      "observed_interactions": 53,
+      "recent_post_url": "https://x.com/Grayscale/status/2084628974467158077",
+      "role": "ETF issuer",
+      "score": 89.0,
+      "score_history": [
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "2800345565",
+      "why_relevant": "Major digital-asset ETF issuer sharing original research on Bitcoin cycle positioning, blockchain innovations, and self-custody vs ETPs"
+    },
+    "haru_analyst": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 19.0,
+      "focus": "日米協調介入・マクロ・業績データ分析",
+      "followers": 1074,
+      "handle": "haru_analyst",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-04T23:21:44+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 170,
+      "observed_interactions": 3,
+      "recent_post_url": "https://x.com/haru_analyst/status/2084574727344193561",
+      "role": "米国株アナリスト",
+      "score": 76.6,
+      "score_history": [
+        76.6
+      ],
+      "tier": "member",
+      "user_id": "1784039937601572864",
+      "why_relevant": "為替介入のマクロ・数理データ分析。一次情報徹底。"
     },
     "joao_wedson": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -251,7 +520,7 @@
     },
     "jvisserlabs": {
       "added_at": "2026-08-05T14:32:10+00:00",
-      "engagement_component": 29.0,
+      "engagement_component": 35.0,
       "focus": "Earnings signals, backlog data and compute shortage analysis across memory, optics and custom chips",
       "followers": 232664,
       "handle": "jvisserlabs",
@@ -259,17 +528,40 @@
       "language": "en",
       "last_seen_at": "2026-08-04T16:04:09+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 118597,
-      "observed_interactions": 461,
+      "observed_impressions": 29202,
+      "observed_interactions": 807,
       "recent_post_url": "https://x.com/jvisserlabs/status/2081356360093253815",
       "role": "AI macro and semiconductor analyst",
-      "score": 79.0,
+      "score": 85.0,
       "score_history": [
-        79.0
+        79.0,
+        85.0
       ],
       "tier": "member",
       "user_id": "1506324286130335759",
       "why_relevant": "Covers Google backlog, memory, optics and China AI funding with earnings as primary market signal"
+    },
+    "kg13445545": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 19.0,
+      "focus": "日本の暗号資産規制・自己保管・消費者保護",
+      "followers": 1823,
+      "handle": "kg13445545",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T13:26:28+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 566,
+      "observed_interactions": 1,
+      "recent_post_url": "https://x.com/KG13445545/status/2084754823141032011",
+      "role": "暗号資産投資家・規制分析者",
+      "score": 67.2,
+      "score_history": [
+        67.2
+      ],
+      "tier": "member",
+      "user_id": "1608233185380564993",
+      "why_relevant": "日本のトラベルルールや取引所預かりの最適解に関する規制解釈を一次資料ベースで分析投稿"
     },
     "kosuge_tsutomu": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -281,12 +573,13 @@
       "language": "ja",
       "last_seen_at": "2026-08-05T10:11:58+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 4119,
-      "observed_interactions": 35,
+      "observed_impressions": 6702,
+      "observed_interactions": 33,
       "recent_post_url": "https://x.com/kosuge_tsutomu/status/2084782531153740094",
       "role": "商品アナリスト",
       "score": 74.0,
       "score_history": [
+        74.0,
         74.0
       ],
       "tier": "member",
@@ -315,6 +608,50 @@
       "user_id": "1491985249642766337",
       "why_relevant": "決算・業績・チャートを基にした具体的な投資分析投稿。広告・煽り排除。"
     },
+    "laozhouhengmei": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 35.0,
+      "focus": "中国AI算力与全球竞争力动态",
+      "followers": 142318,
+      "handle": "laozhouhengmei",
+      "hard_gate": true,
+      "language": "zh",
+      "last_seen_at": "2026-08-05T11:58:00+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 254810,
+      "observed_interactions": 1001,
+      "recent_post_url": "https://x.com/laozhouhengmei/status/2080505823432720553",
+      "role": "独立分析师",
+      "score": 75.0,
+      "score_history": [
+        75.0
+      ],
+      "tier": "member",
+      "user_id": "1721381996960845824",
+      "why_relevant": "基于马斯克访谈等一次来源，详细分析中国AI在算力不足下的表现、电力瓶颈及未来领跑概率，提供具体数据对比与客观评估。"
+    },
+    "m000_crypto": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 25.0,
+      "focus": "プロジェクトのオンチェーンデータ・TVL・トークン指標検証",
+      "followers": 2391,
+      "handle": "m000_crypto",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T13:46:43+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 594,
+      "observed_interactions": 19,
+      "recent_post_url": "https://x.com/m000_crypto/status/2082838952759968076",
+      "role": "暗号資産オンチェーンアナリスト",
+      "score": 73.4,
+      "score_history": [
+        73.4
+      ],
+      "tier": "member",
+      "user_id": "1813168427999371264",
+      "why_relevant": "DefiLlama・エクスプローラー等一次ソースを使った詳細オンチェーン分析。"
+    },
     "macromargin": {
       "added_at": "2026-08-05T14:32:10+00:00",
       "engagement_component": 29.0,
@@ -325,12 +662,13 @@
       "language": "zh",
       "last_seen_at": "2026-08-05T06:09:37+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 80778,
-      "observed_interactions": 182,
+      "observed_impressions": 46814,
+      "observed_interactions": 89,
       "recent_post_url": "https://x.com/MacroMargin/status/2084564560133181583",
       "role": "宏观研究分析师",
       "score": 79.0,
       "score_history": [
+        79.0,
         79.0
       ],
       "tier": "member",
@@ -369,17 +707,62 @@
       "language": "en",
       "last_seen_at": "2026-08-05T11:21:15+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 2274,
-      "observed_interactions": 13,
+      "observed_impressions": 2275,
+      "observed_interactions": 12,
       "recent_post_url": "https://x.com/Marian_L_Tupy/status/2084789738519576870",
       "role": "Macro analyst",
       "score": 73.9,
       "score_history": [
+        73.9,
         73.9
       ],
       "tier": "member",
       "user_id": "1609952553919291393",
       "why_relevant": "Original data-driven post on electricity rates, water, emissions with historical US data trends"
+    },
+    "me8_x1782": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 30.0,
+      "focus": "GitHub code reviews, on-chain metrics, adversarial AI analysis, and project evaluation methodology",
+      "followers": 2006,
+      "handle": "me8_x1782",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-04T15:07:37+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 1721,
+      "observed_interactions": 9,
+      "recent_post_url": "https://x.com/me8_x1782/status/2084410498368393386",
+      "role": "on-chain researcher",
+      "score": 88.3,
+      "score_history": [
+        88.3
+      ],
+      "tier": "member",
+      "user_id": "1971182957827325954",
+      "why_relevant": "Transparent original research framework emphasizing sourced claims, on-chain data, and technical red-teaming; avoids predictions or hype."
+    },
+    "muratamasashi": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 24.0,
+      "focus": "日銀・為替・金利政策分析",
+      "followers": 10312,
+      "handle": "muratamasashi",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-04T22:05:50+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 5804,
+      "observed_interactions": 16,
+      "recent_post_url": "https://x.com/MurataMasashi/status/2080232705023791546",
+      "role": "マクロ経済・通貨ストラテジスト",
+      "score": 84.0,
+      "score_history": [
+        84.0
+      ],
+      "tier": "member",
+      "user_id": "76528253",
+      "why_relevant": "為替・金利政策の構造分析。制度・データ重視。"
     },
     "nicosokufx": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -457,12 +840,13 @@
       "language": "en",
       "last_seen_at": "2026-08-05T12:39:59+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 844,
+      "observed_impressions": 846,
       "observed_interactions": 3,
       "recent_post_url": "https://x.com/pahueg/status/2084335883566907889",
       "role": "Crypto macro and on-chain analyst",
       "score": 78.5,
       "score_history": [
+        78.5,
         78.5
       ],
       "tier": "member",
@@ -471,7 +855,7 @@
     },
     "paulxue1979": {
       "added_at": "2026-08-05T14:32:10+00:00",
-      "engagement_component": 30.0,
+      "engagement_component": 35.0,
       "focus": "链上数据挖掘、BTC周期模型、宏观技术面分析",
       "followers": 1317,
       "handle": "paulxue1979",
@@ -479,17 +863,40 @@
       "language": "zh",
       "last_seen_at": "2026-08-05T14:28:06+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 1984,
-      "observed_interactions": 7,
+      "observed_impressions": 5510,
+      "observed_interactions": 18,
       "recent_post_url": "https://x.com/paulxue1979/status/2084783371151192426",
       "role": "研究员",
-      "score": 87.8,
+      "score": 92.8,
       "score_history": [
-        87.8
+        87.8,
+        92.8
       ],
       "tier": "member",
       "user_id": "1828620077941563394",
       "why_relevant": "专注BTC链上数据与周期研究，近期原创帖使用图表和量化分析讨论趋势线、月线走势等，数据驱动而非价格煽动，符合链上数据与交易所风险主题"
+    },
+    "phyrexni": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "美国现货比特币ETF资金流与持仓数据分析",
+      "followers": 398463,
+      "handle": "phyrexni",
+      "hard_gate": true,
+      "language": "zh",
+      "last_seen_at": "2026-08-05T13:47:54+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 31227,
+      "observed_interactions": 111,
+      "recent_post_url": "https://x.com/PhyrexNi/status/2084687432398852407",
+      "role": "链上/ETF数据分析师",
+      "score": 89.0,
+      "score_history": [
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "555634740",
+      "why_relevant": "GlassNode重度用户，专注ETF持仓净流入/流出具体数据、7日/月度累计变化等一次资料分析， follower超39万，无群无收费，排除价格煽动与项目推广"
     },
     "rainlh144221": {
       "added_at": "2026-08-05T14:32:10+00:00",
@@ -502,11 +909,12 @@
       "last_seen_at": "2026-08-05T11:13:30+00:00",
       "low_score_cycles": 0,
       "observed_impressions": 984,
-      "observed_interactions": 17,
+      "observed_interactions": 20,
       "recent_post_url": "https://x.com/RainLH144221/status/2084780615615058025",
       "role": "投资复盘与市场观察者",
       "score": 84.1,
       "score_history": [
+        84.1,
         84.1
       ],
       "tier": "member",
@@ -515,7 +923,7 @@
     },
     "rickyho_1989": {
       "added_at": "2026-08-05T14:32:10+00:00",
-      "engagement_component": 24.0,
+      "engagement_component": 29.0,
       "focus": "Testing, advanced packaging and AI hardware value chain using Nomura and company data",
       "followers": 13115,
       "handle": "rickyho_1989",
@@ -523,17 +931,40 @@
       "language": "en",
       "last_seen_at": "2026-08-05T12:17:35+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 4986,
-      "observed_interactions": 18,
+      "observed_impressions": 33230,
+      "observed_interactions": 25,
       "recent_post_url": "https://x.com/rickyho_1989/status/2081237379416027522",
       "role": "Semiconductor supply chain analyst",
-      "score": 74.0,
+      "score": 79.0,
       "score_history": [
-        74.0
+        74.0,
+        79.0
       ],
       "tier": "member",
       "user_id": "1946817390219870208",
       "why_relevant": "In-depth report on testing content growth (Hopper to Rubin), yield protection and specific OSAT/probe card beneficiaries with quantitative multipliers"
+    },
+    "robertl83909710": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 24.0,
+      "focus": "现货比特币ETF单日净流入与市场韧性分析",
+      "followers": 33294,
+      "handle": "robertl83909710",
+      "hard_gate": true,
+      "language": "zh",
+      "last_seen_at": "2026-08-05T12:25:38+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 6525,
+      "observed_interactions": 16,
+      "recent_post_url": "https://x.com/Robertl83909710/status/2084752530731638804",
+      "role": "加密ETF研究型账号",
+      "score": 84.0,
+      "score_history": [
+        84.0
+      ],
+      "tier": "member",
+      "user_id": "1281149396491485184",
+      "why_relevant": "中文原创ETF资金流数据帖，引用BlackRock/Fidelity等具体流入金额，侧重数据而非预测或推广"
     },
     "rusong_machunbo": {
       "added_at": "",
@@ -579,9 +1010,31 @@
       "user_id": "1497079537816924160",
       "why_relevant": "楽天ウォレットシニアアナリストとしてETFフローやオンチェーンデータを基にしたDailyReportを継続投稿。一次情報中心の分析で価格煽りなし。"
     },
+    "secgov": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 29.0,
+      "focus": "ETF fees and investor education",
+      "followers": 805293,
+      "handle": "secgov",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-03T13:55:06+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 41133,
+      "observed_interactions": 229,
+      "recent_post_url": "https://x.com/SECGov/status/2081720029368697196",
+      "role": "official regulator",
+      "score": 79.0,
+      "score_history": [
+        79.0
+      ],
+      "tier": "member",
+      "user_id": "18481050",
+      "why_relevant": "Official US regulator posting primary-source investor bulletin on mutual fund and ETF fees/expenses in financial markets"
+    },
     "sou_btc": {
       "added_at": "",
-      "engagement_component": 29.0,
+      "engagement_component": 24.0,
       "focus": "資産運用・投資に必要な重要ニュースを日本最速で配信。米国株・日本株・仮想通貨・ビットコイン・AI・地政学まで網羅し、毎日発信。フォロー&通知オンで、マーケットで今知るべき情報がすべて手に入ります。Amazonアソシエイト参加中。Business inquiries: DM ✉️",
       "followers": 160780,
       "handle": "sou_btc",
@@ -589,15 +1042,16 @@
       "language": "ja",
       "last_seen_at": "2026-08-05T14:29:11+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 1297000,
-      "observed_interactions": 255,
+      "observed_impressions": 8218,
+      "observed_interactions": 95,
       "recent_post_url": "",
       "role": "existing_list_member",
-      "score": 89.0,
+      "score": 84.0,
       "score_history": [
         89.0,
         89.0,
-        89.0
+        89.0,
+        84.0
       ],
       "tier": "member",
       "user_id": "1440004894417559553",
@@ -627,21 +1081,22 @@
     },
     "takayuki_sko": {
       "added_at": "2026-08-05T14:32:10+00:00",
-      "engagement_component": 19.0,
+      "engagement_component": 25.0,
       "focus": "米株・金利・原油連動のデータ・ニュース分析",
       "followers": 4360,
       "handle": "takayuki_sko",
       "hard_gate": true,
       "language": "ja",
-      "last_seen_at": "2026-08-05T07:32:59+00:00",
+      "last_seen_at": "2026-08-05T07:33:14+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 860,
-      "observed_interactions": 3,
+      "observed_impressions": 980,
+      "observed_interactions": 26,
       "recent_post_url": "https://x.com/takayuki_sko/status/2084776459814736380",
       "role": "米国株・日本株投資家",
-      "score": 78.1,
+      "score": 84.1,
       "score_history": [
-        78.1
+        78.1,
+        84.1
       ],
       "tier": "member",
       "user_id": "1360707253",
@@ -655,7 +1110,7 @@
       "handle": "tentengu",
       "hard_gate": true,
       "language": "ja",
-      "last_seen_at": "2026-08-04T20:59:17+00:00",
+      "last_seen_at": "2026-08-04T21:03:35+00:00",
       "low_score_cycles": 0,
       "observed_impressions": 1398,
       "observed_interactions": 2,
@@ -669,6 +1124,50 @@
       "user_id": "107460568",
       "why_relevant": "アドバンテスト・キオクシア・東京エレクトロン等の半導体決算を数量・価格・設備投資別に一次資料ベースで論点整理"
     },
+    "usstockfocus": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 30.0,
+      "focus": "美股估值、宏观数据与市场逻辑分析",
+      "followers": 1037,
+      "handle": "usstockfocus",
+      "hard_gate": true,
+      "language": "zh",
+      "last_seen_at": "2026-08-05T12:51:00+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 380,
+      "observed_interactions": 13,
+      "recent_post_url": "https://x.com/USStockFocus/status/2084770857407361175",
+      "role": "美股宏观研究员",
+      "score": 77.5,
+      "score_history": [
+        77.5
+      ],
+      "tier": "member",
+      "user_id": "1949334048222085120",
+      "why_relevant": "专注美股焦点新闻、财报解读、宏观数据分析，近期发布S&P500前瞻市盈率与全球溢价对比的深度数据帖，符合研究型要求"
+    },
+    "world_data_a": {
+      "added_at": "2026-08-05T14:38:08+00:00",
+      "engagement_component": 19.0,
+      "focus": "US equities macro data and GDP comparisons",
+      "followers": 5706,
+      "handle": "world_data_a",
+      "hard_gate": true,
+      "language": "en",
+      "last_seen_at": "2026-08-05T12:30:27+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 351,
+      "observed_interactions": 10,
+      "recent_post_url": "https://x.com/World_Data_A/status/2082481599002599579",
+      "role": "Data Analyst",
+      "score": 68.4,
+      "score_history": [
+        68.4
+      ],
+      "tier": "member",
+      "user_id": "1929556975223963648",
+      "why_relevant": "Posts original sourced charts comparing US equities to GDP with primary data references; data-driven macro focus, sufficient engagement, no promotions."
+    },
     "xamto_ai": {
       "added_at": "2026-08-05T14:32:10+00:00",
       "engagement_component": 24.0,
@@ -679,12 +1178,13 @@
       "language": "zh",
       "last_seen_at": "2026-08-05T14:27:00+00:00",
       "low_score_cycles": 0,
-      "observed_impressions": 2089,
-      "observed_interactions": 7,
+      "observed_impressions": 4333,
+      "observed_interactions": 5,
       "recent_post_url": "https://x.com/XAMTO_AI/status/2084772619060924709",
       "role": "分析师",
       "score": 74.0,
       "score_history": [
+        74.0,
         74.0
       ],
       "tier": "member",
