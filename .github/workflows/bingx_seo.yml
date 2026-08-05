@@ -45,9 +45,12 @@ jobs:
         run: python bingx_seo.py
 
       - name: 投稿済みトピックリストをコミット
+        # 関連投稿だけが失敗した場合でも、主投稿IDを保留ファイルへ保存してから
+        # ジョブを失敗させる。次回は主投稿を重複させず返信だけを再送する。
+        if: always()
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add scripts/bingx_posted_topics.json
+          git add -A -- scripts/bingx_posted_topics.json scripts/bingx_pending_x_replies.json
           git diff --staged --quiet || git commit -m "chore: update BingX posted topics [skip ci]"
           git push

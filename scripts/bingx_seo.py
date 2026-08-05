@@ -20,7 +20,7 @@ from playwright.async_api import async_playwright
 
 sys.path.insert(0, str(Path(__file__).parent))
 from wp_poster import WordPressAPI
-from x_poster import post_tweet
+from x_poster import XPostResult, post_related_reply, post_tweet
 from llm_client import generate_json
 from image_processing import SAFE_COMPOSITION_PROMPT, fit_image_to_jpeg
 
@@ -32,9 +32,21 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 POSTED_FILE = Path(__file__).parent / "bingx_posted_topics.json"
+PENDING_X_REPLIES_FILE = Path(__file__).parent / "bingx_pending_x_replies.json"
 
 INVITE_CODE = "FIKYOA"
 INVITE_URL  = "https://bingxdao.com/invite/FIKYOA/"
+
+
+def build_related_reply_text(title: str) -> str:
+    """BingXの広告・PR記事だけに付ける、記事ごとに固有の関連投稿。"""
+    short_title = " ".join((title or "").split())[:70]
+    return (
+        "【広告・PR】関連情報｜BingXの登録はこちら\n\n"
+        f"「{short_title}」に関連する案内です。\n\n"
+        "登録前に利用条件・対象地域・本人確認（KYC）の要件を必ず確認してください。\n\n"
+        f"{INVITE_URL}"
+    )
 
 AFFILIATE_BOX = (
     '<div style="background:#fff8e1;border-left:5px solid #f7931a;'
@@ -1128,6 +1140,49 @@ def save_posted_ids(ids: list):
     POSTED_FILE.write_text(json.dumps(ids, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def load_pending_x_replies() -> list[dict[str, str]]:
+    """主投稿済みだが関連投稿を送れなかった分だけを読み込む。"""
+    if not PENDING_X_REPLIES_FILE.exists():
+        return []
+    try:
+        entries = json.loads(PENDING_X_REPLIES_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise RuntimeError("保留中のX関連投稿ファイルを読み込めません") from error
+    if not isinstance(entries, list):
+        raise RuntimeError("保留中のX関連投稿ファイルの形式が不正です")
+    return [
+        entry for entry in entries
+        if isinstance(entry, dict)
+        and isinstance(entry.get("tweet_id"), str)
+        and isinstance(entry.get("text"), str)
+    ]
+
+
+def save_pending_x_replies(entries: list[dict[str, str]]):
+    PENDING_X_REPLIES_FILE.write_text(
+        json.dumps(entries, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def retry_pending_x_replies() -> None:
+    """保留中の関連投稿を、主投稿を再送せず先に回復する。"""
+    pending = load_pending_x_replies()
+    if not pending:
+        return
+
+    logger.info("保留中のX関連投稿を再送: %s件", len(pending))
+    remaining = []
+    for entry in pending:
+        if post_related_reply(entry["tweet_id"], entry["text"]):
+            logger.info("保留中のX関連投稿を送信: %s", entry["tweet_id"])
+        else:
+            remaining.append(entry)
+    save_pending_x_replies(remaining)
+    if remaining:
+        raise RuntimeError(f"X関連投稿の再送に失敗: {len(remaining)}件")
+
+
 def pick_next_topic(existing_slugs: set[str] | None = None) -> dict | None:
     """未公開のテーマを順番に返す。
 
@@ -1255,6 +1310,18 @@ def generate_imagen(prompt: str) -> bytes | None:
 
 def resize_jpeg(raw: bytes) -> bytes:
     return fit_image_to_jpeg(raw, width=1200, height=675, quality=88)
+
+
+def select_featured_media(
+    image_map: dict[str, tuple[int, str]],
+    screenshot_pages: list[dict],
+) -> tuple[int | None, str | None]:
+    """スクリーンショット優先で、最初に成功した画像をアイキャッチにする。"""
+    for screenshot in screenshot_pages:
+        media = image_map.get(screenshot.get("key", ""))
+        if media:
+            return media
+    return next(iter(image_map.values()), (None, None))
 
 
 # ---------------------------------------------------------------------------
@@ -1430,6 +1497,9 @@ def _parse_article_json(text: str) -> dict:
 # ---------------------------------------------------------------------------
 
 async def main():
+    # 主投稿を重複させず、未送信の関連投稿だけを先に回復する。
+    retry_pending_x_replies()
+
     wp = WordPressAPI(
         os.environ["WP_URL"],
         os.environ["WP_USERNAME"],
@@ -1475,26 +1545,19 @@ async def main():
         except Exception as e:
             logger.warning(f"  ✗ upload failed {key}: {e}")
 
-    featured_media_id = None
-    featured_image_url = None
-    for i, (key, img_bytes) in enumerate(imagen_images.items()):
+    for key, img_bytes in imagen_images.items():
         if not img_bytes:
             continue
         try:
             mid, url = wp.upload_media(img_bytes, f"bingx-{topic['id']}-{key}.jpg")
             image_map[key] = (mid, url)
-            if i == 0 and not featured_media_id:
-                featured_media_id = mid
-                featured_image_url = url
             logger.info(f"  ✓ {key} → {url}")
         except Exception as e:
             logger.warning(f"  ✗ upload failed {key}: {e}")
 
-    # スクリーンショットがあればそちらをアイキャッチに優先
-    for sc_cfg in topic["screenshot_pages"]:
-        if sc_cfg["key"] in image_map:
-            featured_media_id, featured_image_url = image_map[sc_cfg["key"]]
-            break
+    featured_media_id, featured_image_url = select_featured_media(
+        image_map, topic["screenshot_pages"]
+    )
 
     available_keys = list(image_map.keys())
     logger.info(f"  利用可能: {available_keys}")
@@ -1588,12 +1651,21 @@ async def main():
         logger.warning(f"  クラスター同期でエラー: {e}")
 
     # X 投稿
-    post_tweet(
+    related_reply_text = (
+        build_related_reply_text(article["title"])
+        if topic.get("include_affiliate_cta", True)
+        else None
+    )
+    x_result = post_tweet(
         title=article["title"],
         article_url=article_url,
         tags=topic["tags"],
         tweet_bullets=safe_tweet_bullets(topic),
         article_section="取引所",
+        featured_image_url=featured_image_url,
+        attach_featured_image_if_og_missing=True,
+        related_reply_text=related_reply_text,
+        return_post_result=True,
     )
 
     # 投稿済みに記録
@@ -1601,6 +1673,20 @@ async def main():
     posted.append(topic["id"])
     save_posted_ids(posted)
     logger.info(f"投稿済みトピック記録: {topic['id']} ({len(posted)}/{len(TOPICS)}件完了)")
+
+    # 主投稿に成功したのに関連投稿だけ失敗した場合は、tweet_idと文面を永続化する。
+    # 次回実行では主投稿を再送せず、この返信だけを先に回復する。
+    if (
+        related_reply_text
+        and isinstance(x_result, XPostResult)
+        and not x_result.related_reply_posted
+    ):
+        pending = load_pending_x_replies()
+        pending.append({"tweet_id": x_result.tweet_id, "text": related_reply_text})
+        save_pending_x_replies(pending)
+        raise RuntimeError(
+            f"X主投稿 {x_result.tweet_id} への関連投稿を送信できませんでした。"
+        )
 
 
 if __name__ == "__main__":
