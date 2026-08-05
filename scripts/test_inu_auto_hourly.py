@@ -553,14 +553,22 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(expected, actual)
         fallback.assert_called_once_with(NOW, {"history": []}, extra_signals=[])
 
-    def test_retry_schedule_skips_second_grok_charge(self):
-        event = json.dumps({"schedule": "47 * * * *"})
+    def test_fallback_schedule_skips_duplicate_grok_charge(self):
+        event = json.dumps({"schedule": "37 * * * *"})
         with patch.dict(
             "os.environ",
             {"XAI_API_KEY": "configured", "GITHUB_EVENT_PATH": "/tmp/event.json"},
             clear=False,
         ), patch.object(Path, "read_text", return_value=event):
             self.assertFalse(inu_auto_hourly._is_primary_grok_run())
+
+    def test_two_scheduled_slots_are_independent_but_fallback_uses_first_slot(self):
+        now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)
+        self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "primary"))
+        self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "fallback"))
+        self.assertEqual("2026-08-04-21-b", inu_auto_hourly._scheduled_slot_key(now, "secondary"))
+        self.assertEqual("2026-08-04-21-b", inu_auto_hourly._scheduled_slot_key(now, "secondary_recovery"))
+        self.assertEqual("2026-08-04-21", inu_auto_hourly._scheduled_slot_key(now, "retry"))
 
     def test_prepare_tries_the_next_candidate_instead_of_failing(self):
         options = [candidate(), candidate(source_url="https://example.com/official/second")]

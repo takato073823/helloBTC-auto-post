@@ -329,7 +329,7 @@ def collect_discovery_signals() -> list[dict[str, str]]:
 
 
 def _is_primary_grok_run() -> bool:
-    """再確認枠ではGrokを再課金せず、毎時の主実行と手動実行だけで使う。"""
+    """復旧枠を除き、毎時2本の独立した候補探索ではGrokを使う。"""
     if not os.environ.get("XAI_API_KEY", "").strip():
         return False
     event_path = os.environ.get("GITHUB_EVENT_PATH", "").strip()
@@ -340,7 +340,7 @@ def _is_primary_grok_run() -> bool:
     except (OSError, ValueError):
         logger.warning("GitHubイベントを判定できないため、Grok検索を通常実行します")
         return True
-    return event.get("schedule") != "47 * * * *"
+    return event.get("schedule") != "37 * * * *"
 
 
 def load_curated_x_sources(path: Path = CURATED_X_SOURCES_PATH) -> list[dict[str, str]]:
@@ -917,6 +917,16 @@ def _scheduled_run_kind() -> str:
     return os.environ.get("INU_SCHEDULE_RUN_KIND", "").strip().lower()
 
 
+def _scheduled_slot_key(now: dt.datetime, kind: str) -> str:
+    """通常投稿を毎時2枠に分け、予備実行だけを1本目へ紐付ける。"""
+    hour = now.astimezone(JST).strftime("%Y-%m-%d-%H")
+    if kind in {"primary", "fallback"}:
+        return f"{hour}-a"
+    if kind in {"secondary", "secondary_recovery"}:
+        return f"{hour}-b"
+    return slot_key(now)
+
+
 def _has_completed_scheduled_check(state: dict, slot: str) -> bool:
     return any(row.get("slot") == slot for row in state.get("scheduled_checks", []))
 
@@ -1033,10 +1043,10 @@ def _build_item_from_candidate(
 
 def prepare(args: argparse.Namespace) -> int:
     now = dt.datetime.now(dt.timezone.utc)
-    slot = args.slot or slot_key(now)
+    scheduled_kind = _scheduled_run_kind()
+    slot = args.slot or _scheduled_slot_key(now, scheduled_kind)
     state_path = Path(args.state)
     state = load_state(state_path)
-    scheduled_kind = _scheduled_run_kind()
     occupied = list(state.get("posted_slots", [])) + list(state.get("reservations", []))
     if any(row.get("slot") == slot for row in occupied):
         logger.info("この時間は投稿済みまたは予約済みです: %s", slot)
