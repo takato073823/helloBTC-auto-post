@@ -1,4 +1,5 @@
 {
+  "last_follower_admission_at": "2026-08-05T15:33:07.678228+00:00",
   "last_refreshed_at": "2026-08-05T14:38:08+00:00",
   "last_skip_reason": "",
   "list_id": "2085002840901321119",
@@ -541,6 +542,29 @@
       "user_id": "1506324286130335759",
       "why_relevant": "Covers Google backlog, memory, optics and China AI funding with earnings as primary market signal"
     },
+    "kabu_kichi_3110": {
+      "added_at": "2026-08-05T15:33:07.678228+00:00",
+      "admission_source": "qualified_new_follower",
+      "engagement_component": 15.0,
+      "focus": "INUをフォロー後に基準を満たしたアカウント",
+      "followers": 4373,
+      "handle": "kabu_kichi_3110",
+      "hard_gate": true,
+      "language": "",
+      "last_seen_at": "2026-08-04T06:09:49+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 3219,
+      "observed_interactions": 38,
+      "recent_post_url": "https://x.com/kabu_kichi_3110/status/2080763516731166921",
+      "role": "qualified_new_follower",
+      "score": 70.3,
+      "score_history": [
+        70.3
+      ],
+      "tier": "member",
+      "user_id": "1921805763988848640",
+      "why_relevant": "フォロワー1,000人以上かつ直近10投稿内に表示500超の投稿を確認"
+    },
     "kg13445545": {
       "added_at": "2026-08-05T14:38:08+00:00",
       "engagement_component": 19.0,
@@ -763,6 +787,29 @@
       "tier": "member",
       "user_id": "76528253",
       "why_relevant": "為替・金利政策の構造分析。制度・データ重視。"
+    },
+    "nana_mexc": {
+      "added_at": "2026-08-05T15:33:07.678228+00:00",
+      "admission_source": "qualified_new_follower",
+      "engagement_component": 15.0,
+      "focus": "INUをフォロー後に基準を満たしたアカウント",
+      "followers": 1035,
+      "handle": "nana_mexc",
+      "hard_gate": true,
+      "language": "",
+      "last_seen_at": "2026-08-05T05:56:18+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 5355,
+      "observed_interactions": 17,
+      "recent_post_url": "https://x.com/nana_mexc/status/1901914904233177093",
+      "role": "qualified_new_follower",
+      "score": 70.5,
+      "score_history": [
+        70.5
+      ],
+      "tier": "member",
+      "user_id": "1511541414273818627",
+      "why_relevant": "フォロワー1,000人以上かつ直近10投稿内に表示500超の投稿を確認"
     },
     "nicosokufx": {
       "added_at": "2026-08-05T14:32:10+00:00",
