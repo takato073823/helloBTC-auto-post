@@ -200,7 +200,9 @@ def load_denylist(path: Path = DENYLIST_PATH) -> set[str]:
 
 def build_discovery_prompt(track: tuple[str, str], known_handles: set[str], count: int) -> str:
     language, focus = track
-    known = ", ".join(f"@{handle}" for handle in sorted(known_handles)[:60]) or "なし"
+    # 初期充足中でも同じ候補を繰り返さないよう、200件の既知対象を全て渡す。
+    # このプロンプトは6時間ごとの候補発見専用で、毎時の投稿生成には使わない。
+    known = ", ".join(f"@{handle}" for handle in sorted(known_handles)[:TARGET_SIZE]) or "なし"
     return f"""
 INUの成長施策A〜Dのため、X Searchで公開アカウントを探してください。
 対象: {focus}
