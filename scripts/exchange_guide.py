@@ -590,6 +590,8 @@ async def main():
         tags=config["tags"],
         tweet_bullets=config["tweet_bullets"],
         article_section="取引所",
+        featured_image_url=featured_image_url,
+        attach_featured_image_if_og_missing=True,
     )
 
 

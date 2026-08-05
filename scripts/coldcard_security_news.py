@@ -170,6 +170,8 @@ def main() -> None:
             tags=article["tags"],
             tweet_bullets=article["tweet_bullets"],
             article_section="ニュース",
+            featured_image_url=featured_image_url,
+            attach_featured_image_if_og_missing=True,
         )
 
 

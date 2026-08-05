@@ -251,6 +251,8 @@ def main():
             tags=article.get("tags", []),
             tweet_bullets=article.get("tweet_bullets"),
             article_section="ニュース",
+            featured_image_url=featured_image_url,
+            attach_featured_image_if_og_missing=True,
         )
 
 
