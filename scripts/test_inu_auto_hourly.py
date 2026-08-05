@@ -35,6 +35,7 @@ def candidate(**overrides) -> dict:
         "tags": ["ビットコイン", "ETF"],
         "why_now": "4時間前に公式データが更新されたため",
         "reader_interest": "資金流入が継続するかで、ビットコインETFへの需要の強さを確認できるため",
+        "follow_value": "ETFフローと機関投資家の資金移動を継続して追えるため",
         "is_primary_source": True,
     }
     value.update(overrides)
@@ -157,6 +158,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         text = inu_auto_hourly.compose_candidate_text(candidate())
         self.assertIn("僕の見方では", text)
         self.assertNotIn("https://", text)
+        self.assertNotIn(candidate()["reader_interest"], text)
+        self.assertNotIn(candidate()["follow_value"], text)
         inu_auto_hourly.validate_post(text)
 
     def test_long_generated_copy_is_compacted_without_another_api_call(self):
@@ -186,6 +189,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "facts": ["対象は欧州のマネー・マーケット・ファンドです。"],
             "opinion": "僕としては、次は実際の利用先が増えるかを確認したいです。",
             "reader_interest": "トークン化されたMMFの利用先が増えるかで、RWAの実需を判断できるため",
+            "follow_value": "大手機関によるRWAの実装範囲を継続して追えるため",
             "tags": ["RWA"],
         }
         with patch.object(inu_auto_hourly, "generate_json", return_value=copy):
@@ -209,6 +213,45 @@ class INUAutoHourlyTests(unittest.TestCase):
                 {"posted_slots": [], "posted_ids": [], "history": []},
                 NOW,
             )
+
+    def test_follow_value_cannot_repeat_reader_interest(self):
+        item = candidate(follow_value=candidate()["reader_interest"])
+        with self.assertRaisesRegex(ValueError, "閲覧理由の言い換え"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
+    def test_follow_value_can_reference_a_material_policy_announcement(self):
+        item = candidate(
+            follow_value="FOMCの金利発表と利下げ判断がリスク資産へ与える影響を継続して追えるため"
+        )
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "official"}],
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            NOW,
+        )
+
+    def test_research_prompt_softly_nudges_underrepresented_growth_topics(self):
+        state = {
+            "history": [
+                {
+                    "topic_type": "etf_flow",
+                    "posted_at": "2026-08-04T11:00:00Z",
+                }
+                for _ in range(5)
+            ]
+        }
+        topics = inu_auto_hourly._underrepresented_growth_topics(state, NOW)
+        self.assertIn("onchain", topics)
+        self.assertNotIn("etf_flow", topics)
+        prompt = inu_auto_hourly.build_research_prompt(NOW, state)
+        self.assertIn("直近7日間で手薄な投稿系統", prompt)
+        self.assertIn("onchain", prompt)
+        self.assertNotIn("必ずこの系統", prompt)
 
     def test_priority_signal_cannot_switch_to_another_rss_story(self):
         selected = {

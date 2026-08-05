@@ -42,6 +42,15 @@ CURATED_X_SOURCES_PATH = SCRIPT_DIR / "inu_curated_x_sources.json"
 MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 MAX_SCHEDULED_CHECKS = 168
+GROWTH_TOPIC_ROTATION = (
+    "etf_flow",
+    "onchain",
+    "market_microstructure",
+    "institutional_flow",
+    "policy_household",
+    "earnings",
+    "adoption_kpi",
+)
 
 AUTO_TOPIC_TYPES = (
     "breaking_news",
@@ -153,6 +162,7 @@ CANDIDATE_SCHEMA = {
         },
         "why_now": {"type": "string"},
         "reader_interest": {"type": "string"},
+        "follow_value": {"type": "string"},
         "is_primary_source": {"type": "boolean"},
     },
     "required": [
@@ -171,6 +181,7 @@ CANDIDATE_SCHEMA = {
         "tags",
         "why_now",
         "reader_interest",
+        "follow_value",
         "is_primary_source",
     ],
 }
@@ -236,6 +247,7 @@ REPORT_COPY_SCHEMA = {
         },
         "opinion": {"type": "string"},
         "reader_interest": {"type": "string"},
+        "follow_value": {"type": "string"},
         "tags": {
             "type": "array",
             "items": {"type": "string"},
@@ -243,7 +255,7 @@ REPORT_COPY_SCHEMA = {
             "maxItems": 2,
         },
     },
-    "required": ["hook", "facts", "opinion", "reader_interest", "tags"],
+    "required": ["hook", "facts", "opinion", "reader_interest", "follow_value", "tags"],
 }
 
 
@@ -281,6 +293,23 @@ def _recent_history(state: dict) -> list[dict]:
     if history:
         return history[-24:]
     return [dict(row) for row in state.get("posted_slots", [])][-24:]
+
+
+def _underrepresented_growth_topics(state: dict, now: dt.datetime, days: int = 7) -> list[str]:
+    """直近の偏りを緩和するため、成長に寄与する投稿系統を軽く誘導する。"""
+    cutoff = now.astimezone(dt.timezone.utc) - dt.timedelta(days=days)
+    counts = {topic: 0 for topic in GROWTH_TOPIC_ROTATION}
+    for row in state.get("history", []):
+        topic = str(row.get("topic_type", ""))
+        if topic not in counts:
+            continue
+        try:
+            posted_at = _parse_timestamp(str(row.get("posted_at", "")))
+        except (TypeError, ValueError):
+            continue
+        if posted_at >= cutoff:
+            counts[topic] += 1
+    return sorted(GROWTH_TOPIC_ROTATION, key=lambda topic: (counts[topic], GROWTH_TOPIC_ROTATION.index(topic)))[:3]
 
 
 def is_low_value_single_source_roundup(value: str) -> bool:
@@ -467,6 +496,7 @@ def build_research_prompt(
     recent_topics = [row.get("topic_type", "") for row in recent[-8:] if row.get("topic_type")]
     recent_urls = [row.get("source_url", "") for row in recent if row.get("source_url")]
     recent_headlines = [row.get("hook", "") for row in recent if row.get("hook")]
+    underrepresented_topics = _underrepresented_growth_topics(state, now)
     local = now.astimezone(JST)
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
@@ -491,6 +521,7 @@ topic_typeが異なる候補を優先してください。
 - 候補配列にはhas_candidate=trueの項目だけを入れる。適切な候補がない場合だけ空配列にしてskip_reasonを書く。古い話題で穴埋めしない。
 - 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
 - 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
+- follow_valueへ「この出来事を起点に、INUを継続してフォローすると追える投資テーマ・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。この値は内部の編集判定・振り返り用で、投稿本文には書かない。
 - hook・factsにも、reader_interestの根拠となる具体的な変更点を必ず入れる。「〜を公表へ」「公式ページでは〜」だけの投稿は禁止。
 - 事実の要約を繰り返さず、opinionでは「何が変わるか」または「次に何を見るか」を具体的に一つ書く。
 - opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い分ける。「僕は、〜と見ています」「〜がポイントです」「節目だと見ています」の定型的な結びは禁止。
@@ -502,6 +533,7 @@ topic_typeが異なる候補を優先してください。
 {VOICE_PROMPT}
 
 直近の投稿系統: {json.dumps(recent_topics, ensure_ascii=False)}
+直近7日間で手薄な投稿系統（速報性を損なわない範囲で優先的に検討）: {json.dumps(underrepresented_topics, ensure_ascii=False)}
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
 重複・近似テーマ禁止の直近見出し: {json.dumps(recent_headlines, ensure_ascii=False)}
 大手メディアの最新見出し（一次資料探索に使い、一次資料がない場合はreported_breaking_newsの最終出典として使用可）:
@@ -646,7 +678,7 @@ def build_trusted_media_candidate(
         f"""
 次の信頼できるニュースメディアの見出しとRSS要約だけを根拠に、INUのX投稿文を作成してください。
 外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100〜150文字程度を目標にします。
-hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。reader_interestには、読者が今この話題を見る具体的な理由を一文で書きます。公式ページや資料の存在を述べるだけ、または「公表へ」だけの投稿は作らないでください。金額・増減・決定・規制変更・需給・次の確認点のうち少なくとも一つを、hookかfactsに明示できない場合は投稿不適格です。
+hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。reader_interestには、読者が今この話題を見る具体的な理由を一文で書きます。follow_valueには、この出来事を起点にINUを継続してフォローすると追える投資テーマ・続報を一文で書きます。follow_valueはreader_interestの言い換えにせず、投稿本文へ入れません。公式ページや資料の存在を述べるだけ、または「公表へ」だけの投稿は作らないでください。金額・増減・決定・規制変更・需給・次の確認点のうち少なくとも一つを、hookかfactsに明示できない場合は投稿不適格です。
 opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い、「僕は、〜と見ています」「〜がポイントです」で終えません。売買推奨や価格予想をしません。
 絵文字は原則使わず、客観的に大きな速報ならhookの先頭に1個だけ使えます。
 元記事: {title}
@@ -669,6 +701,7 @@ RSS要約: {summary}
         "facts": copy["facts"],
         "opinion": copy["opinion"],
         "reader_interest": copy["reader_interest"],
+        "follow_value": copy["follow_value"],
         "source_name": signal["source"],
         "source_url": signal["url"],
         "published_at": published.isoformat(),
@@ -753,6 +786,7 @@ def validate_candidate(
         raise ValueError("単一ソースの総括記事は自動投稿できません")
 
     _validate_reader_interest(candidate)
+    _validate_follow_value(candidate)
 
     used_urls = {
         normalize_url(row.get("source_url", ""))
@@ -802,6 +836,25 @@ def _validate_reader_interest(candidate: dict) -> None:
         or MATERIAL_NUMBER_PATTERN.search(hook_and_facts)
     ):
         raise ValueError("公表予定だけで具体的な変化がないため自動投稿できません")
+
+
+def _validate_follow_value(candidate: dict) -> None:
+    """単発の閲覧価値と、継続フォローする価値を混同しない。"""
+    follow_value = " ".join(str(candidate.get("follow_value", "")).split())
+    reader_interest = " ".join(str(candidate.get("reader_interest", "")).split())
+    if len(follow_value) < 18:
+        raise ValueError("継続フォローする具体的な価値が不足しています")
+    compact_follow = _compact_text(follow_value)
+    compact_interest = _compact_text(reader_interest)
+    if GENERIC_SOURCE_FILLER_PATTERN.search(follow_value):
+        raise ValueError("継続フォロー価値が公式発表の紹介だけになっています")
+    if GENERIC_PUBLICATION_PATTERN.search(follow_value) and not (
+        MATERIAL_CHANGE_PATTERN.search(follow_value)
+        or MATERIAL_NUMBER_PATTERN.search(follow_value)
+    ):
+        raise ValueError("継続フォロー価値が公式発表の紹介だけになっています")
+    if compact_follow == compact_interest or compact_follow in compact_interest or compact_interest in compact_follow:
+        raise ValueError("継続フォロー価値が閲覧理由の言い換えになっています")
 
 
 def compose_candidate_text(candidate: dict) -> str:
@@ -1149,6 +1202,7 @@ def publish(args: argparse.Namespace) -> int:
         "published_at": candidate["published_at"],
         "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "hook": candidate["hook"],
+        "follow_value": candidate["follow_value"],
     }
     state["reservations"] = [
         row for row in state.get("reservations", []) if row.get("post_id") != item["id"]
