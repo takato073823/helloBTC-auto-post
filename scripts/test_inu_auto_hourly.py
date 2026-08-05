@@ -11,6 +11,8 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 import inu_auto_hourly
+import inu_manual_news
+import inu_quote_post
 
 
 NOW = dt.datetime(2026, 8, 4, 12, 0, tzinfo=dt.timezone.utc)
@@ -39,6 +41,10 @@ def candidate(**overrides) -> dict:
 
 
 class INUAutoHourlyTests(unittest.TestCase):
+    def test_individual_posts_use_state_files_separate_from_scheduled_posts(self):
+        self.assertNotEqual(inu_auto_hourly.STATE_PATH, inu_manual_news.STATE_PATH)
+        self.assertNotEqual(inu_auto_hourly.STATE_PATH, inu_quote_post.STATE_PATH)
+
     def test_tracking_parameters_are_removed(self):
         actual = inu_auto_hourly.normalize_url(
             "HTTPS://Example.COM/release/?utm_source=x&id=2#top"
@@ -399,6 +405,20 @@ class INUAutoHourlyTests(unittest.TestCase):
             self.assertEqual(2, build.call_count)
             prepared = json.loads(prepared_path.read_text(encoding="utf-8"))
             self.assertEqual(options[1]["source_url"], prepared["candidate"]["source_url"])
+
+    def test_fallback_skips_only_after_primary_checked_same_slot(self):
+        args = SimpleNamespace(
+            state="/tmp/unused-state.json",
+            slot="2026-08-04-21",
+            priority_url="",
+            dry_run=False,
+        )
+        state = {"scheduled_checks": [{"slot": args.slot, "result": "no_verified_candidate"}]}
+        with patch.dict("os.environ", {"INU_SCHEDULE_RUN_KIND": "fallback"}, clear=False), patch.object(
+            inu_auto_hourly, "load_state", return_value=state
+        ), patch.object(inu_auto_hourly, "research_candidates_with_grok") as research:
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        research.assert_not_called()
 
 
 if __name__ == "__main__":

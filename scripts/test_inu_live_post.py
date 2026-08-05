@@ -30,6 +30,8 @@ class INULivePostTests(unittest.TestCase):
 
     def test_attention_visual_requires_and_uploads_evidence_as_second_image(self):
         artifacts = REPO_ROOT / "scripts" / "artifacts"
+        # GitHub Actions のクリーンな実行環境には成果物ディレクトリがない。
+        artifacts.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=artifacts) as directory:
             root = Path(directory)
             main = root / "main.png"

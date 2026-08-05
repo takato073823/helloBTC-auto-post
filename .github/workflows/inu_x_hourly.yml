@@ -2,9 +2,11 @@ name: INU 画像付き毎時投稿
 
 on:
   schedule:
-    # 毎時0分はGitHub Actionsの混雑で欠落しやすい。17分に本実行し、47分に同一枠を再確認する。
-    # 投稿済み・予約済みの時間枠はスクリプト側で即時終了するため、二重投稿にはならない。
+    # 毎時0分はGitHub Actionsの混雑で欠落しやすい。17分に本実行する。
+    # 37分の予備実行は、17分の実行自体が取りこぼされた場合だけ復旧する。
+    # 投稿済み・予約済み・調査済みの時間枠はスクリプト側で即時終了するため、二重投稿にはならない。
     - cron: "17 * * * *"
+    - cron: "37 * * * *"
     - cron: "47 * * * *"
   workflow_dispatch:
     inputs:
@@ -25,6 +27,8 @@ jobs:
   dispatch:
     if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
+    env:
+      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '17 * * * *' && 'primary' || github.event.schedule == '37 * * * *' && 'fallback' || 'retry' }}
 
     steps:
       - name: リポジトリをチェックアウト
@@ -76,8 +80,18 @@ jobs:
           path: scripts/artifacts/inu-auto/
           retention-days: 3
 
-      - name: 投稿予約を先に保存
-        if: steps.prepare.outputs.ready == 'true'
+      - name: スケジュール実行状態を先に保存
+        if: github.event_name == 'schedule'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU scheduled check [skip ci]"
+          git pull --rebase
+          git push
+
+      - name: 手動実行の投稿予約を先に保存
+        if: github.event_name == 'workflow_dispatch' && steps.prepare.outputs.ready == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"

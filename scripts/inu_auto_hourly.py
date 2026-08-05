@@ -41,6 +41,7 @@ PREPARED_PATH = ARTIFACT_DIR / "prepared.json"
 CURATED_X_SOURCES_PATH = SCRIPT_DIR / "inu_curated_x_sources.json"
 MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
+MAX_SCHEDULED_CHECKS = 168
 
 AUTO_TOPIC_TYPES = (
     "breaking_news",
@@ -856,6 +857,31 @@ def _generated_editorial_visual_count(state: dict, now: dt.datetime) -> int:
     )
 
 
+def _scheduled_run_kind() -> str:
+    """GitHub の定刻実行だけに、主実行／予備実行の識別子を与える。"""
+    return os.environ.get("INU_SCHEDULE_RUN_KIND", "").strip().lower()
+
+
+def _has_completed_scheduled_check(state: dict, slot: str) -> bool:
+    return any(row.get("slot") == slot for row in state.get("scheduled_checks", []))
+
+
+def _record_scheduled_check(state: dict, slot: str, now: dt.datetime, kind: str) -> dict:
+    """候補なしでも、主実行済みであることを予備実行へ引き継ぐ。"""
+    updated = dict(state)
+    checks = list(state.get("scheduled_checks", []))
+    checks.append(
+        {
+            "slot": slot,
+            "checked_at": now.isoformat(),
+            "kind": kind,
+            "result": "no_verified_candidate",
+        }
+    )
+    updated["scheduled_checks"] = checks[-MAX_SCHEDULED_CHECKS:]
+    return updated
+
+
 def _build_item_from_candidate(
     candidate: dict,
     sources: list[dict[str, str]],
@@ -946,9 +972,17 @@ def prepare(args: argparse.Namespace) -> int:
     slot = args.slot or slot_key(now)
     state_path = Path(args.state)
     state = load_state(state_path)
+    scheduled_kind = _scheduled_run_kind()
     occupied = list(state.get("posted_slots", [])) + list(state.get("reservations", []))
     if any(row.get("slot") == slot for row in occupied):
         logger.info("この時間は投稿済みまたは予約済みです: %s", slot)
+        _emit_output("ready", "false")
+        return 0
+
+    # 37分の予備実行は、17分の主実行が候補なしまで完了している場合だけ省略する。
+    # 主実行そのものが取りこぼされた場合は、予備実行が通常どおり調査・投稿する。
+    if scheduled_kind == "fallback" and _has_completed_scheduled_check(state, slot):
+        logger.info("主実行でこの時間の調査が完了済みです: %s", slot)
         _emit_output("ready", "false")
         return 0
 
@@ -1006,6 +1040,8 @@ def prepare(args: argparse.Namespace) -> int:
 
     if item is None or candidate is None:
         logger.info("今時間の投稿を見送り: 検証と画像取得を通過する最新候補がありません")
+        if scheduled_kind in {"primary", "fallback"} and not args.dry_run:
+            save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
         _emit_output("ready", "false")
         return 0
 
