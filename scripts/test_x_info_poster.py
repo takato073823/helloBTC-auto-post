@@ -182,6 +182,23 @@ class XInfoPosterTests(unittest.TestCase):
         self.assertIsNone(result)
         self.assertFalse(hasattr(client, "kwargs"))
 
+    def test_link_card_keeps_article_url_unchanged_and_uploads_no_media(self):
+        client = FakeClient()
+        secrets = {
+            "X_API_KEY": "test",
+            "X_API_KEY_SECRET": "test",
+            "X_ACCESS_TOKEN": "test",
+            "X_ACCESS_TOKEN_SECRET": "test",
+        }
+        article_url = "https://crypto.com/news/market-update"
+        with patch.dict(os.environ, secrets), patch.object(
+            x_poster, "_get_client", return_value=client
+        ), patch.object(x_poster, "_get_oauth1_api") as media_api:
+            result = x_poster.post_link_card_tweet("Crypto.comの内容", article_url)
+        self.assertEqual("tweet-456", result)
+        self.assertEqual(f"Crypto(.)comの内容\n\n{article_url}", client.kwargs["text"])
+        media_api.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -154,6 +154,30 @@ class INUAutoHourlyTests(unittest.TestCase):
             NOW,
         )
 
+    def test_reported_news_builds_a_native_link_card_without_image_capture(self):
+        item = candidate(
+            topic_type="reported_breaking_news",
+            source_url="https://www.coindesk.com/policy/new-rule",
+            visual_route="reported_text_crop",
+            is_primary_source=False,
+        )
+        with patch.object(
+            inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+        ), patch.object(inu_auto_hourly, "capture_official_evidence") as evidence, patch.object(
+            inu_auto_hourly, "capture_source_hero_image"
+        ) as hero:
+            built, _ = inu_auto_hourly._build_item_from_candidate(
+                item,
+                [{"url": item["source_url"], "title": "new rule"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+                "2026-08-04-21",
+            )
+        self.assertEqual(item["source_url"], built["link_card_url"])
+        self.assertNotIn("media_path", built)
+        evidence.assert_not_called()
+        hero.assert_not_called()
+
     def test_media_and_text_are_always_required_by_prepared_item(self):
         text = inu_auto_hourly.compose_candidate_text(candidate())
         self.assertIn("僕の見方では", text)

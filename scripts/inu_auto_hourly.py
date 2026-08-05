@@ -994,6 +994,19 @@ def _build_item_from_candidate(
     verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url
 
+    # 報道記事は画像を再利用せず、共有ボタンと同じネイティブ記事カードを使う。
+    # 公式資料・チャート・オンチェーンの投稿は、従来どおり根拠画像を添付する。
+    if selected["topic_type"] == "reported_breaking_news":
+        item = {
+            "id": _candidate_id(selected),
+            "topic_type": selected["topic_type"],
+            "visual_route": selected["visual_route"],
+            "text": compose_candidate_text(selected),
+            "link_card_url": verified_url,
+        }
+        validate_test_item(item)
+        return item, selected
+
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     evidence_path = ARTIFACT_DIR / f"{slot}-evidence.png"
     spec = SourceCaptureSpec(

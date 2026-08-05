@@ -183,6 +183,30 @@ def post_info_tweet(text: str, media_path: str | Path | Sequence[str | Path]) ->
         return None
 
 
+def post_link_card_tweet(text: str, article_url: str) -> str | None:
+    """記事URLをそのまま添え、Xネイティブのリンクカードとして投稿する。
+
+    報道記事の見出し・サムネイルは媒体側のカードを使うため、画像を再利用・再生成
+    しない。本文のサービス名だけを非リンク表記にし、記事URL自体は絶対に変換しない。
+    """
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のためリンクカード投稿をスキップ")
+        return None
+    if not re.fullmatch(r"https://[^\s]+", article_url.strip()):
+        logger.warning("Xリンクカード投稿をスキップ（記事URLが不正です）: %s", article_url)
+        return None
+    try:
+        safe_text = _neutralize_service_domains(text).rstrip()
+        # URL は必ず原文のまま末尾に置く。X が記事のOG情報からカードを生成する。
+        response = _get_client().create_tweet(text=f"{safe_text}\n\n{article_url.strip()}")
+        tweet_id = response.data["id"]
+        logger.info("Xリンクカード投稿完了: https://x.com/i/web/status/%s", tweet_id)
+        return tweet_id
+    except Exception as e:
+        logger.warning("Xリンクカード投稿失敗（既存の記事投稿には影響しません）: %s", e)
+        return None
+
+
 def post_quote_tweet(text: str, quote_tweet_id: str) -> str | None:
     """元投稿を引用してINUの見解を投稿する。
 

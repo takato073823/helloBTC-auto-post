@@ -14,8 +14,8 @@ from typing import Callable
 from PIL import Image
 
 from inu_content_types import get_content_policy
-from inu_post import validate_post
-from x_poster import _neutralize_service_domains, post_info_tweet
+from inu_post import MAX_WEIGHTED_LENGTH, validate_post, weighted_length
+from x_poster import _neutralize_service_domains, post_info_tweet, post_link_card_tweet
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -100,6 +100,25 @@ def _validate_evidence_manifest(manifest: dict, visual_route: str, policy) -> No
         raise ValueError("出典URLが不正です")
 
 
+def _validate_link_card_item(item: dict) -> str:
+    """主要メディア記事だけを、Xネイティブのリンクカードとして送る。"""
+    required = {"id", "topic_type", "visual_route", "text", "link_card_url"}
+    missing = sorted(required - set(item))
+    if missing:
+        raise ValueError(f"リンクカード投稿データが不足しています: {missing}")
+    if item["topic_type"] != "reported_breaking_news" or item["visual_route"] != "reported_text_crop":
+        raise ValueError("リンクカードは主要メディア速報だけで使えます")
+    article_url = str(item["link_card_url"]).strip()
+    if not re.fullmatch(r"https://[^\s]+", article_url):
+        raise ValueError("リンクカードの記事URLが不正です")
+    safe_text = _neutralize_service_domains(str(item["text"]).strip())
+    validate_post(safe_text)
+    # Xの短縮URL分を予約する。本文はURLを含めないため、サービス名だけを変換できる。
+    if weighted_length(safe_text) > MAX_WEIGHTED_LENGTH - 24:
+        raise ValueError("リンクカードURLを含めるとXの文字数上限を超えます")
+    return safe_text
+
+
 def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
     required = {
         "id",
@@ -161,7 +180,9 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
     return safe_text, media_paths
 
 
-def validate_test_item(item: dict) -> tuple[str, Path]:
+def validate_test_item(item: dict) -> tuple[str, Path | None]:
+    if item.get("link_card_url"):
+        return _validate_link_card_item(item), None
     safe_text, media_paths = validated_media_paths(item)
     return safe_text, media_paths[0]
 
@@ -169,8 +190,14 @@ def validate_test_item(item: dict) -> tuple[str, Path]:
 def publish_test_item(
     item: dict,
     *,
-    poster: Callable[[str, Path], str | None] = post_info_tweet,
+    poster: Callable[..., str | None] = post_info_tweet,
 ) -> str:
+    if item.get("link_card_url"):
+        safe_text = _validate_link_card_item(item)
+        tweet_id = poster(safe_text, str(item["link_card_url"]).strip())
+        if not tweet_id:
+            raise RuntimeError("X投稿に失敗しました。文字だけの代替投稿は行っていません")
+        return str(tweet_id)
     safe_text, media_paths = validated_media_paths(item)
     media = media_paths[0] if len(media_paths) == 1 else media_paths
     tweet_id = poster(safe_text, media)
@@ -192,7 +219,8 @@ def run(args: argparse.Namespace) -> int:
     if os.environ.get("GITHUB_RUN_ATTEMPT", "1") != "1":
         raise RuntimeError("GitHub Actionsの再実行は重複投稿防止のため禁止しています")
 
-    tweet_id = publish_test_item(item)
+    poster = post_link_card_tweet if item.get("link_card_url") else post_info_tweet
+    tweet_id = publish_test_item(item, poster=poster)
     tweet_url = f"https://x.com/hellobtc_jp/status/{tweet_id}"
     logger.info("INUテスト投稿完了: %s", tweet_url)
     output_file = os.environ.get("GITHUB_OUTPUT")

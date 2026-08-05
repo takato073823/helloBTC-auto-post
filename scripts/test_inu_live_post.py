@@ -28,6 +28,38 @@ class INULivePostTests(unittest.TestCase):
         tweet_id = publish_test_item(item, poster=lambda _text, _path: "123")
         self.assertEqual("123", tweet_id)
 
+    def test_reported_news_uses_native_article_card_without_uploaded_images(self):
+        item = {
+            "id": "reported_card",
+            "topic_type": "reported_breaking_news",
+            "visual_route": "reported_text_crop",
+            "text": "米国の暗号資産規制に新しい動き。\n\n僕としては、実務ルールがいつ示されるかを確認したいです。\n\n#仮想通貨",
+            "link_card_url": "https://www.nikkei.com/article/DGXZQOUB037270T00C26A8000000/",
+        }
+        text, media_path = validate_test_item(item)
+        self.assertIsNone(media_path)
+        self.assertNotIn("https://", text)
+        published = []
+        self.assertEqual(
+            "789",
+            publish_test_item(
+                item,
+                poster=lambda post_text, url: published.append((post_text, url)) or "789",
+            ),
+        )
+        self.assertEqual([(text, item["link_card_url"])], published)
+
+    def test_link_card_rejects_non_reported_news_routes(self):
+        item = {
+            "id": "invalid_card",
+            "topic_type": "etf_flow",
+            "visual_route": "official_data_crop",
+            "text": "ETFの資金流入を確認。\n\n僕としては、流入先の広がりを確認したいです。",
+            "link_card_url": "https://example.com/official",
+        }
+        with self.assertRaisesRegex(ValueError, "主要メディア速報"):
+            validate_test_item(item)
+
     def test_attention_visual_requires_and_uploads_evidence_as_second_image(self):
         artifacts = REPO_ROOT / "scripts" / "artifacts"
         # GitHub Actions のクリーンな実行環境には成果物ディレクトリがない。
