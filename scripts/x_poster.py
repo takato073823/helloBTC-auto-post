@@ -183,6 +183,67 @@ def post_info_tweet(text: str, media_path: str | Path | Sequence[str | Path]) ->
         return None
 
 
+def post_info_reply_tweet(
+    text: str,
+    media_path: str | Path | Sequence[str | Path],
+    reply_to_tweet_id: str,
+) -> str | None:
+    """根拠画像を添えた返信を1件だけ送る。
+
+    INUの成長施策では、相手の投稿より具体的な一次情報を示せる場合だけ使う。
+    画像取得・投稿のどちらかが失敗しても、文字だけの返信には切り替えない。
+    """
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のため情報返信をスキップ")
+        return None
+    if not re.fullmatch(r"\d{15,22}", str(reply_to_tweet_id)):
+        logger.warning("X情報返信をスキップ（返信先IDが不正です）: %s", reply_to_tweet_id)
+        return None
+    raw_paths = (
+        list(media_path)
+        if isinstance(media_path, Sequence) and not isinstance(media_path, (str, Path))
+        else [media_path]
+    )
+    paths = [Path(path) for path in raw_paths]
+    if not paths or len(paths) > 4 or any(not path.is_file() for path in paths):
+        logger.warning("X情報返信をスキップ（画像が不正です）: %s", paths)
+        return None
+    try:
+        safe_text = _neutralize_service_domains(text)
+        uploader = _get_oauth1_api()
+        media_ids = []
+        for path in paths:
+            media = uploader.media_upload(filename=str(path))
+            media_ids.append(str(getattr(media, "media_id_string", None) or media.media_id))
+        response = _get_client().create_tweet(
+            text=safe_text,
+            media_ids=media_ids,
+            in_reply_to_tweet_id=str(reply_to_tweet_id),
+        )
+        tweet_id = response.data["id"]
+        logger.info("X情報返信完了: https://x.com/i/web/status/%s", tweet_id)
+        return tweet_id
+    except Exception as e:
+        logger.warning("X情報返信失敗（文字だけの代替返信は行いません）: %s", e)
+        return None
+
+
+def like_tweet(tweet_id: str) -> bool:
+    """監視対象の新規投稿に限定して、1回のいいねを送る。"""
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のためいいねをスキップ")
+        return False
+    if not re.fullmatch(r"\d{15,22}", str(tweet_id)):
+        logger.warning("Xいいねをスキップ（投稿IDが不正です）: %s", tweet_id)
+        return False
+    try:
+        response = _get_client().like(str(tweet_id), user_auth=True)
+        return bool(response.data.get("liked"))
+    except Exception as e:
+        logger.warning("Xいいね失敗（再試行しません）: %s", e)
+        return False
+
+
 def post_link_card_tweet(text: str, article_url: str) -> str | None:
     """記事URLをそのまま添え、Xネイティブのリンクカードとして投稿する。
 

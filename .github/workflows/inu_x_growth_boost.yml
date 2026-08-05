@@ -1,0 +1,56 @@
+name: INU フォロワー成長ブースト
+
+on:
+  schedule:
+    # 速報探索と初動反応を両立しつつ、既存の毎時投稿の17分・37分を避ける。
+    - cron: "4,14,24,34,44,54 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  # 通常の毎時・速報投稿と同じキューに入れ、同時投稿や状態競合を防ぐ。
+  group: inu-x-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  boost:
+    if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - run: pip install --timeout 120 -r requirements.txt
+
+      - name: 一次資料の画像取得環境をセットアップ
+        run: python -m playwright install --with-deps chromium
+
+      - name: 成長施策の安全ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_growth_boost.py test_x_poster_rules.py
+
+      - name: A〜Dを最大1件だけ実行
+        working-directory: scripts
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          XAI_RESEARCH_MODEL: grok-4.3
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python inu_growth_boost.py
+
+      - name: 成長施策の状態を保存
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_growth_boost_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU growth boost [skip ci]"
+          git pull --rebase
+          git push
