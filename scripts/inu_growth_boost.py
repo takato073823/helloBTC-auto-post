@@ -32,6 +32,8 @@ from inu_hourly_dispatcher import JST
 from inu_persona import VOICE_PROMPT
 from inu_post import compose_post, validate_post
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
+from inu_growth_watchlist import STATE_PATH as WATCHLIST_STATE_PATH, load_state as load_watchlist_state
+from x_list_client import XListClient
 from x_poster import _get_client, like_tweet, post_info_reply_tweet, post_info_tweet
 
 
@@ -168,8 +170,16 @@ def _daily_count(state: dict, tactic: str, now: dt.datetime) -> int:
     return count
 
 
-def build_prompt(now: dt.datetime, state: dict) -> str:
+def build_prompt(now: dt.datetime, state: dict, target_posts: list[dict] | None = None) -> str:
     used = [row.get("post_url", "") for row in _recent_actions(state, now)]
+    watchlist_context = ""
+    if target_posts:
+        links = "\n".join(f"- @{row['handle']}: {row['post_url']}" for row in target_posts[:24])
+        watchlist_context = f"""
+今回の対象は、A〜D用に適格性を確認済みのXリストの新着投稿です。
+A/B/Cは必ず次の投稿またはその投稿者だけを対象にしてください。リスト外のアカウントは候補にしません。
+{links}
+"""
     return f"""
 あなたは、投資情報アカウントINUの成長施策を厳選する編集者です。現在は
 {now.astimezone(JST).isoformat()}（日本時間）。X Searchで直近2時間の投稿を確認し、
@@ -199,15 +209,17 @@ D（トレンドワード接続）: Xでいま上昇している話題を、暗�
 - Dはtrend_keywordを必ず書く。自然な接続を一文で説明できないなら候補にしない。
 - すべて投稿後2時間以内、同じ出来事は1件だけ。
 
+{watchlist_context}
+
 {VOICE_PROMPT}
 
 すでに実行済み・除外対象の投稿: {json.dumps(used, ensure_ascii=False)}
 """.strip()
 
 
-def collect_candidates(now: dt.datetime, state: dict) -> list[dict]:
+def collect_candidates(now: dt.datetime, state: dict, target_posts: list[dict] | None = None) -> list[dict]:
     payload, _ = generate_x_json(
-        build_prompt(now, state),
+        build_prompt(now, state, target_posts),
         schema_name="inu_growth_boost_candidates",
         schema=BOOST_SCHEMA,
         from_date=now.astimezone(JST).date() - dt.timedelta(days=1),
@@ -217,8 +229,91 @@ def collect_candidates(now: dt.datetime, state: dict) -> list[dict]:
     return [row for row in payload.get("signals", []) if isinstance(row, dict)]
 
 
-def discover_boost_b(now: dt.datetime, state: dict, client=None) -> dict | None:
-    """通知ONの代わりに、厳選リストを定期ポーリングして初動だけを拾う。"""
+def active_watchlist_handles() -> set[str]:
+    """200件の適格リストに実際に同期済みのアカウントだけを返す。"""
+    try:
+        watchlist = load_watchlist_state(WATCHLIST_STATE_PATH)
+    except Exception:
+        return set()
+    return {
+        str(row.get("handle", "")).lower()
+        for row in watchlist.get("members", {}).values()
+        if row.get("tier") == "member" and row.get("handle")
+    }
+
+
+def recent_watchlist_posts(client=None) -> list[dict]:
+    """200件を個別巡回せず、Xリストの統合タイムラインから新着を取得する。"""
+    watchlist = load_watchlist_state(WATCHLIST_STATE_PATH)
+    list_id = str(watchlist.get("list_id", "")).strip()
+    members = {
+        str(row.get("user_id")): str(row.get("handle"))
+        for row in watchlist.get("members", {}).values()
+        if row.get("tier") == "member" and row.get("user_id") and row.get("handle")
+    }
+    if not list_id or not members:
+        return []
+    rows: list[dict] = []
+    for tweet in XListClient(client or _get_client()).recent_tweets(list_id, max_pages=3):
+        if isinstance(tweet, dict):
+            tweet_id = str(tweet.get("id", ""))
+            author_id = str(tweet.get("author_id", ""))
+            text = str(tweet.get("text", ""))
+            posted_at = tweet.get("created_at")
+        else:
+            tweet_id = str(getattr(tweet, "id", ""))
+            author_id = str(getattr(tweet, "author_id", ""))
+            text = str(getattr(tweet, "text", ""))
+            posted_at = getattr(tweet, "created_at", None)
+        handle = members.get(author_id)
+        if tweet_id and handle and posted_at:
+            rows.append({
+                "post_url": f"https://x.com/{handle}/status/{tweet_id}",
+                "target_handle": handle,
+                "handle": handle,
+                "posted_at": str(posted_at),
+                "text": text,
+            })
+    return rows
+
+
+def _boost_b_from_watchlist_posts(now: dt.datetime, state: dict, posts: list[dict]) -> dict | None:
+    if _daily_count(state, "B", now) >= DAILY_LIMITS["B"]:
+        return None
+    newest: tuple[dt.datetime, dict] | None = None
+    for row in posts:
+        try:
+            posted_at = _parse_timestamp(str(row["posted_at"]))
+        except (TypeError, ValueError):
+            continue
+        age = now.astimezone(dt.timezone.utc) - posted_at
+        text = str(row.get("text", ""))
+        lower = text.lower()
+        if age < dt.timedelta(minutes=-5) or age > dt.timedelta(minutes=MAX_AGE_MINUTES["B"]):
+            continue
+        if not any(keyword.lower() in lower for keyword in BOOST_B_KEYWORDS):
+            continue
+        if any(blocked in lower for blocked in BOOST_B_BLOCKED):
+            continue
+        candidate = {
+            "tactic": "B", "post_url": row["post_url"], "target_handle": row["handle"],
+            "posted_at": posted_at.isoformat(), "source_name": "", "source_url": "",
+            "source_published_at": "", "evidence_anchor": "", "hook": "", "facts": [],
+            "opinion": "", "reply_text": "", "mention_context": "", "trend_keyword": "",
+            "why_this_matters": "", "estimated_recent_impressions": 0,
+            "why_target": "INUのA〜D対象として適格性を確認済みの投資情報アカウントによる新規投稿のため",
+        }
+        if newest is None or posted_at > newest[0]:
+            newest = (posted_at, candidate)
+    return newest[1] if newest else None
+
+
+def discover_boost_b(now: dt.datetime, state: dict, client=None, target_posts: list[dict] | None = None) -> dict | None:
+    """通知ONの代わりに、適格200件の統合タイムラインを優先して初動を拾う。"""
+    watched = _boost_b_from_watchlist_posts(now, state, target_posts or [])
+    if watched:
+        return watched
+    # リストの初回構築前・Xリスト読取失敗時だけ、既存の12件へ限定して安全にフォールバックする。
     if _daily_count(state, "B", now) >= DAILY_LIMITS["B"]:
         return None
     api = client or _get_client()
@@ -321,6 +416,9 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
     handle = str(candidate.get("target_handle", "")).strip().lstrip("@")
     if not re.fullmatch(r"[A-Za-z0-9_]{1,15}", handle):
         raise ValueError("対象アカウントが不正です")
+    known_targets = active_watchlist_handles()
+    if known_targets and handle.lower() not in known_targets:
+        raise ValueError("A〜D対象リスト外のアカウントです")
     if tactic == "A" and int(candidate.get("estimated_recent_impressions", 0)) < 1_000:
         raise ValueError("Aの対象に必要な反応水準を満たしません")
     if tactic == "C" and int(candidate.get("estimated_recent_impressions", 0)) < 10_000:
@@ -438,9 +536,16 @@ def run(args: argparse.Namespace) -> int:
         save_state(state, Path(args.state))
         return 0
     try:
+        # 200件の対象リストは統合タイムラインを1回読むだけで確認する。
+        # 個別アカウントを大量巡回しないため、X APIの読取枠を圧迫しない。
+        target_posts = recent_watchlist_posts()
+    except Exception as exc:
+        logger.info("ブースト対象リストを取得できません: %s", exc)
+        target_posts = []
+    try:
         # BはGrokの候補抽出を待たず、厳選リストの新規投稿だけを初動で確認する。
         # これにより「通知ON＋最初のいいね」を10分間隔で自動化する。
-        boost_b = discover_boost_b(now, state)
+        boost_b = discover_boost_b(now, state, target_posts=target_posts)
     except Exception as exc:
         logger.warning("Bの初動監視に失敗したため、候補探索へ進みます: %s", exc)
         boost_b = None
@@ -450,7 +555,7 @@ def run(args: argparse.Namespace) -> int:
         logger.info("ブースト実行結果: %s", tactic or "候補なし")
         return 0
     try:
-        candidates = collect_candidates(now, state)
+        candidates = collect_candidates(now, state, target_posts)
     except Exception as exc:
         # X Searchの引用が返らない・一時的に検索できない場合は、古い候補や
         # 推測で穴埋めせず、この回を候補なしとして終了する。
