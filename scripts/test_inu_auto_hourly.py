@@ -243,6 +243,39 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_earnings_schedule_or_ir_calendar_is_rejected_before_posting(self):
+        item = candidate(
+            topic_type="earnings",
+            hook="GSユアサ、15時に1Q決算を発表予定",
+            facts=["IRカレンダーに第1四半期決算発表を掲載しています。"],
+            evidence_anchor="2027年3月期 第1四半期決算発表",
+            reader_interest="発表予定を確認し、決算結果を待つ材料になるためです。",
+            follow_value="GSユアサの車載・産業用電池の利益率と通期見通しを継続して追えるため",
+        )
+        with self.assertRaisesRegex(ValueError, "予定・IRカレンダー"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "IRカレンダー"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
+    def test_earnings_result_with_specific_metrics_can_be_considered(self):
+        item = candidate(
+            topic_type="earnings",
+            hook="GSユアサ、1Q営業利益が前年同期比18％増",
+            facts=["車載電池の増収で通期見通しを据え置きました。"],
+            evidence_anchor="営業利益は前年同期比18％増",
+            reader_interest="利益率と通期見通しから、車載電池の需要を確認できるためです。",
+            follow_value="車載・産業用電池の利益率と通期見通しを継続して追えるためです。",
+        )
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "決算短信"}],
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            NOW,
+        )
+
     def test_follow_value_cannot_repeat_reader_interest(self):
         item = candidate(follow_value=candidate()["reader_interest"])
         with self.assertRaisesRegex(ValueError, "閲覧理由の言い換え"):
@@ -281,6 +314,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("直近7日間で手薄な投稿系統", prompt)
         self.assertIn("onchain", prompt)
         self.assertNotIn("必ずこの系統", prompt)
+        self.assertIn("決算発表予定、IRカレンダー、説明会予定", prompt)
 
     def test_priority_signal_cannot_switch_to_another_rss_story(self):
         selected = {

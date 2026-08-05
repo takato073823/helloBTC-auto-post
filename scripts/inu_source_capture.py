@@ -122,7 +122,9 @@ async def capture_official_evidence(
         try:
             await page.goto(spec.source_url, wait_until="domcontentloaded", timeout=timeout_ms)
             await page.wait_for_timeout(1200)
-            for label in ("同意しない", "拒否", "Accept", "I agree", "閉じる"):
+            # 同意画面が根拠を覆ったまま保存されると、公式資料そのものの意味を
+            # 損なう。閉じられるものだけを押し、残った場合は切り抜きに進めない。
+            for label in ("同意しない", "拒否", "同意", "Accept", "I agree", "閉じる"):
                 button = page.get_by_role("button", name=label, exact=False).first
                 try:
                     if await button.is_visible(timeout=250):

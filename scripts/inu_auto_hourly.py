@@ -129,6 +129,16 @@ MATERIAL_NUMBER_PATTERN = re.compile(
     r"(?:[$¥€£]\s?\d|\d[\d,.]*\s?(?:%|％|ドル|円|億|万|兆|BTC|ETH|株|bp|ベーシス))",
     re.IGNORECASE,
 )
+# 事前に決まっているIR日程やカレンダーは、結果・変更・市場反応ではない。
+# 「今日○時に決算予定」のような候補を、鮮度だけでニュース扱いしない。
+ROUTINE_SCHEDULE_PATTERN = re.compile(
+    r"(?:IRカレンダー|今後の予定|決算(?:発表)?(?:予定|日)|業績(?:発表)?(?:予定|日)|"
+    r"決算説明会|決算(?:を)?発表予定|業績(?:を)?発表予定|定例(?:入札|会合).{0,12}予定)"
+)
+EARNINGS_RESULT_PATTERN = re.compile(
+    r"(?:売上(?:高)?|営業利益|経常利益|純利益|EBITDA|EPS|通期(?:予想|見通し)?|"
+    r"業績(?:予想|見通し)|上方修正|下方修正|増収|減収|増益|減益|黒字|赤字|前年比)"
+)
 
 CANDIDATE_SCHEMA = {
     "type": "object",
@@ -515,6 +525,7 @@ topic_typeが異なる候補を優先してください。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
 - evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。
 - evidence_as_primaryは、根拠スクリーンショット自体が一目で意味の分かる公式資料・表・チャート・図版の場合だけtrueにする。単なる記事見出しや本文、余白の多いページならfalseにする。trueなら画像はその根拠スクリーンショット1枚だけで投稿する。
+- 決算・業績は、売上・利益・通期見通し・修正などの実績または具体的な変更が公開済みの場合だけ選ぶ。決算発表予定、IRカレンダー、説明会予定、発表時刻だけのページは候補から除外する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
 - 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
 - まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
@@ -824,8 +835,18 @@ def _validate_reader_interest(candidate: dict) -> None:
         raise ValueError("読者が今見る具体的な理由が不足しています")
 
     hook_and_facts = " ".join(
-        [str(candidate.get("hook", "")), *[str(fact) for fact in candidate.get("facts", [])]]
+        [
+            str(candidate.get("hook", "")),
+            *[str(fact) for fact in candidate.get("facts", [])],
+            str(candidate.get("evidence_anchor", "")),
+        ]
     )
+    if ROUTINE_SCHEDULE_PATTERN.search(hook_and_facts):
+        raise ValueError("予定・IRカレンダーだけでは自動投稿できません")
+    if candidate.get("topic_type") == "earnings" and not EARNINGS_RESULT_PATTERN.search(
+        hook_and_facts
+    ):
+        raise ValueError("決算実績・業績見通しの具体的根拠がないため自動投稿できません")
     if GENERIC_SOURCE_FILLER_PATTERN.search(hook_and_facts):
         raise ValueError("公式ページの説明だけでは自動投稿できません")
 
