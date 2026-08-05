@@ -99,7 +99,6 @@ SECONDARY_HOSTS = {
 TRUSTED_MEDIA_HOSTS = {
     "bloomberg.com",
     "coindesk.com",
-    "cointelegraph.com",
     "decrypt.co",
     "nikkei.com",
     "reuters.com",
@@ -520,7 +519,7 @@ topic_typeが異なる候補を優先してください。
   「日本企業IR」「中央銀行・規制当局」「Xで話題になった公式発表」の観点を分けて検索してから比較する。
 - ニュースメディアやXの話題は発見に使ってよいが、最終source_urlは発表主体の公式サイト、規制当局、中央銀行、取引所、上場企業IR、ETF発行体、公式データ提供元などの一次資料にする。
 - 「Grok X Search」と記載されたシグナルのX URLは発見専用であり、最終source_urlには絶対に使わない。投稿内容を公式発表・一次データで独立に確認できない場合は候補から除外する。
-- 一次資料へ到達できない速報だけは、Reuters、Nikkei、Bloomberg、CoinDesk、Cointelegraph、Decrypt、The Blockの元記事をsource_urlにしてよい。その場合topic_typeはreported_breaking_news、visual_routeはreported_text_crop、is_primary_source=falseにする。
+- 一次資料へ到達できない速報だけは、Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Blockの元記事をsource_urlにしてよい。その場合topic_typeはreported_breaking_news、visual_routeはreported_text_crop、is_primary_source=falseにする。Cointelegraphはネイティブカードが掲載元の識別可能な画像を表示するため、自動投稿の最終出典に使わない。
 - source_urlは今回のWeb検索結果に実際に含まれるURLを使う。ただしreported_breaking_newsだけは、下記「大手メディアの最新見出し」に含まれる元記事URLも使える。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
 - evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。

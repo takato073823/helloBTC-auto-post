@@ -154,6 +154,18 @@ class INUAutoHourlyTests(unittest.TestCase):
             NOW,
         )
 
+    def test_cointelegraph_is_not_an_automatic_native_card_source(self):
+        signals = [
+            {
+                "title": "A material crypto market change",
+                "source": "Cointelegraph",
+                "published": "Tue, 04 Aug 2026 11:40:44 +0000",
+                "url": "https://cointelegraph.com/news/material-change",
+                "summary": "A verified, material market development with concrete details.",
+            }
+        ]
+        self.assertEqual([], inu_auto_hourly.trusted_media_signals(NOW, {"history": []}, signals))
+
     def test_reported_news_builds_a_native_link_card_without_image_capture(self):
         item = candidate(
             topic_type="reported_breaking_news",
