@@ -92,6 +92,19 @@
       "posted_at": "2026-08-05T10:51:16.389392+00:00",
       "hook": "🏦S&P、ブラックロックのトークン化準備基金に最高水準の安定性評価",
       "follow_value": "今後は、トークン化金融商品の信用評価とステーブルコインの格付け動向を追えます。"
+    },
+    {
+      "slot": "2026-08-05-20",
+      "post_id": "inu_auto_b9609a2e967baa",
+      "tweet_id": "2084961263726297308",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://decrypt.co/374941/ex-lapd-officer-gets-life-plus-15-years-over-350k-bitcoin-robbery",
+      "published_at": "2026-08-05T09:52:42+00:00",
+      "posted_at": "2026-08-05T11:14:36.775584+00:00",
+      "hook": "🚨元LAPD警官、35万ドル相当のビットコイン強盗で終身刑＋15年",
+      "follow_value": "今後は暗号資産の保管、犯罪対策、規制や関連サービスへの影響を追えます。"
     }
   ],
   "posted_ids": [
@@ -106,7 +119,8 @@
     "inu_auto_ad48dd0794f3d3",
     "inu_auto_0b02699bc225cd",
     "inu_auto_5ee53965598670",
-    "inu_auto_7bbe14085d5a4f"
+    "inu_auto_7bbe14085d5a4f",
+    "inu_auto_b9609a2e967baa"
   ],
   "reservations": [
     {
@@ -117,15 +131,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-05-20",
-      "post_id": "inu_auto_b9609a2e967baa",
-      "source_url": "https://decrypt.co/374941/ex-lapd-officer-gets-life-plus-15-years-over-350k-bitcoin-robbery",
-      "topic_type": "reported_breaking_news",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-05T11:14:02.718704+00:00"
     }
   ],
   "history": [
@@ -255,6 +260,19 @@
       "posted_at": "2026-08-05T10:51:16.389392+00:00",
       "hook": "🏦S&P、ブラックロックのトークン化準備基金に最高水準の安定性評価",
       "follow_value": "今後は、トークン化金融商品の信用評価とステーブルコインの格付け動向を追えます。"
+    },
+    {
+      "slot": "2026-08-05-20",
+      "post_id": "inu_auto_b9609a2e967baa",
+      "tweet_id": "2084961263726297308",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://decrypt.co/374941/ex-lapd-officer-gets-life-plus-15-years-over-350k-bitcoin-robbery",
+      "published_at": "2026-08-05T09:52:42+00:00",
+      "posted_at": "2026-08-05T11:14:36.775584+00:00",
+      "hook": "🚨元LAPD警官、35万ドル相当のビットコイン強盗で終身刑＋15年",
+      "follow_value": "今後は暗号資産の保管、犯罪対策、規制や関連サービスへの影響を追えます。"
     }
   ]
 }
