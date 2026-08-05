@@ -2,7 +2,13 @@
   "version": 1,
   "posted_slots": [],
   "posted_ids": [],
-  "reservations": [],
+  "reservations": [
+    {
+      "post_id": "trump_memecoin_clarity_20260805",
+      "generated_editorial_visual": false,
+      "prepared_at": "2026-08-05T04:09:15.995451+00:00"
+    }
+  ],
   "posted": [
     {
       "post_id": "fsa_crypto_stablecoin_bureau_20260805",
