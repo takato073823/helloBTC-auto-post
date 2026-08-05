@@ -24,6 +24,23 @@ AUTO_POST_PLAYBOOK = """
 5. Follow-through: 続報として追う対象が明確で、単なる「フォローしてください」ではない。
 """.strip()
 
+# 毎時の自動経路で実際に選べる投稿系統。過去のテスト投稿・手動投稿の
+# 分類を、将来の自動選定の実績として混ぜないためにも使う。
+AUTO_SELECTABLE_TOPIC_TYPES = (
+    "breaking_news",
+    "developing_story",
+    "market_microstructure",
+    "etf_flow",
+    "institutional_flow",
+    "onchain",
+    "whale_treasury",
+    "earnings",
+    "supply_event",
+    "adoption_kpi",
+    "policy_household",
+    "macro_event",
+)
+
 _MATERIAL_CHANGE_RE = re.compile(
     r"(?:承認|却下|可決|否決|開始|終了|停止|禁止|解禁|導入|撤回|引き上げ|引き下げ|"
     r"増額|減額|上方修正|下方修正|流入|流出|買い戻し|売却|購入|発行|償還|最高値|最安値|"

@@ -20,6 +20,7 @@ from bs4 import BeautifulSoup
 
 from inu_content_types import get_content_policy
 from inu_editorial_policy import (
+    AUTO_SELECTABLE_TOPIC_TYPES,
     AUTO_POST_PLAYBOOK,
     EDITORIAL_CONSTITUTION,
     validate_auto_post_quality,
@@ -57,20 +58,7 @@ GROWTH_TOPIC_ROTATION = (
     "earnings",
     "adoption_kpi",
 )
-AUTO_TOPIC_TYPES = (
-    "breaking_news",
-    "developing_story",
-    "market_microstructure",
-    "etf_flow",
-    "institutional_flow",
-    "onchain",
-    "whale_treasury",
-    "earnings",
-    "supply_event",
-    "adoption_kpi",
-    "policy_household",
-    "macro_event",
-)
+AUTO_TOPIC_TYPES = AUTO_SELECTABLE_TOPIC_TYPES
 MAX_AGE_HOURS = {
     "breaking_news": 2,
     "developing_story": 6,

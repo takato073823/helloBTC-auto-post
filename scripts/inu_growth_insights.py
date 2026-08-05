@@ -11,6 +11,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from inu_editorial_policy import AUTO_SELECTABLE_TOPIC_TYPES
 from inu_hourly_dispatcher import load_state
 from x_poster import _get_client
 
@@ -87,7 +88,13 @@ def build_insights(state: dict, metrics_by_id: dict[str, dict[str, int]], now: d
     for item in state.get("history", []):
         posted_at = _parse_timestamp(str(item.get("posted_at", "")))
         tweet_id = str(item.get("tweet_id", ""))
-        if not posted_at or posted_at < cutoff or not tweet_id:
+        topic_type = str(item.get("topic_type", ""))
+        if (
+            not posted_at
+            or posted_at < cutoff
+            or not tweet_id
+            or topic_type not in AUTO_SELECTABLE_TOPIC_TYPES
+        ):
             continue
         metrics = metrics_by_id.get(tweet_id)
         if not metrics:
@@ -95,7 +102,7 @@ def build_insights(state: dict, metrics_by_id: dict[str, dict[str, int]], now: d
         rows.append(
             {
                 "tweet_id": tweet_id,
-                "topic_type": str(item.get("topic_type", "")),
+                "topic_type": topic_type,
                 "posted_at": posted_at.isoformat(),
                 "impressions": metrics["impression_count"],
                 "engagement_per_mille": _engagement_per_mille(metrics),

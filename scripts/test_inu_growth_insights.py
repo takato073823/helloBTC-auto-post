@@ -42,6 +42,23 @@ class INUGrowthInsightsTests(unittest.TestCase):
         self.assertEqual(0, report["measured_posts"])
         self.assertEqual([], report["selection_guidance"]["preferred_topics_when_quality_is_equal"])
 
+    def test_historical_or_manual_topic_is_not_used_for_auto_selection(self):
+        state = {
+            "history": [
+                {"tweet_id": "legacy", "topic_type": "reported_breaking_news", "posted_at": "2026-08-05T10:00:00Z"},
+                {"tweet_id": "1", "topic_type": "earnings", "posted_at": "2026-08-05T10:00:00Z"},
+                {"tweet_id": "2", "topic_type": "earnings", "posted_at": "2026-08-05T09:00:00Z"},
+            ]
+        }
+        metrics = {
+            "legacy": {"impression_count": 9000, "like_count": 500, "reply_count": 40, "retweet_count": 20, "quote_count": 10},
+            "1": {"impression_count": 100, "like_count": 4, "reply_count": 0, "retweet_count": 0, "quote_count": 0},
+            "2": {"impression_count": 120, "like_count": 4, "reply_count": 0, "retweet_count": 0, "quote_count": 0},
+        }
+        report = build_insights(state, metrics, NOW)
+        self.assertEqual(2, report["measured_posts"])
+        self.assertEqual(["earnings"], report["selection_guidance"]["preferred_topics_when_quality_is_equal"])
+
     def test_guidance_loader_tolerates_missing_or_invalid_file(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "insights.json"
