@@ -28,6 +28,7 @@ def signal(**overrides) -> dict:
         "facts": ["公式資料で条件変更を確認しました。"],
         "opinion": "僕の見方では、次は実際の資金流入を確認したいです。",
         "reply_text": "公式資料では、承認の対象と条件が明記されています。\n\n見出しだけで判断せず、実際の資金流入が始まるかを見る必要があります。\n\n僕の見方では、次に確認すべきなのは取引開始後のフローです。",
+        "mention_context": "ETFと機関資金の動きを追うなら、@example の直近の検証も見る価値があります。",
         "trend_keyword": "ETF",
         "why_this_matters": "承認後の資金流入は暗号資産市場の需給を直接左右するため",
         "why_target": "ETFと機関資金を継続的に扱う投資情報アカウントの新規投稿のため",
@@ -50,6 +51,20 @@ class GrowthBoostTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "話題性"):
             inu_growth_boost.validate_candidate(
                 signal(estimated_recent_impressions=9999), self.state(), NOW
+            )
+
+    @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
+    def test_expert_mention_requires_a_real_context(self, _source):
+        item = signal(tactic="A", estimated_recent_impressions=1500, posted_at="2026-08-05T11:50:00Z")
+        self.assertEqual(
+            "2085000000000000001",
+            inu_growth_boost.validate_candidate(item, self.state(), NOW),
+        )
+        with self.assertRaisesRegex(ValueError, "専門家紹介文"):
+            inu_growth_boost.validate_candidate(
+                signal(tactic="A", estimated_recent_impressions=1500, posted_at="2026-08-05T11:50:00Z", mention_context="@example"),
+                self.state(),
+                NOW,
             )
 
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")

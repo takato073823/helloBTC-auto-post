@@ -74,6 +74,7 @@ BOOST_SCHEMA = {
                     },
                     "opinion": {"type": "string"},
                     "reply_text": {"type": "string"},
+                    "mention_context": {"type": "string"},
                     "trend_keyword": {"type": "string"},
                     "why_this_matters": {"type": "string"},
                     "why_target": {"type": "string"},
@@ -82,7 +83,7 @@ BOOST_SCHEMA = {
                 "required": [
                     "tactic", "post_url", "target_handle", "posted_at", "source_name",
                     "source_url", "source_published_at", "evidence_anchor", "hook", "facts",
-                    "opinion", "reply_text", "trend_keyword", "why_this_matters", "why_target",
+                    "opinion", "reply_text", "mention_context", "trend_keyword", "why_this_matters", "why_target",
                     "estimated_recent_impressions",
                 ],
             },
@@ -175,7 +176,9 @@ D（トレンドワード接続）: Xでいま上昇している話題を、暗�
 - source_urlの根拠文言をevidence_anchorに原文のまま8文字以上で書く。見つからない場合は候補にしない。
 - 事実は確認済みのものだけ。売買推奨、価格予想、煽り、案件、プレゼント、無関係な人物の話題は禁止。
 - A/C/Dの文章は、1行の具体見出し、事実、僕の見方の順。自然な日本語で、本文URLは書かない。
-- A/Cのreply_textは80〜210字で、相手への過剰な持ち上げ・依頼・定型文を使わない。Aも実際の投稿への返信として通知を届ける。
+- Aは、専門領域と今この人を見る理由を具体的に書いたmention_contextを返す。mention_contextには
+  @target_handle を1回だけ含める。Aは独立した紹介投稿として送るため、拡散依頼・定型あいさつ・無関係なタグ付けは禁止。
+- Cのreply_textは80〜210字で、相手への過剰な持ち上げ・依頼・定型文を使わない。
 - Bのreply_text等は空文字でよい。Bはpost_urlと対象の妥当性だけを返す。
 - Aはestimated_recent_impressionsが1,000以上、Cは10,000以上でなければ候補にしない。
 - Dはtrend_keywordを必ず書く。自然な接続を一文で説明できないなら候補にしない。
@@ -255,7 +258,16 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
     if len(str(candidate.get("why_this_matters", "")).strip()) < 18:
         raise ValueError("読者価値が不足しています")
     reply_text = str(candidate.get("reply_text", "")).strip()
-    if tactic in {"A", "C"}:
+    if tactic == "A":
+        mention_context = str(candidate.get("mention_context", "")).strip()
+        if not 35 <= len(mention_context) <= 140 or f"@{handle}" not in mention_context:
+            raise ValueError("Aの専門家紹介文が不十分です")
+        validate_post(compose_post(
+            hook=str(candidate["hook"]),
+            facts=[*list(candidate["facts"]), mention_context],
+            opinion=str(candidate["opinion"]), tags=["仮想通貨"],
+        ))
+    elif tactic == "C":
         if not 80 <= len(reply_text) <= 210:
             raise ValueError("返信の情報量が不足または過多です")
         validate_post(reply_text)
@@ -309,11 +321,14 @@ def execute_one(state: dict, candidates: list[dict], now: dt.datetime) -> str | 
                 _record(state, candidate, tactic, now, action="like")
                 return "B"
             image = _capture_evidence(candidate, tactic, now)
-            if tactic in {"A", "C"}:
+            if tactic == "C":
                 tweet_id = post_info_reply_tweet(str(candidate["reply_text"]).strip(), image, post_id)
             else:
+                facts = list(candidate["facts"])
+                if tactic == "A":
+                    facts.append(str(candidate["mention_context"]).strip())
                 text = compose_post(
-                    hook=str(candidate["hook"]), facts=list(candidate["facts"]),
+                    hook=str(candidate["hook"]), facts=facts,
                     opinion=str(candidate["opinion"]), tags=["仮想通貨"],
                 )
                 tweet_id = post_info_tweet(text, image)
