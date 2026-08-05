@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "generated_at": "2026-08-05T14:55:46.213799+00:00",
+  "lookback_hours": 72,
+  "measured_posts": 13,
+  "topic_summary": [
+    {
+      "topic_type": "reported_breaking_news",
+      "posts": 6,
+      "mean_impressions": 36,
+      "mean_engagement_per_mille": 31.11
+    },
+    {
+      "topic_type": "earnings",
+      "posts": 2,
+      "mean_impressions": 98,
+      "mean_engagement_per_mille": 4.63
+    },
+    {
+      "topic_type": "historical_milestone",
+      "posts": 2,
+      "mean_impressions": 38,
+      "mean_engagement_per_mille": 0.0
+    },
+    {
+      "topic_type": "security_incident",
+      "posts": 1,
+      "mean_impressions": 37,
+      "mean_engagement_per_mille": 0.0
+    },
+    {
+      "topic_type": "macro_event",
+      "posts": 2,
+      "mean_impressions": 23,
+      "mean_engagement_per_mille": 0.0
+    }
+  ],
+  "selection_guidance": {
+    "preferred_topics_when_quality_is_equal": [
+      "reported_breaking_news",
+      "earnings"
+    ],
+    "rule": "鮮度・一次情報・読者価値が同等の候補だけで使う。投稿本数を埋める目的では使わない。"
+  }
+}
