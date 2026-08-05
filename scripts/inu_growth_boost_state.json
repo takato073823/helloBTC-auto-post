@@ -46,10 +46,19 @@
       "source_url": "",
       "tweet_id": "",
       "acted_at": "2026-08-05T20:14:49.023699+00:00"
+    },
+    {
+      "tactic": "B",
+      "action": "like",
+      "post_url": "https://x.com/nicosokufx/status/2085104702010835338",
+      "target_handle": "nicosokufx",
+      "source_url": "",
+      "tweet_id": "",
+      "acted_at": "2026-08-05T21:34:08.928281+00:00"
     }
   ],
   "last_follower_count": 32,
-  "checked_at": "2026-08-05T20:14:49.023699+00:00",
+  "checked_at": "2026-08-05T21:34:08.928281+00:00",
   "last_skip_reason": "x_search_unavailable: GrokのX Searchから投稿引用が返りませんでした",
   "seen_follower_ids": {
     "1567132010": "2026-08-05T15:33:07.678228+00:00",
