@@ -149,7 +149,8 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
     manifest = _manifest(item["source_manifest"])
     visual_route = item["visual_route"]
     extra_media = item.get("additional_media", [])
-    if manifest.get("visual_role") == "attention_visual":
+    is_attention_visual = manifest.get("visual_role") == "attention_visual"
+    if is_attention_visual:
         if manifest.get("evidence_type") not in {"source_news_image", "gpt_news_visual"}:
             raise ValueError("主画像の形式が不正です")
         if not manifest.get("facts_verified"):
@@ -159,13 +160,13 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
         if manifest.get("evidence_type") == "source_news_image":
             if manifest.get("capture_type") != "source_hero_image" or not str(manifest.get("source_image_url", "")).startswith("https://"):
                 raise ValueError("出典主画像の記録が不正です")
-        if not extra_media:
-            raise ValueError("主画像には根拠画像の追加が必要です")
     else:
         _validate_evidence_manifest(manifest, visual_route, policy)
 
     media_paths = [media_path]
-    evidence_found = manifest.get("evidence_type") == visual_route
+    # 注目画像も、発信元・事実確認・画像取得元を検証済みなら1枚で完結させる。
+    # 根拠を示すためだけに別画像を足して、投稿の焦点をぼかさない。
+    evidence_found = is_attention_visual or manifest.get("evidence_type") == visual_route
     for asset in extra_media:
         if not isinstance(asset, dict) or set(asset) != {"media_path", "source_manifest"}:
             raise ValueError("追加画像の指定が不正です")
@@ -190,17 +191,17 @@ def validate_test_item(item: dict) -> tuple[str, Path | None]:
 def publish_test_item(
     item: dict,
     *,
-    poster: Callable[..., str | None] = post_info_tweet,
+    poster: Callable[..., str | None] | None = None,
 ) -> str:
     if item.get("link_card_url"):
         safe_text = _validate_link_card_item(item)
-        tweet_id = poster(safe_text, str(item["link_card_url"]).strip())
+        tweet_id = (poster or post_link_card_tweet)(safe_text, str(item["link_card_url"]).strip())
         if not tweet_id:
             raise RuntimeError("X投稿に失敗しました。文字だけの代替投稿は行っていません")
         return str(tweet_id)
     safe_text, media_paths = validated_media_paths(item)
     media = media_paths[0] if len(media_paths) == 1 else media_paths
-    tweet_id = poster(safe_text, media)
+    tweet_id = (poster or post_info_tweet)(safe_text, media)
     if not tweet_id:
         raise RuntimeError("X投稿に失敗しました。文字だけの代替投稿は行っていません")
     return str(tweet_id)

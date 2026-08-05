@@ -6,6 +6,7 @@ import unittest
 import json
 import tempfile
 from pathlib import Path
+from unittest.mock import patch
 
 from PIL import Image
 
@@ -49,6 +50,18 @@ class INULivePostTests(unittest.TestCase):
         )
         self.assertEqual([(text, item["link_card_url"])], published)
 
+    def test_link_card_uses_link_card_poster_by_default(self):
+        item = {
+            "id": "reported_card_default",
+            "topic_type": "reported_breaking_news",
+            "visual_route": "reported_text_crop",
+            "text": "暗号資産規制に新しい動き。\n\n僕としては、実務ルールがいつ示されるかを確認したいです。\n\n#仮想通貨",
+            "link_card_url": "https://www.nikkei.com/article/DGXZQOUB037270T00C26A8000000/",
+        }
+        with patch("inu_live_post.post_link_card_tweet", return_value="790") as poster:
+            self.assertEqual("790", publish_test_item(item))
+        poster.assert_called_once_with(item["text"], item["link_card_url"])
+
     def test_link_card_rejects_non_reported_news_routes(self):
         item = {
             "id": "invalid_card",
@@ -60,16 +73,14 @@ class INULivePostTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "主要メディア速報"):
             validate_test_item(item)
 
-    def test_attention_visual_requires_and_uploads_evidence_as_second_image(self):
+    def test_attention_visual_uses_one_verified_primary_image(self):
         artifacts = REPO_ROOT / "scripts" / "artifacts"
         # GitHub Actions のクリーンな実行環境には成果物ディレクトリがない。
         artifacts.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=artifacts) as directory:
             root = Path(directory)
             main = root / "main.png"
-            evidence = root / "evidence.png"
             Image.new("RGB", (800, 1000), "#112233").save(main)
-            Image.new("RGB", (1000, 600), "#ffffff").save(evidence)
             main.with_suffix(".source.json").write_text(
                 json.dumps(
                     {
@@ -85,18 +96,6 @@ class INULivePostTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            evidence.with_suffix(".source.json").write_text(
-                json.dumps(
-                    {
-                        "source_url": "https://example.com/news",
-                        "source_name": "Example",
-                        "published_at": "2026-08-05",
-                        "evidence_type": "reported_text_crop",
-                        "is_primary_source": False,
-                    }
-                ),
-                encoding="utf-8",
-            )
             relative = lambda path: str(path.relative_to(REPO_ROOT))
             item = {
                 "id": "two_images",
@@ -105,21 +104,15 @@ class INULivePostTests(unittest.TestCase):
                 "text": "速報テスト\n\n僕は、事実の確認を続けます。\n\n#仮想通貨",
                 "media_path": relative(main),
                 "source_manifest": relative(main.with_suffix(".source.json")),
-                "additional_media": [
-                    {
-                        "media_path": relative(evidence),
-                        "source_manifest": relative(evidence.with_suffix(".source.json")),
-                    }
-                ],
             }
             _, paths = validated_media_paths(item)
-            self.assertEqual([main, evidence], paths)
+            self.assertEqual([main], paths)
             published = []
             self.assertEqual(
                 "456",
                 publish_test_item(item, poster=lambda _text, media: published.append(media) or "456"),
             )
-            self.assertEqual([main, evidence], published[0])
+            self.assertEqual(main, published[0])
 
 
 if __name__ == "__main__":
