@@ -28,10 +28,19 @@
       "source_url": "",
       "tweet_id": "",
       "acted_at": "2026-08-05T17:04:25.483555+00:00"
+    },
+    {
+      "tactic": "B",
+      "action": "like",
+      "post_url": "https://x.com/coindesk/status/2085057999383691372",
+      "target_handle": "coindesk",
+      "source_url": "",
+      "tweet_id": "",
+      "acted_at": "2026-08-05T18:42:53.159225+00:00"
     }
   ],
   "last_follower_count": 32,
-  "checked_at": "2026-08-05T17:04:25.483555+00:00",
+  "checked_at": "2026-08-05T18:42:53.159225+00:00",
   "last_skip_reason": "x_search_unavailable: GrokのX Searchから投稿引用が返りませんでした",
   "seen_follower_ids": {
     "1567132010": "2026-08-05T15:33:07.678228+00:00",
