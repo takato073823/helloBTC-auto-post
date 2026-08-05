@@ -15,6 +15,11 @@ on:
         required: true
         default: false
         type: boolean
+      recovery:
+        description: "監視による定刻実行の復旧"
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: inu-x-publish
@@ -28,7 +33,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
     env:
-      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '17 * * * *' && 'primary' || github.event.schedule == '37 * * * *' && 'fallback' || 'retry' }}
+      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '17 * * * *' && 'primary' || github.event.schedule == '37 * * * *' && 'fallback' || inputs.recovery == true && 'fallback' || 'retry' }}
 
     steps:
       - name: リポジトリをチェックアウト
@@ -81,7 +86,7 @@ jobs:
           retention-days: 3
 
       - name: スケジュール実行状態を先に保存
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.recovery == true
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
