@@ -34,6 +34,8 @@ def signal(**overrides) -> dict:
         "why_this_matters": "承認後の資金流入は暗号資産市場の需給を直接左右するため",
         "why_target": "ETFと機関資金を継続的に扱う投資情報アカウントの新規投稿のため",
         "estimated_recent_impressions": 25000,
+        "actual_impression_count": 25000,
+        "actual_like_count": 150,
     }
     value.update(overrides)
     return value
@@ -50,14 +52,14 @@ class GrowthBoostTests(unittest.TestCase):
         return {"version": 1, "stopped": False, "actions": []}
 
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
-    def test_viral_reply_needs_genuine_reach_and_primary_source(self, _source):
+    def test_viral_reply_needs_actual_likes_and_primary_source(self, _source):
         self.assertEqual(
             "2085000000000000001",
             inu_growth_boost.validate_candidate(signal(), self.state(), NOW),
         )
-        with self.assertRaisesRegex(ValueError, "話題性"):
+        with self.assertRaisesRegex(ValueError, "いいね数"):
             inu_growth_boost.validate_candidate(
-                signal(estimated_recent_impressions=9999), self.state(), NOW
+                signal(actual_like_count=99), self.state(), NOW
             )
 
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
@@ -100,6 +102,8 @@ class GrowthBoostTests(unittest.TestCase):
             evidence_anchor="",
             reply_text="",
             why_this_matters="",
+            actual_impression_count=1_000,
+            actual_like_count=10,
         )
         self.assertEqual(
             "2085000000000000001",
@@ -111,6 +115,7 @@ class GrowthBoostTests(unittest.TestCase):
             id="2085000000000000004",
             text="比特币ETFの資金フローを確認。",
             created_at="2026-08-05T11:50:00Z",
+            public_metrics={"impression_count": 5_000, "like_count": 20},
         )
         client = SimpleNamespace(
             get_user=lambda **_kwargs: SimpleNamespace(data=SimpleNamespace(id="123")),
@@ -129,6 +134,7 @@ class GrowthBoostTests(unittest.TestCase):
             id="2085000000000000005",
             text="Bitcoin ETF giveaway",
             created_at="2026-08-05T10:00:00Z",
+            public_metrics={"impression_count": 5_000, "like_count": 20},
         )
         client = SimpleNamespace(
             get_user=lambda **_kwargs: SimpleNamespace(data=SimpleNamespace(id="123")),
@@ -146,7 +152,17 @@ class GrowthBoostTests(unittest.TestCase):
                 "tactic": "C",
                 "post_url": "https://x.com/other/status/2085000000000000002",
                 "acted_at": "2026-08-05T11:40:00+00:00",
-            }
+            },
+            {
+                "tactic": "C",
+                "post_url": "https://x.com/other/status/2085000000000000003",
+                "acted_at": "2026-08-05T11:45:00+00:00",
+            },
+            {
+                "tactic": "C",
+                "post_url": "https://x.com/other/status/2085000000000000004",
+                "acted_at": "2026-08-05T11:50:00+00:00",
+            },
         ]
         with self.assertRaisesRegex(ValueError, "日次上限"):
             inu_growth_boost.validate_candidate(signal(), state, NOW)
@@ -160,9 +176,11 @@ class GrowthBoostTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "すでに反応済み"):
             inu_growth_boost.validate_candidate(signal(), state, NOW)
 
+    @patch("inu_growth_boost.admit_qualified_new_followers", return_value=[])
+    @patch("inu_growth_boost.recent_watchlist_posts", return_value=[])
     @patch("inu_growth_boost.collect_candidates", return_value=[])
     @patch("inu_growth_boost.follower_count", return_value=1000)
-    def test_target_reached_stops_without_research(self, _followers, _candidates):
+    def test_target_reached_stops_without_research(self, _followers, _candidates, _posts, _admit):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "state.json"
             result = inu_growth_boost.run(type("Args", (), {"state": str(path)})())
@@ -171,15 +189,79 @@ class GrowthBoostTests(unittest.TestCase):
             self.assertTrue(state["stopped"])
             _candidates.assert_not_called()
 
+    @patch("inu_growth_boost.admit_qualified_new_followers", return_value=[])
+    @patch("inu_growth_boost.recent_watchlist_posts", return_value=[])
+    @patch("inu_growth_boost._get_client", return_value=SimpleNamespace())
     @patch("inu_growth_boost.collect_candidates", side_effect=RuntimeError("no X citations"))
     @patch("inu_growth_boost.follower_count", return_value=42)
-    def test_missing_x_search_citation_is_a_safe_skip(self, _followers, _candidates):
+    def test_missing_x_search_citation_is_a_safe_skip(self, _followers, _candidates, _client, _posts, _admit):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "state.json"
             result = inu_growth_boost.run(type("Args", (), {"state": str(path)})())
             self.assertEqual(0, result)
             state = inu_growth_boost.load_state(path)
             self.assertIn("x_search_unavailable", state["last_skip_reason"])
+
+    def test_boost_b_prioritizes_reach_with_low_like_rate(self):
+        posts = [
+            {"post_url": "https://x.com/a/status/2085000000000000011", "handle": "a", "posted_at": "2026-08-05T11:50:00Z", "text": "Bitcoin ETF update", "impression_count": 8_000, "like_count": 50},
+            {"post_url": "https://x.com/b/status/2085000000000000012", "handle": "b", "posted_at": "2026-08-05T11:51:00Z", "text": "Bitcoin ETF update", "impression_count": 2_000, "like_count": 100},
+            {"post_url": "https://x.com/c/status/2085000000000000013", "handle": "c", "posted_at": "2026-08-05T11:52:00Z", "text": "Bitcoin ETF update", "impression_count": 450, "like_count": 0},
+        ]
+        found = inu_growth_boost._boost_b_from_watchlist_posts(NOW, self.state(), posts)
+        self.assertEqual("a", found["target_handle"])
+
+    def test_new_follower_requires_both_explicit_thresholds(self):
+        profile = SimpleNamespace(id="follower-1", username="newfollower", protected=False, public_metrics={"followers_count": 1_000})
+        tweet = SimpleNamespace(id="2085000000000000014", text="Bitcoin ETF update", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 501, "like_count": 5})
+        record = inu_growth_boost._follower_admission_record(profile, [tweet], "self", set(), NOW)
+        self.assertEqual("newfollower", record["handle"])
+        self.assertIsNone(inu_growth_boost._follower_admission_record(profile, [SimpleNamespace(id="2085000000000000015", text="Bitcoin", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 500, "like_count": 5})], "self", set(), NOW))
+
+    @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
+    def test_trend_keyword_must_be_in_the_published_text(self, _source):
+        item = signal(tactic="D", posted_at="2026-08-05T11:50:00Z", hook="📌 市場の流れを確認", facts=["公式資料で条件変更を確認しました。"], opinion="僕は、実データを待ちます。", trend_keyword="ETF")
+        with self.assertRaisesRegex(ValueError, "トレンド接続"):
+            inu_growth_boost.validate_candidate(item, self.state(), NOW)
+
+    def test_same_status_id_is_never_reacted_to_twice(self):
+        state = self.state()
+        state["actions"] = [{"tactic": "B", "post_url": "https://twitter.com/Example/status/2085000000000000001", "acted_at": "2026-08-05T11:40:00+00:00"}]
+        item = signal(tactic="B", source_url="", source_name="", source_published_at="", evidence_anchor="", reply_text="", why_this_matters="", actual_impression_count=1000, actual_like_count=10)
+        with self.assertRaisesRegex(ValueError, "すでに反応済み"):
+            inu_growth_boost.validate_candidate(item, state, NOW)
+
+    def test_like_rate_requires_high_reach_and_low_reaction(self):
+        base = signal(tactic="B", source_url="", source_name="", source_published_at="", evidence_anchor="", reply_text="", why_this_matters="")
+        self.assertEqual("2085000000000000001", inu_growth_boost.validate_candidate(base | {"actual_impression_count": 500, "actual_like_count": 15}, self.state(), NOW))
+        with self.assertRaisesRegex(ValueError, "高表示・低いいね"):
+            inu_growth_boost.validate_candidate(base | {"actual_impression_count": 500, "actual_like_count": 16}, self.state(), NOW)
+
+    @patch("inu_growth_boost.save_watchlist_state")
+    @patch("inu_growth_boost.load_watchlist_state")
+    def test_new_follower_admission_prefilters_before_timeline_reads(self, load_watchlist, _save):
+        load_watchlist.return_value = {"list_id": "list-1", "members": {}}
+        low = SimpleNamespace(id="low", username="lowaccount", protected=False, public_metrics={"followers_count": 999})
+        qualified = SimpleNamespace(id="good", username="goodaccount", protected=False, public_metrics={"followers_count": 1_000})
+        qualifying_tweet = SimpleNamespace(id="2085000000000000099", text="Bitcoin ETF update", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 501, "like_count": 2})
+
+        class Api:
+            def __init__(self):
+                self.timeline_reads = []
+                self.added = []
+            def get_me(self, **_kwargs): return SimpleNamespace(data=SimpleNamespace(id="self"))
+            def get_list_members(self, *_args, **_kwargs): return SimpleNamespace(data=[], meta={})
+            def get_users_followers(self, *_args, **_kwargs): return SimpleNamespace(data=[low, qualified], meta={})
+            def get_users_tweets(self, user_id, **_kwargs):
+                self.timeline_reads.append(user_id)
+                return SimpleNamespace(data=[qualifying_tweet])
+            def add_list_member(self, _list_id, user_id, **_kwargs): self.added.append(user_id)
+
+        api = Api()
+        posts = inu_growth_boost.admit_qualified_new_followers(self.state(), api, NOW)
+        self.assertEqual(["good"], api.timeline_reads)
+        self.assertEqual(["good"], api.added)
+        self.assertEqual("goodaccount", posts[0]["handle"])
 
 
 if __name__ == "__main__":

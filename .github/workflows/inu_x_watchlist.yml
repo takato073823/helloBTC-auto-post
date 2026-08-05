@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # 投稿キューを塞がず、リスト同期だけを直列化する。
-  group: inu-x-watchlist
+  # ブーストが同じ状態ファイルを更新するため、投稿・ブーストと同じキューで直列化する。
+  group: inu-x-publish
   cancel-in-progress: false
 
 permissions:

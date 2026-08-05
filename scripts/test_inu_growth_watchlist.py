@@ -81,6 +81,7 @@ class FakeListApi:
         return SimpleNamespace(data=[SimpleNamespace(
             id="post-1", author_id="1", text="Bitcoin ETF flow update",
             created_at="2026-08-05T11:50:00Z",
+            public_metrics={"impression_count": 5_000, "like_count": 20},
         )], meta={})
 
     def add_list_member(self, _list_id, user_id, **_kwargs):

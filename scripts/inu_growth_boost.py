@@ -32,7 +32,13 @@ from inu_hourly_dispatcher import JST
 from inu_persona import VOICE_PROMPT
 from inu_post import compose_post, validate_post
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
-from inu_growth_watchlist import STATE_PATH as WATCHLIST_STATE_PATH, load_state as load_watchlist_state
+from inu_growth_watchlist import (
+    STATE_PATH as WATCHLIST_STATE_PATH,
+    TARGET_SIZE,
+    load_denylist,
+    load_state as load_watchlist_state,
+    save_state as save_watchlist_state,
+)
 from x_list_client import XListClient
 from x_poster import _get_client, like_tweet, post_info_reply_tweet, post_info_tweet
 
@@ -44,10 +50,18 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 STATE_PATH = SCRIPT_DIR / "inu_growth_boost_state.json"
 ARTIFACT_DIR = SCRIPT_DIR / "artifacts" / "inu-growth-boost"
 FOLLOWER_TARGET = 1_000
-MAX_AGE_MINUTES = {"A": 25, "B": 20, "C": 90, "D": 120}
-DAILY_LIMITS = {"A": 1, "B": 3, "C": 1, "D": 1}
+MAX_AGE_MINUTES = {"A": 25, "B": 90, "C": 90, "D": 120}
+DAILY_LIMITS = {"A": 1, "B": 6, "C": 3, "D": 1}
 PUBLISHING_TACTICS = {"A", "C", "D"}
 VALID_TACTICS = set(MAX_AGE_MINUTES)
+MIN_UNDERLIKED_IMPRESSIONS = 500
+MAX_UNDERLIKED_LIKE_RATE = 0.03
+MIN_REPLY_LIKES = 100
+MIN_FOLLOWER_ADMISSION_FOLLOWERS = 1_000
+MIN_FOLLOWER_ADMISSION_IMPRESSIONS = 500
+MAX_FOLLOWER_ADMISSIONS_PER_RUN = 5
+MAX_FOLLOWER_EVALUATIONS_PER_RUN = 5
+HANDLE_RE = re.compile(r"^[A-Za-z0-9_]{1,15}$")
 EXTERNAL_MEDIA_HOSTS = SECONDARY_HOSTS | {
     "decrypt.co",
     "theblock.co",
@@ -119,6 +133,7 @@ def load_state(path: Path = STATE_PATH) -> dict:
     state.setdefault("version", 1)
     state.setdefault("stopped", False)
     state.setdefault("actions", [])
+    state.setdefault("seen_follower_ids", {})
     return state
 
 
@@ -134,6 +149,66 @@ def _status_id(url: str) -> str:
 def _is_x_url(url: str) -> bool:
     host = (urlsplit(url).hostname or "").lower().removeprefix("www.")
     return host in {"x.com", "twitter.com", "mobile.twitter.com"}
+
+
+def _value(item, key: str, default=None):
+    return item.get(key, default) if isinstance(item, dict) else getattr(item, key, default)
+
+
+def _metrics(item) -> dict[str, int]:
+    raw = _value(item, "public_metrics", {}) or {}
+    if not isinstance(raw, dict):
+        raw = vars(raw) if hasattr(raw, "__dict__") else {}
+    result: dict[str, int] = {}
+    for key in ("impression_count", "like_count", "reply_count", "retweet_count", "quote_count", "followers_count"):
+        try:
+            result[key] = int(raw.get(key, 0) or 0)
+        except (TypeError, ValueError):
+            result[key] = 0
+    return result
+
+
+def _tweet_row(tweet, handle: str) -> dict | None:
+    tweet_id = str(_value(tweet, "id", ""))
+    posted_at = _value(tweet, "created_at")
+    if not tweet_id or not posted_at:
+        return None
+    metrics = _metrics(tweet)
+    return {
+        "post_url": f"https://x.com/{handle}/status/{tweet_id}",
+        "target_handle": handle,
+        "handle": handle,
+        "posted_at": str(posted_at),
+        "text": str(_value(tweet, "text", "")),
+        "impression_count": metrics["impression_count"],
+        "like_count": metrics["like_count"],
+    }
+
+
+def _is_relevant_investment_post(text: str) -> bool:
+    lower = text.lower()
+    def includes(keyword: str) -> bool:
+        token = keyword.lower()
+        if token in {"ai", "eth"}:
+            return bool(re.search(rf"(?<![a-z0-9]){re.escape(token)}(?![a-z0-9])", lower))
+        return token in lower
+    return (
+        any(includes(keyword) for keyword in BOOST_B_KEYWORDS)
+        and not any(blocked in lower for blocked in BOOST_B_BLOCKED)
+    )
+
+
+def underliked_reach_score(row: dict) -> float:
+    """実際の表示数に対して反応が薄い投稿を優先する。"""
+    impressions = max(0, int(row.get("impression_count", 0) or 0))
+    likes = max(0, int(row.get("like_count", 0) or 0))
+    if impressions < MIN_UNDERLIKED_IMPRESSIONS:
+        return -1.0
+    like_rate = likes / impressions
+    if like_rate > MAX_UNDERLIKED_LIKE_RATE:
+        return -1.0
+    # 大きなリーチをまず優先し、同程度ならいいね率が低い方を選ぶ。
+    return round(impressions * (1.0 - like_rate), 4)
 
 
 def follower_count(client=None) -> int:
@@ -177,7 +252,8 @@ def build_prompt(now: dt.datetime, state: dict, target_posts: list[dict] | None 
         links = "\n".join(f"- @{row['handle']}: {row['post_url']}" for row in target_posts[:24])
         watchlist_context = f"""
 今回の対象は、A〜D用に適格性を確認済みのXリストの新着投稿です。
-A/B/Cは必ず次の投稿またはその投稿者だけを対象にしてください。リスト外のアカウントは候補にしません。
+A/Bは必ず次の投稿またはその投稿者だけを対象にしてください。Cは投稿内容・反応数・一次資料の
+条件を満たす場合に限り、リスト外のアカウントも対象にできます。Dはトレンド検証後の独立投稿です。
 {links}
 """
     return f"""
@@ -187,8 +263,8 @@ A/B/Cは必ず次の投稿またはその投稿者だけを対象にしてくだ
 
 A（メンション／専門家への文脈ある接点）: 暗号資産・投資の関連専門家または公式アカウントの
 新しい投稿に対し、一次資料で補足できる場合だけ。無関係なタグ付け、拡散依頼、定型あいさつは禁止。
-B（通知＋初動）: INUと対象読者が重なる監視対象の新規投稿。いいねだけを送るため、広告、煽り、
-価格予想、一般論、転載には使わない。
+B（高リーチ・低反応投稿へのいいね）: INUと対象読者が重なる監視対象の新規投稿。表示数が高い一方で
+いいね率が低い投稿を最優先にする。広告、煽り、価格予想、一般論、転載には使わない。
 C（話題投稿への高付加価値返信）: 注目を集めている投稿に、元投稿より具体的な数字・条件・一次資料を
 足せる場合だけ。reply_textは元投稿の言い換えでなく、読者が保存したくなる具体的補足にする。
 D（トレンドワード接続）: Xでいま上昇している話題を、暗号資産・米国株・日本株・AI・マクロの
@@ -203,10 +279,14 @@ D（トレンドワード接続）: Xでいま上昇している話題を、暗�
 - A/C/Dの文章は、1行の具体見出し、事実、僕の見方の順。自然な日本語で、本文URLは書かない。
 - Aは、専門領域と今この人を見る理由を具体的に書いたmention_contextを返す。mention_contextには
   @target_handle を1回だけ含める。Aは独立した紹介投稿として送るため、拡散依頼・定型あいさつ・無関係なタグ付けは禁止。
-- Cのreply_textは80〜210字で、相手への過剰な持ち上げ・依頼・定型文を使わない。
+- Cは実際に100いいね以上ある投資・暗号資産・金融・AI関連の投稿だけ。reply_textは80〜210字で、
+  元投稿の具体的な論点を一次資料の数字・条件で補強する。「この論点は公式資料の〜とも整合します」のように
+  投稿主の分析が検証で裏づけられる場合だけ補足し、過剰な持ち上げ・依頼・定型文を使わない。
 - Bのreply_text等は空文字でよい。Bはpost_urlと対象の妥当性だけを返す。
-- Aはestimated_recent_impressionsが1,000以上、Cは10,000以上でなければ候補にしない。
-- Dはtrend_keywordを必ず書く。自然な接続を一文で説明できないなら候補にしない。
+- Aはestimated_recent_impressionsが1,000以上。Cのいいね数は後段のX APIで実測確認するため、
+  表示数の推測だけで候補を水増ししない。
+- DはX Searchで現在上昇しているトレンドワードを調べたうえでtrend_keywordを必ず書く。トレンド語が
+  投稿本文の中に自然に入り、暗号資産・株式・AI・マクロの一次情報と一文で接続できないなら候補にしない。
 - すべて投稿後2時間以内、同じ出来事は1件だけ。
 
 {watchlist_context}
@@ -255,57 +335,45 @@ def recent_watchlist_posts(client=None) -> list[dict]:
         return []
     rows: list[dict] = []
     for tweet in XListClient(client or _get_client()).recent_tweets(list_id, max_pages=3):
-        if isinstance(tweet, dict):
-            tweet_id = str(tweet.get("id", ""))
-            author_id = str(tweet.get("author_id", ""))
-            text = str(tweet.get("text", ""))
-            posted_at = tweet.get("created_at")
-        else:
-            tweet_id = str(getattr(tweet, "id", ""))
-            author_id = str(getattr(tweet, "author_id", ""))
-            text = str(getattr(tweet, "text", ""))
-            posted_at = getattr(tweet, "created_at", None)
+        author_id = str(_value(tweet, "author_id", ""))
         handle = members.get(author_id)
-        if tweet_id and handle and posted_at:
-            rows.append({
-                "post_url": f"https://x.com/{handle}/status/{tweet_id}",
-                "target_handle": handle,
-                "handle": handle,
-                "posted_at": str(posted_at),
-                "text": text,
-            })
+        if handle:
+            row = _tweet_row(tweet, handle)
+            if row:
+                rows.append(row)
     return rows
 
 
 def _boost_b_from_watchlist_posts(now: dt.datetime, state: dict, posts: list[dict]) -> dict | None:
     if _daily_count(state, "B", now) >= DAILY_LIMITS["B"]:
         return None
-    newest: tuple[dt.datetime, dict] | None = None
+    ranked: list[tuple[float, dt.datetime, dict]] = []
     for row in posts:
         try:
             posted_at = _parse_timestamp(str(row["posted_at"]))
         except (TypeError, ValueError):
             continue
         age = now.astimezone(dt.timezone.utc) - posted_at
-        text = str(row.get("text", ""))
-        lower = text.lower()
         if age < dt.timedelta(minutes=-5) or age > dt.timedelta(minutes=MAX_AGE_MINUTES["B"]):
             continue
-        if not any(keyword.lower() in lower for keyword in BOOST_B_KEYWORDS):
+        if not _is_relevant_investment_post(str(row.get("text", ""))):
             continue
-        if any(blocked in lower for blocked in BOOST_B_BLOCKED):
+        score = underliked_reach_score(row)
+        if score < 0:
             continue
         candidate = {
             "tactic": "B", "post_url": row["post_url"], "target_handle": row["handle"],
             "posted_at": posted_at.isoformat(), "source_name": "", "source_url": "",
             "source_published_at": "", "evidence_anchor": "", "hook": "", "facts": [],
             "opinion": "", "reply_text": "", "mention_context": "", "trend_keyword": "",
-            "why_this_matters": "", "estimated_recent_impressions": 0,
-            "why_target": "INUのA〜D対象として適格性を確認済みの投資情報アカウントによる新規投稿のため",
+            "why_this_matters": "", "estimated_recent_impressions": int(row.get("impression_count", 0) or 0),
+            "why_target": "高い表示数に対していいね率が低く、INU読者に関連する新規投稿のため",
+            "actual_impression_count": int(row.get("impression_count", 0) or 0),
+            "actual_like_count": int(row.get("like_count", 0) or 0),
         }
-        if newest is None or posted_at > newest[0]:
-            newest = (posted_at, candidate)
-    return newest[1] if newest else None
+        ranked.append((score, posted_at, candidate))
+    ranked.sort(key=lambda item: (item[0], item[1]), reverse=True)
+    return ranked[0][2] if ranked else None
 
 
 def discover_boost_b(now: dt.datetime, state: dict, client=None, target_posts: list[dict] | None = None) -> dict | None:
@@ -313,11 +381,15 @@ def discover_boost_b(now: dt.datetime, state: dict, client=None, target_posts: l
     watched = _boost_b_from_watchlist_posts(now, state, target_posts or [])
     if watched:
         return watched
-    # リストの初回構築前・Xリスト読取失敗時だけ、既存の12件へ限定して安全にフォールバックする。
+    # Bは原則として「いいね」リスト内だけで実行する。リストが既に存在するのに
+    # 一時的に読めない時は、リスト外の12件へ広げず安全に見送る。
+    if active_watchlist_handles():
+        return None
+    # 初回構築前だけ、既存の12件へ限定して安全にフォールバックする。
     if _daily_count(state, "B", now) >= DAILY_LIMITS["B"]:
         return None
     api = client or _get_client()
-    newest: tuple[dt.datetime, dict] | None = None
+    fallback_posts: list[dict] = []
     for source in load_curated_x_sources():
         handle = str(source["handle"])
         try:
@@ -329,59 +401,201 @@ def discover_boost_b(now: dt.datetime, state: dict, client=None, target_posts: l
                 user_id,
                 max_results=5,
                 exclude=["retweets", "replies"],
-                tweet_fields=["created_at", "lang"],
+                tweet_fields=["created_at", "lang", "public_metrics"],
                 user_auth=True,
             )
         except Exception as exc:
             logger.info("Bの監視対象を取得できません: @%s / %s", handle, exc)
             continue
         for tweet in getattr(response, "data", None) or []:
-            tweet_id = str(getattr(tweet, "id", None) or (tweet.get("id") if isinstance(tweet, dict) else ""))
-            text = str(getattr(tweet, "text", None) or (tweet.get("text", "") if isinstance(tweet, dict) else ""))
-            created = getattr(tweet, "created_at", None) or (tweet.get("created_at") if isinstance(tweet, dict) else None)
-            if not tweet_id or not created:
-                continue
+            row = _tweet_row(tweet, handle)
+            if row:
+                fallback_posts.append(row)
+    return _boost_b_from_watchlist_posts(now, state, fallback_posts)
+
+
+def _response_data(response) -> list:
+    data = _value(response, "data", response)
+    return data if isinstance(data, list) else []
+
+
+def _follower_admission_record(profile, tweets: list, own_user_id: str, denylist: set[str], now: dt.datetime) -> dict | None:
+    """INUを新たにフォローしたアカウントを、ユーザー指定の二条件だけで審査する。"""
+    user_id = str(_value(profile, "id", ""))
+    handle = str(_value(profile, "username", "")).lower().lstrip("@")
+    if not user_id or user_id == own_user_id or not HANDLE_RE.fullmatch(handle):
+        return None
+    if handle in denylist or bool(_value(profile, "protected", False)):
+        return None
+    followers = _metrics(profile)["followers_count"]
+    if followers < MIN_FOLLOWER_ADMISSION_FOLLOWERS:
+        return None
+    rows = [_tweet_row(tweet, handle) for tweet in tweets]
+    rows = [row for row in rows if row]
+    if not rows or not any(_is_relevant_investment_post(str(row["text"])) for row in rows):
+        return None
+    max_impressions = max((int(row["impression_count"]) for row in rows), default=0)
+    # 「500を超える」ため、500ちょうどは対象にしない。
+    if max_impressions <= MIN_FOLLOWER_ADMISSION_IMPRESSIONS:
+        return None
+    newest = max((_parse_timestamp(str(row["posted_at"])) for row in rows), default=now)
+    if now.astimezone(dt.timezone.utc) - newest > dt.timedelta(days=14):
+        return None
+    best = max(rows, key=lambda row: int(row["impression_count"]))
+    # 標準のウォッチリスト評価と比較できる70〜80点台に留め、低品質会員を
+    # 不当に押し出さない。満員時は後段の差分条件も通過した場合だけ入替える。
+    score = round(70.0 + min(10.0, max_impressions / 10_000), 1)
+    return {
+        "handle": handle,
+        "user_id": user_id,
+        "focus": "INUをフォロー後に基準を満たしたアカウント",
+        "role": "qualified_new_follower",
+        "language": "",
+        "followers": followers,
+        "score": score,
+        "last_seen_at": newest.astimezone(dt.timezone.utc).isoformat(),
+        "recent_post_url": best["post_url"],
+        "why_relevant": "フォロワー1,000人以上かつ直近10投稿内に表示500超の投稿を確認",
+        "observed_interactions": int(best["like_count"]),
+        "observed_impressions": max_impressions,
+        "engagement_component": 15.0,
+        "hard_gate": True,
+        "tier": "member",
+        "added_at": now.astimezone(dt.timezone.utc).isoformat(),
+        "low_score_cycles": 0,
+        "score_history": [score],
+        "admission_source": "qualified_new_follower",
+    }
+
+
+def admit_qualified_new_followers(state: dict, client, now: dt.datetime) -> list[dict]:
+    """新規フォロワーを『いいね』リストへ反映し、直後のB候補として返す。"""
+    watchlist = load_watchlist_state(WATCHLIST_STATE_PATH)
+    list_id = str(watchlist.get("list_id", "")).strip()
+    if not list_id:
+        return []
+    list_client = XListClient(client)
+    own_user_id = list_client.owner_id()
+    actual_ids = list_client.member_ids(list_id)
+    denylist = load_denylist()
+    seen = state.setdefault("seen_follower_ids", {})
+    follower_kwargs = {
+        "max_results": 100,
+        "user_fields": ["created_at", "description", "protected", "public_metrics"],
+        "user_auth": True,
+    }
+    page_token = str(state.get("follower_scan_pagination_token", "")).strip()
+    if page_token:
+        follower_kwargs["pagination_token"] = page_token
+    try:
+        response = client.get_users_followers(
+            own_user_id,
+            **follower_kwargs,
+        )
+    except Exception as exc:
+        logger.info("新規フォロワーの確認を見送り: %s", exc)
+        return []
+
+    meta = _value(response, "meta", {}) or {}
+    next_token = _value(meta, "next_token", "")
+    state["follower_scan_pagination_token"] = str(next_token or "")
+    admitted_posts: list[dict] = []
+    admitted_count = 0
+    evaluated_count = 0
+    changed = False
+    for profile in _response_data(response):
+        if admitted_count >= MAX_FOLLOWER_ADMISSIONS_PER_RUN or evaluated_count >= MAX_FOLLOWER_EVALUATIONS_PER_RUN:
+            break
+        user_id = str(_value(profile, "id", ""))
+        if not user_id or user_id in seen or user_id in actual_ids:
+            continue
+        handle = str(_value(profile, "username", "")).lower().lstrip("@")
+        # 直近投稿の読取枠を使う前に、プロフィールだけで分かる条件を弾く。
+        if (
+            not HANDLE_RE.fullmatch(handle)
+            or handle in denylist
+            or bool(_value(profile, "protected", False))
+            or _metrics(profile)["followers_count"] < MIN_FOLLOWER_ADMISSION_FOLLOWERS
+        ):
+            continue
+        existing = watchlist.get("members", {}).get(handle, {})
+        cooldown = str(existing.get("cooldown_until", ""))
+        if existing.get("tier") == "excluded" and cooldown:
             try:
-                posted_at = _parse_timestamp(str(created))
+                if _parse_timestamp(cooldown) > now.astimezone(dt.timezone.utc):
+                    continue
             except (TypeError, ValueError):
                 continue
-            age = now.astimezone(dt.timezone.utc) - posted_at
-            lower = text.lower()
-            if age < dt.timedelta(minutes=-5) or age > dt.timedelta(minutes=MAX_AGE_MINUTES["B"]):
+        try:
+            evaluated_count += 1
+            tweets = _response_data(client.get_users_tweets(
+                user_id, max_results=10, exclude=["retweets", "replies"],
+                tweet_fields=["created_at", "lang", "public_metrics"], user_auth=True,
+            ))
+        except Exception as exc:
+            logger.info("新規フォロワーの直近投稿を取得できません: %s / %s", user_id, exc)
+            continue
+        record = _follower_admission_record(profile, tweets, own_user_id, denylist, now)
+        if not record:
+            seen[user_id] = now.astimezone(dt.timezone.utc).isoformat()
+            continue
+
+        members = watchlist.setdefault("members", {})
+        active = [item for item in members.values() if item.get("tier") == "member"]
+        if len(actual_ids) >= TARGET_SIZE:
+            weakest = min(
+                (item for item in active if str(item.get("user_id")) in actual_ids),
+                key=lambda item: float(item.get("score", 0) or 0), default=None,
+            )
+            added_at = _parse_timestamp(str(weakest.get("added_at", ""))) if weakest and weakest.get("added_at") else None
+            if (
+                not weakest
+                or (added_at and now.astimezone(dt.timezone.utc) - added_at < dt.timedelta(days=7))
+                or float(record["score"]) < float(weakest.get("score", 0) or 0) + 5.0
+            ):
+                seen[user_id] = now.astimezone(dt.timezone.utc).isoformat()
                 continue
-            if not any(keyword.lower() in lower for keyword in BOOST_B_KEYWORDS):
+            removed, _ = list_client.remove_members(list_id, [str(weakest["user_id"])])
+            if not removed:
                 continue
-            if any(blocked in lower for blocked in BOOST_B_BLOCKED):
-                continue
-            candidate = {
-                "tactic": "B",
-                "post_url": f"https://x.com/{handle}/status/{tweet_id}",
-                "target_handle": handle,
-                "posted_at": posted_at.isoformat(),
-                "source_name": "",
-                "source_url": "",
-                "source_published_at": "",
-                "evidence_anchor": "",
-                "hook": "",
-                "facts": [],
-                "opinion": "",
-                "reply_text": "",
-                "mention_context": "",
-                "trend_keyword": "",
-                "why_this_matters": "",
-                "why_target": f"{source['focus']}を継続して扱う厳選監視対象の新規投稿のため",
-                "estimated_recent_impressions": 0,
-            }
-            if newest is None or posted_at > newest[0]:
-                newest = (posted_at, candidate)
-    return newest[1] if newest else None
+            weakest.update({
+                "tier": "excluded", "exclusion_reason": "replaced_by_qualified_new_follower",
+                "cooldown_until": (now.astimezone(dt.timezone.utc) + dt.timedelta(days=30)).isoformat(),
+            })
+            actual_ids.discard(str(weakest["user_id"]))
+        added, _ = list_client.add_members(list_id, [user_id])
+        if user_id not in added:
+            continue
+        members[record["handle"]] = record
+        actual_ids.add(user_id)
+        changed = True
+        admitted_count += 1
+        seen[user_id] = now.astimezone(dt.timezone.utc).isoformat()
+        admitted_posts.extend(row for row in (_tweet_row(tweet, record["handle"]) for tweet in tweets) if row)
+    if len(seen) > 2_000:
+        state["seen_follower_ids"] = dict(list(seen.items())[-2_000:])
+    if changed:
+        watchlist["last_follower_admission_at"] = now.astimezone(dt.timezone.utc).isoformat()
+        save_watchlist_state(watchlist, WATCHLIST_STATE_PATH)
+    return admitted_posts
+
+
+def _refresh_live_metrics(candidate: dict, client) -> None:
+    """X APIの実測値でB/Cの閾値を確認する。推定値だけで反応しない。"""
+    post_id = _status_id(normalize_url(str(candidate.get("post_url", ""))))
+    if not post_id:
+        raise ValueError("X投稿IDが取得できません")
+    response = client.get_tweet(post_id, tweet_fields=["public_metrics"], user_auth=True)
+    metrics = _metrics(_value(response, "data", {}))
+    candidate["actual_impression_count"] = metrics["impression_count"]
+    candidate["actual_like_count"] = metrics["like_count"]
 
 
 def _verify_primary_source(candidate: dict) -> str:
     source_url = normalize_url(str(candidate.get("source_url", "")))
     parts = urlsplit(source_url)
     host = (parts.hostname or "").lower().removeprefix("www.")
-    if parts.scheme != "https" or not host or host in EXTERNAL_MEDIA_HOSTS:
+    if parts.scheme != "https" or not host or any(host == blocked or host.endswith(f".{blocked}") for blocked in EXTERNAL_MEDIA_HOSTS):
         raise ValueError("一次資料URLが不正です")
     response = requests.get(source_url, timeout=25, headers={"User-Agent": USER_AGENT})
     response.raise_for_status()
@@ -407,7 +621,7 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
         raise ValueError("X投稿URLが不正です")
     if _daily_count(state, tactic, now) >= DAILY_LIMITS[tactic]:
         raise ValueError("この施策の日次上限に達しています")
-    if any(row.get("post_url") == post_url for row in _recent_actions(state, now)):
+    if any(_status_id(str(row.get("post_url", ""))) == post_id for row in _recent_actions(state, now)):
         raise ValueError("このX投稿にはすでに反応済みです")
     posted_at = _parse_timestamp(str(candidate.get("posted_at", "")))
     age = now.astimezone(dt.timezone.utc) - posted_at
@@ -417,15 +631,24 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
     if not re.fullmatch(r"[A-Za-z0-9_]{1,15}", handle):
         raise ValueError("対象アカウントが不正です")
     known_targets = active_watchlist_handles()
-    if known_targets and handle.lower() not in known_targets:
-        raise ValueError("A〜D対象リスト外のアカウントです")
+    # いいねは監視リストだけに限定する。Cは、100いいね以上かつ一次資料で補強できる
+    # 場合に限りリスト外も許可し、Dはトレンド自体を対象にした独立投稿である。
+    if tactic in {"A", "B"} and known_targets and handle.lower() not in known_targets:
+        raise ValueError("A/B対象リスト外のアカウントです")
     if tactic == "A" and int(candidate.get("estimated_recent_impressions", 0)) < 1_000:
         raise ValueError("Aの対象に必要な反応水準を満たしません")
-    if tactic == "C" and int(candidate.get("estimated_recent_impressions", 0)) < 10_000:
-        raise ValueError("Cの対象に必要な話題性を満たしません")
-    if tactic == "D" and len(str(candidate.get("trend_keyword", "")).strip()) < 2:
-        raise ValueError("Dのトレンド接続が不明です")
+    if tactic == "C" and int(candidate.get("actual_like_count", 0) or 0) < MIN_REPLY_LIKES:
+        raise ValueError("Cの対象に必要ないいね数を満たしません")
+    if tactic == "D":
+        keyword = str(candidate.get("trend_keyword", "")).strip()
+        text = " ".join([str(candidate.get("hook", "")), *map(str, candidate.get("facts", [])), str(candidate.get("opinion", ""))])
+        if len(keyword) < 2 or keyword.lower() not in text.lower():
+            raise ValueError("Dのトレンド接続が不明です")
     if tactic == "B":
+        impressions = int(candidate.get("actual_impression_count", 0) or 0)
+        likes = int(candidate.get("actual_like_count", 0) or 0)
+        if impressions < MIN_UNDERLIKED_IMPRESSIONS or likes / max(impressions, 1) > MAX_UNDERLIKED_LIKE_RATE:
+            raise ValueError("Bの高表示・低いいね条件を満たしません")
         if len(str(candidate.get("why_target", "")).strip()) < 18:
             raise ValueError("Bの対象理由が不足しています")
         return post_id
@@ -486,12 +709,14 @@ def _record(state: dict, candidate: dict, tactic: str, now: dt.datetime, *, acti
     state["actions"] = state["actions"][-500:]
 
 
-def execute_one(state: dict, candidates: list[dict], now: dt.datetime) -> str | None:
+def execute_one(state: dict, candidates: list[dict], now: dt.datetime, client=None) -> str | None:
     # 返信・独立投稿を優先する。初動いいねは、十分な投稿候補がない時だけ行う。
     order = {"C": 0, "A": 1, "D": 2, "B": 3}
     for candidate in sorted(candidates, key=lambda row: order.get(str(row.get("tactic")), 99)):
         tactic = str(candidate.get("tactic", ""))
         try:
+            if tactic in {"B", "C"}:
+                _refresh_live_metrics(candidate, client or _get_client())
             post_id = validate_candidate(candidate, state, now)
             if tactic == "B":
                 if not like_tweet(post_id):
@@ -535,25 +760,35 @@ def run(args: argparse.Namespace) -> int:
         logger.info("ブースト施策は停止中です: %s", state.get("stop_reason", ""))
         save_state(state, Path(args.state))
         return 0
+    api = _get_client()
+    try:
+        admitted_posts = admit_qualified_new_followers(state, api, now)
+    except Exception as exc:
+        # フォロワー判定に失敗しても、既存の成長施策は止めない。
+        logger.info("新規フォロワーのリスト審査を見送り: %s", exc)
+        admitted_posts = []
     try:
         # 200件の対象リストは統合タイムラインを1回読むだけで確認する。
         # 個別アカウントを大量巡回しないため、X APIの読取枠を圧迫しない。
-        target_posts = recent_watchlist_posts()
+        target_posts = admitted_posts + recent_watchlist_posts(api)
     except Exception as exc:
         logger.info("ブースト対象リストを取得できません: %s", exc)
         target_posts = []
     try:
         # BはGrokの候補抽出を待たず、厳選リストの新規投稿だけを初動で確認する。
         # これにより「通知ON＋最初のいいね」を10分間隔で自動化する。
-        boost_b = discover_boost_b(now, state, target_posts=target_posts)
+        boost_b = discover_boost_b(now, state, api, target_posts=target_posts)
     except Exception as exc:
         logger.warning("Bの初動監視に失敗したため、候補探索へ進みます: %s", exc)
         boost_b = None
     if boost_b:
-        tactic = execute_one(state, [boost_b], now)
-        save_state(state, Path(args.state))
-        logger.info("ブースト実行結果: %s", tactic or "候補なし")
-        return 0
+        tactic = execute_one(state, [boost_b], now, api)
+        if tactic:
+            save_state(state, Path(args.state))
+            logger.info("ブースト実行結果: %s", tactic)
+            return 0
+        # リスト取得時と直前の実測で値が変わることがある。Bが見送りになった場合は、
+        # 同じ回でA/C/Dの候補探索を続ける。
     try:
         candidates = collect_candidates(now, state, target_posts)
     except Exception as exc:
@@ -563,7 +798,7 @@ def run(args: argparse.Namespace) -> int:
         save_state(state, Path(args.state))
         logger.warning("ブースト候補を取得できないため今回は見送ります: %s", exc)
         return 0
-    tactic = execute_one(state, candidates, now)
+    tactic = execute_one(state, candidates, now, api)
     save_state(state, Path(args.state))
     logger.info("ブースト実行結果: %s", tactic or "候補なし")
     return 0
