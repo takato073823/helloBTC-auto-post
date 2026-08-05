@@ -1,0 +1,65 @@
+name: INU 個別ニュース投稿
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "チャットで確認済みの個別投稿ID"
+        required: true
+        type: choice
+        options:
+          - fsa_crypto_stablecoin_bureau_20260805
+          - trump_memecoin_clarity_20260805
+
+concurrency:
+  group: inu-x-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install --timeout 120 -r requirements.txt
+
+      - run: python -m playwright install --with-deps chromium
+
+      - name: 個別投稿を準備
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/inu_manual_news.py --prepare --post-id "${{ inputs.post_id }}"
+
+      - name: 投稿予約を保存
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_manual_post_state.json
+          git diff --staged --quiet || git commit -m "chore: reserve INU manual post [skip ci]"
+          git pull --rebase
+          git push
+
+      - name: Xへ画像付き投稿
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python scripts/inu_manual_news.py --publish --post-id "${{ inputs.post_id }}"
+
+      - name: 投稿履歴を保存
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_manual_post_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU manual post [skip ci]"
+          git pull --rebase
+          git push

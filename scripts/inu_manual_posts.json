@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": "fsa_crypto_stablecoin_bureau_20260805",
+      "topic_type": "breaking_news",
+      "visual_route": "official_text_crop",
+      "hook": "金融庁、暗号資産・ステーブルコイン課を新設へ",
+      "facts": [
+        "夏の組織再編で、同課と資金決済課を新設予定です。",
+        "フィンテック関連の監督体制を整備します。"
+      ],
+      "opinion": "僕は、国内の暗号資産政策が監督体制の整備へ進む節目だと見ています。",
+      "source_name": "金融庁",
+      "source_url": "https://www.fsa.go.jp/access/r7/269.html",
+      "published_at": "2026-01-26",
+      "evidence_anchor": "暗号資産・ステーブルコイン課を新たに設置します",
+      "tags": ["ステーブルコイン"],
+      "is_primary_source": true
+    },
+    {
+      "id": "trump_memecoin_clarity_20260805",
+      "topic_type": "reported_breaking_news",
+      "visual_route": "reported_text_crop",
+      "hook": "$TRUMP巡る調査要請、CLARITY法案の焦点に",
+      "facts": [
+        "米議員らが、$TRUMPを巡る調査をSECに求めたと報じられています。",
+        "CLARITY法案では、政権関係者の暗号資産利害が主要な論点です。"
+      ],
+      "opinion": "僕は、法案の成否は利害相反ルールが焦点だと見ています。",
+      "source_name": "The Daily Beast",
+      "source_url": "https://www.thedailybeast.com/trumps-memecoin-grift-hit-with-calls-for-scam-probe/",
+      "published_at": "2026-08-04",
+      "evidence_anchor": "Trump’s Memecoin Grift Hit With Calls for ‘Scam’ Probe",
+      "tags": ["仮想通貨規制"],
+      "is_primary_source": false
+    }
+  ]
+}

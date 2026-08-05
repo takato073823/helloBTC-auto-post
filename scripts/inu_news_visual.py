@@ -70,6 +70,12 @@ def capture_source_hero_image(
     page = requester.get(source_url, headers=headers, timeout=25)
     page.raise_for_status()
     image_url = _og_image_url(page.text, source_url)
+    page_path = urlparse(source_url).path.lower()
+    # 金融庁の広報誌「アクセスFSA」の表紙は記事固有の主画像ではなく、
+    # ニュースの意味を伝えられない。根拠スクリーンショットは残し、
+    # 主画像はテキストレスの生成ビジュアルへ切り替える。
+    if urlparse(source_url).netloc.lower().endswith("fsa.go.jp") and "/access/" in page_path:
+        raise ValueError("金融庁広報誌の表紙はニュース主画像として使いません")
     response = requester.get(image_url, headers=headers, timeout=25)
     response.raise_for_status()
 
