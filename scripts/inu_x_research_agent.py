@@ -52,6 +52,7 @@ EXTERNAL_MEDIA_HOSTS = {
 BLOCKED_TERMS = (
     "airdrop", "giveaway", "referral", "invite", "招待", "キャンペーン", "プレゼント",
     "価格予想", "signals", "pump", "copytrade", "copy trade", "dm me", "100x", "稳赚",
+    "casino", "gambling", "betting", "poker", "lottery",
 )
 TOPIC_TERMS = (
     "bitcoin", "btc", "ethereum", "eth", "crypto", "cryptocurrency", "stablecoin", "etf",
@@ -60,6 +61,13 @@ TOPIC_TERMS = (
     "米国株", "日本株", "株式", "決算", "金利", "債券", "インフレ", "金融", "マクロ",
     "半導体", "人工知能", "比特币", "加密", "稳定币", "链上", "交易所", "美股", "宏观",
 )
+MATERIAL_SIGNAL_TERMS = (
+    "etf", "inflow", "outflow", "liquidation", "funding", "open interest", "whale", "onchain",
+    "exploit", "breach", "hack", "reserve", "approval", "approved", "regulation", "sec", "cftc",
+    "fomc", "cpi", "pce", "earnings", "guidance", "revenue", "利回り", "決算", "規制", "流入",
+    "流出", "清算", "ハッキング", "オンチェーン", "資金流", "监管", "财报", "资金流",
+)
+MEDIA_HANDLES = {"coindesk", "cointelegraph", "decryptmedia", "theblock__", "blockworks_"}
 
 # 1回のRecent Countsは1テーマだけを測る。20分間隔で循環するため、全テーマを
 # 一度に大量取得せず、突発的な話題量の増加を捕捉できる。
@@ -352,6 +360,23 @@ def _score(
     return score, reason
 
 
+def _is_actionable_signal(item: dict[str, Any]) -> bool:
+    """古い状態にも適用する、発見候補として最低限必要なノイズ除外。"""
+    text = " ".join([str(item.get("headline", "")), str(item.get("summary", ""))])
+    if _contains_term(text, BLOCKED_TERMS):
+        return False
+    if str(item.get("discovery_type", "")) == "watchlist_timeline":
+        try:
+            impressions = int(item.get("impression_count", 0) or 0)
+        except (TypeError, ValueError):
+            impressions = 0
+        if str(item.get("handle", "")).lower() in MEDIA_HANDLES:
+            return False
+        if impressions < 1_000 or not _contains_term(text, MATERIAL_SIGNAL_TERMS):
+            return False
+    return True
+
+
 def _normalize_search_response(response: Any, topic: str, now: dt.datetime, trend_names: set[str]) -> list[dict[str, Any]]:
     users = {str(_value(user, "id", "")): user for user in _includes(response, "users")}
     media = {str(_value(item, "media_key", "")): item for item in _includes(response, "media")}
@@ -471,6 +496,8 @@ def ingest_watchlist_posts(posts: list[dict[str, Any]], now: dt.datetime | None 
             continue
         if _contains_term(text, BLOCKED_TERMS):
             continue
+        if handle.lower() in MEDIA_HANDLES:
+            continue
         metrics = {
             "impression_count": max(0, int(item.get("impression_count", 0) or 0)),
             "like_count": max(0, int(item.get("like_count", 0) or 0)),
@@ -482,7 +509,7 @@ def ingest_watchlist_posts(posts: list[dict[str, Any]], now: dt.datetime | None 
             text=text, posted_at=posted_at, metrics=metrics, followers=0, urls=[], media_types=[],
             verified=False, trend_names=set(), now=checked_at,
         )
-        if score < 30:
+        if score < 30 or metrics["impression_count"] < 1_000 or not _contains_term(text, MATERIAL_SIGNAL_TERMS):
             continue
         rows.append(
             {
@@ -509,7 +536,7 @@ def discovery_signals(now: dt.datetime | None = None, path: Path = STATE_PATH, l
     for item in load_state(path).get("signals", []):
         posted_at = _parse_time(item.get("posted_at"))
         url = _normal_url(str(item.get("post_url", "")))
-        if not posted_at or posted_at < cutoff or not url or url in seen:
+        if not posted_at or posted_at < cutoff or not url or url in seen or not _is_actionable_signal(item):
             continue
         seen.add(url)
         media_hint = "動画あり" if item.get("has_video") else ""

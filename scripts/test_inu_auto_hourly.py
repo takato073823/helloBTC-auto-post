@@ -546,6 +546,10 @@ class INUAutoHourlyTests(unittest.TestCase):
             side_effect=RuntimeError("temporary failure"),
         ), patch.object(
             inu_auto_hourly,
+            "collect_official_x_api_signals",
+            return_value=[],
+        ), patch.object(
+            inu_auto_hourly,
             "research_candidates",
             return_value=expected,
         ) as fallback:

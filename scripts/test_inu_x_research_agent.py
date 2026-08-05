@@ -78,6 +78,25 @@ class ResearchAgentTests(unittest.TestCase):
         self.assertEqual("watchlist_timeline", signals[0]["discovery_type"])
         self.assertIn("厳選リストで観測", signals[0]["summary"])
 
+    def test_watchlist_rejects_media_and_promotional_noise_before_editorial_research(self):
+        post = {
+            "post_url": "https://x.com/coindesk/status/2086000000000000008",
+            "handle": "coindesk",
+            "posted_at": "2026-08-06T02:50:00Z",
+            "text": "Bitcoin ETF inflows are accelerating today.",
+            "impression_count": 60_000,
+            "like_count": 300,
+        }
+        casino = post | {
+            "post_url": "https://x.com/analyst/status/2086000000000000009",
+            "handle": "analyst",
+            "text": "Best crypto casino giveaway today",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "state.json"
+            self.assertEqual(0, research.ingest_watchlist_posts([post, casino], NOW, state_path))
+            self.assertEqual([], research.discovery_signals(NOW, state_path))
+
     def test_deep_search_is_limited_but_spike_can_advance_it(self):
         state = research.default_state()
         state["last_deep_scan_at"] = "2026-08-06T02:30:00+00:00"
