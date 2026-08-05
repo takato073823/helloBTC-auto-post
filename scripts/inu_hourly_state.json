@@ -42,6 +42,18 @@
       "published_at": "2026-08-04T17:16:49+00:00",
       "posted_at": "2026-08-04T18:24:41.920088+00:00",
       "hook": "速報：Alibaba、最高性能AIモデルを無料公開へ"
+    },
+    {
+      "slot": "2026-08-05-14",
+      "post_id": "inu_auto_ad48dd0794f3d3",
+      "tweet_id": "2084879345680601162",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/most-recent-quarterly-refunding-documents?e=48669",
+      "published_at": "2026-08-05T00:00:00-04:00",
+      "posted_at": "2026-08-05T05:49:06.104118+00:00",
+      "hook": "米財務省、四半期定例入札を公表へ"
     }
   ],
   "posted_ids": [
@@ -52,19 +64,10 @@
     "inu_auto_4a97112af3087b",
     "inu_breaking_us_indices_record_2026-08-04",
     "inu_auto_ece17867c4052d",
-    "inu_auto_d65ad95418cd98"
+    "inu_auto_d65ad95418cd98",
+    "inu_auto_ad48dd0794f3d3"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-05-14",
-      "post_id": "inu_auto_ad48dd0794f3d3",
-      "source_url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/most-recent-quarterly-refunding-documents?e=48669",
-      "topic_type": "macro_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-05T05:47:54.627383+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -142,6 +145,18 @@
       "published_at": "2026-08-04T17:16:49+00:00",
       "posted_at": "2026-08-04T18:24:41.920088+00:00",
       "hook": "速報：Alibaba、最高性能AIモデルを無料公開へ"
+    },
+    {
+      "slot": "2026-08-05-14",
+      "post_id": "inu_auto_ad48dd0794f3d3",
+      "tweet_id": "2084879345680601162",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/most-recent-quarterly-refunding-documents?e=48669",
+      "published_at": "2026-08-05T00:00:00-04:00",
+      "posted_at": "2026-08-05T05:49:06.104118+00:00",
+      "hook": "米財務省、四半期定例入札を公表へ"
     }
   ]
 }
