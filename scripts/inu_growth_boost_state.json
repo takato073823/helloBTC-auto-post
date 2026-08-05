@@ -1,8 +1,18 @@
 {
   "version": 1,
   "stopped": false,
-  "actions": [],
+  "actions": [
+    {
+      "tactic": "B",
+      "action": "like",
+      "post_url": "https://x.com/phyrexni/status/2085024153795789300",
+      "target_handle": "phyrexni",
+      "source_url": "",
+      "tweet_id": "",
+      "acted_at": "2026-08-05T15:27:12.883001+00:00"
+    }
+  ],
   "last_follower_count": 32,
-  "checked_at": "2026-08-05T14:23:50.754235+00:00",
+  "checked_at": "2026-08-05T15:27:12.883001+00:00",
   "last_skip_reason": "x_search_unavailable: GrokのX Searchから投稿引用が返りませんでした"
 }
