@@ -320,6 +320,12 @@
       "checked_at": "2026-08-05T13:20:15.882516+00:00",
       "kind": "fallback",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-05-23",
+      "checked_at": "2026-08-05T14:54:43.880830+00:00",
+      "kind": "fallback",
+      "result": "no_verified_candidate"
     }
   ]
 }
