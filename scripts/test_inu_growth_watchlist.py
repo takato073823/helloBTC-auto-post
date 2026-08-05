@@ -114,6 +114,15 @@ class WatchlistTests(unittest.TestCase):
         self.assertGreaterEqual(record["score"], watchlist.ADMIT_SCORE)
         self.assertEqual("marketdata", record["handle"])
 
+    @patch("inu_growth_watchlist.generate_x_json")
+    def test_discovery_passes_each_track_to_x_search(self, generate_x_json):
+        generate_x_json.return_value = ({"accounts": [candidate("freshsource")]}, None)
+        found = watchlist.discover_accounts(set(), needed=20, now=NOW)
+        self.assertEqual("freshsource", found[0]["handle"])
+        prompt = generate_x_json.call_args.kwargs.get("schema")
+        self.assertIs(watchlist.WATCHLIST_SCHEMA, prompt)
+        self.assertIn("最大20件", generate_x_json.call_args.args[0])
+
     def test_existing_member_has_hysteresis_before_removal(self):
         state = watchlist.default_state()
         state["members"]["kept"] = {

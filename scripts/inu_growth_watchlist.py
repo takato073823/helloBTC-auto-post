@@ -223,7 +223,7 @@ def discover_accounts(existing_handles: set[str], needed: int, now: dt.datetime)
     for track in DISCOVERY_TRACKS[:calls]:
         try:
             payload, _ = generate_x_json(
-                build_discovery_prompt(track, existing_handles | set(found)),
+                build_discovery_prompt(track, existing_handles | set(found), count=20),
                 schema_name="inu_growth_watchlist_accounts",
                 schema=WATCHLIST_SCHEMA,
                 from_date=now.date() - dt.timedelta(days=14),
