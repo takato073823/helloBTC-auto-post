@@ -3,7 +3,9 @@
 外部SDKを読み込まず、対象関数だけをASTから取り出して検証する。
 """
 import ast
+import json
 import re
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -24,7 +26,10 @@ def _load_functions(*names):
     module = ast.Module(body=nodes, type_ignores=[])
     namespace = {
         "re": re,
+        "json": json,
+        "Path": Path,
         "logger": _Logger(),
+        "INVITE_URL": "https://bingxdao.com/invite/FIKYOA/",
         "JAPAN_RESIDENT_NOTICE": '<p class="hellobtc-japan-resident-notice">notice</p>',
     }
     exec(compile(module, str(SOURCE_PATH), "exec"), namespace)
@@ -79,6 +84,27 @@ class BingxSeoRulesTests(unittest.TestCase):
         self.assertNotIn("最安", bullets)
         self.assertIn("公式情報で確認", bullets[0])
 
+    def test_first_successful_image_becomes_featured_when_img1_failed(self):
+        functions = _load_functions("select_featured_media")
+        image_map = {"img2": (202, "https://hellobtc.jp/img2.jpg")}
+        self.assertEqual(
+            (202, "https://hellobtc.jp/img2.jpg"),
+            functions["select_featured_media"](image_map, []),
+        )
+
+    def test_screenshot_still_has_featured_image_priority(self):
+        functions = _load_functions("select_featured_media")
+        image_map = {
+            "img1": (101, "https://hellobtc.jp/img1.jpg"),
+            "futures": (303, "https://hellobtc.jp/futures.jpg"),
+        }
+        self.assertEqual(
+            (303, "https://hellobtc.jp/futures.jpg"),
+            functions["select_featured_media"](
+                image_map, [{"key": "futures"}]
+            ),
+        )
+
     def test_prompt_contains_migration_and_registration_guardrails(self):
         self.assertIn("Bitget利用者がBingXへ移行", SOURCE)
         self.assertIn("金融庁登録済み", SOURCE)
@@ -121,6 +147,45 @@ class BingxSeoRulesTests(unittest.TestCase):
         self.assertIn(expected_url, EXCHANGE_GUIDE_SOURCE)
         self.assertIn("招待コードFIKYOA", EXCHANGE_GUIDE_SOURCE)
         self.assertNotIn("XXCCJX", SOURCE + EXCHANGE_GUIDE_SOURCE)
+
+    def test_related_reply_is_disclosed_and_unique_to_each_article(self):
+        functions = _load_functions("build_related_reply_text")
+        first = functions["build_related_reply_text"]("BingX 口座開設の手順")
+        second = functions["build_related_reply_text"]("BingX 二段階認証の設定")
+        self.assertIn("【広告・PR】", first)
+        self.assertIn("https://bingxdao.com/invite/FIKYOA/", first)
+        self.assertIn("利用条件・対象地域・本人確認（KYC）", first)
+        self.assertNotEqual(first, second)
+
+    def test_only_topics_with_affiliate_cta_opt_in_to_the_related_reply(self):
+        self.assertIn(
+            'related_reply_text = (\n        build_related_reply_text(article["title"])\n'
+            '        if topic.get("include_affiliate_cta", True)',
+            SOURCE,
+        )
+        self.assertIn("related_reply_text=related_reply_text", SOURCE)
+        self.assertIn("retry_pending_x_replies()", SOURCE)
+
+    def test_pending_reply_is_recovered_without_creating_another_main_post(self):
+        functions = _load_functions(
+            "load_pending_x_replies",
+            "save_pending_x_replies",
+            "retry_pending_x_replies",
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            pending_file = Path(directory) / "pending.json"
+            pending_file.write_text(
+                json.dumps([{"tweet_id": "tweet-123", "text": "関連投稿"}]),
+                encoding="utf-8",
+            )
+            sent = []
+            functions["PENDING_X_REPLIES_FILE"] = pending_file
+            functions["post_related_reply"] = lambda tweet_id, text: sent.append((tweet_id, text)) or True
+
+            functions["retry_pending_x_replies"]()
+
+            self.assertEqual([("tweet-123", "関連投稿")], sent)
+            self.assertEqual([], json.loads(pending_file.read_text(encoding="utf-8")))
 
 
 if __name__ == "__main__":
