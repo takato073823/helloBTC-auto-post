@@ -161,7 +161,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             visual_route="reported_text_crop",
             is_primary_source=False,
         )
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
             artifact_dir = Path(directory) / "inu-auto"
             with patch.object(
                 inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
@@ -182,6 +182,39 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn("media_path", built)
         evidence.assert_not_called()
         hero.assert_not_called()
+
+    def test_official_data_post_uses_one_meaningful_evidence_image(self):
+        item = candidate(
+            topic_type="earnings",
+            hook="企業の営業利益が前年同期比18％増",
+            facts=["売上高の増加を受け、通期見通しを据え置きました。"],
+            evidence_anchor="営業利益は前年同期比18％増",
+            reader_interest="利益率と通期見通しから、事業の需要を確認できるためです。",
+            follow_value="利益率と通期見通しの変化を継続して追えるためです。",
+        )
+        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
+            artifact_dir = Path(directory) / "inu-auto"
+            with patch.object(
+                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+            ), patch.object(inu_auto_hourly, "ARTIFACT_DIR", artifact_dir), patch.object(
+                inu_auto_hourly, "capture_official_evidence"
+            ) as evidence, patch.object(
+                inu_auto_hourly, "capture_source_hero_image"
+            ) as hero, patch.object(
+                inu_auto_hourly, "generate_editorial_news_visual"
+            ) as generated, patch.object(inu_auto_hourly, "validate_test_item"):
+                built, _ = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    [{"url": item["source_url"], "title": "決算資料"}],
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertTrue(built["media_path"].endswith("-evidence.png"))
+        self.assertNotIn("additional_media", built)
+        evidence.assert_called_once()
+        hero.assert_not_called()
+        generated.assert_not_called()
 
     def test_media_and_text_are_always_required_by_prepared_item(self):
         text = inu_auto_hourly.compose_candidate_text(candidate())
@@ -315,6 +348,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("onchain", prompt)
         self.assertNotIn("必ずこの系統", prompt)
         self.assertIn("決算発表予定、IRカレンダー、説明会予定", prompt)
+        self.assertIn("候補なしは正常な編集判断", prompt)
+        self.assertIn("一目で伝える1枚の画像", prompt)
 
     def test_priority_signal_cannot_switch_to_another_rss_story(self):
         selected = {

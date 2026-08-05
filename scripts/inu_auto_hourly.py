@@ -530,6 +530,8 @@ topic_typeが異なる候補を優先してください。
 - 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
 - まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
 - 候補配列にはhas_candidate=trueの項目だけを入れる。適切な候補がない場合だけ空配列にしてskip_reasonを書く。古い話題で穴埋めしない。
+- 毎時の投稿本数を満たすために候補を作らない。候補なしは正常な編集判断である。「新しい事実」「読者の資産・行動・相場への具体的な影響」「その事実を一目で伝える1枚の画像」の3つがそろわない限り、空配列にする。
+- 単なる企業IRの更新、発表予定、一般的な事業紹介、公開資料の存在だけでは選ばない。候補を比較したうえで、今この時刻に読む必然性が最も強いものだけを上位に置く。X上の話題性は必須ではないが、話題性がない場合でも、数値・制度・需給・安全性・価格に実際の変化があることを示せない候補は除外する。
 - 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
 - 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
 - follow_valueへ「この出来事を起点に、INUを継続してフォローすると追える投資テーマ・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。この値は内部の編集判定・振り返り用で、投稿本文には書かない。
@@ -1057,6 +1059,20 @@ def _build_item_from_candidate(
         }
         validate_test_item(item)
         return item, selected
+    # 表・数値・チャートが一次根拠となる投稿は、その根拠だけを1枚添付する。
+    # 補助的な生成画像を足すと、何を見ればよいかがぼやけ、根拠の信用性も落ちる。
+    if selected["visual_route"] == "official_data_crop":
+        item = {
+            "id": _candidate_id(selected),
+            "topic_type": selected["topic_type"],
+            "visual_route": selected["visual_route"],
+            "text": compose_candidate_text(selected),
+            "media_path": _repo_relative(evidence_path),
+            "source_manifest": _repo_relative(evidence_path.with_suffix(".source.json")),
+        }
+        validate_test_item(item)
+        return item, selected
+
     primary_path = ARTIFACT_DIR / f"{slot}-main.png"
     generated_primary = False
     try:
@@ -1089,12 +1105,6 @@ def _build_item_from_candidate(
         "text": compose_candidate_text(selected),
         "media_path": _repo_relative(primary_path),
         "source_manifest": _repo_relative(primary_path.with_suffix(".source.json")),
-        "additional_media": [
-            {
-                "media_path": _repo_relative(evidence_path),
-                "source_manifest": _repo_relative(evidence_path.with_suffix(".source.json")),
-            }
-        ],
     }
     selected["generated_editorial_visual"] = generated_primary
     validate_test_item(item)
