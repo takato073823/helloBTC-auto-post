@@ -1,7 +1,57 @@
 {
+  "last_refreshed_at": "2026-08-05T14:30:02+00:00",
   "last_skip_reason": "",
-  "list_id": "",
+  "list_id": "2085002840901321119",
   "list_name": "いいね",
-  "members": {},
+  "managed_initialized": true,
+  "members": {
+    "coinspace_": {
+      "added_at": "",
+      "engagement_component": 29.0,
+      "focus": "仮想通貨トレーダー＆アナリスト｜最新ニュース、テクニカル分析、考察記事を発信中｜コインテレグラフ寄稿、週刊SPA!取材経験あり｜フォロー&通知オンして投資のヒントや最新情報をキャッチしよう🙌",
+      "followers": 211934,
+      "handle": "coinspace_",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T13:47:16+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 197556,
+      "observed_interactions": 568,
+      "recent_post_url": "",
+      "role": "existing_list_member",
+      "score": 89.0,
+      "score_history": [
+        89.0,
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "1336617462138241024",
+      "why_relevant": "既存の『いいね』リストから適格性を再評価"
+    },
+    "sou_btc": {
+      "added_at": "",
+      "engagement_component": 29.0,
+      "focus": "資産運用・投資に必要な重要ニュースを日本最速で配信。米国株・日本株・仮想通貨・ビットコイン・AI・地政学まで網羅し、毎日発信。フォロー&通知オンで、マーケットで今知るべき情報がすべて手に入ります。Amazonアソシエイト参加中。Business inquiries: DM ✉️",
+      "followers": 160780,
+      "handle": "sou_btc",
+      "hard_gate": true,
+      "language": "ja",
+      "last_seen_at": "2026-08-05T14:29:11+00:00",
+      "low_score_cycles": 0,
+      "observed_impressions": 1297000,
+      "observed_interactions": 255,
+      "recent_post_url": "",
+      "role": "existing_list_member",
+      "score": 89.0,
+      "score_history": [
+        89.0,
+        89.0
+      ],
+      "tier": "member",
+      "user_id": "1440004894417559553",
+      "why_relevant": "既存の『いいね』リストから適格性を再評価"
+    }
+  },
+  "unresolved_member_ids": [],
   "version": 1
 }
