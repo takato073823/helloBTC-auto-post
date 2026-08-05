@@ -80,7 +80,7 @@ def _build_item(post: dict, state: dict) -> tuple[dict, bool]:
             "visual_route": post["visual_route"],
             "text": compose_post(
                 hook=post["hook"], facts=post["facts"], opinion=post["opinion"],
-                source_label=post["source_name"], tags=post["tags"],
+                tags=post["tags"],
             ),
             "media_path": _relative(evidence_path),
             "source_manifest": _relative(evidence_path.with_suffix(".source.json")),
@@ -114,7 +114,7 @@ def _build_item(post: dict, state: dict) -> tuple[dict, bool]:
         "visual_route": post["visual_route"],
         "text": compose_post(
             hook=post["hook"], facts=post["facts"], opinion=post["opinion"],
-            source_label=post["source_name"], tags=post["tags"],
+            tags=post["tags"],
         ),
         "media_path": _relative(primary_path),
         "source_manifest": _relative(primary_path.with_suffix(".source.json")),

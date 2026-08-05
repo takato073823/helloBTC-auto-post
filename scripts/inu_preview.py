@@ -29,7 +29,6 @@ def run(args: argparse.Namespace) -> int:
         hook=args.hook,
         facts=args.fact,
         opinion=args.opinion,
-        source_label=args.source,
         tags=args.tag,
     )
     validate_post(text)

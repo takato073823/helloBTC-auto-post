@@ -200,7 +200,6 @@ class INUContentSystemTests(unittest.TestCase):
             hook="⚡️ 米国市場で半導体株に資金が集中",
             facts=["複数のETFで過去最大級の流入が確認されました。"],
             opinion="僕の見方では、次は資金流入が他の分野へ広がるかを確認したいです。",
-            source_label="発行体公表データ",
             tags=["米国株"],
         )
         validate_post(text)

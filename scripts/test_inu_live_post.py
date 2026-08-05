@@ -68,7 +68,7 @@ class INULivePostTests(unittest.TestCase):
                 "id": "two_images",
                 "topic_type": "reported_breaking_news",
                 "visual_route": "reported_text_crop",
-                "text": "速報テスト\n\n僕は、事実の確認を続けます。\n\n出典: Example\n#仮想通貨",
+                "text": "速報テスト\n\n僕は、事実の確認を続けます。\n\n#仮想通貨",
                 "media_path": relative(main),
                 "source_manifest": relative(main.with_suffix(".source.json")),
                 "additional_media": [

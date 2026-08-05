@@ -20,7 +20,6 @@ def compose_post(
     hook: str,
     facts: list[str],
     opinion: str,
-    source_label: str,
     tags: list[str] | None = None,
 ) -> str:
     """見出し+三点箇条書きの固定カード形式を使わず、自然文で作る。"""
@@ -31,11 +30,10 @@ def compose_post(
         if value.strip()
     ]
     clean_opinion = _neutralize_service_domains(opinion.strip())
-    clean_source = _neutralize_service_domains(source_label.strip())
     # 事実を一つのブロックにまとめる。1文ごとに改行を空けると、
     # 公式資料を機械的に抜き出しただけの印象になりやすいため。
     body = f"{clean_hook}\n\n" + "\n".join(paragraphs)
-    body += f"\n\n{clean_opinion}\n\n出典：{clean_source}"
+    body += f"\n\n{clean_opinion}"
     hashtags = _build_hashtags((tags or [])[:2])
     if hashtags:
         body += f"\n\n{hashtags}"

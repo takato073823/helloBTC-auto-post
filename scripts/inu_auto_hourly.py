@@ -723,7 +723,6 @@ def compose_candidate_text(candidate: dict) -> str:
         hook=candidate["hook"],
         facts=candidate["facts"],
         opinion=candidate["opinion"],
-        source_label=candidate["source_name"],
         # 共通タグ処理が #仮想通貨 を補うため、固有タグは1件に限定する。
         tags=tags[:1],
     )
@@ -735,7 +734,6 @@ def compose_candidate_text(candidate: dict) -> str:
         hook=candidate["hook"],
         facts=[candidate["facts"][0]],
         opinion=candidate["opinion"],
-        source_label=candidate["source_name"],
         tags=[],
     )
     if weighted_length(compact) <= MAX_WEIGHTED_LENGTH:
@@ -745,12 +743,11 @@ def compose_candidate_text(candidate: dict) -> str:
         clean = " ".join(value.split()).strip()
         return clean if len(clean) <= limit else clean[: max(1, limit - 1)].rstrip("、。 ") + "…"
 
-    # APIを再呼び出しせず、事実・僕の見解・出典を残して確実に収める。
+    # APIを再呼び出しせず、事実と僕の見解を残して確実に収める。
     compact = compose_post(
         hook=clip(candidate["hook"], 26),
         facts=[clip(candidate["facts"][0], 34)],
         opinion=clip(candidate["opinion"], 32),
-        source_label=clip(candidate["source_name"], 18),
         tags=[],
     )
     if weighted_length(compact) > MAX_WEIGHTED_LENGTH:

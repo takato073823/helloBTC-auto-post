@@ -149,7 +149,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         text = inu_auto_hourly.compose_candidate_text(item)
         inu_auto_hourly.validate_post(text)
         self.assertIn("僕としては", text)
-        self.assertIn("出典：", text)
+        self.assertNotIn("出典", text)
 
     def test_trusted_media_fallback_keeps_the_rss_url(self):
         signals = [
@@ -348,7 +348,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "id": "inu_auto_second",
             "topic_type": "etf_flow",
             "visual_route": "official_data_crop",
-            "text": "候補2を採用\n\n僕は、変化を確認します。\n\n出典: Example\n#仮想通貨",
+            "text": "候補2を採用\n\n僕は、変化を確認します。\n\n#仮想通貨",
             "media_path": "scripts/artifacts/inu-auto/test.png",
             "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
         }
