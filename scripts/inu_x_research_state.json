@@ -1,6 +1,13 @@
 {
   "last_deep_scan_at": "",
-  "scans": [],
+  "scans": [
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-05T17:42:14+00:00",
+      "error": "400 Bad Request\nInvalid 'end_time':'2026-08-05T17:42Z'. 'end_time' must be a minimum of 10 seconds prior to the request time.",
+      "topic": "crypto_market"
+    }
+  ],
   "signals": [],
   "trends": [],
   "version": 1
