@@ -40,6 +40,22 @@ class INUQuotePostTests(unittest.TestCase):
             self.assertEqual("123456", tweet_id)
             self.assertEqual("123456", load_state(path)["posted"][0]["tweet_id"])
             self.assertEqual("2084816282902466746", load_state(path)["posted"][0]["source_tweet_id"])
+            self.assertEqual("x_native_video_reference", load_state(path)["posted"][0]["delivery_mode"])
+
+    def test_video_reference_url_is_added_by_poster(self):
+        captured = []
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "state.json"
+            publish(
+                "arthur_hayes_btc_20260805",
+                "2084816282902466746",
+                TEXT,
+                state_path=path,
+                poster=lambda text, _id: captured.append(text) or "123456",
+            )
+        # publish passes the editorial body only; x_poster is solely responsible for
+        # adding the native-video reference, so it can never be mistaken for a source URL.
+        self.assertNotIn("/video/1", captured[0])
 
     def test_state_file_is_json(self):
         self.assertEqual({"posted": []}, json.loads('{"posted": []}'))

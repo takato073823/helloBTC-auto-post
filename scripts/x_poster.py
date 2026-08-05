@@ -207,3 +207,27 @@ def post_quote_tweet(text: str, quote_tweet_id: str) -> str | None:
     except Exception as e:
         logger.warning("X引用投稿失敗（文字だけの代替投稿は行いません）: %s", e)
         return None
+
+
+def post_video_reference_tweet(text: str, source_tweet_id: str) -> str | None:
+    """Xのネイティブ動画参照URLを添えて投稿する。
+
+    ``/video/1`` URLは、X上で元投稿者が表示される動画引用として展開される。
+    動画ファイルのダウンロードや再アップロードは行わない。
+    """
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のため動画参照投稿をスキップ")
+        return None
+    if not re.fullmatch(r"\d{15,22}", str(source_tweet_id)):
+        logger.warning("X動画参照投稿をスキップ（投稿IDが不正です）: %s", source_tweet_id)
+        return None
+    try:
+        video_url = f"https://x.com/i/status/{source_tweet_id}/video/1"
+        safe_text = _neutralize_service_domains(text).rstrip() + f"\n\n{video_url}"
+        response = _get_client().create_tweet(text=safe_text)
+        tweet_id = response.data["id"]
+        logger.info("X動画参照投稿完了: https://x.com/i/web/status/%s", tweet_id)
+        return tweet_id
+    except Exception as e:
+        logger.warning("X動画参照投稿失敗（文字だけの代替投稿は行いません）: %s", e)
+        return None

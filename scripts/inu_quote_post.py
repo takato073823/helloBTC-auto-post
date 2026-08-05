@@ -11,8 +11,8 @@ import os
 import re
 from pathlib import Path
 
-from inu_post import validate_post
-from x_poster import _neutralize_service_domains, post_quote_tweet
+from inu_post import MAX_WEIGHTED_LENGTH, validate_post, weighted_length
+from x_poster import _neutralize_service_domains, post_video_reference_tweet
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -45,6 +45,9 @@ def validate_quote(post_key: str, source_tweet_id: str, text: str, state: dict) 
     if re.search(r"https?://|www\.", safe_text, flags=re.IGNORECASE):
         raise ValueError("本文に外部URLを直書きできません")
     validate_post(safe_text)
+    video_url = f"https://x.com/i/status/{source_tweet_id}/video/1"
+    if weighted_length(safe_text + "\n\n" + video_url) > MAX_WEIGHTED_LENGTH:
+        raise ValueError("動画参照URLを含めるとXの文字数上限を超えます")
     return safe_text
 
 
@@ -54,7 +57,7 @@ def publish(
     text: str,
     *,
     state_path: Path = STATE_PATH,
-    poster=post_quote_tweet,
+    poster=post_video_reference_tweet,
 ) -> str:
     state = load_state(state_path)
     safe_text = validate_quote(post_key, source_tweet_id, text, state)
@@ -65,6 +68,7 @@ def publish(
         {
             "post_key": post_key,
             "source_tweet_id": source_tweet_id,
+            "delivery_mode": "x_native_video_reference",
             "tweet_id": str(tweet_id),
             "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         }
@@ -76,7 +80,7 @@ def publish(
 def main(args: argparse.Namespace) -> int:
     state = load_state()
     safe_text = validate_quote(args.post_key, args.source_tweet_id, args.text, state)
-    logger.info("元投稿をネイティブ引用します（動画・画像は再アップロードしません）: %s", args.source_tweet_id)
+    logger.info("元投稿のネイティブ動画を参照します（動画・画像は再アップロードしません）: %s", args.source_tweet_id)
     logger.info("投稿本文:\n%s", safe_text)
     if not args.live:
         logger.info("ドライランのためXには投稿していません")

@@ -40,7 +40,7 @@ jobs:
         working-directory: scripts
         run: python -m unittest test_inu_quote_post.py test_x_poster_rules.py
 
-      - name: 元動画をネイティブ引用して投稿
+      - name: 元動画をネイティブ参照して投稿
         id: publish
         env:
           POST_KEY: ${{ inputs.post_key }}
