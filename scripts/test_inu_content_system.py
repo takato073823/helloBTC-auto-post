@@ -8,7 +8,7 @@ from tempfile import TemporaryDirectory
 
 from PIL import Image
 
-from inu_budget import estimate_monthly_cost_yen
+from inu_budget import estimate_monthly_cost_yen, estimate_total_automation_cost_yen
 from inu_content_types import CONTENT_TYPES, get_content_policy
 from inu_persona import lint_voice
 from inu_post import compose_post, validate_post
@@ -208,6 +208,9 @@ class INUContentSystemTests(unittest.TestCase):
 
     def test_hourly_medium_images_stay_under_budget_estimate(self):
         self.assertLessEqual(estimate_monthly_cost_yen(24), 10000)
+
+    def test_hourly_grok_and_mixed_images_stay_under_budget_estimate(self):
+        self.assertLessEqual(estimate_total_automation_cost_yen(), 10000)
 
 
 if __name__ == "__main__":

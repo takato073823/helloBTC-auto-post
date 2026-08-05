@@ -289,6 +289,58 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual("reported_text_crop", candidates[1]["visual_route"])
         self.assertFalse(candidates[1]["is_primary_source"])
 
+    def test_grok_x_signal_is_discovery_only_and_not_a_final_source(self):
+        x_signal = {
+            "title": "公式アカウントがETFフローを速報",
+            "source": "X @official",
+            "published": NOW.isoformat(),
+            "url": "https://x.com/official/status/123",
+            "summary": "純流入が急増したため確認する",
+            "discovery_type": "grok_x_search",
+        }
+        official = candidate()
+        captured = {}
+
+        def fake_web(prompt, **kwargs):
+            captured["prompt"] = prompt
+            return {"candidates": [official], "skip_reason": ""}, [
+                {"url": official["source_url"], "title": "Official"}
+            ]
+
+        with patch.object(inu_auto_hourly, "collect_discovery_signals", return_value=[]), patch.object(
+            inu_auto_hourly, "generate_web_json", side_effect=fake_web
+        ):
+            _, sources, signals = inu_auto_hourly.research_candidates(
+                NOW, {"history": []}, extra_signals=[x_signal]
+            )
+        self.assertIn("Grok X Search", captured["prompt"])
+        self.assertEqual([x_signal], signals)
+        self.assertNotIn(x_signal["url"], [row["url"] for row in sources])
+
+    def test_grok_failure_falls_back_to_existing_web_research(self):
+        expected = ([candidate()], [{"url": "https://example.com"}], [])
+        with patch.object(
+            inu_auto_hourly,
+            "collect_grok_discovery_signals",
+            side_effect=RuntimeError("temporary failure"),
+        ), patch.object(
+            inu_auto_hourly,
+            "research_candidates",
+            return_value=expected,
+        ) as fallback:
+            actual = inu_auto_hourly.research_candidates_with_grok(NOW, {"history": []})
+        self.assertEqual(expected, actual)
+        fallback.assert_called_once_with(NOW, {"history": []}, extra_signals=[])
+
+    def test_retry_schedule_skips_second_grok_charge(self):
+        event = json.dumps({"schedule": "47 * * * *"})
+        with patch.dict(
+            "os.environ",
+            {"XAI_API_KEY": "configured", "GITHUB_EVENT_PATH": "/tmp/event.json"},
+            clear=False,
+        ), patch.object(Path, "read_text", return_value=event):
+            self.assertFalse(inu_auto_hourly._is_primary_grok_run())
+
     def test_prepare_tries_the_next_candidate_instead_of_failing(self):
         options = [candidate(), candidate(source_url="https://example.com/official/second")]
         item = {

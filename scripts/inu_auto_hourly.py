@@ -23,6 +23,7 @@ from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
+from grok_client import generate_x_json
 from llm_client import generate_json, generate_web_json
 from scraper import fetch_from_rss
 
@@ -161,6 +162,41 @@ CANDIDATE_SET_SCHEMA = {
     },
     "required": ["candidates", "skip_reason"],
 }
+X_SIGNAL_SET_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "signals": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "properties": {
+                    "post_url": {"type": "string"},
+                    "handle": {"type": "string"},
+                    "posted_at": {"type": "string"},
+                    "headline": {"type": "string"},
+                    "summary": {"type": "string"},
+                    "why_trending": {"type": "string"},
+                    "topic": {"type": "string"},
+                },
+                "required": [
+                    "post_url",
+                    "handle",
+                    "posted_at",
+                    "headline",
+                    "summary",
+                    "why_trending",
+                    "topic",
+                ],
+            },
+            "minItems": 1,
+            "maxItems": 12,
+        },
+        "skip_reason": {"type": "string"},
+    },
+    "required": ["signals", "skip_reason"],
+}
 REPORT_COPY_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
@@ -194,6 +230,11 @@ def normalize_url(value: str) -> str:
         ]
     )
     return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/"), query, ""))
+
+
+def is_x_url(value: str) -> bool:
+    host = (urlsplit(value).hostname or "").lower().removeprefix("www.")
+    return host in {"x.com", "twitter.com", "mobile.twitter.com"}
 
 
 def _parse_timestamp(value: str) -> dt.datetime:
@@ -245,6 +286,112 @@ def collect_discovery_signals() -> list[dict[str, str]]:
     return signals[:30]
 
 
+def _is_primary_grok_run() -> bool:
+    """再確認枠ではGrokを再課金せず、毎時の主実行と手動実行だけで使う。"""
+    if not os.environ.get("XAI_API_KEY", "").strip():
+        return False
+    event_path = os.environ.get("GITHUB_EVENT_PATH", "").strip()
+    if not event_path:
+        return True
+    try:
+        event = json.loads(Path(event_path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        logger.warning("GitHubイベントを判定できないため、Grok検索を通常実行します")
+        return True
+    return event.get("schedule") != "47 * * * *"
+
+
+def build_grok_prompt(now: dt.datetime, state: dict) -> str:
+    recent_urls = [row.get("discovery_url", "") for row in _recent_history(state)]
+    recent_hooks = [row.get("hook", "") for row in _recent_history(state)]
+    return f"""
+あなたは投資情報アカウントINUのX速報リサーチ担当です。現在時刻は
+{now.astimezone(JST).isoformat()}（日本時間）です。X Searchを実行し、原則6時間以内に
+投稿された重要シグナルを最大12件、重要度順に返してください。6時間以内に不足する場合だけ
+12時間以内まで広げてください。
+
+検索対象:
+- ビットコイン、イーサリアム、急騰・急落した主要暗号資産、ETFフロー、クジラ・オンチェーン
+- 暗号資産取引所、プロジェクト、規制当局、中央銀行、ETF発行体の公式アカウント
+- 米国株、日本株、AI企業、金利・雇用・物価、地政学で市場が反応する発表
+- 著名人の市場に関する新しい発言、短時間で反応が急増している投稿
+
+条件:
+- 公式発表、具体的な数値、価格変動の節目、制度変更を優先する。
+- インフルエンサー投稿は発見の手掛かりとして採用できるが、噂・煽り・価格予想・広告・キャンペーンは除外する。
+- headlineは何が起きたか、why_trendingはなぜ今すぐ調べる価値があるかを具体的に書く。
+- post_urlはX Searchで実際に確認したstatus URLだけを使う。
+- posted_atは必ずタイムゾーンを含むISO 8601形式（例: 2026-08-05T03:15:00Z）で返す。
+- 同じ出来事の転載は1件にまとめ、古い話題で件数を埋めない。
+- 出力は日本語。ただしアカウント名、固有名詞、数値は原文を維持する。
+- signalsは「投稿する情報」ではなく、一次情報を探すための発見候補である。引用可能なXのstatus投稿が1件でも見つかった場合は、signalsを空にしない。公式・非公式を問わず、広告・煽り・価格予想を除いた上位の出来事を返す。最終的な真偽・一次情報の有無は後段で検証するため、ここで過度に候補を絞り込まない。
+
+再利用禁止のX投稿: {json.dumps(recent_urls, ensure_ascii=False)}
+近似テーマ禁止の直近見出し: {json.dumps(recent_hooks, ensure_ascii=False)}
+""".strip()
+
+
+def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[str, str]]:
+    if not _is_primary_grok_run():
+        if os.environ.get("XAI_API_KEY", "").strip():
+            logger.info("47分の再確認枠ではGrok検索を省略し、月間予算を守ります")
+        return []
+    local_date = now.astimezone(JST).date()
+    payload, _ = generate_x_json(
+        build_grok_prompt(now, state),
+        schema_name="inu_x_discovery_signals",
+        schema=X_SIGNAL_SET_SCHEMA,
+        from_date=local_date - dt.timedelta(days=1),
+        to_date=local_date,
+        max_output_tokens=3000,
+        model=os.environ.get("XAI_RESEARCH_MODEL", "grok-4.3"),
+    )
+    if not payload.get("signals"):
+        logger.info("GrokのX検索は候補なし: %s", payload.get("skip_reason", ""))
+    signals: list[dict[str, str]] = []
+    seen: set[str] = set()
+    invalid_dates = 0
+    stale = 0
+    invalid_urls = 0
+    for row in payload.get("signals", []):
+        try:
+            posted_at = _parse_timestamp(str(row.get("posted_at", "")))
+        except (TypeError, ValueError):
+            invalid_dates += 1
+            continue
+        age = now.astimezone(dt.timezone.utc) - posted_at
+        url = normalize_url(str(row.get("post_url", "")))
+        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=12):
+            stale += 1
+            continue
+        if not is_x_url(url) or url in seen:
+            invalid_urls += 1
+            continue
+        seen.add(url)
+        handle = str(row.get("handle", "")).strip().lstrip("@")
+        signals.append(
+            {
+                "title": str(row.get("headline", ""))[:180],
+                "source": f"X @{handle}"[:60],
+                "published": posted_at.isoformat(),
+                "url": url[:500],
+                "summary": (
+                    f"{row.get('summary', '')} / 注目理由: {row.get('why_trending', '')}"
+                )[:700],
+                "discovery_type": "grok_x_search",
+            }
+        )
+    logger.info(
+        "GrokのX検索: 取得%d件 / 採用%d件 / 日時不正%d件 / 鮮度外%d件 / URL重複%d件",
+        len(payload.get("signals", [])),
+        len(signals),
+        invalid_dates,
+        stale,
+        invalid_urls,
+    )
+    return signals
+
+
 def build_research_prompt(
     now: dt.datetime,
     state: dict,
@@ -266,6 +413,7 @@ topic_typeが異なる候補を優先してください。
 - 少なくとも「暗号資産公式」「ETF・オンチェーン」「米国企業IR・AI」
   「日本企業IR」「中央銀行・規制当局」「Xで話題になった公式発表」の観点を分けて検索してから比較する。
 - ニュースメディアやXの話題は発見に使ってよいが、最終source_urlは発表主体の公式サイト、規制当局、中央銀行、取引所、上場企業IR、ETF発行体、公式データ提供元などの一次資料にする。
+- 「Grok X Search」と記載されたシグナルのX URLは発見専用であり、最終source_urlには絶対に使わない。投稿内容を公式発表・一次データで独立に確認できない場合は候補から除外する。
 - 一次資料へ到達できない速報だけは、Reuters、Nikkei、Bloomberg、CoinDesk、Cointelegraph、Decrypt、The Blockの元記事をsource_urlにしてよい。その場合topic_typeはreported_breaking_news、visual_routeはreported_text_crop、is_primary_source=falseにする。
 - source_urlは今回のWeb検索結果に実際に含まれるURLを使う。ただしreported_breaking_newsだけは、下記「大手メディアの最新見出し」に含まれる元記事URLも使える。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
@@ -301,9 +449,12 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
 
 
 def research_candidates(
-    now: dt.datetime, state: dict
+    now: dt.datetime,
+    state: dict,
+    extra_signals: list[dict[str, str]] | None = None,
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
-    signals = collect_discovery_signals()
+    signals = list(extra_signals or []) + collect_discovery_signals()
+    signals = signals[:42]
     payload, sources = generate_web_json(
         build_research_prompt(now, state, signals),
         schema_name="inu_live_candidate_set",
@@ -315,7 +466,7 @@ def research_candidates(
     sources.extend(
         {"url": row["url"], "title": row["title"]}
         for row in signals
-        if row.get("url")
+        if row.get("url") and not is_x_url(row["url"])
     )
     candidates = [
         _normalize_researched_candidate(candidate)
@@ -323,6 +474,18 @@ def research_candidates(
         if isinstance(candidate, dict)
     ]
     return candidates, sources, signals
+
+
+def research_candidates_with_grok(
+    now: dt.datetime, state: dict
+) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
+    """Xの最新シグナルを追加し、失敗時は従来のWeb調査だけで継続する。"""
+    x_signals: list[dict[str, str]] = []
+    try:
+        x_signals = collect_grok_discovery_signals(now, state)
+    except Exception as exc:
+        logger.warning("GrokのX検索に失敗したため、従来のWeb調査で継続: %s", exc)
+    return research_candidates(now, state, extra_signals=x_signals)
 
 
 def research_candidate(
@@ -695,7 +858,7 @@ def prepare(args: argparse.Namespace) -> int:
             return 0
     else:
         try:
-            candidates, sources, signals = research_candidates(now, state)
+            candidates, sources, signals = research_candidates_with_grok(now, state)
         except Exception as exc:
             logger.warning("一次資料の複数候補リサーチに失敗: %s", exc)
             signals = collect_discovery_signals()

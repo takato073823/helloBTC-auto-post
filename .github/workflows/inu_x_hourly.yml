@@ -4,7 +4,8 @@ on:
   schedule:
     # 毎時0分はGitHub Actionsの混雑で欠落しやすい。17分に本実行し、47分に同一枠を再確認する。
     # 投稿済み・予約済みの時間枠はスクリプト側で即時終了するため、二重投稿にはならない。
-    - cron: "17,47 * * * *"
+    - cron: "17 * * * *"
+    - cron: "47 * * * *"
   workflow_dispatch:
     inputs:
       live:
@@ -43,14 +44,16 @@ jobs:
 
       - name: INU投稿ルールを検証
         working-directory: scripts
-        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_auto_hourly.py test_inu_live_post.py test_llm_client.py test_x_poster_rules.py
+        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_auto_hourly.py test_inu_live_post.py test_llm_client.py test_grok_client.py test_x_poster_rules.py
 
       - name: 手動ドライラン候補を準備
         id: dry_prepare
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
+          XAI_RESEARCH_MODEL: grok-4.3
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare --dry-run
 
@@ -59,7 +62,9 @@ jobs:
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
+          XAI_RESEARCH_MODEL: grok-4.3
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare
 

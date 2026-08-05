@@ -34,7 +34,8 @@ class INUHourlyDispatcherTests(unittest.TestCase):
             / "workflows"
             / "inu_x_hourly.yml"
         ).read_text(encoding="utf-8")
-        self.assertIn('- cron: "17,47 * * * *"', workflow)
+        self.assertIn('- cron: "17 * * * *"', workflow)
+        self.assertIn('- cron: "47 * * * *"', workflow)
         self.assertIn("INU_AUTOMATION_ENABLED", workflow)
 
     def test_highest_priority_valid_item_wins(self):
