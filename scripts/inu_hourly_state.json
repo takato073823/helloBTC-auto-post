@@ -79,6 +79,19 @@
       "posted_at": "2026-08-05T08:08:57.205385+00:00",
       "hook": "GSユアサ、15時に1Q決算を発表予定",
       "follow_value": "INUではGSユアサの車載・産業用電池の利益率、設備投資、通期ガイダンス修正を追える。"
+    },
+    {
+      "slot": "2026-08-05-19",
+      "post_id": "inu_auto_7bbe14085d5a4f",
+      "tweet_id": "2084955390048133281",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://cointelegraph.com/news/sp-blackrock-tokenized-reserve-fund-stability",
+      "published_at": "2026-08-05T10:40:43+00:00",
+      "posted_at": "2026-08-05T10:51:16.389392+00:00",
+      "hook": "🏦S&P、ブラックロックのトークン化準備基金に最高水準の安定性評価",
+      "follow_value": "今後は、トークン化金融商品の信用評価とステーブルコインの格付け動向を追えます。"
     }
   ],
   "posted_ids": [
@@ -92,7 +105,8 @@
     "inu_auto_d65ad95418cd98",
     "inu_auto_ad48dd0794f3d3",
     "inu_auto_0b02699bc225cd",
-    "inu_auto_5ee53965598670"
+    "inu_auto_5ee53965598670",
+    "inu_auto_7bbe14085d5a4f"
   ],
   "reservations": [
     {
@@ -103,15 +117,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-05-19",
-      "post_id": "inu_auto_7bbe14085d5a4f",
-      "source_url": "https://cointelegraph.com/news/sp-blackrock-tokenized-reserve-fund-stability",
-      "topic_type": "reported_breaking_news",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-05T10:50:22.688935+00:00"
     }
   ],
   "history": [
@@ -228,6 +233,19 @@
       "posted_at": "2026-08-05T08:08:57.205385+00:00",
       "hook": "GSユアサ、15時に1Q決算を発表予定",
       "follow_value": "INUではGSユアサの車載・産業用電池の利益率、設備投資、通期ガイダンス修正を追える。"
+    },
+    {
+      "slot": "2026-08-05-19",
+      "post_id": "inu_auto_7bbe14085d5a4f",
+      "tweet_id": "2084955390048133281",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://cointelegraph.com/news/sp-blackrock-tokenized-reserve-fund-stability",
+      "published_at": "2026-08-05T10:40:43+00:00",
+      "posted_at": "2026-08-05T10:51:16.389392+00:00",
+      "hook": "🏦S&P、ブラックロックのトークン化準備基金に最高水準の安定性評価",
+      "follow_value": "今後は、トークン化金融商品の信用評価とステーブルコインの格付け動向を追えます。"
     }
   ]
 }
