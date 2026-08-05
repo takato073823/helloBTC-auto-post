@@ -17,6 +17,7 @@ X API v2 (tweepy) + OAuth 1.0a
 import os
 import logging
 import re
+from collections.abc import Sequence
 from pathlib import Path
 import tweepy
 
@@ -146,7 +147,7 @@ def post_tweet(
         return None
 
 
-def post_info_tweet(text: str, media_path: str | Path) -> str | None:
+def post_info_tweet(text: str, media_path: str | Path | Sequence[str | Path]) -> str | None:
     """独立した情報投稿を画像付きで送る。
 
     既存の記事投稿とは呼び出し元を分離する。画像アップロードまたは投稿に
@@ -156,16 +157,24 @@ def post_info_tweet(text: str, media_path: str | Path) -> str | None:
         logger.info("X APIシークレット未設定のため情報投稿をスキップ")
         return None
 
-    path = Path(media_path)
-    if not path.is_file():
-        logger.warning("X情報投稿をスキップ（画像が存在しません）: %s", path)
+    raw_paths = (
+        list(media_path)
+        if isinstance(media_path, Sequence) and not isinstance(media_path, (str, Path))
+        else [media_path]
+    )
+    paths = [Path(path) for path in raw_paths]
+    if not paths or len(paths) > 4 or any(not path.is_file() for path in paths):
+        logger.warning("X情報投稿をスキップ（画像が不正です）: %s", paths)
         return None
 
     try:
         safe_text = _neutralize_service_domains(text)
-        media = _get_oauth1_api().media_upload(filename=str(path))
-        media_id = str(getattr(media, "media_id_string", None) or media.media_id)
-        response = _get_client().create_tweet(text=safe_text, media_ids=[media_id])
+        uploader = _get_oauth1_api()
+        media_ids = []
+        for path in paths:
+            media = uploader.media_upload(filename=str(path))
+            media_ids.append(str(getattr(media, "media_id_string", None) or media.media_id))
+        response = _get_client().create_tweet(text=safe_text, media_ids=media_ids)
         tweet_id = response.data["id"]
         logger.info("X情報投稿完了: https://x.com/i/web/status/%s", tweet_id)
         return tweet_id

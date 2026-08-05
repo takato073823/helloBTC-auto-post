@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 from inu_content_types import get_content_policy
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
+from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from grok_client import generate_x_json
@@ -37,6 +38,7 @@ STATE_PATH = SCRIPT_DIR / "inu_hourly_state.json"
 ARTIFACT_DIR = SCRIPT_DIR / "artifacts" / "inu-auto"
 PREPARED_PATH = ARTIFACT_DIR / "prepared.json"
 MAX_HISTORY = 1000
+MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 
 AUTO_TOPIC_TYPES = (
     "breaking_news",
@@ -779,6 +781,7 @@ def _reserve(
             "source_url": normalize_url(candidate["source_url"]),
             "topic_type": candidate["topic_type"],
             "priority": priority,
+            "generated_editorial_visual": bool(candidate.get("generated_editorial_visual")),
             "reserved_at": now.isoformat(),
         }
     )
@@ -787,6 +790,18 @@ def _reserve(
     updated.setdefault("posted_ids", list(state.get("posted_ids", [])))
     updated.setdefault("history", list(state.get("history", [])))
     return updated
+
+
+def _generated_editorial_visual_count(state: dict, now: dt.datetime) -> int:
+    """JST当日に予約・投稿済みとなった生成主画像だけを数える。"""
+    today = now.astimezone(JST).date().isoformat()
+    rows = list(state.get("reservations", [])) + list(state.get("posted_slots", []))
+    return sum(
+        1
+        for row in rows
+        if row.get("generated_editorial_visual")
+        and str(row.get("slot", "")).startswith(f"{today}-")
+    )
 
 
 def _build_item_from_candidate(
@@ -803,7 +818,7 @@ def _build_item_from_candidate(
     selected["source_url"] = verified_url
 
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
-    image_path = ARTIFACT_DIR / f"{slot}.png"
+    evidence_path = ARTIFACT_DIR / f"{slot}-evidence.png"
     spec = SourceCaptureSpec(
         source_url=verified_url,
         source_name=selected["source_name"],
@@ -815,18 +830,50 @@ def _build_item_from_candidate(
     asyncio.run(
         capture_official_evidence(
             spec,
-            image_path,
+            evidence_path,
             evidence_anchor=selected["evidence_anchor"],
         )
     )
+    primary_path = ARTIFACT_DIR / f"{slot}-main.png"
+    generated_primary = False
+    try:
+        capture_source_hero_image(
+            source_url=verified_url,
+            source_name=selected["source_name"],
+            published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+            output_path=primary_path,
+            is_primary_source=bool(selected["is_primary_source"]),
+        )
+    except Exception as source_image_error:
+        if _generated_editorial_visual_count(state, now) >= MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY:
+            raise ValueError("主画像がなく、生成画像の日次上限に達しています") from source_image_error
+        logger.info("出典の主画像を取得できないため生成ビジュアルへ切替: %s", source_image_error)
+        generate_editorial_news_visual(
+            hook=selected["hook"],
+            facts=selected["facts"],
+            topic_type=selected["topic_type"],
+            source_url=verified_url,
+            source_name=selected["source_name"],
+            published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+            output_path=primary_path,
+            is_primary_source=bool(selected["is_primary_source"]),
+        )
+        generated_primary = True
     item = {
         "id": _candidate_id(selected),
         "topic_type": selected["topic_type"],
         "visual_route": selected["visual_route"],
         "text": compose_candidate_text(selected),
-        "media_path": _repo_relative(image_path),
-        "source_manifest": _repo_relative(image_path.with_suffix(".source.json")),
+        "media_path": _repo_relative(primary_path),
+        "source_manifest": _repo_relative(primary_path.with_suffix(".source.json")),
+        "additional_media": [
+            {
+                "media_path": _repo_relative(evidence_path),
+                "source_manifest": _repo_relative(evidence_path.with_suffix(".source.json")),
+            }
+        ],
     }
+    selected["generated_editorial_visual"] = generated_primary
     validate_test_item(item)
     return item, selected
 
@@ -952,6 +999,7 @@ def publish(args: argparse.Namespace) -> int:
         "tweet_id": str(tweet_id),
         "topic_type": candidate["topic_type"],
         "priority": str(reservation.get("priority", "scheduled")),
+        "generated_editorial_visual": bool(reservation.get("generated_editorial_visual")),
         "source_url": normalize_url(candidate["source_url"]),
         "published_at": candidate["published_at"],
         "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),

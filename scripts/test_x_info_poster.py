@@ -31,7 +31,8 @@ import x_poster
 class FakeMediaAPI:
     def media_upload(self, filename):
         self.filename = filename
-        return types.SimpleNamespace(media_id_string="media-123")
+        self.filenames = getattr(self, "filenames", []) + [filename]
+        return types.SimpleNamespace(media_id_string=f"media-{len(self.filenames)}")
 
 
 class FakeClient:
@@ -137,7 +138,28 @@ class XInfoPosterTests(unittest.TestCase):
                 result = x_poster.post_info_tweet("Crypto.comの情報", image)
         self.assertEqual(result, "tweet-456")
         self.assertEqual(client.kwargs["text"], "Crypto(.)comの情報")
-        self.assertEqual(client.kwargs["media_ids"], ["media-123"])
+        self.assertEqual(client.kwargs["media_ids"], ["media-1"])
+
+    def test_media_post_can_attach_primary_visual_and_evidence(self):
+        media_api = FakeMediaAPI()
+        client = FakeClient()
+        secrets = {
+            "X_API_KEY": "test",
+            "X_API_KEY_SECRET": "test",
+            "X_ACCESS_TOKEN": "test",
+            "X_ACCESS_TOKEN_SECRET": "test",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            first = Path(tmp) / "main.png"
+            second = Path(tmp) / "evidence.png"
+            first.write_bytes(b"png")
+            second.write_bytes(b"png")
+            with patch.dict(os.environ, secrets), patch.object(
+                x_poster, "_get_oauth1_api", return_value=media_api
+            ), patch.object(x_poster, "_get_client", return_value=client):
+                result = x_poster.post_info_tweet("テスト", [first, second])
+        self.assertEqual(result, "tweet-456")
+        self.assertEqual(client.kwargs["media_ids"], ["media-1", "media-2"])
 
     def test_failed_media_upload_never_falls_back_to_text_only(self):
         client = FakeClient()

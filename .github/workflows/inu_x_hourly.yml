@@ -44,7 +44,7 @@ jobs:
 
       - name: INU投稿ルールを検証
         working-directory: scripts
-        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_auto_hourly.py test_inu_live_post.py test_llm_client.py test_grok_client.py test_x_poster_rules.py
+        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_auto_hourly.py test_inu_live_post.py test_inu_news_visual.py test_llm_client.py test_grok_client.py test_x_poster_rules.py
 
       - name: 手動ドライラン候補を準備
         id: dry_prepare

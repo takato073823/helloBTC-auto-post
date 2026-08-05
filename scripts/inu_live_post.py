@@ -46,33 +46,8 @@ def load_test_item(post_id: str) -> dict:
     return items[post_id]
 
 
-def validate_test_item(item: dict) -> tuple[str, Path]:
-    required = {
-        "id",
-        "topic_type",
-        "visual_route",
-        "text",
-        "media_path",
-        "source_manifest",
-    }
-    missing = sorted(required - set(item))
-    if missing:
-        raise ValueError(f"投稿データが不足しています: {missing}")
-
-    safe_text = _neutralize_service_domains(item["text"].strip())
-    validate_post(safe_text)
-    policy = get_content_policy(item["topic_type"])
-    if item["visual_route"] != policy.visual_route:
-        raise ValueError("投稿系統と画像形式が一致しません")
-    if policy.review_mode == "manual":
-        raise ValueError("手動確認専用の投稿系統は自動公開できません")
-    blocked = [pattern for pattern in BLOCKING_PATTERNS if pattern in safe_text]
-    if blocked:
-        raise ValueError(f"禁止表現があります: {blocked}")
-    if re.search(r"https?://|www\.", safe_text, flags=re.IGNORECASE):
-        raise ValueError("投稿本文に外部URLを直書きできません")
-
-    media_path = (REPO_ROOT / item["media_path"]).resolve()
+def _media_path(value: str) -> Path:
+    media_path = (REPO_ROOT / value).resolve()
     if REPO_ROOT not in media_path.parents or not media_path.is_file():
         raise ValueError("投稿画像がリポジトリ内に存在しません")
     if media_path.stat().st_size > MAX_MEDIA_BYTES:
@@ -84,12 +59,17 @@ def validate_test_item(item: dict) -> tuple[str, Path]:
             raise ValueError("検証済みPNG以外は投稿できません")
         if image.width < 320 or image.height < 180:
             raise ValueError("投稿画像が小さすぎます")
+    return media_path
 
-    manifest_path = (REPO_ROOT / item["source_manifest"]).resolve()
+
+def _manifest(value: str) -> dict:
+    manifest_path = (REPO_ROOT / value).resolve()
     if REPO_ROOT not in manifest_path.parents or not manifest_path.is_file():
         raise ValueError("出典メタデータがありません")
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    visual_route = item["visual_route"]
+    return json.loads(manifest_path.read_text(encoding="utf-8"))
+
+
+def _validate_evidence_manifest(manifest: dict, visual_route: str, policy) -> None:
     if manifest.get("evidence_type") != visual_route:
         raise ValueError("画像の出典形式が投稿データと一致しません")
     if visual_route.startswith("official_"):
@@ -119,7 +99,71 @@ def validate_test_item(item: dict) -> tuple[str, Path]:
     if policy.requires_primary_source and not source_url.startswith("https://"):
         raise ValueError("出典URLが不正です")
 
-    return safe_text, media_path
+
+def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
+    required = {
+        "id",
+        "topic_type",
+        "visual_route",
+        "text",
+        "media_path",
+        "source_manifest",
+    }
+    missing = sorted(required - set(item))
+    if missing:
+        raise ValueError(f"投稿データが不足しています: {missing}")
+
+    safe_text = _neutralize_service_domains(item["text"].strip())
+    validate_post(safe_text)
+    policy = get_content_policy(item["topic_type"])
+    if item["visual_route"] != policy.visual_route:
+        raise ValueError("投稿系統と画像形式が一致しません")
+    if policy.review_mode == "manual":
+        raise ValueError("手動確認専用の投稿系統は自動公開できません")
+    blocked = [pattern for pattern in BLOCKING_PATTERNS if pattern in safe_text]
+    if blocked:
+        raise ValueError(f"禁止表現があります: {blocked}")
+    if re.search(r"https?://|www\.", safe_text, flags=re.IGNORECASE):
+        raise ValueError("投稿本文に外部URLを直書きできません")
+
+    media_path = _media_path(item["media_path"])
+    manifest = _manifest(item["source_manifest"])
+    visual_route = item["visual_route"]
+    extra_media = item.get("additional_media", [])
+    if manifest.get("visual_role") == "attention_visual":
+        if manifest.get("evidence_type") not in {"source_news_image", "gpt_news_visual"}:
+            raise ValueError("主画像の形式が不正です")
+        if not manifest.get("facts_verified"):
+            raise ValueError("主画像の事実確認が完了していません")
+        if manifest.get("evidence_type") == "gpt_news_visual" and not manifest.get("generated_image"):
+            raise ValueError("生成主画像の記録が不正です")
+        if manifest.get("evidence_type") == "source_news_image":
+            if manifest.get("capture_type") != "source_hero_image" or not str(manifest.get("source_image_url", "")).startswith("https://"):
+                raise ValueError("出典主画像の記録が不正です")
+        if not extra_media:
+            raise ValueError("主画像には根拠画像の追加が必要です")
+    else:
+        _validate_evidence_manifest(manifest, visual_route, policy)
+
+    media_paths = [media_path]
+    evidence_found = manifest.get("evidence_type") == visual_route
+    for asset in extra_media:
+        if not isinstance(asset, dict) or set(asset) != {"media_path", "source_manifest"}:
+            raise ValueError("追加画像の指定が不正です")
+        media_paths.append(_media_path(asset["media_path"]))
+        evidence_manifest = _manifest(asset["source_manifest"])
+        _validate_evidence_manifest(evidence_manifest, visual_route, policy)
+        evidence_found = True
+    if len(media_paths) > 4:
+        raise ValueError("投稿画像は4枚までです")
+    if not evidence_found:
+        raise ValueError("投稿の根拠画像がありません")
+    return safe_text, media_paths
+
+
+def validate_test_item(item: dict) -> tuple[str, Path]:
+    safe_text, media_paths = validated_media_paths(item)
+    return safe_text, media_paths[0]
 
 
 def publish_test_item(
@@ -127,8 +171,9 @@ def publish_test_item(
     *,
     poster: Callable[[str, Path], str | None] = post_info_tweet,
 ) -> str:
-    safe_text, media_path = validate_test_item(item)
-    tweet_id = poster(safe_text, media_path)
+    safe_text, media_paths = validated_media_paths(item)
+    media = media_paths[0] if len(media_paths) == 1 else media_paths
+    tweet_id = poster(safe_text, media)
     if not tweet_id:
         raise RuntimeError("X投稿に失敗しました。文字だけの代替投稿は行っていません")
     return str(tweet_id)
