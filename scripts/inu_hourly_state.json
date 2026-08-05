@@ -54,6 +54,18 @@
       "published_at": "2026-08-05T00:00:00-04:00",
       "posted_at": "2026-08-05T05:49:06.104118+00:00",
       "hook": "米財務省、四半期定例入札を公表へ"
+    },
+    {
+      "slot": "2026-08-05-15",
+      "post_id": "inu_auto_0b02699bc225cd",
+      "tweet_id": "2084885464008503742",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://cointelegraph.com/news/clarity-or-not-crypto-isnt-going-back-in-the-bottle-bitwise",
+      "published_at": "2026-08-05T05:47:42+00:00",
+      "posted_at": "2026-08-05T06:13:24.811761+00:00",
+      "hook": "米SEC・CFTCの指針で、法案不成立でも暗号資産業界は前進か"
     }
   ],
   "posted_ids": [
@@ -65,19 +77,10 @@
     "inu_breaking_us_indices_record_2026-08-04",
     "inu_auto_ece17867c4052d",
     "inu_auto_d65ad95418cd98",
-    "inu_auto_ad48dd0794f3d3"
+    "inu_auto_ad48dd0794f3d3",
+    "inu_auto_0b02699bc225cd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-05-15",
-      "post_id": "inu_auto_0b02699bc225cd",
-      "source_url": "https://cointelegraph.com/news/clarity-or-not-crypto-isnt-going-back-in-the-bottle-bitwise",
-      "topic_type": "reported_breaking_news",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-05T06:12:49.162661+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -167,6 +170,18 @@
       "published_at": "2026-08-05T00:00:00-04:00",
       "posted_at": "2026-08-05T05:49:06.104118+00:00",
       "hook": "米財務省、四半期定例入札を公表へ"
+    },
+    {
+      "slot": "2026-08-05-15",
+      "post_id": "inu_auto_0b02699bc225cd",
+      "tweet_id": "2084885464008503742",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://cointelegraph.com/news/clarity-or-not-crypto-isnt-going-back-in-the-bottle-bitwise",
+      "published_at": "2026-08-05T05:47:42+00:00",
+      "posted_at": "2026-08-05T06:13:24.811761+00:00",
+      "hook": "米SEC・CFTCの指針で、法案不成立でも暗号資産業界は前進か"
     }
   ]
 }
