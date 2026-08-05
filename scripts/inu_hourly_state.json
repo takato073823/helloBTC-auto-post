@@ -94,7 +94,17 @@
     "inu_auto_0b02699bc225cd",
     "inu_auto_5ee53965598670"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-05-18",
+      "post_id": "inu_auto_dce17dfd132501",
+      "source_url": "https://cointelegraph.com/news/forgd-market-maker-leaderboard-defillama",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "reserved_at": "2026-08-05T09:24:35.618953+00:00"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
