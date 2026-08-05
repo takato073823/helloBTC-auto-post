@@ -60,6 +60,20 @@ class INUNewsVisualTests(unittest.TestCase):
         self.assertEqual("source_news_image", manifest["evidence_type"])
         self.assertEqual("attention_visual", manifest["visual_role"])
 
+    def test_does_not_fetch_cointelegraph_editorial_visuals(self):
+        session = FakeSession("", b"")
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaisesRegex(ValueError, "Cointelegraph"):
+                capture_source_hero_image(
+                    source_url="https://cointelegraph.com/news/bitcoin-market-update",
+                    source_name="Cointelegraph",
+                    published_at="2026-08-05",
+                    output_path=Path(directory) / "main.png",
+                    is_primary_source=False,
+                    session=session,
+                )
+        self.assertEqual([], session.urls)
+
 
 if __name__ == "__main__":
     unittest.main()

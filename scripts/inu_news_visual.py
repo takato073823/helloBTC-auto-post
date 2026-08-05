@@ -17,6 +17,14 @@ from inu_gpt_image import generate_image
 USER_AGENT = "Mozilla/5.0 (compatible; INUNewsVisual/1.0)"
 MIN_IMAGE_SIZE = (640, 360)
 MAX_IMAGE_PIXELS = 3_000_000
+# 一目で媒体を特定できる編集ビジュアルは、投稿の主画像に再利用しない。
+# 根拠のスクリーンショットは別添で保持し、主画像はINU独自の生成ビジュアルにする。
+BLOCKED_EDITORIAL_VISUAL_DOMAINS = {"cointelegraph.com"}
+
+
+def _uses_blocked_editorial_visual_style(source_url: str) -> bool:
+    host = urlparse(source_url).netloc.lower().split(":", 1)[0]
+    return any(host == domain or host.endswith(f".{domain}") for domain in BLOCKED_EDITORIAL_VISUAL_DOMAINS)
 
 
 def _https_url(value: str, base_url: str) -> str:
@@ -65,6 +73,9 @@ def capture_source_hero_image(
     人物ニュースでは同記事に掲載された本人写真、企業ニュースでは公式ロゴや
     現場写真が自然に最優先になる。
     """
+    if _uses_blocked_editorial_visual_style(source_url):
+        raise ValueError("Cointelegraphの編集ビジュアルはニュース主画像として使いません")
+
     requester = session or requests.Session()
     headers = {"User-Agent": USER_AGENT}
     page = requester.get(source_url, headers=headers, timeout=25)
@@ -114,7 +125,7 @@ Style/medium: premium financial-news editorial photography or cinematic illustra
 Composition/framing: portrait 4:5, one decisive focal point, strong depth and contrast, generous clean negative space. It must feel like a news image, not a web card or infographic.
 Text: no text at all.
 Constraints: do not generate letters, words, numbers, charts, interface screens, company logos, trademarks, watermarks, signatures, or a likeness of a real person. Do not invent a claim beyond the verified context. This image is an attention visual; the source evidence will be attached separately.
-Avoid: generic stock-photo office scenes, HTML dashboards, black breaking-news template, cryptocurrency coins unless directly essential, mascots, copied influencer layouts, and imitation of any reference image.
+Avoid: generic stock-photo office scenes, HTML dashboards, black breaking-news template, cryptocurrency coins unless directly essential, mascots, copied influencer layouts, and imitation of any reference image or a recognizable publisher illustration style (including Cointelegraph-style crypto editorial art).
 """.strip()
 
 
