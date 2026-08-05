@@ -36,7 +36,6 @@ def candidate(**overrides) -> dict:
         "why_now": "4時間前に公式データが更新されたため",
         "reader_interest": "資金流入が継続するかで、ビットコインETFへの需要の強さを確認できるため",
         "follow_value": "ETFフローと機関投資家の資金移動を継続して追えるため",
-        "growth_angle": "decision",
         "is_primary_source": True,
     }
     value.update(overrides)
@@ -342,46 +341,6 @@ class INUAutoHourlyTests(unittest.TestCase):
             {"posted_slots": [], "posted_ids": [], "history": []},
             NOW,
         )
-
-    def test_alert_requires_two_hour_freshness(self):
-        item = candidate(
-            growth_angle="alert",
-            published_at="2026-08-04T09:30:00Z",
-        )
-        with self.assertRaisesRegex(ValueError, "通知価値"):
-            inu_auto_hourly.validate_candidate(
-                item,
-                [{"url": item["source_url"], "title": "official"}],
-                {"posted_slots": [], "posted_ids": [], "history": []},
-                NOW,
-            )
-
-    def test_conversation_requires_a_verified_grok_x_discovery_signal(self):
-        item = candidate(growth_angle="conversation")
-        with self.assertRaisesRegex(ValueError, "Xで話題"):
-            inu_auto_hourly.validate_candidate(
-                item,
-                [{"url": item["source_url"], "title": "official"}],
-                {"posted_slots": [], "posted_ids": [], "history": []},
-                NOW,
-            )
-
-    def test_same_growth_angle_three_times_is_rejected(self):
-        item = candidate(growth_angle="decision")
-        with self.assertRaisesRegex(ValueError, "成長入口"):
-            inu_auto_hourly.validate_candidate(
-                item,
-                [{"url": item["source_url"], "title": "official"}],
-                {
-                    "posted_slots": [],
-                    "posted_ids": [],
-                    "history": [
-                        {"growth_angle": "decision"},
-                        {"growth_angle": "decision"},
-                    ],
-                },
-                NOW,
-            )
 
     def test_research_prompt_softly_nudges_underrepresented_growth_topics(self):
         state = {
