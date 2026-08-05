@@ -1,13 +1,13 @@
-name: INU フォロワー成長ブースト
+name: INU 公式X探索エージェント
 
 on:
   schedule:
-    # 速報探索と初動反応を両立しつつ、既存の毎時投稿の17分・37分を避ける。
-    - cron: "4,14,24,34,44,54 * * * *"
+    # 投稿枠の前に実データを取り込み、残り1回は次の時間帯の先行探索に使う。
+    - cron: "7,27,52 * * * *"
   workflow_dispatch:
 
 concurrency:
-  # 通常の毎時・速報投稿と同じキューに入れ、同時投稿や状態競合を防ぐ。
+  # 投稿・成長施策と状態ファイルを安全に直列化する。
   group: inu-x-publish
   cancel-in-progress: false
 
@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 jobs:
-  boost:
+  research:
     if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -24,34 +24,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
+          cache: pip
 
       - run: pip install --timeout 120 -r requirements.txt
 
-      - name: 一次資料の画像取得環境をセットアップ
-        run: python -m playwright install --with-deps chromium
-
-      - name: 成長施策の安全ルールを検証
+      - name: 公式X探索の安全ルールを検証
         working-directory: scripts
-        run: python -m unittest test_inu_growth_boost.py test_inu_growth_watchlist.py test_x_poster_rules.py
+        run: python -m unittest test_inu_x_research_agent.py test_inu_auto_hourly.py
 
-      - name: A〜Dを最大1件だけ実行
+      - name: Xの実測データから発見候補を更新
         working-directory: scripts
         env:
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          XAI_RESEARCH_MODEL: grok-4.3
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-        run: python inu_growth_boost.py
+          # 未設定でもOAuth 1.0aのRecent Searchは動く。設定すると、地域トレンドと
+          # 投稿数急増の先行判定も有効になる。
+          X_RESEARCH_BEARER_TOKEN: ${{ secrets.X_RESEARCH_BEARER_TOKEN }}
+        run: python inu_x_research_agent.py
 
-      - name: 成長施策の状態を保存
+      - name: 探索状態を保存
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add scripts/inu_growth_boost_state.json scripts/inu_growth_watchlist_state.json scripts/inu_x_research_state.json
-          git diff --staged --quiet || git commit -m "chore: record INU growth boost [skip ci]"
+          git add scripts/inu_x_research_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU X research [skip ci]"
           for attempt in 1 2 3; do
             git pull --rebase && git push && exit 0
             git rebase --abort || true

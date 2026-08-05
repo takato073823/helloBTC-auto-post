@@ -32,6 +32,7 @@ from inu_news_visual import capture_source_hero_image, generate_editorial_news_v
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
+from inu_x_research_agent import discovery_signals as collect_official_x_api_signals
 from grok_client import generate_x_json
 from llm_client import generate_web_json
 from scraper import fetch_from_rss
@@ -584,13 +585,27 @@ def research_candidates(
 def research_candidates_with_grok(
     now: dt.datetime, state: dict
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
-    """Xの最新シグナルを追加し、失敗時は従来のWeb調査だけで継続する。"""
+    """実測X APIとGrokの発見シグナルを併用し、失敗時もWeb調査で継続する。"""
     x_signals: list[dict[str, str]] = []
     try:
-        x_signals = collect_grok_discovery_signals(now, state)
+        # 公式X APIの探索エージェントが既に収集・採点した実測シグナルを優先する。
+        # X投稿は最終出典にせず、後段のWeb調査で必ず一次資料へ戻る。
+        x_signals.extend(collect_official_x_api_signals(now))
     except Exception as exc:
-        logger.warning("GrokのX検索に失敗したため、従来のWeb調査で継続: %s", exc)
-    return research_candidates(now, state, extra_signals=x_signals)
+        logger.warning("公式X API探索シグナルを読み込めないためGrok探索を継続: %s", exc)
+    try:
+        x_signals.extend(collect_grok_discovery_signals(now, state))
+    except Exception as exc:
+        logger.warning("GrokのX検索に失敗したため、公式X API・Web調査で継続: %s", exc)
+    unique: list[dict[str, str]] = []
+    seen_urls: set[str] = set()
+    for signal in x_signals:
+        url = normalize_url(str(signal.get("url", "")))
+        if not url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+        unique.append(signal)
+    return research_candidates(now, state, extra_signals=unique)
 
 
 def research_candidate(

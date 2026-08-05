@@ -39,6 +39,7 @@ from inu_growth_watchlist import (
     load_state as load_watchlist_state,
     save_state as save_watchlist_state,
 )
+from inu_x_research_agent import ingest_watchlist_posts
 from x_list_client import XListClient
 from x_poster import _get_client, like_tweet, post_info_reply_tweet, post_info_tweet
 
@@ -774,6 +775,13 @@ def run(args: argparse.Namespace) -> int:
     except Exception as exc:
         logger.info("ブースト対象リストを取得できません: %s", exc)
         target_posts = []
+    try:
+        # 成長施策で既に取得した統合タイムラインを、通常投稿の発見候補にも再利用する。
+        # ここでは状態保存だけで、投稿・いいね・返信を追加で実行しない。
+        if target_posts:
+            ingest_watchlist_posts(target_posts, now)
+    except Exception as exc:
+        logger.info("リスト新着の探索エージェント連携を見送り: %s", exc)
     try:
         # BはGrokの候補抽出を待たず、厳選リストの新規投稿だけを初動で確認する。
         # これにより「通知ON＋最初のいいね」を10分間隔で自動化する。

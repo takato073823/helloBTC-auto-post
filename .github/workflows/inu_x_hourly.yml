@@ -69,6 +69,10 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
           XAI_RESEARCH_MODEL: grok-4.3
         working-directory: scripts
@@ -80,6 +84,10 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
           XAI_RESEARCH_MODEL: grok-4.3
         working-directory: scripts
@@ -98,7 +106,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add scripts/inu_hourly_state.json
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
           git diff --staged --quiet || git commit -m "chore: record INU scheduled check [skip ci]"
           git pull --rebase
           git push
@@ -108,7 +116,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add scripts/inu_hourly_state.json
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
           git diff --staged --quiet || git commit -m "chore: reserve INU hourly post [skip ci]"
           git pull --rebase
           git push
@@ -129,7 +137,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add scripts/inu_hourly_state.json
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
           git diff --staged --quiet || git commit -m "chore: record INU hourly post [skip ci]"
           git pull --rebase
           git push
