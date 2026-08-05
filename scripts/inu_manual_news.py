@@ -73,6 +73,20 @@ def _build_item(post: dict, state: dict) -> tuple[dict, bool]:
         is_primary_source=bool(post["is_primary_source"]),
     )
     asyncio.run(capture_official_evidence(spec, evidence_path, evidence_anchor=post["evidence_anchor"]))
+    if post.get("evidence_as_primary"):
+        item = {
+            "id": post["id"],
+            "topic_type": post["topic_type"],
+            "visual_route": post["visual_route"],
+            "text": compose_post(
+                hook=post["hook"], facts=post["facts"], opinion=post["opinion"],
+                source_label=post["source_name"], tags=post["tags"],
+            ),
+            "media_path": _relative(evidence_path),
+            "source_manifest": _relative(evidence_path.with_suffix(".source.json")),
+        }
+        validate_test_item(item)
+        return item, False
 
     primary_path = ARTIFACT_DIR / f"{post['id']}-main.png"
     generated = False

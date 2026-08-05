@@ -120,6 +120,7 @@ CANDIDATE_SCHEMA = {
         "source_url": {"type": "string"},
         "published_at": {"type": "string"},
         "evidence_anchor": {"type": "string"},
+        "evidence_as_primary": {"type": "boolean"},
         "visual_route": {
             "type": "string",
             "enum": ["official_text_crop", "official_data_crop", "reported_text_crop"],
@@ -144,6 +145,7 @@ CANDIDATE_SCHEMA = {
         "source_url",
         "published_at",
         "evidence_anchor",
+        "evidence_as_primary",
         "visual_route",
         "tags",
         "why_now",
@@ -420,6 +422,7 @@ topic_typeが異なる候補を優先してください。
 - source_urlは今回のWeb検索結果に実際に含まれるURLを使う。ただしreported_breaking_newsだけは、下記「大手メディアの最新見出し」に含まれる元記事URLも使える。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
 - evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。
+- evidence_as_primaryは、根拠スクリーンショット自体が一目で意味の分かる公式資料・表・チャート・図版の場合だけtrueにする。単なる記事見出しや本文、余白の多いページならfalseにする。trueなら画像はその根拠スクリーンショット1枚だけで投稿する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
 - 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
 - まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
@@ -442,6 +445,7 @@ visual_routeは数字・表・チャートが根拠ならofficial_data_crop、�
 
 def _normalize_researched_candidate(candidate: dict) -> dict:
     normalized = dict(candidate)
+    normalized.setdefault("evidence_as_primary", False)
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
         policy = get_content_policy(normalized["topic_type"])
         normalized["visual_route"] = policy.visual_route
@@ -834,6 +838,17 @@ def _build_item_from_candidate(
             evidence_anchor=selected["evidence_anchor"],
         )
     )
+    if selected.get("evidence_as_primary"):
+        item = {
+            "id": _candidate_id(selected),
+            "topic_type": selected["topic_type"],
+            "visual_route": selected["visual_route"],
+            "text": compose_candidate_text(selected),
+            "media_path": _repo_relative(evidence_path),
+            "source_manifest": _repo_relative(evidence_path.with_suffix(".source.json")),
+        }
+        validate_test_item(item)
+        return item, selected
     primary_path = ARTIFACT_DIR / f"{slot}-main.png"
     generated_primary = False
     try:

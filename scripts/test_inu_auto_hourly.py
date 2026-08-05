@@ -28,6 +28,7 @@ def candidate(**overrides) -> dict:
         "source_url": "https://example.com/official/flow?utm_source=test",
         "published_at": "2026-08-04T08:00:00Z",
         "evidence_anchor": "Net inflow 100 million",
+        "evidence_as_primary": False,
         "visual_route": "official_data_crop",
         "tags": ["ビットコイン", "ETF"],
         "why_now": "4時間前に公式データが更新されたため",
