@@ -301,5 +301,13 @@
       "hook": "🏦Circle、BlackRock・Visa・DTCCなどをArcのバリデーターに選定",
       "follow_value": "INUでは、Circleの収益、USDC流通量、金融インフラ企業の参入が暗号資産市場に与える影響を追います。"
     }
+  ],
+  "scheduled_checks": [
+    {
+      "slot": "2026-08-05-22",
+      "checked_at": "2026-08-05T13:20:15.882516+00:00",
+      "kind": "fallback",
+      "result": "no_verified_candidate"
+    }
   ]
 }
