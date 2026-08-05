@@ -96,6 +96,20 @@ class ResearchAgentTests(unittest.TestCase):
         second = research._next_topic(state)[0]
         self.assertNotEqual(first, second)
 
+    def test_recent_search_ends_before_request_time(self):
+        class Client:
+            def __init__(self):
+                self.kwargs = None
+
+            def search_recent_tweets(self, **kwargs):
+                self.kwargs = kwargs
+                return SimpleNamespace(data=[], includes={})
+
+        client = Client()
+        research._search_recent(client, "crypto_market", "Bitcoin", NOW, set())
+        self.assertLess(client.kwargs["end_time"], NOW)
+        self.assertEqual(dt.timedelta(seconds=15), NOW - client.kwargs["end_time"])
+
     @patch("inu_x_research_agent._get_client")
     def test_without_bearer_token_agent_still_runs_direct_search_on_schedule(self, get_client):
         get_client.return_value = SimpleNamespace()

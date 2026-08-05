@@ -257,12 +257,15 @@ def _bearer_get(path: str, params: dict[str, Any]) -> dict[str, Any]:
 
 
 def _recent_count(query: str, now: dt.datetime) -> int:
+    # Recent Search/Counts は「リクエスト時刻の10秒前」までしか受け付けない。
+    # GitHub Actionsの開始直後でも400にならないよう余裕を持たせる。
+    end_time = now - dt.timedelta(seconds=15)
     payload = _bearer_get(
         "/2/tweets/counts/recent",
         {
             "query": query,
-            "start_time": (now - dt.timedelta(minutes=20)).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "end_time": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "start_time": (end_time - dt.timedelta(minutes=20)).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "end_time": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "granularity": "minute",
         },
     )
@@ -409,10 +412,11 @@ def _normalize_search_response(response: Any, topic: str, now: dt.datetime, tren
 
 
 def _search_recent(client: Any, topic: str, query: str, now: dt.datetime, trends: set[str]) -> list[dict[str, Any]]:
+    end_time = now - dt.timedelta(seconds=15)
     response = client.search_recent_tweets(
         query=query,
-        start_time=now - dt.timedelta(hours=2),
-        end_time=now,
+        start_time=end_time - dt.timedelta(hours=2),
+        end_time=end_time,
         max_results=10,
         sort_order="relevancy",
         tweet_fields=["author_id", "attachments", "created_at", "entities", "lang", "public_metrics"],
