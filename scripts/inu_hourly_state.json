@@ -67,7 +67,17 @@
     "inu_auto_d65ad95418cd98",
     "inu_auto_ad48dd0794f3d3"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-05-15",
+      "post_id": "inu_auto_0b02699bc225cd",
+      "source_url": "https://cointelegraph.com/news/clarity-or-not-crypto-isnt-going-back-in-the-bottle-bitwise",
+      "topic_type": "reported_breaking_news",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "reserved_at": "2026-08-05T06:12:49.162661+00:00"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
