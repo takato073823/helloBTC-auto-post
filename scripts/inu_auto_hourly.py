@@ -71,7 +71,9 @@ MAX_AGE_HOURS = {
     "supply_event": 12,
     "adoption_kpi": 12,
     "policy_household": 12,
-    "macro_event": 12,
+    # 毎時投稿では、発表から時間が経ったマクロ情報を「速報」として出さない。
+    # 後追いの解説は個別の編集投稿で扱い、定期枠では4時間以内に限定する。
+    "macro_event": 4,
 }
 SECONDARY_HOSTS = {
     "bloomberg.com",

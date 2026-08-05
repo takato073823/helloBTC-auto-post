@@ -70,6 +70,19 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_scheduled_macro_candidate_older_than_four_hours_is_rejected(self):
+        item = candidate(
+            topic_type="macro_event",
+            published_at="2026-08-04T07:30:00Z",
+        )
+        with self.assertRaisesRegex(ValueError, "鮮度上限"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
     def test_reserved_source_is_not_selected_again(self):
         item = candidate()
         state = {
