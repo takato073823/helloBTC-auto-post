@@ -80,7 +80,17 @@
     "inu_auto_ad48dd0794f3d3",
     "inu_auto_0b02699bc225cd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-05-17",
+      "post_id": "inu_auto_5ee53965598670",
+      "source_url": "https://ir.gs-yuasa.com/jp/ir/ir-left-content.html",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "reserved_at": "2026-08-05T08:06:54.304018+00:00"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
