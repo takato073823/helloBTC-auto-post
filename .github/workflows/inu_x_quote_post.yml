@@ -1,0 +1,63 @@
+name: INU 動画・画像付き引用投稿
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_key:
+        description: "重複しない投稿キー"
+        required: true
+        type: string
+      source_tweet_id:
+        description: "動画・画像を保持する引用元X投稿ID"
+        required: true
+        type: string
+      text:
+        description: "INUの引用コメント（本文にURLは書かない）"
+        required: true
+        type: string
+
+concurrency:
+  group: inu-x-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install --timeout 120 tweepy
+
+      - name: 引用投稿のルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_quote_post.py test_x_poster_rules.py
+
+      - name: 元動画をネイティブ引用して投稿
+        id: publish
+        env:
+          POST_KEY: ${{ inputs.post_key }}
+          SOURCE_TWEET_ID: ${{ inputs.source_tweet_id }}
+          POST_TEXT: ${{ inputs.text }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python scripts/inu_quote_post.py --live --post-key "$POST_KEY" --source-tweet-id "$SOURCE_TWEET_ID" --text "$POST_TEXT"
+
+      - name: 引用投稿履歴を保存
+        if: steps.publish.outcome == 'success'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_quote_post_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU quote post [skip ci]"
+          git pull --rebase
+          git push

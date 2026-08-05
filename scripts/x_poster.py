@@ -181,3 +181,29 @@ def post_info_tweet(text: str, media_path: str | Path | Sequence[str | Path]) ->
     except Exception as e:
         logger.warning("X情報投稿失敗（既存の記事投稿には影響しません）: %s", e)
         return None
+
+
+def post_quote_tweet(text: str, quote_tweet_id: str) -> str | None:
+    """元投稿を引用してINUの見解を投稿する。
+
+    動画・画像は再アップロードせず、Xのネイティブ引用として表示する。これにより
+    元の投稿者とメディアの帰属を保持する。失敗時は代替の文字投稿を行わない。
+    """
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のため引用投稿をスキップ")
+        return None
+    if not re.fullmatch(r"\d{15,22}", str(quote_tweet_id)):
+        logger.warning("X引用投稿をスキップ（投稿IDが不正です）: %s", quote_tweet_id)
+        return None
+    try:
+        safe_text = _neutralize_service_domains(text)
+        response = _get_client().create_tweet(
+            text=safe_text,
+            quote_tweet_id=str(quote_tweet_id),
+        )
+        tweet_id = response.data["id"]
+        logger.info("X引用投稿完了: https://x.com/i/web/status/%s", tweet_id)
+        return tweet_id
+    except Exception as e:
+        logger.warning("X引用投稿失敗（文字だけの代替投稿は行いません）: %s", e)
+        return None
