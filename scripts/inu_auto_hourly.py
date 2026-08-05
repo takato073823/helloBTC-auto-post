@@ -54,7 +54,7 @@ AUTO_TOPIC_TYPES = (
 )
 MAX_AGE_HOURS = {
     "breaking_news": 2,
-    "reported_breaking_news": 2,
+    "reported_breaking_news": 4,
     "developing_story": 6,
     "market_microstructure": 8,
     "etf_flow": 12,
@@ -147,6 +147,20 @@ CANDIDATE_SCHEMA = {
         "is_primary_source",
     ],
 }
+CANDIDATE_SET_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "candidates": {
+            "type": "array",
+            "items": CANDIDATE_SCHEMA,
+            "minItems": 0,
+            "maxItems": 6,
+        },
+        "skip_reason": {"type": "string"},
+    },
+    "required": ["candidates", "skip_reason"],
+}
 REPORT_COPY_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
@@ -211,7 +225,7 @@ def collect_discovery_signals() -> list[dict[str, str]]:
     """大手暗号資産メディアの最新見出しを、一次資料探索の入口として取得する。"""
     signals: list[dict[str, str]] = []
     try:
-        for article in fetch_from_rss(max_per_feed=3):
+        for article in fetch_from_rss(max_per_feed=5):
             if is_low_value_single_source_roundup(str(article.get("title", ""))):
                 logger.info("単一ソースの総括記事を発見候補から除外: %s", article.get("title", ""))
                 continue
@@ -228,7 +242,7 @@ def collect_discovery_signals() -> list[dict[str, str]]:
             )
     except Exception as exc:
         logger.warning("ニュース発見フィードを取得できません: %s", exc)
-    return signals[:15]
+    return signals[:30]
 
 
 def build_research_prompt(
@@ -244,7 +258,9 @@ def build_research_prompt(
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
 {local.isoformat()}（日本時間）です。必ずWeb検索を実行し、この時刻から見て新しい
-暗号資産・ビットコイン・米国株・日本株・AI・金融政策・地政学の重要情報を1件だけ選んでください。
+暗号資産・ビットコイン・米国株・日本株・AI・金融政策・地政学の重要情報を
+重要度順に最大6件選んでください。1件目が検証で落ちても次を使えるよう、発信元と
+topic_typeが異なる候補を優先してください。
 
 最重要条件:
 - 少なくとも「暗号資産公式」「ETF・オンチェーン」「米国企業IR・AI」
@@ -256,7 +272,8 @@ def build_research_prompt(
 - evidence_anchorは、一次資料なら一次資料ページ、reported_breaking_newsなら元記事ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。主要メディアでは記事タイトルを優先する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
 - 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
-- まず一次資料を優先する。見つからなくても、下記「大手メディアの最新見出し」に2時間以内の重要記事があれば、その元記事をreported_breaking_newsとして必ず1件選ぶ。has_candidate=falseは、一次資料も2時間以内の許可メディア記事もない場合だけにする。古い話題で穴埋めしない。
+- まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
+- 候補配列にはhas_candidate=trueの項目だけを入れる。適切な候補がない場合だけ空配列にしてskip_reasonを書く。古い話題で穴埋めしない。
 - 投稿文は日本語。hookは短く具体的にし、factsは重要な数字・変更点を1〜2文。
 - opinionには必ず「僕は」または「個人的には」を使い、事実と見解を分ける。
 - 投稿全体は日本語の全角換算を考慮して240以内を目標にし、非常に簡潔にする。
@@ -273,15 +290,25 @@ visual_routeは数字・表・チャートが根拠ならofficial_data_crop、�
 """.strip()
 
 
-def research_candidate(
+def _normalize_researched_candidate(candidate: dict) -> dict:
+    normalized = dict(candidate)
+    if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
+        policy = get_content_policy(normalized["topic_type"])
+        normalized["visual_route"] = policy.visual_route
+        if normalized["topic_type"] == "reported_breaking_news":
+            normalized["is_primary_source"] = False
+    return normalized
+
+
+def research_candidates(
     now: dt.datetime, state: dict
-) -> tuple[dict, list[dict[str, str]], list[dict[str, str]]]:
+) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
     signals = collect_discovery_signals()
-    candidate, sources = generate_web_json(
+    payload, sources = generate_web_json(
         build_research_prompt(now, state, signals),
-        schema_name="inu_live_candidate",
-        schema=CANDIDATE_SCHEMA,
-        max_output_tokens=2200,
+        schema_name="inu_live_candidate_set",
+        schema=CANDIDATE_SET_SCHEMA,
+        max_output_tokens=5200,
         # 複数市場から一次資料まで辿る必要があるため、検索選定はTerraを使う。
         model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
     )
@@ -290,12 +317,25 @@ def research_candidate(
         for row in signals
         if row.get("url")
     )
-    if candidate.get("has_candidate") and candidate.get("topic_type") in AUTO_TOPIC_TYPES:
-        policy = get_content_policy(candidate["topic_type"])
-        candidate["visual_route"] = policy.visual_route
-        if candidate["topic_type"] == "reported_breaking_news":
-            candidate["is_primary_source"] = False
-    return candidate, sources, signals
+    candidates = [
+        _normalize_researched_candidate(candidate)
+        for candidate in payload.get("candidates", [])
+        if isinstance(candidate, dict)
+    ]
+    return candidates, sources, signals
+
+
+def research_candidate(
+    now: dt.datetime, state: dict
+) -> tuple[dict, list[dict[str, str]], list[dict[str, str]]]:
+    """旧呼び出しとの互換用。新しい自動経路はresearch_candidatesを使う。"""
+    candidates, sources, signals = research_candidates(now, state)
+    if candidates:
+        return candidates[0], sources, signals
+    return {
+        "has_candidate": False,
+        "skip_reason": "適切な一次情報がありません",
+    }, sources, signals
 
 
 def research_priority_signal(now: dt.datetime, state: dict, priority_url: str) -> tuple[dict, list[dict[str, str]]]:
@@ -317,11 +357,11 @@ def _is_near_recent_topic(title: str, state: dict) -> bool:
     return any(token in recent for token in tokens)
 
 
-def build_trusted_media_candidate(
+def trusted_media_signals(
     now: dt.datetime,
     state: dict,
     signals: list[dict[str, str]],
-) -> dict:
+) -> list[dict[str, str]]:
     eligible: list[tuple[dt.datetime, dict[str, str]]] = []
     for signal in signals:
         title = signal.get("title", "").strip()
@@ -340,14 +380,27 @@ def build_trusted_media_candidate(
         except (TypeError, ValueError, OverflowError):
             continue
         age = now.astimezone(dt.timezone.utc) - published
-        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=2):
+        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=4):
             continue
         if _is_near_recent_topic(signal.get("title", ""), state):
             continue
         eligible.append((published, signal))
+    eligible.sort(key=lambda row: row[0], reverse=True)
+    return [signal for _, signal in eligible]
+
+
+def build_trusted_media_candidate(
+    now: dt.datetime,
+    state: dict,
+    signals: list[dict[str, str]],
+) -> dict:
+    eligible = trusted_media_signals(now, state, signals)
     if not eligible:
-        raise LookupError("2時間以内で重複しない主要メディア速報がありません")
-    published, signal = max(eligible, key=lambda row: row[0])
+        raise LookupError("4時間以内で重複しない主要メディア速報がありません")
+    signal = eligible[0]
+    published = parsedate_to_datetime(signal.get("published", "")).astimezone(
+        dt.timezone.utc
+    )
     title = signal["title"].strip()
     summary = " ".join(signal.get("summary", "").split()).strip()
 
@@ -378,7 +431,7 @@ RSS要約: {summary}
         "evidence_anchor": title,
         "visual_route": "reported_text_crop",
         "tags": copy["tags"],
-        "why_now": "2時間以内に配信された主要メディアの速報",
+        "why_now": "4時間以内に配信された主要メディアの速報",
         "is_primary_source": False,
     }
 
@@ -471,7 +524,13 @@ def validate_candidate(
         raise ValueError("この系統の鮮度上限を超えています")
 
     recent_topics = [row.get("topic_type") for row in _recent_history(state)[-2:]]
-    if len(recent_topics) == 2 and all(value == topic_type for value in recent_topics):
+    # reported_breaking_newsは出典区分であり、暗号資産・AI・株式など内容は別物。
+    # URL・見出しの重複検査を通過していれば、区分だけを理由に停止しない。
+    if (
+        topic_type != "reported_breaking_news"
+        and len(recent_topics) == 2
+        and all(value == topic_type for value in recent_topics)
+    ):
         raise ValueError("同じ投稿系統が3件連続します")
 
     text = compose_candidate_text(candidate)
@@ -567,6 +626,48 @@ def _reserve(
     return updated
 
 
+def _build_item_from_candidate(
+    candidate: dict,
+    sources: list[dict[str, str]],
+    state: dict,
+    now: dt.datetime,
+    slot: str,
+) -> tuple[dict, dict]:
+    """候補を検証し、根拠画像まで取得できた場合だけ投稿データを返す。"""
+    selected = dict(candidate)
+    validate_candidate(selected, sources, state, now)
+    verified_url = fetch_and_verify_source(selected)
+    selected["source_url"] = verified_url
+
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    image_path = ARTIFACT_DIR / f"{slot}.png"
+    spec = SourceCaptureSpec(
+        source_url=verified_url,
+        source_name=selected["source_name"],
+        published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+        evidence_type=selected["visual_route"],
+        selector="[data-inu-auto-evidence]",
+        is_primary_source=bool(selected["is_primary_source"]),
+    )
+    asyncio.run(
+        capture_official_evidence(
+            spec,
+            image_path,
+            evidence_anchor=selected["evidence_anchor"],
+        )
+    )
+    item = {
+        "id": _candidate_id(selected),
+        "topic_type": selected["topic_type"],
+        "visual_route": selected["visual_route"],
+        "text": compose_candidate_text(selected),
+        "media_path": _repo_relative(image_path),
+        "source_manifest": _repo_relative(image_path.with_suffix(".source.json")),
+    }
+    validate_test_item(item)
+    return item, selected
+
+
 def prepare(args: argparse.Namespace) -> int:
     now = dt.datetime.now(dt.timezone.utc)
     slot = args.slot or slot_key(now)
@@ -580,56 +681,61 @@ def prepare(args: argparse.Namespace) -> int:
 
     priority_url = str(getattr(args, "priority_url", "") or "").strip()
     priority = "breaking" if priority_url else "scheduled"
+    candidates: list[dict] = []
+    sources: list[dict[str, str]] = []
+    signals: list[dict[str, str]] = []
     if priority_url:
         try:
             candidate, sources = research_priority_signal(now, state, priority_url)
             signals = sources
-        except LookupError as exc:
+            candidates = [candidate]
+        except (LookupError, ValueError, requests.RequestException) as exc:
             logger.info("検知済み速報を採用できないため見送り: %s", exc)
             _emit_output("ready", "false")
             return 0
     else:
-        candidate, sources, signals = research_candidate(now, state)
-    try:
-        validate_candidate(candidate, sources, state, now)
-    except (LookupError, ValueError) as exc:
-        logger.warning("一次資料候補を採用できないため確認済みRSSへ移行: %s", exc)
         try:
-            candidate = build_trusted_media_candidate(now, state, signals)
-            validate_candidate(candidate, sources, state, now)
-        except LookupError as fallback_exc:
-            logger.info("今時間の投稿を見送り: %s", fallback_exc)
-            _emit_output("ready", "false")
-            return 0
-    verified_url = fetch_and_verify_source(candidate)
-    candidate["source_url"] = verified_url
+            candidates, sources, signals = research_candidates(now, state)
+        except Exception as exc:
+            logger.warning("一次資料の複数候補リサーチに失敗: %s", exc)
+            signals = collect_discovery_signals()
+            sources = [
+                {"url": row["url"], "title": row["title"]}
+                for row in signals
+                if row.get("url")
+            ]
 
-    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
-    image_path = ARTIFACT_DIR / f"{slot}.png"
-    spec = SourceCaptureSpec(
-        source_url=verified_url,
-        source_name=candidate["source_name"],
-        published_at=_parse_timestamp(candidate["published_at"]).date().isoformat(),
-        evidence_type=candidate["visual_route"],
-        selector="[data-inu-auto-evidence]",
-        is_primary_source=bool(candidate["is_primary_source"]),
-    )
-    asyncio.run(
-        capture_official_evidence(
-            spec,
-            image_path,
-            evidence_anchor=candidate["evidence_anchor"],
-        )
-    )
-    item = {
-        "id": _candidate_id(candidate),
-        "topic_type": candidate["topic_type"],
-        "visual_route": candidate["visual_route"],
-        "text": compose_candidate_text(candidate),
-        "media_path": _repo_relative(image_path),
-        "source_manifest": _repo_relative(image_path.with_suffix(".source.json")),
-    }
-    validate_test_item(item)
+    item: dict | None = None
+    candidate: dict | None = None
+    attempted_urls: set[str] = set()
+    for position, option in enumerate(candidates, start=1):
+        attempted_urls.add(normalize_url(str(option.get("source_url", ""))))
+        try:
+            item, candidate = _build_item_from_candidate(option, sources, state, now, slot)
+            logger.info("複数候補の%d件目を採用", position)
+            break
+        except Exception as exc:
+            logger.warning("投稿候補%dを除外: %s", position, exc)
+
+    if item is None and not priority_url:
+        for signal in trusted_media_signals(now, state, signals):
+            signal_url = normalize_url(signal.get("url", ""))
+            if signal_url in attempted_urls:
+                continue
+            attempted_urls.add(signal_url)
+            try:
+                option = build_trusted_media_candidate(now, state, [signal])
+                item, candidate = _build_item_from_candidate(option, sources, state, now, slot)
+                logger.info("確認済み主要メディア候補を採用: %s", signal.get("source", ""))
+                break
+            except Exception as exc:
+                logger.warning("主要メディア候補を除外: %s / %s", signal.get("title", ""), exc)
+
+    if item is None or candidate is None:
+        logger.info("今時間の投稿を見送り: 検証と画像取得を通過する最新候補がありません")
+        _emit_output("ready", "false")
+        return 0
+
     prepared = {
         "slot": slot,
         "prepared_at": now.isoformat(),

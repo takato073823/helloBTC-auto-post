@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 import datetime as dt
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import inu_auto_hourly
@@ -89,6 +93,29 @@ class INUAutoHourlyTests(unittest.TestCase):
                 state,
                 NOW,
             )
+
+    def test_reported_news_is_not_blocked_only_by_the_source_category(self):
+        item = candidate(
+            topic_type="reported_breaking_news",
+            source_url="https://www.coindesk.com/markets/new-topic",
+            published_at="2026-08-04T11:30:00Z",
+            visual_route="reported_text_crop",
+            is_primary_source=False,
+        )
+        state = {
+            "posted_slots": [],
+            "posted_ids": [],
+            "history": [
+                {"topic_type": "reported_breaking_news", "hook": "AI企業の決算"},
+                {"topic_type": "reported_breaking_news", "hook": "ビットコインETF"},
+            ],
+        }
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "New market structure story"}],
+            state,
+            NOW,
+        )
 
     def test_trusted_media_breaking_news_can_be_non_primary(self):
         item = candidate(
@@ -242,6 +269,59 @@ class INUAutoHourlyTests(unittest.TestCase):
         with patch.object(inu_auto_hourly, "fetch_from_rss", return_value=articles):
             signals = inu_auto_hourly.collect_discovery_signals()
         self.assertEqual([articles[1]["url"]], [row["url"] for row in signals])
+
+    def test_research_returns_ranked_multiple_candidates(self):
+        first = candidate()
+        second = candidate(
+            topic_type="reported_breaking_news",
+            source_url="https://www.coindesk.com/policy/new-rule",
+            visual_route="official_text_crop",
+            is_primary_source=True,
+        )
+        payload = {"candidates": [first, second], "skip_reason": ""}
+        with patch.object(inu_auto_hourly, "collect_discovery_signals", return_value=[]), patch.object(
+            inu_auto_hourly,
+            "generate_web_json",
+            return_value=(payload, [{"url": first["source_url"], "title": "flow"}]),
+        ):
+            candidates, _, _ = inu_auto_hourly.research_candidates(NOW, {"history": []})
+        self.assertEqual(2, len(candidates))
+        self.assertEqual("reported_text_crop", candidates[1]["visual_route"])
+        self.assertFalse(candidates[1]["is_primary_source"])
+
+    def test_prepare_tries_the_next_candidate_instead_of_failing(self):
+        options = [candidate(), candidate(source_url="https://example.com/official/second")]
+        item = {
+            "id": "inu_auto_second",
+            "topic_type": "etf_flow",
+            "visual_route": "official_data_crop",
+            "text": "候補2を採用\n\n僕は、変化を確認します。\n\n出典: Example\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            prepared_path = root / "prepared.json"
+            args = SimpleNamespace(
+                state=str(root / "state.json"),
+                slot="2026-08-04-21",
+                priority_url="",
+                dry_run=True,
+            )
+            with patch.object(
+                inu_auto_hourly,
+                "research_candidates",
+                return_value=(options, [{"url": row["source_url"], "title": "source"} for row in options], []),
+            ), patch.object(
+                inu_auto_hourly,
+                "_build_item_from_candidate",
+                side_effect=[ValueError("first rejected"), (item, options[1])],
+            ) as build, patch.object(inu_auto_hourly, "PREPARED_PATH", prepared_path):
+                result = inu_auto_hourly.prepare(args)
+            self.assertEqual(0, result)
+            self.assertEqual(2, build.call_count)
+            prepared = json.loads(prepared_path.read_text(encoding="utf-8"))
+            self.assertEqual(options[1]["source_url"], prepared["candidate"]["source_url"])
 
 
 if __name__ == "__main__":

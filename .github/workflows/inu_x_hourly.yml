@@ -2,7 +2,9 @@ name: INU 画像付き毎時投稿
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    # 毎時0分はGitHub Actionsの混雑で欠落しやすい。17分に本実行し、47分に同一枠を再確認する。
+    # 投稿済み・予約済みの時間枠はスクリプト側で即時終了するため、二重投稿にはならない。
+    - cron: "17,47 * * * *"
   workflow_dispatch:
     inputs:
       live:
