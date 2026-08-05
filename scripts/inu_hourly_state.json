@@ -338,6 +338,12 @@
       "checked_at": "2026-08-05T17:55:16.301388+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-06-03-a",
+      "checked_at": "2026-08-05T18:09:14.871011+00:00",
+      "kind": "fallback",
+      "result": "no_verified_candidate"
     }
   ]
 }
