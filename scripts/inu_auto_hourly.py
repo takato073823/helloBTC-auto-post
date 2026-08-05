@@ -105,6 +105,21 @@ LOW_VALUE_ROUNDUP_PATTERNS = (
     r"(?:本日|今日|今週).*(?:まとめ|総括)",
     r"(?:ニュース|市場).*(?:まとめ|総括)",
 )
+# 単に「資料が出た」だけの投稿を防ぐ。数字だけでなく、投資家が見るべき
+# 変更・決定・需給・規制上の変化が本文に必要になる。
+GENERIC_SOURCE_FILLER_PATTERN = re.compile(
+    r"(?:公式(?:ページ|サイト)|資料(?:では|によると)|ページ(?:では|によると))"
+)
+GENERIC_PUBLICATION_PATTERN = re.compile(r"(?:公表|発表|公開|掲載)(?:へ|予定|しました)?")
+MATERIAL_CHANGE_PATTERN = re.compile(
+    r"(?:承認|却下|可決|否決|開始|終了|停止|禁止|解禁|導入|撤回|引き上げ|引き下げ|増額|減額|"
+    r"上方修正|下方修正|流入|流出|買い戻し|売却|購入|発行|償還|最高値|最安値|急騰|急落|"
+    r"金利|利回り|入札|ETF|決算|売上|利益|供給|需要|ハッキング|流出|清算|提携)"
+)
+MATERIAL_NUMBER_PATTERN = re.compile(
+    r"(?:[$¥€£]\s?\d|\d[\d,.]*\s?(?:%|％|ドル|円|億|万|兆|BTC|ETH|株|bp|ベーシス))",
+    re.IGNORECASE,
+)
 
 CANDIDATE_SCHEMA = {
     "type": "object",
@@ -137,6 +152,7 @@ CANDIDATE_SCHEMA = {
             "maxItems": 2,
         },
         "why_now": {"type": "string"},
+        "reader_interest": {"type": "string"},
         "is_primary_source": {"type": "boolean"},
     },
     "required": [
@@ -154,6 +170,7 @@ CANDIDATE_SCHEMA = {
         "visual_route",
         "tags",
         "why_now",
+        "reader_interest",
         "is_primary_source",
     ],
 }
@@ -218,6 +235,7 @@ REPORT_COPY_SCHEMA = {
             "maxItems": 2,
         },
         "opinion": {"type": "string"},
+        "reader_interest": {"type": "string"},
         "tags": {
             "type": "array",
             "items": {"type": "string"},
@@ -225,7 +243,7 @@ REPORT_COPY_SCHEMA = {
             "maxItems": 2,
         },
     },
-    "required": ["hook", "facts", "opinion", "tags"],
+    "required": ["hook", "facts", "opinion", "reader_interest", "tags"],
 }
 
 
@@ -472,6 +490,8 @@ topic_typeが異なる候補を優先してください。
 - まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
 - 候補配列にはhas_candidate=trueの項目だけを入れる。適切な候補がない場合だけ空配列にしてskip_reasonを書く。古い話題で穴埋めしない。
 - 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
+- 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
+- hook・factsにも、reader_interestの根拠となる具体的な変更点を必ず入れる。「〜を公表へ」「公式ページでは〜」だけの投稿は禁止。
 - 事実の要約を繰り返さず、opinionでは「何が変わるか」または「次に何を見るか」を具体的に一つ書く。
 - opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い分ける。「僕は、〜と見ています」「〜がポイントです」「節目だと見ています」の定型的な結びは禁止。
 - 絵文字は、客観的に大きな速報・相場急変だけhookの先頭に1個まで。本文中では使わない。
@@ -626,7 +646,7 @@ def build_trusted_media_candidate(
         f"""
 次の信頼できるニュースメディアの見出しとRSS要約だけを根拠に、INUのX投稿文を作成してください。
 外部知識や数字を追加しないでください。日本語で簡潔にし、全体は全角100〜150文字程度を目標にします。
-hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。
+hookは具体的な速報見出しを1行。factsは重要な事実を1〜2文。opinionでは「何が変わるか」または「次に何を見るか」を一つだけ具体的に書きます。reader_interestには、読者が今この話題を見る具体的な理由を一文で書きます。公式ページや資料の存在を述べるだけ、または「公表へ」だけの投稿は作らないでください。金額・増減・決定・規制変更・需給・次の確認点のうち少なくとも一つを、hookかfactsに明示できない場合は投稿不適格です。
 opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い、「僕は、〜と見ています」「〜がポイントです」で終えません。売買推奨や価格予想をしません。
 絵文字は原則使わず、客観的に大きな速報ならhookの先頭に1個だけ使えます。
 元記事: {title}
@@ -648,6 +668,7 @@ RSS要約: {summary}
         "hook": copy["hook"],
         "facts": copy["facts"],
         "opinion": copy["opinion"],
+        "reader_interest": copy["reader_interest"],
         "source_name": signal["source"],
         "source_url": signal["url"],
         "published_at": published.isoformat(),
@@ -731,6 +752,8 @@ def validate_candidate(
     if any(is_low_value_single_source_roundup(value) for value in roundup_evidence):
         raise ValueError("単一ソースの総括記事は自動投稿できません")
 
+    _validate_reader_interest(candidate)
+
     used_urls = {
         normalize_url(row.get("source_url", ""))
         for row in list(state.get("history", [])) + list(state.get("reservations", []))
@@ -758,6 +781,27 @@ def validate_candidate(
 
     text = compose_candidate_text(candidate)
     validate_post(text)
+
+
+def _validate_reader_interest(candidate: dict) -> None:
+    """公開前に、読者へ渡す具体的な価値が本文へ落ちているか確認する。"""
+    reader_interest = " ".join(str(candidate.get("reader_interest", "")).split())
+    if len(reader_interest) < 18:
+        raise ValueError("読者が今見る具体的な理由が不足しています")
+
+    hook_and_facts = " ".join(
+        [str(candidate.get("hook", "")), *[str(fact) for fact in candidate.get("facts", [])]]
+    )
+    if GENERIC_SOURCE_FILLER_PATTERN.search(hook_and_facts):
+        raise ValueError("公式ページの説明だけでは自動投稿できません")
+
+    # 「公表」をニュースにするなら、何が変わるかを金額・条件・決定のどれかで
+    # 本文に明示する。予定の紹介だけでは読者に渡す情報量が足りない。
+    if GENERIC_PUBLICATION_PATTERN.search(hook_and_facts) and not (
+        MATERIAL_CHANGE_PATTERN.search(hook_and_facts)
+        or MATERIAL_NUMBER_PATTERN.search(hook_and_facts)
+    ):
+        raise ValueError("公表予定だけで具体的な変化がないため自動投稿できません")
 
 
 def compose_candidate_text(candidate: dict) -> str:

@@ -34,6 +34,7 @@ def candidate(**overrides) -> dict:
         "visual_route": "official_data_crop",
         "tags": ["ビットコイン", "ETF"],
         "why_now": "4時間前に公式データが更新されたため",
+        "reader_interest": "資金流入が継続するかで、ビットコインETFへの需要の強さを確認できるため",
         "is_primary_source": True,
     }
     value.update(overrides)
@@ -184,6 +185,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "hook": "ブラックロックが欧州MMFのトークン化を拡大",
             "facts": ["対象は欧州のマネー・マーケット・ファンドです。"],
             "opinion": "僕としては、次は実際の利用先が増えるかを確認したいです。",
+            "reader_interest": "トークン化されたMMFの利用先が増えるかで、RWAの実需を判断できるため",
             "tags": ["RWA"],
         }
         with patch.object(inu_auto_hourly, "generate_json", return_value=copy):
@@ -192,6 +194,21 @@ class INUAutoHourlyTests(unittest.TestCase):
             )
         self.assertEqual(signals[0]["url"], item["source_url"])
         self.assertEqual(signals[0]["title"], item["evidence_anchor"])
+
+    def test_generic_official_announcement_is_rejected_before_posting(self):
+        item = candidate(
+            topic_type="macro_event",
+            hook="米財務省、四半期定例入札を公表へ",
+            facts=["米財務省の公式ページでは、2026年8月5日に四半期リファンディングを公表予定です。"],
+            reader_interest="米国債市場の今後を確認する材料になるためです。",
+        )
+        with self.assertRaisesRegex(ValueError, "公式ページの説明だけ"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "Treasury announcement"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
 
     def test_priority_signal_cannot_switch_to_another_rss_story(self):
         selected = {
