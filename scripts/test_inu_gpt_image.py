@@ -60,6 +60,19 @@ class GrokImageTests(unittest.TestCase):
             self.assertTrue(output.is_file())
             fallback.assert_called_once()
 
+    def test_default_path_is_openai_and_never_falls_back_to_grok(self):
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            os.environ,
+            {},
+            clear=True,
+        ), patch.object(inu_gpt_image, "_generate_openai_image", return_value=_jpeg_bytes()) as openai, patch.object(
+            inu_gpt_image, "_generate_grok_image"
+        ) as grok:
+            output = inu_gpt_image.generate_image("default", Path(directory) / "visual.png")
+            self.assertTrue(output.is_file())
+            openai.assert_called_once()
+            grok.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

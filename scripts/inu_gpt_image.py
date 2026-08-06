@@ -13,7 +13,9 @@ from openai import OpenAI
 from PIL import Image
 
 
-DEFAULT_PROVIDER = "grok"
+# Grok Imagineの画像にはX側でAI生成ラベルが付く場合がある。通常投稿は従来の
+# 画像生成を標準とし、Grok画像は明示指定した検証・手動用途だけに限定する。
+DEFAULT_PROVIDER = "openai"
 DEFAULT_MODEL = "gpt-image-2"
 DEFAULT_GROK_MODEL = "grok-imagine-image-quality"
 DEFAULT_SIZE = "1024x1280"
@@ -116,7 +118,7 @@ def generate_image(
     quality: str | None = None,
 ) -> Path:
     provider = os.environ.get("INU_IMAGE_PROVIDER", DEFAULT_PROVIDER).strip().lower()
-    fallback = os.environ.get("INU_IMAGE_FALLBACK_PROVIDER", "openai").strip().lower()
+    fallback = os.environ.get("INU_IMAGE_FALLBACK_PROVIDER", "none").strip().lower()
     if provider not in {"grok", "openai"} or fallback not in {"grok", "openai", "none"}:
         raise ValueError("INU_IMAGE_PROVIDERはgrokまたはopenaiで指定してください")
     try:

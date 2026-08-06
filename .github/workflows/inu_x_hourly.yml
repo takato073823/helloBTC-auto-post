@@ -67,8 +67,8 @@ jobs:
           INU_RESEARCH_MODEL: gpt-5.6-terra
           XAI_RESEARCH_MODEL: grok-4.3
           INU_GROK_EDITORIAL_ENABLED: true
-          INU_IMAGE_PROVIDER: grok
-          INU_IMAGE_FALLBACK_PROVIDER: openai
+          INU_IMAGE_PROVIDER: openai
+          INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare --dry-run
 
@@ -85,8 +85,8 @@ jobs:
           INU_RESEARCH_MODEL: gpt-5.6-terra
           XAI_RESEARCH_MODEL: grok-4.3
           INU_GROK_EDITORIAL_ENABLED: true
-          INU_IMAGE_PROVIDER: grok
-          INU_IMAGE_FALLBACK_PROVIDER: openai
+          INU_IMAGE_PROVIDER: openai
+          INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare
 

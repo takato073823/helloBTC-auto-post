@@ -7,7 +7,7 @@ import os
 
 MONTHLY_BUDGET_YEN = int(os.environ.get("INU_MONTHLY_BUDGET_YEN", "10000"))
 RESERVED_TEXT_AND_MISC_YEN = int(os.environ.get("INU_RESERVED_TEXT_YEN", "2500"))
-# Grok Imagine Image Quality（1K $0.05）と画像変換分を含む安全側の1枚単価。
+# 通常投稿で使う既存の画像生成と画像変換分を含む安全側の1枚単価。
 ESTIMATED_IMAGE_USD = float(os.environ.get("INU_EST_IMAGE_USD", "0.053"))
 USD_JPY = float(os.environ.get("INU_BUDGET_USD_JPY", "160"))
 # Grok 4.3とX Searchの安全側概算。X検索は内部で最大2回使う前提にする。
