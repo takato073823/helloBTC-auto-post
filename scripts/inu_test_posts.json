@@ -5,7 +5,7 @@
       "id": "btc_etf_flow_2026_08_03",
       "topic_type": "etf_flow",
       "visual_route": "official_data_crop",
-      "text": "🇺🇸 ビットコイン現物ETFの資金が反転\n\n8月3日は1.701億ドルの純流入。IBITだけで1.114億ドル、全体の65%を占めました。\n\n7月31日は2.654億ドルの流出。僕は、全面的な買い戻しではなく、IBITに集中した資金回帰と見ています。\n\n出典: Farside Investors\n#ビットコイン #BTC",
+      "text": "🇺🇸 ビットコイン現物ETFの資金が反転\n\n8月3日は1.701億ドルの純流入。IBITだけで1.114億ドル、全体の65%を占めました。\n\n7月31日は2.654億ドルの流出で、当日の流入はIBITが全体の65%を占めました。\n\n出典: Farside Investors\n#ビットコイン #BTC",
       "media_path": "assets/inu/source/bitcoin-etf-flow-2026-08-03.png",
       "source_manifest": "assets/inu/source/bitcoin-etf-flow-2026-08-03.source.json"
     },
@@ -13,7 +13,7 @@
       "id": "bitget_japan_service_end_2026_08_03",
       "topic_type": "breaking_news",
       "visual_route": "official_text_crop",
-      "text": "【重要】Bitget、日本向けサービス終了へ\n\n公式発表では、新規登録は8月3日で停止。11月1日から段階的に制限され、12月31日以降は残存ポジションが強制決済されます。\n\n僕は、資産・建玉・取引履歴を早めに整理することが重要だと考えます。\n\n※Bitget公式（8月3日）",
+      "text": "【重要】Bitget、日本向けサービス終了へ\n\n公式発表では、新規登録は8月3日で停止。11月1日から段階的に制限され、12月31日以降は残存ポジションが強制決済されます。\n\n利用者は公式スケジュールに沿って、資産・建玉・取引履歴を確認する必要があります。\n\n※Bitget公式（8月3日）",
       "media_path": "assets/inu/source/bitget-japan-service-end-2026-08-03.png",
       "source_manifest": "assets/inu/source/bitget-japan-service-end-2026-08-03.source.json"
     },
@@ -21,7 +21,7 @@
       "id": "yamaha_motor_q2_2026_08_04",
       "topic_type": "earnings",
       "visual_route": "official_data_crop",
-      "text": "【速報】ヤマハ発動機、通期予想を上方修正\n\n上期は売上1兆4,980億円、営業利益1,585億円。営業利益は前年比189%で、上期として過去最高です。\n\n通期営業利益は1,800億円から2,600億円へ修正。僕は、増益だけでなく二輪販売と為替の追い風がどこまで続くかを見ます。\n\n※本日13時公表・公式決算資料",
+      "text": "【速報】ヤマハ発動機、通期予想を上方修正\n\n上期は売上1兆4,980億円、営業利益1,585億円。営業利益は前年比189%で、上期として過去最高です。\n\n通期営業利益は1,800億円から2,600億円へ修正。二輪販売と為替の前提は公式決算資料に記載されています。\n\n※本日13時公表・公式決算資料",
       "media_path": "assets/inu/source/yamaha-motor-q2-2026-highlights.png",
       "source_manifest": "assets/inu/source/yamaha-motor-q2-2026-highlights.source.json"
     },
@@ -29,7 +29,7 @@
       "id": "coldcard_entropy_actions_2026_08_04",
       "topic_type": "developing_story",
       "visual_route": "official_text_crop",
-      "text": "【注意】COLDCARD、対象者は更新だけでは不十分\n\n公式は、影響を受けるFWで作ったシードについて、FW更新後に新しいシードを生成し、資金移動が必要と説明。\n\nMk4/Mk5は5.6.0以降、Qは1.5.0Q以降。僕は、少額テスト送金から始め、焦らず確認すべきだと考えます。\n\n※本日もXで議論拡大・Coinkite公式",
+      "text": "【注意】COLDCARD、対象者は更新だけでは不十分\n\n公式は、影響を受けるFWで作ったシードについて、FW更新後に新しいシードを生成し、資金移動が必要と説明。\n\nMk4/Mk5は5.6.0以降、Qは1.5.0Q以降。対象機種とファームウェアは公式案内で照合できます。\n\n※本日もXで議論拡大・Coinkite公式",
       "media_path": "assets/inu/source/coldcard-entropy-actions.png",
       "source_manifest": "assets/inu/source/coldcard-entropy-actions.source.json"
     },
@@ -37,7 +37,7 @@
       "id": "jgb_10y_auction_2026_08_04",
       "topic_type": "macro_event",
       "visual_route": "official_data_crop",
-      "text": "【速報】日本10年債、入札最高利回り2.900%\n\n本日の財務省入札は、応募5兆624億円に対し募入1兆9,791億円。平均利回りは2.840%でした。\n\nXでは10年債利回り急騰の画像が18万回超表示。僕は、円相場と日本株のバリュエーションへの波及を警戒します。\n\n※財務省・8月4日公表",
+      "text": "【速報】日本10年債、入札最高利回り2.900%\n\n本日の財務省入札は、応募5兆624億円に対し募入1兆9,791億円。平均利回りは2.840%でした。\n\nXでは10年債利回り急騰の画像が18万回超表示。円相場と日本株への影響を測る基準の一つになります。\n\n※財務省・8月4日公表",
       "media_path": "assets/inu/source/jgb-10y-auction-2026-08-04.png",
       "source_manifest": "assets/inu/source/jgb-10y-auction-2026-08-04.source.json"
     }

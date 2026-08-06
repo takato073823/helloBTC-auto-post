@@ -27,11 +27,11 @@ def signal(**overrides) -> dict:
         "evidence_anchor": "Verified official evidence anchor",
         "hook": "📌 規制当局が新しいETF判断を公表",
         "facts": ["公式資料で条件変更を確認しました。"],
-        "opinion": "僕の見方では、次は実際の資金流入を確認したいです。",
-        "reply_text": "公式資料では、承認の対象と条件が明記されています。\n\n見出しだけで判断せず、実際の資金流入が始まるかを見る必要があります。\n\n僕の見方では、次に確認すべきなのは取引開始後のフローです。",
+        "opinion": "",
+        "reply_text": "公式資料では、承認の対象と条件が明記されています。\n\n市場への影響は、取引開始後の実際の資金流入で具体化します。\n\n対象商品の開始時点と日次フローを確認できる状態です。",
         "reply_options": [
-            "公式資料では、承認の対象と条件が明記されています。\n\n見出しだけで判断せず、実際の資金流入が始まるかを見る必要があります。\n\n僕の見方では、次に確認すべきなのは取引開始後のフローです。",
-            "承認の事実だけでなく、公式資料にある開始条件も確認が必要です。\n\n市場への影響は実際の資金流入で決まるため、取引開始後のフローを追うことが重要です。\n\n僕は、その数字を次に見ます。",
+            "公式資料では、承認の対象と条件が明記されています。\n\n市場への影響は、取引開始後の実際の資金流入で具体化します。\n\n対象商品の開始時点と日次フローを確認できる状態です。",
+            "承認の事実に加え、公式資料には開始条件も記載されています。\n\n市場への影響は実際の資金流入で表れます。\n\n取引開始後は日次フローで需給の変化を確認できます。",
         ],
         "mention_context": "ETFと機関資金の動きを追うなら、@example の直近の検証も見る価値があります。",
         "trend_keyword": "ETF",
@@ -228,7 +228,7 @@ class GrowthBoostTests(unittest.TestCase):
 
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
     def test_trend_keyword_must_be_in_the_published_text(self, _source):
-        item = signal(tactic="D", posted_at="2026-08-05T11:50:00Z", hook="📌 市場の流れを確認", facts=["公式資料で条件変更を確認しました。"], opinion="僕は、実データを待ちます。", trend_keyword="ETF")
+        item = signal(tactic="D", posted_at="2026-08-05T11:50:00Z", hook="📌 市場の流れを確認", facts=["公式資料で条件変更を確認しました。"], opinion="", trend_keyword="ETF")
         with self.assertRaisesRegex(ValueError, "トレンド接続"):
             inu_growth_boost.validate_candidate(item, self.state(), NOW)
 

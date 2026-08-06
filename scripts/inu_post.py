@@ -19,7 +19,7 @@ def compose_post(
     *,
     hook: str,
     facts: list[str],
-    opinion: str,
+    opinion: str = "",
     tags: list[str] | None = None,
 ) -> str:
     """見出し+三点箇条書きの固定カード形式を使わず、自然文で作る。"""
@@ -29,19 +29,17 @@ def compose_post(
         for value in facts
         if value.strip()
     ]
-    clean_opinion = _neutralize_service_domains(opinion.strip())
     # 事実を一つのブロックにまとめる。1文ごとに改行を空けると、
     # 公式資料を機械的に抜き出しただけの印象になりやすいため。
-    body = f"{clean_hook}\n\n" + "\n".join(paragraphs)
-    body += f"\n\n{clean_opinion}"
+    body = clean_hook if not paragraphs else f"{clean_hook}\n\n" + "\n".join(paragraphs)
     hashtags = _build_hashtags((tags or [])[:2])
     if hashtags:
         body += f"\n\n{hashtags}"
     return body
 
 
-def validate_post(text: str, *, require_opinion: bool = True) -> None:
-    errors = lint_voice(text, require_opinion=require_opinion)
+def validate_post(text: str) -> None:
+    errors = lint_voice(text)
     if weighted_length(text) > MAX_WEIGHTED_LENGTH:
         errors.append(f"Xの文字数上限を超える: {weighted_length(text)}")
     if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):

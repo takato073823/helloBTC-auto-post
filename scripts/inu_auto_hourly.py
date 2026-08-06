@@ -616,8 +616,7 @@ topic_typeが異なる候補を優先してください。
 - 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
 - follow_valueへ「この出来事を起点に、INUを継続してフォローすると追える投資テーマ・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。この値は内部の編集判定・振り返り用で、投稿本文には書かない。
 - hook・factsにも、reader_interestの根拠となる具体的な変更点を必ず入れる。「〜を公表へ」「公式ページでは〜」だけの投稿は禁止。
-- 事実の要約を繰り返さず、opinionでは「何が変わるか」または「次に何を見るか」を具体的に一つ書く。
-- opinionは「僕の見方では」「僕としては」「個人的には」を自然に使い分ける。「僕は、〜と見ています」「〜がポイントです」「節目だと見ています」の定型的な結びは禁止。
+- opinionは必ず空文字にする。本文は見出しと検証済み事実だけで完結させ、個人見解・一人称・予測・注視点は書かない。
 - 採用する投稿では、内容を示す絵文字をhookの先頭に1個使う（例：🚨重要速報、📈最高値・上昇、📉急落、⚠️安全性・制度リスク、🏦金融機関・政策）。装飾ではなく、読者がスクロール中に出来事の性質を瞬時に把握するために使う。本文中には使わず、事実と合わない絵文字は使わない。
 - 投稿全体は日本語の全角換算を考慮して180〜220以内を目標にし、非常に簡潔にする。
 - 出典名とハッシュタグを含めても、本文にURLは書かない。
@@ -655,6 +654,9 @@ visual_routeは数字・表・チャートが根拠ならofficial_data_crop、�
 
 def _normalize_researched_candidate(candidate: dict) -> dict:
     normalized = dict(candidate)
+    # 投稿本文に個人見解を混ぜない。モデルの内部出力に値があっても、公開候補では
+    # 常に空へ正規化し、見出しと検証済み事実だけを使う。
+    normalized["opinion"] = ""
     normalized.setdefault("evidence_as_primary", False)
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
         policy = get_content_policy(normalized["topic_type"])
@@ -743,9 +745,8 @@ def _kol_quote_prompt(now: dt.datetime, state: dict, posts: list[dict]) -> str:
 x_native_quote にする。どちらも元投稿のネイティブメディアと投稿者表示を保つので、
 画像・動画ファイルの再アップロードや本文へのURL直書きは禁止する。
 
-投稿文はINUの口調で、絵文字1つで始める短い見出し、1〜2個の具体的な事実、僕の見方の順。
-「出典：」「この投稿によると」「海外で話題」などの説明は書かない。僕の見方は、元投稿を
-持ち上げるのではなく、次に確認すべき価格・資金・条件・反応を一つに絞る。
+投稿文はINUの口調で、絵文字1つで始める短い見出しと1〜2個の具体的な事実だけで構成する。
+「出典：」「この投稿によると」「海外で話題」などの説明、個人見解・一人称・予測は書かない。
 why_now、reader_interest、follow_value は内部判定用で、抽象語だけにしない。
 
 すでに引用済みまたは予約済みの元投稿ID: {json.dumps(sorted(used), ensure_ascii=False)}
@@ -791,7 +792,7 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
         text = compose_post(
             hook=str(raw.get("hook", "")),
             facts=[str(value) for value in raw.get("facts", [])],
-            opinion=str(raw.get("opinion", "")),
+            opinion="",
             tags=[str(value).lstrip("#＃") for value in raw.get("tags", [])][:1],
         )
         if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
@@ -886,7 +887,7 @@ def build_rescue_research_prompt(
 - has_candidate=trueを最低3件返す。候補なしで終えず、同じ話題の言い換えではなく
   発表主体とtopic_typeを分散させる。
 - hookは事実を短く示す1行で、性質に合う絵文字を先頭に一つ使う。
-- opinionは僕の一人称で、売買推奨をせずに「次に確認する具体的な対象」を一つ述べる。
+- opinionは必ず空文字にする。本文には個人見解・一人称・予測を含めない。
 - reader_interestは今見る理由、follow_valueは今後追う別の続報対象にして、互いの言い換えにしない。
 
 口調の基準:
@@ -945,7 +946,6 @@ EDITORIAL_REPAIR_ERROR_MARKERS = (
     "見出しが短すぎて",
     "今投稿する必然性",
     "読者が今見る",
-    "僕の見方として",
     "今投稿する理由と読者価値",
     "継続フォロー価値",
     "投稿文を安全に",
@@ -972,7 +972,7 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
 
 書き直すのはhook、opinion、why_now、reader_interest、follow_value、tagsだけです。
 - hookは先頭に出来事に合う絵文字を一つ、続けて何が変わったかを短く書く。
-- opinionは必ず「僕」を使い、売買推奨をせず、次に追う数値・条件・反応を一つだけ示す。
+- opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
 - why_nowは更新時点または新しい数値、reader_interestは今の判断に関わる理由、
   follow_valueは別の続報テーマにする。三つを言い換えにしない。
 - INUの自然な日本語。定型の「節目だと見ています」「ポイントです」は使わない。
@@ -988,6 +988,7 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
     )
     updated = dict(candidate)
     updated.update(repaired)
+    updated["opinion"] = ""
     return updated
 
 
@@ -1003,7 +1004,7 @@ def _grok_editorial_copy_prompt(candidate: dict) -> str:
 - URL、出典名、媒体名、未確認の数値・固有名詞・推測は一切追加しない。
 - factsと根拠原文以外の事実は書かない。売買推奨、価格予想、煽り、定型句は禁止。
 - hookは出来事に合う絵文字1つで始め、短く「何が変わったか」を示す。
-- opinionは必ず「僕」を使い、次に確認すべき具体的な条件・数字・反応を一つだけ示す。
+- opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
 - why_now、reader_interest、follow_valueは内部判定用。抽象語・同じ内容の言い換えにしない。
 - tagsは1〜2個。本文に「出典：」「速報」「海外で話題」は入れない。
 
@@ -1035,7 +1036,8 @@ def _grok_editorial_copy_options(candidate: dict) -> list[dict]:
             key: raw.get(key)
             for key in ("hook", "opinion", "why_now", "reader_interest", "follow_value", "tags")
         }
-        if all(option.get(key) not in {None, ""} for key in option if key != "tags") and option.get("tags"):
+        option["opinion"] = ""
+        if all(option.get(key) not in {None, ""} for key in option if key not in {"tags", "opinion"}) and option.get("tags"):
             options.append(option)
     return options
 
@@ -1299,7 +1301,7 @@ def compose_candidate_text(candidate: dict) -> str:
     text = compose_post(
         hook=candidate["hook"],
         facts=candidate["facts"],
-        opinion=candidate["opinion"],
+        opinion="",
         # 共通タグ処理が #仮想通貨 を補うため、固有タグは1件に限定する。
         tags=tags[:1],
     )
@@ -1310,7 +1312,7 @@ def compose_candidate_text(candidate: dict) -> str:
     compact = compose_post(
         hook=candidate["hook"],
         facts=[candidate["facts"][0]],
-        opinion=candidate["opinion"],
+        opinion="",
         tags=[],
     )
     if weighted_length(compact) <= MAX_WEIGHTED_LENGTH:
@@ -1320,11 +1322,11 @@ def compose_candidate_text(candidate: dict) -> str:
         clean = " ".join(value.split()).strip()
         return clean if len(clean) <= limit else clean[: max(1, limit - 1)].rstrip("、。 ") + "…"
 
-    # APIを再呼び出しせず、事実と僕の見解を残して確実に収める。
+    # APIを再呼び出しせず、見出しと検証済み事実だけで確実に収める。
     compact = compose_post(
         hook=clip(candidate["hook"], 26),
         facts=[clip(candidate["facts"][0], 34)],
-        opinion=clip(candidate["opinion"], 32),
+        opinion="",
         tags=[],
     )
     if weighted_length(compact) > MAX_WEIGHTED_LENGTH:

@@ -23,8 +23,9 @@ from inu_visual import build_gpt_image_prompt, select_visual_route
 
 class INUContentSystemTests(unittest.TestCase):
     def test_voice_is_consistent(self):
-        good = "この数字は資金の偏りを示しています。僕の見方では、次は流入先の広がりを確認したいです。"
+        good = "この数字は資金の偏りを示しています。流入先の内訳は、公式集計で確認できます。"
         self.assertEqual([], lint_voice(good))
+        self.assertIn("個人の見解", " ".join(lint_voice("僕の見方では、次を確認します。")))
         self.assertTrue(lint_voice("俺は爆上げ確定だと思うワン"))
 
     def test_no_basic_knowledge_route(self):
@@ -199,7 +200,7 @@ class INUContentSystemTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 apply_risk_alert_overlay(source, output, headline="長" * 43)
 
-    def test_post_uses_natural_paragraphs_and_inu_opinion(self):
+    def test_post_uses_natural_paragraphs_without_personal_opinion(self):
         text = compose_post(
             hook="⚡️ 米国市場で半導体株に資金が集中",
             facts=["複数のETFで過去最大級の流入が確認されました。"],
@@ -209,7 +210,7 @@ class INUContentSystemTests(unittest.TestCase):
         validate_post(text)
         self.assertNotIn("・", text)
         self.assertIn("\n\n複数のETF", text)
-        self.assertIn("\n\n僕の見方では", text)
+        self.assertNotIn("僕の見方では", text)
 
     def test_hourly_medium_images_stay_under_budget_estimate(self):
         self.assertLessEqual(estimate_monthly_cost_yen(24), 10000)

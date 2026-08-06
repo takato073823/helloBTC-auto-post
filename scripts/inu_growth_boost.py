@@ -284,13 +284,13 @@ D（トレンドワード接続）: Xでいま上昇している話題を、暗�
   報道記事、Cointelegraph、Decrypt、CoinDesk、Reuters、Nikkei、まとめ、ブログを絶対に使わない。
 - source_urlの根拠文言をevidence_anchorに原文のまま8文字以上で書く。見つからない場合は候補にしない。
 - 事実は確認済みのものだけ。売買推奨、価格予想、煽り、案件、プレゼント、無関係な人物の話題は禁止。
-- A/C/Dの文章は、1行の具体見出し、事実、僕の見方の順。自然な日本語で、本文URLは書かない。
+- A/C/Dの文章は、1行の具体見出しと検証済み事実だけで構成する。個人見解・一人称・予測は書かず、本文URLも書かない。
 - Aは、専門領域と今この人を見る理由を具体的に書いたmention_contextを返す。mention_contextには
   @target_handle を1回だけ含める。Aは独立した紹介投稿として送るため、拡散依頼・定型あいさつ・無関係なタグ付けは禁止。
 - Cは実際に100いいね以上ある投資・暗号資産・金融・AI関連の投稿だけ。reply_optionsに、80〜210字の
   返信案を異なる切り口で3案入れる。reply_textにはそのうち最も事実関係が明確な1案を同じ内容で入れる。
   元投稿の具体的な論点を一次資料の数字・条件で補強する。「この論点は公式資料の〜とも整合します」のように
-  投稿主の分析が検証で裏づけられる場合だけ補足し、過剰な持ち上げ・依頼・定型文を使わない。
+  投稿主の分析が検証で裏づけられる場合だけ補足し、過剰な持ち上げ・依頼・定型文・一人称を使わない。
 - Bのreply_text等は空文字でよい。Bはpost_urlと対象の妥当性だけを返す。
 - Aはestimated_recent_impressionsが1,000以上。Cのいいね数は後段のX APIで実測確認するため、
   表示数の推測だけで候補を水増ししない。
@@ -637,7 +637,7 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
         raise ValueError("Cの対象に必要ないいね数を満たしません")
     if tactic == "D":
         keyword = str(candidate.get("trend_keyword", "")).strip()
-        text = " ".join([str(candidate.get("hook", "")), *map(str, candidate.get("facts", [])), str(candidate.get("opinion", ""))])
+        text = " ".join([str(candidate.get("hook", "")), *map(str, candidate.get("facts", []))])
         if len(keyword) < 2 or keyword.lower() not in text.lower():
             raise ValueError("Dのトレンド接続が不明です")
     if tactic == "B":
@@ -662,7 +662,7 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
         validate_post(compose_post(
             hook=str(candidate["hook"]),
             facts=[*list(candidate["facts"]), mention_context],
-            opinion=str(candidate["opinion"]), tags=["仮想通貨"],
+            opinion="", tags=["仮想通貨"],
         ))
     elif tactic == "C":
         if not 80 <= len(reply_text) <= 210:
@@ -673,7 +673,7 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
     else:
         validate_post(compose_post(
             hook=str(candidate["hook"]), facts=list(candidate["facts"]),
-            opinion=str(candidate["opinion"]), tags=["仮想通貨"],
+            opinion="", tags=["仮想通貨"],
         ))
     _verify_primary_source(candidate)
     return post_id
@@ -748,7 +748,7 @@ def execute_one(state: dict, candidates: list[dict], now: dt.datetime, client=No
                         facts.append(str(variant["mention_context"]).strip())
                     text = compose_post(
                         hook=str(variant["hook"]), facts=facts,
-                        opinion=str(variant["opinion"]), tags=["仮想通貨"],
+                        opinion="", tags=["仮想通貨"],
                     )
                     tweet_id = post_info_tweet(text, image)
                 if not tweet_id:

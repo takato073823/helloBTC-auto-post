@@ -27,7 +27,7 @@ def candidate(**overrides) -> dict:
         "topic_type": "etf_flow",
         "hook": "米国のビットコインETF資金が反転",
         "facts": ["公式集計で1億ドルの純流入を確認しました。"],
-        "opinion": "僕の見方では、次は流入先が広がるかを確認したいです。",
+        "opinion": "",
         "source_name": "Example ETF公式",
         "source_url": "https://example.com/official/flow?utm_source=test",
         "published_at": "2026-08-04T08:00:00Z",
@@ -69,7 +69,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         grok_copy = {
             "candidates": [{
                 "hook": "⚡️ 米国ビットコインETFの資金が反転",
-                "opinion": "僕は、次の公表で流入先が広がるかを確認します。",
+                "opinion": "",
                 "why_now": "公式集計で当日の純流入額が更新されたためです。",
                 "reader_interest": "資金流入の継続性を、次の需給判断へつなげられるためです。",
                 "follow_value": "ETFフローと機関資金の変化を継続して確認できるためです。",
@@ -87,6 +87,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(item["source_url"], selected["source_url"])
         self.assertEqual(item["evidence_anchor"], selected["evidence_anchor"])
         self.assertEqual("⚡️ 米国ビットコインETFの資金が反転", selected["hook"])
+        self.assertEqual("", selected["opinion"])
 
     def test_tracking_parameters_are_removed(self):
         actual = inu_auto_hourly.normalize_url(
@@ -385,7 +386,8 @@ class INUAutoHourlyTests(unittest.TestCase):
 
     def test_media_and_text_are_always_required_by_prepared_item(self):
         text = inu_auto_hourly.compose_candidate_text(candidate())
-        self.assertIn("僕の見方では", text)
+        self.assertNotIn("僕の見方では", text)
+        self.assertNotIn("僕", text)
         self.assertNotIn("https://", text)
         self.assertNotIn(candidate()["reader_interest"], text)
         self.assertNotIn(candidate()["follow_value"], text)
@@ -409,7 +411,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "delivery_mode": "x_native_video_reference",
                 "hook": "📊 ETFフローの変化を確認",
                 "facts": ["動画では短時間の資金フロー変化を示しています。"],
-                "opinion": "僕は、この動きが終値まで続くかを見ます。",
+                "opinion": "",
                 "tags": ["ビットコイン"],
                 "why_now": "直近3時間の高表示動画で、資金フローの変化を視覚的に確認できるためです。",
                 "reader_interest": "短期の資金フロー変化が価格と出来高に波及するかを判断する材料になるためです。",
@@ -432,12 +434,13 @@ class INUAutoHourlyTests(unittest.TestCase):
         item = candidate(
             hook="重要な市場ニュースです" * 12,
             facts=["公式発表で重要な数値が更新されました。" * 12],
-            opinion="僕としては、次に資金の広がりを確認したいです。" * 10,
+            opinion="",
             source_name="Example Official Investor Relations Department" * 4,
         )
         text = inu_auto_hourly.compose_candidate_text(item)
         inu_auto_hourly.validate_post(text)
-        self.assertIn("僕としては", text)
+        self.assertNotIn("僕としては", text)
+        self.assertNotIn("僕", text)
         self.assertNotIn("出典", text)
 
     def test_trusted_media_is_discovery_only(self):
@@ -775,7 +778,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "id": "inu_auto_second",
             "topic_type": "etf_flow",
             "visual_route": "official_data_crop",
-            "text": "候補2を採用\n\n僕は、変化を確認します。\n\n#仮想通貨",
+            "text": "候補2を採用\n\n公式資料で条件変更を確認しました。\n\n#仮想通貨",
             "media_path": "scripts/artifacts/inu-auto/test.png",
             "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
         }
@@ -810,7 +813,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "id": "inu_market_test",
             "topic_type": "crypto_market",
             "visual_route": "market_service_screenshot",
-            "text": "📈 BTC、主要6銘柄で直近24時間の値動き最大\n\n僕は、出来高を確認します。\n\n#仮想通貨",
+            "text": "📈 BTC、主要6銘柄で直近24時間の値動き最大\n\n確定済みの1時間足で、直近24時間の値動きが最大でした。\n\n#仮想通貨",
             "media_path": "scripts/artifacts/inu-auto/test.png",
             "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
         }
@@ -836,12 +839,12 @@ class INUAutoHourlyTests(unittest.TestCase):
 
     def test_prepare_repairs_copy_before_discarding_a_verified_candidate(self):
         option = candidate()
-        repaired = candidate(opinion="僕は、次のETFフローの継続性を確認します。")
+        repaired = candidate(opinion="")
         item = {
             "id": "inu_auto_repaired",
             "topic_type": "etf_flow",
             "visual_route": "official_data_crop",
-            "text": "📈 ETF資金が反転\n\n僕は、次のETFフローを確認します。\n\n#仮想通貨",
+            "text": "📈 ETF資金が反転\n\n公式集計で当日の純流入額が更新されました。\n\n#仮想通貨",
             "media_path": "scripts/artifacts/inu-auto/test.png",
             "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
         }
@@ -853,7 +856,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         ), patch.object(
             inu_auto_hourly,
             "_build_item_from_candidate",
-            side_effect=[ValueError("僕の見方として次に見る対象が不足しています"), (item, repaired)],
+            side_effect=[ValueError("読者が今見る具体的な理由が不足しています"), (item, repaired)],
         ) as build, patch.object(
             inu_auto_hourly, "repair_candidate_editorial_copy", return_value=repaired
         ) as repair, patch.object(inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
@@ -868,7 +871,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "id": "inu_market_test",
             "topic_type": "crypto_market",
             "visual_route": "market_service_screenshot",
-            "text": "📉 XRP、主要6銘柄で直近24時間の値動き最大\n\n僕は、出来高を確認します。\n\n#仮想通貨",
+            "text": "📉 XRP、主要6銘柄で直近24時間の値動き最大\n\n確定済みの1時間足で、直近24時間の値動きが最大でした。\n\n#仮想通貨",
             "media_path": "scripts/artifacts/inu-auto/test.png",
             "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
         }

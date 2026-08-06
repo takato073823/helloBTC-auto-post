@@ -469,7 +469,7 @@ def post_link_card_tweet(text: str, article_url: str) -> str | None:
 
 
 def post_quote_tweet(text: str, quote_tweet_id: str) -> str | None:
-    """元投稿を引用してINUの見解を投稿する。
+    """元投稿を引用してINUの検証済み情報を投稿する。
 
     動画・画像は再アップロードせず、Xのネイティブ引用として表示する。これにより
     元の投稿者とメディアの帰属を保持する。失敗時は代替の文字投稿を行わない。

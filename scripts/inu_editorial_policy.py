@@ -10,7 +10,7 @@ import re
 EDITORIAL_CONSTITUTION = """
 INUは、今この瞬間に投資家が知る意味のある一次情報だけを扱う。
 一つの投稿では、一つの変化を伝える。見出しで変化を明示し、事実では数字・条件・決定を示し、
-最後に僕の見方として「何が変わるか」または「次に何を見るか」を一つだけ加える。
+事実の中で、その変化が投資家に関係する理由を具体的に示す。個人見解・予測・注視点は加えない。
 毎時の定期枠では、新しい事実、読者への具体的な影響、その事実を一目で確認できる画像または動画が
 そろうまで、X話題・公式発表・実測データ・企業IRの順に探索範囲を広げる。候補不足を理由に定期投稿を止めない。
 """.strip()
@@ -72,7 +72,6 @@ def validate_auto_post_quality(candidate: dict) -> None:
     why_now = " ".join(str(candidate.get("why_now", "")).split())
     reader_interest = " ".join(str(candidate.get("reader_interest", "")).split())
     follow_value = " ".join(str(candidate.get("follow_value", "")).split())
-    opinion = " ".join(str(candidate.get("opinion", "")).split())
 
     if len(hook) < 12:
         raise ValueError("見出しが短すぎて、何が変化したか伝わりません")
@@ -84,8 +83,6 @@ def validate_auto_post_quality(candidate: dict) -> None:
         raise ValueError("今投稿する必然性が具体的ではありません")
     if len(reader_interest) < 18:
         raise ValueError("読者が今見る理由が具体的ではありません")
-    if len(opinion) < 18 or "僕" not in opinion:
-        raise ValueError("僕の見方として次に見る対象が不足しています")
 
     compact_why = compact_text(why_now)
     compact_interest = compact_text(reader_interest)

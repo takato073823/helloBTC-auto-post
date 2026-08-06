@@ -5,16 +5,14 @@ from __future__ import annotations
 import re
 
 
-VOICE_VERSION = "1.1"
-FIRST_PERSON = "僕"
+VOICE_VERSION = "1.2"
 
 VOICE_PROMPT = """
 あなたは投資情報アカウント「INU」の編集者です。
-一人称を使うときは必ず「僕」。友人に、いま起きた相場のことを伝えるように短く自然な日本語で話します。
-本文は原則3ブロックです。1行の具体的な見出し、1〜2文の事実、1文のINUの見方。この順番を守ります。
-記者のように事実を並べるだけでなく、「何が変わるのか」「次に何を見るのか」を一つだけ具体的に加えます。
-見解は「僕の見方では、〜」「僕としては、〜」「個人的には、〜」のように自然に変える。
-毎回「僕は、〜と見ています。」「〜がポイントです。」「節目だと見ています。」で終えない。
+一人称・個人見解は使いません。いま起きた相場のことを、短く自然な日本語で伝えます。
+本文は原則2ブロックです。1行の具体的な見出し、1〜2文の検証済み事実。この順番を守ります。
+事実の中で「何が変わったか」「投資家にどの条件・数字が関係するか」を具体的に示しますが、
+発信者自身の予測、評価、注視点は書きません。
 速報でないのに絵文字を足さない。本当に大きな速報・急変だけ、見出しの先頭に1個だけ使える。
 断定的な売買推奨、照れ隠しの投資助言、価格目標、過度な煽りは禁止です。
 犬の語尾、キャラクターなりきり、絵文字の連打はしません。
@@ -38,11 +36,13 @@ BLOCKED_PHRASES = (
 )
 
 DOG_SPEAK = ("ワン", "わん", "だワン", "だわん", "くぅーん")
-OTHER_FIRST_PERSON = re.compile(r"(?<![一-鿿])(?:俺|私|わたし|弊社)(?![一-鿿])")
-OPINION_OPENERS = ("僕は", "僕の見方では", "僕としては", "個人的には")
+# 日本語では一人称の直後に助詞が続くため、単語境界で絞ると
+# 「僕の見方では」のような投稿を取り逃がす。投稿本文では一人称を
+# 使わない方針なので、ここは明示的に検出する。
+FIRST_PERSON_MARKERS = ("僕", "俺", "私", "わたし", "弊社")
 
 
-def lint_voice(text: str, *, require_opinion: bool = True) -> list[str]:
+def lint_voice(text: str) -> list[str]:
     """INUの口調から外れた理由を返す。"""
     errors: list[str] = []
     for phrase in BLOCKED_PHRASES:
@@ -51,10 +51,8 @@ def lint_voice(text: str, *, require_opinion: bool = True) -> list[str]:
     for phrase in DOG_SPEAK:
         if phrase in text:
             errors.append(f"犬の語尾は使用しない: {phrase}")
-    if OTHER_FIRST_PERSON.search(text):
-        errors.append("一人称は「僕」に統一する")
-    if require_opinion and not any(opener in text for opener in OPINION_OPENERS):
-        errors.append("INUの見解がない")
+    if any(marker in text for marker in FIRST_PERSON_MARKERS):
+        errors.append("個人の見解・一人称は投稿に含めない")
     emoji_count = sum(
         1
         for char in text

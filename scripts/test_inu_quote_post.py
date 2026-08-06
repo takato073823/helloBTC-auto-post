@@ -10,13 +10,13 @@ from pathlib import Path
 from inu_quote_post import load_state, publish, validate_quote
 
 
-TEXT = "アーサー・ヘイズ氏、ビットコインの底打ちを主張。\n\n「100万ドルへ向けて上昇が始まる」と発言しました。\n\n僕としては、強気発言のあとにBTCへ実際の買いが続くかを見ます。\n\n#ビットコイン #仮想通貨"
+TEXT = "アーサー・ヘイズ氏、ビットコインの底打ちを主張。\n\n「100万ドルへ向けて上昇が始まる」と発言しました。\n\n発言後の価格と出来高は、取引所データで確認できます。\n\n#ビットコイン #仮想通貨"
 
 
 class INUQuotePostTests(unittest.TestCase):
     def test_quote_copy_is_valid(self):
         text = validate_quote("arthur_hayes_btc_20260805", "2084816282902466746", TEXT, {"posted": []})
-        self.assertIn("僕としては", text)
+        self.assertNotIn("僕", text)
 
     def test_duplicate_key_is_rejected(self):
         with self.assertRaisesRegex(RuntimeError, "公開済み"):

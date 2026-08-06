@@ -12,8 +12,8 @@ on:
         required: true
         type: string
       opinion:
-        description: "INUの見解（「僕は」で始める）"
-        required: true
+        description: "未使用（個人見解は投稿しません）"
+        required: false
         type: string
       source:
         description: "出典名と日付"

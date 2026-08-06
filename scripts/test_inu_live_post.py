@@ -16,7 +16,7 @@ from inu_live_post import REPO_ROOT, load_test_item, publish_test_item, validate
 class INULivePostTests(unittest.TestCase):
     def test_committed_test_item_is_valid(self):
         text, media_path = validate_test_item(load_test_item("btc_etf_flow_2026_08_03"))
-        self.assertIn("僕は", text)
+        self.assertNotIn("僕", text)
         self.assertTrue(media_path.is_file())
 
     def test_missing_tweet_id_is_a_hard_failure(self):
@@ -34,7 +34,7 @@ class INULivePostTests(unittest.TestCase):
             "id": "reported_card",
             "topic_type": "reported_breaking_news",
             "visual_route": "reported_text_crop",
-            "text": "米国の暗号資産規制に新しい動き。\n\n僕としては、実務ルールがいつ示されるかを確認したいです。\n\n#仮想通貨",
+            "text": "米国の暗号資産規制に新しい動き。\n\n実務ルールの詳細と公表時期は、今後の公式発表で示される予定です。\n\n#仮想通貨",
             "link_card_url": "https://www.nikkei.com/article/DGXZQOUB037270T00C26A8000000/",
         }
         text, media_path = validate_test_item(item)
@@ -55,7 +55,7 @@ class INULivePostTests(unittest.TestCase):
             "id": "reported_card_default",
             "topic_type": "reported_breaking_news",
             "visual_route": "reported_text_crop",
-            "text": "暗号資産規制に新しい動き。\n\n僕としては、実務ルールがいつ示されるかを確認したいです。\n\n#仮想通貨",
+            "text": "暗号資産規制に新しい動き。\n\n実務ルールの詳細と公表時期は、今後の公式発表で示される予定です。\n\n#仮想通貨",
             "link_card_url": "https://www.nikkei.com/article/DGXZQOUB037270T00C26A8000000/",
         }
         with patch("inu_live_post.post_link_card_tweet", return_value="790") as poster:
@@ -67,7 +67,7 @@ class INULivePostTests(unittest.TestCase):
             "id": "invalid_card",
             "topic_type": "etf_flow",
             "visual_route": "official_data_crop",
-            "text": "ETFの資金流入を確認。\n\n僕としては、流入先の広がりを確認したいです。",
+            "text": "ETFの資金流入を確認。\n\n日次の流入先内訳は公式集計で公表されています。",
             "link_card_url": "https://example.com/official",
         }
         with self.assertRaisesRegex(ValueError, "主要メディア速報"):
@@ -101,7 +101,7 @@ class INULivePostTests(unittest.TestCase):
                 "id": "two_images",
                 "topic_type": "reported_breaking_news",
                 "visual_route": "reported_text_crop",
-                "text": "速報テスト\n\n僕は、事実の確認を続けます。\n\n#仮想通貨",
+                "text": "速報テスト\n\n公式発表の内容を確認しました。\n\n#仮想通貨",
                 "media_path": relative(main),
                 "source_manifest": relative(main.with_suffix(".source.json")),
             }
@@ -149,7 +149,7 @@ class INULivePostTests(unittest.TestCase):
             self.assertEqual([chart], paths)
 
             item["text"] = "BTCは直近24時間で上昇。\n\n僕は、ここからの上値を見ます。\n\n#ビットコイン"
-            with self.assertRaisesRegex(ValueError, "個人の意見"):
+            with self.assertRaisesRegex(ValueError, "個人の見解・一人称"):
                 validated_media_paths(item)
 
 

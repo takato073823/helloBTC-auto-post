@@ -125,7 +125,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="INUの新しいX投稿プレビュー")
     parser.add_argument("--hook", required=True)
     parser.add_argument("--fact", action="append", required=True)
-    parser.add_argument("--opinion", required=True)
+    parser.add_argument("--opinion", default="")
     parser.add_argument("--source", required=True)
     parser.add_argument("--tag", action="append", default=[])
     parser.add_argument("--topic-type", required=True, choices=sorted(CONTENT_TYPES))

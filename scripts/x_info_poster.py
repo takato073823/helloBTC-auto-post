@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo
 
 from PIL import Image, ImageDraw, ImageFont
 
+from inu_persona import lint_voice
 from x_poster import _build_hashtags, _neutralize_service_domains, post_info_tweet
 
 
@@ -82,6 +83,8 @@ def validate_item(item: dict) -> None:
         raise ValueError(f"禁止表現があります: {item['id']} {blocked}")
     if re.search(r"https?://|www\.", combined, flags=re.IGNORECASE):
         raise ValueError(f"独立情報投稿の本文にはURLを含められません: {item['id']}")
+    if any("個人の見解" in error for error in lint_voice(combined)):
+        raise ValueError(f"独立情報投稿に個人見解を含められません: {item['id']}")
     tweet = build_info_tweet(item)
     if weighted_length(tweet) > MAX_WEIGHTED_LENGTH:
         raise ValueError(
