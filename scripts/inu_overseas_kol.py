@@ -69,6 +69,8 @@ DISCOVERY_SCHEMA = {
     "properties": {
         "accounts": {
             "type": "array",
+            "minItems": 10,
+            "maxItems": 20,
             "items": {
                 "type": "object",
                 "additionalProperties": False,
@@ -256,6 +258,9 @@ Hard requirements for every returned account:
 - Posted in the last three days, and its recent original posts include a useful image, chart, or video.
 - Publishes finance, macro, equities, AI-market, crypto, ETF, exchange-risk, or on-chain analysis.
 - Exclude referral marketing, token promotion, price calls, airdrops, gambling, copied headlines, and inactive accounts.
+- This is a discovery pass, not the final eligibility decision: return 20 distinct, real handles when
+  possible. Use X Search to find them, but do not omit otherwise strong candidates merely because you
+  cannot calculate every threshold yourself; the X API will verify every threshold after this response.
 - Return only handles and a real recent x.com status URL found by X Search. Do not invent accounts.
 - Already known: {known_block}
 - Return at most {count} candidates. It is acceptable to return fewer.
