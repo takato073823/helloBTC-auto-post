@@ -170,6 +170,19 @@
       "posted_at": "2026-08-06T06:49:45.163462+00:00",
       "hook": "📈IBIT、純資産488億ドルに対して出来高は平均を下回る",
       "follow_value": "続報では、IBITの発行済み口数の変化を確認します。"
+    },
+    {
+      "slot": "2026-08-06-17-a",
+      "post_id": "inu_market_2026_08_06_17_a_ada-usd",
+      "tweet_id": "2085276566087409981",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ADAUSD",
+      "published_at": "2026-08-06T08:00:00+00:00",
+      "posted_at": "2026-08-06T08:07:30.884278+00:00",
+      "hook": "📉 ADA、主要6銘柄で直近24時間の値動き最大",
+      "follow_value": "ADAの出来高と3日レンジの更新を継続して追います。"
     }
   ],
   "posted_ids": [
@@ -191,7 +204,8 @@
     "inu_market_2026_08_06_11_a_xrp-usd",
     "inu_market_2026_08_06_13_a_xrp-usd",
     "inu_market_2026_08_06_14_eth-usd",
-    "inu_auto_eea6659e9e5481"
+    "inu_auto_eea6659e9e5481",
+    "inu_market_2026_08_06_17_a_ada-usd"
   ],
   "reservations": [
     {
@@ -202,15 +216,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-06-17-a",
-      "post_id": "inu_market_2026_08_06_17_a_ada-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-ADAUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-06T08:04:43.054148+00:00"
     }
   ],
   "history": [
@@ -429,6 +434,19 @@
       "posted_at": "2026-08-06T06:49:45.163462+00:00",
       "hook": "📈IBIT、純資産488億ドルに対して出来高は平均を下回る",
       "follow_value": "続報では、IBITの発行済み口数の変化を確認します。"
+    },
+    {
+      "slot": "2026-08-06-17-a",
+      "post_id": "inu_market_2026_08_06_17_a_ada-usd",
+      "tweet_id": "2085276566087409981",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ADAUSD",
+      "published_at": "2026-08-06T08:00:00+00:00",
+      "posted_at": "2026-08-06T08:07:30.884278+00:00",
+      "hook": "📉 ADA、主要6銘柄で直近24時間の値動き最大",
+      "follow_value": "ADAの出来高と3日レンジの更新を継続して追います。"
     }
   ],
   "scheduled_checks": [
