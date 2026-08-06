@@ -440,8 +440,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("onchain", prompt)
         self.assertNotIn("必ずこの系統", prompt)
         self.assertIn("決算発表予定、IRカレンダー、説明会予定", prompt)
-        self.assertIn("候補なしは正常な編集判断", prompt)
-        self.assertIn("一目で伝える1枚の画像", prompt)
+        self.assertIn("毎時の定期枠は必ず投稿まで到達させる", prompt)
+        self.assertIn("その事実を一目で確認できる画像または動画", prompt)
         self.assertIn("内容を示す絵文字をhookの先頭に1個", prompt)
 
     def test_priority_signal_from_third_party_media_is_not_posted(self):
@@ -662,7 +662,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             prepared = json.loads(prepared_path.read_text(encoding="utf-8"))
             self.assertEqual(options[1]["source_url"], prepared["candidate"]["source_url"])
 
-    def test_fallback_skips_only_after_primary_checked_same_slot(self):
+    def test_fallback_researches_again_after_primary_had_no_candidate(self):
         args = SimpleNamespace(
             state="/tmp/unused-state.json",
             slot="2026-08-04-21",
@@ -674,7 +674,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             inu_auto_hourly, "load_state", return_value=state
         ), patch.object(inu_auto_hourly, "research_candidates_with_grok") as research:
             self.assertEqual(0, inu_auto_hourly.prepare(args))
-        research.assert_not_called()
+        research.assert_called_once()
 
 
 if __name__ == "__main__":
