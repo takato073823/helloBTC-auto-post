@@ -1,5 +1,5 @@
 {
-  "last_deep_scan_at": "2026-08-06T11:53:01+00:00",
+  "last_deep_scan_at": "2026-08-06T14:33:40+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -55,6 +55,13 @@
       "result_count": 10,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-06T14:33:40+00:00",
+      "result_count": 7,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -87,31 +94,32 @@
       "why_trending": "表示42・投稿後12分・反応率9.5%・公式候補リンクあり"
     },
     {
-      "author_followers": 4357,
-      "discovered_at": "2026-08-06T06:41:58+00:00",
+      "author_followers": 10955,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
       "discovery_type": "official_x_api",
-      "handle": "3twariorfamily",
-      "has_video": true,
-      "headline": "💥 BREAKING: Strategy CEO Phong Le says crypto regulation is coming—whether Congress passes the CLARITY Act or not. 🗣️ “They’re either going to go with CLARITY with the legislature ",
-      "impression_count": 56,
-      "like_count": 1,
+      "handle": "WQLOVE0909",
+      "has_video": false,
+      "headline": "美股开盘快讯，美股存储板块盘前重挫闪迪大跌12%，沃什已准备加息。 美股你就玩吧一玩一个不吱声，浮动比加密货币还离谱。 投资者需重点关注的市场财经要闻如下： 1、美三大股指期货涨跌不一。道琼斯指数期货涨 0.25%，标普 500 指数期货涨 0.16%，纳斯达克 100 指数期货跌 0.56%。 https://t.co/zrn53ixrDB https:/",
+      "impression_count": 703,
+      "like_count": 6,
       "linked_urls": [
-        "https://x.com/3twariorfamily/status/2085253379622637698/video/1"
+        "https://x.com/WQLOVE0909/status/2085355345912967459/photo/1",
+        "https://twitter.com/WQLOVE0909/status/2084985160966267221"
       ],
       "media_types": [
-        "video"
+        "photo"
       ],
-      "post_id": "2085253379622637698",
-      "post_url": "https://x.com/3twariorfamily/status/2085253379622637698",
-      "posted_at": "2026-08-06T06:35:22+00:00",
+      "post_id": "2085355345912967459",
+      "post_url": "https://x.com/WQLOVE0909/status/2085355345912967459",
+      "posted_at": "2026-08-06T13:20:33+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 7,
       "repost_count": 1,
-      "score": 58.6,
+      "score": 59.1,
       "seen_count": 1,
-      "summary": "💥 BREAKING: Strategy CEO Phong Le says crypto regulation is coming—whether Congress passes the CLARITY Act or not. 🗣️ “They’re either going to go with CLARITY with the legislature behind them, or they’re going to go without CLARITY.” The message is clear: Regulation isn’t a https://t.co/eCwKMUpH8H",
-      "topic": "regulation",
-      "why_trending": "表示56・投稿後6分・反応率5.4%・動画あり"
+      "summary": "美股开盘快讯，美股存储板块盘前重挫闪迪大跌12%，沃什已准备加息。 美股你就玩吧一玩一个不吱声，浮动比加密货币还离谱。 投资者需重点关注的市场财经要闻如下： 1、美三大股指期货涨跌不一。道琼斯指数期货涨 0.25%，标普 500 指数期货涨 0.16%，纳斯达克 100 指数期货跌 0.56%。 https://t.co/zrn53ixrDB https://t.co/bINGOAlooE",
+      "topic": "chinese_market",
+      "why_trending": "表示703・投稿後73分・反応率2.7%・公式候補リンクあり"
     },
     {
       "author_followers": 92580,
@@ -139,56 +147,6 @@
       "why_trending": "表示14,596・投稿後71分・反応率0.7%・公式候補リンクあり"
     },
     {
-      "author_followers": 0,
-      "discovered_at": "2026-08-06T06:54:57+00:00",
-      "discovery_type": "watchlist_timeline",
-      "handle": "sou_btc",
-      "has_video": false,
-      "headline": "【速報】🇺🇸米国上場ETFへの年初来の資金流入額が1.2兆ドルを超え、同期間として史上最大を記録 - 前年同期の2倍の流入となっており、年間2.1兆ドルを超える見通し - 特に半導体ETFのSMH・SOXXには、7月だけで過去最大の計130億ドルが流入 👉 ETFへの需要が、かつてない勢いで急増している https://t.co/aXZRtP1pn8",
-      "impression_count": 5508,
-      "like_count": 25,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085253516147449923",
-      "post_url": "https://x.com/sou_btc/status/2085253516147449923",
-      "posted_at": "2026-08-06T06:35:55+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 55.7,
-      "seen_count": 1,
-      "summary": "【速報】🇺🇸米国上場ETFへの年初来の資金流入額が1.2兆ドルを超え、同期間として史上最大を記録 - 前年同期の2倍の流入となっており、年間2.1兆ドルを超える見通し - 特に半導体ETFのSMH・SOXXには、7月だけで過去最大の計130億ドルが流入 👉 ETFへの需要が、かつてない勢いで急増している https://t.co/aXZRtP1pn8",
-      "topic": "watchlist",
-      "why_trending": "表示5,508・投稿後19分・反応率0.5%・厳選リストで観測"
-    },
-    {
-      "author_followers": 156,
-      "discovered_at": "2026-08-06T06:41:58+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kxxcole",
-      "has_video": true,
-      "headline": "America just went full Bitcoin. 🇺🇸🚀 🏦 Strategic Reserve: SIGNED. 🚫 Zero tax on stablecoin/crypto payments: Moving through Congress. The US is officially cementing its spot as the u",
-      "impression_count": 7,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/kxxcole/status/2085252715504939155/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2085252715504939155",
-      "post_url": "https://x.com/kxxcole/status/2085252715504939155",
-      "posted_at": "2026-08-06T06:32:44+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 2,
-      "score": 54.9,
-      "seen_count": 1,
-      "summary": "America just went full Bitcoin. 🇺🇸🚀 🏦 Strategic Reserve: SIGNED. 🚫 Zero tax on stablecoin/crypto payments: Moving through Congress. The US is officially cementing its spot as the undisputed Crypto Capital. Europe and China are watching from the sidelines. Game over. 📈 https://t.co/ZmghJcku0m",
-      "topic": "regulation",
-      "why_trending": "表示7・投稿後9分・反応率85.7%・動画あり"
-    },
-    {
       "author_followers": 32,
       "discovered_at": "2026-08-06T11:53:01+00:00",
       "discovery_type": "official_x_api",
@@ -212,34 +170,6 @@
       "summary": "【ニュース】サンディスクとWD株が10％急落、AI資金はビットコインへ回るのか ・AI関連株が好決算後に急落 ・金とビットコインが底堅く推移 ・AIから暗号資産への資金移動に注目 ▶ https://t.co/7n2oBZrro0 #ビットコイン #仮想通貨 #AI関連株",
       "topic": "japanese_market",
       "why_trending": "表示154・投稿後31分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 4357,
-      "discovered_at": "2026-08-06T06:41:58+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "3twariorfamily",
-      "has_video": true,
-      "headline": "🚨 BREAKING: 🇷🇺 Russia is moving ahead with comprehensive crypto regulation. Meanwhile, the U.S. is still debating the CLARITY Act. If America fails to establish clear digital asset",
-      "impression_count": 79,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/3twariorfamily/status/2085245866248421679/video/1"
-      ],
-      "media_types": [
-        "video",
-        "photo"
-      ],
-      "post_id": "2085245866248421679",
-      "post_url": "https://x.com/3twariorfamily/status/2085245866248421679",
-      "posted_at": "2026-08-06T06:05:31+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 52.2,
-      "seen_count": 1,
-      "summary": "🚨 BREAKING: 🇷🇺 Russia is moving ahead with comprehensive crypto regulation. Meanwhile, the U.S. is still debating the CLARITY Act. If America fails to establish clear digital asset rules while other major economies move first, it could risk losing its competitive edge in the https://t.co/Jb9ub2vGeZ",
-      "topic": "regulation",
-      "why_trending": "表示79・投稿後36分・反応率3.8%・動画あり"
     },
     {
       "author_followers": 60,
@@ -317,6 +247,33 @@
       "why_trending": "表示773・投稿後103分・反応率0.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 20224,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Exianshengde",
+      "has_video": false,
+      "headline": "曾经，我们只能在传统券商里等开盘， 在加密交易所里炒币， 两个世界永远割裂。直到Backpack 出现。从一个自托管钱包起步， 经历过低谷， 一步步长成受监管的交易所。 现在，它把真实美股搬进了同一个账户——真实所有权，不是合成。 24/7交易，周末也能下单。 还能1:1代币化到Solana， https://t.co/RhKLeD3gov",
+      "impression_count": 1369,
+      "like_count": 21,
+      "linked_urls": [
+        "https://x.com/Exianshengde/status/2085354740184191186/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085354740184191186",
+      "post_url": "https://x.com/Exianshengde/status/2085354740184191186",
+      "posted_at": "2026-08-06T13:18:08+00:00",
+      "quote_count": 0,
+      "reply_count": 7,
+      "repost_count": 0,
+      "score": 46.5,
+      "seen_count": 1,
+      "summary": "曾经，我们只能在传统券商里等开盘， 在加密交易所里炒币， 两个世界永远割裂。直到Backpack 出现。从一个自托管钱包起步， 经历过低谷， 一步步长成受监管的交易所。 现在，它把真实美股搬进了同一个账户——真实所有权，不是合成。 24/7交易，周末也能下单。 还能1:1代币化到Solana， https://t.co/RhKLeD3gov",
+      "topic": "chinese_market",
+      "why_trending": "表示1,369・投稿後75分・反応率2.4%"
+    },
+    {
       "author_followers": 55,
       "discovered_at": "2026-08-06T11:53:01+00:00",
       "discovery_type": "official_x_api",
@@ -340,6 +297,29 @@
       "summary": "ビットコインの価格を動かす「六つのエンジン」。 現物、ETF、企業、国家・規制、先物清算、マイナー。 そして全体の土台に、金利とドル流動性があります。 いま最も注目しているのはどれでしょうか。 https://t.co/AUP4MufuQL #ビットコイン #暗号資産",
       "topic": "japanese_market",
       "why_trending": "表示4・投稿後8分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 41,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "jason_binance",
+      "has_video": false,
+      "headline": "加密市场晚间新闻｜2026/08/06 恐惧贪婪：39（恐惧）｜BTC 24h：+0.03% 全网市值：$2.20万亿（-0.20%）｜BTC市占率：58.9% 山寨季指数：43（中性）",
+      "impression_count": 50,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085369086897521139",
+      "post_url": "https://x.com/jason_binance/status/2085369086897521139",
+      "posted_at": "2026-08-06T14:15:09+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 43.1,
+      "seen_count": 1,
+      "summary": "加密市场晚间新闻｜2026/08/06 恐惧贪婪：39（恐惧）｜BTC 24h：+0.03% 全网市值：$2.20万亿（-0.20%）｜BTC市占率：58.9% 山寨季指数：43（中性）",
+      "topic": "chinese_market",
+      "why_trending": "表示50・投稿後18分・反応率0.0%"
     },
     {
       "author_followers": 51,
@@ -369,27 +349,77 @@
       "why_trending": "表示28・投稿後23分・反応率0.0%"
     },
     {
-      "author_followers": 104,
-      "discovered_at": "2026-08-06T06:41:58+00:00",
+      "author_followers": 2932,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
       "discovery_type": "official_x_api",
-      "handle": "snicolas23",
+      "handle": "BravemoveAi",
       "has_video": false,
-      "headline": "₿ Crypto Round-up – Bitcoin, Ethereum, DeFi, ETFs, Clarity Act, AI &amp; Meme Coins The crypto market remains focused on a mix of regulation, institutional flows, and narrative shi",
-      "impression_count": 10,
-      "like_count": 0,
+      "headline": "Coinbase获得英国授权，推出24/5美股交易。 这不是加密新闻，这是\"超级交易所\"新闻👇 🇬🇧 Coinbase刚拿到英国投资服务授权 📈 即将推出24/5美股交易 💱 用同一个账户买加密+股票 Coinbase的野心很明显👇 🔸 不只是加密交易所 🔸 要做\"Everything Exchange\" 🔸 银行+股票+加密+衍生品一站式 🔸 https:",
+      "impression_count": 30,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/BravemoveAi/status/2085348780296327191/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085348780296327191",
+      "post_url": "https://x.com/BravemoveAi/status/2085348780296327191",
+      "posted_at": "2026-08-06T12:54:27+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 38.8,
+      "seen_count": 1,
+      "summary": "Coinbase获得英国授权，推出24/5美股交易。 这不是加密新闻，这是\"超级交易所\"新闻👇 🇬🇧 Coinbase刚拿到英国投资服务授权 📈 即将推出24/5美股交易 💱 用同一个账户买加密+股票 Coinbase的野心很明显👇 🔸 不只是加密交易所 🔸 要做\"Everything Exchange\" 🔸 银行+股票+加密+衍生品一站式 🔸 https://t.co/TmQmvB8m3O",
+      "topic": "chinese_market",
+      "why_trending": "表示30・投稿後99分・反応率8.7%"
+    },
+    {
+      "author_followers": 2939,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Tututueth",
+      "has_video": false,
+      "headline": "BTC卡在6.45-6.5万附近磨，涨得不多，美股猛但加密没怎么跟。ETF这几天又开始净流入了，贝莱德那头还在买，勉强对冲了一点巨鲸和长期持有者出货。 ETH在1900附近，比BTC强一点点。质押和升级相关的讨论还在。 山寨那边今天又是高波动局： • Heima（HEI）直接疯了，单日翻倍还多 • Cash",
+      "impression_count": 70,
+      "like_count": 1,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2085254783263187402",
-      "post_url": "https://x.com/snicolas23/status/2085254783263187402",
-      "posted_at": "2026-08-06T06:40:57+00:00",
+      "post_id": "2085358899851633082",
+      "post_url": "https://x.com/Tututueth/status/2085358899851633082",
+      "posted_at": "2026-08-06T13:34:40+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 36.8,
+      "score": 38.0,
       "seen_count": 1,
-      "summary": "₿ Crypto Round-up – Bitcoin, Ethereum, DeFi, ETFs, Clarity Act, AI &amp; Meme Coins The crypto market remains focused on a mix of regulation, institutional flows, and narrative shifts in August 2026. Bitcoin &amp; ETFs Bitcoin held relatively firm in recent weeks while traditional",
-      "topic": "regulation",
-      "why_trending": "表示10・投稿後1分・反応率0.0%"
+      "summary": "BTC卡在6.45-6.5万附近磨，涨得不多，美股猛但加密没怎么跟。ETF这几天又开始净流入了，贝莱德那头还在买，勉强对冲了一点巨鲸和长期持有者出货。 ETH在1900附近，比BTC强一点点。质押和升级相关的讨论还在。 山寨那边今天又是高波动局： • Heima（HEI）直接疯了，单日翻倍还多 • Cash",
+      "topic": "chinese_market",
+      "why_trending": "表示70・投稿後59分・反応率1.4%"
+    },
+    {
+      "author_followers": 0,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BiteBnB",
+      "has_video": false,
+      "headline": "有一个说法是，明年差不多， 包括币安在内， 所有的交易所要向中国政府提交信息， 也就是CRS2.0会对加密货币持有者收税。 如果像股票一样，亏损的不抵税， 赚钱都要收税的话，基本上可能要倒贴。 届时不需KYC的链上去中心化交易所会很重要。",
+      "impression_count": 2,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085369604562702452",
+      "post_url": "https://x.com/BiteBnB/status/2085369604562702452",
+      "posted_at": "2026-08-06T14:17:12+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.6,
+      "seen_count": 1,
+      "summary": "有一个说法是，明年差不多， 包括币安在内， 所有的交易所要向中国政府提交信息， 也就是CRS2.0会对加密货币持有者收税。 如果像股票一样，亏损的不抵税， 赚钱都要收税的话，基本上可能要倒贴。 届时不需KYC的链上去中心化交易所会很重要。",
+      "topic": "chinese_market",
+      "why_trending": "表示2・投稿後16分・反応率0.0%"
     },
     {
       "author_followers": 24254,
@@ -440,6 +470,33 @@
       "summary": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️Bybit、オーストリアでEMIライセンス取得 EUの規制対象決済サービスを拡大 ⭐️ 仮想通貨と決済を別法人で運営し欧州事業を強化 仮想通貨取引所&lt; Bybit EU（バイビット）は、 Delivered by PolitePaul service https://t.co/KEMqhkzsHP",
       "topic": "japanese_market",
       "why_trending": "表示96・投稿後89分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 3951,
+      "discovered_at": "2026-08-06T14:33:40+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "InsomniaLK",
+      "has_video": false,
+      "headline": "Bitget rToken 累计交易破 200 万笔 当别人还在争论「美股代币化能不能成」的时候,市场已经用真金白银投票了。 Bitget 刚刚公布:他们的 rToken 累计交易笔数,突破 200 万。 美股代币化,不是 PPT,是真交易。 为什么重要? 因为这代表「股票上链」从概念走向了基础设施: - 24/7 https://t.co/WeAzdqh1",
+      "impression_count": 17,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/InsomniaLK/status/2085368957012496516/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085368957012496516",
+      "post_url": "https://x.com/InsomniaLK/status/2085368957012496516",
+      "posted_at": "2026-08-06T14:14:38+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.8,
+      "seen_count": 1,
+      "summary": "Bitget rToken 累计交易破 200 万笔 当别人还在争论「美股代币化能不能成」的时候,市场已经用真金白银投票了。 Bitget 刚刚公布:他们的 rToken 累计交易笔数,突破 200 万。 美股代币化,不是 PPT,是真交易。 为什么重要? 因为这代表「股票上链」从概念走向了基础设施: - 24/7 https://t.co/WeAzdqh1Pm",
+      "topic": "chinese_market",
+      "why_trending": "表示17・投稿後19分・反応率0.0%"
     }
   ],
   "trends": [],
