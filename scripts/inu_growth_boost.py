@@ -821,6 +821,9 @@ def run(args: argparse.Namespace) -> int:
         save_state(state, Path(args.state))
         logger.warning("ブースト候補を取得できないため今回は見送ります: %s", exc)
         return 0
+    # X Searchの取得自体は成功した。候補なしでも過去の一時エラーを残さず、
+    # 次の自動実行の状態判定を正確にする。
+    state["last_skip_reason"] = ""
     tactic = execute_one(state, candidates, now, api)
     save_state(state, Path(args.state))
     logger.info("ブースト実行結果: %s", tactic or "候補なし")

@@ -196,6 +196,19 @@ class GrowthBoostTests(unittest.TestCase):
             state = inu_growth_boost.load_state(path)
             self.assertIn("x_search_unavailable", state["last_skip_reason"])
 
+    @patch("inu_growth_boost.admit_qualified_new_followers", return_value=[])
+    @patch("inu_growth_boost.recent_watchlist_posts", return_value=[])
+    @patch("inu_growth_boost._get_client", return_value=SimpleNamespace())
+    @patch("inu_growth_boost.collect_candidates", return_value=[])
+    @patch("inu_growth_boost.follower_count", return_value=42)
+    def test_successful_search_clears_previous_skip_reason(self, _followers, _candidates, _client, _posts, _admit):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "state.json"
+            inu_growth_boost.save_state({"version": 1, "stopped": False, "actions": [], "last_skip_reason": "x_search_unavailable: old"}, path)
+            result = inu_growth_boost.run(type("Args", (), {"state": str(path)})())
+            self.assertEqual(0, result)
+            self.assertEqual("", inu_growth_boost.load_state(path)["last_skip_reason"])
+
     def test_boost_b_prioritizes_reach_with_low_like_rate(self):
         posts = [
             {"post_url": "https://x.com/a/status/2085000000000000011", "handle": "a", "posted_at": "2026-08-05T11:50:00Z", "text": "Bitcoin ETF update", "impression_count": 8_000, "like_count": 50},
