@@ -49,6 +49,21 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotEqual(inu_auto_hourly.STATE_PATH, inu_manual_news.STATE_PATH)
         self.assertNotEqual(inu_auto_hourly.STATE_PATH, inu_quote_post.STATE_PATH)
 
+    def test_market_chart_fallback_never_contains_personal_opinion(self):
+        text = inu_auto_hourly._market_fallback_text(
+            {
+                "change_24h": -2.4,
+                "period_high": 1.11,
+                "period_low": 0.98,
+                "last_close": 1.0524,
+                "position": 0.56,
+            },
+            "XRP-USD",
+            6,
+        )
+        self.assertNotIn("僕", text)
+        self.assertIn("同レンジの56％地点", text)
+
     def test_tracking_parameters_are_removed(self):
         actual = inu_auto_hourly.normalize_url(
             "HTTPS://Example.COM/release/?utm_source=x&id=2#top"

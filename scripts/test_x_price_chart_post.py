@@ -54,12 +54,12 @@ class XPriceChartPostTests(unittest.TestCase):
         text = x_price_chart_post.build_tweet(x_price_chart_post.calculate_metrics(candles))
         x_price_chart_post.validate_tweet(text)
         self.assertIn("Coinbase BTC-USD", text)
-        self.assertIn("僕は", text)
+        self.assertNotIn("僕", text)
         self.assertNotIn("INUは", text)
         self.assertNotIn("http", text)
         self.assertNotIn("買うべき", text)
 
-    def test_altcoin_tweet_uses_product_and_first_person(self):
+    def test_altcoin_tweet_uses_product_without_personal_opinion(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
         text = x_price_chart_post.build_tweet(
             x_price_chart_post.calculate_metrics(candles),
@@ -67,7 +67,7 @@ class XPriceChartPostTests(unittest.TestCase):
         )
         self.assertIn("XRP", text)
         self.assertIn("Coinbase XRP-USD", text)
-        self.assertIn("僕は", text)
+        self.assertNotIn("僕", text)
 
     def test_tradingview_screenshot_is_1080_by_1350(self):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)

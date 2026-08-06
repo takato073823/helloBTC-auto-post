@@ -1401,19 +1401,16 @@ def _market_fallback_text(metrics: dict, product: str, compared_count: int) -> s
     price = float(metrics["last_close"])
     direction = "上昇" if change >= 0 else "下落"
     emoji = "📈" if change >= 0 else "📉"
-    if metrics["position"] >= 0.8:
-        next_check = f"{high:,.{decimals}f}ドル近辺の高値を維持できるか"
-    elif metrics["position"] <= 0.2:
-        next_check = f"{low:,.{decimals}f}ドル近辺の安値から戻せるか"
-    else:
-        next_check = "この後の出来高を伴うレンジ離れ"
-    return (
+    range_position = float(metrics["position"]) * 100
+    text = (
         f"{emoji} {symbol}、主要{compared_count}銘柄で直近24時間の値動き最大\n\n"
         f"Coinbaseの確定済み1時間足で、{symbol}は{price:,.{decimals}f}ドル。24時間では{change:+.2f}％の{direction}です。\n"
-        f"過去3日の高値は{high:,.{decimals}f}ドル、安値は{low:,.{decimals}f}ドル。\n\n"
-        f"僕は、{next_check}を見ます。\n\n"
+        f"過去3日の高値は{high:,.{decimals}f}ドル、安値は{low:,.{decimals}f}ドル。現在値は同レンジの{range_position:.0f}％地点です。\n\n"
         "#仮想通貨"
     )
+    if "僕" in text or "私" in text:
+        raise ValueError("価格チャート投稿に個人の意見は含めません")
+    return text
 
 
 def _hour_has_post_or_reservation(state: dict, now: dt.datetime) -> bool:

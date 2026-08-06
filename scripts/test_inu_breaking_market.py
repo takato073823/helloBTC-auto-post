@@ -64,11 +64,11 @@ class INUBreakingMarketTests(unittest.TestCase):
         with patch.object(inu_breaking_market, "_get_json", return_value=payload):
             self.assertIsNone(inu_breaking_market.detect_record(SPEC, now=NOW))
 
-    def test_text_uses_boku_and_has_no_url(self):
+    def test_text_is_factual_and_has_no_url(self):
         with patch.object(inu_breaking_market, "_get_json", return_value=daily_payload()):
             event = inu_breaking_market.detect_record(SPEC, now=NOW)
         text = inu_breaking_market.build_text(event)
-        self.assertIn("僕は", text)
+        self.assertNotIn("僕", text)
         self.assertIn("重要な節目", text)
         self.assertNotRegex(text, r"https?://|www\.")
 

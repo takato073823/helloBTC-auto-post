@@ -142,18 +142,11 @@ def build_tweet(metrics: dict, *, product: str = "BTC-USD") -> str:
     else:
         headline = f"【{symbol}、3日レンジの中間圏】"
 
-    if position >= 0.75:
-        focus = "高値圏を維持できるか"
-    elif position <= 0.25:
-        focus = "安値圏から戻せるか"
-    else:
-        focus = "どちら側へ値幅が広がるか"
-
     text = (
         f"{headline}\n\n"
         f"直近確定値は{_price(metrics['last_close'], decimals)}。24時間で{_signed_percent(change)}。\n"
-        f"過去3日の高値{_price(metrics['period_high'], decimals)}、安値{_price(metrics['period_low'], decimals)}。\n\n"
-        f"僕は、{focus}に注目しています。\n\n"
+        f"過去3日の高値{_price(metrics['period_high'], decimals)}、安値{_price(metrics['period_low'], decimals)}。"
+        f"現在値は同レンジの{position * 100:.0f}%地点です。\n\n"
         f"※価格データ: Coinbase {product}／画像: TradingView"
     )
     return _neutralize_service_domains(text)
@@ -162,6 +155,8 @@ def build_tweet(metrics: dict, *, product: str = "BTC-USD") -> str:
 def validate_tweet(text: str) -> None:
     if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
         raise ValueError("価格投稿の本文にはURLを含めません")
+    if "僕" in text or "私" in text:
+        raise ValueError("価格投稿に個人の意見は含めません")
     blocked = [pattern for pattern in BLOCKING_PATTERNS if pattern in text]
     if blocked:
         raise ValueError(f"禁止表現があります: {blocked}")
