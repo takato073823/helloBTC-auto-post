@@ -331,6 +331,43 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn(candidate()["follow_value"], text)
         inu_auto_hourly.validate_post(text)
 
+    def test_overseas_kol_video_is_prepared_as_native_video_reference(self):
+        source = {
+            "post_id": "2086000000000000001",
+            "post_url": "https://x.com/globalmacro/status/2086000000000000001",
+            "posted_at": "2026-08-04T11:10:00Z",
+            "text": "Bitcoin ETF flow chart shows a material intraday change.",
+            "handle": "globalmacro",
+            "impression_count": 80_000,
+            "like_count": 500,
+            "has_video": True,
+            "has_image": False,
+        }
+        payload = {
+            "candidates": [{
+                "source_tweet_id": source["post_id"],
+                "delivery_mode": "x_native_video_reference",
+                "hook": "📊 ETFフローの変化を確認",
+                "facts": ["動画では短時間の資金フロー変化を示しています。"],
+                "opinion": "僕は、この動きが終値まで続くかを見ます。",
+                "tags": ["ビットコイン"],
+                "why_now": "直近3時間の高表示動画で、資金フローの変化を視覚的に確認できるためです。",
+                "reader_interest": "短期の資金フロー変化が価格と出来高に波及するかを判断する材料になるためです。",
+                "follow_value": "ETFフローと価格反応の継続性を、次の更新でも追えるためです。",
+            }],
+            "skip_reason": "",
+        }
+        with patch.object(inu_auto_hourly, "collect_overseas_kol_visual_posts", return_value=[source]), patch.object(
+            inu_auto_hourly, "generate_x_json", return_value=(payload, [])
+        ):
+            result = inu_auto_hourly._build_overseas_kol_quote_item(NOW, {"history": [], "reservations": []})
+        self.assertIsNotNone(result)
+        item, selected = result
+        self.assertEqual("x_native_video_reference", item["delivery_mode"])
+        self.assertEqual(source["post_id"], item["source_tweet_id"])
+        self.assertNotIn("https://", item["text"])
+        self.assertEqual(source["post_url"], selected["source_url"])
+
     def test_long_generated_copy_is_compacted_without_another_api_call(self):
         item = candidate(
             hook="重要な市場ニュースです" * 12,

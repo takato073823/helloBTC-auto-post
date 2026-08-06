@@ -29,6 +29,7 @@ from inu_growth_insights import load_insight_guidance
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
 from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
+from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
@@ -36,6 +37,7 @@ from inu_x_research_agent import discovery_signals as collect_official_x_api_sig
 from grok_client import generate_x_json
 from llm_client import generate_json, generate_web_json
 from scraper import fetch_from_rss
+from x_poster import post_quote_tweet, post_video_reference_tweet
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -279,6 +281,37 @@ X_SIGNAL_SET_SCHEMA = {
         "skip_reason": {"type": "string"},
     },
     "required": ["signals", "skip_reason"],
+}
+KOL_QUOTE_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "candidates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "properties": {
+                    "source_tweet_id": {"type": "string"},
+                    "delivery_mode": {"type": "string", "enum": ["x_native_video_reference", "x_native_quote"]},
+                    "hook": {"type": "string"},
+                    "facts": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 2},
+                    "opinion": {"type": "string"},
+                    "tags": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 2},
+                    "why_now": {"type": "string"},
+                    "reader_interest": {"type": "string"},
+                    "follow_value": {"type": "string"},
+                },
+                "required": [
+                    "source_tweet_id", "delivery_mode", "hook", "facts", "opinion", "tags",
+                    "why_now", "reader_interest", "follow_value",
+                ],
+            },
+            "maxItems": 4,
+        },
+        "skip_reason": {"type": "string"},
+    },
+    "required": ["candidates", "skip_reason"],
 }
 def normalize_url(value: str) -> str:
     parts = urlsplit(value.strip())
@@ -641,6 +674,126 @@ def research_candidates_with_grok(
         seen_urls.add(url)
         unique.append(signal)
     return research_candidates(now, state, extra_signals=unique)
+
+
+def _kol_quote_prompt(now: dt.datetime, state: dict, posts: list[dict]) -> str:
+    used = {
+        str(row.get("source_tweet_id", ""))
+        for row in list(state.get("history", [])) + list(state.get("reservations", []))
+        if row.get("source_tweet_id")
+    }
+    return f"""
+あなたは投資情報アカウントINUの海外KOL引用投稿を選定する編集者です。
+現在時刻は{now.astimezone(JST).isoformat()}です。以下は、直近10投稿の実測値で
+厳選済みの海外金融・暗号資産アカウントが、直近3時間に公開した動画・画像付き投稿です。
+
+採用できるのは、いま見ても投資家の判断材料になる具体的なデータ・市場構造・金融・
+暗号資産の論点を、元投稿の動画または画像から一目で把握できるものだけです。
+元投稿の翻訳、感想、価格予想、煽り、広告、一般論、人物への言及だけの投稿は採用しない。
+本文に書く事実は元投稿で明示された数値・条件・出来事だけに限定し、確認できない断定はしない。
+
+動画がある投稿は delivery_mode を x_native_video_reference にする。画像のみは
+x_native_quote にする。どちらも元投稿のネイティブメディアと投稿者表示を保つので、
+画像・動画ファイルの再アップロードや本文へのURL直書きは禁止する。
+
+投稿文はINUの口調で、絵文字1つで始める短い見出し、1〜2個の具体的な事実、僕の見方の順。
+「出典：」「この投稿によると」「海外で話題」などの説明は書かない。僕の見方は、元投稿を
+持ち上げるのではなく、次に確認すべき価格・資金・条件・反応を一つに絞る。
+why_now、reader_interest、follow_value は内部判定用で、抽象語だけにしない。
+
+すでに引用済みまたは予約済みの元投稿ID: {json.dumps(sorted(used), ensure_ascii=False)}
+候補:
+{json.dumps(posts, ensure_ascii=False)}
+""".strip()
+
+
+def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict, dict] | None:
+    """海外KOLのネイティブ動画・画像を、通常の一次資料候補の次に検討する。"""
+    posts = collect_overseas_kol_visual_posts(now, limit=16)
+    if not posts:
+        return None
+    payload, _ = generate_x_json(
+        _kol_quote_prompt(now, state, posts),
+        schema_name="inu_overseas_kol_native_quote",
+        schema=KOL_QUOTE_SCHEMA,
+        from_date=now.astimezone(JST).date() - dt.timedelta(days=1),
+        to_date=now.astimezone(JST).date(),
+        max_output_tokens=2600,
+        model=os.environ.get("XAI_RESEARCH_MODEL", "grok-4.3"),
+        request_timeout_seconds=55.0,
+    )
+    by_id = {str(row.get("post_id", "")): row for row in posts}
+    used_ids = {
+        str(row.get("source_tweet_id", ""))
+        for row in list(state.get("history", [])) + list(state.get("reservations", []))
+    }
+    for raw in payload.get("candidates", []):
+        if not isinstance(raw, dict):
+            continue
+        source_id = str(raw.get("source_tweet_id", ""))
+        source = by_id.get(source_id)
+        if not source or source_id in used_ids:
+            continue
+        posted_at = _parse_timestamp(str(source["posted_at"]))
+        age = now.astimezone(dt.timezone.utc) - posted_at
+        if age < dt.timedelta(minutes=-10) or age > dt.timedelta(hours=3):
+            continue
+        expected_mode = "x_native_video_reference" if source.get("has_video") else "x_native_quote"
+        if str(raw.get("delivery_mode")) != expected_mode:
+            continue
+        text = compose_post(
+            hook=str(raw.get("hook", "")),
+            facts=[str(value) for value in raw.get("facts", [])],
+            opinion=str(raw.get("opinion", "")),
+            tags=[str(value).lstrip("#＃") for value in raw.get("tags", [])][:1],
+        )
+        if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
+            continue
+        try:
+            validate_post(text)
+        except ValueError:
+            continue
+        if expected_mode == "x_native_video_reference" and weighted_length(text) > MAX_WEIGHTED_LENGTH - 24:
+            continue
+        candidate = {
+            "topic_type": "x_reaction",
+            "source_url": str(source["post_url"]),
+            "source_tweet_id": source_id,
+            "source_handle": str(source["handle"]),
+            "published_at": posted_at.isoformat(),
+            "why_now": str(raw.get("why_now", "")),
+            "reader_interest": str(raw.get("reader_interest", "")),
+            "follow_value": str(raw.get("follow_value", "")),
+            "hook": str(raw.get("hook", "")),
+            "delivery_mode": expected_mode,
+        }
+        if min(len(candidate["why_now"].strip()), len(candidate["reader_interest"].strip()), len(candidate["follow_value"].strip())) < 18:
+            continue
+        item = {
+            "id": f"inu_overseas_kol_{source_id}",
+            "topic_type": "x_reaction",
+            "visual_route": "x_native_video_reference" if expected_mode == "x_native_video_reference" else "x_native_quote",
+            "delivery_mode": expected_mode,
+            "source_tweet_id": source_id,
+            "text": text,
+        }
+        return item, candidate
+    return None
+
+
+def _prefer_overseas_kol_turn(state: dict) -> bool:
+    """新着の海外KOL引用を、一次資料と並ぶ定期的な投稿柱として扱う。
+
+    海外KOLを「他の候補がなかったときだけ」の穴埋めにすると、Xで話題の動画・画像を
+    取りこぼす。直近3件にネイティブ引用がなければ優先して検討するが、速報URLが
+    明示されたときは呼び出し元が常にそちらを優先する。
+    """
+    recent = [
+        str(row.get("topic_type", ""))
+        for row in list(state.get("history", []))[-3:]
+        if isinstance(row, dict)
+    ]
+    return "x_reaction" not in recent
 
 
 def build_rescue_research_prompt(
@@ -1376,6 +1529,10 @@ def prepare(args: argparse.Namespace) -> int:
     candidates: list[dict] = []
     sources: list[dict[str, str]] = []
     signals: list[dict[str, str]] = []
+    item: dict | None = None
+    candidate: dict | None = None
+    failure_reasons: list[str] = []
+    unreachable_hosts: set[str] = set()
     if priority_url:
         try:
             candidate, sources = research_priority_signal(now, state, priority_url)
@@ -1386,21 +1543,28 @@ def prepare(args: argparse.Namespace) -> int:
             _emit_output("ready", "false")
             return 0
     else:
-        try:
-            candidates, sources, signals = research_candidates_with_grok(now, state)
-        except Exception as exc:
-            logger.warning("一次資料の複数候補リサーチに失敗: %s", exc)
-            signals = collect_discovery_signals()
-            sources = [
-                {"url": row["url"], "title": row["title"]}
-                for row in signals
-                if row.get("url")
-            ]
-
-    item: dict | None = None
-    candidate: dict | None = None
-    failure_reasons: list[str] = []
-    unreachable_hosts: set[str] = set()
+        # Xで伸びている新着の動画・画像は、ニュース探索の失敗時だけではなく
+        # 定期的に優先する。速報URLがある場合は上の分岐で一次資料を最優先する。
+        if _prefer_overseas_kol_turn(state):
+            try:
+                overseas_quote = _build_overseas_kol_quote_item(now, state)
+                if overseas_quote:
+                    item, candidate = overseas_quote
+                    logger.info("海外KOLのネイティブ引用候補を優先採用: %s", candidate["source_tweet_id"])
+            except Exception as exc:
+                failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
+                logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
+        if item is None:
+            try:
+                candidates, sources, signals = research_candidates_with_grok(now, state)
+            except Exception as exc:
+                logger.warning("一次資料の複数候補リサーチに失敗: %s", exc)
+                signals = collect_discovery_signals()
+                sources = [
+                    {"url": row["url"], "title": row["title"]}
+                    for row in signals
+                    if row.get("url")
+                ]
 
     def try_candidates(
         options: list[dict],
@@ -1449,7 +1613,8 @@ def prepare(args: argparse.Namespace) -> int:
                         repair_reason,
                     )
 
-    try_candidates(candidates, sources, phase="一次探索")
+    if item is None:
+        try_candidates(candidates, sources, phase="一次探索")
 
     # 最初の候補群で止まらず、失敗理由を渡して探索入口を変える。特に、Xで見つけた
     # 話題から一次URLに辿れない、または公式ページの表現が弱い時間をここで救う。
@@ -1462,6 +1627,19 @@ def prepare(args: argparse.Namespace) -> int:
         except Exception as exc:
             failure_reasons.append(f"再探索失敗: {exc}"[:260])
             logger.warning("一次情報の再探索に失敗: %s", exc)
+
+    # 一次資料の候補がこの時点で成立しない場合、海外KOLリストで実測済みの
+    # 新着動画・画像をネイティブ引用として検討する。元投稿のメディアと投稿者を
+    # そのまま表示し、データのない生成画像や転載画像には置き換えない。
+    if item is None and not priority_url:
+        try:
+            overseas_quote = _build_overseas_kol_quote_item(now, state)
+            if overseas_quote:
+                item, candidate = overseas_quote
+                logger.info("海外KOLのネイティブ引用候補を採用: %s", candidate["source_tweet_id"])
+        except Exception as exc:
+            failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
+            logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
 
     if item is None or candidate is None:
         # 二段階の一次情報探索まで不発でも、毎時枠を空けない。Coinbaseの確定済み
@@ -1532,7 +1710,15 @@ def publish(args: argparse.Namespace) -> int:
         logger.info("この時間はすでに公開済みです: %s", slot)
         return 0
 
-    tweet_id = publish_test_item(item)
+    delivery_mode = str(item.get("delivery_mode", ""))
+    if delivery_mode == "x_native_video_reference":
+        tweet_id = post_video_reference_tweet(item["text"], item["source_tweet_id"])
+    elif delivery_mode == "x_native_quote":
+        tweet_id = post_quote_tweet(item["text"], item["source_tweet_id"])
+    else:
+        tweet_id = publish_test_item(item)
+    if not tweet_id:
+        raise RuntimeError("INU投稿を公開できませんでした。文字だけの代替投稿は行いません")
     posted_row = {
         "slot": slot,
         "post_id": item["id"],
@@ -1546,6 +1732,14 @@ def publish(args: argparse.Namespace) -> int:
         "hook": candidate["hook"],
         "follow_value": candidate["follow_value"],
     }
+    if delivery_mode:
+        posted_row.update(
+            {
+                "delivery_mode": delivery_mode,
+                "source_tweet_id": str(item["source_tweet_id"]),
+                "source_handle": str(candidate.get("source_handle", "")),
+            }
+        )
     state["reservations"] = [
         row for row in state.get("reservations", []) if row.get("post_id") != item["id"]
     ]

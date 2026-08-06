@@ -132,6 +132,63 @@ class XListClient:
                 break
         return tweets
 
+    def recent_tweet_rows(self, list_id: str, max_pages: int = 3) -> list[dict[str, Any]]:
+        """統合タイムラインのメディア種別を復元した投稿行を返す。
+
+        海外KOLの動画・画像引用候補では、本文だけでなく実際に添付された
+        メディアを確認する必要がある。元投稿のファイルは取得せず、メディア種別と
+        元投稿IDだけを返すため、公開時はXネイティブの引用を維持できる。
+        """
+        rows: list[dict[str, Any]] = []
+        token: str | None = None
+        for _ in range(max_pages):
+            kwargs: dict[str, Any] = {
+                "max_results": 100,
+                "tweet_fields": ["attachments", "author_id", "created_at", "lang", "public_metrics"],
+                "expansions": ["attachments.media_keys"],
+                "media_fields": ["media_key", "preview_image_url", "type"],
+                "user_auth": True,
+            }
+            if token:
+                kwargs["pagination_token"] = token
+            response = self.client.get_list_tweets(list_id, **kwargs)
+            includes = _value(response, "includes", {}) or {}
+            media = _value(includes, "media", []) or []
+            media_types = {
+                str(_value(item, "media_key")): str(_value(item, "type", ""))
+                for item in media
+                if _value(item, "media_key") and _value(item, "type")
+            }
+            for tweet in _data(response) or []:
+                attachments = _value(tweet, "attachments", {}) or {}
+                keys = _value(attachments, "media_keys", []) or []
+                kinds = sorted({media_types.get(str(key), "") for key in keys if media_types.get(str(key), "")})
+                metrics = _value(tweet, "public_metrics", {}) or {}
+                if not isinstance(metrics, dict):
+                    metrics = vars(metrics) if hasattr(metrics, "__dict__") else {}
+                rows.append(
+                    {
+                        "post_id": str(_value(tweet, "id", "")),
+                        "author_id": str(_value(tweet, "author_id", "")),
+                        "posted_at": str(_value(tweet, "created_at", "")),
+                        "text": str(_value(tweet, "text", "")),
+                        "lang": str(_value(tweet, "lang", "")),
+                        "impression_count": int(metrics.get("impression_count", 0) or 0),
+                        "like_count": int(metrics.get("like_count", 0) or 0),
+                        "reply_count": int(metrics.get("reply_count", 0) or 0),
+                        "repost_count": int(metrics.get("retweet_count", 0) or 0),
+                        "quote_count": int(metrics.get("quote_count", 0) or 0),
+                        "media_types": kinds,
+                        "has_video": any(kind in {"video", "animated_gif"} for kind in kinds),
+                        "has_image": any(kind == "photo" for kind in kinds),
+                    }
+                )
+            meta = _value(response, "meta", {}) or {}
+            token = meta.get("next_token") if isinstance(meta, dict) else _value(meta, "next_token")
+            if not token:
+                break
+        return rows
+
     def add_members(self, list_id: str, user_ids: Iterable[str]) -> tuple[list[str], list[str]]:
         """会員追加を個別に隔離し、成功・保留IDを返す。"""
         completed: list[str] = []

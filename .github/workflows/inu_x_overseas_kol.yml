@@ -1,0 +1,56 @@
+name: INU 海外KOLリスト更新
+
+on:
+  schedule:
+    # UTC。6時間ごと。毎時投稿の準備・公開キューとは分離し、探索を止めない。
+    - cron: "11 0,6,12,18 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: inu-overseas-kol-list
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.event_name == 'workflow_dispatch' || (vars.INU_AUTOMATION_ENABLED == 'true' && vars.INU_OVERSEAS_KOL_ENABLED != 'false')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install --timeout 120 -r requirements.txt
+
+      - name: 海外KOL選定ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_overseas_kol.py test_x_poster_rules.py
+
+      - name: 海外KOLを発見・再評価・同期
+        working-directory: scripts
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          XAI_RESEARCH_MODEL: grok-4.3
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python inu_overseas_kol.py --allow-create
+
+      - name: 海外KOL状態を保存
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_overseas_kol_state.json
+          git diff --staged --quiet || git commit -m "chore: refresh INU overseas KOL list [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1
