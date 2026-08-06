@@ -114,6 +114,44 @@ class INULivePostTests(unittest.TestCase):
             )
             self.assertEqual(main, published[0])
 
+    def test_market_chart_accepts_facts_but_rejects_personal_opinion(self):
+        artifacts = REPO_ROOT / "scripts" / "artifacts"
+        artifacts.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=artifacts) as directory:
+            root = Path(directory)
+            chart = root / "btc.png"
+            Image.new("RGB", (900, 1200), "white").save(chart)
+            chart.with_suffix(".source.json").write_text(
+                json.dumps(
+                    {
+                        "evidence_type": "market_service_screenshot",
+                        "source_url": "https://www.tradingview.com/symbols/COINBASE-BTCUSD/",
+                        "data_verified": True,
+                        "capture_type": "service_screenshot",
+                        "screenshot_provider": "TradingView",
+                        "attribution_visible": True,
+                        "white_background": True,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            relative = lambda path: str(path.relative_to(REPO_ROOT))
+            item = {
+                "id": "factual_market_chart",
+                "topic_type": "crypto_market",
+                "visual_route": "market_service_screenshot",
+                "text": "BTCは直近24時間で上昇。\n\n現在値は直近24時間レンジの上限付近です。\n\n#ビットコイン",
+                "media_path": relative(chart),
+                "source_manifest": relative(chart.with_suffix(".source.json")),
+            }
+            text, paths = validated_media_paths(item)
+            self.assertNotIn("僕", text)
+            self.assertEqual([chart], paths)
+
+            item["text"] = "BTCは直近24時間で上昇。\n\n僕は、ここからの上値を見ます。\n\n#ビットコイン"
+            with self.assertRaisesRegex(ValueError, "個人の意見"):
+                validated_media_paths(item)
+
 
 if __name__ == "__main__":
     unittest.main()

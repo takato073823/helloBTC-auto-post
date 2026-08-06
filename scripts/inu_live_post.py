@@ -133,7 +133,10 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
         raise ValueError(f"投稿データが不足しています: {missing}")
 
     safe_text = _neutralize_service_domains(item["text"].strip())
-    validate_post(safe_text)
+    factual_market_post = item["topic_type"] in {"crypto_market", "historical_milestone"}
+    validate_post(safe_text, require_opinion=not factual_market_post)
+    if factual_market_post and ("僕" in safe_text or "私" in safe_text):
+        raise ValueError("価格チャート投稿に個人の意見は含めません")
     policy = get_content_policy(item["topic_type"])
     if item["visual_route"] != policy.visual_route:
         raise ValueError("投稿系統と画像形式が一致しません")
