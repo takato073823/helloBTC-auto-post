@@ -62,6 +62,60 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_uncited_primary_source_is_added_only_after_live_verification(self):
+        item = candidate()
+        sources = [{"url": "https://other.example/official", "title": "other"}]
+        with patch.object(
+            inu_auto_hourly,
+            "fetch_and_verify_source",
+            return_value=inu_auto_hourly.normalize_url(item["source_url"]),
+        ) as verify, patch.object(
+            inu_auto_hourly,
+            "capture_official_evidence",
+        ), patch.object(
+            inu_auto_hourly,
+            "capture_source_hero_image",
+        ), patch.object(
+            inu_auto_hourly,
+            "validate_test_item",
+        ), tempfile.TemporaryDirectory(dir=inu_auto_hourly.REPO_ROOT / "scripts") as directory:
+            artifact_dir = Path(directory)
+            with patch.object(inu_auto_hourly, "ARTIFACT_DIR", artifact_dir):
+                built, selected = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    sources,
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertEqual(
+            inu_auto_hourly.normalize_url(item["source_url"]), selected["source_url"]
+        )
+        self.assertEqual("etf_flow", built["topic_type"])
+        self.assertEqual(1, verify.call_count)
+        self.assertIn(
+            inu_auto_hourly.normalize_url(item["source_url"]),
+            {inu_auto_hourly.normalize_url(row["url"]) for row in sources},
+        )
+
+    def test_uncited_source_is_not_added_when_live_verification_fails(self):
+        item = candidate()
+        sources = [{"url": "https://other.example/official", "title": "other"}]
+        with patch.object(
+            inu_auto_hourly,
+            "fetch_and_verify_source",
+            side_effect=ValueError("根拠原文が一次資料ページ内に確認できません"),
+        ):
+            with self.assertRaisesRegex(ValueError, "根拠原文"):
+                inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    sources,
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertEqual(1, len(sources))
+
     def test_stale_candidate_is_rejected(self):
         item = candidate(published_at="2026-08-03T12:00:00Z")
         with self.assertRaisesRegex(ValueError, "鮮度上限"):

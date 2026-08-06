@@ -971,8 +971,26 @@ def _build_item_from_candidate(
 ) -> tuple[dict, dict]:
     """候補を検証し、根拠画像まで取得できた場合だけ投稿データを返す。"""
     selected = dict(candidate)
+    # Web検索の引用一覧は発見経路を固定するために使う。ただし、検索モデルが
+    # 一次資料の正確なURLを返しても、同じレスポンスの引用一覧に載らないことが
+    # ある。この場合だけ先に実ページを取得し、HTTPS・非メディア・根拠原文まで
+    # 確認できたものを「直接検証済み」の根拠として追加する。URL文字列だけを
+    # 信じて通すのではなく、従来の一次資料検証を先行させる。
+    selected_url = normalize_url(selected.get("source_url", ""))
+    cited_urls = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
+    verified_url: str | None = None
+    if selected_url and selected_url not in cited_urls:
+        verified_url = fetch_and_verify_source(selected)
+        sources.append(
+            {
+                "url": verified_url,
+                "title": f"{selected.get('source_name', '一次資料')}（直接検証済み）",
+            }
+        )
+        logger.info("引用一覧外の一次資料を実ページ検証で確認: %s", verified_url)
     validate_candidate(selected, sources, state, now)
-    verified_url = fetch_and_verify_source(selected)
+    if verified_url is None:
+        verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url
     # リンクカード経路でも、次段のprepared.jsonを必ず保存できるようにする。
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
