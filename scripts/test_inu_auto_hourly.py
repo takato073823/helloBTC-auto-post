@@ -769,8 +769,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(expected, actual)
         fallback.assert_called_once_with(NOW, {"history": []}, extra_signals=[])
 
-    def test_fallback_schedule_skips_duplicate_grok_charge(self):
-        event = json.dumps({"schedule": "37 * * * *"})
+    def test_watchdog_schedule_skips_duplicate_grok_charge(self):
+        event = json.dumps({"schedule": "13,23,33,43,53 * * * *"})
         with patch.dict(
             "os.environ",
             {"XAI_API_KEY": "configured", "GITHUB_EVENT_PATH": "/tmp/event.json"},
@@ -778,10 +778,11 @@ class INUAutoHourlyTests(unittest.TestCase):
         ), patch.object(Path, "read_text", return_value=event):
             self.assertFalse(inu_auto_hourly._is_primary_grok_run())
 
-    def test_primary_and_fallback_share_one_hourly_slot(self):
+    def test_primary_and_watchdog_share_one_hourly_slot(self):
         now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)
         self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "primary"))
         self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "fallback"))
+        self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "watchdog"))
         self.assertEqual("2026-08-04-21", inu_auto_hourly._scheduled_slot_key(now, "retry"))
 
     def test_market_fallback_excludes_a_recently_used_product(self):

@@ -27,16 +27,15 @@ def candidate(item_id: str, topic_type: str, priority: int, *, expires: str = "2
 
 
 class INUHourlyDispatcherTests(unittest.TestCase):
-    def test_workflow_is_hourly_and_disabled_until_repo_variable_is_enabled(self):
+    def test_workflow_has_hourly_primary_and_ten_minute_recovery_until_repo_variable_is_enabled(self):
         workflow = (
             Path(__file__).resolve().parents[1]
             / ".github"
             / "workflows"
             / "inu_x_hourly.yml"
         ).read_text(encoding="utf-8")
-        self.assertIn('- cron: "17 * * * *"', workflow)
-        self.assertIn('- cron: "37 * * * *"', workflow)
-        self.assertNotIn('- cron: "47 * * * *"', workflow)
+        self.assertIn('- cron: "3 * * * *"', workflow)
+        self.assertIn('- cron: "13,23,33,43,53 * * * *"', workflow)
         self.assertIn("INU_AUTOMATION_ENABLED", workflow)
 
     def test_highest_priority_valid_item_wins(self):

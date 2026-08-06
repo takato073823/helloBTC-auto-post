@@ -424,7 +424,7 @@ def collect_discovery_signals() -> list[dict[str, str]]:
 
 
 def _is_primary_grok_run() -> bool:
-    """復旧枠を除き、毎時2本の独立した候補探索ではGrokを使う。"""
+    """主探索だけでGrokの広域検索を行い、復旧確認のコストを抑える。"""
     if not os.environ.get("XAI_API_KEY", "").strip():
         return False
     event_path = os.environ.get("GITHUB_EVENT_PATH", "").strip()
@@ -435,7 +435,9 @@ def _is_primary_grok_run() -> bool:
     except (OSError, ValueError):
         logger.warning("GitHubイベントを判定できないため、Grok検索を通常実行します")
         return True
-    return event.get("schedule") != "37 * * * *"
+    # 毎時03分だけが広域X探索の主枠。13/23/33/43/53分の確認は、既存の
+    # 公式X探索結果・高反応シグナル・一次資料Web探索を使って同じ時間枠を補完する。
+    return event.get("schedule") == "3 * * * *"
 
 
 def load_curated_x_sources(path: Path = CURATED_X_SOURCES_PATH) -> list[dict[str, str]]:
@@ -1468,9 +1470,9 @@ def _scheduled_run_kind() -> str:
 
 
 def _scheduled_slot_key(now: dt.datetime, kind: str) -> str:
-    """毎時1枠を主実行と予備実行で共有する。"""
+    """主探索とすべての定刻復旧確認で、毎時1枠を共有する。"""
     hour = now.astimezone(JST).strftime("%Y-%m-%d-%H")
-    if kind in {"primary", "fallback"}:
+    if kind in {"primary", "fallback", "watchdog"}:
         return f"{hour}-a"
     return slot_key(now)
 
@@ -1810,11 +1812,11 @@ def prepare(args: argparse.Namespace) -> int:
         _emit_output("ready", "false")
         return 0
 
-    # 37分の予備実行は「主実行が候補なしだった時間」の再探索枠でもある。
+    # 復旧確認は「主実行が候補なしだった時間」の再探索枠でもある。
     # 投稿済み・予約済みは上の occupied 判定で止まるため、候補なしという
     # 実行記録だけを理由に投稿機会を捨てない。
-    if scheduled_kind == "fallback" and _has_completed_scheduled_check(state, slot):
-        logger.info("主実行は候補未確定のため、予備枠で一次資料を再探索: %s", slot)
+    if scheduled_kind in {"fallback", "watchdog"} and _has_completed_scheduled_check(state, slot):
+        logger.info("主実行は候補未確定のため、復旧枠で一次資料を再探索: %s", slot)
 
     priority_url = str(getattr(args, "priority_url", "") or "").strip()
     priority_hint = str(getattr(args, "priority_hint", "") or "").strip()
@@ -2052,7 +2054,7 @@ def prepare(args: argparse.Namespace) -> int:
                 raise RuntimeError("毎時投稿のリカバリーに失敗しました") from exc
         else:
             logger.info("このJST時間はすでに投稿済みのため、追加の低品質候補は公開しません")
-            if scheduled_kind in {"primary", "fallback"} and not args.dry_run:
+            if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
                 save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
             _emit_output("ready", "false")
             return 0
