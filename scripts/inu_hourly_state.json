@@ -157,6 +157,19 @@
       "posted_at": "2026-08-06T05:08:43.954569+00:00",
       "hook": "📈 ETH、主要6銘柄で直近24時間の値動き最大",
       "follow_value": "ETHの出来高と3日レンジの更新を継続して追います。"
+    },
+    {
+      "slot": "2026-08-06-15-a",
+      "post_id": "inu_auto_eea6659e9e5481",
+      "tweet_id": "2085256996761088087",
+      "topic_type": "market_microstructure",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust?from=article-links",
+      "published_at": "2026-08-06T15:47:53+09:00",
+      "posted_at": "2026-08-06T06:49:45.163462+00:00",
+      "hook": "📈IBIT、純資産488億ドルに対して出来高は平均を下回る",
+      "follow_value": "続報では、IBITの発行済み口数の変化を確認します。"
     }
   ],
   "posted_ids": [
@@ -177,7 +190,8 @@
     "inu_breaking_us_indices_record_2026-08-05",
     "inu_market_2026_08_06_11_a_xrp-usd",
     "inu_market_2026_08_06_13_a_xrp-usd",
-    "inu_market_2026_08_06_14_eth-usd"
+    "inu_market_2026_08_06_14_eth-usd",
+    "inu_auto_eea6659e9e5481"
   ],
   "reservations": [
     {
@@ -188,15 +202,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-06-15-a",
-      "post_id": "inu_auto_eea6659e9e5481",
-      "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust?from=article-links",
-      "topic_type": "market_microstructure",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-06T06:47:53.086962+00:00"
     }
   ],
   "history": [
@@ -402,6 +407,19 @@
       "posted_at": "2026-08-06T05:08:43.954569+00:00",
       "hook": "📈 ETH、主要6銘柄で直近24時間の値動き最大",
       "follow_value": "ETHの出来高と3日レンジの更新を継続して追います。"
+    },
+    {
+      "slot": "2026-08-06-15-a",
+      "post_id": "inu_auto_eea6659e9e5481",
+      "tweet_id": "2085256996761088087",
+      "topic_type": "market_microstructure",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust?from=article-links",
+      "published_at": "2026-08-06T15:47:53+09:00",
+      "posted_at": "2026-08-06T06:49:45.163462+00:00",
+      "hook": "📈IBIT、純資産488億ドルに対して出来高は平均を下回る",
+      "follow_value": "続報では、IBITの発行済み口数の変化を確認します。"
     }
   ],
   "scheduled_checks": [
