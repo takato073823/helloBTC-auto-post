@@ -401,6 +401,31 @@ def _existing_candidates(client: Any, member_ids: set[str]) -> list[dict[str, An
     return result
 
 
+def _deferred_candidates(state: dict[str, Any]) -> list[dict[str, Any]]:
+    """API制限でリストに追加できなかった、実測済み候補を次回へ持ち越す。"""
+    result: list[dict[str, Any]] = []
+    for row in state.get("members", {}).values():
+        if not isinstance(row, dict):
+            continue
+        tier = str(row.get("tier", ""))
+        # 旧バージョンで追加が429になった候補も、明示的な除外理由がなければ救済する。
+        if tier != "pending_add" and not (tier == "excluded" and not _text(row.get("exclusion_reason"))):
+            continue
+        handle = _text(row.get("handle")).lower()
+        if not HANDLE_RE.fullmatch(handle):
+            continue
+        result.append(
+            {
+                "handle": handle,
+                "language": _text(row.get("language")),
+                "focus": _text(row.get("focus")),
+                "recent_post_url": _text(row.get("recent_post_url")),
+                "why_relevant": _text(row.get("why_relevant")) or "前回のAPI制限で追加を保留した実測済み候補",
+            }
+        )
+    return result
+
+
 def refresh_overseas_kol(state: dict[str, Any], client: Any, now: dt.datetime, *, allow_create: bool, dry_run: bool) -> dict[str, Any]:
     list_client = XListClient(client)
     own_user_id = list_client.owner_id()
@@ -425,21 +450,27 @@ def refresh_overseas_kol(state: dict[str, Any], client: Any, now: dt.datetime, *
     unresolved_ids = set(unresolved)
     invalid_ids = actual_ids - set(valid_by_id) - unresolved_ids
 
-    known = {
-        str(row.get("handle", "")).lower()
-        for row in state.get("members", {}).values()
-        if row.get("handle")
-    } | valid_handles
+    deferred = _deferred_candidates(state)
+    deferred_handles = {str(row["handle"]).lower() for row in deferred}
+    # 除外済みの候補を永久に探索対象外にせず、実際の会員と保留候補だけを既知扱いにする。
+    # これにより、前回の一時的な429後も実測済み候補を失わない。
+    known = valid_handles | deferred_handles
     # 満員時でも10件を比較できるよう先に候補を発見・実測確認し、補充不能なら
     # 既存会員を減らさない。
     churn_slots = CHURN_SIZE if len(valid_by_id) >= TARGET_SIZE else 0
     needed = max(0, TARGET_SIZE - len(valid_by_id)) + churn_slots
+    deferred_records, deferred_unresolved = _evaluate_candidates(client, deferred, now, own_user_id)
     discovered = discover_accounts(known, max(needed * 3, 30), now) if needed else []
     discovered_records, discovered_unresolved = _evaluate_candidates(
         client, discovered[:MAX_CANDIDATE_EVALUATIONS], now, own_user_id
     )
-    unresolved_ids |= discovered_unresolved
-    candidates = [row for row in discovered_records if str(row["user_id"]) not in actual_ids]
+    unresolved_ids |= deferred_unresolved | discovered_unresolved
+    candidate_by_id = {
+        str(row["user_id"]): row
+        for row in deferred_records + discovered_records
+        if str(row["user_id"]) not in actual_ids
+    }
+    candidates = list(candidate_by_id.values())
     candidates.sort(key=lambda row: (float(row["last10_average_impressions"]), float(row["score"])), reverse=True)
 
     churn_ids: set[str] = set()
@@ -456,9 +487,23 @@ def refresh_overseas_kol(state: dict[str, Any], client: Any, now: dt.datetime, *
     removed, pending_remove = list_client.remove_members(list_id, to_remove)
     added, pending_add = list_client.add_members(list_id, [str(row["user_id"]) for row in additions])
 
-    for row in existing_records + discovered_records:
+    member_ids_after_sync = (set(valid_by_id) - churn_ids) | set(added)
+    pending_add_ids = set(pending_add)
+    saved_records = {
+        str(row["user_id"]): row
+        for row in existing_records + deferred_records + discovered_records
+    }
+    for row in saved_records.values():
         saved = dict(row)
-        saved["tier"] = "member" if str(row["user_id"]) in (set(valid_by_id) - churn_ids | set(added)) else "excluded"
+        user_id = str(row["user_id"])
+        if user_id in member_ids_after_sync:
+            saved["tier"] = "member"
+            saved.pop("exclusion_reason", None)
+        elif user_id in pending_add_ids:
+            saved["tier"] = "pending_add"
+            saved["exclusion_reason"] = "x_list_rate_limited"
+        else:
+            saved["tier"] = "excluded"
         if str(row["user_id"]) in churn_ids:
             saved["exclusion_reason"] = "bottom_10_last10_average_impressions"
         state["members"][saved["handle"]] = saved

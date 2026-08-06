@@ -152,6 +152,19 @@ class OverseasKolTests(unittest.TestCase):
         self.assertIsNone(record)
         self.assertEqual("branded_media_excluded", reason)
 
+    def test_rate_limited_candidates_are_carried_to_the_next_refresh(self):
+        state = kol.default_state()
+        state["members"] = {
+            "pending": {"handle": "pending", "tier": "pending_add", "focus": "ETF flows"},
+            "legacy": {"handle": "legacy", "tier": "excluded", "focus": "Macro"},
+            "removed": {
+                "handle": "removed",
+                "tier": "excluded",
+                "exclusion_reason": "removed_from_x_list",
+            },
+        }
+        self.assertEqual({"pending", "legacy"}, {row["handle"] for row in kol._deferred_candidates(state)})
+
     def test_full_list_replaces_bottom_ten_by_last10_average_impressions(self):
         profiles = {}
         timelines = {}
