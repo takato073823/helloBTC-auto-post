@@ -39,10 +39,10 @@ INVITE_URL  = "https://bingxdao.com/invite/FIKYOA/"
 
 
 def build_related_reply_text(title: str) -> str:
-    """BingXの広告・PR記事だけに付ける、記事ごとに固有の関連投稿。"""
+    """BingX記事だけに付ける、記事ごとに固有の関連投稿。"""
     short_title = " ".join((title or "").split())[:70]
     return (
-        "【広告・PR】関連情報｜BingXの登録はこちら\n\n"
+        "関連情報｜BingXの登録はこちら\n\n"
         f"「{short_title}」に関連する案内です。\n\n"
         "登録前に利用条件・対象地域・本人確認（KYC）の要件を必ず確認してください。\n\n"
         f"{INVITE_URL}"

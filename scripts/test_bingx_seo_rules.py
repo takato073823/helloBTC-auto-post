@@ -148,11 +148,12 @@ class BingxSeoRulesTests(unittest.TestCase):
         self.assertIn("招待コードFIKYOA", EXCHANGE_GUIDE_SOURCE)
         self.assertNotIn("XXCCJX", SOURCE + EXCHANGE_GUIDE_SOURCE)
 
-    def test_related_reply_is_disclosed_and_unique_to_each_article(self):
+    def test_related_reply_uses_the_requested_text_and_is_unique_to_each_article(self):
         functions = _load_functions("build_related_reply_text")
         first = functions["build_related_reply_text"]("BingX 口座開設の手順")
         second = functions["build_related_reply_text"]("BingX 二段階認証の設定")
-        self.assertIn("【広告・PR】", first)
+        self.assertTrue(first.startswith("関連情報｜BingXの登録はこちら"))
+        self.assertNotIn("【広告・PR】", first)
         self.assertIn("https://bingxdao.com/invite/FIKYOA/", first)
         self.assertIn("利用条件・対象地域・本人確認（KYC）", first)
         self.assertNotEqual(first, second)
