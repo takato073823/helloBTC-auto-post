@@ -1,0 +1,11 @@
+{
+  "results": {
+    "https://x.com/Sho54639108/status/2085315438855258403": {
+      "post_id": "",
+      "processed_at": "2026-08-06T12:32:15+00:00",
+      "reason": "一次資料探索失敗: not enough values to unpack (expected 3, got 0)",
+      "status": "rejected"
+    }
+  },
+  "version": 1
+}

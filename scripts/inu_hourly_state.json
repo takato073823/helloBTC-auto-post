@@ -225,6 +225,16 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-06T08:08:30.312740+00:00"
+    },
+    {
+      "slot": "2026-08-06-21-a",
+      "post_id": "inu_auto_a5dfef1639d37c",
+      "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf",
+      "topic_type": "etf_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-06T12:32:20.922527+00:00"
     }
   ],
   "history": [
