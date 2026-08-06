@@ -106,6 +106,7 @@ TRUSTED_MEDIA_HOSTS = {
 }
 TRACKING_KEYS = {"gclid", "fbclid", "ref", "source"}
 USER_AGENT = "Mozilla/5.0 (compatible; INUPrimarySourceVerifier/1.0)"
+SOURCE_VERIFY_TIMEOUT_SECONDS = 12
 LOW_VALUE_ROUNDUP_PATTERNS = (
     r"\bwhat happened\b.*\b(today|this week)\b",
     r"\b(daily|weekly|market|crypto)\s+(roundup|wrap(?:-up)?|recap|briefing)\b",
@@ -848,7 +849,11 @@ def fetch_and_verify_source(candidate: dict) -> str:
     host = (parts.hostname or "").lower().removeprefix("www.")
     if _host_is_secondary(host):
         raise ValueError("報道・まとめサイトは最終一次資料にできません")
-    response = requests.get(url, timeout=25, headers={"User-Agent": USER_AGENT})
+    response = requests.get(
+        url,
+        timeout=SOURCE_VERIFY_TIMEOUT_SECONDS,
+        headers={"User-Agent": USER_AGENT},
+    )
     response.raise_for_status()
     content_type = response.headers.get("content-type", "").lower()
     if "html" not in content_type:
@@ -1395,6 +1400,7 @@ def prepare(args: argparse.Namespace) -> int:
     item: dict | None = None
     candidate: dict | None = None
     failure_reasons: list[str] = []
+    unreachable_hosts: set[str] = set()
 
     def try_candidates(
         options: list[dict],
@@ -1404,6 +1410,12 @@ def prepare(args: argparse.Namespace) -> int:
     ) -> None:
         nonlocal item, candidate
         for position, option in enumerate(options, start=1):
+            host = (urlsplit(str(option.get("source_url", ""))).hostname or "").lower()
+            if host and host in unreachable_hosts:
+                reason = "同一時間枠でこの一次サイトへの接続失敗を確認済みです"
+                failure_reasons.append(f"{phase}{position}: {reason}"[:260])
+                logger.warning("%sの投稿候補%dを除外: %s (%s)", phase, position, reason, host)
+                continue
             try:
                 item, candidate = _build_item_from_candidate(
                     option, option_sources, state, now, slot
@@ -1414,6 +1426,8 @@ def prepare(args: argparse.Namespace) -> int:
                 reason = str(exc)
                 failure_reasons.append(f"{phase}{position}: {reason}"[:260])
                 logger.warning("%sの投稿候補%dを除外: %s", phase, position, reason)
+                if host and isinstance(exc, requests.RequestException):
+                    unreachable_hosts.add(host)
                 # 事実・URL・鮮度は維持したまま、文章の判定だけで落ちた候補を
                 # そのまま捨てない。一度だけ文章欄を修復して同じ検証を通す。
                 if not _is_editorial_repairable_error(exc):

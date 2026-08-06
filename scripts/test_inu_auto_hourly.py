@@ -10,6 +10,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
+import requests
+
 import inu_auto_hourly
 import inu_manual_news
 import inu_quote_post
@@ -719,6 +721,44 @@ class INUAutoHourlyTests(unittest.TestCase):
             self.assertEqual(0, inu_auto_hourly.prepare(args))
         repair.assert_called_once()
         self.assertEqual(2, build.call_count)
+
+    def test_prepare_does_not_repeat_an_unreachable_source_host(self):
+        first = candidate(source_url="https://slow.example.com/first")
+        second = candidate(source_url="https://slow.example.com/second")
+        market_item = {
+            "id": "inu_market_test",
+            "topic_type": "crypto_market",
+            "visual_route": "market_service_screenshot",
+            "text": "📉 XRP、主要6銘柄で直近24時間の値動き最大\n\n僕は、出来高を確認します。\n\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        market_candidate = {
+            "topic_type": "crypto_market",
+            "hook": "📉 XRP、主要6銘柄で直近24時間の値動き最大",
+            "why_now": "主要銘柄を比較した確定値で最大の値動きが出たためです。",
+            "follow_value": "XRPの出来高と3日レンジの更新を継続して追います。",
+            "source_url": "https://www.tradingview.com/symbols/COINBASE-XRPUSD/",
+            "published_at": NOW.isoformat(),
+        }
+        args = SimpleNamespace(state="/tmp/unused-state.json", slot="2026-08-04-21", priority_url="", dry_run=True)
+        with tempfile.TemporaryDirectory() as directory, patch.object(
+            inu_auto_hourly, "load_state", return_value={"history": []}
+        ), patch.object(
+            inu_auto_hourly,
+            "research_candidates_with_grok",
+            return_value=([first, second], [{"url": first["source_url"], "title": "official"}], []),
+        ), patch.object(
+            inu_auto_hourly,
+            "_build_item_from_candidate",
+            side_effect=requests.exceptions.ReadTimeout("source timed out"),
+        ) as build, patch.object(
+            inu_auto_hourly, "research_rescue_candidates", return_value=([], [])
+        ), patch.object(
+            inu_auto_hourly, "build_market_data_fallback", return_value=(market_item, market_candidate)
+        ), patch.object(inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        self.assertEqual(1, build.call_count)
 
 
 if __name__ == "__main__":
