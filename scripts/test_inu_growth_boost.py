@@ -29,6 +29,10 @@ def signal(**overrides) -> dict:
         "facts": ["公式資料で条件変更を確認しました。"],
         "opinion": "僕の見方では、次は実際の資金流入を確認したいです。",
         "reply_text": "公式資料では、承認の対象と条件が明記されています。\n\n見出しだけで判断せず、実際の資金流入が始まるかを見る必要があります。\n\n僕の見方では、次に確認すべきなのは取引開始後のフローです。",
+        "reply_options": [
+            "公式資料では、承認の対象と条件が明記されています。\n\n見出しだけで判断せず、実際の資金流入が始まるかを見る必要があります。\n\n僕の見方では、次に確認すべきなのは取引開始後のフローです。",
+            "承認の事実だけでなく、公式資料にある開始条件も確認が必要です。\n\n市場への影響は実際の資金流入で決まるため、取引開始後のフローを追うことが重要です。\n\n僕は、その数字を次に見ます。",
+        ],
         "mention_context": "ETFと機関資金の動きを追うなら、@example の直近の検証も見る価値があります。",
         "trend_keyword": "ETF",
         "why_this_matters": "承認後の資金流入は暗号資産市場の需給を直接左右するため",
@@ -84,6 +88,11 @@ class GrowthBoostTests(unittest.TestCase):
             inu_growth_boost.validate_candidate(
                 signal(posted_at="2026-08-05T10:00:00Z"), self.state(), NOW
             )
+
+    def test_reply_variants_are_unique_and_keep_multiple_grok_options(self):
+        options = inu_growth_boost._reply_variants(signal())
+        self.assertEqual(2, len(options))
+        self.assertNotEqual(options[0]["reply_text"], options[1]["reply_text"])
 
     def test_external_media_can_never_be_primary_evidence(self):
         with self.assertRaisesRegex(ValueError, "一次資料URL"):

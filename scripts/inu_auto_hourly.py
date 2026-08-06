@@ -34,7 +34,7 @@ from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from inu_x_research_agent import discovery_signals as collect_official_x_api_signals
-from grok_client import generate_x_json
+from grok_client import generate_editorial_json, generate_x_json
 from llm_client import generate_json, generate_web_json
 from scraper import fetch_from_rss
 from x_poster import post_quote_tweet, post_video_reference_tweet
@@ -249,6 +249,19 @@ EDITORIAL_REPAIR_SCHEMA = {
         "follow_value",
         "tags",
     ],
+}
+EDITORIAL_ALTERNATIVES_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "candidates": {
+            "type": "array",
+            "items": EDITORIAL_REPAIR_SCHEMA,
+            "minItems": 1,
+            "maxItems": 3,
+        },
+    },
+    "required": ["candidates"],
 }
 X_SIGNAL_SET_SCHEMA = {
     "type": "object",
@@ -921,6 +934,79 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
     return updated
 
 
+def _grok_editorial_copy_prompt(candidate: dict) -> str:
+    """一次資料で固定した事実を、Grokの編集対象として明示する。"""
+    facts = [str(value).strip() for value in candidate.get("facts", []) if str(value).strip()]
+    return f"""
+あなたは投資情報アカウントINUの編集者です。以下は一次資料で検証済みの投稿候補です。
+この事実を増減・言い換えによる意味変更をせず、Xでスクロールを止め、続けてフォローする
+理由が伝わる自然な日本語の投稿文を3案作成してください。
+
+絶対条件:
+- URL、出典名、媒体名、未確認の数値・固有名詞・推測は一切追加しない。
+- factsと根拠原文以外の事実は書かない。売買推奨、価格予想、煽り、定型句は禁止。
+- hookは出来事に合う絵文字1つで始め、短く「何が変わったか」を示す。
+- opinionは必ず「僕」を使い、次に確認すべき具体的な条件・数字・反応を一つだけ示す。
+- why_now、reader_interest、follow_valueは内部判定用。抽象語・同じ内容の言い換えにしない。
+- tagsは1〜2個。本文に「出典：」「速報」「海外で話題」は入れない。
+
+topic_type: {candidate.get('topic_type', '')}
+現在の見出し: {candidate.get('hook', '')}
+検証済みfacts: {json.dumps(facts, ensure_ascii=False)}
+根拠原文: {candidate.get('evidence_anchor', '')}
+口調: {VOICE_PROMPT}
+""".strip()
+
+
+def _grok_editorial_copy_options(candidate: dict) -> list[dict]:
+    """Grokの複数案から、事実以外を変更できない編集欄だけを取り出す。"""
+    if os.environ.get("INU_GROK_EDITORIAL_ENABLED", "true").strip().lower() not in {"1", "true", "yes"}:
+        return []
+    payload = generate_editorial_json(
+        _grok_editorial_copy_prompt(candidate),
+        schema_name="inu_verified_editorial_alternatives",
+        schema=EDITORIAL_ALTERNATIVES_SCHEMA,
+        max_output_tokens=2200,
+        model=os.environ.get("XAI_EDITORIAL_MODEL", os.environ.get("XAI_RESEARCH_MODEL", "grok-4.3")),
+        request_timeout_seconds=55.0,
+    )
+    options: list[dict] = []
+    for raw in payload.get("candidates", []):
+        if not isinstance(raw, dict):
+            continue
+        option = {
+            key: raw.get(key)
+            for key in ("hook", "opinion", "why_now", "reader_interest", "follow_value", "tags")
+        }
+        if all(option.get(key) not in {None, ""} for key in option if key != "tags") and option.get("tags"):
+            options.append(option)
+    return options
+
+
+def _select_grok_editorial_copy(
+    candidate: dict,
+    sources: list[dict[str, str]],
+    state: dict,
+    now: dt.datetime,
+) -> dict:
+    """複数案を既存品質ゲートで選別し、最初に通ったものだけを採用する。"""
+    try:
+        options = _grok_editorial_copy_options(candidate)
+    except Exception as exc:
+        logger.info("Grok編集案を使わず既存候補で継続: %s", exc)
+        return candidate
+    for index, copy in enumerate(options, start=1):
+        option = dict(candidate)
+        option.update(copy)
+        try:
+            validate_candidate(option, sources, state, now)
+            logger.info("Grok編集案%dを品質ゲート通過として採用", index)
+            return option
+        except Exception as exc:
+            logger.info("Grok編集案%dを除外: %s", index, exc)
+    return candidate
+
+
 def research_candidate(
     now: dt.datetime, state: dict
 ) -> tuple[dict, list[dict[str, str]], list[dict[str, str]]]:
@@ -1304,6 +1390,9 @@ def _build_item_from_candidate(
         )
         logger.info("引用一覧外の一次資料を実ページ検証で確認: %s", verified_url)
     validate_candidate(selected, sources, state, now)
+    # 事実・出典・鮮度を確定してからGrokに編集だけを依頼する。Grok案も同じ
+    # 品質ゲートへ戻すため、もっともらしい創作やURL差し替えは公開へ進まない。
+    selected = _select_grok_editorial_copy(selected, sources, state, now)
     if verified_url is None:
         verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url

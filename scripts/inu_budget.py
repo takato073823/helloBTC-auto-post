@@ -7,7 +7,7 @@ import os
 
 MONTHLY_BUDGET_YEN = int(os.environ.get("INU_MONTHLY_BUDGET_YEN", "10000"))
 RESERVED_TEXT_AND_MISC_YEN = int(os.environ.get("INU_RESERVED_TEXT_YEN", "2500"))
-# 2026-08-04時点のGPT Image 2 mediumの公式価格に対する安全側の1枚単価。
+# Grok Imagine Image Quality（1K $0.05）と画像変換分を含む安全側の1枚単価。
 ESTIMATED_IMAGE_USD = float(os.environ.get("INU_EST_IMAGE_USD", "0.053"))
 USD_JPY = float(os.environ.get("INU_BUDGET_USD_JPY", "160"))
 # Grok 4.3とX Searchの安全側概算。X検索は内部で最大2回使う前提にする。
@@ -16,6 +16,9 @@ GROK_OUTPUT_USD_PER_MILLION = float(os.environ.get("INU_GROK_OUTPUT_USD_PER_M", 
 GROK_X_SEARCH_USD = float(os.environ.get("INU_GROK_X_SEARCH_USD", "0.005"))
 GROK_EST_INPUT_TOKENS = int(os.environ.get("INU_GROK_EST_INPUT_TOKENS", "2500"))
 GROK_EST_OUTPUT_TOKENS = int(os.environ.get("INU_GROK_EST_OUTPUT_TOKENS", "1500"))
+# 一次資料を固定した後、Grokに3案の投稿文を作らせる1回分。X Searchは使わない。
+GROK_EDITORIAL_INPUT_TOKENS = int(os.environ.get("INU_GROK_EDITORIAL_INPUT_TOKENS", "1800"))
+GROK_EDITORIAL_OUTPUT_TOKENS = int(os.environ.get("INU_GROK_EDITORIAL_OUTPUT_TOKENS", "1200"))
 
 
 def estimate_monthly_cost_yen(images_per_day: int, *, days: int = 30) -> int:
@@ -43,14 +46,29 @@ def estimate_grok_monthly_cost_yen(
     return round(requests_per_day * days * per_request_usd * USD_JPY)
 
 
+def estimate_grok_editorial_monthly_cost_yen(
+    requests_per_day: int,
+    *,
+    days: int = 30,
+) -> int:
+    """検証済み事実から作る投稿文・返信候補のGrok編集費を別計上する。"""
+    per_request_usd = (
+        GROK_EDITORIAL_INPUT_TOKENS / 1_000_000 * GROK_INPUT_USD_PER_MILLION
+        + GROK_EDITORIAL_OUTPUT_TOKENS / 1_000_000 * GROK_OUTPUT_USD_PER_MILLION
+    )
+    return round(requests_per_day * days * per_request_usd * USD_JPY)
+
+
 def estimate_total_automation_cost_yen(
     *,
     paid_images_per_day: int = 18,
     grok_requests_per_day: int = 24,
+    grok_editorial_requests_per_day: int = 24,
     days: int = 30,
 ) -> int:
     """公式スクショを除き、有料画像は最大18件/日とした安全側の全体概算。"""
-    return estimate_monthly_cost_yen(paid_images_per_day, days=days) + estimate_grok_monthly_cost_yen(
-        grok_requests_per_day,
-        days=days,
+    return (
+        estimate_monthly_cost_yen(paid_images_per_day, days=days)
+        + estimate_grok_monthly_cost_yen(grok_requests_per_day, days=days)
+        + estimate_grok_editorial_monthly_cost_yen(grok_editorial_requests_per_day, days=days)
     )

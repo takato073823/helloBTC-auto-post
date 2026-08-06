@@ -64,6 +64,30 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn("僕", text)
         self.assertIn("同レンジの56％地点", text)
 
+    def test_grok_editorial_options_cannot_change_verified_facts_or_source(self):
+        item = candidate()
+        grok_copy = {
+            "candidates": [{
+                "hook": "⚡️ 米国ビットコインETFの資金が反転",
+                "opinion": "僕は、次の公表で流入先が広がるかを確認します。",
+                "why_now": "公式集計で当日の純流入額が更新されたためです。",
+                "reader_interest": "資金流入の継続性を、次の需給判断へつなげられるためです。",
+                "follow_value": "ETFフローと機関資金の変化を継続して確認できるためです。",
+                "tags": ["ビットコイン"],
+            }]
+        }
+        with patch.object(inu_auto_hourly, "generate_editorial_json", return_value=grok_copy):
+            selected = inu_auto_hourly._select_grok_editorial_copy(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": [], "reservations": []},
+                NOW,
+            )
+        self.assertEqual(item["facts"], selected["facts"])
+        self.assertEqual(item["source_url"], selected["source_url"])
+        self.assertEqual(item["evidence_anchor"], selected["evidence_anchor"])
+        self.assertEqual("⚡️ 米国ビットコインETFの資金が反転", selected["hook"])
+
     def test_tracking_parameters_are_removed(self):
         actual = inu_auto_hourly.normalize_url(
             "HTTPS://Example.COM/release/?utm_source=x&id=2#top"

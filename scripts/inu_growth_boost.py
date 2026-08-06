@@ -106,6 +106,12 @@ BOOST_SCHEMA = {
                     },
                     "opinion": {"type": "string"},
                     "reply_text": {"type": "string"},
+                    "reply_options": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "minItems": 0,
+                        "maxItems": 3,
+                    },
                     "mention_context": {"type": "string"},
                     "trend_keyword": {"type": "string"},
                     "why_this_matters": {"type": "string"},
@@ -115,7 +121,7 @@ BOOST_SCHEMA = {
                 "required": [
                     "tactic", "post_url", "target_handle", "posted_at", "source_name",
                     "source_url", "source_published_at", "evidence_anchor", "hook", "facts",
-                    "opinion", "reply_text", "mention_context", "trend_keyword", "why_this_matters", "why_target",
+                    "opinion", "reply_text", "reply_options", "mention_context", "trend_keyword", "why_this_matters", "why_target",
                     "estimated_recent_impressions",
                 ],
             },
@@ -280,7 +286,8 @@ D（トレンドワード接続）: Xでいま上昇している話題を、暗�
 - A/C/Dの文章は、1行の具体見出し、事実、僕の見方の順。自然な日本語で、本文URLは書かない。
 - Aは、専門領域と今この人を見る理由を具体的に書いたmention_contextを返す。mention_contextには
   @target_handle を1回だけ含める。Aは独立した紹介投稿として送るため、拡散依頼・定型あいさつ・無関係なタグ付けは禁止。
-- Cは実際に100いいね以上ある投資・暗号資産・金融・AI関連の投稿だけ。reply_textは80〜210字で、
+- Cは実際に100いいね以上ある投資・暗号資産・金融・AI関連の投稿だけ。reply_optionsに、80〜210字の
+  返信案を異なる切り口で3案入れる。reply_textにはそのうち最も事実関係が明確な1案を同じ内容で入れる。
   元投稿の具体的な論点を一次資料の数字・条件で補強する。「この論点は公式資料の〜とも整合します」のように
   投稿主の分析が検証で裏づけられる場合だけ補足し、過剰な持ち上げ・依頼・定型文を使わない。
 - Bのreply_text等は空文字でよい。Bはpost_urlと対象の妥当性だけを返す。
@@ -366,7 +373,7 @@ def _boost_b_from_watchlist_posts(now: dt.datetime, state: dict, posts: list[dic
             "tactic": "B", "post_url": row["post_url"], "target_handle": row["handle"],
             "posted_at": posted_at.isoformat(), "source_name": "", "source_url": "",
             "source_published_at": "", "evidence_anchor": "", "hook": "", "facts": [],
-            "opinion": "", "reply_text": "", "mention_context": "", "trend_keyword": "",
+            "opinion": "", "reply_text": "", "reply_options": [], "mention_context": "", "trend_keyword": "",
             "why_this_matters": "", "estimated_recent_impressions": int(row.get("impression_count", 0) or 0),
             "why_target": "高い表示数に対していいね率が低く、INU読者に関連する新規投稿のため",
             "actual_impression_count": int(row.get("impression_count", 0) or 0),
@@ -672,6 +679,8 @@ def validate_candidate(candidate: dict, state: dict, now: dt.datetime) -> str:
     elif tactic == "C":
         if not 80 <= len(reply_text) <= 210:
             raise ValueError("返信の情報量が不足または過多です")
+        if re.search(r"https?://|www\.", reply_text, flags=re.IGNORECASE):
+            raise ValueError("返信本文に外部URLを直書きできません")
         validate_post(reply_text)
     else:
         validate_post(compose_post(
@@ -710,38 +719,56 @@ def _record(state: dict, candidate: dict, tactic: str, now: dt.datetime, *, acti
     state["actions"] = state["actions"][-500:]
 
 
+def _reply_variants(candidate: dict) -> list[dict]:
+    """Grokの返信案を重複なく並べ、公開前検証で一案ずつ選べるようにする。"""
+    values = [*list(candidate.get("reply_options", []) or []), candidate.get("reply_text", "")]
+    variants: list[dict] = []
+    seen: set[str] = set()
+    for value in values:
+        reply = " ".join(str(value or "").split()).strip()
+        if not reply or reply in seen:
+            continue
+        seen.add(reply)
+        variant = dict(candidate)
+        variant["reply_text"] = reply
+        variants.append(variant)
+    return variants or [dict(candidate)]
+
+
 def execute_one(state: dict, candidates: list[dict], now: dt.datetime, client=None) -> str | None:
     # 返信・独立投稿を優先する。初動いいねは、十分な投稿候補がない時だけ行う。
     order = {"C": 0, "A": 1, "D": 2, "B": 3}
     for candidate in sorted(candidates, key=lambda row: order.get(str(row.get("tactic")), 99)):
         tactic = str(candidate.get("tactic", ""))
-        try:
-            if tactic in {"B", "C"}:
-                _refresh_live_metrics(candidate, client or _get_client())
-            post_id = validate_candidate(candidate, state, now)
-            if tactic == "B":
-                if not like_tweet(post_id):
-                    raise RuntimeError("いいねに失敗しました")
-                _record(state, candidate, tactic, now, action="like")
-                return "B"
-            image = _capture_evidence(candidate, tactic, now)
-            if tactic == "C":
-                tweet_id = post_info_reply_tweet(str(candidate["reply_text"]).strip(), image, post_id)
-            else:
-                facts = list(candidate["facts"])
-                if tactic == "A":
-                    facts.append(str(candidate["mention_context"]).strip())
-                text = compose_post(
-                    hook=str(candidate["hook"]), facts=facts,
-                    opinion=str(candidate["opinion"]), tags=["仮想通貨"],
-                )
-                tweet_id = post_info_tweet(text, image)
-            if not tweet_id:
-                raise RuntimeError("画像付きX投稿に失敗しました")
-            _record(state, candidate, tactic, now, action="publish", tweet_id=str(tweet_id))
-            return tactic
-        except Exception as exc:
-            logger.info("ブースト%sを見送り: %s", tactic or "?", exc)
+        variants = _reply_variants(candidate) if tactic == "C" else [candidate]
+        for variant in variants:
+            try:
+                if tactic in {"B", "C"}:
+                    _refresh_live_metrics(variant, client or _get_client())
+                post_id = validate_candidate(variant, state, now)
+                if tactic == "B":
+                    if not like_tweet(post_id):
+                        raise RuntimeError("いいねに失敗しました")
+                    _record(state, variant, tactic, now, action="like")
+                    return "B"
+                image = _capture_evidence(variant, tactic, now)
+                if tactic == "C":
+                    tweet_id = post_info_reply_tweet(str(variant["reply_text"]).strip(), image, post_id)
+                else:
+                    facts = list(variant["facts"])
+                    if tactic == "A":
+                        facts.append(str(variant["mention_context"]).strip())
+                    text = compose_post(
+                        hook=str(variant["hook"]), facts=facts,
+                        opinion=str(variant["opinion"]), tags=["仮想通貨"],
+                    )
+                    tweet_id = post_info_tweet(text, image)
+                if not tweet_id:
+                    raise RuntimeError("画像付きX投稿に失敗しました")
+                _record(state, variant, tactic, now, action="publish", tweet_id=str(tweet_id))
+                return tactic
+            except Exception as exc:
+                logger.info("ブースト%sを見送り: %s", tactic or "?", exc)
     return None
 
 

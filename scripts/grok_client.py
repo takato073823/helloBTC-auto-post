@@ -154,3 +154,47 @@ def generate_x_json(
 
     sources = [{"url": url, "title": "X post"} for url in cited_urls]
     return payload, sources
+
+
+def generate_editorial_json(
+    prompt: str,
+    *,
+    schema_name: str,
+    schema: dict[str, Any],
+    max_output_tokens: int = 2200,
+    model: str | None = None,
+    request_timeout_seconds: float = 55.0,
+) -> dict[str, Any]:
+    """検証済みの事実だけを材料に、Grokへ編集案を作らせる。
+
+    これはX検索・Web検索の代替ではない。呼び出し元が固定した事実を読みやすい
+    投稿文へ変換する用途だけに限定し、出典URLや新しい事実は返却形式にも含めない。
+    """
+    if not 10.0 <= request_timeout_seconds <= 180.0:
+        raise ValueError("Grok編集のタイムアウトは10〜180秒で指定してください")
+    selected_model = model or os.environ.get("XAI_EDITORIAL_MODEL", DEFAULT_MODEL)
+    logger.info("Grokで検証済み事実の編集案を作成中（%s）...", selected_model)
+    client = _get_client()
+    with_options = getattr(client, "with_options", None)
+    if callable(with_options):
+        client = with_options(timeout=request_timeout_seconds, max_retries=0)
+    response = client.responses.create(
+        model=selected_model,
+        input=prompt,
+        max_output_tokens=max_output_tokens,
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": schema_name,
+                "strict": True,
+                "schema": schema,
+            }
+        },
+    )
+    payload = json.loads(_extract_text(response))
+    dumped = response.model_dump() if hasattr(response, "model_dump") else {}
+    usage = dumped.get("usage", {}) or {}
+    ticks = usage.get("cost_in_usd_ticks")
+    if ticks is not None:
+        logger.info("Grok編集API費用: %.6f USD", float(ticks) / 10_000_000_000)
+    return payload

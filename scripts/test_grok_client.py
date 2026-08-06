@@ -105,6 +105,27 @@ class GrokClientTests(unittest.TestCase):
             )
         self.assertEqual(1, len(payload["signals"]))
 
+    def test_editorial_generation_never_calls_x_search(self):
+        response = _FakeResponse({"candidates": [{"hook": "⚡️ 事実を編集"}]})
+        responses = _FakeResponses(response)
+        client = SimpleNamespace(responses=responses)
+        schema = {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {"candidates": {"type": "array", "items": {"type": "object"}}},
+            "required": ["candidates"],
+        }
+        with patch.object(grok_client, "_get_client", return_value=client):
+            payload = grok_client.generate_editorial_json(
+                "検証済み事実だけを編集",
+                schema_name="editorial",
+                schema=schema,
+            )
+        self.assertEqual("⚡️ 事実を編集", payload["candidates"][0]["hook"])
+        self.assertNotIn("tools", responses.kwargs)
+        self.assertNotIn("tool_choice", responses.kwargs)
+        self.assertTrue(responses.kwargs["text"]["format"]["strict"])
+
 
 if __name__ == "__main__":
     unittest.main()
