@@ -27,6 +27,8 @@ class INUTradingViewCaptureTests(unittest.TestCase):
         self.assertIn('"chartType":"candlesticks"', html)
         self.assertIn('"backgroundColor":"#ffffff"', html)
         self.assertIn('"locale":"en"', html)
+        self.assertIn('"fontSize":"20"', html)
+        self.assertIn('"headerFontSize":"large"', html)
         self.assertIn("1W candles / Past year", html)
         self.assertIn("by TradingView", html)
         self.assertIn("1080px", html)

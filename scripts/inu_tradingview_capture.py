@@ -15,6 +15,7 @@ from PIL import Image, ImageStat
 WIDTH = 1080
 HEIGHT = 1350
 WIDGET_HEIGHT = 1310
+WIDGET_FONT_SIZE = "20"
 SCRIPT_URL = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
 ALLOWED_RANGES = {
     "1d|1",
@@ -104,7 +105,9 @@ def build_widget_html(
         "scalePosition": "right",
         "scaleMode": "Normal",
         "fontFamily": "-apple-system, BlinkMacSystemFont, Arial, sans-serif",
-        "fontSize": "16",
+        # 銘柄名・現在値・騰落率をXのタイムラインでも一目で読める大きさにする。
+        # TradingViewの実ウィジェットをそのまま撮影し、独自の価格表示は重ねない。
+        "fontSize": WIDGET_FONT_SIZE,
         "headerFontSize": "large",
         "noTimeScale": False,
         "valuesTracking": "1",
