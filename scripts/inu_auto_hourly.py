@@ -601,6 +601,7 @@ def research_candidates(
         max_output_tokens=5200,
         # 複数市場から一次資料まで辿る必要があるため、検索選定はTerraを使う。
         model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
+        request_timeout_seconds=70.0,
     )
     sources.extend(
         {"url": row["url"], "title": row["title"]}
@@ -703,6 +704,7 @@ def research_rescue_candidates(
         schema=CANDIDATE_SET_SCHEMA,
         max_output_tokens=5200,
         model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
+        request_timeout_seconds=60.0,
     )
     candidates = [
         _normalize_researched_candidate(candidate)

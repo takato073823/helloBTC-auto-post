@@ -95,6 +95,7 @@ def generate_web_json(
     schema: dict[str, Any],
     max_output_tokens: int = 4096,
     model: str | None = None,
+    request_timeout_seconds: float = 75.0,
 ) -> tuple[dict[str, Any], list[dict[str, str]]]:
     """Search the live web and return schema-constrained JSON plus cited sources.
 
@@ -103,7 +104,16 @@ def generate_web_json(
     """
     selected_model = _model_name(model)
     logger.info("OpenAIのWeb検索で時事候補を調査中（%s）...", selected_model)
-    response = _get_client().responses.create(
+    if not 10.0 <= request_timeout_seconds <= 180.0:
+        raise ValueError("Web検索のタイムアウトは10〜180秒で指定してください")
+    client = _get_client()
+    # 毎時投稿では一回の検索が長くリトライし続けるより、別の探索・実測市場
+    # データへ切り替える方が速報性を守れる。with_options非対応のテスト用クライアント
+    # では通常クライアントをそのまま使う。
+    with_options = getattr(client, "with_options", None)
+    if callable(with_options):
+        client = with_options(timeout=request_timeout_seconds, max_retries=0)
+    response = client.responses.create(
         model=selected_model,
         input=prompt,
         tools=[{"type": "web_search", "search_context_size": "medium"}],

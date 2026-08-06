@@ -89,11 +89,18 @@ def generate_x_json(
     to_date: dt.date,
     max_output_tokens: int = 3000,
     model: str | None = None,
+    request_timeout_seconds: float = 55.0,
 ) -> tuple[dict[str, Any], list[dict[str, str]]]:
     """X Searchを必須実行し、引用で確認できたX投稿だけを返す。"""
+    if not 10.0 <= request_timeout_seconds <= 180.0:
+        raise ValueError("X Searchのタイムアウトは10〜180秒で指定してください")
     selected_model = model or os.environ.get("XAI_RESEARCH_MODEL", DEFAULT_MODEL)
     logger.info("GrokのX検索で速報シグナルを調査中（%s）...", selected_model)
-    response = _get_client().responses.create(
+    client = _get_client()
+    with_options = getattr(client, "with_options", None)
+    if callable(with_options):
+        client = with_options(timeout=request_timeout_seconds, max_retries=0)
+    response = client.responses.create(
         model=selected_model,
         input=prompt,
         tools=[
