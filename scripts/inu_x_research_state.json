@@ -1,5 +1,5 @@
 {
-  "last_deep_scan_at": "2026-08-06T09:32:54+00:00",
+  "last_deep_scan_at": "2026-08-06T11:53:01+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -48,9 +48,44 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-06T11:53:01+00:00",
+      "result_count": 10,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
+    {
+      "author_followers": 209,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "FxProJP",
+      "has_video": false,
+      "headline": "【 8/6 相場速報｜FxPro 】 株高に乗り切れない仮想通貨：ビットコイン65,000ドル接近も慎重ムード続く 👉 https://t.co/b4RNw4x4Ie https://t.co/6Oqhluv4YX",
+      "impression_count": 42,
+      "like_count": 2,
+      "linked_urls": [
+        "https://note.com/fxpro_japan/n/n822ef67aa573",
+        "https://x.com/FxProJP/status/2085330133930365066/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085330133930365066",
+      "post_url": "https://x.com/FxProJP/status/2085330133930365066",
+      "posted_at": "2026-08-06T11:40:22+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 72.5,
+      "seen_count": 1,
+      "summary": "【 8/6 相場速報｜FxPro 】 株高に乗り切れない仮想通貨：ビットコイン65,000ドル接近も慎重ムード続く 👉 https://t.co/b4RNw4x4Ie https://t.co/6Oqhluv4YX",
+      "topic": "japanese_market",
+      "why_trending": "表示42・投稿後12分・反応率9.5%・公式候補リンクあり"
+    },
     {
       "author_followers": 4357,
       "discovered_at": "2026-08-06T06:41:58+00:00",
@@ -77,6 +112,31 @@
       "summary": "💥 BREAKING: Strategy CEO Phong Le says crypto regulation is coming—whether Congress passes the CLARITY Act or not. 🗣️ “They’re either going to go with CLARITY with the legislature behind them, or they’re going to go without CLARITY.” The message is clear: Regulation isn’t a https://t.co/eCwKMUpH8H",
       "topic": "regulation",
       "why_trending": "表示56・投稿後6分・反応率5.4%・動画あり"
+    },
+    {
+      "author_followers": 92580,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Sho54639108",
+      "has_video": false,
+      "headline": "日本株チャンスが来たぞ‼AI半導体株暴落→バリュー株シフト加速か⁉️ソフトバンクG減益。日経平均下落か⁉キオクシア急落。ドル円157円。米国株、ハイテク株はサンディスク決算で大荒れ⁉仮想通貨BTC弱 https://t.co/UNNuWQhiqS",
+      "impression_count": 14596,
+      "like_count": 49,
+      "linked_urls": [
+        "https://youtu.be/ATQTcDtHAeE"
+      ],
+      "media_types": [],
+      "post_id": "2085315438855258403",
+      "post_url": "https://x.com/Sho54639108/status/2085315438855258403",
+      "posted_at": "2026-08-06T10:41:58+00:00",
+      "quote_count": 0,
+      "reply_count": 27,
+      "repost_count": 4,
+      "score": 55.7,
+      "seen_count": 1,
+      "summary": "日本株チャンスが来たぞ‼AI半導体株暴落→バリュー株シフト加速か⁉️ソフトバンクG減益。日経平均下落か⁉キオクシア急落。ドル円157円。米国株、ハイテク株はサンディスク決算で大荒れ⁉仮想通貨BTC弱 https://t.co/UNNuWQhiqS",
+      "topic": "japanese_market",
+      "why_trending": "表示14,596・投稿後71分・反応率0.7%・公式候補リンクあり"
     },
     {
       "author_followers": 0,
@@ -129,6 +189,31 @@
       "why_trending": "表示7・投稿後9分・反応率85.7%・動画あり"
     },
     {
+      "author_followers": 32,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "hellobtc_jp",
+      "has_video": false,
+      "headline": "【ニュース】サンディスクとWD株が10％急落、AI資金はビットコインへ回るのか ・AI関連株が好決算後に急落 ・金とビットコインが底堅く推移 ・AIから暗号資産への資金移動に注目 ▶ https://t.co/7n2oBZrro0 #ビットコイン #仮想通貨 #AI関連株",
+      "impression_count": 154,
+      "like_count": 0,
+      "linked_urls": [
+        "https://hellobtc.jp/ai-stocks-bitcoin-rotation"
+      ],
+      "media_types": [],
+      "post_id": "2085325352142815440",
+      "post_url": "https://x.com/hellobtc_jp/status/2085325352142815440",
+      "posted_at": "2026-08-06T11:21:22+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 52.3,
+      "seen_count": 1,
+      "summary": "【ニュース】サンディスクとWD株が10％急落、AI資金はビットコインへ回るのか ・AI関連株が好決算後に急落 ・金とビットコインが底堅く推移 ・AIから暗号資産への資金移動に注目 ▶ https://t.co/7n2oBZrro0 #ビットコイン #仮想通貨 #AI関連株",
+      "topic": "japanese_market",
+      "why_trending": "表示154・投稿後31分・反応率0.0%・公式候補リンクあり"
+    },
+    {
       "author_followers": 4357,
       "discovered_at": "2026-08-06T06:41:58+00:00",
       "discovery_type": "official_x_api",
@@ -157,131 +242,131 @@
       "why_trending": "表示79・投稿後36分・反応率3.8%・動画あり"
     },
     {
-      "author_followers": 1636,
-      "discovered_at": "2026-08-06T03:56:03+00:00",
+      "author_followers": 60,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
       "discovery_type": "official_x_api",
-      "handle": "cryptodsignal",
+      "handle": "eLeEdG5YJN91704",
       "has_video": false,
-      "headline": "\"Here are the possible outcomes for Clarity right now\" Congress is playing chicken with crypto regulation while markets wait in limbo; the real risk isn’t the bill’s passage, but t",
-      "impression_count": 6,
+      "headline": "FX仲間にこの動画教えてもらって見ました！ 2024年に161円台から140円前後まで落ちた流れをこうやって整理してもらうと、今の相場との共通点が見えて面白い。 暗号資産 仮想通貨 ビットコイン USDJPY リップル #GOLD ドル円 ゴールド フジクラ XAUUSD 決算跨ぎ 決算発表 https://t.co/q1ZaPCgVtT",
+      "impression_count": 574,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/cryptodsignal/status/2085212340006322248/photo/1"
+        "https://twitter.com/johnson_al51910/status/2085313025977045128"
       ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085212340006322248",
-      "post_url": "https://x.com/cryptodsignal/status/2085212340006322248",
-      "posted_at": "2026-08-06T03:52:17+00:00",
+      "media_types": [],
+      "post_id": "2085315949146591313",
+      "post_url": "https://x.com/eLeEdG5YJN91704/status/2085315949146591313",
+      "posted_at": "2026-08-06T10:44:00+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 50.4,
+      "score": 48.5,
       "seen_count": 1,
-      "summary": "\"Here are the possible outcomes for Clarity right now\" Congress is playing chicken with crypto regulation while markets wait in limbo; the real risk isn’t the bill’s passage, but the regulatory vacuum it leaves behind if they stall until election season. Will we see a rushed, https://t.co/3Cc8mvbPRh",
-      "topic": "regulation",
-      "why_trending": "表示6・投稿後3分・反応率43.3%"
+      "summary": "FX仲間にこの動画教えてもらって見ました！ 2024年に161円台から140円前後まで落ちた流れをこうやって整理してもらうと、今の相場との共通点が見えて面白い。 暗号資産 仮想通貨 ビットコイン USDJPY リップル #GOLD ドル円 ゴールド フジクラ XAUUSD 決算跨ぎ 決算発表 https://t.co/q1ZaPCgVtT",
+      "topic": "japanese_market",
+      "why_trending": "表示574・投稿後69分・反応率0.2%・公式候補リンクあり"
     },
     {
-      "author_followers": 0,
-      "discovered_at": "2026-08-06T06:58:52+00:00",
-      "discovery_type": "watchlist_timeline",
-      "handle": "nicosokufx",
-      "has_video": false,
-      "headline": "AI・半導体 14時の古河電工 好決算⭕️ 👉悲観後退、全体もやや下げ幅縮小 引け後 決算 ソフトバンクG⭐️任天堂、レーザーテック、NTT、JX金属など https://t.co/418rk5eWru",
-      "impression_count": 24369,
-      "like_count": 105,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085237253241229484",
-      "post_url": "https://x.com/nicosokufx/status/2085237253241229484",
-      "posted_at": "2026-08-06T05:31:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.5,
-      "seen_count": 2,
-      "summary": "AI・半導体 14時の古河電工 好決算⭕️ 👉悲観後退、全体もやや下げ幅縮小 引け後 決算 ソフトバンクG⭐️任天堂、レーザーテック、NTT、JX金属など https://t.co/418rk5eWru",
-      "topic": "watchlist",
-      "why_trending": "表示24,369・投稿後87分・反応率0.4%・厳選リストで観測"
-    },
-    {
-      "author_followers": 0,
-      "discovered_at": "2026-08-06T06:58:52+00:00",
-      "discovery_type": "watchlist_timeline",
-      "handle": "nicosokufx",
-      "has_video": false,
-      "headline": "🇯🇵日本株 「東証プライム」14:00 上昇 1,004(64％) 下落 491(31％) ✅14:00 古河電工 好決算⭕️ 👉️半導体関連下げ幅縮小へ https://t.co/IJlqAawCM5",
-      "impression_count": 21171,
-      "like_count": 90,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085231834691240162",
-      "post_url": "https://x.com/nicosokufx/status/2085231834691240162",
-      "posted_at": "2026-08-06T05:09:45+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.7,
-      "seen_count": 2,
-      "summary": "🇯🇵日本株 「東証プライム」14:00 上昇 1,004(64％) 下落 491(31％) ✅14:00 古河電工 好決算⭕️ 👉️半導体関連下げ幅縮小へ https://t.co/IJlqAawCM5",
-      "topic": "watchlist",
-      "why_trending": "表示21,171・投稿後109分・反応率0.4%・厳選リストで観測"
-    },
-    {
-      "author_followers": 59130,
-      "discovered_at": "2026-08-06T03:56:03+00:00",
+      "author_followers": 1412,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
       "discovery_type": "official_x_api",
-      "handle": "BitKanOfficial",
+      "handle": "k_koga555",
       "has_video": false,
-      "headline": "📰 Today’s Key News (06.08.2026) ▻ Trump: US-Iran deal within 48h. Bitcoin up, US stocks mixed. Arthur Hayes: AI bubble burst could push Bitcoin to $1M. ▻ Strategy eyes the world’s ",
-      "impression_count": 240,
+      "headline": "https://t.co/q6jFYT3bdt AIサイクルピーク？ Dan Takahashi (Japanese) #AI要約 AI相場の持続性と米国株・暗号資産の投資判断 🔳注目される米国インフレ率 雇用統計よりも来週の米国インフレ率が重要とされ、市場予想を下回れば米国株や米国債が上昇する可能性があると分析された。",
+      "impression_count": 307,
+      "like_count": 1,
+      "linked_urls": [
+        "https://www.youtube.com/watch?v=oAyndSJFQRs"
+      ],
+      "media_types": [],
+      "post_id": "2085316976256442438",
+      "post_url": "https://x.com/k_koga555/status/2085316976256442438",
+      "posted_at": "2026-08-06T10:48:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.7,
+      "seen_count": 1,
+      "summary": "https://t.co/q6jFYT3bdt AIサイクルピーク？ Dan Takahashi (Japanese) #AI要約 AI相場の持続性と米国株・暗号資産の投資判断 🔳注目される米国インフレ率 雇用統計よりも来週の米国インフレ率が重要とされ、市場予想を下回れば米国株や米国債が上昇する可能性があると分析された。",
+      "topic": "japanese_market",
+      "why_trending": "表示307・投稿後64分・反応率0.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 24,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "sridharacs",
+      "has_video": false,
+      "headline": "みやびさんのおかげで トレードのストレスが消えました。 資産増やしたいならフォロー推奨です！ ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア インベスコ 日経先物 パランティア 暗号資産 日米協調介入 日銀総裁 XAUUSD メタプラ 株式投資 円安 決算 仮想通貨 日銀会合 https://t.co/no9zaUBL2i",
+      "impression_count": 773,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/BitKanOfficial/status/2085208466306859225/photo/1"
+        "https://twitter.com/miyabi_fx_1997/status/2085240924163194927"
       ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085208466306859225",
-      "post_url": "https://x.com/BitKanOfficial/status/2085208466306859225",
-      "posted_at": "2026-08-06T03:36:54+00:00",
+      "media_types": [],
+      "post_id": "2085307392657625537",
+      "post_url": "https://x.com/sridharacs/status/2085307392657625537",
+      "posted_at": "2026-08-06T10:10:00+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 40.5,
+      "score": 47.3,
       "seen_count": 1,
-      "summary": "📰 Today’s Key News (06.08.2026) ▻ Trump: US-Iran deal within 48h. Bitcoin up, US stocks mixed. Arthur Hayes: AI bubble burst could push Bitcoin to $1M. ▻ Strategy eyes the world’s largest market cap via Bitcoin reserves. Solana plans bigger daily burns from 47,000 to https://t.co/J5lUYO7K27",
-      "topic": "regulation",
-      "why_trending": "表示240・投稿後19分・反応率0.0%"
+      "summary": "みやびさんのおかげで トレードのストレスが消えました。 資産増やしたいならフォロー推奨です！ ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア インベスコ 日経先物 パランティア 暗号資産 日米協調介入 日銀総裁 XAUUSD メタプラ 株式投資 円安 決算 仮想通貨 日銀会合 https://t.co/no9zaUBL2i",
+      "topic": "japanese_market",
+      "why_trending": "表示773・投稿後103分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 79254,
-      "discovered_at": "2026-08-06T03:56:03+00:00",
+      "author_followers": 55,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
       "discovery_type": "official_x_api",
-      "handle": "ErikHodler",
+      "handle": "angura_invest",
       "has_video": false,
-      "headline": "🇺🇸 The CLARITY Act remains one of the most closely watched crypto bills in the U.S. The Senate is still short of the 60 votes needed to advance the legislation before the August re",
-      "impression_count": 29,
+      "headline": "ビットコインの価格を動かす「六つのエンジン」。 現物、ETF、企業、国家・規制、先物清算、マイナー。 そして全体の土台に、金利とドル流動性があります。 いま最も注目しているのはどれでしょうか。 https://t.co/AUP4MufuQL #ビットコイン #暗号資産",
+      "impression_count": 4,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/ErikHodler/status/2085212497871831497/photo/1"
+        "https://note.com/angura_invest/n/naa1c04a3d88d"
+      ],
+      "media_types": [],
+      "post_id": "2085331300475433173",
+      "post_url": "https://x.com/angura_invest/status/2085331300475433173",
+      "posted_at": "2026-08-06T11:45:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 46.0,
+      "seen_count": 1,
+      "summary": "ビットコインの価格を動かす「六つのエンジン」。 現物、ETF、企業、国家・規制、先物清算、マイナー。 そして全体の土台に、金利とドル流動性があります。 いま最も注目しているのはどれでしょうか。 https://t.co/AUP4MufuQL #ビットコイン #暗号資産",
+      "topic": "japanese_market",
+      "why_trending": "表示4・投稿後8分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 51,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "NeoCatalyst",
+      "has_video": false,
+      "headline": "🌙 🌍 暗号資産は、金融全体のどこにいるのでしょう？ 📖 朝は、 「どこの市場のニュースなのか？」 という視点を学びました。 ☀️ 昼は、 市場ごとに異なる特徴があることを学びました。 🌆 夕方は、 ETFへの資金が、どこから来て、どこへ向かうのかを考えました。 https://t.co/qOVPKk2S8Z",
+      "impression_count": 28,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/NeoCatalyst/status/2085327525681435080/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2085212497871831497",
-      "post_url": "https://x.com/ErikHodler/status/2085212497871831497",
-      "posted_at": "2026-08-06T03:52:55+00:00",
+      "post_id": "2085327525681435080",
+      "post_url": "https://x.com/NeoCatalyst/status/2085327525681435080",
+      "posted_at": "2026-08-06T11:30:00+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 37.7,
+      "score": 39.3,
       "seen_count": 1,
-      "summary": "🇺🇸 The CLARITY Act remains one of the most closely watched crypto bills in the U.S. The Senate is still short of the 60 votes needed to advance the legislation before the August recess. While the bill isn't dead, its path has become increasingly uncertain as bipartisan https://t.co/KuzUTFmjqK",
-      "topic": "regulation",
-      "why_trending": "表示29・投稿後3分・反応率0.0%"
+      "summary": "🌙 🌍 暗号資産は、金融全体のどこにいるのでしょう？ 📖 朝は、 「どこの市場のニュースなのか？」 という視点を学びました。 ☀️ 昼は、 市場ごとに異なる特徴があることを学びました。 🌆 夕方は、 ETFへの資金が、どこから来て、どこへ向かうのかを考えました。 https://t.co/qOVPKk2S8Z",
+      "topic": "japanese_market",
+      "why_trending": "表示28・投稿後23分・反応率0.0%"
     },
     {
       "author_followers": 104,
@@ -305,6 +390,56 @@
       "summary": "₿ Crypto Round-up – Bitcoin, Ethereum, DeFi, ETFs, Clarity Act, AI &amp; Meme Coins The crypto market remains focused on a mix of regulation, institutional flows, and narrative shifts in August 2026. Bitcoin &amp; ETFs Bitcoin held relatively firm in recent weeks while traditional",
       "topic": "regulation",
       "why_trending": "表示10・投稿後1分・反応率0.0%"
+    },
+    {
+      "author_followers": 24254,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ ビットコイン、ETFに6億2600万ドル流入──FRB利上げ観測が後退【価格分析】 ⭐️ ・中東情勢の緊張緩和と現物ビットコインETFへの4億ドル超の資金流入が、直近のColdcardを巡 ... Delivered by PolitePaul service https://t.co/GpVvVMIPhD",
+      "impression_count": 99,
+      "like_count": 0,
+      "linked_urls": [
+        "https://ift.tt/AWn7jED"
+      ],
+      "media_types": [],
+      "post_id": "2085313386468790717",
+      "post_url": "https://x.com/CoinmatomeNews/status/2085313386468790717",
+      "posted_at": "2026-08-06T10:33:49+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.5,
+      "seen_count": 1,
+      "summary": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ ビットコイン、ETFに6億2600万ドル流入──FRB利上げ観測が後退【価格分析】 ⭐️ ・中東情勢の緊張緩和と現物ビットコインETFへの4億ドル超の資金流入が、直近のColdcardを巡 ... Delivered by PolitePaul service https://t.co/GpVvVMIPhD",
+      "topic": "japanese_market",
+      "why_trending": "表示99・投稿後79分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 24254,
+      "discovered_at": "2026-08-06T11:53:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️Bybit、オーストリアでEMIライセンス取得 EUの規制対象決済サービスを拡大 ⭐️ 仮想通貨と決済を別法人で運営し欧州事業を強化 仮想通貨取引所&lt; Bybit EU（バイビット）は、 Delivered by PolitePaul service https://t.co/KEMqhkzsHP",
+      "impression_count": 96,
+      "like_count": 0,
+      "linked_urls": [
+        "https://nextmoney.jp?p=87160"
+      ],
+      "media_types": [],
+      "post_id": "2085310744577376468",
+      "post_url": "https://x.com/CoinmatomeNews/status/2085310744577376468",
+      "posted_at": "2026-08-06T10:23:19+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.2,
+      "seen_count": 1,
+      "summary": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️Bybit、オーストリアでEMIライセンス取得 EUの規制対象決済サービスを拡大 ⭐️ 仮想通貨と決済を別法人で運営し欧州事業を強化 仮想通貨取引所&lt; Bybit EU（バイビット）は、 Delivered by PolitePaul service https://t.co/KEMqhkzsHP",
+      "topic": "japanese_market",
+      "why_trending": "表示96・投稿後89分・反応率0.0%・公式候補リンクあり"
     }
   ],
   "trends": [],
