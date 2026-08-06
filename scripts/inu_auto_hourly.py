@@ -70,6 +70,9 @@ MARKET_FALLBACK_PRODUCTS = (
     "DOGE-USD",
     "ADA-USD",
 )
+# 同じ銘柄・同じ値動きを短時間に繰り返さない。定期枠は毎時1本なので、
+# この時間内は6銘柄を一巡させてから同じ銘柄を再検討する。
+MARKET_FALLBACK_PRODUCT_COOLDOWN = dt.timedelta(hours=6)
 MAX_AGE_HOURS = {
     "breaking_news": 2,
     "developing_story": 6,
@@ -1247,12 +1250,10 @@ def _scheduled_run_kind() -> str:
 
 
 def _scheduled_slot_key(now: dt.datetime, kind: str) -> str:
-    """通常投稿を毎時2枠に分け、予備実行だけを1本目へ紐付ける。"""
+    """毎時1枠を主実行と予備実行で共有する。"""
     hour = now.astimezone(JST).strftime("%Y-%m-%d-%H")
     if kind in {"primary", "fallback"}:
         return f"{hour}-a"
-    if kind in {"secondary", "secondary_recovery"}:
-        return f"{hour}-b"
     return slot_key(now)
 
 
@@ -1420,6 +1421,48 @@ def _hour_has_post_or_reservation(state: dict, now: dt.datetime) -> bool:
     return any(str(row.get("slot", "")).startswith(hour) for row in rows)
 
 
+def _market_product_from_row(row: dict) -> str | None:
+    """保存済みの市場投稿からCoinbase銘柄を復元する。"""
+    post_id = str(row.get("post_id", "")).lower()
+    source_url = str(row.get("source_url", "")).upper()
+    for product in MARKET_FALLBACK_PRODUCTS:
+        if product.lower() in post_id:
+            return product
+        tradingview_product = product.replace("-", "")
+        if f"COINBASE-{tradingview_product}" in source_url:
+            return product
+    return None
+
+
+def _recent_market_fallback_products(state: dict, now: dt.datetime) -> set[str]:
+    """クールダウン中の市場投稿銘柄だけを返す。"""
+    cutoff = now - MARKET_FALLBACK_PRODUCT_COOLDOWN
+    products: set[str] = set()
+    rows = list(state.get("posted_slots", [])) + list(state.get("reservations", []))
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        product = _market_product_from_row(row)
+        if not product:
+            continue
+        timestamp = next(
+            (
+                row.get(key)
+                for key in ("posted_at", "reserved_at", "published_at")
+                if row.get(key)
+            ),
+            None,
+        )
+        if not timestamp:
+            continue
+        try:
+            if _parse_timestamp(str(timestamp)) >= cutoff:
+                products.add(product)
+        except (TypeError, ValueError):
+            continue
+    return products
+
+
 def build_market_data_fallback(
     now: dt.datetime,
     state: dict,
@@ -1447,8 +1490,13 @@ def build_market_data_fallback(
             + " / ".join(failures[:3])
         )
 
+    recent_products = _recent_market_fallback_products(state, now)
+    eligible_snapshots = [row for row in snapshots if row[0] not in recent_products]
+    if not eligible_snapshots:
+        raise RuntimeError("同一銘柄の市場投稿クールダウン中のため、価格チャートを重ねません")
+
     product, candles, metrics = max(
-        snapshots,
+        eligible_snapshots,
         key=lambda row: (abs(float(row[2]["change_24h"])), abs(float(row[2]["position"]) - 0.5)),
     )
     asset = SUPPORTED_PRODUCTS[product]

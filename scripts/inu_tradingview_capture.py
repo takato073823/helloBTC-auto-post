@@ -63,8 +63,6 @@ def select_chart_window(horizon_hours: float) -> ChartWindow:
     """値動きの観測期間に合わせ、画面内を約30〜70本の足に保つ。"""
     if not math.isfinite(horizon_hours) or horizon_hours <= 0:
         raise ValueError("チャートの観測期間が不正です")
-    if horizon_hours <= 36:
-        return ChartWindow("1d|30", "30-minute", "約48本")
     if horizon_hours <= 96:
         return ChartWindow("5d|120", "2-hour", "約60本")
     if horizon_hours <= 24 * 45:
@@ -196,6 +194,26 @@ def validate_tradingview_screenshot(path: str | Path) -> Path:
         )
         if sum(all(channel >= 230 for channel in pixel) for pixel in corners) < 3:
             raise ValueError("TradingViewスクリーンショットが白背景ではありません")
+        # 画面の片側に数本だけ描かれ、残りが空白のウィジェットは、X上では
+        # 「チャートが壊れている」ように見える。ヘッダーの騰落色は除外し、
+        # 実際のローソク足が横幅の一定範囲に分布していることを確認する。
+        candle_columns: list[int] = []
+        for x in range(WIDTH):
+            colored = 0
+            for y in range(120, HEIGHT - 50, 3):
+                red, green, blue = image.getpixel((x, y))
+                is_up = green >= red + 25 and green >= blue + 12 and green >= 85
+                is_down = red >= green + 35 and red >= blue + 35 and red >= 150
+                if is_up or is_down:
+                    colored += 1
+                    if colored >= 2:
+                        candle_columns.append(x)
+                        break
+        if not candle_columns:
+            raise ValueError("TradingViewスクリーンショットにローソク足が見当たりません")
+        span = (max(candle_columns) - min(candle_columns) + 1) / WIDTH
+        if span < 0.45:
+            raise ValueError("TradingViewのローソク足が片側に偏っているため使用しません")
     return image_path
 
 
@@ -249,21 +267,26 @@ def capture_tradingview_screenshot(
                 raise ValueError("TradingViewウィジェットを読み込めません")
             frame.wait_for_load_state("domcontentloaded", timeout=timeout_ms)
             frame.locator("body").wait_for(state="visible", timeout=timeout_ms)
-            page.wait_for_timeout(4_000)
-            visible_text = frame.locator("body").inner_text(timeout=timeout_ms)
-            lowered = visible_text.lower()
-            if any(marker in lowered for marker in ERROR_MARKERS):
-                raise ValueError("TradingViewで対象銘柄を表示できません")
-            attribution = page.locator(".tradingview-widget-copyright")
-            if not attribution.is_visible() or "TradingView" not in attribution.inner_text():
-                raise ValueError("TradingViewの出典表記が見えません")
-            page.screenshot(path=str(destination), type="png", full_page=False)
-            if not visible_price_matches(visible_text, expected_price, tolerance=tolerance):
+            # ウィジェットはiframeだけ先に作られ、価格・足が後から届くことがある。
+            # 読み込み途中の空白画面は撮影せず、表示値を確認できるまで短く待つ。
+            for attempt in range(3):
+                page.wait_for_timeout(4_000 if attempt == 0 else 3_000)
+                visible_text = frame.locator("body").inner_text(timeout=timeout_ms)
+                lowered = visible_text.lower()
+                if any(marker in lowered for marker in ERROR_MARKERS):
+                    raise ValueError("TradingViewで対象銘柄を表示できません")
+                if visible_price_matches(visible_text, expected_price, tolerance=tolerance):
+                    break
+            else:
                 candidates = _visible_numbers(visible_text)[:20]
                 raise ValueError(
                     "検知データとTradingView表示価格が一致しません: "
                     f"expected={expected_price:g}, visible={candidates}"
                 )
+            attribution = page.locator(".tradingview-widget-copyright")
+            if not attribution.is_visible() or "TradingView" not in attribution.inner_text():
+                raise ValueError("TradingViewの出典表記が見えません")
+            page.screenshot(path=str(destination), type="png", full_page=False)
         finally:
             browser.close()
 

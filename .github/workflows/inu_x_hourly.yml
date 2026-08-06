@@ -3,11 +3,10 @@ name: INU 画像付き毎時投稿
 on:
   schedule:
     # 毎時0分はGitHub Actionsの混雑で欠落しやすい。
-    # 17分に1本目、47分に2本目を独立して調査・公開する。
-    # 37分は1本目の実行自体が取りこぼされた場合だけの復旧枠。
+    # 17分に毎時1本だけ調査・公開し、37分は実行自体が取りこぼされた
+    # 場合だけの復旧枠として使う。定期枠を1時間に複数作らない。
     - cron: "17 * * * *"
     - cron: "37 * * * *"
-    - cron: "47 * * * *"
   workflow_dispatch:
     inputs:
       live:
@@ -20,14 +19,6 @@ on:
         required: false
         default: false
         type: boolean
-      recovery_slot:
-        description: "復旧する定期投稿枠"
-        required: false
-        default: primary
-        type: choice
-        options:
-          - primary
-          - secondary
 
 concurrency:
   group: inu-x-publish
@@ -41,7 +32,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
     env:
-      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '17 * * * *' && 'primary' || github.event.schedule == '37 * * * *' && 'fallback' || github.event.schedule == '47 * * * *' && 'secondary' || inputs.recovery == true && inputs.recovery_slot == 'secondary' && 'secondary_recovery' || inputs.recovery == true && 'fallback' || 'retry' }}
+      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '17 * * * *' && 'primary' || github.event.schedule == '37 * * * *' && 'fallback' || inputs.recovery == true && 'fallback' || 'retry' }}
 
     steps:
       - name: リポジトリをチェックアウト

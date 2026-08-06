@@ -46,7 +46,7 @@ class INUTradingViewCaptureTests(unittest.TestCase):
         self.assertFalse(visible_price_matches(text, 70_000, tolerance=0.01))
 
     def test_chart_window_keeps_candle_count_readable(self):
-        self.assertEqual("1d|30", select_chart_window(24).date_range)
+        self.assertEqual("5d|120", select_chart_window(24).date_range)
         self.assertEqual("5d|120", select_chart_window(72).date_range)
         self.assertEqual("1m|1D", select_chart_window(24 * 30).date_range)
         self.assertEqual("12m|1W", select_chart_window(24 * 365).date_range)
@@ -71,6 +71,20 @@ class INUTradingViewCaptureTests(unittest.TestCase):
                 validate_tradingview_screenshot(blank)
             with self.assertRaises(ValueError):
                 validate_tradingview_screenshot(dark)
+
+    def test_chart_with_candles_only_on_one_side_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "partial.png"
+            image = Image.new("RGB", (1080, 1350), "white")
+            draw = ImageDraw.Draw(image)
+            # 左端だけにローソク足がある、実投稿で問題になった表示を再現する。
+            for x in range(30, 220, 24):
+                draw.line((x, 800, x, 430), fill="#dc4c55", width=6)
+                draw.rectangle((x - 8, 540, x + 8, 700), fill="#dc4c55")
+            draw.text((40, 40), "TradingView", fill="black")
+            image.save(path)
+            with self.assertRaisesRegex(ValueError, "片側"):
+                validate_tradingview_screenshot(path)
 
 
 if __name__ == "__main__":

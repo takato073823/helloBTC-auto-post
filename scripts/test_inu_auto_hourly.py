@@ -674,13 +674,54 @@ class INUAutoHourlyTests(unittest.TestCase):
         ), patch.object(Path, "read_text", return_value=event):
             self.assertFalse(inu_auto_hourly._is_primary_grok_run())
 
-    def test_two_scheduled_slots_are_independent_but_fallback_uses_first_slot(self):
+    def test_primary_and_fallback_share_one_hourly_slot(self):
         now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)
         self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "primary"))
         self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "fallback"))
-        self.assertEqual("2026-08-04-21-b", inu_auto_hourly._scheduled_slot_key(now, "secondary"))
-        self.assertEqual("2026-08-04-21-b", inu_auto_hourly._scheduled_slot_key(now, "secondary_recovery"))
         self.assertEqual("2026-08-04-21", inu_auto_hourly._scheduled_slot_key(now, "retry"))
+
+    def test_market_fallback_excludes_a_recently_used_product(self):
+        now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)
+        state = {
+            "posted_slots": [
+                {
+                    "post_id": "inu_market_2026_08_04_11_a_xrp-usd",
+                    "source_url": "https://www.tradingview.com/symbols/COINBASE-XRPUSD/",
+                    "posted_at": (now - dt.timedelta(hours=2)).isoformat(),
+                }
+            ],
+            "reservations": [],
+        }
+        metrics = {
+            "BTC-USD": {"change_24h": 1.0, "position": 0.5},
+            "XRP-USD": {"change_24h": -4.0, "position": 0.2},
+        }
+        artifacts = inu_auto_hourly.REPO_ROOT / "scripts" / "artifacts"
+        artifacts.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=artifacts) as directory, patch.object(
+            inu_auto_hourly, "MARKET_FALLBACK_PRODUCTS", ("BTC-USD", "XRP-USD")
+        ), patch.object(
+            inu_auto_hourly, "ARTIFACT_DIR", Path(directory)
+        ), patch(
+            "x_price_chart_post.fetch_closed_candles",
+            side_effect=lambda now, product: [{"product": product}],
+        ), patch(
+            "x_price_chart_post.calculate_metrics",
+            side_effect=lambda candles: {
+                **metrics[candles[0]["product"]],
+                "last_close": 100.0,
+                "period_high": 120.0,
+                "period_low": 80.0,
+                "closed_at": now,
+            },
+        ), patch(
+            "x_price_chart_post.render_chart",
+            return_value=Path(directory) / "chart.png",
+        ), patch.object(inu_auto_hourly, "validate_test_item"):
+            _, candidate = inu_auto_hourly.build_market_data_fallback(
+                now, state, "2026-08-04-21-a"
+            )
+        self.assertIn("COINBASE-BTCUSD", candidate["source_url"])
 
     def test_prepare_tries_the_next_candidate_instead_of_failing(self):
         options = [candidate(), candidate(source_url="https://example.com/official/second")]
