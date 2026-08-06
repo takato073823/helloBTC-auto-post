@@ -103,9 +103,9 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
-    def test_category_review_rejects_a_source_outside_its_fixed_registry(self):
-        item = candidate()
-        with self.assertRaisesRegex(ValueError, "固定一次情報源"):
+    def test_category_review_rejects_a_different_topic(self):
+        item = candidate(topic_type="onchain")
+        with self.assertRaisesRegex(ValueError, "確認対象と異なる投稿系統"):
             inu_auto_hourly.validate_candidate(
                 item,
                 [{"url": item["source_url"], "title": "official"}],

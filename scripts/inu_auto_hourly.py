@@ -32,7 +32,7 @@ from inu_news_visual import capture_source_hero_image, generate_editorial_news_v
 from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
-from inu_source_registry import topic_source_context, topic_sources
+from inu_source_registry import topic_source_context
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from inu_x_research_agent import discovery_signals as collect_official_x_api_signals
 from grok_client import generate_editorial_json, generate_x_json
@@ -578,8 +578,8 @@ def build_research_prompt(
     target_instruction = (
         f"""
 今回の確認投稿の対象カテゴリーは {target_topic} だけです。has_candidate=true の候補は
-すべて topic_type={target_topic} に限定し、最終source_urlは下記の固定一次情報源と同じ
-運営主体ドメインの、今回更新された具体的な発表・データ・開示ページだけにしてください。
+すべて topic_type={target_topic} に限定し、下記の固定探索先を必ず確認したうえで、
+最終source_urlには固定先自身または発表主体の個別IR・当局資料・公式データページを使ってください。
 該当する新しい変化が確認できなければ、別カテゴリーや価格チャートで代用せず、
 has_candidate=false を返してください。
 """.strip()
@@ -858,7 +858,7 @@ def build_rescue_research_prompt(
     target_instruction = (
         f"""
 今回の確認投稿の対象カテゴリーは {target_topic} だけです。候補はこのカテゴリーだけにし、
-source_urlは下記固定探索先と同じ運営主体ドメインの一次資料に限定する。該当する更新がなければ
+下記固定探索先を確認したうえで、source_urlは発表主体の一次資料に限定する。該当する更新がなければ
 候補なしで終了し、他カテゴリーや価格チャートで代用しない。
 """.strip()
         if target_topic
@@ -1198,18 +1198,6 @@ def validate_candidate(
     if policy.requires_primary_source and not candidate.get("is_primary_source"):
         raise ValueError("一次資料として選定されていません")
     selected = normalize_url(candidate.get("source_url", ""))
-    if required_topic:
-        selected_host = (urlsplit(selected).hostname or "").lower().removeprefix("www.")
-        allowed_hosts = {
-            (urlsplit(source.url).hostname or "").lower().removeprefix("www.")
-            for source in topic_sources(required_topic)
-        }
-        if not any(
-            selected_host == host or selected_host.endswith(f".{host}") or host.endswith(f".{selected_host}")
-            for host in allowed_hosts
-            if host
-        ):
-            raise ValueError("確認対象の固定一次情報源ではありません")
     cited = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
     if selected not in cited:
         raise ValueError("選定URLがWeb検索の参照元一覧にありません")
