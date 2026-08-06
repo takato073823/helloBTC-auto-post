@@ -1,0 +1,1602 @@
+{
+  "last_refreshed_at": "2026-08-06T02:46:08+00:00",
+  "last_skip_reason": "",
+  "list_id": "2085190561095635199",
+  "list_name": "海外KOL",
+  "members": {
+    "aaronburnett": {
+      "focus": "Tech investment research, SpaceX/AI earnings analysis with visuals",
+      "followers": 26899,
+      "handle": "aaronburnett",
+      "language": "en",
+      "last10_average_impressions": 16955.33,
+      "last10_max_impressions": 77012,
+      "last10_media_posts": 2,
+      "last10_posts": [
+        {
+          "has_image": false,
+          "has_video": true,
+          "impression_count": 24246,
+          "lang": "en",
+          "like_count": 121,
+          "media_types": [
+            "video"
+          ],
+          "post_id": "2085110410152202252",
+          "post_url": "https://x.com/aaronburnett/status/2085110410152202252",
+          "posted_at": "2026-08-05T21:07:15+00:00",
+          "quote_count": 0,
+          "reply_count": 11,
+          "repost_count": 6,
+          "text": "Thought provoking. One core claim here that I find intriguing is that (slight paraphrase) “allocating more compute to inference suggests you aren’t growing fast because if you were you’d put more compute toward training to get a better model” This makes sense on the surface"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 8894,
+          "lang": "en",
+          "like_count": 48,
+          "media_types": [],
+          "post_id": "2085082923447808067",
+          "post_url": "https://x.com/aaronburnett/status/2085082923447808067",
+          "posted_at": "2026-08-05T19:18:02+00:00",
+          "quote_count": 1,
+          "reply_count": 2,
+          "repost_count": 3,
+          "text": "This is quantifiable by how many successful data center builders there are vs reusable orbital rocket builders. https://t.co/0ZVaiSfhp9"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 2206,
+          "lang": "en",
+          "like_count": 16,
+          "media_types": [],
+          "post_id": "2085071875240005860",
+          "post_url": "https://x.com/aaronburnett/status/2085071875240005860",
+          "posted_at": "2026-08-05T18:34:08+00:00",
+          "quote_count": 0,
+          "reply_count": 0,
+          "repost_count": 0,
+          "text": "When you need protection while you’re posting market shifting bangers to the truth api customers. https://t.co/aHZuYIkClA"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 77012,
+          "lang": "en",
+          "like_count": 264,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085058536179109932",
+          "post_url": "https://x.com/aaronburnett/status/2085058536179109932",
+          "posted_at": "2026-08-05T17:41:08+00:00",
+          "quote_count": 9,
+          "reply_count": 18,
+          "repost_count": 47,
+          "text": "we just published a deep dive reaction to the SpaceX earnings from yesterday. Specifically comparing results against street expectations and our mach33 internal model. you can see the full analysis here. https://t.co/huTg7dha1c A couple core things stand out on the financial https://t.co/Oz5z0AGdNJ"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 4542,
+          "lang": "en",
+          "like_count": 64,
+          "media_types": [],
+          "post_id": "2084989072968176076",
+          "post_url": "https://x.com/aaronburnett/status/2084989072968176076",
+          "posted_at": "2026-08-05T13:05:06+00:00",
+          "quote_count": 0,
+          "reply_count": 12,
+          "repost_count": 4,
+          "text": "Good question should we do a SpaceX post call call? Happy to if street thinks it’s helpful. https://t.co/IfQ0JLCee8"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 11988,
+          "lang": "en",
+          "like_count": 118,
+          "media_types": [],
+          "post_id": "2084837427768705514",
+          "post_url": "https://x.com/aaronburnett/status/2084837427768705514",
+          "posted_at": "2026-08-05T03:02:31+00:00",
+          "quote_count": 0,
+          "reply_count": 3,
+          "repost_count": 10,
+          "text": "Cleaned up replay of the earnings call. Second listen is a good idea. https://t.co/WL00DoP5rL"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 16551,
+          "lang": "en",
+          "like_count": 222,
+          "media_types": [],
+          "post_id": "2084785312014741656",
+          "post_url": "https://x.com/aaronburnett/status/2084785312014741656",
+          "posted_at": "2026-08-04T23:35:26+00:00",
+          "quote_count": 0,
+          "reply_count": 4,
+          "repost_count": 21,
+          "text": "Cern has the complete transcript with pictures. Very helpful… the insight that most won’t appreciate and likely overlook. “And then with respect to the Starmind AI satellite, which will be essentially an optimized Vera Rubin NVL72 computer, this is not some sort of far-future, https://t.co/KNVdo6YyUL"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 3311,
+          "lang": "en",
+          "like_count": 24,
+          "media_types": [],
+          "post_id": "2084779164003910094",
+          "post_url": "https://x.com/aaronburnett/status/2084779164003910094",
+          "posted_at": "2026-08-04T23:11:00+00:00",
+          "quote_count": 0,
+          "reply_count": 0,
+          "repost_count": 1,
+          "text": "Well said https://t.co/hzhu24wRiv"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 3848,
+          "lang": "en",
+          "like_count": 174,
+          "media_types": [],
+          "post_id": "2084763127535620350",
+          "post_url": "https://x.com/aaronburnett/status/2084763127535620350",
+          "posted_at": "2026-08-04T22:07:17+00:00",
+          "quote_count": 0,
+          "reply_count": 3,
+          "repost_count": 9,
+          "text": "congratulations to Elon, Gwynne, Bret and the team. I'm clearly biased but by far the most interesting and insightful earnings call. absolutely phenomenal https://t.co/7oZWGWVWhd"
+        }
+      ],
+      "last_seen_at": "2026-08-05T21:07:15+00:00",
+      "recent_post_url": "https://x.com/aaronburnett/status/2085058536179109932",
+      "score": 83.27,
+      "tier": "member",
+      "user_id": "331865640",
+      "why_relevant": "CEO/researcher publishing deep-dive earnings models and charts on AI/compute segments; 77k+ views, overseas financial analyst"
+    },
+    "ardinsc": {
+      "focus": "Crypto technical analysis, macro structure, liquidity targets",
+      "followers": 32651,
+      "handle": "ardinsc",
+      "language": "en",
+      "last10_average_impressions": 20261.78,
+      "last10_max_impressions": 63207,
+      "last10_media_posts": 6,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 7895,
+          "lang": "en",
+          "like_count": 187,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085047566215827841",
+          "post_url": "https://x.com/ardinsc/status/2085047566215827841",
+          "posted_at": "2026-08-05T16:57:32+00:00",
+          "quote_count": 0,
+          "reply_count": 46,
+          "repost_count": 35,
+          "text": "The lowest-risk trades in this $BTC range are simple. Long the break of the multi-timeframe resistance at $67K. Or short the loss of the $62K pivot that has saved every breakdown over the last four weeks. Either move would mark a Significant Break of Structure (SBOS) and https://t.co/8n47TYGpcJ"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 13430,
+          "lang": "en",
+          "like_count": 237,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084993835461996875",
+          "post_url": "https://x.com/ardinsc/status/2084993835461996875",
+          "posted_at": "2026-08-05T13:24:02+00:00",
+          "quote_count": 1,
+          "reply_count": 71,
+          "repost_count": 33,
+          "text": "$ZEC is building a macro ascending triangle beneath HTF resistance. As long as the rising trendline holds, there is absolutely no reason to be bearish on this chart. Yet somehow, people are still trying to convince me that $100 ZEC is coming this bear market. Good luck with https://t.co/CDQZFvYwGX https://t.co/irIEwVNQj8"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 13004,
+          "lang": "en",
+          "like_count": 270,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084976465775321310",
+          "post_url": "https://x.com/ardinsc/status/2084976465775321310",
+          "posted_at": "2026-08-05T12:15:01+00:00",
+          "quote_count": 1,
+          "reply_count": 81,
+          "repost_count": 57,
+          "text": "I genuinely cannot believe I have to explain this, but the $35K post was sarcasm. The fact that people are now convinced $BTC will never have another bull run and is inevitably going below $35K tells you more about where sentiment is in the cycle than where price is going next. https://t.co/RTKFtO8n3e https://t.co/0RCuwz0LLb"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 2094,
+          "lang": "en",
+          "like_count": 19,
+          "media_types": [],
+          "post_id": "2084745966691766544",
+          "post_url": "https://x.com/ardinsc/status/2084745966691766544",
+          "posted_at": "2026-08-04T20:59:05+00:00",
+          "quote_count": 0,
+          "reply_count": 4,
+          "repost_count": 3,
+          "text": "Still have around 20% of the founding spots left for anyone who wants to join us before we get started next week. 🤝 You can DM me if you'd like to secure a spot directly. https://t.co/8wIcMd2VYS"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 10651,
+          "lang": "en",
+          "like_count": 194,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084745717193609504",
+          "post_url": "https://x.com/ardinsc/status/2084745717193609504",
+          "posted_at": "2026-08-04T20:58:06+00:00",
+          "quote_count": 1,
+          "reply_count": 68,
+          "repost_count": 18,
+          "text": "I personally don’t think there’s another community that has traded $ZEC better than ours over the last year. We’ve publicly caught the tops, caught the bottoms and consistently found ourselves on the winning side of this chart. The PnL's from trading both directions speaks for https://t.co/G13Qb68yc6 https://t.co/irIEwVNQj8"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 37722,
+          "lang": "en",
+          "like_count": 226,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084714808713130399",
+          "post_url": "https://x.com/ardinsc/status/2084714808713130399",
+          "posted_at": "2026-08-04T18:55:17+00:00",
+          "quote_count": 3,
+          "reply_count": 74,
+          "repost_count": 24,
+          "text": "$ZEC.. too f*cking easy. 🎯 Headshot straight into our $510 liquidity target. Another Zcash trade executed to perfection. Nobody does this chart better. https://t.co/o8BDlRI1wM https://t.co/DI2rYAkB1q"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 5425,
+          "lang": "en",
+          "like_count": 98,
+          "media_types": [],
+          "post_id": "2084684929141547090",
+          "post_url": "https://x.com/ardinsc/status/2084684929141547090",
+          "posted_at": "2026-08-04T16:56:33+00:00",
+          "quote_count": 0,
+          "reply_count": 15,
+          "repost_count": 0,
+          "text": "Yes.. I'm being sarcastic."
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 63207,
+          "lang": "en",
+          "like_count": 493,
+          "media_types": [],
+          "post_id": "2084683732070392153",
+          "post_url": "https://x.com/ardinsc/status/2084683732070392153",
+          "posted_at": "2026-08-04T16:51:47+00:00",
+          "quote_count": 6,
+          "reply_count": 143,
+          "repost_count": 44,
+          "text": "$35K is going to be handed to everyone on a silver platter this cycle. One day, you'll log in, see $BTC at $35K and decide to wait because it might get cheaper. A week later, it'll still be sitting at $35K. Just waiting for you. You'll naturally buy the pico bottom on October"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 28928,
+          "lang": "en",
+          "like_count": 265,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084632788737683504",
+          "post_url": "https://x.com/ardinsc/status/2084632788737683504",
+          "posted_at": "2026-08-04T13:29:22+00:00",
+          "quote_count": 2,
+          "reply_count": 79,
+          "repost_count": 45,
+          "text": "$ZEC is starting to build the structure for another breakout attempt. We're seeing price climb through a 4H ascending channel, with the prior high at $495 now acting as the key resistance. If that level breaks, I’d expect a hunt of the liquidity sitting above $510. That’s also https://t.co/Fr2mnHh9Rv https://t.co/eyKMjmrKQp"
+        }
+      ],
+      "last_seen_at": "2026-08-05T16:57:32+00:00",
+      "recent_post_url": "https://x.com/ardinsc/status/2084683732070392153",
+      "score": 95.56,
+      "tier": "member",
+      "user_id": "1885117466583736320",
+      "why_relevant": "32k followers; 37k+ views on recent original chart post about ZEC macro ascending triangle and liquidity; publishes equities-adjacent crypto analysis with visuals"
+    },
+    "cryptic_web3": {
+      "focus": "Crypto ETF market share, exchange liquidity",
+      "followers": 232715,
+      "handle": "cryptic_web3",
+      "language": "en",
+      "last10_average_impressions": 19778.1,
+      "last10_max_impressions": 25432,
+      "last10_media_posts": 9,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 15832,
+          "lang": "en",
+          "like_count": 229,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085080373642318284",
+          "post_url": "https://x.com/cryptic_web3/status/2085080373642318284",
+          "posted_at": "2026-08-05T19:07:54+00:00",
+          "quote_count": 0,
+          "reply_count": 16,
+          "repost_count": 14,
+          "text": "🇳🇬UPDATE: Nigeria has unveiled a comprehensive crypto tax framework, providing long-awaited clarity on how digital assets, staking, mining, airdrops, and DeFi activities will be taxed under the country's updated tax laws. The new rules place crypto exchanges and P2P platforms at https://t.co/rhLiMqi5zl"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 23729,
+          "lang": "en",
+          "like_count": 371,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085068267693986175",
+          "post_url": "https://x.com/cryptic_web3/status/2085068267693986175",
+          "posted_at": "2026-08-05T18:19:48+00:00",
+          "quote_count": 0,
+          "reply_count": 20,
+          "repost_count": 16,
+          "text": "Bitcoin closed July up 9.2%, outperforming both the average and median returns of the top 100 altcoins. While the combined altcoin market capitalization rose 8.8%, much of the growth was driven by a handful of major outperformers. Although the broader crypto market improved https://t.co/lEtWUAdK8L"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 16963,
+          "lang": "en",
+          "like_count": 250,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085051187884142908",
+          "post_url": "https://x.com/cryptic_web3/status/2085051187884142908",
+          "posted_at": "2026-08-05T17:11:56+00:00",
+          "quote_count": 0,
+          "reply_count": 21,
+          "repost_count": 16,
+          "text": "🚨NEW: @binance has launched Lite Loan, allowing eligible users to borrow up to 1,000 USDT against their Bitcoin without selling it and with no price-triggered liquidation during the initial 30-day loan term. Users can also use Bitcoin held in Binance Simple Earn Flexible as https://t.co/7ljyJqZfAd"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 19310,
+          "lang": "en",
+          "like_count": 422,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085031738619617656",
+          "post_url": "https://x.com/cryptic_web3/status/2085031738619617656",
+          "posted_at": "2026-08-05T15:54:39+00:00",
+          "quote_count": 0,
+          "reply_count": 20,
+          "repost_count": 15,
+          "text": "🚨🇺🇸LATEST: @WellsFargo is preparing to launch tokenized deposits for corporate clients, bringing blockchain-powered payments to one of America's largest banks. Unlike stablecoins, tokenized deposits are digital representations of traditional bank deposits, combining the https://t.co/DANpdMtLZm"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 11344,
+          "lang": "en",
+          "like_count": 284,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084978998560657840",
+          "post_url": "https://x.com/cryptic_web3/status/2084978998560657840",
+          "posted_at": "2026-08-05T12:25:04+00:00",
+          "quote_count": 0,
+          "reply_count": 27,
+          "repost_count": 21,
+          "text": "SPOILER: Cryptic has a cameo in the new Spider-Man movie. 🕷️👀 https://t.co/nqT3cM8BnI"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 24596,
+          "lang": "en",
+          "like_count": 384,
+          "media_types": [],
+          "post_id": "2084962530934538369",
+          "post_url": "https://x.com/cryptic_web3/status/2084962530934538369",
+          "posted_at": "2026-08-05T11:19:38+00:00",
+          "quote_count": 0,
+          "reply_count": 34,
+          "repost_count": 20,
+          "text": "gm frens 🫡"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 20248,
+          "lang": "en",
+          "like_count": 572,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084954871057510633",
+          "post_url": "https://x.com/cryptic_web3/status/2084954871057510633",
+          "posted_at": "2026-08-05T10:49:12+00:00",
+          "quote_count": 0,
+          "reply_count": 34,
+          "repost_count": 24,
+          "text": "This chart shows just how far ahead @binance has pulled. Its share of the $116B+ ETF perpetuals market has climbed from 18% in March to 74% in July, according to @BinanceResearch. As demand for crypto-native access to traditional assets grows, more trading activity is flowing https://t.co/CDoTIoeiyz"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 19160,
+          "lang": "en",
+          "like_count": 792,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084923270135197758",
+          "post_url": "https://x.com/cryptic_web3/status/2084923270135197758",
+          "posted_at": "2026-08-05T08:43:38+00:00",
+          "quote_count": 0,
+          "reply_count": 28,
+          "repost_count": 24,
+          "text": "🚨 MASSIVE: The world's largest custodian bank, @BNYglobal, is launching institutional crypto staking. In partnership with @galaxyhq, BNY will bring staking to its Digital Asset Custody platform, allowing institutions to earn staking rewards without moving assets out of custody. https://t.co/BhFjUTajG8"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 25432,
+          "lang": "en",
+          "like_count": 356,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084905844093960214",
+          "post_url": "https://x.com/cryptic_web3/status/2084905844093960214",
+          "posted_at": "2026-08-05T07:34:23+00:00",
+          "quote_count": 1,
+          "reply_count": 30,
+          "repost_count": 29,
+          "text": "🚨 NEW: @OKX says it protected over $1.1 billion in customer assets during the first half of 2026. It also prevented $26.3 million in scam-related losses, intercepted more than 5.7 million high-risk transactions, and blocked over 7.3 million visits to malicious websites. https://t.co/DMhbBcN74C"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 21167,
+          "lang": "en",
+          "like_count": 523,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084887911305269592",
+          "post_url": "https://x.com/cryptic_web3/status/2084887911305269592",
+          "posted_at": "2026-08-05T06:23:08+00:00",
+          "quote_count": 0,
+          "reply_count": 34,
+          "repost_count": 23,
+          "text": "🚨 HUGE: @WesternUnion has launched its Solana-based Stablecard. Built on Solana, the card lets users spend stablecoins at more than 175 million Visa merchants worldwide, bringing blockchain-based payments closer to everyday use. https://t.co/qc1c7qy7Q6"
+        }
+      ],
+      "last_seen_at": "2026-08-05T19:07:54+00:00",
+      "recent_post_url": "https://x.com/cryptic_web3/status/2084905844093960214",
+      "score": 99.37,
+      "tier": "member",
+      "user_id": "1718008194344026112",
+      "why_relevant": "232k followers; 20k+ views on recent original chart post on Binance ETF perpetuals dominance; crypto on-chain/exchange-risk analysis"
+    },
+    "cryptominers_co": {
+      "focus": "crypto market data and on-chain analysis",
+      "followers": 108753,
+      "handle": "cryptominers_co",
+      "language": "en",
+      "last10_average_impressions": 21178.7,
+      "last10_max_impressions": 41975,
+      "last10_media_posts": 10,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 14215,
+          "lang": "en",
+          "like_count": 64,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085151788811120863",
+          "post_url": "https://x.com/cryptominers_co/status/2085151788811120863",
+          "posted_at": "2026-08-05T23:51:41+00:00",
+          "quote_count": 0,
+          "reply_count": 6,
+          "repost_count": 12,
+          "text": "One stat from this week’s @DefiLlama data really stood out to us. 94.4% of all weekend tokenized stock trading happened on @binance! The number makes more sense when you zoom out More than half of all tokenized stock trading (51%) now happens outside US market hours, so once https://t.co/dMt7VOJyMe"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 12937,
+          "lang": "en",
+          "like_count": 48,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085135030335230131",
+          "post_url": "https://x.com/cryptominers_co/status/2085135030335230131",
+          "posted_at": "2026-08-05T22:45:05+00:00",
+          "quote_count": 0,
+          "reply_count": 7,
+          "repost_count": 12,
+          "text": "World Chain to launch streaming Block Access Lists via Flashblocks @world_chain_ will become the first production Layer 2 to stream full EIP-7928 Block Access Lists every 200ms through Flashblocks when the feature goes live on mainnet on Aug. 17. The upgrade enables validators https://t.co/IEjOq4EjvN"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 19078,
+          "lang": "en",
+          "like_count": 102,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085058701979959552",
+          "post_url": "https://x.com/cryptominers_co/status/2085058701979959552",
+          "posted_at": "2026-08-05T17:41:47+00:00",
+          "quote_count": 0,
+          "reply_count": 16,
+          "repost_count": 29,
+          "text": "Binance launches Bitcoin-backed Lite Loan @binance has introduced Lite Loan, a Bitcoin-backed borrowing product that lets eligible users borrow up to 1,000 $USDT without selling their $BTC. The product is designed for small, short-term loans and does not trigger price-based https://t.co/nsTp4Jy4jM"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 22332,
+          "lang": "en",
+          "like_count": 97,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084754076978565123",
+          "post_url": "https://x.com/cryptominers_co/status/2084754076978565123",
+          "posted_at": "2026-08-04T21:31:19+00:00",
+          "quote_count": 0,
+          "reply_count": 24,
+          "repost_count": 27,
+          "text": "BlackRock launches two tokenized money market funds @BlackRock has launched two tokenized money market products, including a new stablecoin reserve fund and a tokenized share class of an existing Treasury liquidity fund, expanding its onchain investment offerings. The funds are https://t.co/pwnD8hrivM"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 17007,
+          "lang": "en",
+          "like_count": 56,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084753705216377320",
+          "post_url": "https://x.com/cryptominers_co/status/2084753705216377320",
+          "posted_at": "2026-08-04T21:29:50+00:00",
+          "quote_count": 0,
+          "reply_count": 19,
+          "repost_count": 27,
+          "text": "BitGo launches Link for institutional crypto treasury management @BitGo has launched Link, a new platform that connects institutional clients’ accounts across exchanges like Coinbase, Kraken, and https://t.co/ywQUKurDnv to a unified interface. The platform enables users to view https://t.co/aHEIRfH7RJ"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 23319,
+          "lang": "en",
+          "like_count": 82,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084753488077316174",
+          "post_url": "https://x.com/cryptominers_co/status/2084753488077316174",
+          "posted_at": "2026-08-04T21:28:59+00:00",
+          "quote_count": 1,
+          "reply_count": 20,
+          "repost_count": 28,
+          "text": "Bitmine expands ETH treasury as Tom Lee highlights July outperformance @BitMNR added 10,399 $ETH over the past week, increasing its treasury to 5,797,813 $ETH, or approximately 4.8% of Ethereum’s total supply. Chairman Tom Lee also said ether outperformed the Nasdaq 100 by https://t.co/NmrkSvnbFC"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 18932,
+          "lang": "en",
+          "like_count": 78,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084054994295345365",
+          "post_url": "https://x.com/cryptominers_co/status/2084054994295345365",
+          "posted_at": "2026-08-02T23:13:25+00:00",
+          "quote_count": 1,
+          "reply_count": 25,
+          "repost_count": 31,
+          "text": "Bank of Italy tests stablecoin remittances across 10 payment corridors The Bank of Italy tested 200 stablecoin remittances across 10 payment corridors and found they outperformed the global average cost in most routes. The study also found that fiat conversion and local payment https://t.co/oPwjNsn35N"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 24866,
+          "lang": "en",
+          "like_count": 79,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084054897234964622",
+          "post_url": "https://x.com/cryptominers_co/status/2084054897234964622",
+          "posted_at": "2026-08-02T23:13:02+00:00",
+          "quote_count": 0,
+          "reply_count": 24,
+          "repost_count": 46,
+          "text": "Saylor hints at Strategy Bitcoin buy after five-week pause @Strategy Executive Chairman Michael Saylor hinted at a potential #Bitcoin purchase by posting “Bitcoin Drive engaged,” signaling a possible end to the firm’s five-week pause in disclosed $BTC acquisitions. Saylor also https://t.co/LracCyLZGu"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 41975,
+          "lang": "en",
+          "like_count": 67,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2083660083654005178",
+          "post_url": "https://x.com/cryptominers_co/status/2083660083654005178",
+          "posted_at": "2026-08-01T21:04:11+00:00",
+          "quote_count": 0,
+          "reply_count": 27,
+          "repost_count": 31,
+          "text": "Uniswap launches Earn with Morpho for onchain lending @Uniswap has partnered with @Morpho to launch Earn, a new lending product that lets users earn yield on idle $USDC, $USDT, and $ETH directly within the Uniswap app. The product uses Gauntlet-curated Morpho vaults, allowing https://t.co/kO9tPoc0Jw"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 17126,
+          "lang": "en",
+          "like_count": 103,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2082982386930000219",
+          "post_url": "https://x.com/cryptominers_co/status/2082982386930000219",
+          "posted_at": "2026-07-31T00:11:15+00:00",
+          "quote_count": 0,
+          "reply_count": 25,
+          "repost_count": 44,
+          "text": "MoonPay launches PayBox AI payment vault for ChatGPT and Claude @moonpay has introduced PayBox, a non-custodial AI payment vault that lets users connect ChatGPT and Claude to securely make payments directly from conversations. PayBox combines crypto wallets and payment cards, https://t.co/ljSDE5av3T"
+        }
+      ],
+      "last_seen_at": "2026-08-05T23:51:41+00:00",
+      "recent_post_url": "https://x.com/cryptominers_co/status/2083660083654005178",
+      "score": 99.61,
+      "tier": "member",
+      "user_id": "1396901359925047305",
+      "why_relevant": "108k+ followers; recent original post with chart/image on tokenized stock trading data from DefiLlama and Binance metrics (14k+ views); adds visual context and evidence-based market insights on liquidity and ETF-related trading, posted with"
+    },
+    "drbitcoinmd": {
+      "focus": "Bitcoin macro and market commentary",
+      "followers": 48798,
+      "handle": "drbitcoinmd",
+      "language": "en",
+      "last10_average_impressions": 8818.6,
+      "last10_max_impressions": 24654,
+      "last10_media_posts": 4,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 18253,
+          "lang": "en",
+          "like_count": 311,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085148568021614956",
+          "post_url": "https://x.com/drbitcoinmd/status/2085148568021614956",
+          "posted_at": "2026-08-05T23:38:53+00:00",
+          "quote_count": 3,
+          "reply_count": 55,
+          "repost_count": 20,
+          "text": "why tf is @nvk reposting this shit right now? https://t.co/DgGYS3wU0y"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 14247,
+          "lang": "en",
+          "like_count": 235,
+          "media_types": [],
+          "post_id": "2084743818096873654",
+          "post_url": "https://x.com/drbitcoinmd/status/2084743818096873654",
+          "posted_at": "2026-08-04T20:50:33+00:00",
+          "quote_count": 1,
+          "reply_count": 23,
+          "repost_count": 7,
+          "text": "where in the world is Rodolfo Novak?"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 1541,
+          "lang": "en",
+          "like_count": 34,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084741432485757361",
+          "post_url": "https://x.com/drbitcoinmd/status/2084741432485757361",
+          "posted_at": "2026-08-04T20:41:04+00:00",
+          "quote_count": 0,
+          "reply_count": 3,
+          "repost_count": 4,
+          "text": "presented without comment https://t.co/NokW0FAuzt"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 3488,
+          "lang": "en",
+          "like_count": 75,
+          "media_types": [],
+          "post_id": "2084735532463276115",
+          "post_url": "https://x.com/drbitcoinmd/status/2084735532463276115",
+          "posted_at": "2026-08-04T20:17:38+00:00",
+          "quote_count": 0,
+          "reply_count": 3,
+          "repost_count": 4,
+          "text": "well then https://t.co/plw5bwLYwp"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 2532,
+          "lang": "en",
+          "like_count": 32,
+          "media_types": [],
+          "post_id": "2084688991756947921",
+          "post_url": "https://x.com/drbitcoinmd/status/2084688991756947921",
+          "posted_at": "2026-08-04T17:12:41+00:00",
+          "quote_count": 0,
+          "reply_count": 12,
+          "repost_count": 4,
+          "text": "Coldcard"
+        },
+        {
+          "has_image": false,
+          "has_video": true,
+          "impression_count": 9644,
+          "lang": "en",
+          "like_count": 249,
+          "media_types": [
+            "animated_gif"
+          ],
+          "post_id": "2084471715304718782",
+          "post_url": "https://x.com/drbitcoinmd/status/2084471715304718782",
+          "posted_at": "2026-08-04T02:49:19+00:00",
+          "quote_count": 0,
+          "reply_count": 10,
+          "repost_count": 5,
+          "text": "randomly remembered I had ~$5k on a spare coldcard I was experimenting with years ago https://t.co/EzikaurbA0"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 3023,
+          "lang": "en",
+          "like_count": 173,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084446014140756312",
+          "post_url": "https://x.com/drbitcoinmd/status/2084446014140756312",
+          "posted_at": "2026-08-04T01:07:11+00:00",
+          "quote_count": 0,
+          "reply_count": 4,
+          "repost_count": 12,
+          "text": "people telling bitcoiners they were lucky https://t.co/okWP9OosZO"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 24654,
+          "lang": "en",
+          "like_count": 269,
+          "media_types": [],
+          "post_id": "2084444515620778306",
+          "post_url": "https://x.com/drbitcoinmd/status/2084444515620778306",
+          "posted_at": "2026-08-04T01:01:14+00:00",
+          "quote_count": 0,
+          "reply_count": 41,
+          "repost_count": 7,
+          "text": "he hasn't tweeted in 3 days by the way https://t.co/fILP24laZz"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 7614,
+          "lang": "en",
+          "like_count": 121,
+          "media_types": [],
+          "post_id": "2084442591026635220",
+          "post_url": "https://x.com/drbitcoinmd/status/2084442591026635220",
+          "posted_at": "2026-08-04T00:53:35+00:00",
+          "quote_count": 0,
+          "reply_count": 15,
+          "repost_count": 3,
+          "text": "the Coldcard update that bricked devices was pretty funny to be fair"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 3190,
+          "lang": "en",
+          "like_count": 122,
+          "media_types": [],
+          "post_id": "2084322857224458721",
+          "post_url": "https://x.com/drbitcoinmd/status/2084322857224458721",
+          "posted_at": "2026-08-03T16:57:48+00:00",
+          "quote_count": 1,
+          "reply_count": 5,
+          "repost_count": 6,
+          "text": "bitcoin just keeps on ticking it truly is remarkable I've been around long enough to be numb to practically everything, but once in a while it's nice to have a reminder of how special this phenomenon is"
+        }
+      ],
+      "last_seen_at": "2026-08-05T23:38:53+00:00",
+      "recent_post_url": "https://x.com/drbitcoinmd/status/2084444515620778306",
+      "score": 85.07,
+      "tier": "member",
+      "user_id": "866982591114731523",
+      "why_relevant": "48k+ followers; recent original post with image/chart (18k+ views); provides evidence-based Bitcoin and macro analysis, posted within last 3 days."
+    },
+    "pete_rizzo_": {
+      "focus": "Bitcoin history, macro, crypto legislation and on-chain context",
+      "followers": 216950,
+      "handle": "pete_rizzo_",
+      "language": "en",
+      "last10_average_impressions": 23612.1,
+      "last10_max_impressions": 81764,
+      "last10_media_posts": 7,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": true,
+          "impression_count": 2134,
+          "lang": "en",
+          "like_count": 33,
+          "media_types": [
+            "photo",
+            "video"
+          ],
+          "post_id": "2085191881944694991",
+          "post_url": "https://x.com/pete_rizzo_/status/2085191881944694991",
+          "posted_at": "2026-08-06T02:31:00+00:00",
+          "quote_count": 0,
+          "reply_count": 6,
+          "repost_count": 4,
+          "text": "BILLIONAIRE JACK DORSEY JUST DROPPED ALL NEXT DAY SHIPPING COSTS ON HIS SECURE #BITCOIN WALLET BITKEY ONE OF THE WORLD'S RICHEST MEN IS DOING EVERYTHING HE CAN DO TO SUPPORT BTC OTHERS ARE PANICKING AND SELLING HE IS USING ALL HIS RESOURCES TO HELP REAL BTC USERS RECOVER FROM https://t.co/Ik8XniyUq9"
+        },
+        {
+          "has_image": false,
+          "has_video": true,
+          "impression_count": 7237,
+          "lang": "en",
+          "like_count": 88,
+          "media_types": [
+            "video"
+          ],
+          "post_id": "2085170239361212471",
+          "post_url": "https://x.com/pete_rizzo_/status/2085170239361212471",
+          "posted_at": "2026-08-06T01:05:00+00:00",
+          "quote_count": 1,
+          "reply_count": 14,
+          "repost_count": 14,
+          "text": "JUST IN: ANTHONY SCARAMUCCI JUST SAID PASSING THE #BITCOIN AND CRYPTO CLARITY ACT WILL LOCK IN US GLOBAL DOMINANCE FOR 100 YEARS \"IT IS GOOD FOR THE INDUSTRY. IT IS GOOD FOR AMERICA. THIS IS VERY GOOD FOR THE COUNTRY.\" \"THE US MUST MAINTAIN AND EXTEND ITS FINANCIAL SERVICES https://t.co/JgPVqdK6Ob"
+        },
+        {
+          "has_image": true,
+          "has_video": true,
+          "impression_count": 69085,
+          "lang": "en",
+          "like_count": 524,
+          "media_types": [
+            "photo",
+            "video"
+          ],
+          "post_id": "2085142557206741016",
+          "post_url": "https://x.com/pete_rizzo_/status/2085142557206741016",
+          "posted_at": "2026-08-05T23:15:00+00:00",
+          "quote_count": 20,
+          "reply_count": 262,
+          "repost_count": 103,
+          "text": "BREAKING: 🇺🇸 REPUBLICAN SENATOR JOSH HAWLEY JUST ANNOUNCED HE WILL VOTE AGAINST THE #BITCOIN CLARITY ACT –– POLITICO HE REFUSES TO SUPPORT THE BILL BECAUSE THE BIG BANKS ARE \"VERY, VERY WORRIED” BANKERS “ARE BLOWING HIM UP” BEGGING HIM TO DO ANYTHING TO STOP BTC FROM COMPETING https://t.co/PfiIWgeJyf"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 8379,
+          "lang": "en",
+          "like_count": 7,
+          "media_types": [],
+          "post_id": "2085097498490613954",
+          "post_url": "https://x.com/pete_rizzo_/status/2085097498490613954",
+          "posted_at": "2026-08-05T20:15:57+00:00",
+          "quote_count": 0,
+          "reply_count": 0,
+          "repost_count": 0,
+          "text": "Punchbowl reports 👀: https://t.co/L0aCPWyqJV"
+        },
+        {
+          "has_image": false,
+          "has_video": true,
+          "impression_count": 81764,
+          "lang": "en",
+          "like_count": 1175,
+          "media_types": [
+            "video"
+          ],
+          "post_id": "2085095412998811842",
+          "post_url": "https://x.com/pete_rizzo_/status/2085095412998811842",
+          "posted_at": "2026-08-05T20:07:40+00:00",
+          "quote_count": 13,
+          "reply_count": 113,
+          "repost_count": 199,
+          "text": "BREAKING: 🇺🇸 PRESIDENT TRUMP’S WHITE HOUSE JUST CONFIRMED HE IS NOW ACTIVELY REVIEWING THE #BITCOIN AND CRYPTO CLARITY ACT ETHICS PROVISION AS WE SPEAK THE FINAL UPDATE TO THE CLARITY ACT IS NOW HAPPENING IN REAL TIME REPUBLICANS AND DEMOCRATS ARE COMING TOGETHER AT THE FINISH https://t.co/9KVWvpBj5a"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 1971,
+          "lang": "en",
+          "like_count": 5,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085078519655113128",
+          "post_url": "https://x.com/pete_rizzo_/status/2085078519655113128",
+          "posted_at": "2026-08-05T19:00:32+00:00",
+          "quote_count": 0,
+          "reply_count": 0,
+          "repost_count": 0,
+          "text": "Read the full story here 👀: https://t.co/zUdi22aumM https://t.co/jgRdS8pPHR"
+        },
+        {
+          "has_image": true,
+          "has_video": true,
+          "impression_count": 36920,
+          "lang": "en",
+          "like_count": 903,
+          "media_types": [
+            "photo",
+            "video"
+          ],
+          "post_id": "2085075802006106195",
+          "post_url": "https://x.com/pete_rizzo_/status/2085075802006106195",
+          "posted_at": "2026-08-05T18:49:44+00:00",
+          "quote_count": 24,
+          "reply_count": 52,
+          "repost_count": 156,
+          "text": "BREAKING: 🇷🇺 PRESIDENT PUTIN JUST OFFICIALLY SIGNED #BITCOIN AND CRYPTO MARKET STRUCTURE BILL INTO LAW RUSSIA IS WINNING OVER AMERICA WE NEED TO PASS THE CLARITY ACT NOW IT CAN'T WAIT ANY LONGER ✊ https://t.co/JFcw5tkKd0"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 1493,
+          "lang": "en",
+          "like_count": 3,
+          "media_types": [],
+          "post_id": "2085071157275799990",
+          "post_url": "https://x.com/pete_rizzo_/status/2085071157275799990",
+          "posted_at": "2026-08-05T18:31:17+00:00",
+          "quote_count": 0,
+          "reply_count": 0,
+          "repost_count": 0,
+          "text": "Watch full interview here 👀: https://t.co/f2IpN9K9dK"
+        },
+        {
+          "has_image": false,
+          "has_video": true,
+          "impression_count": 22081,
+          "lang": "en",
+          "like_count": 377,
+          "media_types": [
+            "video"
+          ],
+          "post_id": "2085056437013602810",
+          "post_url": "https://x.com/pete_rizzo_/status/2085056437013602810",
+          "posted_at": "2026-08-05T17:32:47+00:00",
+          "quote_count": 3,
+          "reply_count": 27,
+          "repost_count": 61,
+          "text": "JUST IN: SENATOR SCOTT JUST DEMANDED ON FOX THAT THE SENATE STAY AND FINISH THE #BITCOIN CLARITY ACT HE SAYS LUMMIS HAS “WORKED HER BUTT OFF” ON THE BILL “WE’VE GOT TO STAY HERE AND START TALKING TO EACH OTHER” “WE’RE NOT TALKING TO EACH OTHER” TIME TO GET IT DONE 👏👏 https://t.co/ysHaiXfE1T"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 5057,
+          "lang": "en",
+          "like_count": 14,
+          "media_types": [],
+          "post_id": "2085048371929395493",
+          "post_url": "https://x.com/pete_rizzo_/status/2085048371929395493",
+          "posted_at": "2026-08-05T17:00:44+00:00",
+          "quote_count": 0,
+          "reply_count": 9,
+          "repost_count": 2,
+          "text": "🔴 CLARITY IN CRISIS | What's Next for the Bitcoin Bill? https://t.co/QlyoKSghal"
+        }
+      ],
+      "last_seen_at": "2026-08-06T02:31:00+00:00",
+      "recent_post_url": "https://x.com/pete_rizzo_/status/2085095412998811842",
+      "score": 99.99,
+      "tier": "member",
+      "user_id": "341746855",
+      "why_relevant": "Overseas Bitcoin historian account; recent original post (Aug 5 2026) includes video + charts on US crypto legislation and institutional flows; high engagement and impressions; publishes macro/crypto analysis with original visuals; no promo"
+    },
+    "thelonginvest": {
+      "focus": "TA/FA equities analysis, NVDA/AI market charts",
+      "followers": 272501,
+      "handle": "thelonginvest",
+      "language": "en",
+      "last10_average_impressions": 43305.1,
+      "last10_max_impressions": 105413,
+      "last10_media_posts": 4,
+      "last10_posts": [
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 31541,
+          "lang": "en",
+          "like_count": 184,
+          "media_types": [],
+          "post_id": "2085081820262019082",
+          "post_url": "https://x.com/thelonginvest/status/2085081820262019082",
+          "posted_at": "2026-08-05T19:13:39+00:00",
+          "quote_count": 1,
+          "reply_count": 26,
+          "repost_count": 8,
+          "text": "Understand Technical Analysis Understand Fundamental Analysis Understand market cycles Understand rotation Understand conviction Understand strategy Understand your risk tolerance Control your emotions. And that’s all you need to make money."
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 26941,
+          "lang": "en",
+          "like_count": 207,
+          "media_types": [],
+          "post_id": "2085072587650965530",
+          "post_url": "https://x.com/thelonginvest/status/2085072587650965530",
+          "posted_at": "2026-08-05T18:36:58+00:00",
+          "quote_count": 0,
+          "reply_count": 35,
+          "repost_count": 9,
+          "text": "Mf’s be like ‘You work too hard’ While they struggle paycheck to paycheck Work like a dog, live like a king."
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 31753,
+          "lang": "en",
+          "like_count": 226,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085064618989260956",
+          "post_url": "https://x.com/thelonginvest/status/2085064618989260956",
+          "posted_at": "2026-08-05T18:05:18+00:00",
+          "quote_count": 0,
+          "reply_count": 22,
+          "repost_count": 4,
+          "text": "$NVDA Look at this dog +16% and running to its Earnings date This was the only chart you needed to follow to see where the market was going $NVDA is the key https://t.co/bB0oXpCf2Z"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 34971,
+          "lang": "en",
+          "like_count": 268,
+          "media_types": [],
+          "post_id": "2085063253692985824",
+          "post_url": "https://x.com/thelonginvest/status/2085063253692985824",
+          "posted_at": "2026-08-05T17:59:52+00:00",
+          "quote_count": 1,
+          "reply_count": 37,
+          "repost_count": 5,
+          "text": "It needs to be said again That Saylor and Cramer sold on $BTCs 200 WMA The long term value line The exact worst place to sell Remember these two are suppose to be professionals And one is the number one advocate for $BTC And the other is a veteran of the market for +40"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 27057,
+          "lang": "en",
+          "like_count": 323,
+          "media_types": [],
+          "post_id": "2085060983911862357",
+          "post_url": "https://x.com/thelonginvest/status/2085060983911862357",
+          "posted_at": "2026-08-05T17:50:51+00:00",
+          "quote_count": 0,
+          "reply_count": 26,
+          "repost_count": 12,
+          "text": "$ETH breaking above $2000 next will send this directly to $2450 to the 200 WMA"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 35075,
+          "lang": "en",
+          "like_count": 172,
+          "media_types": [],
+          "post_id": "2085060318632313112",
+          "post_url": "https://x.com/thelonginvest/status/2085060318632313112",
+          "posted_at": "2026-08-05T17:48:13+00:00",
+          "quote_count": 0,
+          "reply_count": 25,
+          "repost_count": 6,
+          "text": "Common misconception about safe havens is that they move slow And retail struggles to buy any position that they expect to move slow But Silver, Gold, $UNH, $TGT, $UPS, $KO Have proven they can move 5-10X the speed of the market Your only job is the get the right entry for"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 36291,
+          "lang": "en",
+          "like_count": 119,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085050995801813282",
+          "post_url": "https://x.com/thelonginvest/status/2085050995801813282",
+          "posted_at": "2026-08-05T17:11:10+00:00",
+          "quote_count": 1,
+          "reply_count": 29,
+          "repost_count": 4,
+          "text": "Not a good year for Pershing Square and Bill Ackman. -9.2% YTD https://t.co/3ryMSCWxUh"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 59367,
+          "lang": "en",
+          "like_count": 145,
+          "media_types": [],
+          "post_id": "2085050319205990483",
+          "post_url": "https://x.com/thelonginvest/status/2085050319205990483",
+          "posted_at": "2026-08-05T17:08:29+00:00",
+          "quote_count": 0,
+          "reply_count": 16,
+          "repost_count": 3,
+          "text": "Market has not liked the comments from Kashkari today but it should not come as a surprise. Rate Hikes will be needed at some stage this year and I believe a +0.25% hike in September will happen. That being said, we had a strong 2 days in the market, some cooling before moving https://t.co/Huk87GDxP2"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 44642,
+          "lang": "en",
+          "like_count": 284,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085044746628530380",
+          "post_url": "https://x.com/thelonginvest/status/2085044746628530380",
+          "posted_at": "2026-08-05T16:46:20+00:00",
+          "quote_count": 1,
+          "reply_count": 21,
+          "repost_count": 16,
+          "text": "$HIMS And this is also Bullish Price action is getting squeezed between the 50 and 200 WMA while holding support on the 200 WMA and the historical $25 level After completing Wave 2 and moving into Wave 3 And while in a bullish wedge AND not following the US market and being https://t.co/HADUoG6wkt"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 105413,
+          "lang": "en",
+          "like_count": 318,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085043615093383273",
+          "post_url": "https://x.com/thelonginvest/status/2085043615093383273",
+          "posted_at": "2026-08-05T16:41:50+00:00",
+          "quote_count": 2,
+          "reply_count": 19,
+          "repost_count": 7,
+          "text": "$ZETA Whatever way you look at this chart, it's bullish. https://t.co/JJRxc3JmjT"
+        }
+      ],
+      "last_seen_at": "2026-08-05T19:13:39+00:00",
+      "recent_post_url": "https://x.com/thelonginvest/status/2085043615093383273",
+      "score": 93.0,
+      "tier": "member",
+      "user_id": "1378993399844442112",
+      "why_relevant": "TA/FA analyst posting market structure charts on AI leaders; 31k+ views, recent original post with visuals, finance focus"
+    },
+    "timmerfidelity": {
+      "focus": "Global macro, AI/semiconductor market structure, equities analysis with charts",
+      "followers": 215683,
+      "handle": "timmerfidelity",
+      "language": "en",
+      "last10_average_impressions": 15634.1,
+      "last10_max_impressions": 26036,
+      "last10_media_posts": 9,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 16096,
+          "lang": "en",
+          "like_count": 97,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085138783100449102",
+          "post_url": "https://x.com/timmerfidelity/status/2085138783100449102",
+          "posted_at": "2026-08-05T23:00:00+00:00",
+          "quote_count": 0,
+          "reply_count": 5,
+          "repost_count": 15,
+          "text": "Looking at the distribution of earnings growth and valuation, we can see how dominated this cycle has been of late by earnings growth. EPS growth is at the right tail, while the change in the P/E multiple is smack in the middle of its bell curve. It’s a far cry from 2023 (the https://t.co/FReyemcecW"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 14474,
+          "lang": "en",
+          "like_count": 82,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085089834842853615",
+          "post_url": "https://x.com/timmerfidelity/status/2085089834842853615",
+          "posted_at": "2026-08-05T19:45:30+00:00",
+          "quote_count": 0,
+          "reply_count": 6,
+          "repost_count": 12,
+          "text": "With 305 companies now having reported their Q2 earnings, the year-over-year growth rate is 29%, up from 24% at the start of the quarter. This is same rate as we got in Q1, as well as the earnings growth peak in 2018. https://t.co/gHTr48MH6D"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 26036,
+          "lang": "en",
+          "like_count": 286,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084996498429768019",
+          "post_url": "https://x.com/timmerfidelity/status/2084996498429768019",
+          "posted_at": "2026-08-05T13:34:37+00:00",
+          "quote_count": 8,
+          "reply_count": 9,
+          "repost_count": 28,
+          "text": "A reasonable person would have assumed that the recent shakeout in the AI momentum and semiconductor space would have sent speculators running for the hills, but that has not been the case. In fact, per the chart below it appears that the fast money in South Korea and the US is https://t.co/FqGelRTE2U"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 14080,
+          "lang": "en",
+          "like_count": 123,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084776395385811072",
+          "post_url": "https://x.com/timmerfidelity/status/2084776395385811072",
+          "posted_at": "2026-08-04T23:00:00+00:00",
+          "quote_count": 1,
+          "reply_count": 12,
+          "repost_count": 16,
+          "text": "The momentum trade turned a positive corner last week, with both the Mag 7 and the AI space rallying. Looking at the 50-day Z-score of various groups on the Rotation chart, we see that the past few months produced a nice broadening from mega to non-AI stocks. Meanwhile, the S&amp;P https://t.co/BYxDyH7yas"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 11756,
+          "lang": "en",
+          "like_count": 42,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084746199387738390",
+          "post_url": "https://x.com/timmerfidelity/status/2084746199387738390",
+          "posted_at": "2026-08-04T21:00:01+00:00",
+          "quote_count": 1,
+          "reply_count": 7,
+          "repost_count": 6,
+          "text": "Looking at the heatmap below, these prizes and obstacles are clearly visible. The operating margin has now soared to an all-time high of 16.5 while earnings growth has expanded to 22%. Breadth is solid at 69% (of stocks above their 200-day moving average), sentiment (outside of https://t.co/OpSzXYfiSN"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 13685,
+          "lang": "en",
+          "like_count": 113,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2084723546643653022",
+          "post_url": "https://x.com/timmerfidelity/status/2084723546643653022",
+          "posted_at": "2026-08-04T19:30:00+00:00",
+          "quote_count": 1,
+          "reply_count": 14,
+          "repost_count": 9,
+          "text": "For the current market cycle and secular trend, the prize is the outsized total return driven by thriving earnings growth, rising margins, tight credit spreads, and a robust economy. But the obstacles are plentiful, from overconfidence (sentiment) to rising term premia (and https://t.co/ugweAdQie5"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 10535,
+          "lang": "en",
+          "like_count": 28,
+          "media_types": [],
+          "post_id": "2084637872947184040",
+          "post_url": "https://x.com/timmerfidelity/status/2084637872947184040",
+          "posted_at": "2026-08-04T13:49:34+00:00",
+          "quote_count": 0,
+          "reply_count": 2,
+          "repost_count": 2,
+          "text": "It was another successful Pan-Mass Challenge this weekend, and after doing this for 28 years in a row, I can attest to the inverse correlation between age and training on the one hand, and the level of comfort on the other hand. But all good, and the scrappy little team Stirling"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 16174,
+          "lang": "en",
+          "like_count": 42,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2083502462577656136",
+          "post_url": "https://x.com/timmerfidelity/status/2083502462577656136",
+          "posted_at": "2026-08-01T10:37:51+00:00",
+          "quote_count": 0,
+          "reply_count": 3,
+          "repost_count": 2,
+          "text": "Off we go @PanMass https://t.co/ZQgP1sH6zQ"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 18430,
+          "lang": "en",
+          "like_count": 128,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2083289095954919530",
+          "post_url": "https://x.com/timmerfidelity/status/2083289095954919530",
+          "posted_at": "2026-07-31T20:30:00+00:00",
+          "quote_count": 1,
+          "reply_count": 6,
+          "repost_count": 22,
+          "text": "From a structural perspective (with regards to the secular bull market), the big question is whether the bull can hold up if its biggest leaders fade from prominence. Below, in the Mag 7 chart, we see that the payout ratio of the Mag 7 has fallen to 37% as companies switched https://t.co/MxbaCFxjOF"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 15075,
+          "lang": "en",
+          "like_count": 93,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2083243797379481610",
+          "post_url": "https://x.com/timmerfidelity/status/2083243797379481610",
+          "posted_at": "2026-07-31T17:30:00+00:00",
+          "quote_count": 0,
+          "reply_count": 7,
+          "repost_count": 13,
+          "text": "Below we see how dramatic the deterioration has been for the Mag 7 in not only the payout CAGR but also the payout ratio. Fortunately, there are plenty of options in terms of regions and sectors that offer equally compelling growth rates and better payout ratios. This is a great https://t.co/Txx0qsBCJk"
+        }
+      ],
+      "last_seen_at": "2026-08-05T23:00:00+00:00",
+      "recent_post_url": "https://x.com/timmerfidelity/status/2084996498429768019",
+      "score": 98.55,
+      "tier": "member",
+      "user_id": "2918307101",
+      "why_relevant": "Fidelity Director of Global Macro; recent post (Aug 5) analyzes AI/semiconductor momentum with source chart, 26k+ views, finance/macro focus, no promotions"
+    },
+    "wallstengine": {
+      "focus": "US equities, hedge funds, AI/tech earnings",
+      "followers": 175365,
+      "handle": "wallstengine",
+      "language": "en",
+      "last10_average_impressions": 33358.2,
+      "last10_max_impressions": 91113,
+      "last10_media_posts": 7,
+      "last10_posts": [
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 13100,
+          "lang": "en",
+          "like_count": 50,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085169034509820074",
+          "post_url": "https://x.com/wallstengine/status/2085169034509820074",
+          "posted_at": "2026-08-06T01:00:13+00:00",
+          "quote_count": 1,
+          "reply_count": 3,
+          "repost_count": 6,
+          "text": "“open-source” $META 👀 https://t.co/VVtm2sQKZw"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 21443,
+          "lang": "en",
+          "like_count": 79,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085146197564760268",
+          "post_url": "https://x.com/wallstengine/status/2085146197564760268",
+          "posted_at": "2026-08-05T23:29:28+00:00",
+          "quote_count": 2,
+          "reply_count": 9,
+          "repost_count": 9,
+          "text": "$META AI HACKED ANOTHER COMPANY DURING TESTING During a cybersecurity evaluation, Muse Spark 1.1 accessed the public internet after testing firm Irregular misconfigured its sandbox. The model then exploited a vulnerability in a third-party service and changed its internal https://t.co/7ozwYnJsO8"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 91113,
+          "lang": "en",
+          "like_count": 265,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085144281992614100",
+          "post_url": "https://x.com/wallstengine/status/2085144281992614100",
+          "posted_at": "2026-08-05T23:21:51+00:00",
+          "quote_count": 15,
+          "reply_count": 39,
+          "repost_count": 16,
+          "text": "SITUATIONAL AWARENESS PUTS $500M INTO UNNAMED COMPANY: BBG Leopold Aschenbrenner’s fund invested another $400M Tuesday, after putting $100M into the same company last month. The recipient is an existing private portfolio holding but has not been identified. https://t.co/Cd1kp1noYK"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 21861,
+          "lang": "en",
+          "like_count": 40,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085117594554806309",
+          "post_url": "https://x.com/wallstengine/status/2085117594554806309",
+          "posted_at": "2026-08-05T21:35:48+00:00",
+          "quote_count": 1,
+          "reply_count": 8,
+          "repost_count": 5,
+          "text": "$AEVA SIGNS NEAR-PACKAGED OPTICS AGREEMENT Signed a JDA with an optics provider for a major hyperscaler’s NPO solution. Volumes could begin in 2027 and ramp in 2028. If qualified, Aeva sees potential for millions of units annually and hundreds of millions in annual revenue. https://t.co/NBRSoeJLxt"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 19532,
+          "lang": "en",
+          "like_count": 57,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085115326107353389",
+          "post_url": "https://x.com/wallstengine/status/2085115326107353389",
+          "posted_at": "2026-08-05T21:26:47+00:00",
+          "quote_count": 3,
+          "reply_count": 10,
+          "repost_count": 10,
+          "text": "SOUNDHOUND AI $SOUN Q2’26 EARNINGS HIGHLIGHTS 🔹 Revenue: $61.9M (Est. $52.4M) 🟢; +45% YoY 🔹 Adj. EPS: -$0.02 (Est. -$0.06) 🟢 🔹 Gross Margin: 45.1% Raises FY26 Guide: 🔹 Revenue: $230M-$260M (Est. $232M) 🟢 Other Q2 Metrics: 🔹 Cash &amp; Cash Equivalents: $203M; no debt https://t.co/TSZfRYdZGE"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 17276,
+          "lang": "en",
+          "like_count": 24,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085112036808425794",
+          "post_url": "https://x.com/wallstengine/status/2085112036808425794",
+          "posted_at": "2026-08-05T21:13:43+00:00",
+          "quote_count": 1,
+          "reply_count": 1,
+          "repost_count": 0,
+          "text": "Hudson Technologies $HDSN has been awarded a potential $210.4M Defense Logistics Agency contract for industrial gases and cylinders. The contract includes a five-year base period and one five-year option, supporting the Army, Navy, Air Force, Marine Corps and Space Force. https://t.co/VQLvlr3jwo"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 35619,
+          "lang": "en",
+          "like_count": 171,
+          "media_types": [],
+          "post_id": "2085109800002839003",
+          "post_url": "https://x.com/wallstengine/status/2085109800002839003",
+          "posted_at": "2026-08-05T21:04:50+00:00",
+          "quote_count": 3,
+          "reply_count": 6,
+          "repost_count": 10,
+          "text": "Sandisk $SNDK will provide more details on its High Bandwidth Flash, or HBF, technology next week at Investor Day."
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 32962,
+          "lang": "en",
+          "like_count": 114,
+          "media_types": [],
+          "post_id": "2085109405209727305",
+          "post_url": "https://x.com/wallstengine/status/2085109405209727305",
+          "posted_at": "2026-08-05T21:03:16+00:00",
+          "quote_count": 0,
+          "reply_count": 3,
+          "repost_count": 9,
+          "text": "$SNDK calls these long-term customer supply agreements its “New Business Model,” or NBM. They include committed purchase volumes, multi-year duration, pricing floors and ceilings, and financial guarantees from customers. https://t.co/2wJe9RbPKR"
+        },
+        {
+          "has_image": false,
+          "has_video": false,
+          "impression_count": 46111,
+          "lang": "en",
+          "like_count": 96,
+          "media_types": [],
+          "post_id": "2085108485247869004",
+          "post_url": "https://x.com/wallstengine/status/2085108485247869004",
+          "posted_at": "2026-08-05T20:59:36+00:00",
+          "quote_count": 2,
+          "reply_count": 4,
+          "repost_count": 8,
+          "text": "$SNDK expects its New Business Model agreements to represent: &gt; More than 50% of bits in FY27 &gt; Approximately two-thirds of bits in FY28 Management says NBMs are “quickly becoming our predominant way of doing business.”"
+        },
+        {
+          "has_image": true,
+          "has_video": false,
+          "impression_count": 34565,
+          "lang": "en",
+          "like_count": 98,
+          "media_types": [
+            "photo"
+          ],
+          "post_id": "2085106907967353012",
+          "post_url": "https://x.com/wallstengine/status/2085106907967353012",
+          "posted_at": "2026-08-05T20:53:20+00:00",
+          "quote_count": 0,
+          "reply_count": 6,
+          "repost_count": 4,
+          "text": "NIKITA BIER STEPS DOWN AS HEAD OF PRODUCT AT X https://t.co/tzxZXcUxtL https://t.co/rwUG9fjb6i"
+        }
+      ],
+      "last_seen_at": "2026-08-06T01:00:13+00:00",
+      "recent_post_url": "https://x.com/wallstengine/status/2085144281992614100",
+      "score": 94.0,
+      "tier": "member",
+      "user_id": "1508426880860704771",
+      "why_relevant": "175k followers; 90k+ views on recent original chart/image post about situational awareness fund investment in equities; publishes macro/equities/liquidity analysis with visuals"
+    }
+  },
+  "unresolved_member_ids": [],
+  "version": 1
+}
