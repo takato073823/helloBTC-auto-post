@@ -240,6 +240,16 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-06T08:08:30.312740+00:00"
+    },
+    {
+      "slot": "2026-08-06-23-a",
+      "post_id": "inu_auto_df9c69221d0df1",
+      "source_url": "https://status.kraken.com",
+      "topic_type": "developing_story",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-06T14:58:01.254442+00:00"
     }
   ],
   "history": [
