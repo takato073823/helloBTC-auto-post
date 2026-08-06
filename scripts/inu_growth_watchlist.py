@@ -608,7 +608,10 @@ def refresh_watchlist(
     add_limit = INITIAL_ADD_LIMIT if len(current_members) < TARGET_SIZE else STEADY_ADD_LIMIT
     to_add = [user_id for user_id in desired_by_id if user_id not in actual_ids][:add_limit]
     added, pending_add = list_client.add_members(list_id, to_add)
-    for user_id in added:
+    # 既にXリストにいる合格者も、次回のB探索から漏れないよう正式会員へ昇格する。
+    # 以前の実装は新規追加分だけをmemberにしていたため、既存の日本語合格者が
+    # probationのまま残り、統合タイムラインの対象から外れる場合があった。
+    for user_id in set(added) | (set(actual_ids) & set(desired_by_id)):
         record = desired_by_id[user_id]
         record["tier"] = "member"
         record["added_at"] = record.get("added_at") or _iso(now)

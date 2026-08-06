@@ -166,6 +166,20 @@ class WatchlistTests(unittest.TestCase):
         self.assertEqual(added_before, len(api.added))
         self.assertEqual(1, api.created)
 
+    @patch("inu_growth_watchlist.discover_accounts", return_value=[])
+    def test_existing_selected_probation_is_promoted_for_boost_discovery(self, _discovery):
+        api = FakeListApi()
+        api.members = {"1"}
+        state = watchlist.default_state()
+        state.update({"list_id": "list-1", "managed_initialized": True})
+        state["members"]["marketdata"] = {
+            "handle": "marketdata", "user_id": "1", "tier": "probation", "language": "ja",
+            "score": 80, "followers": 20_000, "last_seen_at": "2026-08-05T11:30:00Z",
+            "added_at": "", "low_score_cycles": 0,
+        }
+        watchlist.refresh_watchlist(state, api, NOW, allow_create=True, dry_run=False)
+        self.assertEqual("member", state["members"]["marketdata"]["tier"])
+
     def test_existing_same_name_list_is_reused(self):
         class Existing(FakeListApi):
             def get_owned_lists(self, *_args, **_kwargs):
