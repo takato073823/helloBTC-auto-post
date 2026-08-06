@@ -50,7 +50,10 @@ BLOCKED_TERMS = (
     "airdrop", "giveaway", "referral", "invite", "招待", "キャンペーン", "プレゼント",
     "価格予想", "signals", "pump", "copytrade", "copy trade", "dm me", "100x", "稳赚",
 )
-ALLOWED_LANGUAGES = {"ja", "en", "zh"}
+JAPANESE_LANGUAGE = "ja"
+# X APIが返す直近投稿の言語タグで、日本語が過半を占めることを実測する。
+# プロフィール文やモデルの自己申告だけでは国・言語を確定しない。
+JAPANESE_TIMELINE_SHARE = 0.60
 HANDLE_RE = re.compile(r"^[A-Za-z0-9_]{1,15}$")
 
 # 初回だけ最大12系統を横断する。満員後は補充数に応じて必要な分だけ実行する。
@@ -58,15 +61,8 @@ DISCOVERY_TRACKS = (
     ("ja", "日本語で、一次情報・オンチェーン・ETFフローを継続的に検証する暗号資産の専門家"),
     ("ja", "日本語で、米国株・日本株・金利・為替をデータとともに扱う投資・マクロの専門家"),
     ("ja", "日本語で、AI・半導体・テック企業の業績や投資論点を継続的に扱う分析者"),
-    ("en", "English crypto market, Bitcoin ETF, on-chain, and exchange-risk researchers with evidence-led posts"),
-    ("en", "English macro, US equities, rates, and liquidity analysts who post original data-driven analysis"),
-    ("en", "English AI, semiconductor, and technology-market analysts who discuss company results and primary data"),
-    ("zh", "中文加密货币、ETF资金流、链上数据和交易所风险的研究型账号"),
-    ("zh", "中文美股、宏观、利率、流动性和科技投资的研究型账号"),
-    ("zh", "中文AI、算力、半导体和基础设施投资动态的高质量研究型账号"),
-    ("en", "official regulators, ETF issuers, exchanges, and data providers relevant to crypto and financial markets"),
     ("ja", "日本の制度・規制・上場企業情報を一次資料で読み解く金融・暗号資産の情報発信者"),
-    ("en", "high-signal crypto and markets journalists or curators who add original context rather than repost headlines"),
+    ("ja", "日本語で、取引所リスク・ウォレット・オンチェーンデータを根拠付きで扱う暗号資産の分析者"),
 )
 
 WATCHLIST_SCHEMA = {
@@ -80,7 +76,7 @@ WATCHLIST_SCHEMA = {
                 "additionalProperties": False,
                 "properties": {
                     "handle": {"type": "string"},
-                    "language": {"type": "string", "enum": ["ja", "en", "zh"]},
+                    "language": {"type": "string", "enum": ["ja"]},
                     "role": {"type": "string"},
                     "focus": {"type": "string"},
                     "recent_post_url": {"type": "string"},
@@ -124,6 +120,23 @@ def _parse_iso(value: str | None) -> dt.datetime | None:
 
 def _text(value: Any) -> str:
     return re.sub(r"\s+", " ", str(value or "")).strip()
+
+
+def is_japanese_timeline(tweets: list[Any]) -> bool:
+    """直近の公開投稿が日本語中心かを、X APIの言語タグで判定する。
+
+    一時的な日本語投稿だけで海外アカウントを混ぜないよう、少なくとも2件の
+    言語判定済み投稿のうち60%以上が ``ja`` の場合だけ合格とする。
+    """
+    languages = [
+        _text(_value(tweet, "lang")).lower()
+        for tweet in tweets
+        if _text(_value(tweet, "lang"))
+    ]
+    if len(languages) < 2:
+        return False
+    japanese = sum(language == JAPANESE_LANGUAGE for language in languages)
+    return japanese >= math.ceil(len(languages) * JAPANESE_TIMELINE_SHARE)
 
 
 def _contains_term(text: str, terms: tuple[str, ...]) -> bool:
@@ -315,7 +328,6 @@ def score_account(
     fresh: list[Any] = []
     topical_count = 0
     blocked_posts = 0
-    languages: set[str] = set()
     interactions: list[int] = []
     impressions: list[int] = []
     newest: dt.datetime | None = None
@@ -330,17 +342,14 @@ def score_account(
             topical_count += 1
         if _contains_term(body, BLOCKED_TERMS):
             blocked_posts += 1
-        language = _text(_value(tweet, "lang"))
-        if language:
-            languages.add(language)
         metrics = _metrics(tweet)
         interactions.append(metrics["like_count"] + metrics["reply_count"] * 2 + metrics["retweet_count"] * 2 + metrics["quote_count"] * 2)
         impressions.append(metrics["impression_count"])
 
     if not fresh:
         return None, "inactive"
-    if candidate.get("language") not in ALLOWED_LANGUAGES and not (languages & ALLOWED_LANGUAGES):
-        return None, "unsupported_language"
+    if not is_japanese_timeline(fresh):
+        return None, "non_japanese_timeline"
     if topical_count == 0 and not _contains_term(bio + " " + _text(candidate.get("focus")), TOPIC_TERMS):
         return None, "not_topical"
     if blocked_posts >= max(2, len(fresh) // 2 + 1):
@@ -360,7 +369,7 @@ def score_account(
         "user_id": user_id,
         "focus": _text(candidate.get("focus"))[:180],
         "role": _text(candidate.get("role"))[:80],
-        "language": _text(candidate.get("language")) or next(iter(languages & ALLOWED_LANGUAGES), ""),
+        "language": JAPANESE_LANGUAGE,
         "followers": followers,
         "score": score,
         "last_seen_at": _iso(newest or now),
@@ -380,6 +389,14 @@ def select_members(state: dict[str, Any], now: dt.datetime) -> tuple[list[dict[s
     for handle, item in state["members"].items():
         tier = item.get("tier", "probation")
         if tier == "excluded":
+            continue
+        if item.get("language") != JAPANESE_LANGUAGE:
+            item.update({
+                "tier": "excluded",
+                "exclusion_reason": "non_japanese_account",
+                "cooldown_until": _iso(now + dt.timedelta(days=COOLDOWN_DAYS)),
+            })
+            removed.append(handle)
             continue
         last_seen = _parse_iso(item.get("last_seen_at"))
         if tier == "member" and last_seen and now - last_seen > dt.timedelta(days=ACTIVE_DAYS):

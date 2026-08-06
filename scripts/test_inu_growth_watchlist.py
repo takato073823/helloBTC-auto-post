@@ -22,7 +22,7 @@ def profile(handle: str = "marketdata", user_id: str = "11", followers: int = 20
     value = {
         "id": user_id,
         "username": handle,
-        "description": "Bitcoin ETF and macro market data researcher",
+        "description": "ビットコインETFとマクロ市場データを分析",
         "protected": False,
         "created_at": "2024-01-01T00:00:00Z",
         "public_metrics": {"followers_count": followers},
@@ -31,12 +31,12 @@ def profile(handle: str = "marketdata", user_id: str = "11", followers: int = 20
     return SimpleNamespace(**value)
 
 
-def tweet(text: str = "Bitcoin ETF flows and macro liquidity update", **extra):
+def tweet(text: str = "ビットコインETFの資金フローとマクロ流動性を更新", **extra):
     value = {
         "id": "100",
         "text": text,
         "created_at": "2026-08-05T11:20:00Z",
-        "lang": "en",
+        "lang": "ja",
         "public_metrics": {"like_count": 150, "reply_count": 10, "retweet_count": 20, "quote_count": 3, "impression_count": 25_000},
     }
     value.update(extra)
@@ -46,11 +46,11 @@ def tweet(text: str = "Bitcoin ETF flows and macro liquidity update", **extra):
 def candidate(handle: str = "marketdata") -> dict:
     return {
         "handle": handle,
-        "language": "en",
+        "language": "ja",
         "role": "analyst",
-        "focus": "Bitcoin ETF and macro liquidity",
+        "focus": "ビットコインETFとマクロ流動性",
         "recent_post_url": f"https://x.com/{handle}/status/100",
-        "why_relevant": "ETF and liquidity data with concrete market context",
+        "why_relevant": "ETFと流動性のデータを市場文脈とともに扱う",
     }
 
 
@@ -115,6 +115,12 @@ class WatchlistTests(unittest.TestCase):
         self.assertGreaterEqual(record["score"], watchlist.ADMIT_SCORE)
         self.assertEqual("marketdata", record["handle"])
 
+    def test_score_rejects_non_japanese_timeline(self):
+        english = tweet(text="Bitcoin ETF flow update", lang="en")
+        record, reason = watchlist.score_account(profile(), [english, english], candidate(), NOW, "self", set())
+        self.assertIsNone(record)
+        self.assertEqual("non_japanese_timeline", reason)
+
     @patch("inu_growth_watchlist.generate_x_json")
     def test_discovery_passes_each_track_to_x_search(self, generate_x_json):
         generate_x_json.return_value = ({"accounts": [candidate("freshsource")]}, None)
@@ -128,6 +134,7 @@ class WatchlistTests(unittest.TestCase):
         state = watchlist.default_state()
         state["members"]["kept"] = {
             "handle": "kept", "user_id": "1", "tier": "member", "score": 45,
+            "language": "ja",
             "last_seen_at": "2026-08-05T11:00:00Z", "added_at": "2026-07-01T00:00:00Z",
             "low_score_cycles": 0,
         }
@@ -187,7 +194,7 @@ class WatchlistTests(unittest.TestCase):
     def test_boost_b_reads_one_merged_list_timeline(self, load_watchlist_state):
         load_watchlist_state.return_value = {
             "list_id": "list-1",
-            "members": {"marketdata": {"tier": "member", "user_id": "1", "handle": "marketdata"}},
+            "members": {"marketdata": {"tier": "member", "language": "ja", "user_id": "1", "handle": "marketdata"}},
         }
         rows = boost.recent_watchlist_posts(FakeListApi())
         self.assertEqual("https://x.com/marketdata/status/post-1", rows[0]["post_url"])

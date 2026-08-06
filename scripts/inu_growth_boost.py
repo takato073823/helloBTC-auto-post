@@ -25,7 +25,6 @@ from inu_auto_hourly import (
     USER_AGENT,
     _compact_text,
     _parse_timestamp,
-    load_curated_x_sources,
     normalize_url,
 )
 from inu_hourly_dispatcher import JST
@@ -33,8 +32,10 @@ from inu_persona import VOICE_PROMPT
 from inu_post import compose_post, validate_post
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from inu_growth_watchlist import (
+    JAPANESE_LANGUAGE,
     STATE_PATH as WATCHLIST_STATE_PATH,
     TARGET_SIZE,
+    is_japanese_timeline,
     load_denylist,
     load_state as load_watchlist_state,
     save_state as save_watchlist_state,
@@ -326,7 +327,11 @@ def active_watchlist_handles() -> set[str]:
     return {
         str(row.get("handle", "")).lower()
         for row in watchlist.get("members", {}).values()
-        if row.get("tier") == "member" and row.get("handle")
+        if (
+            row.get("tier") == "member"
+            and row.get("language") == JAPANESE_LANGUAGE
+            and row.get("handle")
+        )
     }
 
 
@@ -337,7 +342,12 @@ def recent_watchlist_posts(client=None) -> list[dict]:
     members = {
         str(row.get("user_id")): str(row.get("handle"))
         for row in watchlist.get("members", {}).values()
-        if row.get("tier") == "member" and row.get("user_id") and row.get("handle")
+        if (
+            row.get("tier") == "member"
+            and row.get("language") == JAPANESE_LANGUAGE
+            and row.get("user_id")
+            and row.get("handle")
+        )
     }
     if not list_id or not members:
         return []
@@ -393,33 +403,9 @@ def discover_boost_b(now: dt.datetime, state: dict, client=None, target_posts: l
     # 一時的に読めない時は、リスト外の12件へ広げず安全に見送る。
     if active_watchlist_handles():
         return None
-    # 初回構築前だけ、既存の12件へ限定して安全にフォールバックする。
-    if _daily_count(state, "B", now) >= DAILY_LIMITS["B"]:
-        return None
-    api = client or _get_client()
-    fallback_posts: list[dict] = []
-    for source in load_curated_x_sources():
-        handle = str(source["handle"])
-        try:
-            user = api.get_user(username=handle, user_auth=True).data
-            user_id = getattr(user, "id", None) or (user.get("id") if isinstance(user, dict) else None)
-            if not user_id:
-                continue
-            response = api.get_users_tweets(
-                user_id,
-                max_results=5,
-                exclude=["retweets", "replies"],
-                tweet_fields=["created_at", "lang", "public_metrics"],
-                user_auth=True,
-            )
-        except Exception as exc:
-            logger.info("Bの監視対象を取得できません: @%s / %s", handle, exc)
-            continue
-        for tweet in getattr(response, "data", None) or []:
-            row = _tweet_row(tweet, handle)
-            if row:
-                fallback_posts.append(row)
-    return _boost_b_from_watchlist_posts(now, state, fallback_posts)
+    # 初回構築中でも、リスト外を代替対象にしない。Bは日本語の「いいね」
+    # リストだけを対象にし、対象がいなければ安全に見送る。
+    return None
 
 
 def _response_data(response) -> list:
@@ -428,7 +414,7 @@ def _response_data(response) -> list:
 
 
 def _follower_admission_record(profile, tweets: list, own_user_id: str, denylist: set[str], now: dt.datetime) -> dict | None:
-    """INUを新たにフォローしたアカウントを、ユーザー指定の二条件だけで審査する。"""
+    """新規フォロワーを、日本語・投稿反応の条件を満たす場合だけ入れる。"""
     user_id = str(_value(profile, "id", ""))
     handle = str(_value(profile, "username", "")).lower().lstrip("@")
     if not user_id or user_id == own_user_id or not HANDLE_RE.fullmatch(handle):
@@ -437,6 +423,8 @@ def _follower_admission_record(profile, tweets: list, own_user_id: str, denylist
         return None
     followers = _metrics(profile)["followers_count"]
     if followers < MIN_FOLLOWER_ADMISSION_FOLLOWERS:
+        return None
+    if not is_japanese_timeline(tweets):
         return None
     rows = [_tweet_row(tweet, handle) for tweet in tweets]
     rows = [row for row in rows if row]
@@ -458,12 +446,12 @@ def _follower_admission_record(profile, tweets: list, own_user_id: str, denylist
         "user_id": user_id,
         "focus": "INUをフォロー後に基準を満たしたアカウント",
         "role": "qualified_new_follower",
-        "language": "",
+        "language": JAPANESE_LANGUAGE,
         "followers": followers,
         "score": score,
         "last_seen_at": newest.astimezone(dt.timezone.utc).isoformat(),
         "recent_post_url": best["post_url"],
-        "why_relevant": "フォロワー1,000人以上かつ直近10投稿内に表示500超の投稿を確認",
+        "why_relevant": "日本語中心の投稿で、フォロワー1,000人以上かつ直近10投稿内に表示500超を確認",
         "observed_interactions": int(best["like_count"]),
         "observed_impressions": max_impressions,
         "engagement_component": 15.0,

@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # ブーストが同じ状態ファイルを更新するため、投稿・ブーストと同じキューで直列化する。
-  group: inu-x-publish
+  # ブーストと同じ状態ファイルを更新するため、成長施策内でだけ直列化する。
+  # 通常の毎時・速報投稿の待ち行列には入れない。
+  group: inu-x-growth
   cancel-in-progress: false
 
 permissions:

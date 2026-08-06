@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # 通常の毎時・速報投稿と同じキューに入れ、同時投稿や状態競合を防ぐ。
-  group: inu-x-publish
+  # 成長施策の状態だけを直列化する。毎時・速報の重い投稿キューと分け、
+  # 10分ごとの探索・反応が待ち行列で失われないようにする。
+  group: inu-x-growth
   cancel-in-progress: false
 
 permissions:

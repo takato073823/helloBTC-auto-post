@@ -119,40 +119,25 @@ class GrowthBoostTests(unittest.TestCase):
             inu_growth_boost.validate_candidate(item, self.state(), NOW),
         )
 
-    def test_boost_b_uses_fresh_relevant_post_from_curated_watchlist(self):
-        tweet = SimpleNamespace(
-            id="2085000000000000004",
-            text="比特币ETFの資金フローを確認。",
-            created_at="2026-08-05T11:50:00Z",
-            public_metrics={"impression_count": 5_000, "like_count": 20},
-        )
-        client = SimpleNamespace(
-            get_user=lambda **_kwargs: SimpleNamespace(data=SimpleNamespace(id="123")),
-            get_users_tweets=lambda *_args, **_kwargs: SimpleNamespace(data=[tweet]),
-        )
-        with patch("inu_growth_boost.load_curated_x_sources", return_value=[
-            {"handle": "TargetOne", "focus": "ETFフロー"}
-        ]):
-            found = inu_growth_boost.discover_boost_b(NOW, self.state(), client)
+    def test_boost_b_uses_fresh_relevant_post_from_japanese_watchlist(self):
+        posts = [{
+            "post_url": "https://x.com/targetone/status/2085000000000000004",
+            "handle": "targetone", "posted_at": "2026-08-05T11:50:00Z",
+            "text": "ビットコインETFの資金フローを確認。",
+            "impression_count": 5_000, "like_count": 20,
+        }]
+        found = inu_growth_boost.discover_boost_b(NOW, self.state(), target_posts=posts)
         self.assertIsNotNone(found)
         self.assertEqual("B", found["tactic"])
-        self.assertEqual("TargetOne", found["target_handle"])
+        self.assertEqual("targetone", found["target_handle"])
 
     def test_boost_b_rejects_stale_and_campaign_posts(self):
-        old = SimpleNamespace(
-            id="2085000000000000005",
-            text="Bitcoin ETF giveaway",
-            created_at="2026-08-05T10:00:00Z",
-            public_metrics={"impression_count": 5_000, "like_count": 20},
-        )
-        client = SimpleNamespace(
-            get_user=lambda **_kwargs: SimpleNamespace(data=SimpleNamespace(id="123")),
-            get_users_tweets=lambda *_args, **_kwargs: SimpleNamespace(data=[old]),
-        )
-        with patch("inu_growth_boost.load_curated_x_sources", return_value=[
-            {"handle": "TargetOne", "focus": "ETFフロー"}
-        ]):
-            self.assertIsNone(inu_growth_boost.discover_boost_b(NOW, self.state(), client))
+        old = [{
+            "post_url": "https://x.com/targetone/status/2085000000000000005",
+            "handle": "targetone", "posted_at": "2026-08-05T10:00:00Z",
+            "text": "Bitcoin ETF giveaway", "impression_count": 5_000, "like_count": 20,
+        }]
+        self.assertIsNone(inu_growth_boost.discover_boost_b(NOW, self.state(), target_posts=old))
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
     def test_daily_limit_and_duplicate_target_are_enforced(self, _source):
         state = self.state()
@@ -222,10 +207,11 @@ class GrowthBoostTests(unittest.TestCase):
 
     def test_new_follower_requires_both_explicit_thresholds(self):
         profile = SimpleNamespace(id="follower-1", username="newfollower", protected=False, public_metrics={"followers_count": 1_000})
-        tweet = SimpleNamespace(id="2085000000000000014", text="Bitcoin ETF update", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 501, "like_count": 5})
-        record = inu_growth_boost._follower_admission_record(profile, [tweet], "self", set(), NOW)
+        tweet = SimpleNamespace(id="2085000000000000014", text="ビットコインETFを更新", lang="ja", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 501, "like_count": 5})
+        japanese_second = SimpleNamespace(id="2085000000000000016", text="ETFの資金流入を確認", lang="ja", created_at="2026-08-05T11:45:00Z", public_metrics={"impression_count": 300, "like_count": 4})
+        record = inu_growth_boost._follower_admission_record(profile, [tweet, japanese_second], "self", set(), NOW)
         self.assertEqual("newfollower", record["handle"])
-        self.assertIsNone(inu_growth_boost._follower_admission_record(profile, [SimpleNamespace(id="2085000000000000015", text="Bitcoin", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 500, "like_count": 5})], "self", set(), NOW))
+        self.assertIsNone(inu_growth_boost._follower_admission_record(profile, [SimpleNamespace(id="2085000000000000015", text="Bitcoin", lang="en", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 500, "like_count": 5})], "self", set(), NOW))
 
     @patch("inu_growth_boost._verify_primary_source", return_value="https://official.example/release")
     def test_trend_keyword_must_be_in_the_published_text(self, _source):
@@ -252,7 +238,8 @@ class GrowthBoostTests(unittest.TestCase):
         load_watchlist.return_value = {"list_id": "list-1", "members": {}}
         low = SimpleNamespace(id="low", username="lowaccount", protected=False, public_metrics={"followers_count": 999})
         qualified = SimpleNamespace(id="good", username="goodaccount", protected=False, public_metrics={"followers_count": 1_000})
-        qualifying_tweet = SimpleNamespace(id="2085000000000000099", text="Bitcoin ETF update", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 501, "like_count": 2})
+        qualifying_tweet = SimpleNamespace(id="2085000000000000099", text="ビットコインETFを更新", lang="ja", created_at="2026-08-05T11:50:00Z", public_metrics={"impression_count": 501, "like_count": 2})
+        qualifying_second = SimpleNamespace(id="2085000000000000100", text="資金フローを確認", lang="ja", created_at="2026-08-05T11:45:00Z", public_metrics={"impression_count": 200, "like_count": 1})
 
         class Api:
             def __init__(self):
@@ -263,7 +250,7 @@ class GrowthBoostTests(unittest.TestCase):
             def get_users_followers(self, *_args, **_kwargs): return SimpleNamespace(data=[low, qualified], meta={})
             def get_users_tweets(self, user_id, **_kwargs):
                 self.timeline_reads.append(user_id)
-                return SimpleNamespace(data=[qualifying_tweet])
+                return SimpleNamespace(data=[qualifying_tweet, qualifying_second])
             def add_list_member(self, _list_id, user_id, **_kwargs): self.added.append(user_id)
 
         api = Api()
