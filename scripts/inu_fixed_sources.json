@@ -12,6 +12,7 @@
     ],
     "x_accounts": [
       {"handle": "WatcherGuru", "focus": "海外の速報・市場話題の発見"},
+      {"handle": "ArkhamIntel", "focus": "オンチェーンの実測データ・アドレス追跡"},
       {"handle": "SECGov", "focus": "米国証券規制の公式発表"},
       {"handle": "CFTC", "focus": "米国商品先物規制の公式発表"},
       {"handle": "federalreserve", "focus": "FOMC・金融政策の公式発表"},
@@ -51,13 +52,15 @@
     "onchain": [
       {"name": "mempool.space", "url": "https://mempool.space/", "kind": "chain_explorer"},
       {"name": "Etherscan", "url": "https://etherscan.io/", "kind": "chain_explorer"},
-      {"name": "Solscan", "url": "https://solscan.io/", "kind": "chain_explorer"}
+      {"name": "Solscan", "url": "https://solscan.io/", "kind": "chain_explorer"},
+      {"name": "Arkham Intelligence", "url": "https://intel.arkm.com/", "kind": "onchain_data"}
     ],
     "whale_treasury": [
       {"name": "Strategy Investor Relations", "url": "https://www.strategy.com/investor-relations", "kind": "company_ir"},
       {"name": "Metaplanet Investor Relations", "url": "https://metaplanet.jp/en/ir/", "kind": "company_ir"},
       {"name": "SEC EDGAR", "url": "https://www.sec.gov/edgar/search/", "kind": "regulatory_filing"},
-      {"name": "mempool.space", "url": "https://mempool.space/", "kind": "chain_explorer"}
+      {"name": "mempool.space", "url": "https://mempool.space/", "kind": "chain_explorer"},
+      {"name": "Arkham Intelligence", "url": "https://intel.arkm.com/", "kind": "onchain_data"}
     ],
     "earnings": [
       {"name": "Coinbase Investor Relations", "url": "https://investor.coinbase.com/", "kind": "company_ir"},
