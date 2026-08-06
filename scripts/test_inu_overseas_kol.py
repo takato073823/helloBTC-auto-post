@@ -145,6 +145,13 @@ class OverseasKolTests(unittest.TestCase):
         self.assertIsNone(record)
         self.assertEqual("inactive_over_3_days", reason)
 
+    def test_branded_competing_media_is_never_a_kol_member(self):
+        record, reason = kol.score_account(
+            profile(handle="cointelegraph"), [post()], candidate("cointelegraph"), NOW, "self"
+        )
+        self.assertIsNone(record)
+        self.assertEqual("branded_media_excluded", reason)
+
     def test_full_list_replaces_bottom_ten_by_last10_average_impressions(self):
         profiles = {}
         timelines = {}

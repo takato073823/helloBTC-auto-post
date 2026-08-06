@@ -52,6 +52,11 @@ BLOCKED_TERMS = (
     "airdrop", "giveaway", "referral", "invite", "promotion", "promo code", "copy trade",
     "copytrade", "signals", "pump", "100x", "dm me", "casino", "betting", "lottery",
 )
+BLOCKED_BRANDED_MEDIA_HANDLES = {
+    # INUは他メディアの見出し・ロゴ画像を転載する場にしない。公式発表や個人・
+    # 独立アナリストの投稿を引用対象にし、競合ニュース媒体は海外KOLから除外する。
+    "cointelegraph", "coindesk", "decryptmedia", "decrypt", "theblock__", "bitcoinmagazine",
+}
 FOREIGN_LANGUAGES = {"en", "zh", "es", "ko", "fr", "de", "pt", "it", "tr", "ar", "ru", "hi", "id"}
 
 DISCOVERY_TRACKS = (
@@ -297,6 +302,8 @@ def score_account(profile: Any, posts: list[dict[str, Any]], candidate: dict[str
     user_id = str(_value(profile, "id") or "")
     if not HANDLE_RE.fullmatch(handle) or not user_id or user_id == own_user_id:
         return None, "invalid_or_self"
+    if handle in BLOCKED_BRANDED_MEDIA_HANDLES:
+        return None, "branded_media_excluded"
     if bool(_value(profile, "protected", False)):
         return None, "protected"
     bio = _text(_value(profile, "description"))
