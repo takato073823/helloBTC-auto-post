@@ -51,7 +51,9 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add scripts/inu_growth_boost_state.json scripts/inu_growth_watchlist_state.json scripts/inu_x_research_state.json
+          # ウォッチリスト由来の発見は専用シャードに保存する。公式X探索の状態と
+          # 同じJSONを並行更新しないため、候補をGit競合で失わない。
+          git add scripts/inu_growth_boost_state.json scripts/inu_growth_watchlist_state.json scripts/inu_x_watchlist_signals_state.json
           git diff --staged --quiet || git commit -m "chore: record INU growth boost [skip ci]"
           for attempt in 1 2 3; do
             git pull --rebase && git push && exit 0

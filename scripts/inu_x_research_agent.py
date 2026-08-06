@@ -32,6 +32,13 @@ logger = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 STATE_PATH = SCRIPT_DIR / "inu_x_research_state.json"
+# 成長ブーストは独立した並行キューで動くため、同じJSONを丸ごと更新すると公式X探索と
+# Git競合して候補が失われる。ウォッチリスト由来の発見は専用シャードに保持し、読込時に
+# 統合する。これにより探索経路ごとの書込みが互いを上書きしない。
+WATCHLIST_SIGNAL_STATE_PATH = SCRIPT_DIR / "inu_x_watchlist_signals_state.json"
+# 昇格結果は投稿キューだけが更新する。探索シャードへ処理済みフラグを書き戻さないため、
+# 公式探索・成長ブースト・投稿処理の3者が同じJSONを競合更新しない。
+PROMOTION_STATE_PATH = SCRIPT_DIR / "inu_x_signal_promotion_state.json"
 JST = dt.timezone(dt.timedelta(hours=9))
 
 # 公式X APIのコストを一定に保つ。Countsは軽量な先行判定、本文取得は急増時または
@@ -41,6 +48,11 @@ MAX_DEEP_SEARCHES_PER_DAY = 18
 MAX_TREND_REQUESTS_PER_DAY = 6
 DEEP_SCAN_INTERVAL = dt.timedelta(minutes=80)
 SIGNAL_MAX_AGE = dt.timedelta(hours=6)
+# 高反応の発見を「記録だけ」で終わらせないための、投稿候補へ昇格させる上限。
+# 速報経路はこの中から一次資料を確認し、確認できないものは投稿しない。
+PROMOTION_SIGNAL_MAX_AGE = dt.timedelta(hours=2)
+PROMOTION_MIN_IMPRESSIONS = 10_000
+PROMOTION_MIN_SCORE = 36.0
 MAX_STORED_SIGNALS = 240
 MAX_STORED_SCANS = 360
 JAPAN_WOEID = 23424856
@@ -215,6 +227,43 @@ def save_state(state: dict[str, Any], path: Path = STATE_PATH) -> None:
     stable["signals"] = list(state.get("signals", []))[-MAX_STORED_SIGNALS:]
     stable["trends"] = list(state.get("trends", []))[-120:]
     path.write_text(json.dumps(stable, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _signal_state_paths(path: Path) -> tuple[Path, ...]:
+    """通常読込では公式探索とウォッチリスト探索を統合する。"""
+    return (STATE_PATH, WATCHLIST_SIGNAL_STATE_PATH) if path == STATE_PATH else (path,)
+
+
+def _signal_rows(path: Path) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for state_path in _signal_state_paths(path):
+        rows.extend(row for row in load_state(state_path).get("signals", []) if isinstance(row, dict))
+    return rows
+
+
+def ensure_watchlist_signal_state(path: Path = WATCHLIST_SIGNAL_STATE_PATH) -> None:
+    """成長処理が候補ゼロでも、専用シャードをGitへ安全に保存できるよう初期化する。"""
+    if not path.exists():
+        save_state(default_state(), path)
+
+
+def _load_promotion_state(path: Path | None = None) -> dict[str, Any]:
+    path = path or PROMOTION_STATE_PATH
+    if not path.exists():
+        return {"version": 1, "results": {}}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"version": 1, "results": {}}
+    results = payload.get("results", {}) if isinstance(payload, dict) else {}
+    return {"version": 1, "results": results if isinstance(results, dict) else {}}
+
+
+def _save_promotion_state(state: dict[str, Any], path: Path | None = None) -> None:
+    path = path or PROMOTION_STATE_PATH
+    rows = list((state.get("results") or {}).items())[-MAX_STORED_SIGNALS * 2 :]
+    payload = {"version": 1, "results": dict(rows)}
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def _today_rows(rows: list[dict[str, Any]], now: dt.datetime, key: str = "checked_at") -> list[dict[str, Any]]:
@@ -488,7 +537,11 @@ def _merge_signals(state: dict[str, Any], signals: list[dict[str, Any]], now: dt
     )[:MAX_STORED_SIGNALS]
 
 
-def ingest_watchlist_posts(posts: list[dict[str, Any]], now: dt.datetime | None = None, path: Path = STATE_PATH) -> int:
+def ingest_watchlist_posts(
+    posts: list[dict[str, Any]],
+    now: dt.datetime | None = None,
+    path: Path = WATCHLIST_SIGNAL_STATE_PATH,
+) -> int:
     """成長施策が既に読んだリスト新着を再利用し、追加読取なしで候補化する。"""
     checked_at = now or _utcnow()
     state = load_state(path)
@@ -540,7 +593,7 @@ def discovery_signals(now: dt.datetime | None = None, path: Path = STATE_PATH, l
     cutoff = checked_at - SIGNAL_MAX_AGE
     rows: list[dict[str, str]] = []
     seen: set[str] = set()
-    for item in load_state(path).get("signals", []):
+    for item in _signal_rows(path):
         posted_at = _parse_time(item.get("posted_at"))
         url = _normal_url(str(item.get("post_url", "")))
         if not posted_at or posted_at < cutoff or not url or url in seen or not _is_actionable_signal(item):
@@ -557,11 +610,100 @@ def discovery_signals(now: dt.datetime | None = None, path: Path = STATE_PATH, l
                     f"{str(item.get('summary', ''))[:460]} / 注目理由: {item.get('why_trending', '')} {media_hint}"
                 )[:700],
                 "discovery_type": str(item.get("discovery_type", "official_x_api")),
+                # 後段がどの発見を処理しているかを明確にし、一般探索へ埋もれさせない。
+                "signal_id": str(item.get("post_id", "")),
+                "signal_score": str(item.get("score", "")),
+                "impression_count": str(item.get("impression_count", "0")),
+                "has_video": bool(item.get("has_video", False)),
             }
         )
         if len(rows) >= limit:
             break
     return rows
+
+
+def promotion_signals(
+    now: dt.datetime | None = None,
+    path: Path = STATE_PATH,
+    limit: int = 3,
+    promotion_path: Path | None = None,
+) -> list[dict[str, str]]:
+    """即時確認に回す高反応シグナルだけを、未処理のものから返す。
+
+    X投稿は発見専用で、ここで返したこと自体は公開を意味しない。後段は同じ出来事の
+    一次資料が確認できた場合だけ予約・公開し、確認不能なら処理済みとして記録する。
+    """
+    checked_at = now or _utcnow()
+    cutoff = checked_at - PROMOTION_SIGNAL_MAX_AGE
+    promotion_results = _load_promotion_state(promotion_path).get("results", {})
+    eligible: list[dict[str, Any]] = []
+    for item in _signal_rows(path):
+        posted_at = _parse_time(item.get("posted_at"))
+        if not posted_at or posted_at < cutoff or not _is_actionable_signal(item):
+            continue
+        promotion = promotion_results.get(_normal_url(str(item.get("post_url", ""))), {})
+        if isinstance(promotion, dict) and promotion.get("status") in {"reserved", "published", "rejected"}:
+            continue
+        try:
+            impressions = int(item.get("impression_count", 0) or 0)
+            score = float(item.get("score", 0) or 0)
+        except (TypeError, ValueError):
+            continue
+        if impressions < PROMOTION_MIN_IMPRESSIONS or score < PROMOTION_MIN_SCORE:
+            continue
+        eligible.append(item)
+
+    eligible.sort(
+        key=lambda row: (
+            float(row.get("score", 0) or 0),
+            int(row.get("impression_count", 0) or 0),
+            str(row.get("posted_at", "")),
+        ),
+        reverse=True,
+    )
+    result: list[dict[str, str]] = []
+    for item in eligible[:limit]:
+        signal = next(
+            (
+                row
+                for row in discovery_signals(checked_at, path, limit=MAX_STORED_SIGNALS)
+                if row.get("signal_id") == str(item.get("post_id", ""))
+            ),
+            None,
+        )
+        if signal:
+            result.append(signal)
+    return result
+
+
+def mark_promotion_result(
+    signal_url: str,
+    status: str,
+    *,
+    now: dt.datetime | None = None,
+    reason: str = "",
+    post_id: str = "",
+    path: Path = STATE_PATH,
+    promotion_path: Path | None = None,
+) -> bool:
+    """発見候補の検証結果を永続化し、同じシグナルを繰り返し処理しない。"""
+    if status not in {"reserved", "published", "rejected"}:
+        raise ValueError("昇格処理の状態が不正です")
+    normalized = _normal_url(signal_url)
+    if not any(
+        _normal_url(str(item.get("post_url", ""))) == normalized
+        for item in _signal_rows(path)
+    ):
+        return False
+    state = _load_promotion_state(promotion_path)
+    state["results"][normalized] = {
+        "status": status,
+        "processed_at": _iso(now or _utcnow()),
+        "reason": str(reason)[:240],
+        "post_id": str(post_id),
+    }
+    _save_promotion_state(state, promotion_path)
+    return True
 
 
 def _should_deep_scan(state: dict[str, Any], now: dt.datetime, spike: bool) -> bool:

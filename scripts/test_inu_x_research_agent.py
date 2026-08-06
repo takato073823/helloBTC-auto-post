@@ -78,6 +78,80 @@ class ResearchAgentTests(unittest.TestCase):
         self.assertEqual("watchlist_timeline", signals[0]["discovery_type"])
         self.assertIn("厳選リストで観測", signals[0]["summary"])
 
+    def test_high_reach_signal_is_promoted_once_then_marked(self):
+        post = {
+            "post_url": "https://x.com/analyst/status/2086000000000000004",
+            "handle": "analyst",
+            "posted_at": "2026-08-06T02:50:00Z",
+            "text": "Bitcoin ETF flows are accelerating today.",
+            "impression_count": 30_000,
+            "like_count": 30,
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "state.json"
+            promotion_path = Path(directory) / "promotion.json"
+            self.assertEqual(1, research.ingest_watchlist_posts([post], NOW, state_path))
+            eligible = research.promotion_signals(NOW, state_path, promotion_path=promotion_path)
+            self.assertEqual(1, len(eligible))
+            self.assertTrue(
+                research.mark_promotion_result(
+                    eligible[0]["url"], "rejected", now=NOW, reason="一次資料なし", path=state_path,
+                    promotion_path=promotion_path,
+                )
+            )
+            self.assertEqual([], research.promotion_signals(NOW, state_path, promotion_path=promotion_path))
+
+    def test_official_and_watchlist_signal_shards_are_merged_without_shared_writes(self):
+        watchlist_post = {
+            "post_url": "https://x.com/analyst/status/2086000000000000005",
+            "handle": "analyst",
+            "posted_at": "2026-08-06T02:50:00Z",
+            "text": "Bitcoin ETF inflows accelerate after the issuer update.",
+            "impression_count": 30_000,
+            "like_count": 30,
+        }
+        official_row = {
+            "post_id": "2086000000000000006",
+            "post_url": "https://x.com/issuer/status/2086000000000000006",
+            "handle": "issuer",
+            "posted_at": "2026-08-06T02:49:00Z",
+            "headline": "Bitcoin ETF inflow update",
+            "summary": "Bitcoin ETF inflow update",
+            "why_trending": "表示30,000",
+            "discovery_type": "official_x_api",
+            "score": 50.0,
+            "impression_count": 30_000,
+            "like_count": 30,
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            official_path = root / "official.json"
+            watchlist_path = root / "watchlist.json"
+            promotion_path = root / "promotion.json"
+            research.save_state(research.default_state() | {"signals": [official_row]}, official_path)
+            self.assertEqual(1, research.ingest_watchlist_posts([watchlist_post], NOW, watchlist_path))
+            with patch.object(research, "STATE_PATH", official_path), patch.object(
+                research, "WATCHLIST_SIGNAL_STATE_PATH", watchlist_path
+            ):
+                merged = research.discovery_signals(NOW, official_path, limit=10)
+                self.assertEqual(
+                    {"2086000000000000005", "2086000000000000006"},
+                    {row["signal_id"] for row in merged},
+                )
+                self.assertTrue(
+                    research.mark_promotion_result(
+                        "https://x.com/analyst/status/2086000000000000005",
+                        "reserved",
+                        now=NOW,
+                        path=official_path,
+                        promotion_path=promotion_path,
+                    )
+                )
+                self.assertEqual(
+                    1,
+                    len(research.promotion_signals(NOW, official_path, promotion_path=promotion_path)),
+                )
+
     def test_watchlist_rejects_media_and_promotional_noise_before_editorial_research(self):
         post = {
             "post_url": "https://x.com/coindesk/status/2086000000000000008",

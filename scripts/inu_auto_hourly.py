@@ -34,7 +34,11 @@ from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_source_registry import topic_source_context
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
-from inu_x_research_agent import discovery_signals as collect_official_x_api_signals
+from inu_x_research_agent import (
+    discovery_signals as collect_official_x_api_signals,
+    mark_promotion_result,
+    promotion_signals as collect_promotion_signals,
+)
 from grok_client import generate_editorial_json, generate_x_json
 from llm_client import generate_json, generate_web_json
 from scraper import fetch_from_rss
@@ -194,6 +198,8 @@ CANDIDATE_SCHEMA = {
         "reader_interest": {"type": "string"},
         "follow_value": {"type": "string"},
         "is_primary_source": {"type": "boolean"},
+        # 発見シグナルを個別検証する場合だけ、そのX URLをそのまま返す。一般探索では空文字。
+        "focus_signal_url": {"type": "string"},
     },
     "required": [
         "has_candidate",
@@ -213,6 +219,7 @@ CANDIDATE_SCHEMA = {
         "reader_interest",
         "follow_value",
         "is_primary_source",
+        "focus_signal_url",
     ],
 }
 CANDIDATE_SET_SCHEMA = {
@@ -566,6 +573,7 @@ def build_research_prompt(
     state: dict,
     discovery_signals: list[dict[str, str]] | None = None,
     target_topic: str | None = None,
+    focus_signal: dict[str, str] | None = None,
 ) -> str:
     recent = _recent_history(state)
     recent_topics = [row.get("topic_type", "") for row in recent[-8:] if row.get("topic_type")]
@@ -586,6 +594,20 @@ has_candidate=false を返してください。
         if target_topic
         else "固定探索先は、候補のtopic_typeに対応するものを最優先で確認してください。"
     )
+    focus_instruction = (
+        f"""
+今回の最優先確認対象は、次のXで観測した発見シグナルです。
+{json.dumps(focus_signal, ensure_ascii=False)}
+
+この出来事だけを、Web検索で発表主体の一次資料・公式データ・上場企業IR・当局資料まで
+たどって確認してください。候補を別のニュースに置き換えてはいけません。一次資料で同じ
+出来事と重要な変化を確認できた場合だけ has_candidate=true を返し、確認できなければ
+has_candidate=false を返してください。X投稿と第三者メディアのURLは最終source_urlに使えません。
+has_candidate=true の候補は focus_signal_url に上記の url を完全一致で入れてください。
+""".strip()
+        if focus_signal
+        else ""
+    )
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
 {local.isoformat()}（日本時間）です。必ずWeb検索を実行し、この時刻から見て新しい
@@ -600,6 +622,7 @@ topic_typeが異なる候補を優先してください。
 - 「Grok X Search」と記載されたシグナルのX URLは発見専用であり、最終source_urlには絶対に使わない。投稿内容を公式発表・一次データで独立に確認できない場合は候補から除外する。
 - ニュースメディアやXの投稿は発見専用。Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Block、Cointelegraphなど第三者メディアのURLを最終source_urlにしてはいけない。一次資料へ到達できない場合は候補から除外する。外部記事カードはhelloBTCの価値を薄めるため、自動投稿では絶対に使わない。
 - source_urlは今回のWeb検索結果に実際に含まれる、発表主体の一次資料URLだけを使う。
+- focus_signal_urlは必須項目。個別シグナルを指定していない通常探索では必ず空文字にする。
 - 固定探索先の一覧は発見と確認の起点であり、Reuters・Nikkei・暗号資産メディアは
   最終出典にせず、必ず発表主体の同一ドメインにある一次資料へ戻る。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
@@ -629,6 +652,7 @@ topic_typeが異なる候補を優先してください。
 
 カテゴリー指定:
 {target_instruction}
+{focus_instruction}
 
 INUの編集憲法:
 {EDITORIAL_CONSTITUTION}
@@ -657,6 +681,7 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
     # 投稿本文に個人見解を混ぜない。モデルの内部出力に値があっても、公開候補では
     # 常に空へ正規化し、見出しと検証済み事実だけを使う。
     normalized["opinion"] = ""
+    normalized.setdefault("focus_signal_url", "")
     normalized.setdefault("evidence_as_primary", False)
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
         policy = get_content_policy(normalized["topic_type"])
@@ -669,11 +694,20 @@ def research_candidates(
     state: dict,
     extra_signals: list[dict[str, str]] | None = None,
     target_topic: str | None = None,
+    focus_signal: dict[str, str] | None = None,
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
-    signals = list(extra_signals or []) + collect_discovery_signals()
+    # 個別昇格では、ほかの話題をプロンプトへ混ぜない。候補を別イベントへすり替える
+    # 余地をなくし、検証対象とその一次資料を一対一に固定する。
+    signals = [focus_signal] if focus_signal else list(extra_signals or []) + collect_discovery_signals()
     signals = signals[:42]
     payload, sources = generate_web_json(
-        build_research_prompt(now, state, signals, target_topic=target_topic),
+        build_research_prompt(
+            now,
+            state,
+            signals,
+            target_topic=target_topic,
+            focus_signal=focus_signal,
+        ),
         schema_name="inu_live_candidate_set",
         schema=CANDIDATE_SET_SCHEMA,
         max_output_tokens=5200,
@@ -693,13 +727,33 @@ def research_candidates(
     ]
     if target_topic:
         candidates = [candidate for candidate in candidates if candidate.get("topic_type") == target_topic]
+    if focus_signal:
+        focus_url = normalize_url(str(focus_signal.get("url", "")))
+        candidates = [
+            candidate
+            for candidate in candidates
+            if normalize_url(str(candidate.get("focus_signal_url", ""))) == focus_url
+        ]
     return candidates, sources, signals
 
 
 def research_candidates_with_grok(
-    now: dt.datetime, state: dict, target_topic: str | None = None
+    now: dt.datetime,
+    state: dict,
+    target_topic: str | None = None,
+    focus_signal: dict[str, str] | None = None,
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
     """実測X APIとGrokの発見シグナルを併用し、失敗時もWeb調査で継続する。"""
+    if focus_signal:
+        # 高反応シグナルを一般探索に混ぜない。一次資料の有無を、その出来事ごとに
+        # 必ず結論づけることで「発見だけで終わる」状態を防ぐ。
+        kwargs: dict[str, object] = {
+            "extra_signals": [focus_signal],
+            "focus_signal": focus_signal,
+        }
+        if target_topic:
+            kwargs["target_topic"] = target_topic
+        return research_candidates(now, state, **kwargs)
     x_signals: list[dict[str, str]] = []
     try:
         # 公式X APIの探索エージェントが既に収集・採点した実測シグナルを優先する。
@@ -1081,10 +1135,23 @@ def research_candidate(
     }, sources, signals
 
 
-def research_priority_signal(now: dt.datetime, state: dict, priority_url: str) -> tuple[dict, list[dict[str, str]]]:
-    """外部記事は発見専用。一次資料がない速報の自動投稿は行わない。"""
-    del now, state, priority_url
-    raise LookupError("外部メディア記事はhelloBTCの自動投稿の最終出典に使いません")
+def research_priority_signal(
+    now: dt.datetime,
+    state: dict,
+    priority_url: str,
+    priority_hint: str = "",
+) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
+    """速報の発見元を、同じ出来事の一次資料へ必ず置き換えて検証する。"""
+    url = normalize_url(priority_url)
+    focus_signal = {
+        "title": priority_hint.strip()[:180] or "重要ニュースの一次資料確認",
+        "source": "速報発見シグナル",
+        "published": now.astimezone(dt.timezone.utc).isoformat(),
+        "url": url,
+        "summary": priority_hint.strip()[:700],
+        "discovery_type": "breaking_media_discovery",
+    }
+    return research_candidates_with_grok(now, state, focus_signal=focus_signal)
 
 
 def _is_near_recent_topic(title: str, state: dict) -> bool:
@@ -1428,6 +1495,23 @@ def _record_scheduled_check(state: dict, slot: str, now: dt.datetime, kind: str)
     return updated
 
 
+def _signal_promotion_cooldown_active(state: dict, now: dt.datetime) -> bool:
+    """高反応シグナルの速報を連投せず、重要度の比較時間を確保する。"""
+    for row in reversed(list(state.get("history", [])) + list(state.get("reservations", []))):
+        if row.get("priority") != "signal":
+            continue
+        stamp = None
+        for key in ("posted_at", "reserved_at"):
+            try:
+                stamp = _parse_timestamp(str(row.get(key, "")))
+                break
+            except (TypeError, ValueError):
+                continue
+        if stamp and now.astimezone(dt.timezone.utc) - stamp < dt.timedelta(minutes=40):
+            return True
+    return False
+
+
 def _build_item_from_candidate(
     candidate: dict,
     sources: list[dict[str, str]],
@@ -1733,7 +1817,13 @@ def prepare(args: argparse.Namespace) -> int:
         logger.info("主実行は候補未確定のため、予備枠で一次資料を再探索: %s", slot)
 
     priority_url = str(getattr(args, "priority_url", "") or "").strip()
-    priority = "review" if target_topic else "breaking" if priority_url else "scheduled"
+    priority_hint = str(getattr(args, "priority_hint", "") or "").strip()
+    promote_signals = bool(getattr(args, "promote_signals", False))
+    if promote_signals and _signal_promotion_cooldown_active(state, now):
+        logger.info("高反応シグナルの速報は直近40分以内に予約・投稿済みです")
+        _emit_output("ready", "false")
+        return 0
+    priority = "review" if target_topic else "signal" if promote_signals else "breaking" if priority_url else "scheduled"
     candidates: list[dict] = []
     sources: list[dict[str, str]] = []
     signals: list[dict[str, str]] = []
@@ -1741,16 +1831,54 @@ def prepare(args: argparse.Namespace) -> int:
     candidate: dict | None = None
     failure_reasons: list[str] = []
     unreachable_hosts: set[str] = set()
+    selected_signal: dict[str, str] | None = None
+    promotion_results: list[tuple[dict[str, str], str, str, str]] = []
+
+    def persist_promotion_results() -> None:
+        for signal, status, reason, post_id in promotion_results:
+            try:
+                mark_promotion_result(
+                    str(signal.get("url", "")),
+                    status,
+                    now=now,
+                    reason=reason,
+                    post_id=post_id,
+                )
+            except Exception as exc:
+                # 昇格状態を保存できない場合は、投稿済み扱いにせず次回安全に再確認する。
+                logger.warning("発見シグナルの処理状態を保存できません: %s", exc)
+
     if priority_url:
         try:
-            candidate, sources = research_priority_signal(now, state, priority_url)
-            signals = sources
-            candidates = [candidate]
+            candidates, sources, signals = research_priority_signal(
+                now, state, priority_url, priority_hint
+            )
         except (LookupError, ValueError, requests.RequestException) as exc:
             logger.info("検知済み速報を採用できないため見送り: %s", exc)
             _emit_output("ready", "false")
             return 0
-    else:
+    elif not promote_signals:
+        # 発見済みの高反応シグナルは、一般探索の候補群に埋もれさせない。毎時枠では
+        # まず同じ出来事の一次資料を検証し、通らなければ処理結果を残して次へ進む。
+        pending_signals = [] if target_topic else collect_promotion_signals(now, limit=3)
+        for signal in pending_signals:
+            try:
+                focused_candidates, focused_sources, _ = research_candidates_with_grok(
+                    now, state, focus_signal=signal
+                )
+            except Exception as exc:
+                promotion_results.append((signal, "rejected", f"一次資料探索失敗: {exc}", ""))
+                continue
+            if not focused_candidates:
+                promotion_results.append((signal, "rejected", "同じ出来事の一次資料を確認できません", ""))
+                continue
+            candidates = focused_candidates
+            sources = focused_sources
+            signals = [signal]
+            selected_signal = signal
+            break
+
+    if not priority_url and not promote_signals and not candidates:
         # Xで伸びている新着の動画・画像は、ニュース探索の失敗時だけではなく
         # 定期的に優先する。速報URLがある場合は上の分岐で一次資料を最優先する。
         if not target_topic and _prefer_overseas_kol_turn(state):
@@ -1833,12 +1961,45 @@ def prepare(args: argparse.Namespace) -> int:
                         repair_reason,
                     )
 
+    # 速報昇格専用の実行では、未処理の高反応シグナルを最大3件だけ同一出来事として
+    # 検証する。別のニュース・価格チャートで置き換えず、結果を必ず残す。
+    if promote_signals:
+        for signal in collect_promotion_signals(now, limit=3):
+            try:
+                focused_candidates, focused_sources, _ = research_candidates_with_grok(
+                    now, state, focus_signal=signal
+                )
+            except Exception as exc:
+                promotion_results.append((signal, "rejected", f"一次資料探索失敗: {exc}", ""))
+                continue
+            if not focused_candidates:
+                promotion_results.append((signal, "rejected", "同じ出来事の一次資料を確認できません", ""))
+                continue
+            selected_signal = signal
+            try_candidates(focused_candidates, focused_sources, phase="高反応Xシグナル")
+            if item is not None:
+                break
+            promotion_results.append(
+                (signal, "rejected", "一次資料・鮮度・画像の品質ゲートを通過しませんでした", "")
+            )
+        if item is None:
+            persist_promotion_results()
+            logger.info("即時昇格条件の高反応シグナルは、投稿可能な一次資料に到達しませんでした")
+            _emit_output("ready", "false")
+            return 0
+
     if item is None:
         try_candidates(candidates, sources, phase="一次探索")
 
+    if selected_signal is not None and item is None and not promote_signals:
+        promotion_results.append(
+            (selected_signal, "rejected", "一次資料・鮮度・画像の品質ゲートを通過しませんでした", "")
+        )
+        selected_signal = None
+
     # 最初の候補群で止まらず、失敗理由を渡して探索入口を変える。特に、Xで見つけた
     # 話題から一次URLに辿れない、または公式ページの表現が弱い時間をここで救う。
-    if item is None and not priority_url:
+    if item is None and not priority_url and not promote_signals:
         try:
             rescue_candidates, rescue_sources = research_rescue_candidates(
                 now,
@@ -1866,7 +2027,8 @@ def prepare(args: argparse.Namespace) -> int:
             logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
 
     if item is None or candidate is None:
-        if target_topic or bool(getattr(args, "no_market_fallback", False)):
+        persist_promotion_results()
+        if target_topic or priority_url or promote_signals or bool(getattr(args, "no_market_fallback", False)):
             logger.info(
                 "固定探索先から%sの投稿候補は確認できませんでした。別カテゴリーや価格投稿では代用しません。",
                 target_topic or "一次情報",
@@ -1910,6 +2072,9 @@ def prepare(args: argparse.Namespace) -> int:
             state_path,
             _reserve(state, item, candidate, slot, now, priority=priority),
         )
+        if selected_signal is not None:
+            promotion_results.append((selected_signal, "reserved", "一次資料・画像・本文を検証済み", item["id"]))
+        persist_promotion_results()
     logger.info("毎時投稿を準備: %s / %s", item["id"], candidate["topic_type"])
     logger.info("投稿本文:\n%s", item["text"])
     _emit_output("ready", "true")
@@ -1995,6 +2160,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--slot")
     parser.add_argument("--priority-url", default="")
+    parser.add_argument("--priority-hint", default="")
+    parser.add_argument("--promote-signals", action="store_true")
     parser.add_argument("--topic", choices=AUTO_TOPIC_TYPES)
     parser.add_argument("--no-market-fallback", action="store_true")
     parser.add_argument("--state", default=str(STATE_PATH))

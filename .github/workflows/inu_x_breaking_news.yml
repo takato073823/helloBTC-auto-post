@@ -56,8 +56,11 @@ jobs:
           INU_COPY_MODEL: gpt-5.6-luna
           INU_EVENT_KEY: ${{ steps.probe.outputs.event_key }}
           INU_PRIORITY_URL: ${{ steps.probe.outputs.source_url }}
+          INU_PRIORITY_HINT: ${{ steps.probe.outputs.headline }}
         working-directory: scripts
-        run: python inu_auto_hourly.py --prepare --slot "$INU_EVENT_KEY" --priority-url "$INU_PRIORITY_URL"
+        run: >-
+          python inu_auto_hourly.py --prepare --slot "$INU_EVENT_KEY"
+          --priority-url "$INU_PRIORITY_URL" --priority-hint "$INU_PRIORITY_HINT"
 
       - name: 速報予約を先に保存
         if: steps.prepare.outputs.ready == 'true'

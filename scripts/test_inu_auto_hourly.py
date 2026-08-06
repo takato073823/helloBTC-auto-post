@@ -546,20 +546,50 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("その事実を一目で確認できる画像または動画", prompt)
         self.assertIn("内容を示す絵文字をhookの先頭に1個", prompt)
 
-    def test_priority_signal_from_third_party_media_is_not_posted(self):
-        selected = {
-            "title": "SEC approves a new spot crypto ETF",
-            "source": "CoinDesk",
-            "published": "Tue, 04 Aug 2026 11:55:00 +0000",
-            "url": "https://www.coindesk.com/policy/selected?utm_source=rss",
-            "summary": "The regulator approved a new spot crypto exchange traded fund after completing its review.",
-        }
-        with self.assertRaisesRegex(LookupError, "最終出典"):
-            inu_auto_hourly.research_priority_signal(
+    def test_priority_signal_from_third_party_media_is_researched_to_primary_source(self):
+        expected = ([candidate()], [{"url": "https://official.example/release", "title": "Official"}], [])
+        with patch.object(inu_auto_hourly, "research_candidates_with_grok", return_value=expected) as research:
+            actual = inu_auto_hourly.research_priority_signal(
                 NOW,
                 {"history": []},
                 "https://www.coindesk.com/policy/selected",
+                "SEC approves a new spot crypto ETF",
             )
+        self.assertEqual(expected, actual)
+        focus_signal = research.call_args.kwargs["focus_signal"]
+        self.assertEqual("SEC approves a new spot crypto ETF", focus_signal["title"])
+        self.assertEqual("https://www.coindesk.com/policy/selected", focus_signal["url"])
+
+    def test_signal_promotion_never_falls_back_to_a_chart(self):
+        args = SimpleNamespace(
+            state="/tmp/unused-state.json",
+            slot="signal-test",
+            priority_url="",
+            priority_hint="",
+            promote_signals=True,
+            dry_run=True,
+            topic="",
+            no_market_fallback=True,
+        )
+        signal = {
+            "title": "公式の資金フロー更新",
+            "source": "X @issuer",
+            "published": NOW.isoformat(),
+            "url": "https://x.com/issuer/status/2086000000000000001",
+            "summary": "純流入が更新されたため一次資料を確認する",
+            "signal_id": "2086000000000000001",
+        }
+        with patch.object(inu_auto_hourly, "load_state", return_value={"history": []}), patch.object(
+            inu_auto_hourly, "collect_promotion_signals", return_value=[signal]
+        ), patch.object(
+            inu_auto_hourly, "research_candidates_with_grok", return_value=([], [], [])
+        ), patch.object(inu_auto_hourly, "mark_promotion_result") as mark, patch.object(
+            inu_auto_hourly, "build_market_data_fallback"
+        ) as fallback:
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        fallback.assert_not_called()
+        mark.assert_called_once()
+        self.assertEqual("rejected", mark.call_args.args[1])
 
     def test_breaking_reservation_keeps_priority(self):
         state = {"reservations": [], "posted_slots": [], "posted_ids": [], "history": []}
@@ -669,6 +699,31 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("Grok X Search", captured["prompt"])
         self.assertEqual([x_signal], signals)
         self.assertNotIn(x_signal["url"], [row["url"] for row in sources])
+
+    def test_focused_signal_rejects_a_candidate_for_another_event(self):
+        x_signal = {
+            "title": "ETF発行体が当日フローを更新",
+            "source": "X @issuer",
+            "published": NOW.isoformat(),
+            "url": "https://x.com/issuer/status/2086000000000000007",
+            "summary": "公式フロー更新を一次資料で確認する",
+            "discovery_type": "official_x_api",
+        }
+        matching = candidate(focus_signal_url=x_signal["url"])
+        unrelated = candidate(source_url="https://example.com/official/other", focus_signal_url="https://x.com/other/status/9")
+        with patch.object(
+            inu_auto_hourly,
+            "generate_web_json",
+            return_value=(
+                {"candidates": [unrelated, matching], "skip_reason": ""},
+                [{"url": matching["source_url"], "title": "Official"}],
+            ),
+        ):
+            candidates, _, signals = inu_auto_hourly.research_candidates(
+                NOW, {"history": []}, focus_signal=x_signal
+            )
+        self.assertEqual([x_signal], signals)
+        self.assertEqual([matching["source_url"]], [row["source_url"] for row in candidates])
 
     def test_curated_chinese_x_sources_are_prioritized_only_for_discovery(self):
         sources = inu_auto_hourly.load_curated_x_sources()

@@ -146,6 +146,9 @@ def run(args: argparse.Namespace) -> int:
     _emit_output("ready", "true")
     _emit_output("event_key", event_key)
     _emit_output("source_url", normalized_url)
+    # メディアURLは発見専用。後段はこの見出しを手掛かりに、同じ出来事の一次資料を
+    # 探して確認するため、投稿本文・最終カードには使わない。
+    _emit_output("headline", re.sub(r"[\r\n]+", " ", str(signal["title"])).strip()[:240])
     return 0
 
 

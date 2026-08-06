@@ -40,7 +40,7 @@ from inu_growth_watchlist import (
     load_state as load_watchlist_state,
     save_state as save_watchlist_state,
 )
-from inu_x_research_agent import ingest_watchlist_posts
+from inu_x_research_agent import ensure_watchlist_signal_state, ingest_watchlist_posts
 from x_list_client import XListClient
 from x_poster import _get_client, like_tweet, post_info_reply_tweet, post_info_tweet
 
@@ -762,6 +762,7 @@ def execute_one(state: dict, candidates: list[dict], now: dt.datetime, client=No
 
 def run(args: argparse.Namespace) -> int:
     now = dt.datetime.now(dt.timezone.utc)
+    ensure_watchlist_signal_state()
     state = load_state(Path(args.state))
     followers = follower_count()
     state["last_follower_count"] = followers

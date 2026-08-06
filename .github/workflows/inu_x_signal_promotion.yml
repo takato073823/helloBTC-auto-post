@@ -1,0 +1,95 @@
+name: INU 高反応Xシグナル速報
+
+on:
+  schedule:
+    # 公式X探索（07/27/52分）とブースト観測の直後に、重要な未処理シグナルを
+    # 一次資料まで確認する。通常の毎時枠とは別だが40分の連投制限をコード側で持つ。
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  # 毎時投稿・重要ニュースと同じ予約キューを共有し、同時公開を防ぐ。
+  group: inu-x-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install --timeout 120 -r requirements.txt
+
+      - run: python -m playwright install --with-deps chromium
+
+      - name: Xシグナル昇格ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_x_research_agent.py test_inu_auto_hourly.py test_inu_live_post.py test_x_poster_rules.py
+
+      - name: 高反応シグナルを一次資料まで検証して準備
+        id: prepare
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          INU_RESEARCH_MODEL: gpt-5.6-terra
+          XAI_RESEARCH_MODEL: grok-4.3
+          INU_GROK_EDITORIAL_ENABLED: true
+          INU_IMAGE_PROVIDER: openai
+          INU_IMAGE_FALLBACK_PROVIDER: none
+        working-directory: scripts
+        run: >-
+          python inu_auto_hourly.py --prepare --promote-signals --no-market-fallback
+          --slot "signal-${{ github.run_id }}"
+
+      - name: 速報予約または検証結果を保存
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
+          if [ -f scripts/inu_x_signal_promotion_state.json ]; then
+            git add scripts/inu_x_signal_promotion_state.json
+          fi
+          git diff --staged --quiet || git commit -m "chore: record INU signal promotion [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1
+
+      - name: 画像付き速報を公開
+        id: publish
+        if: steps.prepare.outputs.ready == 'true'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python inu_auto_hourly.py --publish
+
+      - name: 速報履歴を保存
+        if: steps.publish.outcome == 'success'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
+          if [ -f scripts/inu_x_signal_promotion_state.json ]; then
+            git add scripts/inu_x_signal_promotion_state.json
+          fi
+          git diff --staged --quiet || git commit -m "chore: record INU signal post [skip ci]"
+          git pull --rebase
+          git push
