@@ -118,6 +118,19 @@
       "posted_at": "2026-08-05T12:19:22.230406+00:00",
       "hook": "🏦Circle、BlackRock・Visa・DTCCなどをArcのバリデーターに選定",
       "follow_value": "INUでは、Circleの収益、USDC流通量、金融インフラ企業の参入が暗号資産市場に与える影響を追います。"
+    },
+    {
+      "slot": "2026-08-06-11-a",
+      "post_id": "inu_market_2026_08_06_11_a_xrp-usd",
+      "tweet_id": "2085187312288412034",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-XRPUSD",
+      "published_at": "2026-08-06T02:00:00+00:00",
+      "posted_at": "2026-08-06T02:12:51.149941+00:00",
+      "hook": "📉 XRP、主要6銘柄で直近24時間の値動き最大",
+      "follow_value": "XRPの出来高と3日レンジの更新を継続して追います。"
     }
   ],
   "posted_ids": [
@@ -135,7 +148,8 @@
     "inu_auto_7bbe14085d5a4f",
     "inu_auto_b9609a2e967baa",
     "inu_auto_7c23a07f6248ff",
-    "inu_breaking_us_indices_record_2026-08-05"
+    "inu_breaking_us_indices_record_2026-08-05",
+    "inu_market_2026_08_06_11_a_xrp-usd"
   ],
   "reservations": [
     {
@@ -146,15 +160,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-06-11-a",
-      "post_id": "inu_market_2026_08_06_11_a_xrp-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-XRPUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-06T02:08:03.167404+00:00"
     }
   ],
   "history": [
@@ -321,6 +326,19 @@
       "published_at": "2026-08-05T14:11:54+00:00",
       "posted_at": "2026-08-05T14:12:23.015263+00:00",
       "hook": "S&P 500が史上最高値を更新"
+    },
+    {
+      "slot": "2026-08-06-11-a",
+      "post_id": "inu_market_2026_08_06_11_a_xrp-usd",
+      "tweet_id": "2085187312288412034",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-XRPUSD",
+      "published_at": "2026-08-06T02:00:00+00:00",
+      "posted_at": "2026-08-06T02:12:51.149941+00:00",
+      "hook": "📉 XRP、主要6銘柄で直近24時間の値動き最大",
+      "follow_value": "XRPの出来高と3日レンジの更新を継続して追います。"
     }
   ],
   "scheduled_checks": [
