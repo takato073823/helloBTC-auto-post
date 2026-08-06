@@ -144,6 +144,19 @@
       "posted_at": "2026-08-06T04:07:20.019913+00:00",
       "hook": "📉 XRP、主要6銘柄で直近24時間の値動き最大",
       "follow_value": "XRPの出来高と3日レンジの更新を継続して追います。"
+    },
+    {
+      "slot": "2026-08-06-14",
+      "post_id": "inu_market_2026_08_06_14_eth-usd",
+      "tweet_id": "2085231574287896794",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHUSD",
+      "published_at": "2026-08-06T05:00:00+00:00",
+      "posted_at": "2026-08-06T05:08:43.954569+00:00",
+      "hook": "📈 ETH、主要6銘柄で直近24時間の値動き最大",
+      "follow_value": "ETHの出来高と3日レンジの更新を継続して追います。"
     }
   ],
   "posted_ids": [
@@ -163,7 +176,8 @@
     "inu_auto_7c23a07f6248ff",
     "inu_breaking_us_indices_record_2026-08-05",
     "inu_market_2026_08_06_11_a_xrp-usd",
-    "inu_market_2026_08_06_13_a_xrp-usd"
+    "inu_market_2026_08_06_13_a_xrp-usd",
+    "inu_market_2026_08_06_14_eth-usd"
   ],
   "reservations": [
     {
@@ -174,15 +188,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-06-14",
-      "post_id": "inu_market_2026_08_06_14_eth-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-06T05:04:42.513498+00:00"
     }
   ],
   "history": [
@@ -375,6 +380,19 @@
       "posted_at": "2026-08-06T04:07:20.019913+00:00",
       "hook": "📉 XRP、主要6銘柄で直近24時間の値動き最大",
       "follow_value": "XRPの出来高と3日レンジの更新を継続して追います。"
+    },
+    {
+      "slot": "2026-08-06-14",
+      "post_id": "inu_market_2026_08_06_14_eth-usd",
+      "tweet_id": "2085231574287896794",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHUSD",
+      "published_at": "2026-08-06T05:00:00+00:00",
+      "posted_at": "2026-08-06T05:08:43.954569+00:00",
+      "hook": "📈 ETH、主要6銘柄で直近24時間の値動き最大",
+      "follow_value": "ETHの出来高と3日レンジの更新を継続して追います。"
     }
   ],
   "scheduled_checks": [
