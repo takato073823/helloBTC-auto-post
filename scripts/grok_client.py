@@ -55,24 +55,67 @@ def _is_x_url(url: str) -> bool:
 
 
 def _citation_urls(response: Any, dumped: dict[str, Any]) -> list[str]:
-    """モデル本文ではなく、APIが返したcitation欄だけからURLを抽出する。"""
+    """X Searchが返した結果・citation欄だけからURLを抽出する。
+
+    モデル本文やtool callのquery/argumentsは対象にしない。プロンプト中のURLを
+    モデルが繰り返したものを、検索で裏付けられた投稿として扱わないためである。
+    """
     raw_citations: list[Any] = []
     raw_citations.extend(dumped.get("citations", []) or [])
     raw_citations.extend(getattr(response, "citations", []) or [])
+
+    def add_result_entries(entries: Any) -> None:
+        """APIの結果用フィールドにあるURLだけを受け付ける。"""
+        if isinstance(entries, (str, dict)):
+            entries = [entries]
+        if not isinstance(entries, (list, tuple)):
+            return
+        for entry in entries:
+            if isinstance(entry, str):
+                raw_citations.append(entry)
+            elif isinstance(entry, dict):
+                raw_citations.append(entry)
+
     for item in dumped.get("output", []) or []:
-        if item.get("type") != "message":
+        if not isinstance(item, dict):
             continue
-        for content in item.get("content", []) or []:
-            for annotation in content.get("annotations", []) or []:
-                if annotation.get("type") in {"url_citation", "citation"}:
-                    raw_citations.append(annotation)
+        item_type = str(item.get("type", ""))
+        if item_type == "message":
+            content_items = item.get("content", []) or []
+            if isinstance(content_items, dict):
+                content_items = [content_items]
+            if not isinstance(content_items, list):
+                continue
+            for content in content_items:
+                if not isinstance(content, dict):
+                    continue
+                annotations = content.get("annotations", []) or []
+                if isinstance(annotations, dict):
+                    annotations = [annotations]
+                if not isinstance(annotations, list):
+                    continue
+                for annotation in annotations:
+                    if isinstance(annotation, dict) and annotation.get("type") in {"url_citation", "citation"}:
+                        raw_citations.append(annotation)
+            continue
+
+        if not item_type.endswith("_search_call"):
+            continue
+        # result-bearing fields only. query / arguments / input are model-authored
+        # and therefore never prove that an X post was returned by X Search.
+        for field in ("results", "sources", "citations", "output"):
+            add_result_entries(item.get(field))
+        action = item.get("action")
+        if isinstance(action, dict):
+            for field in ("results", "sources", "citations", "output"):
+                add_result_entries(action.get(field))
 
     urls: list[str] = []
     for citation in raw_citations:
         if isinstance(citation, str):
             url = citation.strip()
         elif isinstance(citation, dict):
-            url = str(citation.get("url", "")).strip()
+            url = str(citation.get("url") or citation.get("link") or "").strip()
         else:
             url = str(getattr(citation, "url", "")).strip()
         if url.startswith(("https://", "http://")) and url not in urls:
@@ -91,7 +134,7 @@ def generate_x_json(
     model: str | None = None,
     request_timeout_seconds: float = 55.0,
 ) -> tuple[dict[str, Any], list[dict[str, str]]]:
-    """X Searchを必須実行し、引用で確認できたX投稿だけを返す。"""
+    """X Searchを必須実行し、API結果で確認できたX投稿だけを返す。"""
     if not 10.0 <= request_timeout_seconds <= 180.0:
         raise ValueError("X Searchのタイムアウトは10〜180秒で指定してください")
     selected_model = model or os.environ.get("XAI_RESEARCH_MODEL", DEFAULT_MODEL)
@@ -107,10 +150,13 @@ def generate_x_json(
             {
                 "type": "x_search",
                 "from_date": from_date.isoformat(),
-                "to_date": to_date.isoformat(),
+                # to_dateが排他的な実装でもJST当日の投稿を取りこぼさないように
+                # 翌日を渡し、下流の鮮度ゲートで再度絞り込む。
+                "to_date": (to_date + dt.timedelta(days=1)).isoformat(),
             }
         ],
         tool_choice="required",
+        # strict JSONを壊すinline citationを抑止し、tool-call側の結果を読む。
         include=["no_inline_citations"],
         max_output_tokens=max_output_tokens,
         text={
@@ -127,11 +173,22 @@ def generate_x_json(
     cited_urls = [url for url in _citation_urls(response, dumped) if _is_x_url(url)]
     cited_ids = {_status_id(url) for url in cited_urls if _status_id(url)}
     if not cited_ids:
+        output_types = sorted(
+            {str(item.get("type", "")) for item in dumped.get("output", []) or [] if isinstance(item, dict)}
+        )
+        logger.warning(
+            "GrokのX Search結果にstatus URLがありません: output_types=%s top_level_keys=%s",
+            output_types,
+            sorted(dumped.keys()),
+        )
         raise RuntimeError("GrokのX Searchから投稿引用が返りませんでした")
     # xAIのResponses APIは、モデル・SDKの組み合わせによってx_search_callを
     # output配列に展開しない場合がある。今回のリクエストで使えるツールは
     # x_searchだけなので、APIが返したX status citationも検索実行の証跡になる。
-    searched = any(item.get("type") == "x_search_call" for item in dumped.get("output", []))
+    searched = any(
+        isinstance(item, dict) and str(item.get("type", "")).endswith("_search_call")
+        for item in dumped.get("output", []) or []
+    )
     if not searched:
         logger.info("X Searchの実行記録はcitationから確認しました")
 
@@ -152,7 +209,7 @@ def generate_x_json(
     if ticks is not None:
         logger.info("Grok推定API費用: %.6f USD", float(ticks) / 10_000_000_000)
 
-    sources = [{"url": url, "title": "X post"} for url in cited_urls]
+    sources = [{"url": url, "title": "X Search result"} for url in cited_urls]
     return payload, sources
 
 
