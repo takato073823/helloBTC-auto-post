@@ -174,6 +174,15 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-05T09:24:35.618953+00:00"
+    },
+    {
+      "slot": "2026-08-06-14",
+      "post_id": "inu_market_2026_08_06_14_eth-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "reserved_at": "2026-08-06T05:04:42.513498+00:00"
     }
   ],
   "history": [
