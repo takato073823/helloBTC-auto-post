@@ -80,7 +80,7 @@ class GrokClientTests(unittest.TestCase):
         self.assertEqual("x_search", responses.kwargs["tools"][0]["type"])
         self.assertEqual("2026-08-06", responses.kwargs["tools"][0]["to_date"])
         self.assertEqual("required", responses.kwargs["tool_choice"])
-        self.assertEqual(["no_inline_citations"], responses.kwargs["include"])
+        self.assertNotIn("include", responses.kwargs)
         self.assertTrue(responses.kwargs["text"]["format"]["strict"])
 
     def test_x_search_result_field_is_verified_without_inline_citations(self):

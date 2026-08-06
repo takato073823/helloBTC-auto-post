@@ -156,8 +156,10 @@ def generate_x_json(
             }
         ],
         tool_choice="required",
-        # strict JSONを壊すinline citationを抑止し、tool-call側の結果を読む。
-        include=["no_inline_citations"],
+        # Responses APIでは引用が既定で返る。引用を明示的に抑止すると、
+        # モデル・SDKの組み合わせによってX Searchの実行記録まで欠けることがある。
+        # JSON Schemaとcitation annotationは共存するため、ここでは既定の引用を使い、
+        # 下流でAPIが返したcitation/result欄だけを検証する。
         max_output_tokens=max_output_tokens,
         text={
             "format": {
