@@ -663,18 +663,62 @@ class INUAutoHourlyTests(unittest.TestCase):
             self.assertEqual(options[1]["source_url"], prepared["candidate"]["source_url"])
 
     def test_fallback_researches_again_after_primary_had_no_candidate(self):
-        args = SimpleNamespace(
-            state="/tmp/unused-state.json",
-            slot="2026-08-04-21",
-            priority_url="",
-            dry_run=False,
-        )
+        args = SimpleNamespace(state="/tmp/unused-state.json", slot="2026-08-04-21", priority_url="", dry_run=True)
         state = {"scheduled_checks": [{"slot": args.slot, "result": "no_verified_candidate"}]}
+        market_item = {
+            "id": "inu_market_test",
+            "topic_type": "crypto_market",
+            "visual_route": "market_service_screenshot",
+            "text": "📈 BTC、主要6銘柄で直近24時間の値動き最大\n\n僕は、出来高を確認します。\n\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        market_candidate = {
+            "topic_type": "crypto_market",
+            "hook": "📈 BTC、主要6銘柄で直近24時間の値動き最大",
+            "why_now": "主要銘柄を比較した確定値で最大の値動きが出たためです。",
+            "follow_value": "BTCの出来高と3日レンジの更新を継続して追います。",
+            "source_url": "https://www.tradingview.com/symbols/COINBASE-BTCUSD/",
+            "published_at": NOW.isoformat(),
+        }
         with patch.dict("os.environ", {"INU_SCHEDULE_RUN_KIND": "fallback"}, clear=False), patch.object(
             inu_auto_hourly, "load_state", return_value=state
         ), patch.object(inu_auto_hourly, "research_candidates_with_grok") as research:
-            self.assertEqual(0, inu_auto_hourly.prepare(args))
+            with tempfile.TemporaryDirectory() as directory, patch.object(
+                inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"
+            ), patch.object(
+                inu_auto_hourly, "build_market_data_fallback", return_value=(market_item, market_candidate)
+            ) as fallback:
+                self.assertEqual(0, inu_auto_hourly.prepare(args))
         research.assert_called_once()
+        fallback.assert_called_once()
+
+    def test_prepare_repairs_copy_before_discarding_a_verified_candidate(self):
+        option = candidate()
+        repaired = candidate(opinion="僕は、次のETFフローの継続性を確認します。")
+        item = {
+            "id": "inu_auto_repaired",
+            "topic_type": "etf_flow",
+            "visual_route": "official_data_crop",
+            "text": "📈 ETF資金が反転\n\n僕は、次のETFフローを確認します。\n\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        args = SimpleNamespace(state="/tmp/unused-state.json", slot="2026-08-04-21", priority_url="", dry_run=True)
+        with tempfile.TemporaryDirectory() as directory, patch.object(
+            inu_auto_hourly, "load_state", return_value={"history": []}
+        ), patch.object(
+            inu_auto_hourly, "research_candidates_with_grok", return_value=([option], [{"url": option["source_url"], "title": "official"}], [])
+        ), patch.object(
+            inu_auto_hourly,
+            "_build_item_from_candidate",
+            side_effect=[ValueError("僕の見方として次に見る対象が不足しています"), (item, repaired)],
+        ) as build, patch.object(
+            inu_auto_hourly, "repair_candidate_editorial_copy", return_value=repaired
+        ) as repair, patch.object(inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        repair.assert_called_once()
+        self.assertEqual(2, build.call_count)
 
 
 if __name__ == "__main__":
