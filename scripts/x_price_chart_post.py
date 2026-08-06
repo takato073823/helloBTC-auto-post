@@ -34,8 +34,44 @@ SUPPORTED_PRODUCTS = {
     "DOGE-USD": {"symbol": "DOGE", "name": "Dogecoin", "decimals": 5, "tv": "COINBASE:DOGEUSD", "tv_label": "Dogecoin / U.S. Dollar"},
     "ADA-USD": {"symbol": "ADA", "name": "Cardano", "decimals": 4, "tv": "COINBASE:ADAUSD", "tv_label": "Cardano / U.S. Dollar"},
 }
+PRODUCT_PATTERN = re.compile(r"^[A-Z0-9]{2,15}-USD$")
 GRANULARITY_SECONDS = 3600
 DISPLAY_CANDLES = 72
+
+
+def asset_for_product(product: str, *, name: str | None = None, symbol: str | None = None) -> dict:
+    """CoinbaseのUSD建て市場を、固定6銘柄以外も安全にチャート化する。"""
+    normalized = str(product).upper().strip()
+    if normalized in SUPPORTED_PRODUCTS:
+        return {**SUPPORTED_PRODUCTS[normalized], "product": normalized}
+    if not PRODUCT_PATTERN.fullmatch(normalized):
+        raise ValueError(f"未対応のCoinbase商品です: {product}")
+    base = normalized.removesuffix("-USD")
+    resolved_symbol = str(symbol or base).upper().strip()
+    resolved_name = str(name or base).strip()
+    if not re.fullmatch(r"[A-Z0-9]{2,15}", resolved_symbol):
+        raise ValueError("銘柄シンボルが不正です")
+    if not re.fullmatch(r"[A-Za-z0-9 .&()_-]{2,60}", resolved_name):
+        raise ValueError("銘柄名が不正です")
+    return {
+        "product": normalized,
+        "symbol": resolved_symbol,
+        "name": resolved_name,
+        "decimals": 2,
+        "tv": f"COINBASE:{base}USD",
+        "tv_label": f"{resolved_name} / U.S. Dollar",
+    }
+
+
+def _display_decimals(value: float, default: int) -> int:
+    """固定銘柄以外でも、現在値が読める小数桁を安全に選ぶ。"""
+    if value >= 100:
+        return 0
+    if value >= 1:
+        return max(2, min(default, 4))
+    if value >= 0.01:
+        return max(4, min(default, 6))
+    return max(6, min(default, 8))
 
 def parse_closed_candles(rows: list, now: dt.datetime | None = None) -> list[dict]:
     """Coinbaseの配列を検証し、確定済みの時間足だけ昇順で返す。"""
@@ -77,8 +113,7 @@ def fetch_closed_candles(
     *,
     product: str = "BTC-USD",
 ) -> list[dict]:
-    if product not in SUPPORTED_PRODUCTS:
-        raise ValueError(f"未対応のCoinbase商品です: {product}")
+    asset_for_product(product)
     current = now or dt.datetime.now(dt.timezone.utc)
     start = current - dt.timedelta(hours=DISPLAY_CANDLES + 8)
     response = requests.get(
@@ -127,10 +162,19 @@ def _price(value: float, decimals: int) -> str:
     return f"${value:,.{decimals}f}"
 
 
-def build_tweet(metrics: dict, *, product: str = "BTC-USD") -> str:
-    asset = SUPPORTED_PRODUCTS[product]
+def build_tweet(
+    metrics: dict,
+    *,
+    product: str = "BTC-USD",
+    asset_metadata: dict | None = None,
+) -> str:
+    asset = asset_for_product(
+        product,
+        name=(asset_metadata or {}).get("name"),
+        symbol=(asset_metadata or {}).get("symbol"),
+    )
     symbol = asset["symbol"]
-    decimals = asset["decimals"]
+    decimals = _display_decimals(float(metrics["last_close"]), int(asset["decimals"]))
     change = metrics["change_24h"]
     position = metrics["position"]
     if abs(change) >= 2:
@@ -170,9 +214,14 @@ def render_chart(
     output_path: Path,
     *,
     product: str = "BTC-USD",
+    asset_metadata: dict | None = None,
 ) -> Path:
     """自作描画は行わず、公式TradingViewウィジェットの実画面を撮影する。"""
-    asset = SUPPORTED_PRODUCTS[product]
+    asset = asset_for_product(
+        product,
+        name=(asset_metadata or {}).get("name"),
+        symbol=(asset_metadata or {}).get("symbol"),
+    )
     metrics = calculate_metrics(candles)
     horizon_hours = 24 if abs(metrics["change_24h"]) >= 2 else 72
     window = select_chart_window(horizon_hours)
@@ -272,7 +321,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--key", default="btc_price_chart_test_v1", help="二重投稿防止キー")
     parser.add_argument("--state", default=str(STATE_PATH))
     parser.add_argument("--output", help="生成するPNGの保存先")
-    parser.add_argument("--product", choices=sorted(SUPPORTED_PRODUCTS), default="BTC-USD")
+    parser.add_argument("--product", default="BTC-USD", help="CoinbaseのUSD建て商品コード")
     return parser
 
 

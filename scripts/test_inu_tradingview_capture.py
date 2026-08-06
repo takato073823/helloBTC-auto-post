@@ -34,7 +34,13 @@ class INUTradingViewCaptureTests(unittest.TestCase):
         self.assertIn("1080px", html)
         self.assertIn("1350px", html)
 
-    def test_non_ascii_label_is_rejected_to_prevent_missing_glyphs(self):
+    def test_japanese_stock_label_is_allowed_but_unsafe_punctuation_is_rejected(self):
+        html = build_widget_html(
+            tradingview_symbol="TSE:7203",
+            label="トヨタ",
+            date_range="5d|120",
+        )
+        self.assertIn("トヨタ", html)
         with self.assertRaises(ValueError):
             build_widget_html(
                 tradingview_symbol="COINBASE:BTCUSD",

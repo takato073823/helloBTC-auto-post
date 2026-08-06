@@ -42,7 +42,9 @@ RANGE_LABELS = {
     "all|1M": "1M candles / All time",
 }
 SYMBOL_PATTERN = re.compile(r"^[A-Z0-9_]+:[A-Z0-9.!_-]+$")
-LABEL_PATTERN = re.compile(r"^[A-Za-z0-9 .&/()_-]+$")
+# 米国株・暗号資産に加え、日本株の公式名称をそのままスクリーンショットに表示する。
+# HTMLへ入れる文字は、英数字・日本語・限定記号だけに絞る。
+LABEL_PATTERN = re.compile(r"^[A-Za-z0-9 .&/()_\-ぁ-んァ-ヶ一-龯々ー]+$")
 ERROR_MARKERS = (
     "only available on tradingview",
     "このシンボルはtradingview上でのみ",

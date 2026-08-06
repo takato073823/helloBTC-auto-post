@@ -58,11 +58,13 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "last_close": 1.0524,
                 "position": 0.56,
             },
-            "XRP-USD",
-            6,
+            label="XRP",
+            market_kind="crypto",
+            compared_count=30,
+            source_label="Coinbase",
         )
         self.assertNotIn("僕", text)
-        self.assertIn("同レンジの56％地点", text)
+        self.assertIn("レンジ内56％", text)
 
     def test_grok_editorial_options_cannot_change_verified_facts_or_source(self):
         item = candidate()
@@ -790,7 +792,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         state = {
             "posted_slots": [
                 {
-                    "post_id": "inu_market_2026_08_04_11_a_xrp-usd",
+                    "post_id": "inu_market_2026_08_04_11_a_crypto-xrp-usd",
+                    "market_key": "crypto:XRP-USD",
                     "source_url": "https://www.tradingview.com/symbols/COINBASE-XRPUSD/",
                     "posted_at": (now - dt.timedelta(hours=2)).isoformat(),
                 }
@@ -798,15 +801,23 @@ class INUAutoHourlyTests(unittest.TestCase):
             "reservations": [],
         }
         metrics = {
-            "BTC-USD": {"change_24h": 1.0, "position": 0.5},
-            "XRP-USD": {"change_24h": -4.0, "position": 0.2},
+            "BTC-USD": {"change_24h": 6.0, "position": 0.5},
+            "XRP-USD": {"change_24h": -7.0, "position": 0.2},
         }
         artifacts = inu_auto_hourly.REPO_ROOT / "scripts" / "artifacts"
         artifacts.mkdir(parents=True, exist_ok=True)
+        assets = [
+            inu_auto_hourly.CryptoAsset("BTC-USD", "BTC", "Bitcoin", 1, False, 6.0),
+            inu_auto_hourly.CryptoAsset("XRP-USD", "XRP", "XRP", 4, False, -7.0),
+        ]
         with tempfile.TemporaryDirectory(dir=artifacts) as directory, patch.object(
-            inu_auto_hourly, "MARKET_FALLBACK_PRODUCTS", ("BTC-USD", "XRP-USD")
-        ), patch.object(
             inu_auto_hourly, "ARTIFACT_DIR", Path(directory)
+        ), patch.object(
+            inu_auto_hourly, "discover_crypto_assets", return_value=assets
+        ), patch.object(
+            inu_auto_hourly, "prioritize_crypto_assets", return_value=assets
+        ), patch.object(
+            inu_auto_hourly, "discover_stock_assets", return_value=[]
         ), patch(
             "x_price_chart_post.fetch_closed_candles",
             side_effect=lambda now, product: [{"product": product}],

@@ -28,6 +28,15 @@ from inu_editorial_policy import (
 from inu_growth_insights import load_insight_guidance
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
 from inu_live_post import publish_test_item, validate_test_item
+from inu_market_universe import (
+    YAHOO_CHART_URL,
+    CryptoAsset,
+    StockAsset,
+    discover_crypto_assets,
+    discover_stock_assets,
+    prioritize_crypto_assets,
+    prioritize_stock_assets,
+)
 from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
 from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
@@ -67,6 +76,7 @@ GROWTH_TOPIC_ROTATION = (
     "adoption_kpi",
 )
 AUTO_TOPIC_TYPES = AUTO_SELECTABLE_TOPIC_TYPES
+# 既存履歴の復元用。実際の比較対象はCoinGeckoの時価総額上位30＋話題通貨へ移行する。
 MARKET_FALLBACK_PRODUCTS = (
     "BTC-USD",
     "ETH-USD",
@@ -78,6 +88,13 @@ MARKET_FALLBACK_PRODUCTS = (
 # 同じ銘柄・同じ値動きを短時間に繰り返さない。定期枠は毎時1本なので、
 # この時間内は6銘柄を一巡させてから同じ銘柄を再検討する。
 MARKET_FALLBACK_PRODUCT_COOLDOWN = dt.timedelta(hours=6)
+# 相対比較で値動き最大なだけのチャートを出さないための絶対条件。
+# BTCが3％以上動く時は、市場全体への波及を優先してBTCを選ぶ。
+BTC_MARKET_WIDE_MOVE_PERCENT = 3.0
+CRYPTO_TOP30_MOVE_PERCENT = 5.0
+CRYPTO_TRENDING_MOVE_PERCENT = 4.0
+STOCK_MOVE_PERCENT = 5.0
+INDEX_MOVE_PERCENT = 2.0
 MAX_AGE_HOURS = {
     "breaking_news": 2,
     "developing_story": 6,
@@ -1442,6 +1459,7 @@ def _reserve(
             "topic_type": candidate["topic_type"],
             "priority": priority,
             "generated_editorial_visual": bool(candidate.get("generated_editorial_visual")),
+            "market_key": str(candidate.get("market_key", "")),
             "reserved_at": now.isoformat(),
         }
     )
@@ -1637,25 +1655,44 @@ def _build_item_from_candidate(
     return item, selected
 
 
-def _market_fallback_text(metrics: dict, product: str, compared_count: int) -> str:
-    """候補再探索まで不発だった時間だけ使う、実測値だけの市場投稿。"""
-    from x_price_chart_post import SUPPORTED_PRODUCTS
+def _market_decimal_places(value: float) -> int:
+    if value >= 1_000:
+        return 0
+    if value >= 10:
+        return 2
+    if value >= 1:
+        return 3
+    if value >= 0.01:
+        return 4
+    return 6
 
-    asset = SUPPORTED_PRODUCTS[product]
-    symbol = asset["symbol"]
-    decimals = asset["decimals"]
+
+def _market_fallback_text(
+    metrics: dict,
+    *,
+    label: str,
+    market_kind: str,
+    compared_count: int,
+    source_label: str,
+) -> str:
+    """絶対的な価格変動を確認できた時だけ使う、実測値だけの市場投稿。"""
     change = float(metrics["change_24h"])
     high = float(metrics["period_high"])
     low = float(metrics["period_low"])
     price = float(metrics["last_close"])
+    decimals = _market_decimal_places(price)
     direction = "上昇" if change >= 0 else "下落"
     emoji = "📈" if change >= 0 else "📉"
     range_position = float(metrics["position"]) * 100
+    market_label = "時価総額上位30銘柄と話題通貨" if market_kind == "crypto" else "主要・話題銘柄"
+    tag = "#仮想通貨" if market_kind == "crypto" else "#株式"
     text = (
-        f"{emoji} {symbol}、主要{compared_count}銘柄で直近24時間の値動き最大\n\n"
-        f"Coinbaseの確定済み1時間足で、{symbol}は{price:,.{decimals}f}ドル。24時間では{change:+.2f}％の{direction}です。\n"
-        f"過去3日の高値は{high:,.{decimals}f}ドル、安値は{low:,.{decimals}f}ドル。現在値は同レンジの{range_position:.0f}％地点です。\n\n"
-        "#仮想通貨"
+        f"{emoji} {label}、24時間で{change:+.2f}％\n\n"
+        f"{market_label}で変動が大きい銘柄です。\n"
+        f"{source_label}確定1時間足: {price:,.{decimals}f}。24時間で{change:+.2f}％の{direction}。\n"
+        f"3日高値{high:,.{decimals}f}、安値{low:,.{decimals}f}。レンジ内{range_position:.0f}％。\n\n"
+        f"※比較: {compared_count}銘柄／画像: TradingView\n"
+        f"{tag}"
     )
     if "僕" in text or "私" in text:
         raise ValueError("価格チャート投稿に個人の意見は含めません")
@@ -1670,7 +1707,9 @@ def _hour_has_post_or_reservation(state: dict, now: dt.datetime) -> bool:
 
 
 def _market_product_from_row(row: dict) -> str | None:
-    """保存済みの市場投稿からCoinbase銘柄を復元する。"""
+    """保存済みの市場投稿から、クールダウン対象の市場キーを復元する。"""
+    if row.get("market_key"):
+        return str(row["market_key"])
     post_id = str(row.get("post_id", "")).lower()
     source_url = str(row.get("source_url", "")).upper()
     for product in MARKET_FALLBACK_PRODUCTS:
@@ -1690,8 +1729,8 @@ def _recent_market_fallback_products(state: dict, now: dt.datetime) -> set[str]:
     for row in rows:
         if not isinstance(row, dict):
             continue
-        product = _market_product_from_row(row)
-        if not product:
+        market_key = _market_product_from_row(row)
+        if not market_key:
             continue
         timestamp = next(
             (
@@ -1705,10 +1744,99 @@ def _recent_market_fallback_products(state: dict, now: dt.datetime) -> set[str]:
             continue
         try:
             if _parse_timestamp(str(timestamp)) >= cutoff:
-                products.add(product)
+                products.add(market_key)
         except (TypeError, ValueError):
             continue
     return products
+
+
+def _stock_closed_candles(now: dt.datetime, asset: StockAsset) -> tuple[list[dict], dict]:
+    """Yahoo Financeの確定済み1時間足を、銘柄画面との照合用に整形する。"""
+    response = requests.get(
+        YAHOO_CHART_URL.format(symbol=asset.yahoo_symbol),
+        params={"interval": "1h", "range": "5d", "includePrePost": "false"},
+        headers={"User-Agent": USER_AGENT},
+        timeout=20,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    results = payload.get("chart", {}).get("result", [])
+    if not isinstance(results, list) or not results:
+        raise ValueError(f"{asset.label}のYahoo Financeデータがありません")
+    result = results[0]
+    meta = result.get("meta", {})
+    quote_rows = result.get("indicators", {}).get("quote", [])
+    timestamps = result.get("timestamp", [])
+    if not quote_rows or not isinstance(timestamps, list):
+        raise ValueError(f"{asset.label}のOHLCデータがありません")
+    quote_row = quote_rows[0]
+    candles: list[dict] = []
+    for timestamp, low, high, open_price, close, volume in zip(
+        timestamps,
+        quote_row.get("low", []),
+        quote_row.get("high", []),
+        quote_row.get("open", []),
+        quote_row.get("close", []),
+        quote_row.get("volume", []),
+    ):
+        if None in (timestamp, low, high, open_price, close):
+            continue
+        values = [float(low), float(high), float(open_price), float(close)]
+        if not all(math.isfinite(value) and value > 0 for value in values):
+            continue
+        if values[1] < values[0] or not values[0] <= values[2] <= values[1] or not values[0] <= values[3] <= values[1]:
+            continue
+        closed_at = dt.datetime.fromtimestamp(int(timestamp), tz=dt.timezone.utc) + dt.timedelta(hours=1)
+        if closed_at > now + dt.timedelta(minutes=5):
+            continue
+        candles.append(
+            {
+                "time": closed_at - dt.timedelta(hours=1),
+                "low": values[0],
+                "high": values[1],
+                "open": values[2],
+                "close": values[3],
+                "volume": float(volume or 0),
+            }
+        )
+    if len(candles) < 8:
+        raise ValueError(f"{asset.label}の確定済み1時間足が不足しています")
+    return candles[-72:], meta if isinstance(meta, dict) else {}
+
+
+def _stock_metrics(candles: list[dict]) -> dict:
+    last = candles[-1]
+    reference_time = last["time"] - dt.timedelta(hours=24)
+    earlier = [row for row in candles[:-1] if row["time"] <= reference_time]
+    if not earlier:
+        raise ValueError("株価の24時間比較データが不足しています")
+    reference = earlier[-1]
+    period = [row for row in candles if row["time"] >= last["time"] - dt.timedelta(hours=72)]
+    period_high = max(float(row["high"]) for row in period)
+    period_low = min(float(row["low"]) for row in period)
+    span = period_high - period_low
+    position = 0.5 if span == 0 else (float(last["close"]) - period_low) / span
+    return {
+        "last_close": float(last["close"]),
+        "change_24h": (float(last["close"]) / float(reference["close"]) - 1) * 100,
+        "period_high": period_high,
+        "period_low": period_low,
+        "position": max(0.0, min(1.0, position)),
+        "closed_at": last["time"] + dt.timedelta(hours=1),
+    }
+
+
+def _is_meaningful_crypto_move(metrics: dict, asset: CryptoAsset) -> bool:
+    change = abs(float(metrics["change_24h"]))
+    if asset.product == "BTC-USD":
+        return change >= BTC_MARKET_WIDE_MOVE_PERCENT
+    threshold = CRYPTO_TRENDING_MOVE_PERCENT if asset.is_trending else CRYPTO_TOP30_MOVE_PERCENT
+    return change >= threshold
+
+
+def _is_meaningful_stock_move(metrics: dict, asset: StockAsset) -> bool:
+    threshold = INDEX_MOVE_PERCENT if asset.yahoo_symbol.startswith("^") else STOCK_MOVE_PERCENT
+    return abs(float(metrics["change_24h"])) >= threshold
 
 
 def build_market_data_fallback(
@@ -1716,51 +1844,149 @@ def build_market_data_fallback(
     state: dict,
     slot: str,
 ) -> tuple[dict, dict]:
-    """二度の一次情報探索が不発時だけ、実サービス画面と確定足から毎時枠を守る。"""
+    """二度の一次情報探索が不発時だけ、強い市場変動だけを実画面で伝える。"""
     from x_price_chart_post import (
-        SUPPORTED_PRODUCTS,
         calculate_metrics,
         fetch_closed_candles,
         render_chart,
     )
+    from inu_tradingview_capture import capture_tradingview_screenshot, select_chart_window
 
-    snapshots: list[tuple[str, list[dict], dict]] = []
+    snapshots: list[dict] = []
     failures: list[str] = []
-    for product in MARKET_FALLBACK_PRODUCTS:
+    try:
+        crypto_assets = prioritize_crypto_assets(discover_crypto_assets())
+    except Exception as exc:
+        raise RuntimeError(f"時価総額上位30・話題通貨の取得に失敗しました: {exc}") from exc
+    for asset in crypto_assets:
         try:
-            candles = fetch_closed_candles(now=now, product=product)
-            snapshots.append((product, candles, calculate_metrics(candles)))
+            candles = fetch_closed_candles(now=now, product=asset.product)
+            metrics = calculate_metrics(candles)
+            if _is_meaningful_crypto_move(metrics, asset):
+                snapshots.append(
+                    {
+                        "market_key": f"crypto:{asset.product}",
+                        "market_kind": "crypto",
+                        "asset": asset,
+                        "candles": candles,
+                        "metrics": metrics,
+                        "score": abs(float(metrics["change_24h"])) + (1.0 if asset.is_trending else 0.0),
+                    }
+                )
         except Exception as exc:
-            failures.append(f"{product}: {exc}")
+            failures.append(f"{asset.product}: {exc}")
+
+    # 日米の主要株とYahoo Financeの話題銘柄も同じ条件で照合する。ここで採用するのは
+    # 大幅変動が確認でき、TradingViewの実画面まで取得できるものだけ。
+    try:
+        stock_assets = discover_stock_assets()
+    except Exception as exc:
+        stock_assets = []
+        failures.append(f"stock-universe: {exc}")
+    for asset in prioritize_stock_assets(stock_assets):
+        if not asset.tradingview_symbol:
+            continue
+        try:
+            candles, _meta = _stock_closed_candles(now, asset)
+            metrics = _stock_metrics(candles)
+            if _is_meaningful_stock_move(metrics, asset):
+                snapshots.append(
+                    {
+                        "market_key": f"{asset.market}:{asset.yahoo_symbol}",
+                        "market_kind": asset.market,
+                        "asset": asset,
+                        "candles": candles,
+                        "metrics": metrics,
+                        "score": abs(float(metrics["change_24h"])) + (0.75 if asset.is_trending else 0.0),
+                    }
+                )
+        except Exception as exc:
+            failures.append(f"{asset.yahoo_symbol}: {exc}")
+
     if not snapshots:
         raise RuntimeError(
-            "一次情報の再探索と市場データの取得がすべて失敗しました: "
-            + " / ".join(failures[:3])
+            "上位30暗号資産・話題通貨・日米主要株を確認したものの、価格投稿の絶対条件を満たす変動がありません"
+            + (f" ({' / '.join(failures[:3])})" if failures else "")
         )
 
     recent_products = _recent_market_fallback_products(state, now)
-    eligible_snapshots = [row for row in snapshots if row[0] not in recent_products]
+    eligible_snapshots = [row for row in snapshots if row["market_key"] not in recent_products]
     if not eligible_snapshots:
         raise RuntimeError("同一銘柄の市場投稿クールダウン中のため、価格チャートを重ねません")
 
-    product, candles, metrics = max(
-        eligible_snapshots,
-        key=lambda row: (abs(float(row[2]["change_24h"])), abs(float(row[2]["position"]) - 0.5)),
+    # BTCが市場全体を先導する3％以上の変動なら、アルト・個別株の相対順位よりBTCを優先する。
+    btc_market_wide = [
+        row
+        for row in eligible_snapshots
+        if row["market_key"] == "crypto:BTC-USD"
+        and abs(float(row["metrics"]["change_24h"])) >= BTC_MARKET_WIDE_MOVE_PERCENT
+    ]
+    ranked_snapshots = (
+        btc_market_wide
+        + [row for row in eligible_snapshots if row not in btc_market_wide]
+        if btc_market_wide
+        else sorted(
+            eligible_snapshots,
+            key=lambda row: (float(row["score"]), abs(float(row["metrics"]["position"]) - 0.5)),
+            reverse=True,
+        )
     )
-    asset = SUPPORTED_PRODUCTS[product]
     chart_path = ARTIFACT_DIR / f"{slot}-market.png"
     chart_path.parent.mkdir(parents=True, exist_ok=True)
-    render_chart(candles, chart_path, product=product)
+    selected = None
+    for row in ranked_snapshots:
+        asset = row["asset"]
+        metrics = row["metrics"]
+        try:
+            if isinstance(asset, CryptoAsset):
+                render_chart(
+                    row["candles"],
+                    chart_path,
+                    product=asset.product,
+                    asset_metadata={"name": asset.name, "symbol": asset.symbol},
+                )
+                tradingview_symbol = f"COINBASE:{asset.product.replace('-', '')}"
+                source_label = "Coinbase"
+                label = asset.symbol
+                topic_type = "crypto_market"
+                data_source = f"https://api.exchange.coinbase.com/products/{asset.product}/candles"
+            else:
+                window = select_chart_window(24 if abs(float(metrics["change_24h"])) >= STOCK_MOVE_PERCENT else 72)
+                capture_tradingview_screenshot(
+                    tradingview_symbol=str(asset.tradingview_symbol),
+                    label=asset.label,
+                    date_range=window.date_range,
+                    expected_price=float(metrics["last_close"]),
+                    tolerance=0.02,
+                    output_path=chart_path,
+                )
+                tradingview_symbol = str(asset.tradingview_symbol)
+                source_label = "Yahoo Finance"
+                label = asset.label
+                topic_type = "us_stock" if asset.market == "us" else "jp_stock"
+                data_source = YAHOO_CHART_URL.format(symbol=asset.yahoo_symbol)
+        except Exception as exc:
+            failures.append(f"{row['market_key']} chart: {exc}")
+            logger.info("市場候補のTradingView画面を照合できないため次候補へ: %s", row["market_key"])
+            continue
+        selected = row
+        break
+    if selected is None:
+        raise RuntimeError("強い価格変動は検出したものの、TradingView実画面との照合に成功しませんでした")
 
-    tradingview_symbol = str(asset["tv"]).replace(":", "-")
-    source_url = f"https://www.tradingview.com/symbols/{tradingview_symbol}/"
+    asset = selected["asset"]
+    metrics = selected["metrics"]
+    market_kind = selected["market_kind"]
+    market_key = selected["market_key"]
+
+    source_url = f"https://www.tradingview.com/symbols/{tradingview_symbol.replace(':', '-')}/"
     manifest_path = chart_path.with_suffix(".source.json")
     manifest_path.write_text(
         json.dumps(
             {
                 "evidence_type": "market_service_screenshot",
                 "source_url": source_url,
-                "data_source": f"https://api.exchange.coinbase.com/products/{product}/candles",
+                "data_source": data_source,
                 "data_verified": True,
                 "capture_type": "service_screenshot",
                 "screenshot_provider": "TradingView",
@@ -1773,29 +1999,37 @@ def build_market_data_fallback(
             indent=2,
         )
         + "\n",
-        encoding="utf-8",
+            encoding="utf-8",
     )
-    text = _market_fallback_text(metrics, product, len(snapshots))
+    text = _market_fallback_text(
+        metrics,
+        label=label,
+        market_kind="crypto" if market_kind == "crypto" else "stock",
+        compared_count=len(snapshots),
+        source_label=source_label,
+    )
     candidate = {
-        "topic_type": "crypto_market",
+        "topic_type": topic_type,
         "hook": text.splitlines()[0],
-        "why_now": "主要銘柄を同時比較した直近24時間の確定値で、最も大きい値動きが出ているためです。",
-        "reader_interest": f"{asset['symbol']}の値動きが主要銘柄の中で最大となり、短期の資金の偏りを確認できるためです。",
-        "follow_value": f"{asset['symbol']}の出来高と3日レンジの更新を継続して追います。",
+        "why_now": "時価総額上位30・話題通貨と日米の主要・話題株を比較し、絶対的に大きな価格変動を確認したためです。",
+        "reader_interest": f"{label}の大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+        "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
         "source_url": source_url,
         "published_at": metrics["closed_at"].isoformat(),
         "generated_editorial_visual": False,
+        "market_key": market_key,
     }
+    safe_slug = re.sub(r"[^a-z0-9]+", "-", market_key.lower()).strip("-")
     item = {
-        "id": f"inu_market_{slot.replace('-', '_')}_{product.lower()}",
-        "topic_type": "crypto_market",
+        "id": f"inu_market_{slot.replace('-', '_')}_{safe_slug}",
+        "topic_type": topic_type,
         "visual_route": "market_service_screenshot",
         "text": text,
         "media_path": _repo_relative(chart_path),
         "source_manifest": _repo_relative(manifest_path),
     }
     validate_test_item(item)
-    logger.info("一次情報の候補が成立しないため、実測市場投稿を準備: %s", product)
+    logger.info("一次情報の候補が成立しないため、実測市場投稿を準備: %s", market_key)
     return item, candidate
 
 
@@ -2124,6 +2358,7 @@ def publish(args: argparse.Namespace) -> int:
         "topic_type": candidate["topic_type"],
         "priority": str(reservation.get("priority", "scheduled")),
         "generated_editorial_visual": bool(reservation.get("generated_editorial_visual")),
+        "market_key": str(reservation.get("market_key", "")),
         "source_url": normalize_url(candidate["source_url"]),
         "published_at": candidate["published_at"],
         "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
