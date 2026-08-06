@@ -32,6 +32,7 @@ from inu_news_visual import capture_source_hero_image, generate_editorial_news_v
 from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
+from inu_source_registry import topic_source_context, topic_sources
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from inu_x_research_agent import discovery_signals as collect_official_x_api_signals
 from grok_client import generate_editorial_json, generate_x_json
@@ -110,7 +111,10 @@ TRUSTED_MEDIA_HOSTS = {
     "theblock.co",
 }
 TRACKING_KEYS = {"gclid", "fbclid", "ref", "source"}
-USER_AGENT = "Mozilla/5.0 (compatible; INUPrimarySourceVerifier/1.0)"
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+)
 SOURCE_VERIFY_TIMEOUT_SECONDS = 12
 LOW_VALUE_ROUNDUP_PATTERNS = (
     r"\bwhat happened\b.*\b(today|this week)\b",
@@ -561,6 +565,7 @@ def build_research_prompt(
     now: dt.datetime,
     state: dict,
     discovery_signals: list[dict[str, str]] | None = None,
+    target_topic: str | None = None,
 ) -> str:
     recent = _recent_history(state)
     recent_topics = [row.get("topic_type", "") for row in recent[-8:] if row.get("topic_type")]
@@ -569,6 +574,18 @@ def build_research_prompt(
     underrepresented_topics = _underrepresented_growth_topics(state, now)
     insight_guidance = load_insight_guidance()
     local = now.astimezone(JST)
+    fixed_source_context = topic_source_context(target_topic)
+    target_instruction = (
+        f"""
+今回の確認投稿の対象カテゴリーは {target_topic} だけです。has_candidate=true の候補は
+すべて topic_type={target_topic} に限定し、最終source_urlは下記の固定一次情報源と同じ
+運営主体ドメインの、今回更新された具体的な発表・データ・開示ページだけにしてください。
+該当する新しい変化が確認できなければ、別カテゴリーや価格チャートで代用せず、
+has_candidate=false を返してください。
+""".strip()
+        if target_topic
+        else "固定探索先は、候補のtopic_typeに対応するものを最優先で確認してください。"
+    )
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
 {local.isoformat()}（日本時間）です。必ずWeb検索を実行し、この時刻から見て新しい
@@ -583,6 +600,8 @@ topic_typeが異なる候補を優先してください。
 - 「Grok X Search」と記載されたシグナルのX URLは発見専用であり、最終source_urlには絶対に使わない。投稿内容を公式発表・一次データで独立に確認できない場合は候補から除外する。
 - ニュースメディアやXの投稿は発見専用。Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Block、Cointelegraphなど第三者メディアのURLを最終source_urlにしてはいけない。一次資料へ到達できない場合は候補から除外する。外部記事カードはhelloBTCの価値を薄めるため、自動投稿では絶対に使わない。
 - source_urlは今回のWeb検索結果に実際に含まれる、発表主体の一次資料URLだけを使う。
+- 固定探索先の一覧は発見と確認の起点であり、Reuters・Nikkei・暗号資産メディアは
+  最終出典にせず、必ず発表主体の同一ドメインにある一次資料へ戻る。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
 - evidence_anchorは、一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。
 - evidence_as_primaryは、根拠スクリーンショット自体が一目で意味の分かる公式資料・表・チャート・図版の場合だけtrueにする。単なる記事見出しや本文、余白の多いページならfalseにする。trueなら画像はその根拠スクリーンショット1枚だけで投稿する。
@@ -605,6 +624,12 @@ topic_typeが異なる候補を優先してください。
 
 口調の基準:
 {VOICE_PROMPT}
+
+固定探索先:
+{fixed_source_context}
+
+カテゴリー指定:
+{target_instruction}
 
 INUの編集憲法:
 {EDITORIAL_CONSTITUTION}
@@ -641,11 +666,12 @@ def research_candidates(
     now: dt.datetime,
     state: dict,
     extra_signals: list[dict[str, str]] | None = None,
+    target_topic: str | None = None,
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
     signals = list(extra_signals or []) + collect_discovery_signals()
     signals = signals[:42]
     payload, sources = generate_web_json(
-        build_research_prompt(now, state, signals),
+        build_research_prompt(now, state, signals, target_topic=target_topic),
         schema_name="inu_live_candidate_set",
         schema=CANDIDATE_SET_SCHEMA,
         max_output_tokens=5200,
@@ -663,11 +689,13 @@ def research_candidates(
         for candidate in payload.get("candidates", [])
         if isinstance(candidate, dict)
     ]
+    if target_topic:
+        candidates = [candidate for candidate in candidates if candidate.get("topic_type") == target_topic]
     return candidates, sources, signals
 
 
 def research_candidates_with_grok(
-    now: dt.datetime, state: dict
+    now: dt.datetime, state: dict, target_topic: str | None = None
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
     """実測X APIとGrokの発見シグナルを併用し、失敗時もWeb調査で継続する。"""
     x_signals: list[dict[str, str]] = []
@@ -689,7 +717,10 @@ def research_candidates_with_grok(
             continue
         seen_urls.add(url)
         unique.append(signal)
-    return research_candidates(now, state, extra_signals=unique)
+    kwargs: dict[str, object] = {"extra_signals": unique}
+    if target_topic:
+        kwargs["target_topic"] = target_topic
+    return research_candidates(now, state, **kwargs)
 
 
 def _kol_quote_prompt(now: dt.datetime, state: dict, posts: list[dict]) -> str:
@@ -817,11 +848,22 @@ def build_rescue_research_prompt(
     state: dict,
     failure_reasons: list[str],
     discovery_signals: list[dict[str, str]],
+    target_topic: str | None = None,
 ) -> str:
     """一次探索が不発だった時間枠だけ、別の入口から再探索する指示。"""
     local = now.astimezone(JST)
     recent_urls = [row.get("source_url", "") for row in _recent_history(state)]
     recent_hooks = [row.get("hook", "") for row in _recent_history(state)]
+    fixed_source_context = topic_source_context(target_topic)
+    target_instruction = (
+        f"""
+今回の確認投稿の対象カテゴリーは {target_topic} だけです。候補はこのカテゴリーだけにし、
+source_urlは下記固定探索先と同じ運営主体ドメインの一次資料に限定する。該当する更新がなければ
+候補なしで終了し、他カテゴリーや価格チャートで代用しない。
+""".strip()
+        if target_topic
+        else "候補のtopic_typeに対応する固定探索先を優先して再確認する。"
+    )
     return f"""
 あなたはINUの毎時投稿を必ず成立させる、二回目の一次情報リサーチ担当です。
 現在時刻は{local.isoformat()}（日本時間）。最初の探索で候補は見つかったものの、
@@ -850,6 +892,12 @@ def build_rescue_research_prompt(
 口調の基準:
 {VOICE_PROMPT}
 
+固定探索先:
+{fixed_source_context}
+
+カテゴリー指定:
+{target_instruction}
+
 自動投稿の品質ゲート:
 {AUTO_POST_PLAYBOOK}
 
@@ -866,10 +914,17 @@ def research_rescue_candidates(
     state: dict,
     failure_reasons: list[str],
     discovery_signals: list[dict[str, str]],
+    target_topic: str | None = None,
 ) -> tuple[list[dict], list[dict[str, str]]]:
     """候補を捨てずに、別の一次情報の組み合わせで一度だけ再探索する。"""
     payload, sources = generate_web_json(
-        build_rescue_research_prompt(now, state, failure_reasons, discovery_signals),
+        build_rescue_research_prompt(
+            now,
+            state,
+            failure_reasons,
+            discovery_signals,
+            target_topic=target_topic,
+        ),
         schema_name="inu_live_candidate_rescue_set",
         schema=CANDIDATE_SET_SCHEMA,
         max_output_tokens=5200,
@@ -881,6 +936,8 @@ def research_rescue_candidates(
         for candidate in payload.get("candidates", [])
         if isinstance(candidate, dict)
     ]
+    if target_topic:
+        candidates = [candidate for candidate in candidates if candidate.get("topic_type") == target_topic]
     return candidates, sources
 
 
@@ -988,6 +1045,8 @@ def _select_grok_editorial_copy(
     sources: list[dict[str, str]],
     state: dict,
     now: dt.datetime,
+    *,
+    required_topic: str | None = None,
 ) -> dict:
     """複数案を既存品質ゲートで選別し、最初に通ったものだけを採用する。"""
     try:
@@ -999,7 +1058,7 @@ def _select_grok_editorial_copy(
         option = dict(candidate)
         option.update(copy)
         try:
-            validate_candidate(option, sources, state, now)
+            validate_candidate(option, sources, state, now, required_topic=required_topic)
             logger.info("Grok編集案%dを品質ゲート通過として採用", index)
             return option
         except Exception as exc:
@@ -1119,6 +1178,8 @@ def validate_candidate(
     sources: list[dict[str, str]],
     state: dict,
     now: dt.datetime,
+    *,
+    required_topic: str | None = None,
 ) -> None:
     if not candidate.get("has_candidate"):
         raise LookupError(candidate.get("skip_reason") or "適切な一次情報がありません")
@@ -1127,6 +1188,8 @@ def validate_candidate(
         raise ValueError("第三者メディアURLの記事カードは自動投稿しません")
     if topic_type not in AUTO_TOPIC_TYPES:
         raise ValueError("自動投稿の対象外系統です")
+    if required_topic and topic_type != required_topic:
+        raise ValueError("確認対象と異なる投稿系統です")
     policy = get_content_policy(topic_type)
     if policy.review_mode == "manual":
         raise ValueError("手動確認専用の系統です")
@@ -1135,6 +1198,18 @@ def validate_candidate(
     if policy.requires_primary_source and not candidate.get("is_primary_source"):
         raise ValueError("一次資料として選定されていません")
     selected = normalize_url(candidate.get("source_url", ""))
+    if required_topic:
+        selected_host = (urlsplit(selected).hostname or "").lower().removeprefix("www.")
+        allowed_hosts = {
+            (urlsplit(source.url).hostname or "").lower().removeprefix("www.")
+            for source in topic_sources(required_topic)
+        }
+        if not any(
+            selected_host == host or selected_host.endswith(f".{host}") or host.endswith(f".{selected_host}")
+            for host in allowed_hosts
+            if host
+        ):
+            raise ValueError("確認対象の固定一次情報源ではありません")
     cited = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
     if selected not in cited:
         raise ValueError("選定URLがWeb検索の参照元一覧にありません")
@@ -1369,6 +1444,8 @@ def _build_item_from_candidate(
     state: dict,
     now: dt.datetime,
     slot: str,
+    *,
+    required_topic: str | None = None,
 ) -> tuple[dict, dict]:
     """候補を検証し、根拠画像まで取得できた場合だけ投稿データを返す。"""
     selected = dict(candidate)
@@ -1389,10 +1466,16 @@ def _build_item_from_candidate(
             }
         )
         logger.info("引用一覧外の一次資料を実ページ検証で確認: %s", verified_url)
-    validate_candidate(selected, sources, state, now)
+    validate_candidate(selected, sources, state, now, required_topic=required_topic)
     # 事実・出典・鮮度を確定してからGrokに編集だけを依頼する。Grok案も同じ
     # 品質ゲートへ戻すため、もっともらしい創作やURL差し替えは公開へ進まない。
-    selected = _select_grok_editorial_copy(selected, sources, state, now)
+    selected = _select_grok_editorial_copy(
+        selected,
+        sources,
+        state,
+        now,
+        required_topic=required_topic,
+    )
     if verified_url is None:
         verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url
@@ -1644,6 +1727,7 @@ def prepare(args: argparse.Namespace) -> int:
     now = dt.datetime.now(dt.timezone.utc)
     scheduled_kind = _scheduled_run_kind()
     slot = args.slot or _scheduled_slot_key(now, scheduled_kind)
+    target_topic = str(getattr(args, "topic", "") or "").strip() or None
     state_path = Path(args.state)
     state = load_state(state_path)
     occupied = list(state.get("posted_slots", [])) + list(state.get("reservations", []))
@@ -1659,7 +1743,7 @@ def prepare(args: argparse.Namespace) -> int:
         logger.info("主実行は候補未確定のため、予備枠で一次資料を再探索: %s", slot)
 
     priority_url = str(getattr(args, "priority_url", "") or "").strip()
-    priority = "breaking" if priority_url else "scheduled"
+    priority = "review" if target_topic else "breaking" if priority_url else "scheduled"
     candidates: list[dict] = []
     sources: list[dict[str, str]] = []
     signals: list[dict[str, str]] = []
@@ -1679,7 +1763,7 @@ def prepare(args: argparse.Namespace) -> int:
     else:
         # Xで伸びている新着の動画・画像は、ニュース探索の失敗時だけではなく
         # 定期的に優先する。速報URLがある場合は上の分岐で一次資料を最優先する。
-        if _prefer_overseas_kol_turn(state):
+        if not target_topic and _prefer_overseas_kol_turn(state):
             try:
                 overseas_quote = _build_overseas_kol_quote_item(now, state)
                 if overseas_quote:
@@ -1690,7 +1774,9 @@ def prepare(args: argparse.Namespace) -> int:
                 logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
         if item is None:
             try:
-                candidates, sources, signals = research_candidates_with_grok(now, state)
+                candidates, sources, signals = research_candidates_with_grok(
+                    now, state, target_topic=target_topic
+                )
             except Exception as exc:
                 logger.warning("一次資料の複数候補リサーチに失敗: %s", exc)
                 signals = collect_discovery_signals()
@@ -1716,7 +1802,12 @@ def prepare(args: argparse.Namespace) -> int:
                 continue
             try:
                 item, candidate = _build_item_from_candidate(
-                    option, option_sources, state, now, slot
+                    option,
+                    option_sources,
+                    state,
+                    now,
+                    slot,
+                    required_topic=target_topic,
                 )
                 logger.info("%sの%d件目を採用", phase, position)
                 return
@@ -1733,7 +1824,12 @@ def prepare(args: argparse.Namespace) -> int:
                 try:
                     repaired = repair_candidate_editorial_copy(option, reason)
                     item, candidate = _build_item_from_candidate(
-                        repaired, option_sources, state, now, slot
+                        repaired,
+                        option_sources,
+                        state,
+                        now,
+                        slot,
+                        required_topic=target_topic,
                     )
                     logger.info("%sの%d件目を編集修復して採用", phase, position)
                     return
@@ -1755,7 +1851,11 @@ def prepare(args: argparse.Namespace) -> int:
     if item is None and not priority_url:
         try:
             rescue_candidates, rescue_sources = research_rescue_candidates(
-                now, state, failure_reasons, signals
+                now,
+                state,
+                failure_reasons,
+                signals,
+                target_topic=target_topic,
             )
             try_candidates(rescue_candidates, rescue_sources, phase="再探索")
         except Exception as exc:
@@ -1765,7 +1865,7 @@ def prepare(args: argparse.Namespace) -> int:
     # 一次資料の候補がこの時点で成立しない場合、海外KOLリストで実測済みの
     # 新着動画・画像をネイティブ引用として検討する。元投稿のメディアと投稿者を
     # そのまま表示し、データのない生成画像や転載画像には置き換えない。
-    if item is None and not priority_url:
+    if item is None and not priority_url and not target_topic:
         try:
             overseas_quote = _build_overseas_kol_quote_item(now, state)
             if overseas_quote:
@@ -1776,6 +1876,13 @@ def prepare(args: argparse.Namespace) -> int:
             logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
 
     if item is None or candidate is None:
+        if target_topic or bool(getattr(args, "no_market_fallback", False)):
+            logger.info(
+                "固定探索先から%sの投稿候補は確認できませんでした。別カテゴリーや価格投稿では代用しません。",
+                target_topic or "一次情報",
+            )
+            _emit_output("ready", "false")
+            return 0
         # 二段階の一次情報探索まで不発でも、毎時枠を空けない。Coinbaseの確定済み
         # データとTradingViewの実画面で、値動き最大の銘柄を一件だけ伝える。
         # ただし同じJST時間に既に一本成立している場合にはチャートを重ねない。
@@ -1898,6 +2005,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--slot")
     parser.add_argument("--priority-url", default="")
+    parser.add_argument("--topic", choices=AUTO_TOPIC_TYPES)
+    parser.add_argument("--no-market-fallback", action="store_true")
     parser.add_argument("--state", default=str(STATE_PATH))
     parser.add_argument("--prepared", default=str(PREPARED_PATH))
     return parser

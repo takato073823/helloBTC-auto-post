@@ -103,6 +103,27 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_category_review_rejects_a_source_outside_its_fixed_registry(self):
+        item = candidate()
+        with self.assertRaisesRegex(ValueError, "固定一次情報源"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+                required_topic="etf_flow",
+            )
+
+    def test_category_research_prompt_limits_the_requested_topic(self):
+        prompt = inu_auto_hourly.build_research_prompt(
+            NOW,
+            {"history": []},
+            target_topic="macro_event",
+        )
+        self.assertIn("BLS Release Calendar", prompt)
+        self.assertIn("topic_type=macro_event", prompt)
+        self.assertNotIn("[etf_flow]", prompt)
+
     def test_uncited_primary_source_is_added_only_after_live_verification(self):
         item = candidate()
         sources = [{"url": "https://other.example/official", "title": "other"}]
@@ -650,6 +671,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         sources = inu_auto_hourly.load_curated_x_sources()
         self.assertEqual(
             [
+                "WatcherGuru",
                 "RelaxView",
                 "falali2015",
                 "tun2049",

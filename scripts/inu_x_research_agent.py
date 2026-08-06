@@ -24,6 +24,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 import requests
 
+from inu_source_registry import discovery_x_handles
 from x_poster import _get_client
 
 
@@ -68,10 +69,16 @@ MATERIAL_SIGNAL_TERMS = (
     "流出", "清算", "ハッキング", "オンチェーン", "資金流", "监管", "财报", "资金流",
 )
 MEDIA_HANDLES = {"coindesk", "cointelegraph", "decryptmedia", "theblock__", "blockworks_"}
+FIXED_DISCOVERY_HANDLES = discovery_x_handles()
+FIXED_DISCOVERY_QUERY = " OR ".join(f"from:{handle}" for handle in FIXED_DISCOVERY_HANDLES)
 
 # 1回のRecent Countsは1テーマだけを測る。20分間隔で循環するため、全テーマを
 # 一度に大量取得せず、突発的な話題量の増加を捕捉できる。
 TOPIC_QUERIES = (
+    (
+        "fixed_primary_x",
+        f"({FIXED_DISCOVERY_QUERY}) -is:reply -is:retweet",
+    ),
     (
         "crypto_market",
         "(Bitcoin OR BTC OR Ethereum OR ETH) (ETF OR inflow OR outflow OR liquidation OR funding OR \"open interest\") lang:en -is:reply -is:retweet",

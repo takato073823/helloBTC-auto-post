@@ -4,6 +4,12 @@
   "provenance": "@revelya_web3 のフォロー中一覧から、プロフィール上の専門領域と検証可能性を基準に手動選定",
   "sources": [
     {
+      "handle": "WatcherGuru",
+      "language": "en",
+      "focus": "海外の暗号資産・金融市場の高頻度な速報シグナル",
+      "use_when": "当事者の公式発表、規制当局、企業IR、実測データへ独立に到達できる場合のみ"
+    },
+    {
       "handle": "RelaxView",
       "language": "zh-Hant",
       "focus": "オンチェーンの大口資金移動・クジラ追跡",

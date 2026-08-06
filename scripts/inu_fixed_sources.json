@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "discovery_only": {
+    "media": [
+      {"name": "Reuters Markets", "url": "https://www.reuters.com/markets/"},
+      {"name": "Nikkei Markets", "url": "https://www.nikkei.com/markets/"},
+      {"name": "CoinDesk RSS", "url": "https://www.coindesk.com/arc/outboundfeeds/rss/"},
+      {"name": "Cointelegraph RSS", "url": "https://cointelegraph.com/rss"},
+      {"name": "Decrypt RSS", "url": "https://decrypt.co/feed"},
+      {"name": "The Block RSS", "url": "https://www.theblock.co/rss.xml"},
+      {"name": "Bitcoin Magazine RSS", "url": "https://bitcoinmagazine.com/.rss/full/"}
+    ],
+    "x_accounts": [
+      {"handle": "WatcherGuru", "focus": "海外の速報・市場話題の発見"},
+      {"handle": "SECGov", "focus": "米国証券規制の公式発表"},
+      {"handle": "CFTC", "focus": "米国商品先物規制の公式発表"},
+      {"handle": "federalreserve", "focus": "FOMC・金融政策の公式発表"},
+      {"handle": "USTreasury", "focus": "米財務省・国債入札の公式発表"},
+      {"handle": "fsa_JAPAN", "focus": "金融庁の公式発表"}
+    ]
+  },
+  "topics": {
+    "breaking_news": [
+      {"name": "SEC Newsroom", "url": "https://www.sec.gov/newsroom/press-releases", "kind": "official_release"},
+      {"name": "CFTC Press Releases", "url": "https://www.cftc.gov/PressRoom/PressReleases", "kind": "official_release"},
+      {"name": "金融庁ニュース", "url": "https://www.fsa.go.jp/en/news/index.html", "kind": "official_release"},
+      {"name": "Coinbase Status", "url": "https://status.coinbase.com/", "kind": "official_status"}
+    ],
+    "developing_story": [
+      {"name": "Coinbase Status", "url": "https://status.coinbase.com/", "kind": "official_status"},
+      {"name": "Kraken Status", "url": "https://status.kraken.com/", "kind": "official_status"},
+      {"name": "Binance Announcements", "url": "https://www.binance.com/en/support/announcement", "kind": "official_release"}
+    ],
+    "market_microstructure": [
+      {"name": "Coinbase Exchange API", "url": "https://api.exchange.coinbase.com/products/BTC-USD/stats", "kind": "official_data"},
+      {"name": "CME Bitcoin Futures", "url": "https://www.cmegroup.com/markets/cryptocurrencies/bitcoin/bitcoin.quotes.html", "kind": "official_market_data"},
+      {"name": "Coinbase Exchange Status", "url": "https://status.exchange.coinbase.com/", "kind": "official_status"}
+    ],
+    "etf_flow": [
+      {"name": "iShares Bitcoin Trust", "url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf", "kind": "issuer_fund_data"},
+      {"name": "Bitwise Bitcoin ETF", "url": "https://bitbetf.com/", "kind": "issuer_fund_data"},
+      {"name": "Grayscale Bitcoin Trust", "url": "https://etfs.grayscale.com/gbtc", "kind": "issuer_fund_data"},
+      {"name": "SEC EDGAR", "url": "https://www.sec.gov/edgar/search/", "kind": "regulatory_filing"}
+    ],
+    "institutional_flow": [
+      {"name": "SEC EDGAR", "url": "https://www.sec.gov/edgar/search/", "kind": "regulatory_filing"},
+      {"name": "Coinbase Investor Relations", "url": "https://investor.coinbase.com/", "kind": "company_ir"},
+      {"name": "Strategy Investor Relations", "url": "https://www.strategy.com/investor-relations", "kind": "company_ir"},
+      {"name": "TDnet", "url": "https://www.release.tdnet.info/inbs/I_main_00.html", "kind": "exchange_disclosure"}
+    ],
+    "onchain": [
+      {"name": "mempool.space", "url": "https://mempool.space/", "kind": "chain_explorer"},
+      {"name": "Etherscan", "url": "https://etherscan.io/", "kind": "chain_explorer"},
+      {"name": "Solscan", "url": "https://solscan.io/", "kind": "chain_explorer"}
+    ],
+    "whale_treasury": [
+      {"name": "Strategy Investor Relations", "url": "https://www.strategy.com/investor-relations", "kind": "company_ir"},
+      {"name": "Metaplanet Investor Relations", "url": "https://metaplanet.jp/en/ir/", "kind": "company_ir"},
+      {"name": "SEC EDGAR", "url": "https://www.sec.gov/edgar/search/", "kind": "regulatory_filing"},
+      {"name": "mempool.space", "url": "https://mempool.space/", "kind": "chain_explorer"}
+    ],
+    "earnings": [
+      {"name": "Coinbase Investor Relations", "url": "https://investor.coinbase.com/", "kind": "company_ir"},
+      {"name": "Strategy Investor Relations", "url": "https://www.strategy.com/investor-relations", "kind": "company_ir"},
+      {"name": "NVIDIA Investor Relations", "url": "https://investor.nvidia.com/", "kind": "company_ir"},
+      {"name": "TDnet", "url": "https://www.release.tdnet.info/inbs/I_main_00.html", "kind": "exchange_disclosure"}
+    ],
+    "supply_event": [
+      {"name": "Circle Transparency", "url": "https://www.circle.com/transparency", "kind": "issuer_transparency"},
+      {"name": "Tether Transparency", "url": "https://tether.to/en/transparency/", "kind": "issuer_transparency"},
+      {"name": "Ethereum Improvement Proposals", "url": "https://eips.ethereum.org/", "kind": "protocol_governance"}
+    ],
+    "adoption_kpi": [
+      {"name": "Coinbase Investor Relations", "url": "https://investor.coinbase.com/", "kind": "company_ir"},
+      {"name": "Visa Newsroom", "url": "https://corporate.visa.com/en/sites/visa-perspectives/newsroom.html", "kind": "company_release"},
+      {"name": "PayPal Newsroom", "url": "https://newsroom.paypal-corp.com/", "kind": "company_release"}
+    ],
+    "policy_household": [
+      {"name": "金融庁ニュース", "url": "https://www.fsa.go.jp/en/news/index.html", "kind": "government_release"},
+      {"name": "SEC Newsroom", "url": "https://www.sec.gov/newsroom/press-releases", "kind": "government_release"},
+      {"name": "CFTC Press Releases", "url": "https://www.cftc.gov/PressRoom/PressReleases", "kind": "government_release"},
+      {"name": "Federal Reserve Calendar", "url": "https://www.federalreserve.gov/newsevents/calendar.htm", "kind": "central_bank_calendar"}
+    ],
+    "macro_event": [
+      {"name": "BLS Release Calendar", "url": "https://www.bls.gov/schedule/2026/home.htm", "kind": "economic_calendar"},
+      {"name": "BEA Release Schedule", "url": "https://www.bea.gov/news/schedule", "kind": "economic_calendar"},
+      {"name": "FOMC Calendar", "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", "kind": "central_bank_calendar"},
+      {"name": "U.S. Treasury Auctions", "url": "https://home.treasury.gov/policy-issues/financing-the-government/treasury-marketable-and-non-marketable-securities", "kind": "auction_calendar"},
+      {"name": "Bank of Japan Monetary Policy Meetings", "url": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm", "kind": "central_bank_calendar"},
+      {"name": "Japan Ministry of Finance JGB Auctions", "url": "https://www.mof.go.jp/english/policy/jgbs/auction/calendar/index.htm", "kind": "auction_calendar"}
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+name: INU カテゴリー投稿レビュー
+
+on:
+  workflow_dispatch:
+    inputs:
+      category:
+        description: "確認する投稿カテゴリー"
+        required: true
+        type: choice
+        options:
+          - breaking_news
+          - developing_story
+          - market_microstructure
+          - etf_flow
+          - institutional_flow
+          - onchain
+          - whale_treasury
+          - earnings
+          - supply_event
+          - adoption_kpi
+          - policy_household
+          - macro_event
+      live:
+        description: "実際にXへ投稿する"
+        required: true
+        default: false
+        type: boolean
+
+# 定期枠と同じ公開キューを使い、同時投稿や予約の競合を起こさない。
+concurrency:
+  group: inu-x-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    if: inputs.live == true || inputs.live == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 一次資料の画像取得環境をセットアップ
+        run: python -m playwright install --with-deps chromium
+
+      - name: 固定探索先と投稿ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_inu_source_registry.py test_inu_auto_hourly.py test_inu_live_post.py test_inu_news_visual.py test_grok_client.py test_x_poster_rules.py
+
+      - name: 指定カテゴリーだけを調査して投稿候補を準備
+        id: prepare
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          INU_RESEARCH_MODEL: gpt-5.6-terra
+          XAI_RESEARCH_MODEL: grok-4.3
+          INU_GROK_EDITORIAL_ENABLED: true
+          INU_IMAGE_PROVIDER: openai
+          INU_IMAGE_FALLBACK_PROVIDER: none
+        working-directory: scripts
+        run: >-
+          python inu_auto_hourly.py --prepare
+          --topic "${{ inputs.category }}"
+          --no-market-fallback
+          --slot "review-${{ github.run_id }}-${{ inputs.category }}"
+
+      - name: 投稿予約を保存
+        if: steps.prepare.outputs.ready == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
+          git diff --staged --quiet || git commit -m "chore: reserve INU category review [skip ci]"
+          git pull --rebase
+          git push
+
+      - name: 画像付き投稿を1件公開
+        id: publish
+        if: steps.prepare.outputs.ready == 'true'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        working-directory: scripts
+        run: python inu_auto_hourly.py --publish
+
+      - name: 投稿履歴を保存
+        if: steps.publish.outcome == 'success'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
+          git diff --staged --quiet || git commit -m "chore: record INU category review [skip ci]"
+          git pull --rebase
+          git push
