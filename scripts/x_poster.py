@@ -28,6 +28,8 @@ from urllib.parse import urlparse
 import requests
 import tweepy
 
+from price_formatting import format_usd_prices
+
 logger = logging.getLogger(__name__)
 
 _REQUIRED_ENV = ("X_API_KEY", "X_API_KEY_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET")
@@ -208,14 +210,15 @@ def _build_tweet(
 ) -> str:
     category = article_section or "ニュース"
     # サービス名に含まれるドメインを先に非リンク化してから、長さを調整する。
-    safe_title = _neutralize_service_domains(title)
+    safe_title = _neutralize_service_domains(format_usd_prices(title, for_title=True))
     short_title = safe_title[:45] + "…" if len(safe_title) > 45 else safe_title
 
     header = f"【{category}】{short_title}"
 
     if tweet_bullets:
         bullets = "\n".join(
-            f"・{_neutralize_service_domains(b)}" for b in tweet_bullets[:3]
+            f"・{_neutralize_service_domains(format_usd_prices(b, for_title=False))}"
+            for b in tweet_bullets[:3]
         )
         body = f"{header}\n\n{bullets}"
     else:

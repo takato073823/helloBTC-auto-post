@@ -5,6 +5,8 @@ import requests
 import base64
 import logging
 
+from price_formatting import format_usd_prices
+
 logger = logging.getLogger(__name__)
 
 
@@ -71,7 +73,7 @@ class WordPressAPI:
                     "per_page": 100,
                     "status": status,
                     "context": "edit",  # content.raw を取得するため
-                    "_fields": "id,slug,link,title,content",
+                    "_fields": "id,slug,link,title,content,excerpt",
                 },
             )
         except Exception as e:
@@ -166,6 +168,11 @@ class WordPressAPI:
                      featured_image_url=None, article_section="ニュース",
                      meta_description=None):
         """WordPress に記事を投稿。status は 'publish' または 'draft'"""
+        # サイト共通の価格表記: タイトルは「6万4,600ドル」、本文は「64,600ドル」。
+        title = format_usd_prices(title, for_title=True)
+        content = format_usd_prices(content, for_title=False)
+        excerpt = format_usd_prices(excerpt, for_title=False)
+        meta_description = format_usd_prices(meta_description, for_title=False)
         tag_ids = []
         if tags:
             for tag_name in tags[:8]:

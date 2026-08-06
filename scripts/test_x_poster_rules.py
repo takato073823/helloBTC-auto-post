@@ -4,6 +4,8 @@ import re
 import unittest
 from pathlib import Path
 
+from price_formatting import format_usd_prices
+
 
 SOURCE_PATH = Path(__file__).with_name("x_poster.py")
 SOURCE = SOURCE_PATH.read_text(encoding="utf-8")
@@ -21,7 +23,7 @@ def _load_helpers():
         if isinstance(node, ast.FunctionDef)
         and node.name in {"_neutralize_service_domains", "_build_hashtags", "_build_tweet"}
     ]
-    namespace = {"re": re}
+    namespace = {"re": re, "format_usd_prices": format_usd_prices}
     exec(compile(ast.Module(body=assignments + functions, type_ignores=[]), str(SOURCE_PATH), "exec"), namespace)
     return namespace
 
@@ -56,6 +58,17 @@ class XPosterRulesTests(unittest.TestCase):
         self.assertIn("Crypto(.)com", tweet)
         self.assertIn("https://hellobtc.jp/crypto-com-news/", tweet)
         self.assertNotIn("https://crypto.com", tweet)
+
+    def test_price_uses_title_and_body_rules(self):
+        tweet = self.helpers["_build_tweet"](
+            title="ビットコイン6.46万ドルを維持",
+            article_url="https://hellobtc.jp/bitcoin/",
+            article_section="ニュース",
+            tweet_bullets=["価格は6.46万ドルで推移"],
+            tags=[],
+        )
+        self.assertIn("ビットコイン6万4,600ドルを維持", tweet)
+        self.assertIn("価格は64,600ドルで推移", tweet)
 
 
 if __name__ == "__main__":

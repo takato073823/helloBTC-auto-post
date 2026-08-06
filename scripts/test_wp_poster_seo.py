@@ -41,6 +41,19 @@ class WordPressPosterSEOTests(unittest.TestCase):
         )
         self.assertEqual(wp.calls[-1][2]["json"]["excerpt"], "短い要約")
 
+    def test_normalizes_usd_price_notation_by_field(self):
+        wp = RecordingWordPressAPI()
+        wp.post_article(
+            title="ビットコイン6.46万ドルを維持",
+            content="<p>価格は6.46万ドルだった。</p>",
+            excerpt="6.46万ドルで推移した。",
+        )
+
+        payload = wp.calls[-1][2]["json"]
+        self.assertEqual("ビットコイン6万4,600ドルを維持", payload["title"])
+        self.assertEqual("<p>価格は64,600ドルだった。</p>", payload["content"])
+        self.assertEqual("64,600ドルで推移した。", payload["excerpt"])
+
     def test_fetches_all_published_title_pages(self):
         wp = RecordingWordPressAPI()
         pages = {
