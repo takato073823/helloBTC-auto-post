@@ -197,6 +197,20 @@
       "posted_at": "2026-08-06T12:33:42.903179+00:00",
       "hook": "📉 IBITの日次出来高が平均を下回る",
       "follow_value": "ETFの資産推移を継続的に確認できる"
+    },
+    {
+      "slot": "2026-08-06-23-a",
+      "post_id": "inu_auto_df9c69221d0df1",
+      "tweet_id": "2085380389816750584",
+      "topic_type": "developing_story",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://status.kraken.com",
+      "published_at": "2026-08-06T23:58:00+09:00",
+      "posted_at": "2026-08-06T15:00:04.354991+00:00",
+      "hook": "Kraken、BONK出金を再開し入金停止は継続",
+      "follow_value": "KrakenによるBONK入金再開または追加制限の更新。"
     }
   ],
   "posted_ids": [
@@ -220,7 +234,8 @@
     "inu_market_2026_08_06_14_eth-usd",
     "inu_auto_eea6659e9e5481",
     "inu_market_2026_08_06_17_a_ada-usd",
-    "inu_auto_a5dfef1639d37c"
+    "inu_auto_a5dfef1639d37c",
+    "inu_auto_df9c69221d0df1"
   ],
   "reservations": [
     {
@@ -240,16 +255,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-06T08:08:30.312740+00:00"
-    },
-    {
-      "slot": "2026-08-06-23-a",
-      "post_id": "inu_auto_df9c69221d0df1",
-      "source_url": "https://status.kraken.com",
-      "topic_type": "developing_story",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-06T14:58:01.254442+00:00"
     }
   ],
   "history": [
@@ -495,6 +500,20 @@
       "posted_at": "2026-08-06T12:33:42.903179+00:00",
       "hook": "📉 IBITの日次出来高が平均を下回る",
       "follow_value": "ETFの資産推移を継続的に確認できる"
+    },
+    {
+      "slot": "2026-08-06-23-a",
+      "post_id": "inu_auto_df9c69221d0df1",
+      "tweet_id": "2085380389816750584",
+      "topic_type": "developing_story",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://status.kraken.com",
+      "published_at": "2026-08-06T23:58:00+09:00",
+      "posted_at": "2026-08-06T15:00:04.354991+00:00",
+      "hook": "Kraken、BONK出金を再開し入金停止は継続",
+      "follow_value": "KrakenによるBONK入金再開または追加制限の更新。"
     }
   ],
   "scheduled_checks": [
