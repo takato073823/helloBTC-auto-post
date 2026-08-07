@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-07T07:38:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T08:41:33+00:00",
+  "last_deep_scan_at": "2026-08-07T09:44:18+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T09:44:18+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -115,6 +115,19 @@
       "checked_at": "2026-08-07T08:41:33+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T09:44:18+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-07T09:44:18+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -148,31 +161,54 @@
       "why_trending": "表示3,778・投稿後95分・反応率13.3%・動画あり"
     },
     {
-      "author_followers": 252,
-      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "author_followers": 1213,
+      "discovered_at": "2026-08-07T09:44:18+00:00",
       "discovery_type": "official_x_api",
-      "handle": "DjakhongirMukh1",
+      "handle": "heed_sensei",
       "has_video": false,
-      "headline": "BTC — Spot, Futures, ETF, OI, Liquidation Map &amp; Order Book Current Price is still holding near 64K But the structure is not clean. ETF inflows exist spot inflows are weak futur",
-      "impression_count": 9,
+      "headline": "Nigeria didn’t just introduce crypto taxes. They built a surveillance framework around it. The Nigeria Revenue Service, CBN, SEC, NFIU and ONSA now coordinate crypto regulation und",
+      "impression_count": 37,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/DjakhongirMukh1/status/2085567710461669645/photo/1"
+        "https://twitter.com/7thespace/status/2085652445615497322"
       ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085567710461669645",
-      "post_url": "https://x.com/DjakhongirMukh1/status/2085567710461669645",
-      "posted_at": "2026-08-07T03:24:24+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
+      "media_types": [],
+      "post_id": "2085652806594085006",
+      "post_url": "https://x.com/heed_sensei/status/2085652806594085006",
+      "posted_at": "2026-08-07T09:02:33+00:00",
+      "quote_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 52.4,
+      "score": 57.7,
       "seen_count": 1,
-      "summary": "BTC — Spot, Futures, ETF, OI, Liquidation Map &amp; Order Book Current Price is still holding near 64K But the structure is not clean. ETF inflows exist spot inflows are weak futures leverage is mixed OI decreased slightly order book shows pressure above Spot / Futures https://t.co/EDzSKpfYof",
-      "topic": "crypto_market",
-      "why_trending": "表示9・投稿後1分・反応率28.9%"
+      "source_priority": "",
+      "summary": "Nigeria didn’t just introduce crypto taxes. They built a surveillance framework around it. The Nigeria Revenue Service, CBN, SEC, NFIU and ONSA now coordinate crypto regulation under a Presidential Executive Order signed by President Tinubu. https://t.co/UR4vriLLP9",
+      "topic": "regulation",
+      "why_trending": "表示37・投稿後41分・反応率8.1%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 21,
+      "discovered_at": "2026-08-07T09:44:18+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ligomandy",
+      "has_video": false,
+      "headline": "1. Bitcoin Holds Near $64K Despite Profit-Taking🟠 2. ETF Inflows Continue Supporting the Market📈 3. U.S. Crypto Regulation Stays in Focus🏛️ 4. Middle East Hopes Lift Risk Assets🌍 5",
+      "impression_count": 7,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085648606670053459",
+      "post_url": "https://x.com/ligomandy/status/2085648606670053459",
+      "posted_at": "2026-08-07T08:45:51+00:00",
+      "quote_count": 0,
+      "reply_count": 5,
+      "repost_count": 0,
+      "score": 48.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "1. Bitcoin Holds Near $64K Despite Profit-Taking🟠 2. ETF Inflows Continue Supporting the Market📈 3. U.S. Crypto Regulation Stays in Focus🏛️ 4. Middle East Hopes Lift Risk Assets🌍 5. Institutions Keep Building in Crypto🚀 #Crypto #Bitcoin #Ethereum #ETF #Blockchain #Markets",
+      "topic": "regulation",
+      "why_trending": "表示7・投稿後58分・反応率114.3%"
     },
     {
       "author_followers": 3005,
@@ -199,31 +235,32 @@
       "why_trending": "表示67・投稿後23分・反応率3.9%"
     },
     {
-      "author_followers": 2957,
-      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "author_followers": 2959,
+      "discovered_at": "2026-08-07T09:44:18+00:00",
       "discovery_type": "official_x_api",
-      "handle": "ANCrypto_",
+      "handle": "TCR_news_",
       "has_video": false,
-      "headline": "📰 CRYPTO MARKET — AUG 7 - with ANCRYPTO Crypto enters a critical 48 hours. Total market cap sits near $2.2T, BTC dominance at 56.6%, while Fear &amp; Greed remains at 25–28 (Extrem",
-      "impression_count": 374,
-      "like_count": 1,
+      "headline": "“Bitcoin doesn’t need CLARITY. America needs clarity.” — Michael Saylor 🇺🇸₿ A bold message as the debate over U.S. crypto regulation continues. 👀 #Bitcoin #MichaelSaylor https://t.",
+      "impression_count": 26,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/ANCrypto_/status/2085561644282007740/photo/1"
+        "https://x.com/TCR_news_/status/2085650292683727032/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2085561644282007740",
-      "post_url": "https://x.com/ANCrypto_/status/2085561644282007740",
-      "posted_at": "2026-08-07T03:00:18+00:00",
+      "post_id": "2085650292683727032",
+      "post_url": "https://x.com/TCR_news_/status/2085650292683727032",
+      "posted_at": "2026-08-07T08:52:33+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 1,
-      "score": 45.6,
+      "repost_count": 0,
+      "score": 45.8,
       "seen_count": 1,
-      "summary": "📰 CRYPTO MARKET — AUG 7 - with ANCRYPTO Crypto enters a critical 48 hours. Total market cap sits near $2.2T, BTC dominance at 56.6%, while Fear &amp; Greed remains at 25–28 (Extreme Fear). Three major catalysts are now in focus: CLARITY Act, Bitcoin’s BIP-110 event and $ADA ETF https://t.co/FBKJF7SZWg",
-      "topic": "crypto_market",
-      "why_trending": "表示374・投稿後25分・反応率0.8%"
+      "source_priority": "",
+      "summary": "“Bitcoin doesn’t need CLARITY. America needs clarity.” — Michael Saylor 🇺🇸₿ A bold message as the debate over U.S. crypto regulation continues. 👀 #Bitcoin #MichaelSaylor https://t.co/BtSjpYt9i1",
+      "topic": "regulation",
+      "why_trending": "表示26・投稿後51分・反応率7.7%"
     },
     {
       "author_followers": 3557,
@@ -278,6 +315,34 @@
       "why_trending": "表示6,397・投稿後75分・反応率0.5%・動画あり"
     },
     {
+      "author_followers": 4393,
+      "discovered_at": "2026-08-07T09:44:18+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "3twariorfamily",
+      "has_video": false,
+      "headline": "🚨 BREAKING: Senate Banking Chair says the CLARITY Act has gained even MORE Senate votes since yesterday. 🇺🇸📈 Momentum is building fast. Crypto regulation in the U.S. could be appro",
+      "impression_count": 88,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/3twariorfamily/status/2085647280913137807/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085647280913137807",
+      "post_url": "https://x.com/3twariorfamily/status/2085647280913137807",
+      "posted_at": "2026-08-07T08:40:35+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 42.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 BREAKING: Senate Banking Chair says the CLARITY Act has gained even MORE Senate votes since yesterday. 🇺🇸📈 Momentum is building fast. Crypto regulation in the U.S. could be approaching a major turning point. 👀🔥 #Bitcoin #Crypto #CLARITYAct #401k https://t.co/FbbJh2QC0F",
+      "topic": "regulation",
+      "why_trending": "表示88・投稿後63分・反応率3.4%"
+    },
+    {
       "author_followers": 49,
       "discovered_at": "2026-08-07T05:56:45+00:00",
       "discovery_type": "official_x_api",
@@ -306,58 +371,32 @@
       "why_trending": "表示134・投稿後36分・反応率0.0%"
     },
     {
-      "author_followers": 252,
-      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "author_followers": 3164,
+      "discovered_at": "2026-08-07T09:44:18+00:00",
       "discovery_type": "official_x_api",
-      "handle": "DjakhongirMukh1",
+      "handle": "Gatedesi",
       "has_video": false,
-      "headline": "BTC ETF Current Bitcoin spot ETFs recorded 4 consecutive positive sessions. But the size is still below average. For me, a strong ETF session starts above 4K BTC. Below 4K BTC — it",
-      "impression_count": 17,
-      "like_count": 0,
+      "headline": "🗓 Gate Daily Market Digest – Aug 7 📈 Market Update 🔷BTC at $64,371, consolidating near $65K (–0.34%) 🔷ETH at $1,907, holding just above $1.9K (–0.25%) 🪙 Project News 🔷Airbnb Soars ",
+      "impression_count": 123,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/DjakhongirMukh1/status/2085565747019854014/photo/1"
+        "https://x.com/Gatedesi/status/2085657842984300722/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2085565747019854014",
-      "post_url": "https://x.com/DjakhongirMukh1/status/2085565747019854014",
-      "posted_at": "2026-08-07T03:16:36+00:00",
+      "post_id": "2085657842984300722",
+      "post_url": "https://x.com/Gatedesi/status/2085657842984300722",
+      "posted_at": "2026-08-07T09:22:34+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 38.6,
+      "score": 40.5,
       "seen_count": 1,
-      "summary": "BTC ETF Current Bitcoin spot ETFs recorded 4 consecutive positive sessions. But the size is still below average. For me, a strong ETF session starts above 4K BTC. Below 4K BTC — it is positive, but not aggressive accumulation. Latest session 2026-08-06 Total → +143.89 https://t.co/X0WzqgsLUx",
-      "topic": "crypto_market",
-      "why_trending": "表示17・投稿後9分・反応率0.0%"
-    },
-    {
-      "author_followers": 29252,
-      "discovered_at": "2026-08-07T03:25:49+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Coiniseasy",
-      "has_video": false,
-      "headline": "US spot BTC ETFs, 2026.08.06: +$9.3M net inflow. ETH: +$9.0M. Biggest outflow: HODL -$32.8M. Daily ETF flow tracking by CoinEasy. https://t.co/sOP4NhTJ2L",
-      "impression_count": 48,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Coiniseasy/status/2085565599762239960/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085565599762239960",
-      "post_url": "https://x.com/Coiniseasy/status/2085565599762239960",
-      "posted_at": "2026-08-07T03:16:01+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.4,
-      "seen_count": 1,
-      "summary": "US spot BTC ETFs, 2026.08.06: +$9.3M net inflow. ETH: +$9.0M. Biggest outflow: HODL -$32.8M. Daily ETF flow tracking by CoinEasy. https://t.co/sOP4NhTJ2L",
-      "topic": "crypto_market",
-      "why_trending": "表示48・投稿後9分・反応率0.0%"
+      "source_priority": "",
+      "summary": "🗓 Gate Daily Market Digest – Aug 7 📈 Market Update 🔷BTC at $64,371, consolidating near $65K (–0.34%) 🔷ETH at $1,907, holding just above $1.9K (–0.25%) 🪙 Project News 🔷Airbnb Soars 12% on Beat, Q3 Guidance 🔷Bitdeer Lands $4.7B AI Lease on Anthropic 🔷Breez Announces Glow https://t.co/xHUPWChqvp",
+      "topic": "regulation",
+      "why_trending": "表示123・投稿後21分・反応率0.8%"
     },
     {
       "author_followers": 81519,
