@@ -183,7 +183,7 @@ def discover_candidates(known_handles: set[str], now: dt.datetime) -> list[dict[
 def _candidate_record(profile: Any, tweets: list[Any], candidate: dict[str, str], own_user_id: str, denylist: set[str], now: dt.datetime) -> dict[str, Any] | None:
     user_id = str(_value(profile, "id", ""))
     handle = _text(_value(profile, "username")).lstrip("@").lower()
-    if not user_id or user_id == own_user_id or not HANDLE_RE.fullmatch(handle) or handle in denylist:
+    if not re.fullmatch(r"\d{1,22}", user_id) or user_id == own_user_id or not HANDLE_RE.fullmatch(handle) or handle in denylist:
         return None
     if bool(_value(profile, "protected", False)) or _metrics(profile)["followers_count"] > MAX_TARGET_FOLLOWERS:
         return None

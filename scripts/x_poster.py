@@ -471,8 +471,9 @@ def unfollow_user(user_id: str) -> bool:
         return False
     try:
         response = _get_client().unfollow_user(str(user_id), user_auth=True)
-        data = response.data or {}
-        return not bool(data.get("following") or data.get("pending_follow"))
+        data = response.data
+        # 想定外の空レスポンスを「解除成功」と誤認して状態を進めない。
+        return isinstance(data, dict) and data.get("following") is False and data.get("pending_follow") is False
     except Exception as e:
         logger.warning("Xフォロー解除失敗（再試行しません）: %s", e)
         return False

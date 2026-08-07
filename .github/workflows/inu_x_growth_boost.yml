@@ -31,7 +31,7 @@ jobs:
 
       - name: 成長施策の安全ルールを検証
         working-directory: scripts
-        run: python -m unittest test_inu_follow_growth.py test_inu_growth_boost.py test_inu_growth_watchlist.py test_x_poster_rules.py
+        run: python -m unittest test_inu_follow_growth.py test_inu_growth_boost.py test_inu_growth_watchlist.py test_x_poster_rules.py test_x_poster_social_actions.py
 
       - name: A〜Dを最大1件だけ実行
         working-directory: scripts
