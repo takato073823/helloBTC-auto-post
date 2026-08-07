@@ -1,5 +1,5 @@
 {
-  "last_deep_scan_at": "2026-08-07T00:22:17+00:00",
+  "last_deep_scan_at": "2026-08-07T03:25:49+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -69,9 +69,177 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-07T03:25:49+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
-  "signals": [],
+  "signals": [
+    {
+      "author_followers": 252,
+      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "DjakhongirMukh1",
+      "has_video": false,
+      "headline": "BTC — Spot, Futures, ETF, OI, Liquidation Map &amp; Order Book Current Price is still holding near 64K But the structure is not clean. ETF inflows exist spot inflows are weak futur",
+      "impression_count": 9,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/DjakhongirMukh1/status/2085567710461669645/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085567710461669645",
+      "post_url": "https://x.com/DjakhongirMukh1/status/2085567710461669645",
+      "posted_at": "2026-08-07T03:24:24+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 52.4,
+      "seen_count": 1,
+      "summary": "BTC — Spot, Futures, ETF, OI, Liquidation Map &amp; Order Book Current Price is still holding near 64K But the structure is not clean. ETF inflows exist spot inflows are weak futures leverage is mixed OI decreased slightly order book shows pressure above Spot / Futures https://t.co/EDzSKpfYof",
+      "topic": "crypto_market",
+      "why_trending": "表示9・投稿後1分・反応率28.9%"
+    },
+    {
+      "author_followers": 125,
+      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Onlyonekeed_LJ",
+      "has_video": false,
+      "headline": "📊 Total Bitcoin Spot ETF Net Inflow | Aug 5 @SoSoValueCrypto 🟩 Daily Total Net Inflow: $244.42M 🏦 Total Net Assets: $79.21B 💰 BTC Price: $64,840.28 Explore more key information on ",
+      "impression_count": 12,
+      "like_count": 1,
+      "linked_urls": [
+        "https://sosovalue.com/shares/XtATXU"
+      ],
+      "media_types": [],
+      "post_id": "2085542244115755458",
+      "post_url": "https://x.com/Onlyonekeed_LJ/status/2085542244115755458",
+      "posted_at": "2026-08-07T01:43:13+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 49.9,
+      "seen_count": 1,
+      "summary": "📊 Total Bitcoin Spot ETF Net Inflow | Aug 5 @SoSoValueCrypto 🟩 Daily Total Net Inflow: $244.42M 🏦 Total Net Assets: $79.21B 💰 BTC Price: $64,840.28 Explore more key information on #SoSoValue: https://t.co/iWaRnOUeKB",
+      "topic": "crypto_market",
+      "why_trending": "表示12・投稿後102分・反応率8.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 2957,
+      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ANCrypto_",
+      "has_video": false,
+      "headline": "📰 CRYPTO MARKET — AUG 7 - with ANCRYPTO Crypto enters a critical 48 hours. Total market cap sits near $2.2T, BTC dominance at 56.6%, while Fear &amp; Greed remains at 25–28 (Extrem",
+      "impression_count": 374,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/ANCrypto_/status/2085561644282007740/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085561644282007740",
+      "post_url": "https://x.com/ANCrypto_/status/2085561644282007740",
+      "posted_at": "2026-08-07T03:00:18+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 45.6,
+      "seen_count": 1,
+      "summary": "📰 CRYPTO MARKET — AUG 7 - with ANCRYPTO Crypto enters a critical 48 hours. Total market cap sits near $2.2T, BTC dominance at 56.6%, while Fear &amp; Greed remains at 25–28 (Extreme Fear). Three major catalysts are now in focus: CLARITY Act, Bitcoin’s BIP-110 event and $ADA ETF https://t.co/FBKJF7SZWg",
+      "topic": "crypto_market",
+      "why_trending": "表示374・投稿後25分・反応率0.8%"
+    },
+    {
+      "author_followers": 222,
+      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MusepayFam",
+      "has_video": false,
+      "headline": "📊 BTC $64K+/ETH $1,900 vs Fear 12 (Extreme) 🤖 $300B stablecoins = AI payment APIs 🚀 SpaceX 18.7K BTC, Samsung 800M wallets 📈 ETF +$305M, AI altcoins booming AI meets crypto. The pa",
+      "impression_count": 3,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/MusepayFam/status/2085553034046877822/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085553034046877822",
+      "post_url": "https://x.com/MusepayFam/status/2085553034046877822",
+      "posted_at": "2026-08-07T02:26:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 41.5,
+      "seen_count": 1,
+      "summary": "📊 BTC $64K+/ETH $1,900 vs Fear 12 (Extreme) 🤖 $300B stablecoins = AI payment APIs 🚀 SpaceX 18.7K BTC, Samsung 800M wallets 📈 ETF +$305M, AI altcoins booming AI meets crypto. The paradigm shifts. #Bitcoin #AI #Crypto #August2026 https://t.co/9fUFtaP91j",
+      "topic": "crypto_market",
+      "why_trending": "表示3・投稿後59分・反応率100.0%"
+    },
+    {
+      "author_followers": 252,
+      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "DjakhongirMukh1",
+      "has_video": false,
+      "headline": "BTC ETF Current Bitcoin spot ETFs recorded 4 consecutive positive sessions. But the size is still below average. For me, a strong ETF session starts above 4K BTC. Below 4K BTC — it",
+      "impression_count": 17,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/DjakhongirMukh1/status/2085565747019854014/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085565747019854014",
+      "post_url": "https://x.com/DjakhongirMukh1/status/2085565747019854014",
+      "posted_at": "2026-08-07T03:16:36+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 38.6,
+      "seen_count": 1,
+      "summary": "BTC ETF Current Bitcoin spot ETFs recorded 4 consecutive positive sessions. But the size is still below average. For me, a strong ETF session starts above 4K BTC. Below 4K BTC — it is positive, but not aggressive accumulation. Latest session 2026-08-06 Total → +143.89 https://t.co/X0WzqgsLUx",
+      "topic": "crypto_market",
+      "why_trending": "表示17・投稿後9分・反応率0.0%"
+    },
+    {
+      "author_followers": 29252,
+      "discovered_at": "2026-08-07T03:25:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Coiniseasy",
+      "has_video": false,
+      "headline": "US spot BTC ETFs, 2026.08.06: +$9.3M net inflow. ETH: +$9.0M. Biggest outflow: HODL -$32.8M. Daily ETF flow tracking by CoinEasy. https://t.co/sOP4NhTJ2L",
+      "impression_count": 48,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Coiniseasy/status/2085565599762239960/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085565599762239960",
+      "post_url": "https://x.com/Coiniseasy/status/2085565599762239960",
+      "posted_at": "2026-08-07T03:16:01+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 38.4,
+      "seen_count": 1,
+      "summary": "US spot BTC ETFs, 2026.08.06: +$9.3M net inflow. ETH: +$9.0M. Biggest outflow: HODL -$32.8M. Daily ETF flow tracking by CoinEasy. https://t.co/sOP4NhTJ2L",
+      "topic": "crypto_market",
+      "why_trending": "表示48・投稿後9分・反応率0.0%"
+    }
+  ],
   "trends": [],
   "version": 1
 }
