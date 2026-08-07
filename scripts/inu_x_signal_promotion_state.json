@@ -11,6 +11,18 @@
       "processed_at": "2026-08-07T00:44:17+00:00",
       "reason": "一次資料探索失敗: not enough values to unpack (expected 3, got 0)",
       "status": "rejected"
+    },
+    "https://x.com/nicosokufx/status/2085565836727816417": {
+      "post_id": "",
+      "processed_at": "2026-08-07T04:00:51+00:00",
+      "reason": "一次資料・鮮度・画像の品質ゲートを通過しませんでした",
+      "status": "rejected"
+    },
+    "https://x.com/nicosokufx/status/2085568497808216234": {
+      "post_id": "",
+      "processed_at": "2026-08-07T04:00:51+00:00",
+      "reason": "同じ出来事の一次資料を確認できません",
+      "status": "rejected"
     }
   },
   "version": 1
