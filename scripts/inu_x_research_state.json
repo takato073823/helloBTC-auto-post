@@ -203,6 +203,18 @@
       "checked_at": "2026-08-07T18:10:26+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-07T19:28:03+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-07T19:28:03+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
@@ -233,32 +245,6 @@
       "summary": "JUST IN: 🇺🇸 President Trump says Bitcoin takes a lot of \"pressure\" off the US dollar. https://t.co/8gPPFckHMt",
       "topic": "watcher_guru",
       "why_trending": "表示111,027・投稿後28分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 76,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "J5drJl",
-      "has_video": false,
-      "headline": "さおりさんの分析、またドンピシャでした👏 安心してトレードできました！ 雇用統計 ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA ショート https://t.co/IQGX65qech",
-      "impression_count": 452,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/saorii_fx/status/2085631763947368885"
-      ],
-      "media_types": [],
-      "post_id": "2085715079564075312",
-      "post_url": "https://x.com/J5drJl/status/2085715079564075312",
-      "posted_at": "2026-08-07T13:10:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 53.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "さおりさんの分析、またドンピシャでした👏 安心してトレードできました！ 雇用統計 ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA ショート https://t.co/IQGX65qech",
-      "topic": "japanese_market",
-      "why_trending": "表示452・投稿後51分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 15166,
@@ -317,112 +303,6 @@
       "why_trending": "表示105・投稿後79分・反応率20.6%"
     },
     {
-      "author_followers": 85,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kotm0150515",
-      "has_video": false,
-      "headline": "急騰中で不安の中、さおりさんの分析は今回も本当にそのままでした👏 コミュニティの配信見てるだけでしっかり利益取れました！ 雇用統計 ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA ショート https://t.co/q3T83KHwXw",
-      "impression_count": 1333,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/saorii_fx/status/2085631763947368885"
-      ],
-      "media_types": [],
-      "post_id": "2085705264507064736",
-      "post_url": "https://x.com/kotm0150515/status/2085705264507064736",
-      "posted_at": "2026-08-07T12:31:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "急騰中で不安の中、さおりさんの分析は今回も本当にそのままでした👏 コミュニティの配信見てるだけでしっかり利益取れました！ 雇用統計 ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA ショート https://t.co/q3T83KHwXw",
-      "topic": "japanese_market",
-      "why_trending": "表示1,333・投稿後90分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 75,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "iw14000",
-      "has_video": false,
-      "headline": "一人で見ていたら絶対入れなかったので、 本当に助かりました！分析ありがとうございます 雇用統計 ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA ショート https://t.co/VE5QDdrLta",
-      "impression_count": 376,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/saorii_fx/status/2085631763947368885"
-      ],
-      "media_types": [],
-      "post_id": "2085712564173062529",
-      "post_url": "https://x.com/iw14000/status/2085712564173062529",
-      "posted_at": "2026-08-07T13:00:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "一人で見ていたら絶対入れなかったので、 本当に助かりました！分析ありがとうございます 雇用統計 ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA ショート https://t.co/VE5QDdrLta",
-      "topic": "japanese_market",
-      "why_trending": "表示376・投稿後61分・反応率0.3%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 10513,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "taryohi1255",
-      "has_video": false,
-      "headline": "こんばんは🍀 📈 日本株（8月7日） 日経平均は一時1000円超下落も、後半にかけて大きく戻して小幅安で終了。 🔹 日経平均：65,606.71（-76.55 / -0.12%） 🔹 TOPIX：4,074.93（+19.08 / +0.47%） 🔹 グロース250：724.09（+3.17 / +0.44%） 📉 https://t.co/JI2rflwT",
-      "impression_count": 476,
-      "like_count": 2,
-      "linked_urls": [
-        "https://twitter.com/taryohi1255/status/2079123197707112581"
-      ],
-      "media_types": [],
-      "post_id": "2085706451255988425",
-      "post_url": "https://x.com/taryohi1255/status/2085706451255988425",
-      "posted_at": "2026-08-07T12:35:43+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 48.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "こんばんは🍀 📈 日本株（8月7日） 日経平均は一時1000円超下落も、後半にかけて大きく戻して小幅安で終了。 🔹 日経平均：65,606.71（-76.55 / -0.12%） 🔹 TOPIX：4,074.93（+19.08 / +0.47%） 🔹 グロース250：724.09（+3.17 / +0.44%） 📉 https://t.co/JI2rflwTWf",
-      "topic": "japanese_market",
-      "why_trending": "表示476・投稿後85分・反応率1.4%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 2431,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "buycrypto_jp",
-      "has_video": true,
-      "headline": "🚨 BTC・ETHそろって上昇📈 🟠 Bitcoin（BTC） 💰 $65,198 📈 +1.47% 🔵 Ethereum（ETH） 💰 $1,928.41 📈 +1.38% BTCは、現物ビットコイン ETFへの資金流入が追い風に。TradingViewによると、水曜日に約2.44億ドル、直近3日間では約6.26億ドルの純流入が報告されています。✍️ ht",
-      "impression_count": 22,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/buycrypto_jp/status/2085705551988814080/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2085705551988814080",
-      "post_url": "https://x.com/buycrypto_jp/status/2085705551988814080",
-      "posted_at": "2026-08-07T12:32:08+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 41.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 BTC・ETHそろって上昇📈 🟠 Bitcoin（BTC） 💰 $65,198 📈 +1.47% 🔵 Ethereum（ETH） 💰 $1,928.41 📈 +1.38% BTCは、現物ビットコイン ETFへの資金流入が追い風に。TradingViewによると、水曜日に約2.44億ドル、直近3日間では約6.26億ドルの純流入が報告されています。✍️ https://t.co/thQ8aNWTdI",
-      "topic": "japanese_market",
-      "why_trending": "表示22・投稿後89分・反応率9.1%・動画あり"
-    },
-    {
       "author_followers": 102284,
       "discovered_at": "2026-08-07T16:08:25+00:00",
       "discovery_type": "official_x_api",
@@ -449,34 +329,6 @@
       "summary": "这个对交易所的美股业务肯定是有一定影响的，如何减轻这个影响，简单的一个办法就是把A股上链，让股民可以7*24小时玩A股 @cz_binance @heyibinance 参考一下 https://t.co/Q5WcToX70m",
       "topic": "chinese_market",
       "why_trending": "表示1,195・投稿後65分・反応率1.4%"
-    },
-    {
-      "author_followers": 133,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MASASHI509i",
-      "has_video": false,
-      "headline": "こんにちは！ 🐋クジラがETHを積み始めた？👀 大口資金の動きに変化が出ています。 最近、暗号資産市場で注目されているのが、クジラ（大量の暗号資産を動かす大口投資家）のETH買いです。 「クジラが買うと何が重要なの？」 https://t.co/kkhieiHXQ1",
-      "impression_count": 26,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/MASASHI509i/status/2085715334594748663/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085715334594748663",
-      "post_url": "https://x.com/MASASHI509i/status/2085715334594748663",
-      "posted_at": "2026-08-07T13:11:01+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "こんにちは！ 🐋クジラがETHを積み始めた？👀 大口資金の動きに変化が出ています。 最近、暗号資産市場で注目されているのが、クジラ（大量の暗号資産を動かす大口投資家）のETH買いです。 「クジラが買うと何が重要なの？」 https://t.co/kkhieiHXQ1",
-      "topic": "japanese_market",
-      "why_trending": "表示26・投稿後50分・反応率0.0%"
     },
     {
       "author_followers": 8300,
