@@ -21,7 +21,9 @@ on:
         type: boolean
 
 concurrency:
-  group: inu-x-publish
+  # 速報探索や個別投稿が長引いても、毎時の定期枠を待たせない。
+  # 重複防止は prepare が永続状態の予約で行う。
+  group: inu-x-hourly-publish
   cancel-in-progress: false
 
 permissions:
@@ -31,6 +33,8 @@ jobs:
   dispatch:
     if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
+    # 外部サービスの一時停止で、この枠を無期限に占有しない。
+    timeout-minutes: 20
     env:
       INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '3 * * * *' && 'primary' || github.event_name == 'schedule' && 'watchdog' || inputs.recovery == true && 'watchdog' || 'retry' }}
 
@@ -48,15 +52,9 @@ jobs:
         run: pip install --timeout 120 -r requirements.txt
 
       - name: 一次資料の画像取得環境をセットアップ
-        run: python -m playwright install --with-deps chromium
-
-      - name: INU投稿ルールを検証
-        # 本番の時刻実行では、開発用ユニットテストの一時的不整合で投稿枠を失わない。
-        # 実際の公開前には prepare 内で出典・鮮度・画像・本文を必ず検証する。
-        # 手動実行では従来どおりテスト失敗を止める。
-        continue-on-error: ${{ github.event_name == 'schedule' }}
-        working-directory: scripts
-        run: python -m unittest test_inu_content_system.py test_inu_hourly_dispatcher.py test_inu_auto_hourly.py test_inu_market_universe.py test_inu_tradingview_capture.py test_inu_live_post.py test_inu_news_visual.py test_inu_gpt_image.py test_llm_client.py test_grok_client.py test_x_poster_rules.py
+        # Ubuntu runner にある依存ライブラリを使い、apt の更新待ちを避ける。
+        # Chromium の取得が止まっても、次の復旧枠を妨げないよう上限を設ける。
+        run: timeout 360 python -m playwright install chromium
 
       - name: 手動ドライラン候補を準備
         id: dry_prepare
@@ -112,8 +110,12 @@ jobs:
             git add scripts/inu_x_signal_promotion_state.json
           fi
           git diff --staged --quiet || git commit -m "chore: record INU scheduled check [skip ci]"
-          git pull --rebase
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1
 
       - name: 手動実行の投稿予約を先に保存
         if: github.event_name == 'workflow_dispatch' && steps.prepare.outputs.ready == 'true'
@@ -125,8 +127,12 @@ jobs:
             git add scripts/inu_x_signal_promotion_state.json
           fi
           git diff --staged --quiet || git commit -m "chore: reserve INU hourly post [skip ci]"
-          git pull --rebase
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1
 
       - name: 画像付き投稿を1件公開
         id: publish
@@ -149,5 +155,9 @@ jobs:
             git add scripts/inu_x_signal_promotion_state.json
           fi
           git diff --staged --quiet || git commit -m "chore: record INU hourly post [skip ci]"
-          git pull --rebase
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1

@@ -901,7 +901,9 @@ class INUAutoHourlyTests(unittest.TestCase):
                 inu_auto_hourly, "build_market_data_fallback", return_value=(market_item, market_candidate)
             ) as fallback:
                 self.assertEqual(0, inu_auto_hourly.prepare(args))
-        research.assert_called_once()
+        # 復旧枠では必ず一次資料の再探索を行う。実行環境で高反応シグナルが
+        # 見つかった場合は、そのシグナルを起点に追加探索するため回数は固定しない。
+        self.assertGreaterEqual(research.call_count, 1)
         fallback.assert_called_once()
 
     def test_prepare_repairs_copy_before_discarding_a_verified_candidate(self):

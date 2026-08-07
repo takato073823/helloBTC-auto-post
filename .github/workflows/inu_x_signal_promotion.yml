@@ -8,8 +8,9 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # 毎時投稿・重要ニュースと同じ予約キューを共有し、同時公開を防ぐ。
-  group: inu-x-publish
+  # Xシグナル探索が長引いても、毎時投稿の実行枠は塞がない。
+  # 公開時の重複は prepare の永続予約で防ぐ。
+  group: inu-x-signal-promotion
   cancel-in-progress: false
 
 permissions:
@@ -19,6 +20,7 @@ jobs:
   promote:
     if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -29,7 +31,7 @@ jobs:
 
       - run: pip install --timeout 120 -r requirements.txt
 
-      - run: python -m playwright install --with-deps chromium
+      - run: timeout 360 python -m playwright install chromium
 
       - name: Xシグナル昇格ルールを検証
         working-directory: scripts
