@@ -405,6 +405,16 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:PLUME-USD",
       "reserved_at": "2026-08-07T10:17:39.815386+00:00"
+    },
+    {
+      "slot": "2026-08-07-20-a",
+      "post_id": "inu_auto_98f23d1416a3f3",
+      "source_url": "https://tether.to/en/transparency",
+      "topic_type": "supply_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "reserved_at": "2026-08-07T11:14:09.149214+00:00"
     }
   ],
   "history": [
