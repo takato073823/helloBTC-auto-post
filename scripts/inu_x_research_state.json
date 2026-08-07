@@ -1,5 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-07T03:25:49+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T04:24:09+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -76,6 +77,12 @@
       "result_count": 6,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T04:24:09+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
