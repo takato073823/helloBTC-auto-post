@@ -351,6 +351,20 @@
       "posted_at": "2026-08-07T13:02:19.589958+00:00",
       "hook": "📈 $BICO、24時間で+48.31％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-23-a",
+      "post_id": "inu_auto_a7c800434720c4",
+      "tweet_id": "2085732407177830490",
+      "topic_type": "etf_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://bitbetf.com",
+      "published_at": "2026-08-07T00:00:00-04:00",
+      "posted_at": "2026-08-07T14:18:51.816168+00:00",
+      "hook": "📉BITB、NAV34.94ドル・年初来−32.95%",
+      "follow_value": "複数の現物$BTC ETFでNAV、プレミアム・ディスカウント、純資産の推移を比較し、ETF市場構造を追える。"
     }
   ],
   "posted_ids": [
@@ -385,7 +399,8 @@
     "inu_market_2026_08_07_19_a_crypto-plume-usd",
     "inu_market_2026_08_07_20_a_crypto-kmno-usd",
     "inu_auto_45e92d4b3160dc",
-    "inu_market_2026_08_07_22_a_crypto-bico-usd"
+    "inu_market_2026_08_07_22_a_crypto-bico-usd",
+    "inu_auto_a7c800434720c4"
   ],
   "reservations": [
     {
@@ -445,16 +460,6 @@
       "generated_editorial_visual": true,
       "market_key": "",
       "reserved_at": "2026-08-07T11:14:09.149214+00:00"
-    },
-    {
-      "slot": "2026-08-07-23-a",
-      "post_id": "inu_auto_a7c800434720c4",
-      "source_url": "https://bitbetf.com",
-      "topic_type": "etf_flow",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T14:17:37.405309+00:00"
     }
   ],
   "history": [
@@ -854,6 +859,20 @@
       "posted_at": "2026-08-07T13:02:19.589958+00:00",
       "hook": "📈 $BICO、24時間で+48.31％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-23-a",
+      "post_id": "inu_auto_a7c800434720c4",
+      "tweet_id": "2085732407177830490",
+      "topic_type": "etf_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://bitbetf.com",
+      "published_at": "2026-08-07T00:00:00-04:00",
+      "posted_at": "2026-08-07T14:18:51.816168+00:00",
+      "hook": "📉BITB、NAV34.94ドル・年初来−32.95%",
+      "follow_value": "複数の現物$BTC ETFでNAV、プレミアム・ディスカウント、純資産の推移を比較し、ETF市場構造を追える。"
     }
   ],
   "scheduled_checks": [
