@@ -40,6 +40,7 @@ from inu_growth_watchlist import (
     load_state as load_watchlist_state,
     save_state as save_watchlist_state,
 )
+from inu_follow_growth import run as run_follow_growth
 from inu_x_research_agent import ensure_watchlist_signal_state, ingest_watchlist_posts
 from x_list_client import XListClient
 from x_poster import _get_client, like_tweet, post_info_reply_tweet, post_info_tweet
@@ -778,6 +779,15 @@ def run(args: argparse.Namespace) -> int:
         save_state(state, Path(args.state))
         return 0
     api = _get_client()
+    try:
+        own = api.get_me(user_auth=True)
+        own_user_id = str(_value(_value(own, "data", {}), "id", ""))
+        if own_user_id:
+            follow_result = run_follow_growth(api, own_user_id)
+            logger.info("限定フォロー施策: follow=%s / followback=%s / unfollow=%s", follow_result["followed"], follow_result["followed_back"], follow_result["unfollowed"])
+    except Exception as exc:
+        # フォロー施策だけの一時不調で、既存A〜Dを止めない。
+        logger.info("限定フォロー施策を見送りします: %s", exc)
     try:
         admitted_posts = admit_qualified_new_followers(state, api, now)
     except Exception as exc:

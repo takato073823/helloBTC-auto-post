@@ -444,6 +444,40 @@ def like_tweet(tweet_id: str) -> bool:
         return False
 
 
+def follow_user(user_id: str) -> bool:
+    """検証済みの対象アカウントを1件だけフォローする。"""
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のためフォローをスキップ")
+        return False
+    if not re.fullmatch(r"\d{1,22}", str(user_id)):
+        logger.warning("Xフォローをスキップ（ユーザーIDが不正です）: %s", user_id)
+        return False
+    try:
+        response = _get_client().follow_user(str(user_id), user_auth=True)
+        data = response.data or {}
+        return bool(data.get("following") or data.get("pending_follow"))
+    except Exception as e:
+        logger.warning("Xフォロー失敗（再試行しません）: %s", e)
+        return False
+
+
+def unfollow_user(user_id: str) -> bool:
+    """フォローバック未確認の対象を、期限後に1件だけ解除する。"""
+    if not _secrets_available():
+        logger.info("X APIシークレット未設定のためフォロー解除をスキップ")
+        return False
+    if not re.fullmatch(r"\d{1,22}", str(user_id)):
+        logger.warning("Xフォロー解除をスキップ（ユーザーIDが不正です）: %s", user_id)
+        return False
+    try:
+        response = _get_client().unfollow_user(str(user_id), user_auth=True)
+        data = response.data or {}
+        return not bool(data.get("following") or data.get("pending_follow"))
+    except Exception as e:
+        logger.warning("Xフォロー解除失敗（再試行しません）: %s", e)
+        return False
+
+
 def post_link_card_tweet(text: str, article_url: str) -> str | None:
     """記事URLをそのまま添え、Xネイティブのリンクカードとして投稿する。
 
