@@ -365,6 +365,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-07T09:08:20.160689+00:00"
+    },
+    {
+      "slot": "2026-08-07-19-a",
+      "post_id": "inu_market_2026_08_07_19_a_crypto-plume-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PLUMEUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PLUME-USD",
+      "reserved_at": "2026-08-07T10:14:17.017825+00:00"
     }
   ],
   "history": [
