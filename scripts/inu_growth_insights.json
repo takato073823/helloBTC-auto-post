@@ -1,38 +1,38 @@
 {
   "version": 1,
-  "generated_at": "2026-08-06T15:15:19.386079+00:00",
+  "generated_at": "2026-08-07T14:14:04.092562+00:00",
   "lookback_hours": 72,
-  "measured_posts": 6,
+  "measured_posts": 7,
   "topic_summary": [
     {
       "topic_type": "earnings",
-      "posts": 2,
-      "mean_impressions": 104,
-      "mean_engagement_per_mille": 4.63
-    },
-    {
-      "topic_type": "macro_event",
-      "posts": 2,
-      "mean_impressions": 24,
+      "posts": 3,
+      "mean_impressions": 39,
       "mean_engagement_per_mille": 0.0
     },
     {
       "topic_type": "etf_flow",
       "posts": 1,
-      "mean_impressions": 15,
+      "mean_impressions": 19,
       "mean_engagement_per_mille": 0.0
     },
     {
       "topic_type": "developing_story",
+      "posts": 2,
+      "mean_impressions": 19,
+      "mean_engagement_per_mille": 0.0
+    },
+    {
+      "topic_type": "macro_event",
       "posts": 1,
-      "mean_impressions": 11,
+      "mean_impressions": 17,
       "mean_engagement_per_mille": 0.0
     }
   ],
   "selection_guidance": {
     "preferred_topics_when_quality_is_equal": [
       "earnings",
-      "macro_event"
+      "developing_story"
     ],
     "rule": "鮮度・一次情報・読者価値が同等の候補だけで使う。投稿本数を埋める目的では使わない。"
   }
