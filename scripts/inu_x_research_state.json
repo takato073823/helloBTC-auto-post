@@ -191,33 +191,21 @@
       "checked_at": "2026-08-07T17:22:03+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-07T18:10:26+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-07T18:10:26+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4622481,
-      "discovered_at": "2026-08-07T12:30:56+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸🇨🇳 President Trump says \"we don't want see China take over crypto.\"",
-      "impression_count": 120530,
-      "like_count": 1395,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085697528432148987",
-      "post_url": "https://x.com/WatcherGuru/status/2085697528432148987",
-      "posted_at": "2026-08-07T12:00:15+00:00",
-      "quote_count": 19,
-      "reply_count": 234,
-      "repost_count": 134,
-      "score": 78.4,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸🇨🇳 President Trump says \"we don't want see China take over crypto.\"",
-      "topic": "watcher_guru",
-      "why_trending": "表示120,530・投稿後30分・反応率1.7%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4623342,
       "discovered_at": "2026-08-07T15:06:33+00:00",
@@ -245,34 +233,6 @@
       "summary": "JUST IN: 🇺🇸 President Trump says Bitcoin takes a lot of \"pressure\" off the US dollar. https://t.co/8gPPFckHMt",
       "topic": "watcher_guru",
       "why_trending": "表示111,027・投稿後28分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4622481,
-      "discovered_at": "2026-08-07T12:30:56+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $65,000 Bitcoin https://t.co/9yEbN4xeLE",
-      "impression_count": 160336,
-      "like_count": 2361,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2085689074203922544/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085689074203922544",
-      "post_url": "https://x.com/WatcherGuru/status/2085689074203922544",
-      "posted_at": "2026-08-07T11:26:40+00:00",
-      "quote_count": 27,
-      "reply_count": 287,
-      "repost_count": 214,
-      "score": 76.4,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: $65,000 Bitcoin https://t.co/9yEbN4xeLE",
-      "topic": "watcher_guru",
-      "why_trending": "表示160,336・投稿後64分・反応率2.1%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 76,
@@ -545,30 +505,6 @@
       "summary": "$BTC 在涨，但我心里反而有点发毛。周末这两天，盘面看着红彤彤的，可仔细一瞧，成交量低得可怜——主流交易所的现货日均成交额大概只有工作日的三成，甚至不到。这种状态下，只要有大户挂着几个比特币的买单，就能把价格往上顶个几百美元。说白了，这是“轻飘飘的涨”，不是“实打实的涨”。 https://t.co/6YxQXToNGg",
       "topic": "chinese_market",
       "why_trending": "表示168・投稿後83分・反応率1.5%"
-    },
-    {
-      "author_followers": 22,
-      "discovered_at": "2026-08-07T14:01:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "KuroKageXJP",
-      "has_video": false,
-      "headline": "🇺🇸 今夜発表の米7月雇用統計（NFP） 市場予想は ・非農業部門雇用者数：約+8万人 ・失業率：4.2% 今回のポイントは、雇用が単なる「減速」なのか、それとも「失速」に入るのか。 想定される3つのシナリオ👇 ① 予想を大きく上回る（+10〜12万人超） → 利下げ期待が後退し、金利上昇圧力 →",
-      "impression_count": 274,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085698930881552447",
-      "post_url": "https://x.com/KuroKageXJP/status/2085698930881552447",
-      "posted_at": "2026-08-07T12:05:50+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🇺🇸 今夜発表の米7月雇用統計（NFP） 市場予想は ・非農業部門雇用者数：約+8万人 ・失業率：4.2% 今回のポイントは、雇用が単なる「減速」なのか、それとも「失速」に入るのか。 想定される3つのシナリオ👇 ① 予想を大きく上回る（+10〜12万人超） → 利下げ期待が後退し、金利上昇圧力 →",
-      "topic": "japanese_market",
-      "why_trending": "表示274・投稿後115分・反応率0.4%"
     }
   ],
   "trends": [],
