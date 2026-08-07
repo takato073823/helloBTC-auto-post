@@ -239,38 +239,21 @@
       "checked_at": "2026-08-07T21:11:17+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "fixed_primary_x"
-    }
-  ],
-  "signals": [
+    },
     {
-      "author_followers": 15166,
-      "discovered_at": "2026-08-07T16:08:25+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Mrjacknicee",
-      "has_video": false,
-      "headline": "0x2f0bfc19de449467d0985867d0f69cf3ecc77777 一姐接梗的概率高达99.99％ 作为币安的首席客服和营销灵魂，这么高热度不接真对不起客服小何这个昵称了。 一姐也发一张海报也很大的好处：让用户觉得她离我们很近，消解“大交易所”的距离感 总之：一切的一切都是为了推广币安美股交易。 没理由的啊。 https://t.co/rW",
-      "impression_count": 292,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Mrjacknicee/status/2085752792594157732/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085752792594157732",
-      "post_url": "https://x.com/Mrjacknicee/status/2085752792594157732",
-      "posted_at": "2026-08-07T15:39:51+00:00",
-      "quote_count": 1,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 49.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "0x2f0bfc19de449467d0985867d0f69cf3ecc77777 一姐接梗的概率高达99.99％ 作为币安的首席客服和营销灵魂，这么高热度不接真对不起客服小何这个昵称了。 一姐也发一张海报也很大的好处：让用户觉得她离我们很近，消解“大交易所”的距离感 总之：一切的一切都是为了推广币安美股交易。 没理由的啊。 https://t.co/rWmCxKE6cQ",
-      "topic": "chinese_market",
-      "why_trending": "表示292・投稿後28分・反応率2.4%"
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-07T22:05:24+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-07T22:05:24+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "fixed_primary_x"
     }
   ],
+  "signals": [],
   "trends": [],
   "version": 1
 }
