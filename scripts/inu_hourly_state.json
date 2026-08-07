@@ -295,6 +295,20 @@
       "posted_at": "2026-08-07T08:04:54.429203+00:00",
       "hook": "🚀 Cloudflare、Q2売上高が6.96億ドルで前年比36%増",
       "follow_value": "次回は通期売上高見通しとRPOの更新値。"
+    },
+    {
+      "slot": "2026-08-07-19-a",
+      "post_id": "inu_market_2026_08_07_19_a_crypto-plume-usd",
+      "tweet_id": "2085671520618127538",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PLUME-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PLUMEUSD",
+      "published_at": "2026-08-07T10:00:00+00:00",
+      "posted_at": "2026-08-07T10:16:55.498647+00:00",
+      "hook": "📈 $PLUME、24時間で+8.21％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -325,7 +339,8 @@
     "inu_market_2026_08_07_13_a_crypto-cap-usd",
     "inu_market_2026_08_07_15_a_crypto-ondo-usd",
     "inu_market_2026_08_07_16_a_crypto-ada-usd",
-    "inu_auto_19b35f97446f85"
+    "inu_auto_19b35f97446f85",
+    "inu_market_2026_08_07_19_a_crypto-plume-usd"
   ],
   "reservations": [
     {
@@ -365,16 +380,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-07T09:08:20.160689+00:00"
-    },
-    {
-      "slot": "2026-08-07-19-a",
-      "post_id": "inu_market_2026_08_07_19_a_crypto-plume-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PLUMEUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PLUME-USD",
-      "reserved_at": "2026-08-07T10:14:17.017825+00:00"
     }
   ],
   "history": [
@@ -718,6 +723,20 @@
       "posted_at": "2026-08-07T08:04:54.429203+00:00",
       "hook": "🚀 Cloudflare、Q2売上高が6.96億ドルで前年比36%増",
       "follow_value": "次回は通期売上高見通しとRPOの更新値。"
+    },
+    {
+      "slot": "2026-08-07-19-a",
+      "post_id": "inu_market_2026_08_07_19_a_crypto-plume-usd",
+      "tweet_id": "2085671520618127538",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PLUME-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PLUMEUSD",
+      "published_at": "2026-08-07T10:00:00+00:00",
+      "posted_at": "2026-08-07T10:16:55.498647+00:00",
+      "hook": "📈 $PLUME、24時間で+8.21％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "scheduled_checks": [
