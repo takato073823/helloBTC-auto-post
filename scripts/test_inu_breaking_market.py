@@ -71,6 +71,8 @@ class INUBreakingMarketTests(unittest.TestCase):
         self.assertNotIn("僕", text)
         self.assertIn("重要な節目", text)
         self.assertNotRegex(text, r"https?://|www\.")
+        self.assertNotIn("画像: TradingView", text)
+        self.assertNotIn("価格確認:", text)
 
     def test_prepare_skips_known_event(self):
         with tempfile.TemporaryDirectory() as temp_dir:

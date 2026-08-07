@@ -1711,7 +1711,6 @@ def _market_fallback_text(
         f"{market_label}で変動が大きい銘柄です。\n"
         f"{source_label}確定1時間足: {price:,.{decimals}f}。24時間で{change:+.2f}％の{direction}。\n"
         f"3日高値{high:,.{decimals}f}、安値{low:,.{decimals}f}。レンジ内{range_position:.0f}％。\n\n"
-        f"※比較: {compared_count}銘柄／画像: TradingView\n"
         f"{tag}"
     )
     if "僕" in text or "私" in text:

@@ -65,6 +65,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         )
         self.assertNotIn("僕", text)
         self.assertIn("レンジ内56％", text)
+        self.assertNotIn("※比較:", text)
+        self.assertNotIn("画像: TradingView", text)
 
     def test_grok_editorial_options_cannot_change_verified_facts_or_source(self):
         item = candidate()

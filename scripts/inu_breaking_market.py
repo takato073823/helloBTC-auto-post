@@ -226,8 +226,7 @@ def build_text(event: dict) -> str:
         f"{event['previous_record_date'][5:].replace('-', '/')}の過去最高値"
         f"{_number(event['previous_record'])}を突破。"
         f"前日終値比は{direction}{event['change_percent']:.2f}%。\n\n"
-        "市場が未知の価格帯へ入った重要な節目です。\n\n"
-        "※価格確認: Yahoo Finance／画像: TradingView"
+        "市場が未知の価格帯へ入った重要な節目です。"
     )
     if "僕" in text or "私" in text:
         raise ValueError("価格チャート投稿に個人の意見は含めません")

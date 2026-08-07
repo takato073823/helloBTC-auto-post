@@ -190,8 +190,7 @@ def build_tweet(
         f"{headline}\n\n"
         f"直近確定値は{_price(metrics['last_close'], decimals)}。24時間で{_signed_percent(change)}。\n"
         f"過去3日の高値{_price(metrics['period_high'], decimals)}、安値{_price(metrics['period_low'], decimals)}。"
-        f"現在値は同レンジの{position * 100:.0f}%地点です。\n\n"
-        f"※価格データ: Coinbase {product}／画像: TradingView"
+        f"現在値は同レンジの{position * 100:.0f}%地点です。"
     )
     return _neutralize_service_domains(text)
 
