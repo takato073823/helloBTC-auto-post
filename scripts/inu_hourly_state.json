@@ -337,6 +337,20 @@
       "posted_at": "2026-08-07T12:13:33.843668+00:00",
       "hook": "📈 Mirion Q2売上高19.7%増",
       "follow_value": "Mirionの通期ガイダンス据え置き状況を追うため"
+    },
+    {
+      "slot": "2026-08-07-22-a",
+      "post_id": "inu_market_2026_08_07_22_a_crypto-bico-usd",
+      "tweet_id": "2085713145608192221",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BICO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BICOUSD",
+      "published_at": "2026-08-07T13:00:00+00:00",
+      "posted_at": "2026-08-07T13:02:19.589958+00:00",
+      "hook": "📈 $BICO、24時間で+48.31％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -370,7 +384,8 @@
     "inu_auto_19b35f97446f85",
     "inu_market_2026_08_07_19_a_crypto-plume-usd",
     "inu_market_2026_08_07_20_a_crypto-kmno-usd",
-    "inu_auto_45e92d4b3160dc"
+    "inu_auto_45e92d4b3160dc",
+    "inu_market_2026_08_07_22_a_crypto-bico-usd"
   ],
   "reservations": [
     {
@@ -430,16 +445,6 @@
       "generated_editorial_visual": true,
       "market_key": "",
       "reserved_at": "2026-08-07T11:14:09.149214+00:00"
-    },
-    {
-      "slot": "2026-08-07-22-a",
-      "post_id": "inu_market_2026_08_07_22_a_crypto-bico-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BICOUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BICO-USD",
-      "reserved_at": "2026-08-07T13:00:56.338502+00:00"
     }
   ],
   "history": [
@@ -825,6 +830,20 @@
       "posted_at": "2026-08-07T12:13:33.843668+00:00",
       "hook": "📈 Mirion Q2売上高19.7%増",
       "follow_value": "Mirionの通期ガイダンス据え置き状況を追うため"
+    },
+    {
+      "slot": "2026-08-07-22-a",
+      "post_id": "inu_market_2026_08_07_22_a_crypto-bico-usd",
+      "tweet_id": "2085713145608192221",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BICO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BICOUSD",
+      "published_at": "2026-08-07T13:00:00+00:00",
+      "posted_at": "2026-08-07T13:02:19.589958+00:00",
+      "hook": "📈 $BICO、24時間で+48.31％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "scheduled_checks": [
