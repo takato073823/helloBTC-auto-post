@@ -5,6 +5,12 @@
       "processed_at": "2026-08-06T12:32:15+00:00",
       "reason": "一次資料探索失敗: not enough values to unpack (expected 3, got 0)",
       "status": "rejected"
+    },
+    "https://x.com/nicosokufx/status/2085515324729045059": {
+      "post_id": "",
+      "processed_at": "2026-08-07T00:44:17+00:00",
+      "reason": "一次資料探索失敗: not enough values to unpack (expected 3, got 0)",
+      "status": "rejected"
     }
   },
   "version": 1
