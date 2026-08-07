@@ -215,6 +215,18 @@
       "checked_at": "2026-08-07T19:28:03+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-07T20:24:09+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-07T20:24:09+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
