@@ -379,6 +379,20 @@
       "posted_at": "2026-08-07T15:03:57.830591+00:00",
       "hook": "📉 $ONDO、24時間で-5.43％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-08-01-a",
+      "post_id": "inu_market_2026_08_08_01_a_crypto-bonk-usd",
+      "tweet_id": "2085759540855717894",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BONK-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BONKUSD",
+      "published_at": "2026-08-07T16:00:00+00:00",
+      "posted_at": "2026-08-07T16:06:41.030954+00:00",
+      "hook": "📉 $BONK、24時間で-11.59％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -415,7 +429,8 @@
     "inu_auto_45e92d4b3160dc",
     "inu_market_2026_08_07_22_a_crypto-bico-usd",
     "inu_auto_a7c800434720c4",
-    "inu_market_2026_08_08_00_a_crypto-ondo-usd"
+    "inu_market_2026_08_08_00_a_crypto-ondo-usd",
+    "inu_market_2026_08_08_01_a_crypto-bonk-usd"
   ],
   "reservations": [
     {
@@ -475,16 +490,6 @@
       "generated_editorial_visual": true,
       "market_key": "",
       "reserved_at": "2026-08-07T11:14:09.149214+00:00"
-    },
-    {
-      "slot": "2026-08-08-01-a",
-      "post_id": "inu_market_2026_08_08_01_a_crypto-bonk-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BONKUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BONK-USD",
-      "reserved_at": "2026-08-07T16:03:45.926003+00:00"
     }
   ],
   "history": [
@@ -911,6 +916,20 @@
       "published_at": "2026-08-07T15:00:00+00:00",
       "posted_at": "2026-08-07T15:03:57.830591+00:00",
       "hook": "📉 $ONDO、24時間で-5.43％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-08-01-a",
+      "post_id": "inu_market_2026_08_08_01_a_crypto-bonk-usd",
+      "tweet_id": "2085759540855717894",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BONK-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BONKUSD",
+      "published_at": "2026-08-07T16:00:00+00:00",
+      "posted_at": "2026-08-07T16:06:41.030954+00:00",
+      "hook": "📉 $BONK、24時間で-11.59％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
