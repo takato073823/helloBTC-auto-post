@@ -34,6 +34,21 @@ def has_hourly_activity(state: dict, slot: str) -> bool:
         for row in state.get(key, []):
             if isinstance(row, dict) and row.get("slot") == slot:
                 return True
+
+    # 重要ニュース・相場速報が同じJST時間に公開済みなら、その投稿を
+    # 定時枠の代わりとして扱う。重要情報の直後に低優先度の定時投稿を
+    # 重ねないためであり、個別URL投稿はこの状態ファイルに書き込まれない。
+    hour_prefix = slot.removesuffix("-a")
+    for row in state.get("history", []):
+        if not isinstance(row, dict):
+            continue
+        posted_at = str(row.get("posted_at", ""))
+        try:
+            timestamp = dt.datetime.fromisoformat(posted_at.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if timestamp.astimezone(JST).strftime("%Y-%m-%d-%H") == hour_prefix:
+            return True
     return False
 
 

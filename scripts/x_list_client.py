@@ -190,20 +190,30 @@ class XListClient:
         return rows
 
     def add_members(self, list_id: str, user_ids: Iterable[str]) -> tuple[list[str], list[str]]:
-        """会員追加を個別に隔離し、成功・保留IDを返す。"""
+        """会員追加を個別に隔離し、成功・保留IDを返す。
+
+        X側が書き込み上限を返した場合は、その場で追加を止める。上限中に残り
+        全件へ同じリクエストを繰り返すと、次の正規更新までの余力も失われるため、
+        保留として状態へ残し、次回の小分け同期で再開する。
+        """
         completed: list[str] = []
         pending: list[str] = []
-        for user_id in user_ids:
+        queue = [str(user_id) for user_id in user_ids]
+        for index, user_id in enumerate(queue):
             try:
-                self.client.add_list_member(list_id, str(user_id), user_auth=True)
-                completed.append(str(user_id))
+                self.client.add_list_member(list_id, user_id, user_auth=True)
+                completed.append(user_id)
             except Exception as exc:
                 # 既存会員は同期済みとして扱う。一時エラー・権限エラーは次回に持ち越す。
                 if _status_code(exc) == 409 or "already" in str(exc).lower():
-                    completed.append(str(user_id))
+                    completed.append(user_id)
                 else:
                     logger.warning("リストへの追加を保留しました: %s / %s", user_id, exc)
-                    pending.append(str(user_id))
+                    pending.append(user_id)
+                    if _status_code(exc) == 429:
+                        pending.extend(queue[index + 1:])
+                        logger.info("Xリスト追加の上限に達したため、残り%d件は次回へ繰り越します", len(queue) - index - 1)
+                        break
         return completed, pending
 
     def remove_members(self, list_id: str, user_ids: Iterable[str]) -> tuple[list[str], list[str]]:

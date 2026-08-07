@@ -29,9 +29,6 @@ jobs:
 
       - run: pip install --timeout 120 -r requirements.txt
 
-      - name: 一次資料の画像取得環境をセットアップ
-        run: python -m playwright install --with-deps chromium
-
       - name: 成長施策の安全ルールを検証
         working-directory: scripts
         run: python -m unittest test_inu_growth_boost.py test_inu_growth_watchlist.py test_x_poster_rules.py

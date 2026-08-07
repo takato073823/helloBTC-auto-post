@@ -16,6 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write
 
 jobs:
@@ -90,3 +91,33 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: record INU breaking event [skip ci]"
           git pull --rebase
           git push
+
+      - name: 定時投稿の欠落を確認
+        id: hourly_guard
+        if: github.event_name == 'schedule'
+        run: python scripts/inu_hourly_guard.py
+
+      - name: 欠落した定時投稿を復旧起動
+        if: github.event_name == 'schedule' && steps.hourly_guard.outputs.needs_recovery == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run inu_x_hourly.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref main
+          -f live=true
+          -f recovery=true
+
+      - name: 成長ブーストの欠落を確認
+        id: growth_guard
+        if: github.event_name == 'schedule'
+        run: python scripts/inu_growth_boost_guard.py
+
+      - name: 欠落した成長ブーストを復旧起動
+        if: github.event_name == 'schedule' && steps.growth_guard.outputs.needs_recovery == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run inu_x_growth_boost.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref main

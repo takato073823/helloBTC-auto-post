@@ -2,8 +2,10 @@ name: INU ブースト対象リスト管理
 
 on:
   schedule:
-    # UTC。毎時投稿・速報・ブースト実行と重ならない6時間ごとの時刻。
+    # 候補の発見・再評価は6時間ごと。X APIの書き込み上限に当たった場合だけ、
+    # 30分ごとの小分け同期で保留中の追加を再開する。
     - cron: "9 3,9,15,21 * * *"
+    - cron: "19,49 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -42,7 +44,12 @@ jobs:
           X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-        run: python inu_growth_watchlist.py --allow-create
+        run: |
+          if [ "${{ github.event.schedule }}" = "19,49 * * * *" ]; then
+            python inu_growth_watchlist.py --allow-create --sync-only
+          else
+            python inu_growth_watchlist.py --allow-create
+          fi
 
       - name: ウォッチリスト状態を保存
         run: |

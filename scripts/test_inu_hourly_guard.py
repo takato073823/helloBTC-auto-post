@@ -19,5 +19,13 @@ class INUHourlyGuardTests(unittest.TestCase):
         state = {"reservations": [{"slot": "2026-08-07-12-a"}]}
         self.assertTrue(guard.has_hourly_activity(state, "2026-08-07-12-a"))
 
+    def test_breaking_post_in_same_hour_prevents_recovery(self):
+        state = {
+            "history": [
+                {"slot": "breaking-event", "posted_at": "2026-08-07T03:25:00+00:00"}
+            ]
+        }
+        self.assertTrue(guard.has_hourly_activity(state, "2026-08-07-12-a"))
+
     def test_empty_state_needs_recovery(self):
         self.assertFalse(guard.has_hourly_activity({}, "2026-08-07-12-a"))

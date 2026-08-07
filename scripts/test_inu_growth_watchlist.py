@@ -102,6 +102,27 @@ class FakeListApi:
 
 
 class WatchlistTests(unittest.TestCase):
+    def test_list_add_stops_on_x_rate_limit_and_carries_remaining_ids(self):
+        class RateLimitedError(Exception):
+            def __init__(self):
+                self.response = SimpleNamespace(status_code=429)
+                super().__init__("Too Many Requests")
+
+        class RateLimitedApi(FakeListApi):
+            def __init__(self):
+                super().__init__()
+                self.calls = 0
+
+            def add_list_member(self, *_args, **_kwargs):
+                self.calls += 1
+                raise RateLimitedError()
+
+        api = RateLimitedApi()
+        added, pending = XListClient(api).add_members("list-1", ["1", "2", "3"])
+        self.assertEqual([], added)
+        self.assertEqual(["1", "2", "3"], pending)
+        self.assertEqual(1, api.calls)
+
     def test_score_rejects_promotional_profile(self):
         bad = profile(description="Crypto airdrop giveaway 100x signals")
         record, reason = watchlist.score_account(bad, [tweet()], candidate(), NOW, "self", set())
@@ -165,6 +186,22 @@ class WatchlistTests(unittest.TestCase):
         self.assertEqual(0, second["added"])
         self.assertEqual(added_before, len(api.added))
         self.assertEqual(1, api.created)
+
+    @patch("inu_growth_watchlist.discover_accounts")
+    def test_sync_only_retries_existing_candidates_without_discovery(self, discovery):
+        api = FakeListApi()
+        state = watchlist.default_state()
+        state.update({"list_id": "list-1", "managed_initialized": True})
+        state["members"]["marketdata"] = {
+            "handle": "marketdata", "user_id": "1", "tier": "probation", "language": "ja",
+            "score": 80, "followers": 20_000, "last_seen_at": "2026-08-05T11:30:00Z",
+            "added_at": "", "low_score_cycles": 0,
+        }
+        result = watchlist.refresh_watchlist(state, api, NOW, allow_create=True, dry_run=False, sync_only=True)
+        self.assertEqual(1, result["added"])
+        discovery.assert_not_called()
+        self.assertEqual({"1"}, api.members)
+        self.assertEqual(0, api.created)
 
     @patch("inu_growth_watchlist.discover_accounts", return_value=[])
     def test_existing_selected_probation_is_promoted_for_boost_discovery(self, _discovery):

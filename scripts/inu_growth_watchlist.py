@@ -27,10 +27,11 @@ STATE_PATH = SCRIPT_DIR / "inu_growth_watchlist_state.json"
 DENYLIST_PATH = SCRIPT_DIR / "inu_growth_watchlist_denylist.json"
 LIST_NAME = "いいね"
 TARGET_SIZE = 200
-INITIAL_ADD_LIMIT = 50
+INITIAL_ADD_LIMIT = 10
+REFILL_ADD_LIMIT = 5
 STEADY_ADD_LIMIT = 10
 MAX_DISCOVERY_CALLS = 12
-MAX_CANDIDATE_EVALUATIONS = 60
+MAX_CANDIDATE_EVALUATIONS = 100
 MIN_FOLLOWERS = 1_000
 ADMIT_SCORE = 65.0
 RETAIN_SCORE = 50.0
@@ -59,10 +60,17 @@ HANDLE_RE = re.compile(r"^[A-Za-z0-9_]{1,15}$")
 # 初回だけ最大12系統を横断する。満員後は補充数に応じて必要な分だけ実行する。
 DISCOVERY_TRACKS = (
     ("ja", "日本語で、一次情報・オンチェーン・ETFフローを継続的に検証する暗号資産の専門家"),
+    ("ja", "日本語で、ビットコイン・イーサリアム・ステーブルコインのニュースを根拠とともに解説する情報発信者"),
+    ("ja", "日本語で、DeFi・アルトコイン・取引所・ウォレットの重要な変更を検証する暗号資産分析者"),
     ("ja", "日本語で、米国株・日本株・金利・為替をデータとともに扱う投資・マクロの専門家"),
+    ("ja", "日本語で、米国株の決算・半導体・AI企業の業績を一次資料と数値で扱う投資情報発信者"),
+    ("ja", "日本語で、日本株の決算・適時開示・市場テーマを根拠とともに読み解く分析者"),
     ("ja", "日本語で、AI・半導体・テック企業の業績や投資論点を継続的に扱う分析者"),
     ("ja", "日本の制度・規制・上場企業情報を一次資料で読み解く金融・暗号資産の情報発信者"),
     ("ja", "日本語で、取引所リスク・ウォレット・オンチェーンデータを根拠付きで扱う暗号資産の分析者"),
+    ("ja", "日本語で、FOMC・雇用統計・インフレ・国債入札などマクロ指標を市場への影響とともに解説する分析者"),
+    ("ja", "日本語で、株式・為替・コモディティ・債券の急変と市場データを早く検証する情報発信者"),
+    ("ja", "日本語で、金融庁・SEC・ETF発行体・上場企業IRなど公式発表を分かりやすく扱うリサーチアカウント"),
 )
 
 WATCHLIST_SCHEMA = {
@@ -528,6 +536,7 @@ def refresh_watchlist(
     *,
     allow_create: bool,
     dry_run: bool,
+    sync_only: bool = False,
 ) -> dict[str, Any]:
     """候補発見・適格性確認・リスト差分同期を一回実行する。"""
     list_client = XListClient(client)
@@ -566,7 +575,7 @@ def refresh_watchlist(
     current_members = [item for item in state["members"].values() if item.get("tier") == "member"]
     needed = max(0, TARGET_SIZE - len(current_members))
 
-    if needed:
+    if needed and not sync_only:
         discovered = discover_accounts(known, min(max(needed * 2, 40), 240), now)
         # 1回の同期で数百プロフィールを個別取得しない。初回は最大60件を
         # 評価し、50件ずつリストへ反映することでX APIの読取上限にも収める。
@@ -605,7 +614,10 @@ def refresh_watchlist(
     removed, pending_remove = list_client.remove_members(list_id, to_remove)
     # 200件に達するまでは、Xの書き込み負荷を抑えつつ50件ずつ補充する。
     # 満員後の入れ替えだけを10件までに抑え、対象の入れ替わりを安定させる。
-    add_limit = INITIAL_ADD_LIMIT if len(current_members) < TARGET_SIZE else STEADY_ADD_LIMIT
+    if sync_only:
+        add_limit = REFILL_ADD_LIMIT
+    else:
+        add_limit = INITIAL_ADD_LIMIT if len(current_members) < TARGET_SIZE else STEADY_ADD_LIMIT
     to_add = [user_id for user_id in desired_by_id if user_id not in actual_ids][:add_limit]
     added, pending_add = list_client.add_members(list_id, to_add)
     # 既にXリストにいる合格者も、次回のB探索から漏れないよう正式会員へ昇格する。
@@ -636,6 +648,7 @@ def run(args: argparse.Namespace) -> int:
             _utcnow(),
             allow_create=bool(args.allow_create),
             dry_run=bool(args.dry_run),
+            sync_only=bool(args.sync_only),
         )
         logger.info("ウォッチリスト同期: 対象=%d / 追加=%d / 除外=%d", result["desired"], result["added"], result["removed"])
     except Exception as exc:
@@ -650,6 +663,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--state", default=str(STATE_PATH))
     parser.add_argument("--allow-create", action="store_true", help="『いいね』リストがない場合にだけ作成する")
     parser.add_argument("--dry-run", action="store_true", help="Xリストを書き換えずに候補を評価する")
+    parser.add_argument("--sync-only", action="store_true", help="候補探索をせず、保留中のリスト差分だけを小分けに同期する")
     return parser
 
 
