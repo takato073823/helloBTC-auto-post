@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-07T07:38:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T07:38:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T08:41:33+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -109,6 +109,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T08:41:33+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -167,31 +173,6 @@
       "summary": "BTC — Spot, Futures, ETF, OI, Liquidation Map &amp; Order Book Current Price is still holding near 64K But the structure is not clean. ETF inflows exist spot inflows are weak futures leverage is mixed OI decreased slightly order book shows pressure above Spot / Futures https://t.co/EDzSKpfYof",
       "topic": "crypto_market",
       "why_trending": "表示9・投稿後1分・反応率28.9%"
-    },
-    {
-      "author_followers": 125,
-      "discovered_at": "2026-08-07T03:25:49+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Onlyonekeed_LJ",
-      "has_video": false,
-      "headline": "📊 Total Bitcoin Spot ETF Net Inflow | Aug 5 @SoSoValueCrypto 🟩 Daily Total Net Inflow: $244.42M 🏦 Total Net Assets: $79.21B 💰 BTC Price: $64,840.28 Explore more key information on ",
-      "impression_count": 12,
-      "like_count": 1,
-      "linked_urls": [
-        "https://sosovalue.com/shares/XtATXU"
-      ],
-      "media_types": [],
-      "post_id": "2085542244115755458",
-      "post_url": "https://x.com/Onlyonekeed_LJ/status/2085542244115755458",
-      "posted_at": "2026-08-07T01:43:13+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 49.9,
-      "seen_count": 1,
-      "summary": "📊 Total Bitcoin Spot ETF Net Inflow | Aug 5 @SoSoValueCrypto 🟩 Daily Total Net Inflow: $244.42M 🏦 Total Net Assets: $79.21B 💰 BTC Price: $64,840.28 Explore more key information on #SoSoValue: https://t.co/iWaRnOUeKB",
-      "topic": "crypto_market",
-      "why_trending": "表示12・投稿後102分・反応率8.3%・公式候補リンクあり"
     },
     {
       "author_followers": 3005,
@@ -323,33 +304,6 @@
       "summary": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Friday, 7 August 2026 07:12 CEST - Zurich, Switzerland 🇨🇭 A curious start to Friday: the global crypto market is marginally higher, but most of the large caps are red. Bitcoin is around $64,300, XRP is taking the hardest hit in the top ten, https://t.co/IqSGrFg4iZ",
       "topic": "onchain_exchange",
       "why_trending": "表示134・投稿後36分・反応率0.0%"
-    },
-    {
-      "author_followers": 222,
-      "discovered_at": "2026-08-07T03:25:49+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MusepayFam",
-      "has_video": false,
-      "headline": "📊 BTC $64K+/ETH $1,900 vs Fear 12 (Extreme) 🤖 $300B stablecoins = AI payment APIs 🚀 SpaceX 18.7K BTC, Samsung 800M wallets 📈 ETF +$305M, AI altcoins booming AI meets crypto. The pa",
-      "impression_count": 3,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/MusepayFam/status/2085553034046877822/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085553034046877822",
-      "post_url": "https://x.com/MusepayFam/status/2085553034046877822",
-      "posted_at": "2026-08-07T02:26:05+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 41.5,
-      "seen_count": 1,
-      "summary": "📊 BTC $64K+/ETH $1,900 vs Fear 12 (Extreme) 🤖 $300B stablecoins = AI payment APIs 🚀 SpaceX 18.7K BTC, Samsung 800M wallets 📈 ETF +$305M, AI altcoins booming AI meets crypto. The paradigm shifts. #Bitcoin #AI #Crypto #August2026 https://t.co/9fUFtaP91j",
-      "topic": "crypto_market",
-      "why_trending": "表示3・投稿後59分・反応率100.0%"
     },
     {
       "author_followers": 252,
