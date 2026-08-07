@@ -174,17 +174,18 @@ def build_tweet(
         symbol=(asset_metadata or {}).get("symbol"),
     )
     symbol = asset["symbol"]
+    display_symbol = f"${symbol}"
     decimals = _display_decimals(float(metrics["last_close"]), int(asset["decimals"]))
     change = metrics["change_24h"]
     position = metrics["position"]
     if abs(change) >= 2:
-        headline = f"【{symbol}、24時間で{_signed_percent(change)}】"
+        headline = f"【{display_symbol}、24時間で{_signed_percent(change)}】"
     elif position >= 0.75:
-        headline = f"【{symbol}、3日レンジ上限圏】"
+        headline = f"【{display_symbol}、3日レンジ上限圏】"
     elif position <= 0.25:
-        headline = f"【{symbol}、3日レンジ下限圏】"
+        headline = f"【{display_symbol}、3日レンジ下限圏】"
     else:
-        headline = f"【{symbol}、3日レンジの中間圏】"
+        headline = f"【{display_symbol}、3日レンジの中間圏】"
 
     text = (
         f"{headline}\n\n"

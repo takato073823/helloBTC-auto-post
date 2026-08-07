@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 from PIL import Image, ImageDraw, ImageFont
 
 from inu_persona import lint_voice
+from inu_tickers import format_crypto_tickers
 from x_poster import _build_hashtags, _neutralize_service_domains, post_info_tweet
 
 
@@ -63,7 +64,8 @@ def build_info_tweet(item: dict) -> str:
         for value in item["bullets"][:3]
     ]
     hashtags = _build_hashtags(item.get("tags", []))
-    return f"【{category}】{title}\n\n" + "\n".join(bullets) + f"\n\n{hashtags}"
+    text = f"【{category}】{title}\n\n" + "\n".join(bullets) + f"\n\n{hashtags}"
+    return format_crypto_tickers(text)
 
 
 def validate_item(item: dict) -> None:

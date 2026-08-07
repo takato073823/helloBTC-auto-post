@@ -64,6 +64,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             source_label="Coinbase",
         )
         self.assertNotIn("僕", text)
+        self.assertIn("$XRP、24時間", text)
         self.assertIn("レンジ内56％", text)
         self.assertNotIn("※比較:", text)
         self.assertNotIn("画像: TradingView", text)
@@ -128,6 +129,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("BLS Release Calendar", prompt)
         self.assertIn("topic_type=macro_event", prompt)
         self.assertNotIn("[etf_flow]", prompt)
+        self.assertIn("$BTC", prompt)
 
     def test_uncited_primary_source_is_added_only_after_live_verification(self):
         item = candidate()

@@ -15,6 +15,7 @@ from PIL import Image
 
 from inu_content_types import get_content_policy
 from inu_post import MAX_WEIGHTED_LENGTH, validate_post, weighted_length
+from inu_tickers import format_crypto_tickers
 from x_poster import _neutralize_service_domains, post_info_tweet, post_link_card_tweet
 
 
@@ -111,7 +112,7 @@ def _validate_link_card_item(item: dict) -> str:
     article_url = str(item["link_card_url"]).strip()
     if not re.fullmatch(r"https://[^\s]+", article_url):
         raise ValueError("リンクカードの記事URLが不正です")
-    safe_text = _neutralize_service_domains(str(item["text"]).strip())
+    safe_text = format_crypto_tickers(_neutralize_service_domains(str(item["text"]).strip()))
     validate_post(safe_text)
     # Xの短縮URL分を予約する。本文はURLを含めないため、サービス名だけを変換できる。
     if weighted_length(safe_text) > MAX_WEIGHTED_LENGTH - 24:
@@ -132,7 +133,7 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
     if missing:
         raise ValueError(f"投稿データが不足しています: {missing}")
 
-    safe_text = _neutralize_service_domains(item["text"].strip())
+    safe_text = format_crypto_tickers(_neutralize_service_domains(item["text"].strip()))
     validate_post(safe_text)
     policy = get_content_policy(item["topic_type"])
     if item["visual_route"] != policy.visual_route:

@@ -30,6 +30,7 @@ from inu_auto_hourly import (
 from inu_hourly_dispatcher import JST
 from inu_persona import VOICE_PROMPT
 from inu_post import compose_post, validate_post
+from inu_tickers import format_crypto_tickers
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from inu_growth_watchlist import (
     JAPANESE_LANGUAGE,
@@ -714,7 +715,7 @@ def _reply_variants(candidate: dict) -> list[dict]:
     variants: list[dict] = []
     seen: set[str] = set()
     for value in values:
-        reply = " ".join(str(value or "").split()).strip()
+        reply = format_crypto_tickers(" ".join(str(value or "").split()).strip())
         if not reply or reply in seen:
             continue
         seen.add(reply)

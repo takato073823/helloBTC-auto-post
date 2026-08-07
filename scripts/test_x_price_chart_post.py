@@ -53,7 +53,7 @@ class XPriceChartPostTests(unittest.TestCase):
         candles = x_price_chart_post.parse_closed_candles(sample_rows(now=self.now), now=self.now)
         text = x_price_chart_post.build_tweet(x_price_chart_post.calculate_metrics(candles))
         x_price_chart_post.validate_tweet(text)
-        self.assertIn("【BTC", text)
+        self.assertIn("【$BTC", text)
         self.assertNotIn("Coinbase", text)
         self.assertNotIn("僕", text)
         self.assertNotIn("INUは", text)
@@ -69,7 +69,7 @@ class XPriceChartPostTests(unittest.TestCase):
             product="XRP-USD",
         )
         self.assertIn("XRP", text)
-        self.assertIn("【XRP", text)
+        self.assertIn("【$XRP", text)
         self.assertNotIn("Coinbase", text)
         self.assertNotIn("僕", text)
 

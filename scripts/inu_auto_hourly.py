@@ -41,6 +41,7 @@ from inu_news_visual import capture_source_hero_image, generate_editorial_news_v
 from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
+from inu_tickers import format_crypto_tickers
 from inu_source_registry import topic_source_context
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 from inu_x_research_agent import (
@@ -1706,8 +1707,13 @@ def _market_fallback_text(
     range_position = float(metrics["position"]) * 100
     market_label = "時価総額上位30銘柄と話題通貨" if market_kind == "crypto" else "主要・話題銘柄"
     tag = "#仮想通貨" if market_kind == "crypto" else "#株式"
+    display_label = (
+        format_crypto_tickers(label, additional_symbols=[label])
+        if market_kind == "crypto"
+        else label
+    )
     text = (
-        f"{emoji} {label}、24時間で{change:+.2f}％\n\n"
+        f"{emoji} {display_label}、24時間で{change:+.2f}％\n\n"
         f"{market_label}で変動が大きい銘柄です。\n"
         f"{source_label}確定1時間足: {price:,.{decimals}f}。24時間で{change:+.2f}％の{direction}。\n"
         f"3日高値{high:,.{decimals}f}、安値{low:,.{decimals}f}。レンジ内{range_position:.0f}％。\n\n"

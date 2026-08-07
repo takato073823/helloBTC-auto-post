@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 
 from inu_persona import lint_voice
+from inu_tickers import format_crypto_tickers
 from x_poster import _build_hashtags, _neutralize_service_domains
 
 
@@ -35,7 +36,7 @@ def compose_post(
     hashtags = _build_hashtags((tags or [])[:2])
     if hashtags:
         body += f"\n\n{hashtags}"
-    return body
+    return format_crypto_tickers(body)
 
 
 def validate_post(text: str) -> None:
