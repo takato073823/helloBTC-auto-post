@@ -500,6 +500,16 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:HNT-USD",
       "reserved_at": "2026-08-07T19:11:52.269231+00:00"
+    },
+    {
+      "slot": "2026-08-08-05-a",
+      "post_id": "inu_auto_ba558ab9312946",
+      "source_url": "https://www.federalreserve.gov/releases/g19/current",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-07T20:02:12.905841+00:00"
     }
   ],
   "history": [
