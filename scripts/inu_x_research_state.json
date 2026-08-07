@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-07T03:25:49+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T04:24:09+00:00",
+  "last_deep_scan_at": "2026-08-07T05:56:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T05:56:45+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -83,9 +83,51 @@
       "checked_at": "2026-08-07T04:24:09+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T05:56:45+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-07T05:56:45+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
+    {
+      "author_followers": 3282,
+      "discovered_at": "2026-08-07T05:56:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "FqlExchange",
+      "has_video": true,
+      "headline": "FQL: Bitcoin Whale Accumulation Grows New Wallets Receive 1,540 BTC Galaxy Digital and BitGo Transfer Large BTC Amounts Or Bigger BTC Confidence Growth? FQL Exchange #वीजी #वीजीइन्",
+      "impression_count": 3778,
+      "like_count": 502,
+      "linked_urls": [
+        "https://x.com/FqlExchange/status/2085582117581496534/video/1"
+      ],
+      "media_types": [
+        "video",
+        "photo"
+      ],
+      "post_id": "2085582117581496534",
+      "post_url": "https://x.com/FqlExchange/status/2085582117581496534",
+      "posted_at": "2026-08-07T04:21:39+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 59.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "FQL: Bitcoin Whale Accumulation Grows New Wallets Receive 1,540 BTC Galaxy Digital and BitGo Transfer Large BTC Amounts Or Bigger BTC Confidence Growth? FQL Exchange #वीजी #वीजीइन्वेस्टमेंट #VG #VGinvestment #एफकयएल #एफकयएलएकस #एफकयएलएकसचज #FQL #FQLEX #FQLExchange #fql https://t.co/NjRTbeXQVo",
+      "topic": "onchain_exchange",
+      "why_trending": "表示3,778・投稿後95分・反応率13.3%・動画あり"
+    },
     {
       "author_followers": 252,
       "discovered_at": "2026-08-07T03:25:49+00:00",
@@ -139,6 +181,30 @@
       "why_trending": "表示12・投稿後102分・反応率8.3%・公式候補リンクあり"
     },
     {
+      "author_followers": 3005,
+      "discovered_at": "2026-08-07T05:56:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "EmmanuelInvest",
+      "has_video": false,
+      "headline": "🚨 CRYPTO MARKET SNAPSHOT | 06:30 BST ₿🚀 ━━━━━━━━━━━━━━━━━━ 🟠 Bitcoin $BTC: $64,117 🔻 0.24% 🔵 Ethereum $ETH: $1,894.69 🔻 0.39% 🟡 BNB $BNB: $586.60 🔻 0.93% 🔷 Solana $SOL: $72.49 🔻 0.",
+      "impression_count": 67,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085600107932660029",
+      "post_url": "https://x.com/EmmanuelInvest/status/2085600107932660029",
+      "posted_at": "2026-08-07T05:33:08+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 47.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 CRYPTO MARKET SNAPSHOT | 06:30 BST ₿🚀 ━━━━━━━━━━━━━━━━━━ 🟠 Bitcoin $BTC: $64,117 🔻 0.24% 🔵 Ethereum $ETH: $1,894.69 🔻 0.39% 🟡 BNB $BNB: $586.60 🔻 0.93% 🔷 Solana $SOL: $72.49 🔻 0.17% ⚫ XRP $XRP: $1.016 🔻 1.71% 🔵 Cardano $ADA: $0.2001 🔻",
+      "topic": "onchain_exchange",
+      "why_trending": "表示67・投稿後23分・反応率3.9%"
+    },
+    {
       "author_followers": 2957,
       "discovered_at": "2026-08-07T03:25:49+00:00",
       "discovery_type": "official_x_api",
@@ -164,6 +230,86 @@
       "summary": "📰 CRYPTO MARKET — AUG 7 - with ANCRYPTO Crypto enters a critical 48 hours. Total market cap sits near $2.2T, BTC dominance at 56.6%, while Fear &amp; Greed remains at 25–28 (Extreme Fear). Three major catalysts are now in focus: CLARITY Act, Bitcoin’s BIP-110 event and $ADA ETF https://t.co/FBKJF7SZWg",
       "topic": "crypto_market",
       "why_trending": "表示374・投稿後25分・反応率0.8%"
+    },
+    {
+      "author_followers": 3557,
+      "discovered_at": "2026-08-07T05:56:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Lisa01_FC",
+      "has_video": false,
+      "headline": "today’s read feels more about plumbing than candles BlackRock buying $128.33m of #Bitcoin gets the headline, but the more useful signal is that @ETF flows stayed positive while $BT",
+      "impression_count": 33,
+      "like_count": 5,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085595173116129479",
+      "post_url": "https://x.com/Lisa01_FC/status/2085595173116129479",
+      "posted_at": "2026-08-07T05:13:32+00:00",
+      "quote_count": 0,
+      "reply_count": 5,
+      "repost_count": 0,
+      "score": 44.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "today’s read feels more about plumbing than candles BlackRock buying $128.33m of #Bitcoin gets the headline, but the more useful signal is that @ETF flows stayed positive while $BTC chopped and $ETH still pulled interest. that tells me big money is not chasing green candles,",
+      "topic": "onchain_exchange",
+      "why_trending": "表示33・投稿後43分・反応率39.4%"
+    },
+    {
+      "author_followers": 1369655,
+      "discovered_at": "2026-08-07T05:56:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BSCNews",
+      "has_video": true,
+      "headline": "Canadians Hit Hardest By $130M Coldcard Hack Canadian Bitcoin $BTC holders account for 25% of losses from the Coldcard wallet exploit, the largest share of any country, per Chainal",
+      "impression_count": 6397,
+      "like_count": 15,
+      "linked_urls": [
+        "https://x.com/BSCNews/status/2085586987269190024/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2085586987269190024",
+      "post_url": "https://x.com/BSCNews/status/2085586987269190024",
+      "posted_at": "2026-08-07T04:41:00+00:00",
+      "quote_count": 0,
+      "reply_count": 8,
+      "repost_count": 1,
+      "score": 44.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Canadians Hit Hardest By $130M Coldcard Hack Canadian Bitcoin $BTC holders account for 25% of losses from the Coldcard wallet exploit, the largest share of any country, per Chainalysis. Coldcard's parent company Coinkite is based in Toronto. Australia follows with 15% to 20% https://t.co/HLH7DJEm7G",
+      "topic": "onchain_exchange",
+      "why_trending": "表示6,397・投稿後75分・反応率0.5%・動画あり"
+    },
+    {
+      "author_followers": 49,
+      "discovered_at": "2026-08-07T05:56:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TacTanner",
+      "has_video": false,
+      "headline": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Friday, 7 August 2026 07:12 CEST - Zurich, Switzerland 🇨🇭 A curious start to Friday: the global crypto market is marginally higher, but most of the large caps ",
+      "impression_count": 134,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/TacTanner/status/2085596786752708925/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085596786752708925",
+      "post_url": "https://x.com/TacTanner/status/2085596786752708925",
+      "posted_at": "2026-08-07T05:19:57+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 41.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Friday, 7 August 2026 07:12 CEST - Zurich, Switzerland 🇨🇭 A curious start to Friday: the global crypto market is marginally higher, but most of the large caps are red. Bitcoin is around $64,300, XRP is taking the hardest hit in the top ten, https://t.co/IqSGrFg4iZ",
+      "topic": "onchain_exchange",
+      "why_trending": "表示134・投稿後36分・反応率0.0%"
     },
     {
       "author_followers": 222,
@@ -245,6 +391,34 @@
       "summary": "US spot BTC ETFs, 2026.08.06: +$9.3M net inflow. ETH: +$9.0M. Biggest outflow: HODL -$32.8M. Daily ETF flow tracking by CoinEasy. https://t.co/sOP4NhTJ2L",
       "topic": "crypto_market",
       "why_trending": "表示48・投稿後9分・反応率0.0%"
+    },
+    {
+      "author_followers": 81519,
+      "discovered_at": "2026-08-07T05:56:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "GroveXchange",
+      "has_video": false,
+      "headline": "Daily Crypto News 1. Bitcoin Red Team drops bombshell AI-powered audit finds ~5,000 vulnerabilities (85 critical) across 390 Bitcoin projects in just ~30 hours. Devs call the situa",
+      "impression_count": 428,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/GroveXchange/status/2085584412511469760/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085584412511469760",
+      "post_url": "https://x.com/GroveXchange/status/2085584412511469760",
+      "posted_at": "2026-08-07T04:30:46+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Daily Crypto News 1. Bitcoin Red Team drops bombshell AI-powered audit finds ~5,000 vulnerabilities (85 critical) across 390 Bitcoin projects in just ~30 hours. Devs call the situation “extremely bad.” Security panic mode activated. 2. Coldcard exploit fallout continues https://t.co/mumKN1xuG3",
+      "topic": "onchain_exchange",
+      "why_trending": "表示428・投稿後85分・反応率0.9%"
     }
   ],
   "trends": [],
