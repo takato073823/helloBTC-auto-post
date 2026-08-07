@@ -1,0 +1,39 @@
+name: INU 毎時投稿ガード
+
+on:
+  schedule:
+    # 毎時投稿ワークフローの定刻起動が欠落したときの別系統の復旧確認。
+    - cron: "11,31,51 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  guard:
+    if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: この時間枠の公開・予約状態を確認
+        id: state
+        run: python scripts/inu_hourly_guard.py
+
+      - name: 欠落した毎時投稿を復旧起動
+        if: steps.state.outputs.needs_recovery == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run inu_x_hourly.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref main
+          -f live=true
+          -f recovery=true
