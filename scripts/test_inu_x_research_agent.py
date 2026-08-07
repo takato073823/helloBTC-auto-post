@@ -61,6 +61,29 @@ class ResearchAgentTests(unittest.TestCase):
         )
         self.assertEqual([], research._normalize_search_response(response, "crypto_market", NOW, set()))
 
+    def test_watcher_guru_breaking_signal_is_promoted_before_impressions_accumulate(self):
+        response = SimpleNamespace(
+            data=[tweet(
+                text="BREAKING: Bitcoin ETF approval announced",
+                public_metrics={"impression_count": 0, "like_count": 0, "reply_count": 0, "retweet_count": 0, "quote_count": 0},
+                entities={},
+            )],
+            includes={"users": [{"id": "author-1", "username": "WatcherGuru", "public_metrics": {}}], "media": []},
+        )
+        rows = research._normalize_search_response(response, "watcher_guru", NOW, set())
+        self.assertEqual(1, len(rows))
+        self.assertEqual("watcherguru", rows[0]["source_priority"])
+        self.assertGreaterEqual(rows[0]["score"], research.PROMOTION_MIN_SCORE)
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "state.json"
+            promotion_path = Path(directory) / "promotion.json"
+            state = research.default_state()
+            state["signals"] = rows
+            research.save_state(state, state_path)
+            eligible = research.promotion_signals(NOW, state_path, promotion_path=promotion_path)
+        self.assertEqual(1, len(eligible))
+        self.assertEqual("WatcherGuru", eligible[0]["source_handle"])
+
     def test_watchlist_ingest_reuses_existing_read_without_publishing(self):
         post = {
             "post_url": "https://x.com/analyst/status/2086000000000000003",
@@ -211,7 +234,10 @@ class ResearchAgentTests(unittest.TestCase):
         ) as search:
             result = research.scan(NOW, Path(directory) / "state.json")
         self.assertTrue(result["searched"])
-        search.assert_called_once()
+        self.assertEqual(2, search.call_count)
+        self.assertEqual("watcher_guru", search.call_args_list[0].args[1])
+        self.assertEqual(research._next_topic(research.default_state())[0], search.call_args_list[1].args[1])
+        self.assertEqual("recency", search.call_args_list[0].kwargs["sort_order"])
 
 
 if __name__ == "__main__":

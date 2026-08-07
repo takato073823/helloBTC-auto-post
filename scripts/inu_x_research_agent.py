@@ -45,8 +45,10 @@ JST = dt.timezone(dt.timedelta(hours=9))
 # 定期ディープスキャン時だけ行う。上限は状態ファイル側で日付ごとにリセットされる。
 MAX_COUNT_REQUESTS_PER_DAY = 72
 MAX_DEEP_SEARCHES_PER_DAY = 18
+MAX_WATCHER_GURU_SEARCHES_PER_DAY = 72
 MAX_TREND_REQUESTS_PER_DAY = 6
 DEEP_SCAN_INTERVAL = dt.timedelta(minutes=80)
+WATCHER_GURU_SCAN_INTERVAL = dt.timedelta(minutes=20)
 SIGNAL_MAX_AGE = dt.timedelta(hours=6)
 # 高反応の発見を「記録だけ」で終わらせないための、投稿候補へ昇格させる上限。
 # 速報経路はこの中から一次資料を確認し、確認できないものは投稿しない。
@@ -83,6 +85,13 @@ MATERIAL_SIGNAL_TERMS = (
 MEDIA_HANDLES = {"coindesk", "cointelegraph", "decryptmedia", "theblock__", "blockworks_"}
 FIXED_DISCOVERY_HANDLES = discovery_x_handles()
 FIXED_DISCOVERY_QUERY = " OR ".join(f"from:{handle}" for handle in FIXED_DISCOVERY_HANDLES)
+WATCHER_GURU_HANDLE = "watcherguru"
+WATCHER_GURU_QUERY = "from:WatcherGuru -is:reply -is:retweet"
+WATCHER_GURU_URGENT_TERMS = (
+    "breaking", "just in", "bitcoin", "btc", "ethereum", "eth", "crypto", "etf",
+    "sec", "cftc", "fed", "fomc", "treasury", "tariff", "rate", "inflation",
+    "approval", "approved", "hack", "exploit", "liquidation", "stablecoin",
+)
 
 # 1回のRecent Countsは1テーマだけを測る。20分間隔で循環するため、全テーマを
 # 一度に大量取得せず、突発的な話題量の増加を捕捉できる。
@@ -416,6 +425,15 @@ def _score(
     return score, reason
 
 
+def _is_watcher_guru_priority(handle: str, text: str, posted_at: dt.datetime, now: dt.datetime) -> bool:
+    """Watcher.Guruの金融・暗号資産速報だけを、一次資料確認へ優先送客する。"""
+    return (
+        handle.lower() == WATCHER_GURU_HANDLE
+        and now - posted_at <= dt.timedelta(minutes=90)
+        and _contains_term(text, WATCHER_GURU_URGENT_TERMS)
+    )
+
+
 def _is_actionable_signal(item: dict[str, Any]) -> bool:
     """古い状態にも適用する、発見候補として最低限必要なノイズ除外。"""
     text = " ".join([str(item.get("headline", "")), str(item.get("summary", ""))])
@@ -463,6 +481,12 @@ def _normalize_search_response(response: Any, topic: str, now: dt.datetime, tren
             trend_names=trend_names,
             now=now,
         )
+        watcher_priority = _is_watcher_guru_priority(handle, text, posted_at, now)
+        if watcher_priority:
+            # 速報直後は表示数が育っていない。Watcher.Guruは発見専用にとどめ、
+            # 後段で必ず一次資料へ戻す前提で、実測反応を待たず優先確認する。
+            score += 18.0
+            reason += "・Watcher.Guru速報を一次資料確認へ優先"
         if score < 34:
             continue
         rows.append(
@@ -486,20 +510,29 @@ def _normalize_search_response(response: Any, topic: str, now: dt.datetime, tren
                 "linked_urls": urls[:5],
                 "media_types": media_types,
                 "has_video": any(kind in {"video", "animated_gif"} for kind in media_types),
+                "source_priority": "watcherguru" if watcher_priority else "",
                 "discovered_at": _iso(now),
             }
         )
     return rows
 
 
-def _search_recent(client: Any, topic: str, query: str, now: dt.datetime, trends: set[str]) -> list[dict[str, Any]]:
+def _search_recent(
+    client: Any,
+    topic: str,
+    query: str,
+    now: dt.datetime,
+    trends: set[str],
+    *,
+    sort_order: str = "relevancy",
+) -> list[dict[str, Any]]:
     end_time = now - dt.timedelta(seconds=15)
     response = client.search_recent_tweets(
         query=query,
         start_time=end_time - dt.timedelta(hours=2),
         end_time=end_time,
         max_results=10,
-        sort_order="relevancy",
+        sort_order=sort_order,
         tweet_fields=["author_id", "attachments", "created_at", "entities", "lang", "public_metrics"],
         expansions=["author_id", "attachments.media_keys"],
         user_fields=["public_metrics", "username", "verified"],
@@ -615,6 +648,8 @@ def discovery_signals(now: dt.datetime | None = None, path: Path = STATE_PATH, l
                 "signal_score": str(item.get("score", "")),
                 "impression_count": str(item.get("impression_count", "0")),
                 "has_video": bool(item.get("has_video", False)),
+                "source_handle": str(item.get("handle", "")).lstrip("@"),
+                "source_priority": str(item.get("source_priority", "")),
             }
         )
         if len(rows) >= limit:
@@ -649,7 +684,10 @@ def promotion_signals(
             score = float(item.get("score", 0) or 0)
         except (TypeError, ValueError):
             continue
-        if impressions < PROMOTION_MIN_IMPRESSIONS or score < PROMOTION_MIN_SCORE:
+        watcher_priority = str(item.get("source_priority", "")) == "watcherguru"
+        if not watcher_priority and (impressions < PROMOTION_MIN_IMPRESSIONS or score < PROMOTION_MIN_SCORE):
+            continue
+        if watcher_priority and score < PROMOTION_MIN_SCORE:
             continue
         eligible.append(item)
 
@@ -713,6 +751,13 @@ def _should_deep_scan(state: dict[str, Any], now: dt.datetime, spike: bool) -> b
     return spike or not last or now - last >= DEEP_SCAN_INTERVAL
 
 
+def _should_scan_watcher_guru(state: dict[str, Any], now: dt.datetime) -> bool:
+    if _daily_count(state, now, "watcher_guru_search") >= MAX_WATCHER_GURU_SEARCHES_PER_DAY:
+        return False
+    last = _parse_time(state.get("last_watcher_guru_scan_at"))
+    return not last or now - last >= WATCHER_GURU_SCAN_INTERVAL
+
+
 def scan(now: dt.datetime | None = None, path: Path = STATE_PATH, client: Any | None = None) -> dict[str, Any]:
     """20分間隔の探索を1回実行し、必要な時だけ実投稿を取得する。"""
     checked_at = now or _utcnow()
@@ -751,6 +796,28 @@ def scan(now: dt.datetime | None = None, path: Path = STATE_PATH, client: Any | 
 
     found: list[dict[str, Any]] = []
     searched = False
+    # Watcher.Guruは一般トピックのローテーションに埋めず、20分ごとに新着だけを
+    # 実測で読む。翻訳転載ではなく、同じ出来事の一次資料の検証へ渡すための入口にする。
+    if _should_scan_watcher_guru(state, checked_at):
+        try:
+            watcher_rows = _search_recent(
+                client or _get_client(), "watcher_guru", WATCHER_GURU_QUERY, checked_at,
+                trend_names, sort_order="recency",
+            )
+            found.extend(watcher_rows)
+            state["last_watcher_guru_scan_at"] = _iso(checked_at)
+            state["scans"].append({
+                "checked_at": _iso(checked_at), "action": "watcher_guru_search",
+                "topic": "watcher_guru", "result_count": len(watcher_rows),
+            })
+            searched = True
+        except Exception as exc:
+            state["scans"].append({
+                "checked_at": _iso(checked_at), "action": "watcher_guru_search_error",
+                "topic": "watcher_guru", "error": str(exc)[:240],
+            })
+            logger.warning("Watcher.Guru速報探索を見送り: %s", exc)
+
     if _should_deep_scan(state, checked_at, spike):
         try:
             found = _search_recent(client or _get_client(), topic, query, checked_at, trend_names)

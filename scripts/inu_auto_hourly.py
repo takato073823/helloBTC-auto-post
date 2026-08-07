@@ -627,6 +627,14 @@ has_candidate=true の候補は focus_signal_url に上記の url を完全一�
         if focus_signal
         else ""
     )
+    watcher_rewrite_instruction = (
+        """
+このシグナルはWatcher.Guruから検知した英語の速報です。原文を逐語訳・転載せず、
+今回のWeb検索で確認した一次資料の事実だけを日本語のINU投稿に組み直してください。
+""".strip()
+        if str((focus_signal or {}).get("source_priority", "")) == "watcherguru"
+        else ""
+    )
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
 {local.isoformat()}（日本時間）です。必ずWeb検索を実行し、この時刻から見て新しい
@@ -672,6 +680,7 @@ topic_typeが異なる候補を優先してください。
 カテゴリー指定:
 {target_instruction}
 {focus_instruction}
+{watcher_rewrite_instruction}
 
 INUの編集憲法:
 {EDITORIAL_CONSTITUTION}
@@ -753,6 +762,10 @@ def research_candidates(
             for candidate in candidates
             if normalize_url(str(candidate.get("focus_signal_url", ""))) == focus_url
         ]
+        origin_handle = str(focus_signal.get("source_handle", "")).lstrip("@")
+        if origin_handle:
+            for candidate in candidates:
+                candidate["origin_discovery_handle"] = origin_handle
     return candidates, sources, signals
 
 
@@ -1068,6 +1081,12 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
 def _grok_editorial_copy_prompt(candidate: dict) -> str:
     """一次資料で固定した事実を、Grokの編集対象として明示する。"""
     facts = [str(value).strip() for value in candidate.get("facts", []) if str(value).strip()]
+    origin_instruction = (
+        "Watcher.Guruで検知した英語の速報が起点です。英語原文の直訳・文体模倣はせず、"
+        "下記の一次資料で確定した事実だけを、自然で端的な日本語に組み直してください。"
+        if str(candidate.get("origin_discovery_handle", "")).lower() == "watcherguru"
+        else ""
+    )
     return f"""
 あなたは投資情報アカウントINUの編集者です。以下は一次資料で検証済みの投稿候補です。
 この事実を増減・言い換えによる意味変更をせず、Xでスクロールを止め、続けてフォローする
@@ -1085,6 +1104,7 @@ topic_type: {candidate.get('topic_type', '')}
 現在の見出し: {candidate.get('hook', '')}
 検証済みfacts: {json.dumps(facts, ensure_ascii=False)}
 根拠原文: {candidate.get('evidence_anchor', '')}
+{origin_instruction}
 口調: {VOICE_PROMPT}
 """.strip()
 

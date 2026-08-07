@@ -752,6 +752,17 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("発見専用", prompt)
         self.assertIn("最終根拠・転載元・投稿文の出典には絶対に使わない", prompt)
 
+    def test_watcher_guru_signal_uses_primary_facts_and_natural_japanese_rewrite(self):
+        signal = {
+            "source_handle": "WatcherGuru",
+            "source_priority": "watcherguru",
+            "url": "https://x.com/WatcherGuru/status/2086000000000000007",
+        }
+        prompt = inu_auto_hourly.build_research_prompt(NOW, {"history": []}, focus_signal=signal)
+        self.assertIn("原文を逐語訳・転載せず", prompt)
+        editorial = inu_auto_hourly._grok_editorial_copy_prompt(candidate(origin_discovery_handle="WatcherGuru"))
+        self.assertIn("英語原文の直訳・文体模倣はせず", editorial)
+
     def test_grok_failure_falls_back_to_existing_web_research(self):
         expected = ([candidate()], [{"url": "https://example.com"}], [])
         with patch.object(
