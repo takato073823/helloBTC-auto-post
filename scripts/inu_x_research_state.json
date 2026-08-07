@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-07T09:44:18+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T10:38:12+00:00",
+  "last_deep_scan_at": "2026-08-07T11:34:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T11:34:26+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -134,6 +134,19 @@
       "checked_at": "2026-08-07T10:38:12+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T11:34:26+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-07T11:34:26+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -212,30 +225,6 @@
       "why_trending": "表示7・投稿後58分・反応率114.3%"
     },
     {
-      "author_followers": 3005,
-      "discovered_at": "2026-08-07T05:56:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "EmmanuelInvest",
-      "has_video": false,
-      "headline": "🚨 CRYPTO MARKET SNAPSHOT | 06:30 BST ₿🚀 ━━━━━━━━━━━━━━━━━━ 🟠 Bitcoin $BTC: $64,117 🔻 0.24% 🔵 Ethereum $ETH: $1,894.69 🔻 0.39% 🟡 BNB $BNB: $586.60 🔻 0.93% 🔷 Solana $SOL: $72.49 🔻 0.",
-      "impression_count": 67,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085600107932660029",
-      "post_url": "https://x.com/EmmanuelInvest/status/2085600107932660029",
-      "posted_at": "2026-08-07T05:33:08+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 47.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 CRYPTO MARKET SNAPSHOT | 06:30 BST ₿🚀 ━━━━━━━━━━━━━━━━━━ 🟠 Bitcoin $BTC: $64,117 🔻 0.24% 🔵 Ethereum $ETH: $1,894.69 🔻 0.39% 🟡 BNB $BNB: $586.60 🔻 0.93% 🔷 Solana $SOL: $72.49 🔻 0.17% ⚫ XRP $XRP: $1.016 🔻 1.71% 🔵 Cardano $ADA: $0.2001 🔻",
-      "topic": "onchain_exchange",
-      "why_trending": "表示67・投稿後23分・反応率3.9%"
-    },
-    {
       "author_followers": 2959,
       "discovered_at": "2026-08-07T09:44:18+00:00",
       "discovery_type": "official_x_api",
@@ -264,58 +253,6 @@
       "why_trending": "表示26・投稿後51分・反応率7.7%"
     },
     {
-      "author_followers": 3557,
-      "discovered_at": "2026-08-07T05:56:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Lisa01_FC",
-      "has_video": false,
-      "headline": "today’s read feels more about plumbing than candles BlackRock buying $128.33m of #Bitcoin gets the headline, but the more useful signal is that @ETF flows stayed positive while $BT",
-      "impression_count": 33,
-      "like_count": 5,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2085595173116129479",
-      "post_url": "https://x.com/Lisa01_FC/status/2085595173116129479",
-      "posted_at": "2026-08-07T05:13:32+00:00",
-      "quote_count": 0,
-      "reply_count": 5,
-      "repost_count": 0,
-      "score": 44.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "today’s read feels more about plumbing than candles BlackRock buying $128.33m of #Bitcoin gets the headline, but the more useful signal is that @ETF flows stayed positive while $BTC chopped and $ETH still pulled interest. that tells me big money is not chasing green candles,",
-      "topic": "onchain_exchange",
-      "why_trending": "表示33・投稿後43分・反応率39.4%"
-    },
-    {
-      "author_followers": 1369655,
-      "discovered_at": "2026-08-07T05:56:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BSCNews",
-      "has_video": true,
-      "headline": "Canadians Hit Hardest By $130M Coldcard Hack Canadian Bitcoin $BTC holders account for 25% of losses from the Coldcard wallet exploit, the largest share of any country, per Chainal",
-      "impression_count": 6397,
-      "like_count": 15,
-      "linked_urls": [
-        "https://x.com/BSCNews/status/2085586987269190024/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2085586987269190024",
-      "post_url": "https://x.com/BSCNews/status/2085586987269190024",
-      "posted_at": "2026-08-07T04:41:00+00:00",
-      "quote_count": 0,
-      "reply_count": 8,
-      "repost_count": 1,
-      "score": 44.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Canadians Hit Hardest By $130M Coldcard Hack Canadian Bitcoin $BTC holders account for 25% of losses from the Coldcard wallet exploit, the largest share of any country, per Chainalysis. Coldcard's parent company Coinkite is based in Toronto. Australia follows with 15% to 20% https://t.co/HLH7DJEm7G",
-      "topic": "onchain_exchange",
-      "why_trending": "表示6,397・投稿後75分・反応率0.5%・動画あり"
-    },
-    {
       "author_followers": 4393,
       "discovered_at": "2026-08-07T09:44:18+00:00",
       "discovery_type": "official_x_api",
@@ -342,34 +279,6 @@
       "summary": "🚨 BREAKING: Senate Banking Chair says the CLARITY Act has gained even MORE Senate votes since yesterday. 🇺🇸📈 Momentum is building fast. Crypto regulation in the U.S. could be approaching a major turning point. 👀🔥 #Bitcoin #Crypto #CLARITYAct #401k https://t.co/FbbJh2QC0F",
       "topic": "regulation",
       "why_trending": "表示88・投稿後63分・反応率3.4%"
-    },
-    {
-      "author_followers": 49,
-      "discovered_at": "2026-08-07T05:56:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "TacTanner",
-      "has_video": false,
-      "headline": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Friday, 7 August 2026 07:12 CEST - Zurich, Switzerland 🇨🇭 A curious start to Friday: the global crypto market is marginally higher, but most of the large caps ",
-      "impression_count": 134,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/TacTanner/status/2085596786752708925/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085596786752708925",
-      "post_url": "https://x.com/TacTanner/status/2085596786752708925",
-      "posted_at": "2026-08-07T05:19:57+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 41.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Friday, 7 August 2026 07:12 CEST - Zurich, Switzerland 🇨🇭 A curious start to Friday: the global crypto market is marginally higher, but most of the large caps are red. Bitcoin is around $64,300, XRP is taking the hardest hit in the top ten, https://t.co/IqSGrFg4iZ",
-      "topic": "onchain_exchange",
-      "why_trending": "表示134・投稿後36分・反応率0.0%"
     },
     {
       "author_followers": 3164,
