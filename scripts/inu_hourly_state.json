@@ -430,6 +430,16 @@
       "generated_editorial_visual": true,
       "market_key": "",
       "reserved_at": "2026-08-07T11:14:09.149214+00:00"
+    },
+    {
+      "slot": "2026-08-07-22-a",
+      "post_id": "inu_market_2026_08_07_22_a_crypto-bico-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BICOUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BICO-USD",
+      "reserved_at": "2026-08-07T13:00:56.338502+00:00"
     }
   ],
   "history": [

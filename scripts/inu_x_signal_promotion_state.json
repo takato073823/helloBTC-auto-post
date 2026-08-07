@@ -6,6 +6,12 @@
       "reason": "一次資料探索失敗: not enough values to unpack (expected 3, got 0)",
       "status": "rejected"
     },
+    "https://x.com/WatcherGuru/status/2085697528432148987": {
+      "post_id": "",
+      "processed_at": "2026-08-07T13:00:56+00:00",
+      "reason": "一次資料・鮮度・画像の品質ゲートを通過しませんでした",
+      "status": "rejected"
+    },
     "https://x.com/nicosokufx/status/2085515324729045059": {
       "post_id": "",
       "processed_at": "2026-08-07T00:44:17+00:00",
