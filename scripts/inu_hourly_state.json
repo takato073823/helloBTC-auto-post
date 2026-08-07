@@ -355,6 +355,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-07T05:15:15.620180+00:00"
+    },
+    {
+      "slot": "2026-08-07-18-a",
+      "post_id": "inu_auto_ef3d37aa78f463",
+      "source_url": "https://www.circle.com/usdc",
+      "topic_type": "supply_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-07T09:08:20.160689+00:00"
     }
   ],
   "history": [
