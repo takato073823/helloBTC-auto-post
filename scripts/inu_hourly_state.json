@@ -281,6 +281,20 @@
       "posted_at": "2026-08-07T07:38:10.504628+00:00",
       "hook": "📈 $ADA、24時間で+7.10％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-17-a",
+      "post_id": "inu_auto_19b35f97446f85",
+      "tweet_id": "2085638297653563893",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.cloudflare.com/press/press-releases/2026/cloudflare-announces-second-quarter-2026-financial-results",
+      "published_at": "2026-08-06T16:00:00-07:00",
+      "posted_at": "2026-08-07T08:04:54.429203+00:00",
+      "hook": "🚀 Cloudflare、Q2売上高が6.96億ドルで前年比36%増",
+      "follow_value": "次回は通期売上高見通しとRPOの更新値。"
     }
   ],
   "posted_ids": [
@@ -310,7 +324,8 @@
     "inu_market_2026_08_07_12_a_crypto-kmno-usd",
     "inu_market_2026_08_07_13_a_crypto-cap-usd",
     "inu_market_2026_08_07_15_a_crypto-ondo-usd",
-    "inu_market_2026_08_07_16_a_crypto-ada-usd"
+    "inu_market_2026_08_07_16_a_crypto-ada-usd",
+    "inu_auto_19b35f97446f85"
   ],
   "reservations": [
     {
@@ -340,16 +355,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-07T05:15:15.620180+00:00"
-    },
-    {
-      "slot": "2026-08-07-17-a",
-      "post_id": "inu_auto_19b35f97446f85",
-      "source_url": "https://www.cloudflare.com/press/press-releases/2026/cloudflare-announces-second-quarter-2026-financial-results",
-      "topic_type": "earnings",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T08:02:42.201579+00:00"
     }
   ],
   "history": [
@@ -679,6 +684,20 @@
       "posted_at": "2026-08-07T07:38:10.504628+00:00",
       "hook": "📈 $ADA、24時間で+7.10％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-17-a",
+      "post_id": "inu_auto_19b35f97446f85",
+      "tweet_id": "2085638297653563893",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.cloudflare.com/press/press-releases/2026/cloudflare-announces-second-quarter-2026-financial-results",
+      "published_at": "2026-08-06T16:00:00-07:00",
+      "posted_at": "2026-08-07T08:04:54.429203+00:00",
+      "hook": "🚀 Cloudflare、Q2売上高が6.96億ドルで前年比36%増",
+      "follow_value": "次回は通期売上高見通しとRPOの更新値。"
     }
   ],
   "scheduled_checks": [
