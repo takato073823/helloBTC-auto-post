@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-07T14:01:27+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T15:06:33+00:00",
+  "last_deep_scan_at": "2026-08-07T16:08:25+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T16:08:25+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -172,6 +172,19 @@
       "checked_at": "2026-08-07T15:06:33+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T16:08:25+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-07T16:08:25+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -310,6 +323,62 @@
       "why_trending": "表示452・投稿後51分・反応率0.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 15166,
+      "discovered_at": "2026-08-07T16:08:25+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Mrjacknicee",
+      "has_video": false,
+      "headline": "0x2f0bfc19de449467d0985867d0f69cf3ecc77777 一姐接梗的概率高达99.99％ 作为币安的首席客服和营销灵魂，这么高热度不接真对不起客服小何这个昵称了。 一姐也发一张海报也很大的好处：让用户觉得她离我们很近，消解“大交易所”的距离感 总之：一切的一切都是为了推广币安美股交易。 没理由的啊。 https://t.co/rW",
+      "impression_count": 292,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/Mrjacknicee/status/2085752792594157732/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085752792594157732",
+      "post_url": "https://x.com/Mrjacknicee/status/2085752792594157732",
+      "posted_at": "2026-08-07T15:39:51+00:00",
+      "quote_count": 1,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 49.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "0x2f0bfc19de449467d0985867d0f69cf3ecc77777 一姐接梗的概率高达99.99％ 作为币安的首席客服和营销灵魂，这么高热度不接真对不起客服小何这个昵称了。 一姐也发一张海报也很大的好处：让用户觉得她离我们很近，消解“大交易所”的距离感 总之：一切的一切都是为了推广币安美股交易。 没理由的啊。 https://t.co/rWmCxKE6cQ",
+      "topic": "chinese_market",
+      "why_trending": "表示292・投稿後28分・反応率2.4%"
+    },
+    {
+      "author_followers": 41,
+      "discovered_at": "2026-08-07T16:08:25+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "kelly0372355501",
+      "has_video": false,
+      "headline": "非农数据出来了：-2.3万，预期可是+8万。📉 这个数字意味着什么？ 1️⃣ 美联储9月加息的动力骤减。就业市场比所有人想象的都要冷，利率互换市场显示9月加息概率已经从接近60%直接掉到40%左右。 2️⃣ 美债收益率回落，对高估值科技股是直接利好。这就是我之前说的——每一次宏观回调，都是机构加仓的机会。 https://t.co/vfswlHK7S1",
+      "impression_count": 105,
+      "like_count": 20,
+      "linked_urls": [
+        "https://x.com/kelly0372355501/status/2085739876218015850/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085739876218015850",
+      "post_url": "https://x.com/kelly0372355501/status/2085739876218015850",
+      "posted_at": "2026-08-07T14:48:32+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 49.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "非农数据出来了：-2.3万，预期可是+8万。📉 这个数字意味着什么？ 1️⃣ 美联储9月加息的动力骤减。就业市场比所有人想象的都要冷，利率互换市场显示9月加息概率已经从接近60%直接掉到40%左右。 2️⃣ 美债收益率回落，对高估值科技股是直接利好。这就是我之前说的——每一次宏观回调，都是机构加仓的机会。 https://t.co/vfswlHK7S1",
+      "topic": "chinese_market",
+      "why_trending": "表示105・投稿後79分・反応率20.6%"
+    },
+    {
       "author_followers": 85,
       "discovered_at": "2026-08-07T14:01:27+00:00",
       "discovery_type": "official_x_api",
@@ -416,32 +485,32 @@
       "why_trending": "表示22・投稿後89分・反応率9.1%・動画あり"
     },
     {
-      "author_followers": 3164,
-      "discovered_at": "2026-08-07T09:44:18+00:00",
+      "author_followers": 102284,
+      "discovered_at": "2026-08-07T16:08:25+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Gatedesi",
+      "handle": "_pogai_",
       "has_video": false,
-      "headline": "🗓 Gate Daily Market Digest – Aug 7 📈 Market Update 🔷BTC at $64,371, consolidating near $65K (–0.34%) 🔷ETH at $1,907, holding just above $1.9K (–0.25%) 🪙 Project News 🔷Airbnb Soars ",
-      "impression_count": 123,
-      "like_count": 1,
+      "headline": "这个对交易所的美股业务肯定是有一定影响的，如何减轻这个影响，简单的一个办法就是把A股上链，让股民可以7*24小时玩A股 @cz_binance @heyibinance 参考一下 https://t.co/Q5WcToX70m",
+      "impression_count": 1195,
+      "like_count": 7,
       "linked_urls": [
-        "https://x.com/Gatedesi/status/2085657842984300722/photo/1"
+        "https://x.com/_pogai_/status/2085743393209274679/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2085657842984300722",
-      "post_url": "https://x.com/Gatedesi/status/2085657842984300722",
-      "posted_at": "2026-08-07T09:22:34+00:00",
+      "post_id": "2085743393209274679",
+      "post_url": "https://x.com/_pogai_/status/2085743393209274679",
+      "posted_at": "2026-08-07T15:02:30+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 6,
       "repost_count": 0,
-      "score": 40.5,
+      "score": 39.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🗓 Gate Daily Market Digest – Aug 7 📈 Market Update 🔷BTC at $64,371, consolidating near $65K (–0.34%) 🔷ETH at $1,907, holding just above $1.9K (–0.25%) 🪙 Project News 🔷Airbnb Soars 12% on Beat, Q3 Guidance 🔷Bitdeer Lands $4.7B AI Lease on Anthropic 🔷Breez Announces Glow https://t.co/xHUPWChqvp",
-      "topic": "regulation",
-      "why_trending": "表示123・投稿後21分・反応率0.8%"
+      "summary": "这个对交易所的美股业务肯定是有一定影响的，如何减轻这个影响，简单的一个办法就是把A股上链，让股民可以7*24小时玩A股 @cz_binance @heyibinance 参考一下 https://t.co/Q5WcToX70m",
+      "topic": "chinese_market",
+      "why_trending": "表示1,195・投稿後65分・反応率1.4%"
     },
     {
       "author_followers": 133,
@@ -470,6 +539,34 @@
       "summary": "こんにちは！ 🐋クジラがETHを積み始めた？👀 大口資金の動きに変化が出ています。 最近、暗号資産市場で注目されているのが、クジラ（大量の暗号資産を動かす大口投資家）のETH買いです。 「クジラが買うと何が重要なの？」 https://t.co/kkhieiHXQ1",
       "topic": "japanese_market",
       "why_trending": "表示26・投稿後50分・反応率0.0%"
+    },
+    {
+      "author_followers": 8300,
+      "discovered_at": "2026-08-07T16:08:25+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "VICOINDAO",
+      "has_video": false,
+      "headline": "$BTC 在涨，但我心里反而有点发毛。周末这两天，盘面看着红彤彤的，可仔细一瞧，成交量低得可怜——主流交易所的现货日均成交额大概只有工作日的三成，甚至不到。这种状态下，只要有大户挂着几个比特币的买单，就能把价格往上顶个几百美元。说白了，这是“轻飘飘的涨”，不是“实打实的涨”。 https://t.co/6YxQXToNGg",
+      "impression_count": 168,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/VICOINDAO/status/2085738910617833503/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085738910617833503",
+      "post_url": "https://x.com/VICOINDAO/status/2085738910617833503",
+      "posted_at": "2026-08-07T14:44:42+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 35.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "$BTC 在涨，但我心里反而有点发毛。周末这两天，盘面看着红彤彤的，可仔细一瞧，成交量低得可怜——主流交易所的现货日均成交额大概只有工作日的三成，甚至不到。这种状态下，只要有大户挂着几个比特币的买单，就能把价格往上顶个几百美元。说白了，这是“轻飘飘的涨”，不是“实打实的涨”。 https://t.co/6YxQXToNGg",
+      "topic": "chinese_market",
+      "why_trending": "表示168・投稿後83分・反応率1.5%"
     },
     {
       "author_followers": 22,
