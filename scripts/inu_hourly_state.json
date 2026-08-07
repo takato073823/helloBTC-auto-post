@@ -211,6 +211,20 @@
       "posted_at": "2026-08-06T15:00:04.354991+00:00",
       "hook": "Kraken、BONK出金を再開し入金停止は継続",
       "follow_value": "KrakenによるBONK入金再開または追加制限の更新。"
+    },
+    {
+      "slot": "2026-08-07-09-a",
+      "post_id": "inu_auto_069e5dae37b9a0",
+      "tweet_id": "2085524487697465763",
+      "topic_type": "developing_story",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://status.coinbase.com",
+      "published_at": "2026-08-06T14:44:00-07:00",
+      "posted_at": "2026-08-07T00:32:39.953560+00:00",
+      "hook": "⚠️Coinbase、KITEの送受信停止を継続",
+      "follow_value": "発行体の送金再開、Coinbase側の障害解消時刻、入出金機能の復旧状況を追える。"
     }
   ],
   "posted_ids": [
@@ -235,7 +249,8 @@
     "inu_auto_eea6659e9e5481",
     "inu_market_2026_08_06_17_a_ada-usd",
     "inu_auto_a5dfef1639d37c",
-    "inu_auto_df9c69221d0df1"
+    "inu_auto_df9c69221d0df1",
+    "inu_auto_069e5dae37b9a0"
   ],
   "reservations": [
     {
@@ -255,16 +270,6 @@
       "priority": "scheduled",
       "generated_editorial_visual": false,
       "reserved_at": "2026-08-06T08:08:30.312740+00:00"
-    },
-    {
-      "slot": "2026-08-07-09-a",
-      "post_id": "inu_auto_069e5dae37b9a0",
-      "source_url": "https://status.coinbase.com",
-      "topic_type": "developing_story",
-      "priority": "scheduled",
-      "generated_editorial_visual": true,
-      "market_key": "",
-      "reserved_at": "2026-08-07T00:30:28.574936+00:00"
     }
   ],
   "history": [
@@ -524,6 +529,20 @@
       "posted_at": "2026-08-06T15:00:04.354991+00:00",
       "hook": "Kraken、BONK出金を再開し入金停止は継続",
       "follow_value": "KrakenによるBONK入金再開または追加制限の更新。"
+    },
+    {
+      "slot": "2026-08-07-09-a",
+      "post_id": "inu_auto_069e5dae37b9a0",
+      "tweet_id": "2085524487697465763",
+      "topic_type": "developing_story",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://status.coinbase.com",
+      "published_at": "2026-08-06T14:44:00-07:00",
+      "posted_at": "2026-08-07T00:32:39.953560+00:00",
+      "hook": "⚠️Coinbase、KITEの送受信停止を継続",
+      "follow_value": "発行体の送金再開、Coinbase側の障害解消時刻、入出金機能の復旧状況を追える。"
     }
   ],
   "scheduled_checks": [
