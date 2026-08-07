@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-07T11:34:26+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T11:34:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T12:30:56+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -147,9 +147,95 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T12:30:56+00:00",
+      "result_count": 3,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4622481,
+      "discovered_at": "2026-08-07T12:30:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸🇨🇳 President Trump says \"we don't want see China take over crypto.\"",
+      "impression_count": 120530,
+      "like_count": 1395,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085697528432148987",
+      "post_url": "https://x.com/WatcherGuru/status/2085697528432148987",
+      "posted_at": "2026-08-07T12:00:15+00:00",
+      "quote_count": 19,
+      "reply_count": 234,
+      "repost_count": 134,
+      "score": 78.4,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸🇨🇳 President Trump says \"we don't want see China take over crypto.\"",
+      "topic": "watcher_guru",
+      "why_trending": "表示120,530・投稿後30分・反応率1.7%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4622481,
+      "discovered_at": "2026-08-07T12:30:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 President Trump says \"crypto is a big deal.\" \"I see more and more where people are paying with Bitcoin. They don't even know about cash anymore.\" https://t.co/3Gz3Xpwsm",
+      "impression_count": 214153,
+      "like_count": 3169,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2085685344629141698/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085685344629141698",
+      "post_url": "https://x.com/WatcherGuru/status/2085685344629141698",
+      "posted_at": "2026-08-07T11:11:50+00:00",
+      "quote_count": 52,
+      "reply_count": 491,
+      "repost_count": 293,
+      "score": 77.6,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 President Trump says \"crypto is a big deal.\" \"I see more and more where people are paying with Bitcoin. They don't even know about cash anymore.\" https://t.co/3Gz3XpwsmN",
+      "topic": "watcher_guru",
+      "why_trending": "表示214,153・投稿後79分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4622481,
+      "discovered_at": "2026-08-07T12:30:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $65,000 Bitcoin https://t.co/9yEbN4xeLE",
+      "impression_count": 160336,
+      "like_count": 2361,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2085689074203922544/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2085689074203922544",
+      "post_url": "https://x.com/WatcherGuru/status/2085689074203922544",
+      "posted_at": "2026-08-07T11:26:40+00:00",
+      "quote_count": 27,
+      "reply_count": 287,
+      "repost_count": 214,
+      "score": 76.4,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $65,000 Bitcoin https://t.co/9yEbN4xeLE",
+      "topic": "watcher_guru",
+      "why_trending": "表示160,336・投稿後64分・反応率2.1%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 1213,
       "discovered_at": "2026-08-07T09:44:18+00:00",
