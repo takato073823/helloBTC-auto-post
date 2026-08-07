@@ -323,6 +323,20 @@
       "posted_at": "2026-08-07T11:13:28.372707+00:00",
       "hook": "📈 $KMNO、24時間で+18.56％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-21-a",
+      "post_id": "inu_auto_45e92d4b3160dc",
+      "tweet_id": "2085700874404339915",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://ir.mirion.com/news-events/press-releases/detail/182/mirion-announces-second-quarter-2026-financial-results",
+      "published_at": "2026-08-07T08:00:00-04:00",
+      "posted_at": "2026-08-07T12:13:33.843668+00:00",
+      "hook": "📈 Mirion Q2売上高19.7%増",
+      "follow_value": "Mirionの通期ガイダンス据え置き状況を追うため"
     }
   ],
   "posted_ids": [
@@ -355,7 +369,8 @@
     "inu_market_2026_08_07_16_a_crypto-ada-usd",
     "inu_auto_19b35f97446f85",
     "inu_market_2026_08_07_19_a_crypto-plume-usd",
-    "inu_market_2026_08_07_20_a_crypto-kmno-usd"
+    "inu_market_2026_08_07_20_a_crypto-kmno-usd",
+    "inu_auto_45e92d4b3160dc"
   ],
   "reservations": [
     {
@@ -415,16 +430,6 @@
       "generated_editorial_visual": true,
       "market_key": "",
       "reserved_at": "2026-08-07T11:14:09.149214+00:00"
-    },
-    {
-      "slot": "2026-08-07-21-a",
-      "post_id": "inu_auto_45e92d4b3160dc",
-      "source_url": "https://ir.mirion.com/news-events/press-releases/detail/182/mirion-announces-second-quarter-2026-financial-results",
-      "topic_type": "earnings",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T12:11:15.880148+00:00"
     }
   ],
   "history": [
@@ -796,6 +801,20 @@
       "posted_at": "2026-08-07T11:13:28.372707+00:00",
       "hook": "📈 $KMNO、24時間で+18.56％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-21-a",
+      "post_id": "inu_auto_45e92d4b3160dc",
+      "tweet_id": "2085700874404339915",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://ir.mirion.com/news-events/press-releases/detail/182/mirion-announces-second-quarter-2026-financial-results",
+      "published_at": "2026-08-07T08:00:00-04:00",
+      "posted_at": "2026-08-07T12:13:33.843668+00:00",
+      "hook": "📈 Mirion Q2売上高19.7%増",
+      "follow_value": "Mirionの通期ガイダンス据え置き状況を追うため"
     }
   ],
   "scheduled_checks": [
