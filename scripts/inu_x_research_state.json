@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-07T09:44:18+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T09:44:18+00:00",
+  "last_watcher_guru_scan_at": "2026-08-07T10:38:12+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -128,38 +128,15 @@
       "result_count": 5,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-07T10:38:12+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
-    {
-      "author_followers": 3282,
-      "discovered_at": "2026-08-07T05:56:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "FqlExchange",
-      "has_video": true,
-      "headline": "FQL: Bitcoin Whale Accumulation Grows New Wallets Receive 1,540 BTC Galaxy Digital and BitGo Transfer Large BTC Amounts Or Bigger BTC Confidence Growth? FQL Exchange #वीजी #वीजीइन्",
-      "impression_count": 3778,
-      "like_count": 502,
-      "linked_urls": [
-        "https://x.com/FqlExchange/status/2085582117581496534/video/1"
-      ],
-      "media_types": [
-        "video",
-        "photo"
-      ],
-      "post_id": "2085582117581496534",
-      "post_url": "https://x.com/FqlExchange/status/2085582117581496534",
-      "posted_at": "2026-08-07T04:21:39+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 59.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "FQL: Bitcoin Whale Accumulation Grows New Wallets Receive 1,540 BTC Galaxy Digital and BitGo Transfer Large BTC Amounts Or Bigger BTC Confidence Growth? FQL Exchange #वीजी #वीजीइन्वेस्टमेंट #VG #VGinvestment #एफकयएल #एफकयएलएकस #एफकयएलएकसचज #FQL #FQLEX #FQLExchange #fql https://t.co/NjRTbeXQVo",
-      "topic": "onchain_exchange",
-      "why_trending": "表示3,778・投稿後95分・反応率13.3%・動画あり"
-    },
     {
       "author_followers": 1213,
       "discovered_at": "2026-08-07T09:44:18+00:00",
@@ -185,6 +162,30 @@
       "summary": "Nigeria didn’t just introduce crypto taxes. They built a surveillance framework around it. The Nigeria Revenue Service, CBN, SEC, NFIU and ONSA now coordinate crypto regulation under a Presidential Executive Order signed by President Tinubu. https://t.co/UR4vriLLP9",
       "topic": "regulation",
       "why_trending": "表示37・投稿後41分・反応率8.1%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4621974,
+      "discovered_at": "2026-08-07T10:38:12+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 Michael Saylor says \"Bitcoin doesn't need Clarity. America needs clarity.\"",
+      "impression_count": 145524,
+      "like_count": 1546,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2085652887447752897",
+      "post_url": "https://x.com/WatcherGuru/status/2085652887447752897",
+      "posted_at": "2026-08-07T09:02:52+00:00",
+      "quote_count": 14,
+      "reply_count": 258,
+      "repost_count": 127,
+      "score": 52.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 Michael Saylor says \"Bitcoin doesn't need Clarity. America needs clarity.\"",
+      "topic": "watcher_guru",
+      "why_trending": "表示145,524・投稿後95分・反応率1.5%"
     },
     {
       "author_followers": 21,
@@ -397,34 +398,6 @@
       "summary": "🗓 Gate Daily Market Digest – Aug 7 📈 Market Update 🔷BTC at $64,371, consolidating near $65K (–0.34%) 🔷ETH at $1,907, holding just above $1.9K (–0.25%) 🪙 Project News 🔷Airbnb Soars 12% on Beat, Q3 Guidance 🔷Bitdeer Lands $4.7B AI Lease on Anthropic 🔷Breez Announces Glow https://t.co/xHUPWChqvp",
       "topic": "regulation",
       "why_trending": "表示123・投稿後21分・反応率0.8%"
-    },
-    {
-      "author_followers": 81519,
-      "discovered_at": "2026-08-07T05:56:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "GroveXchange",
-      "has_video": false,
-      "headline": "Daily Crypto News 1. Bitcoin Red Team drops bombshell AI-powered audit finds ~5,000 vulnerabilities (85 critical) across 390 Bitcoin projects in just ~30 hours. Devs call the situa",
-      "impression_count": 428,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/GroveXchange/status/2085584412511469760/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085584412511469760",
-      "post_url": "https://x.com/GroveXchange/status/2085584412511469760",
-      "posted_at": "2026-08-07T04:30:46+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Daily Crypto News 1. Bitcoin Red Team drops bombshell AI-powered audit finds ~5,000 vulnerabilities (85 critical) across 390 Bitcoin projects in just ~30 hours. Devs call the situation “extremely bad.” Security panic mode activated. 2. Coldcard exploit fallout continues https://t.co/mumKN1xuG3",
-      "topic": "onchain_exchange",
-      "why_trending": "表示428・投稿後85分・反応率0.9%"
     }
   ],
   "trends": [],
