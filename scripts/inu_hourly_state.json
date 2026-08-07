@@ -490,6 +490,16 @@
       "generated_editorial_visual": true,
       "market_key": "",
       "reserved_at": "2026-08-07T11:14:09.149214+00:00"
+    },
+    {
+      "slot": "2026-08-08-04-a",
+      "post_id": "inu_market_2026_08_08_04_a_crypto-hnt-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-HNTUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:HNT-USD",
+      "reserved_at": "2026-08-07T19:11:52.269231+00:00"
     }
   ],
   "history": [
