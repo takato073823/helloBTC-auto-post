@@ -309,6 +309,20 @@
       "posted_at": "2026-08-07T10:16:55.498647+00:00",
       "hook": "📈 $PLUME、24時間で+8.21％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-20-a",
+      "post_id": "inu_market_2026_08_07_20_a_crypto-kmno-usd",
+      "tweet_id": "2085685752034361851",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:KMNO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-KMNOUSD",
+      "published_at": "2026-08-07T11:00:00+00:00",
+      "posted_at": "2026-08-07T11:13:28.372707+00:00",
+      "hook": "📈 $KMNO、24時間で+18.56％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -340,7 +354,8 @@
     "inu_market_2026_08_07_15_a_crypto-ondo-usd",
     "inu_market_2026_08_07_16_a_crypto-ada-usd",
     "inu_auto_19b35f97446f85",
-    "inu_market_2026_08_07_19_a_crypto-plume-usd"
+    "inu_market_2026_08_07_19_a_crypto-plume-usd",
+    "inu_market_2026_08_07_20_a_crypto-kmno-usd"
   ],
   "reservations": [
     {
@@ -390,16 +405,6 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:PLUME-USD",
       "reserved_at": "2026-08-07T10:17:39.815386+00:00"
-    },
-    {
-      "slot": "2026-08-07-20-a",
-      "post_id": "inu_market_2026_08_07_20_a_crypto-kmno-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-KMNOUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:KMNO-USD",
-      "reserved_at": "2026-08-07T11:10:53.179577+00:00"
     }
   ],
   "history": [
@@ -756,6 +761,20 @@
       "published_at": "2026-08-07T10:00:00+00:00",
       "posted_at": "2026-08-07T10:16:55.498647+00:00",
       "hook": "📈 $PLUME、24時間で+8.21％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-07-20-a",
+      "post_id": "inu_market_2026_08_07_20_a_crypto-kmno-usd",
+      "tweet_id": "2085685752034361851",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:KMNO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-KMNOUSD",
+      "published_at": "2026-08-07T11:00:00+00:00",
+      "posted_at": "2026-08-07T11:13:28.372707+00:00",
+      "hook": "📈 $KMNO、24時間で+18.56％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
