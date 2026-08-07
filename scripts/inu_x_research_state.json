@@ -185,6 +185,12 @@
       "result_count": 4,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-07T17:22:03+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -211,34 +217,6 @@
       "summary": "JUST IN: 🇺🇸🇨🇳 President Trump says \"we don't want see China take over crypto.\"",
       "topic": "watcher_guru",
       "why_trending": "表示120,530・投稿後30分・反応率1.7%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4622481,
-      "discovered_at": "2026-08-07T12:30:56+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 President Trump says \"crypto is a big deal.\" \"I see more and more where people are paying with Bitcoin. They don't even know about cash anymore.\" https://t.co/3Gz3Xpwsm",
-      "impression_count": 214153,
-      "like_count": 3169,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2085685344629141698/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2085685344629141698",
-      "post_url": "https://x.com/WatcherGuru/status/2085685344629141698",
-      "posted_at": "2026-08-07T11:11:50+00:00",
-      "quote_count": 52,
-      "reply_count": 491,
-      "repost_count": 293,
-      "score": 77.6,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 President Trump says \"crypto is a big deal.\" \"I see more and more where people are paying with Bitcoin. They don't even know about cash anymore.\" https://t.co/3Gz3XpwsmN",
-      "topic": "watcher_guru",
-      "why_trending": "表示214,153・投稿後79分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4623342,
