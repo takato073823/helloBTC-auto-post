@@ -610,6 +610,16 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:CRO-USD",
       "reserved_at": "2026-08-08T09:35:02.631187+00:00"
+    },
+    {
+      "slot": "2026-08-08-20-a",
+      "post_id": "inu_auto_dac7d34c7b3258",
+      "source_url": "https://www.circle.com/transparency",
+      "topic_type": "supply_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-08T11:35:29.119154+00:00"
     }
   ],
   "history": [
