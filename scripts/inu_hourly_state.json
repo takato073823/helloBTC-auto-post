@@ -600,6 +600,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-08T08:04:06.789787+00:00"
+    },
+    {
+      "slot": "2026-08-08-18-a",
+      "post_id": "inu_market_2026_08_08_18_a_crypto-cro-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-CROUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:CRO-USD",
+      "reserved_at": "2026-08-08T09:35:02.631187+00:00"
     }
   ],
   "history": [
