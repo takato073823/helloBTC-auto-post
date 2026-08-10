@@ -640,6 +640,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-10T04:45:58.159145+00:00"
+    },
+    {
+      "slot": "2026-08-10-15-a",
+      "post_id": "inu_market_2026_08_10_15_a_crypto-pump-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PUMPUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PUMP-USD",
+      "reserved_at": "2026-08-10T06:16:34.250858+00:00"
     }
   ],
   "history": [
