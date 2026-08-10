@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T19:43:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T20:24:40+00:00",
+  "last_deep_scan_at": "2026-08-10T21:26:31+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T21:26:31+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -559,33 +559,22 @@
       "checked_at": "2026-08-10T20:24:40+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T21:26:31+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T21:26:31+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4643704,
-      "discovered_at": "2026-08-10T16:33:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 Grayscale withdraws proposed Cardano, Polkadot and Hedera ETF registrations from SEC review.",
-      "impression_count": 215040,
-      "like_count": 1623,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2086834350474039379",
-      "post_url": "https://x.com/WatcherGuru/status/2086834350474039379",
-      "posted_at": "2026-08-10T15:17:35+00:00",
-      "quote_count": 41,
-      "reply_count": 224,
-      "repost_count": 137,
-      "score": 69.6,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 Grayscale withdraws proposed Cardano, Polkadot and Hedera ETF registrations from SEC review.",
-      "topic": "watcher_guru",
-      "why_trending": "表示215,040・投稿後76分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 9000,
       "discovered_at": "2026-08-10T19:43:14+00:00",
