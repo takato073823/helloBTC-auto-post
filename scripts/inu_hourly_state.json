@@ -685,6 +685,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-10T04:45:58.159145+00:00"
+    },
+    {
+      "slot": "2026-08-10-23-a",
+      "post_id": "inu_auto_6bce65793b0a25",
+      "source_url": "https://www.fca.org.uk/news/press-releases/fca-sets-landmark-crypto-rules-cement-uks-place-global-hub",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-10T14:54:22.721637+00:00"
     }
   ],
   "history": [
@@ -1218,6 +1228,113 @@
       "checked_at": "2026-08-06T01:01:51.595149+00:00",
       "kind": "fallback",
       "result": "no_verified_candidate"
+    }
+  ],
+  "research_queue": [
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "whale_treasury",
+        "hook": "🚨Strategy、1,690 $BTCを売却しSTRC買い戻しへ",
+        "facts": [
+          "Strategyは1,690 $BTCを約1億860万ドルで売却し、同額をSTRCの買い戻しに充当した。",
+          "保有$BTCは840,447枚、USD準備金は46.5億ドルとなった。"
+        ],
+        "opinion": "",
+        "source_name": "Strategy Inc. / SEC EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000031/mstr-20260331.htm",
+        "published_at": "2026-08-10T12:00:00+00:00",
+        "evidence_anchor": "1,690 bitcoin",
+        "evidence_as_primary": false,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "#Bitcoin",
+          "#Strategy"
+        ],
+        "why_now": "2026年8月10日に公表された売却・自己株式関連の資本配分変更で、企業の$BTC保有枚数とUSD準備金が同時に更新された。",
+        "reader_interest": "上場最大級の$BTC保有企業が、$BTC売却資金をSTRC買い戻しへ振り向けたため、保有枚数840,447枚とUSD準備金46.5億ドルを確認する必要がある。",
+        "follow_value": "Strategyの$BTC保有残高、STRC買い戻し額、ATMによる資金調達と資本構成の続報を追える。",
+        "is_primary_source": true,
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000031/mstr-20260331.htm",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-08-10T14:54:22.721637+00:00"
+    },
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "institutional_flow",
+        "hook": "📈Strategy、5月末時点で$BTC保有843,738枚を公表",
+        "facts": [
+          "Strategyは5月11日から25日に資本市場取引と$BTC取引を実行し、5月25日時点の保有を843,738枚とした。",
+          "転換社債残高は67億ドル、優先株の想定元本は155億ドル、USD準備金は8.71億ドル。"
+        ],
+        "opinion": "",
+        "source_name": "Strategy Inc. / SEC EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526237907/mstr-ex99_1.htm",
+        "published_at": "2026-08-10T12:00:00+00:00",
+        "evidence_anchor": "holds 843,738 bitcoin",
+        "evidence_as_primary": false,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "#Bitcoin",
+          "#MSTR"
+        ],
+        "why_now": "直近の$BTC売却報道と比較する基準として、Strategyが公表した資本構成・$BTC残高の公式更新値が必要になる。",
+        "reader_interest": "最新の売却後残高840,447枚との比較で、5月25日時点843,738枚からの保有変化と、資金調達・USD準備金の推移を数値で把握できる。",
+        "follow_value": "$BTC保有量、転換社債・優先株残高、USD準備金を結び付けたStrategyの資金調達構造の変化を追える。",
+        "is_primary_source": true,
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526237907/mstr-ex99_1.htm",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-08-10T14:54:22.721637+00:00"
+    },
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "earnings",
+        "hook": "📈Bitdeer、AIクラウドの年換算売上が6,900万ドル超",
+        "facts": [
+          "BitdeerはQ1 2026でAIクラウド事業の年換算売上が6,900万ドルを超えたと公表した。",
+          "総売上は1億8,890万ドル、自己採掘ハッシュレートは65.1EH/s、採掘$BTCは2,033枚。"
+        ],
+        "opinion": "",
+        "source_name": "Bitdeer Technologies Group",
+        "source_url": "https://ir.bitdeer.com/news-releases/news-release-details/bitdeer-reports-unaudited-financial-results-first-quarter-2026",
+        "published_at": "2026-08-10T09:00:00+00:00",
+        "evidence_anchor": "$69 million",
+        "evidence_as_primary": false,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "#AI",
+          "#BitcoinMining"
+        ],
+        "why_now": "AIインフラとビットコイン採掘を併営する企業が、AIクラウドの年換算売上と採掘能力を具体的な実績値で開示している。",
+        "reader_interest": "採掘企業の収益源が$BTC価格・ハッシュレートだけでなく、年換算6,900万ドル超のAIクラウドへ広がっているため、売上1億8,890万ドルと65.1EH/sを同時に確認できる。",
+        "follow_value": "BitdeerのAIデータセンター契約、AIクラウド売上、自己採掘ハッシュレートと$BTC採掘量の推移を追える。",
+        "is_primary_source": true,
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://ir.bitdeer.com/news-releases/news-release-details/bitdeer-reports-unaudited-financial-results-first-quarter-2026",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-08-10T14:54:22.721637+00:00"
     }
   ]
 }
