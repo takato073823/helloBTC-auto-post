@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-10T11:34:53+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T11:34:53+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T12:32:53+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -483,9 +483,43 @@
       "result_count": 3,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T12:32:53+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4641280,
+      "discovered_at": "2026-08-10T12:32:53+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "BREAKING: Michael Saylor's 'Strategy' sold 1,690 Bitcoin worth $108 million. https://t.co/MczgqN4A7v",
+      "impression_count": 127106,
+      "like_count": 972,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2086785323602985294/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086785323602985294",
+      "post_url": "https://x.com/WatcherGuru/status/2086785323602985294",
+      "posted_at": "2026-08-10T12:02:46+00:00",
+      "quote_count": 65,
+      "reply_count": 254,
+      "repost_count": 122,
+      "score": 78.5,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "BREAKING: Michael Saylor's 'Strategy' sold 1,690 Bitcoin worth $108 million. https://t.co/MczgqN4A7v",
+      "topic": "watcher_guru",
+      "why_trending": "表示127,106・投稿後30分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 2509,
       "discovered_at": "2026-08-10T10:02:52+00:00",
@@ -572,6 +606,30 @@
       "why_trending": "表示70・投稿後13分・反応率6.6%"
     },
     {
+      "author_followers": 4641280,
+      "discovered_at": "2026-08-10T12:32:53+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇬🇧 UK regulator seeks to encourage and allow companies to use blockchains across financial markets to improve speed, efficiency, and security.",
+      "impression_count": 172143,
+      "like_count": 1521,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086769556098576733",
+      "post_url": "https://x.com/WatcherGuru/status/2086769556098576733",
+      "posted_at": "2026-08-10T11:00:07+00:00",
+      "quote_count": 38,
+      "reply_count": 161,
+      "repost_count": 211,
+      "score": 51.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇬🇧 UK regulator seeks to encourage and allow companies to use blockchains across financial markets to improve speed, efficiency, and security.",
+      "topic": "watcher_guru",
+      "why_trending": "表示172,143・投稿後92分・反応率1.3%"
+    },
+    {
       "author_followers": 4972,
       "discovered_at": "2026-08-10T11:34:53+00:00",
       "discovery_type": "official_x_api",
@@ -654,34 +712,6 @@
       "why_trending": "表示59・投稿後111分・反応率1.7%・公式候補リンクあり"
     },
     {
-      "author_followers": 12346,
-      "discovered_at": "2026-08-10T08:17:37+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "pawnie_",
-      "has_video": false,
-      "headline": "48H Web3 News Recap #495 📰 Fear and Greed Index: 30/100 ▼ 🗞️ NEWS 1️⃣ Market &amp; Liquidity &gt; Global M2 supply jumps $1 trillion in one week, China contributes 80% &gt; $148M l",
-      "impression_count": 528,
-      "like_count": 29,
-      "linked_urls": [
-        "https://x.com/pawnie_/status/2086699124145942953/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086699124145942953",
-      "post_url": "https://x.com/pawnie_/status/2086699124145942953",
-      "posted_at": "2026-08-10T06:20:14+00:00",
-      "quote_count": 0,
-      "reply_count": 20,
-      "repost_count": 1,
-      "score": 45.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "48H Web3 News Recap #495 📰 Fear and Greed Index: 30/100 ▼ 🗞️ NEWS 1️⃣ Market &amp; Liquidity &gt; Global M2 supply jumps $1 trillion in one week, China contributes 80% &gt; $148M liquidated in 24 hours across 93,708 traders, shorts take $106M 2️⃣ Macro &amp; Geopolitics &gt; Japan's four https://t.co/AAhUPL5awb",
-      "topic": "crypto_market",
-      "why_trending": "表示528・投稿後117分・反応率11.9%"
-    },
-    {
       "author_followers": 912,
       "discovered_at": "2026-08-10T08:17:37+00:00",
       "discovery_type": "official_x_api",
@@ -704,34 +734,6 @@
       "summary": "₿ CRYPTO: Bitcoin ETF flows remain worth watching, but I would put crypto below Hormuz/oil, rates and Monday’s equity futures in importance for this morning’s broad-market setup. #Bitcoin #BTC #Crypto #Cryptocurrency #BitcoinETF #CryptoETF #Ethereum #ETH #XRP #XLM #Ripple",
       "topic": "crypto_market",
       "why_trending": "表示28・投稿後53分・反応率60.0%"
-    },
-    {
-      "author_followers": 460,
-      "discovered_at": "2026-08-10T08:17:37+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "1BitUp_com",
-      "has_video": false,
-      "headline": "Crypto market check — August 10, 2026 Bitcoin is hovering around $64–65K, with the broader market still in a cautious phase after the large drawdown from the 2025 cycle peak. The i",
-      "impression_count": 16,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/1BitUp_com/status/2086699639927947664/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086699639927947664",
-      "post_url": "https://x.com/1BitUp_com/status/2086699639927947664",
-      "posted_at": "2026-08-10T06:22:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Crypto market check — August 10, 2026 Bitcoin is hovering around $64–65K, with the broader market still in a cautious phase after the large drawdown from the 2025 cycle peak. The interesting part: large holders are reportedly continuing to accumulate BTC and ETH despite the https://t.co/FhJUq4Idl0",
-      "topic": "crypto_market",
-      "why_trending": "表示16・投稿後115分・反応率6.2%"
     },
     {
       "author_followers": 204,
