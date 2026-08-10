@@ -41,6 +41,9 @@ def load_replacement_image(
     """承認済み画像があれば優先し、なければ記事本文を確認して生成する。"""
     if image_file:
         path = Path(image_file)
+        if not path.is_absolute():
+            # ワークフローは scripts/ で実行するが、入力値はリポジトリ基準に統一する。
+            path = Path(__file__).resolve().parent.parent / path
         if not path.is_file():
             raise FileNotFoundError(f"指定されたアイキャッチ画像が見つかりません: {path}")
         logger.info("承認済みの画像ファイルを使用: %s", path)
