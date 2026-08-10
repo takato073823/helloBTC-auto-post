@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-10T21:26:31+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T21:26:31+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T22:20:42+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -572,9 +572,39 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T22:20:42+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4645619,
+      "discovered_at": "2026-08-10T22:20:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 Trump Media discloses holding 14,139 Bitcoin worth $905,000,000",
+      "impression_count": 107565,
+      "like_count": 904,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086932466132980021",
+      "post_url": "https://x.com/WatcherGuru/status/2086932466132980021",
+      "posted_at": "2026-08-10T21:47:27+00:00",
+      "quote_count": 17,
+      "reply_count": 133,
+      "repost_count": 98,
+      "score": 75.7,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 Trump Media discloses holding 14,139 Bitcoin worth $905,000,000",
+      "topic": "watcher_guru",
+      "why_trending": "表示107,565・投稿後33分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 9000,
       "discovered_at": "2026-08-10T19:43:14+00:00",
