@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-10T15:39:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T15:39:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T16:33:50+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -515,6 +515,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T16:33:50+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -547,60 +553,28 @@
       "why_trending": "表示127,106・投稿後30分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 696,
-      "discovered_at": "2026-08-10T10:02:52+00:00",
+      "author_followers": 4643704,
+      "discovered_at": "2026-08-10T16:33:50+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Grace_Jhayy",
+      "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "Here are some of the biggest RWA updates from last week, in case you missed any. &gt;&gt; @BlackRock launched 12 tokenized share classes for its European money market funds, coveri",
-      "impression_count": 37,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Grace_Jhayy/status/2086752136780497367/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086752136780497367",
-      "post_url": "https://x.com/Grace_Jhayy/status/2086752136780497367",
-      "posted_at": "2026-08-10T09:50:54+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 55.2,
+      "headline": "JUST IN: 🇺🇸 Grayscale withdraws proposed Cardano, Polkadot and Hedera ETF registrations from SEC review.",
+      "impression_count": 215040,
+      "like_count": 1623,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086834350474039379",
+      "post_url": "https://x.com/WatcherGuru/status/2086834350474039379",
+      "posted_at": "2026-08-10T15:17:35+00:00",
+      "quote_count": 41,
+      "reply_count": 224,
+      "repost_count": 137,
+      "score": 69.6,
       "seen_count": 1,
-      "source_priority": "",
-      "summary": "Here are some of the biggest RWA updates from last week, in case you missed any. &gt;&gt; @BlackRock launched 12 tokenized share classes for its European money market funds, covering around $311B in assets. The products are being brought Onchain through Kinexys by @jpmorgan , allowing https://t.co/RCNpjYX4dg",
-      "topic": "onchain_exchange",
-      "why_trending": "表示37・投稿後11分・反応率8.1%"
-    },
-    {
-      "author_followers": 8782,
-      "discovered_at": "2026-08-10T10:02:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "web3_Samira",
-      "has_video": false,
-      "headline": "🎉 Happy 3rd Birthday, @base From a low-cost Ethereum L2 to a major onchain hub. • ~$5B TVL • $46T+ stablecoin volume • ~90% of x402 transactions DeFi, payments, AI agents, consumer",
-      "impression_count": 70,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/web3_Samira/status/2086751750950961633/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086751750950961633",
-      "post_url": "https://x.com/web3_Samira/status/2086751750950961633",
-      "posted_at": "2026-08-10T09:49:22+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 54.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🎉 Happy 3rd Birthday, @base From a low-cost Ethereum L2 to a major onchain hub. • ~$5B TVL • $46T+ stablecoin volume • ~90% of x402 transactions DeFi, payments, AI agents, consumer apps &amp; more. Still early. Still building. Stay Based. $BASE is coming soon......!! https://t.co/U7ieEvZukR",
-      "topic": "onchain_exchange",
-      "why_trending": "表示70・投稿後13分・反応率6.6%"
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 Grayscale withdraws proposed Cardano, Polkadot and Hedera ETF registrations from SEC review.",
+      "topic": "watcher_guru",
+      "why_trending": "表示215,040・投稿後76分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 314,
