@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T15:39:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T16:33:50+00:00",
+  "last_deep_scan_at": "2026-08-10T17:38:06+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T17:38:06+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -521,6 +521,19 @@
       "checked_at": "2026-08-10T16:33:50+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T17:38:06+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T17:38:06+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -630,56 +643,59 @@
       "why_trending": "表示106・投稿後99分・反応率16.0%・動画あり"
     },
     {
-      "author_followers": 4641280,
-      "discovered_at": "2026-08-10T12:32:53+00:00",
+      "author_followers": 24228,
+      "discovered_at": "2026-08-10T17:38:06+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
+      "handle": "CoinmatomeNews",
       "has_video": false,
-      "headline": "JUST IN: 🇬🇧 UK regulator seeks to encourage and allow companies to use blockchains across financial markets to improve speed, efficiency, and security.",
-      "impression_count": 172143,
-      "like_count": 1521,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2086769556098576733",
-      "post_url": "https://x.com/WatcherGuru/status/2086769556098576733",
-      "posted_at": "2026-08-10T11:00:07+00:00",
-      "quote_count": 38,
-      "reply_count": 161,
-      "repost_count": 211,
-      "score": 51.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇬🇧 UK regulator seeks to encourage and allow companies to use blockchains across financial markets to improve speed, efficiency, and security.",
-      "topic": "watcher_guru",
-      "why_trending": "表示172,143・投稿後92分・反応率1.3%"
-    },
-    {
-      "author_followers": 4657,
-      "discovered_at": "2026-08-10T11:34:53+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "DragonSG001",
-      "has_video": false,
-      "headline": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler infla",
-      "impression_count": 28,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️米上院が暗号資産規制法案の採決を先送り、成立への道に暗雲⭐️ 詳細URL👇 https://t.co/XKQpFNuxyN https://t.co/6Umfw4KSeO",
+      "impression_count": 146,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/DragonSG001/status/2086773043435880946/photo/1"
+        "https://ift.tt/cmW86EG",
+        "https://x.com/CoinmatomeNews/status/2086856193201275312/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086773043435880946",
-      "post_url": "https://x.com/DragonSG001/status/2086773043435880946",
-      "posted_at": "2026-08-10T11:13:58+00:00",
+      "post_id": "2086856193201275312",
+      "post_url": "https://x.com/CoinmatomeNews/status/2086856193201275312",
+      "posted_at": "2026-08-10T16:44:23+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 47.8,
+      "score": 49.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler inflation and weaker spending = LOWER rate-hike expectations, supporting stocks, gold and crypto. https://t.co/w9oxRZV19W",
-      "topic": "macro_rates",
-      "why_trending": "表示28・投稿後20分・反応率3.6%"
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️米上院が暗号資産規制法案の採決を先送り、成立への道に暗雲⭐️ 詳細URL👇 https://t.co/XKQpFNuxyN https://t.co/6Umfw4KSeO",
+      "topic": "japanese_market",
+      "why_trending": "表示146・投稿後53分・反応率0.7%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 77,
+      "discovered_at": "2026-08-10T17:38:06+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "miyupidngmngbn1",
+      "has_video": false,
+      "headline": "7月の日経平均急落でも日本株投資信託に高水準の資金が流入！インデックスとアクティブの動きから見えた個人投資家の「強気姿勢」【投資信託の最前線】(ダイヤモンド・オンライン) https://t.co/cYDmxjTmqe",
+      "impression_count": 29,
+      "like_count": 0,
+      "linked_urls": [
+        "https://wwx6.newscat.online/38nwphzg7c.html"
+      ],
+      "media_types": [],
+      "post_id": "2086859691473441197",
+      "post_url": "https://x.com/miyupidngmngbn1/status/2086859691473441197",
+      "posted_at": "2026-08-10T16:58:17+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 48.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "7月の日経平均急落でも日本株投資信託に高水準の資金が流入！インデックスとアクティブの動きから見えた個人投資家の「強気姿勢」【投資信託の最前線】(ダイヤモンド・オンライン) https://t.co/cYDmxjTmqe",
+      "topic": "japanese_market",
+      "why_trending": "表示29・投稿後39分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 386,
@@ -708,6 +724,35 @@
       "summary": "1/ $853 million into Bitcoin ETFs last week. $0 into XRP ETFs. These two numbers explain the entire crypto market right now. Here is what that gap tells you — and the one thing every XRP holder needs to do before September 14. 2/ August 10, 2026. Monday morning. Bitcoin: https://t.co/TRcTe0wJTE",
       "topic": "regulation",
       "why_trending": "表示67・投稿後78分・反応率3.0%"
+    },
+    {
+      "author_followers": 24228,
+      "discovered_at": "2026-08-10T17:38:06+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️【速報】🇺🇸 ビットコイン現物ETF、4月以来最大の週間資金流入を記録、8億5,000万ドル相当のBTCが流入 🚀 強気 🐂⭐️ 詳細URL👇 https://t.co/zFrxH7cqUU https://t.co/6VKUAvLPLs",
+      "impression_count": 161,
+      "like_count": 0,
+      "linked_urls": [
+        "https://ift.tt/tVgwdBH",
+        "https://x.com/CoinmatomeNews/status/2086856199303999916/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086856199303999916",
+      "post_url": "https://x.com/CoinmatomeNews/status/2086856199303999916",
+      "posted_at": "2026-08-10T16:44:24+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 45.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️【速報】🇺🇸 ビットコイン現物ETF、4月以来最大の週間資金流入を記録、8億5,000万ドル相当のBTCが流入 🚀 強気 🐂⭐️ 詳細URL👇 https://t.co/zFrxH7cqUU https://t.co/6VKUAvLPLs",
+      "topic": "japanese_market",
+      "why_trending": "表示161・投稿後53分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 8915,
@@ -764,32 +809,52 @@
       "why_trending": "表示15・投稿後70分・反応率6.7%"
     },
     {
-      "author_followers": 204,
-      "discovered_at": "2026-08-10T11:34:53+00:00",
+      "author_followers": 175,
+      "discovered_at": "2026-08-10T17:38:06+00:00",
       "discovery_type": "official_x_api",
-      "handle": "BlockentReport",
+      "handle": "kessan_sokuho",
       "has_video": false,
-      "headline": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler infla",
-      "impression_count": 5,
+      "headline": "📊 $CLSK クリーンスパーク Q3決算（8-K速報）FY2026 ビットコイン採掘事業の難局、インフラ転換戦へ 一言：採掘収益30%減、大型長期リース契約で事業転換 💰 業績（前年同期比） ・売上: $138.0M（約20.7B円、-30.5%） ・EPS: -$0.89（前年同期 $0.90から赤字転換） ・Adjusted EBITDA:",
+      "impression_count": 477,
       "like_count": 0,
-      "linked_urls": [
-        "https://x.com/BlockentReport/status/2086776618102444350/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086776618102444350",
-      "post_url": "https://x.com/BlockentReport/status/2086776618102444350",
-      "posted_at": "2026-08-10T11:28:10+00:00",
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086853352147521643",
+      "post_url": "https://x.com/kessan_sokuho/status/2086853352147521643",
+      "posted_at": "2026-08-10T16:33:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📊 $CLSK クリーンスパーク Q3決算（8-K速報）FY2026 ビットコイン採掘事業の難局、インフラ転換戦へ 一言：採掘収益30%減、大型長期リース契約で事業転換 💰 業績（前年同期比） ・売上: $138.0M（約20.7B円、-30.5%） ・EPS: -$0.89（前年同期 $0.90から赤字転換） ・Adjusted EBITDA:",
+      "topic": "japanese_market",
+      "why_trending": "表示477・投稿後65分・反応率0.0%"
+    },
+    {
+      "author_followers": 812,
+      "discovered_at": "2026-08-10T17:38:06+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoLiam__",
+      "has_video": false,
+      "headline": "なぜビットコインは下落したのか？ 1️⃣8月12日～13日に米国の経済指標が発表され、資金がリスク回避に動いた。🇺🇸 2️⃣イランがトランプ政権との交渉を、トランプ大統領の任期終了まで中断した。🇮🇷 3️⃣円安が再び加速し、対ドルレートは159円に迫った。9月の日銀による利上げの可能性が高まっている。🇯🇵",
+      "impression_count": 366,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086854512397201517",
+      "post_url": "https://x.com/CryptoLiam__/status/2086854512397201517",
+      "posted_at": "2026-08-10T16:37:42+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "score": 34.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler inflation and weaker spending = LOWER rate-hike expectations, supporting stocks, gold and crypto. https://t.co/Pg9JbjEHog",
-      "topic": "macro_rates",
-      "why_trending": "表示5・投稿後6分・反応率0.0%"
+      "summary": "なぜビットコインは下落したのか？ 1️⃣8月12日～13日に米国の経済指標が発表され、資金がリスク回避に動いた。🇺🇸 2️⃣イランがトランプ政権との交渉を、トランプ大統領の任期終了まで中断した。🇮🇷 3️⃣円安が再び加速し、対ドルレートは159円に迫った。9月の日銀による利上げの可能性が高まっている。🇯🇵",
+      "topic": "japanese_market",
+      "why_trending": "表示366・投稿後60分・反応率0.0%"
     }
   ],
   "trends": [],
