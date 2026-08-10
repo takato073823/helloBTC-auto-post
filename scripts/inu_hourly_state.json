@@ -449,6 +449,20 @@
       "posted_at": "2026-08-10T14:55:03.517083+00:00",
       "hook": "⚠️英国FCA、暗号資産の新規則で市場不正対策を明文化",
       "follow_value": "FCAの認可受付開始、対象事業者、ステーブルコイン規則と市場公正性運用の詳細を継続して追える。"
+    },
+    {
+      "slot": "2026-08-11-01-a",
+      "post_id": "inu_market_2026_08_11_01_a_crypto-mon-usd",
+      "tweet_id": "2086858218114891851",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:MON-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-MONUSD",
+      "published_at": "2026-08-10T16:00:00+00:00",
+      "posted_at": "2026-08-10T16:52:26.125781+00:00",
+      "hook": "📈 $MON、24時間で+4.59％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -490,7 +504,8 @@
     "inu_market_2026_08_10_15_a_crypto-pump-usd",
     "inu_market_2026_08_10_17_a_crypto-pengu-usd",
     "inu_market_2026_08_10_21_a_crypto-pump-usd",
-    "inu_auto_6bce65793b0a25"
+    "inu_auto_6bce65793b0a25",
+    "inu_market_2026_08_11_01_a_crypto-mon-usd"
   ],
   "reservations": [
     {
@@ -700,16 +715,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-10T04:45:58.159145+00:00"
-    },
-    {
-      "slot": "2026-08-11-01-a",
-      "post_id": "inu_market_2026_08_11_01_a_crypto-mon-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-MONUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:MON-USD",
-      "reserved_at": "2026-08-10T16:51:05.738608+00:00"
     }
   ],
   "history": [
@@ -1207,6 +1212,20 @@
       "posted_at": "2026-08-10T14:55:03.517083+00:00",
       "hook": "⚠️英国FCA、暗号資産の新規則で市場不正対策を明文化",
       "follow_value": "FCAの認可受付開始、対象事業者、ステーブルコイン規則と市場公正性運用の詳細を継続して追える。"
+    },
+    {
+      "slot": "2026-08-11-01-a",
+      "post_id": "inu_market_2026_08_11_01_a_crypto-mon-usd",
+      "tweet_id": "2086858218114891851",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:MON-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-MONUSD",
+      "published_at": "2026-08-10T16:00:00+00:00",
+      "posted_at": "2026-08-10T16:52:26.125781+00:00",
+      "hook": "📈 $MON、24時間で+4.59％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "scheduled_checks": [
