@@ -218,6 +218,8 @@ def main():
             tags=article.get("tags", []),
             logo_brand=logo_brand,
             logo_domain=logo_domain,
+            article_title=article["title"],
+            article_content=article["content"],
         )
         featured_media_id, featured_image_url = wp.upload_media(
             img, filename=f"breaking-{int(time.time())}.jpg"

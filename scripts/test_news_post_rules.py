@@ -2,7 +2,7 @@
 import unittest
 
 from generator import (
-    _build_imagen_prompt, append_source_attribution, is_duplicate_seo_topic,
+    _build_imagen_prompt, _image_article_context, append_source_attribution, is_duplicate_seo_topic,
     normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
 )
 
@@ -26,6 +26,16 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertEqual(
             resolve_logo_brand("BitMart、取引所事業を段階的に終了へ", ["暗号資産"]),
             ("BitMart", "bitmart.com"),
+        )
+
+    def test_robinhood_and_hyperliquid_are_approved_logo_brands(self):
+        self.assertEqual(
+            resolve_logo_brand("Robinhoodが英国で仮想通貨取引開始", ["Robinhood"]),
+            ("Robinhood", "robinhood.com"),
+        )
+        self.assertEqual(
+            resolve_logo_brand("HyperliquidのRWA無期限先物が急拡大", ["HYPE"]),
+            ("Hyperliquid", "hyperliquid.xyz"),
         )
 
     def test_rejects_source_media_logo(self):
@@ -68,6 +78,21 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("government building, capitol, parliament, White House", prompt)
         self.assertIn("unless it is explicitly named in the opening brief", prompt)
         self.assertIn("not a reusable generic news scene", prompt)
+
+    def test_featured_image_receives_verified_title_and_content(self):
+        context = _image_article_context(
+            "Robinhoodが英国で仮想通貨取引開始",
+            "<p>英国で50銘柄超の取引を手数料無料で提供し、AI分析にも対応する。</p>",
+        )
+        self.assertIn("Robinhoodが英国で仮想通貨取引開始", context)
+        self.assertIn("50銘柄超の取引を手数料無料", context)
+        self.assertNotIn("<p>", context)
+        prompt = _build_imagen_prompt(
+            "mobile crypto trading app", "Robinhood", "robinhood.com",
+            "Robinhoodが英国で仮想通貨取引開始", "<p>英国向けの手数料無料取引。</p>",
+        )
+        self.assertIn("Verified article title: Robinhoodが英国で仮想通貨取引開始", prompt)
+        self.assertIn("Before generating, check this title and content", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'

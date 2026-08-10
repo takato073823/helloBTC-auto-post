@@ -49,6 +49,8 @@ def main() -> None:
         tags=tags,
         logo_brand=logo_brand,
         logo_domain=logo_domain,
+        article_title=post.get("title", {}).get("raw", ""),
+        article_content=post.get("content", {}).get("raw", ""),
     )
     media_id, image_url = wp.upload_media(
         image_data,

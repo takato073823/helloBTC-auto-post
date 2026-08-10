@@ -139,6 +139,8 @@ def main() -> None:
             tags=article["tags"],
             logo_brand=logo_brand,
             logo_domain=logo_domain,
+            article_title=article["title"],
+            article_content=article["content"],
         )
         featured_media_id, featured_image_url = wp.upload_media(
             image_data, filename=f"coldcard-security-{int(time.time())}.jpg"
