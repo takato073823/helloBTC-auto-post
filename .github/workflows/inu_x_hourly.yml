@@ -34,7 +34,7 @@ jobs:
     # 外部サービスの一時停止で、この枠を無期限に占有しない。
     timeout-minutes: 20
     env:
-      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '3 * * * *' && 'primary' || github.event_name == 'schedule' && 'watchdog' || inputs.recovery == true && 'watchdog' || 'retry' }}
+      INU_SCHEDULE_RUN_KIND: ${{ github.event.schedule == '3 0-22/2 * * *' && 'primary' || github.event_name == 'schedule' && 'watchdog' || inputs.recovery == true && 'watchdog' || 'retry' }}
 
     steps:
       - name: リポジトリをチェックアウト
