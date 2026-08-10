@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T10:02:52+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T10:02:52+00:00",
+  "last_deep_scan_at": "2026-08-10T11:34:53+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T11:34:53+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -470,6 +470,19 @@
       "result_count": 4,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T11:34:53+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T11:34:53+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -557,6 +570,62 @@
       "summary": "🎉 Happy 3rd Birthday, @base From a low-cost Ethereum L2 to a major onchain hub. • ~$5B TVL • $46T+ stablecoin volume • ~90% of x402 transactions DeFi, payments, AI agents, consumer apps &amp; more. Still early. Still building. Stay Based. $BASE is coming soon......!! https://t.co/U7ieEvZukR",
       "topic": "onchain_exchange",
       "why_trending": "表示70・投稿後13分・反応率6.6%"
+    },
+    {
+      "author_followers": 4972,
+      "discovered_at": "2026-08-10T11:34:53+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Alvarez__Crypto",
+      "has_video": true,
+      "headline": "This is the most important macro week for crypto since the Iran conflict began. Here is every event that matters and what each one means for your portfolio. Wednesday 8:30 AM ET — ",
+      "impression_count": 314,
+      "like_count": 7,
+      "linked_urls": [
+        "https://x.com/Alvarez__Crypto/status/2086748392735051872/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2086748392735051872",
+      "post_url": "https://x.com/Alvarez__Crypto/status/2086748392735051872",
+      "posted_at": "2026-08-10T09:36:01+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 4,
+      "score": 48.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "This is the most important macro week for crypto since the Iran conflict began. Here is every event that matters and what each one means for your portfolio. Wednesday 8:30 AM ET — CPI and Core CPI This is the one. Dimon just warned that margin debt is at an all-time high and https://t.co/DlyQK7G0b7",
+      "topic": "macro_rates",
+      "why_trending": "表示314・投稿後118分・反応率5.3%・動画あり"
+    },
+    {
+      "author_followers": 4657,
+      "discovered_at": "2026-08-10T11:34:53+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "DragonSG001",
+      "has_video": false,
+      "headline": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler infla",
+      "impression_count": 28,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/DragonSG001/status/2086773043435880946/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086773043435880946",
+      "post_url": "https://x.com/DragonSG001/status/2086773043435880946",
+      "posted_at": "2026-08-10T11:13:58+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler inflation and weaker spending = LOWER rate-hike expectations, supporting stocks, gold and crypto. https://t.co/w9oxRZV19W",
+      "topic": "macro_rates",
+      "why_trending": "表示28・投稿後20分・反応率3.6%"
     },
     {
       "author_followers": 601,
@@ -663,6 +732,34 @@
       "summary": "Crypto market check — August 10, 2026 Bitcoin is hovering around $64–65K, with the broader market still in a cautious phase after the large drawdown from the 2025 cycle peak. The interesting part: large holders are reportedly continuing to accumulate BTC and ETH despite the https://t.co/FhJUq4Idl0",
       "topic": "crypto_market",
       "why_trending": "表示16・投稿後115分・反応率6.2%"
+    },
+    {
+      "author_followers": 204,
+      "discovered_at": "2026-08-10T11:34:53+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BlockentReport",
+      "has_video": false,
+      "headline": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler infla",
+      "impression_count": 5,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/BlockentReport/status/2086776618102444350/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086776618102444350",
+      "post_url": "https://x.com/BlockentReport/status/2086776618102444350",
+      "posted_at": "2026-08-10T11:28:10+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🗓 KEY US MARKET AND FED RATE EVENTS THIS WEEK Wednesday - CPI Thursday - PPI, Jobless Claims, 2 Fed presidents will also speak Friday- Retail Sales, Consumer Sentiment Cooler inflation and weaker spending = LOWER rate-hike expectations, supporting stocks, gold and crypto. https://t.co/Pg9JbjEHog",
+      "topic": "macro_rates",
+      "why_trending": "表示5・投稿後6分・反応率0.0%"
     }
   ],
   "trends": [],
