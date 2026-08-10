@@ -5,6 +5,7 @@ import logging
 import os
 import re
 import time
+from pathlib import Path
 
 from generator import generate_featured_image
 from wp_poster import WordPressAPI
@@ -27,9 +28,37 @@ def update_schema_image(content: str, image_url: str) -> str:
     return updated
 
 
+def load_replacement_image(
+    image_file: str | None,
+    *,
+    image_prompt: str,
+    tags: list[str],
+    logo_brand: str | None,
+    logo_domain: str | None,
+    article_title: str,
+    article_content: str,
+) -> bytes:
+    """承認済み画像があれば優先し、なければ記事本文を確認して生成する。"""
+    if image_file:
+        path = Path(image_file)
+        if not path.is_file():
+            raise FileNotFoundError(f"指定されたアイキャッチ画像が見つかりません: {path}")
+        logger.info("承認済みの画像ファイルを使用: %s", path)
+        return path.read_bytes()
+    return generate_featured_image(
+        image_prompt=image_prompt,
+        tags=tags,
+        logo_brand=logo_brand,
+        logo_domain=logo_domain,
+        article_title=article_title,
+        article_content=article_content,
+    )
+
+
 def main() -> None:
     slug = os.environ["POST_SLUG"].strip()
     image_prompt = os.environ["IMAGE_PROMPT"].strip()
+    image_file = os.getenv("IMAGE_FILE", "").strip() or None
     tags = [tag.strip() for tag in os.getenv("IMAGE_TAGS", "").split(",") if tag.strip()]
     logo_brand = os.getenv("LOGO_BRAND", "").strip() or None
     logo_domain = os.getenv("LOGO_DOMAIN", "").strip() or None
@@ -44,7 +73,8 @@ def main() -> None:
         raise RuntimeError(f"対象記事が一意に取得できませんでした: {slug} ({len(posts)}件)")
 
     post = posts[0]
-    image_data = generate_featured_image(
+    image_data = load_replacement_image(
+        image_file,
         image_prompt=image_prompt,
         tags=tags,
         logo_brand=logo_brand,
