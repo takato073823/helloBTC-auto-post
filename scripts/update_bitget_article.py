@@ -69,6 +69,8 @@ def main():
             tags=["Bitget", "仮想通貨取引所", "暗号資産", "日本居住者"],
             logo_brand="Bitget",
             logo_domain="bitget.com",
+            article_title=post.get("title", {}).get("raw", ""),
+            article_content=content,
         )
         media_id, image_url = wp.upload_media(
             image_data, filename=f"bitget-featured-updated-{int(time.time())}.jpg"

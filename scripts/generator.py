@@ -143,6 +143,8 @@ KNOWN_BRAND_DOMAINS = {
     "Bybit": "bybit.com",
     "Bitget": "bitget.com",
     "BingX": "bingx.com",
+    "Robinhood": "robinhood.com",
+    "Hyperliquid": "hyperliquid.xyz",
     "MEXC": "mexc.com",
     "KuCoin": "kucoin.com",
     "Gate.io": "gate.io",
@@ -352,14 +354,35 @@ def _trusted_project_logo(logo_brand: str | None, logo_domain: str | None) -> st
     return None
 
 
-def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: str | None) -> str:
-    """報道写真の条件と、許可された当事者ロゴの融合条件を組み立てる。"""
+def _image_article_context(article_title: str | None, article_content: str | None) -> str:
+    """画像AIに渡す、検証済みの記事タイトル・本文コンテキストを作る。"""
+    title = re.sub(r"\s+", " ", unescape(article_title or "")).strip()
+    body = unescape(re.sub(r"<[^>]+>", " ", article_content or ""))
+    body = re.sub(r"\s+", " ", body).strip()
+    if not title and not body:
+        return ""
+    # アイキャッチの判断に必要な範囲を渡し、長文記事で画像プロンプトを圧迫しない。
+    return (
+        "Verified article title: " + title + ". "
+        "Verified article content: " + body[:1600] + ". "
+        "Before generating, check this title and content. The scene must depict their shared central subject only. "
+    )
+
+
+def _build_imagen_prompt(
+    base_prompt: str,
+    logo_brand: str | None,
+    logo_domain: str | None,
+    article_title: str | None = None,
+    article_content: str | None = None,
+) -> str:
+    """記事内容を確認したうえで、報道写真と許可済みロゴの条件を組み立てる。"""
     trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
     if trusted_brand:
         logo_instruction = (
             f"The official {trusted_brand} brand mark must be clearly recognizable and visible as an integrated "
-            "element of the background, not omitted. Place it within the background architecture or an "
-            "operational monitor interface, matching the perspective, ambient lighting, reflections, texture, "
+            "element of the article-specific primary subject, not omitted. Place it within an operational "
+            "interface or physical object explicitly relevant to the article, matching the perspective, ambient lighting, reflections, texture, "
             "and depth of field. Keep it between 8 and 15 percent of the frame. It must feel "
             "photographed as part of the environment, never on a standalone card, sign, plaque, placard, paper, "
             "foreground panel, floating corner badge, sticker, white box, watermark, or separate overlay. "
@@ -374,6 +397,7 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
 
     return (
         f"{base_prompt}. "
+        f"{_image_article_context(article_title, article_content)}"
         "Editorial relevance is mandatory: depict only the concrete primary subject or event specified in the "
         "opening brief. Do not add generic crypto-news decoration. Do not show a government building, capitol, "
         "parliament, White House, landmark, monument, flag, skyline, data center, trading monitor, coin, or chart "
@@ -390,15 +414,24 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
     )
 
 
-def generate_featured_image(image_prompt, tags=None, logo_brand=None, logo_domain=None):
-    """Gemini / Imagen を使ってアイキャッチ画像を生成（Google AI Studio 対応）。"""
+def generate_featured_image(
+    image_prompt,
+    tags=None,
+    logo_brand=None,
+    logo_domain=None,
+    article_title=None,
+    article_content=None,
+):
+    """タイトルと本文を確認してから、Gemini / Imagen でアイキャッチを生成する。"""
     import os
     from google import genai
     from google.genai import types
 
     api_key = os.environ["GOOGLE_API_KEY"]
     base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
-    full_prompt = _build_imagen_prompt(base_prompt, logo_brand, logo_domain)
+    full_prompt = _build_imagen_prompt(
+        base_prompt, logo_brand, logo_domain, article_title, article_content
+    )
 
     client = genai.Client(api_key=api_key)
     image_models = [

@@ -132,6 +132,8 @@ def main():
                     tags=generated.get("tags", []),
                     logo_brand=logo_brand,
                     logo_domain=logo_domain,
+                    article_title=generated["title"],
+                    article_content=generated["content"],
                 )
                 featured_media_id, featured_image_url = wp.upload_media(
                     image_data, filename=f"featured-{int(time.time())}.jpg"
@@ -238,7 +240,10 @@ def run_seo_article():
     featured_media_id = None
     featured_image_url = None
     try:
-        img_data = generate_featured_image(image_prompt=generated.get("featured_image_prompt", ""))
+        img_data = generate_featured_image(
+            image_prompt=generated.get("featured_image_prompt", ""),
+            article_title=generated["title"], article_content=generated["content"],
+        )
         featured_media_id, featured_image_url = wp.upload_media(img_data, filename=f"seo-featured-{ts}.jpg")
     except Exception as e:
         logger.warning(f"アイキャッチ生成失敗（続行）: {e}")
@@ -248,7 +253,9 @@ def run_seo_article():
     img1_html = ""
     try:
         prompt1 = img1_prompts[0] if img1_prompts else "glowing cryptocurrency network digital art"
-        img1_data = generate_featured_image(image_prompt=prompt1)
+        img1_data = generate_featured_image(
+            image_prompt=prompt1, article_title=generated["title"], article_content=generated["content"],
+        )
         img1_id, img1_url = wp.upload_media(img1_data, filename=f"seo-img1-{ts}.jpg")
         img1_html = _make_img_html(
             img1_url, f"{generated['title']}に関する解説画像", img1_id
@@ -260,7 +267,9 @@ def run_seo_article():
     img2_html = ""
     try:
         prompt2 = img1_prompts[1] if len(img1_prompts) > 1 else "blockchain technology abstract visualization"
-        img2_data = generate_featured_image(image_prompt=prompt2)
+        img2_data = generate_featured_image(
+            image_prompt=prompt2, article_title=generated["title"], article_content=generated["content"],
+        )
         img2_id, img2_url = wp.upload_media(img2_data, filename=f"seo-img2-{ts}.jpg")
         img2_html = _make_img_html(
             img2_url, f"{generated['title']}に関する参考画像", img2_id
