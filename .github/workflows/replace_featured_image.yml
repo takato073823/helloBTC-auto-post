@@ -15,6 +15,10 @@ on:
         description: カンマ区切りの関連タグ
         required: false
         type: string
+      image_file:
+        description: リポジトリ内の承認済み画像ファイル（指定時はAI画像生成を行わない）
+        required: false
+        type: string
       logo_brand:
         description: 合成するロゴのブランド名
         required: false
@@ -50,6 +54,7 @@ jobs:
           POST_SLUG: ${{ inputs.post_slug }}
           IMAGE_PROMPT: ${{ inputs.image_prompt }}
           IMAGE_TAGS: ${{ inputs.image_tags }}
+          IMAGE_FILE: ${{ inputs.image_file }}
           LOGO_BRAND: ${{ inputs.logo_brand }}
           LOGO_DOMAIN: ${{ inputs.logo_domain }}
         working-directory: scripts
