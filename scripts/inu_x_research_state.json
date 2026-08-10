@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T11:34:53+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T12:32:53+00:00",
+  "last_deep_scan_at": "2026-08-10T14:06:54+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T14:06:54+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -489,6 +489,19 @@
       "checked_at": "2026-08-10T12:32:53+00:00",
       "result_count": 2,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T14:06:54+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T14:06:54+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -606,6 +619,59 @@
       "why_trending": "表示70・投稿後13分・反応率6.6%"
     },
     {
+      "author_followers": 314,
+      "discovered_at": "2026-08-10T14:06:54+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MrStakamoto",
+      "has_video": false,
+      "headline": "Is The CLARITY Act Dead? No, but it's on life support. The Senate pushed the vote until after the August recess, and the odds of it passing this year have dropped sharply as politi",
+      "impression_count": 28,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086812706829488561",
+      "post_url": "https://x.com/MrStakamoto/status/2086812706829488561",
+      "posted_at": "2026-08-10T13:51:35+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 53.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Is The CLARITY Act Dead? No, but it's on life support. The Senate pushed the vote until after the August recess, and the odds of it passing this year have dropped sharply as political fights over ethics provisions and stablecoin rules continue. If it fails: • Crypto",
+      "topic": "regulation",
+      "why_trending": "表示28・投稿後15分・反応率5.7%"
+    },
+    {
+      "author_followers": 20,
+      "discovered_at": "2026-08-10T14:06:54+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "LPaul_x",
+      "has_video": true,
+      "headline": "🚨MARK YOUR CALENDARS! US Senate is set to VOTE on the CLARITY Act on September 15🔥 This could be a major turning point for US crypto regulation September 15 — don’t miss this date ",
+      "impression_count": 106,
+      "like_count": 17,
+      "linked_urls": [
+        "https://x.com/LPaul_x/status/2086791403372233162/video/1"
+      ],
+      "media_types": [
+        "photo",
+        "video"
+      ],
+      "post_id": "2086791403372233162",
+      "post_url": "https://x.com/LPaul_x/status/2086791403372233162",
+      "posted_at": "2026-08-10T12:26:55+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 52.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨MARK YOUR CALENDARS! US Senate is set to VOTE on the CLARITY Act on September 15🔥 This could be a major turning point for US crypto regulation September 15 — don’t miss this date ⏳ Who’s ready for clarity? 👇 #CLARITYAct #Crypto #Bitcoin #XRP #Regulation https://t.co/iJY38Bfiqd",
+      "topic": "regulation",
+      "why_trending": "表示106・投稿後99分・反応率16.0%・動画あり"
+    },
+    {
       "author_followers": 4641280,
       "discovered_at": "2026-08-10T12:32:53+00:00",
       "discovery_type": "official_x_api",
@@ -686,6 +752,34 @@
       "why_trending": "表示28・投稿後20分・反応率3.6%"
     },
     {
+      "author_followers": 386,
+      "discovered_at": "2026-08-10T14:06:54+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Sparty_Par",
+      "has_video": false,
+      "headline": "1/ $853 million into Bitcoin ETFs last week. $0 into XRP ETFs. These two numbers explain the entire crypto market right now. Here is what that gap tells you — and the one thing eve",
+      "impression_count": 67,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Sparty_Par/status/2086796928516288736/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086796928516288736",
+      "post_url": "https://x.com/Sparty_Par/status/2086796928516288736",
+      "posted_at": "2026-08-10T12:48:53+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 46.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "1/ $853 million into Bitcoin ETFs last week. $0 into XRP ETFs. These two numbers explain the entire crypto market right now. Here is what that gap tells you — and the one thing every XRP holder needs to do before September 14. 2/ August 10, 2026. Monday morning. Bitcoin: https://t.co/TRcTe0wJTE",
+      "topic": "regulation",
+      "why_trending": "表示67・投稿後78分・反応率3.0%"
+    },
+    {
       "author_followers": 601,
       "discovered_at": "2026-08-10T10:02:52+00:00",
       "discovery_type": "official_x_api",
@@ -712,28 +806,58 @@
       "why_trending": "表示59・投稿後111分・反応率1.7%・公式候補リンクあり"
     },
     {
-      "author_followers": 912,
-      "discovered_at": "2026-08-10T08:17:37+00:00",
+      "author_followers": 8915,
+      "discovered_at": "2026-08-10T14:06:54+00:00",
       "discovery_type": "official_x_api",
-      "handle": "UnfilteredQ12",
+      "handle": "MyCryptoAlert",
       "has_video": false,
-      "headline": "₿ CRYPTO: Bitcoin ETF flows remain worth watching, but I would put crypto below Hormuz/oil, rates and Monday’s equity futures in importance for this morning’s broad-market setup. #",
-      "impression_count": 28,
-      "like_count": 0,
-      "linked_urls": [],
+      "headline": "U.S. Senate Sets September 15 CLARITY Act Vote https://t.co/k3pD9f3udL 🚨CryptoAlert Your Trusted Crypto News Outlet. ---------------- #Ripple #XRP #SEC #CryptoNews #CryptoAlert #Bl",
+      "impression_count": 251,
+      "like_count": 2,
+      "linked_urls": [
+        "https://www.thecryptoalert.com/post/u-s-senate-sets-september-15-clarity-act-vote"
+      ],
       "media_types": [],
-      "post_id": "2086715322711568827",
-      "post_url": "https://x.com/UnfilteredQ12/status/2086715322711568827",
-      "posted_at": "2026-08-10T07:24:36+00:00",
-      "quote_count": 1,
-      "reply_count": 8,
-      "repost_count": 1,
-      "score": 44.6,
+      "post_id": "2086798489955246376",
+      "post_url": "https://x.com/MyCryptoAlert/status/2086798489955246376",
+      "posted_at": "2026-08-10T12:55:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 43.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "₿ CRYPTO: Bitcoin ETF flows remain worth watching, but I would put crypto below Hormuz/oil, rates and Monday’s equity futures in importance for this morning’s broad-market setup. #Bitcoin #BTC #Crypto #Cryptocurrency #BitcoinETF #CryptoETF #Ethereum #ETH #XRP #XLM #Ripple",
-      "topic": "crypto_market",
-      "why_trending": "表示28・投稿後53分・反応率60.0%"
+      "summary": "U.S. Senate Sets September 15 CLARITY Act Vote https://t.co/k3pD9f3udL 🚨CryptoAlert Your Trusted Crypto News Outlet. ---------------- #Ripple #XRP #SEC #CryptoNews #CryptoAlert #Blockchain #Fintech #SWIFT #CFTC #USDT",
+      "topic": "regulation",
+      "why_trending": "表示251・投稿後71分・反応率0.8%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 169,
+      "discovered_at": "2026-08-10T14:06:54+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Malowallet",
+      "has_video": false,
+      "headline": "🚨 TODAY IN CRYPTO &amp; WEB3 — AUG 10 ₿ BTC holds above $65K 💰 $1.1B flows into BTC + ETH ETFs ⚖️ Crypto regulation takes center stage Ξ ETH gains renewed ETF attention 🤖 AI + DePI",
+      "impression_count": 15,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/Malowallet/status/2086798879161188433/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086798879161188433",
+      "post_url": "https://x.com/Malowallet/status/2086798879161188433",
+      "posted_at": "2026-08-10T12:56:38+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 40.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 TODAY IN CRYPTO &amp; WEB3 — AUG 10 ₿ BTC holds above $65K 💰 $1.1B flows into BTC + ETH ETFs ⚖️ Crypto regulation takes center stage Ξ ETH gains renewed ETF attention 🤖 AI + DePIN altcoins heat up The market is moving. 👀📈 Stay informed. Stay ahead. Trade smarter with Malo https://t.co/4ql9ANh0cc",
+      "topic": "regulation",
+      "why_trending": "表示15・投稿後70分・反応率6.7%"
     },
     {
       "author_followers": 204,
