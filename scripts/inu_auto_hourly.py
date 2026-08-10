@@ -68,6 +68,7 @@ MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 MAX_SCHEDULED_CHECKS = 168
 ECONOMY_MAX_URGENT_POSTS_PER_DAY = 3
+ECONOMY_MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 6
 GROWTH_TOPIC_ROTATION = (
     "etf_flow",
     "onchain",
@@ -1521,6 +1522,23 @@ def _economy_mode_enabled() -> bool:
     return os.environ.get("INU_ECONOMY_MODE", "false").strip().lower() in {"1", "true", "yes"}
 
 
+def _economy_generated_visuals_enabled() -> bool:
+    """節約モードでも、主画像不在時の生成ビジュアルを許可するかを返す。"""
+    return os.environ.get("INU_ECONOMY_GENERATED_VISUALS", "false").strip().lower() in {"1", "true", "yes"}
+
+
+def _generated_editorial_visual_limit() -> int:
+    """画像生成の1日上限を、節約モードではより低く保つ。"""
+    if not _economy_mode_enabled():
+        return MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY
+    configured = os.environ.get("INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY", "")
+    try:
+        limit = int(configured or ECONOMY_MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY)
+    except ValueError:
+        limit = ECONOMY_MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY
+    return max(0, min(limit, MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY))
+
+
 def _urgent_post_budget_exhausted(state: dict, now: dt.datetime) -> bool:
     """節約モードの重要速報を日次上限内に収める。"""
     if not _economy_mode_enabled():
@@ -1689,9 +1707,9 @@ def _build_item_from_candidate(
             is_primary_source=bool(selected["is_primary_source"]),
         )
     except Exception as source_image_error:
-        if _economy_mode_enabled():
+        if _economy_mode_enabled() and not _economy_generated_visuals_enabled():
             # 主画像の取得に失敗しても、確認済みの公式根拠画像はすでにある。
-            # 節約モードでは生成画像へ切り替えず、その根拠画像1枚で公開する。
+            # 生成画像を止めた節約設定では、その根拠画像1枚で公開する。
             logger.info("節約モードのため生成画像へ切り替えず、公式根拠画像を使用: %s", source_image_error)
             selected["evidence_as_primary"] = True
             item = {
@@ -1704,7 +1722,7 @@ def _build_item_from_candidate(
             }
             validate_test_item(item)
             return item, selected
-        if _generated_editorial_visual_count(state, now) >= MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY:
+        if _generated_editorial_visual_count(state, now) >= _generated_editorial_visual_limit():
             raise ValueError("主画像がなく、生成画像の日次上限に達しています") from source_image_error
         logger.info("出典の主画像を取得できないため生成ビジュアルへ切替: %s", source_image_error)
         generate_editorial_news_visual(

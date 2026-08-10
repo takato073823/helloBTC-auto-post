@@ -62,6 +62,10 @@ jobs:
           INU_RESEARCH_MODEL: gpt-5.6-terra
           INU_ECONOMY_MODE: true
           INU_GROK_EDITORIAL_ENABLED: false
+          INU_ECONOMY_GENERATED_VISUALS: true
+          INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
+          INU_IMAGE_PROVIDER: openai
+          INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare --dry-run
 
@@ -73,6 +77,10 @@ jobs:
           INU_RESEARCH_MODEL: gpt-5.6-terra
           INU_ECONOMY_MODE: true
           INU_GROK_EDITORIAL_ENABLED: false
+          INU_ECONOMY_GENERATED_VISUALS: true
+          INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
+          INU_IMAGE_PROVIDER: openai
+          INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare
 

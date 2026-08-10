@@ -136,6 +136,53 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertTrue(selected["evidence_as_primary"])
         generated.assert_not_called()
 
+    def test_economy_mode_generates_visual_when_enabled_and_hero_is_unavailable(self):
+        item = candidate(
+            topic_type="breaking_news",
+            visual_route="official_text_crop",
+            published_at="2026-08-04T11:00:00Z",
+        )
+        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
+            artifact_dir = Path(directory) / "inu-auto"
+            with patch.dict(
+                "os.environ",
+                {
+                    "INU_ECONOMY_MODE": "true",
+                    "INU_ECONOMY_GENERATED_VISUALS": "true",
+                    "INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY": "6",
+                },
+                clear=False,
+            ), patch.object(
+                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+            ), patch.object(inu_auto_hourly, "ARTIFACT_DIR", artifact_dir), patch.object(
+                inu_auto_hourly, "capture_official_evidence"
+            ), patch.object(
+                inu_auto_hourly, "capture_source_hero_image", side_effect=ValueError("主画像なし")
+            ), patch.object(
+                inu_auto_hourly, "generate_editorial_news_visual"
+            ) as generated, patch.object(inu_auto_hourly, "validate_test_item"):
+                built, selected = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    [{"url": item["source_url"], "title": "official"}],
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertTrue(built["media_path"].endswith("-main.png"))
+        self.assertTrue(selected["generated_editorial_visual"])
+        generated.assert_called_once()
+
+    def test_economy_image_limit_is_configurable_and_capped(self):
+        with patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY": "99",
+            },
+            clear=False,
+        ):
+            self.assertEqual(18, inu_auto_hourly._generated_editorial_visual_limit())
+
     def test_economy_mode_limits_urgent_posts_per_day(self):
         state = {
             "history": [{
