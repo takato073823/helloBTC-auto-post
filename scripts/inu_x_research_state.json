@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-10T17:38:06+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T17:38:06+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T18:35:26+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -534,37 +534,15 @@
       "result_count": 5,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T18:35:26+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4641280,
-      "discovered_at": "2026-08-10T12:32:53+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "BREAKING: Michael Saylor's 'Strategy' sold 1,690 Bitcoin worth $108 million. https://t.co/MczgqN4A7v",
-      "impression_count": 127106,
-      "like_count": 972,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2086785323602985294/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086785323602985294",
-      "post_url": "https://x.com/WatcherGuru/status/2086785323602985294",
-      "posted_at": "2026-08-10T12:02:46+00:00",
-      "quote_count": 65,
-      "reply_count": 254,
-      "repost_count": 122,
-      "score": 78.5,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "BREAKING: Michael Saylor's 'Strategy' sold 1,690 Bitcoin worth $108 million. https://t.co/MczgqN4A7v",
-      "topic": "watcher_guru",
-      "why_trending": "表示127,106・投稿後30分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4643704,
       "discovered_at": "2026-08-10T16:33:50+00:00",
@@ -590,6 +568,34 @@
       "why_trending": "表示215,040・投稿後76分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
+      "author_followers": 4644454,
+      "discovered_at": "2026-08-10T18:35:26+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Peter Schiff says \"sell Bitcoin now.\" https://t.co/mTuoGv6geT",
+      "impression_count": 229460,
+      "like_count": 1705,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2086855762949656767/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086855762949656767",
+      "post_url": "https://x.com/WatcherGuru/status/2086855762949656767",
+      "posted_at": "2026-08-10T16:42:40+00:00",
+      "quote_count": 87,
+      "reply_count": 516,
+      "repost_count": 160,
+      "score": 54.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Peter Schiff says \"sell Bitcoin now.\" https://t.co/mTuoGv6geT",
+      "topic": "watcher_guru",
+      "why_trending": "表示229,460・投稿後112分・反応率1.3%"
+    },
+    {
       "author_followers": 314,
       "discovered_at": "2026-08-10T14:06:54+00:00",
       "discovery_type": "official_x_api",
@@ -612,35 +618,6 @@
       "summary": "Is The CLARITY Act Dead? No, but it's on life support. The Senate pushed the vote until after the August recess, and the odds of it passing this year have dropped sharply as political fights over ethics provisions and stablecoin rules continue. If it fails: • Crypto",
       "topic": "regulation",
       "why_trending": "表示28・投稿後15分・反応率5.7%"
-    },
-    {
-      "author_followers": 20,
-      "discovered_at": "2026-08-10T14:06:54+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "LPaul_x",
-      "has_video": true,
-      "headline": "🚨MARK YOUR CALENDARS! US Senate is set to VOTE on the CLARITY Act on September 15🔥 This could be a major turning point for US crypto regulation September 15 — don’t miss this date ",
-      "impression_count": 106,
-      "like_count": 17,
-      "linked_urls": [
-        "https://x.com/LPaul_x/status/2086791403372233162/video/1"
-      ],
-      "media_types": [
-        "photo",
-        "video"
-      ],
-      "post_id": "2086791403372233162",
-      "post_url": "https://x.com/LPaul_x/status/2086791403372233162",
-      "posted_at": "2026-08-10T12:26:55+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 52.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨MARK YOUR CALENDARS! US Senate is set to VOTE on the CLARITY Act on September 15🔥 This could be a major turning point for US crypto regulation September 15 — don’t miss this date ⏳ Who’s ready for clarity? 👇 #CLARITYAct #Crypto #Bitcoin #XRP #Regulation https://t.co/iJY38Bfiqd",
-      "topic": "regulation",
-      "why_trending": "表示106・投稿後99分・反応率16.0%・動画あり"
     },
     {
       "author_followers": 24228,
