@@ -316,6 +316,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
 10. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
+11. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
@@ -326,7 +327,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
-  "image_prompt": "Describe one specific photorealistic news photograph scene for this article. One concrete subject with lighting and setting. Examples: 'stacked gold coins on dark marble surface, dramatic side lighting', 'trading monitor displaying red price chart, blue screen glow', 'rows of server racks in dark data center, blue LED light', 'physical gold bar on reflective black surface, spotlight'. NO people, NO brand names, NO text. Max 15 words.",
+  "image_prompt": "Describe one specific photorealistic news photograph scene that directly depicts the verified central subject of this article. Do not add generic crypto decoration or an unrelated landmark, government building, flag, skyline, monitor, coin, or chart. NO people, NO brand names, NO text. Max 15 words.",
   "logo_brand": "ニュースを発表した当事者プロジェクト名。出典メディアは禁止。該当しなければ空文字",
   "logo_domain": "当事者プロジェクトの公式サイトドメイン。出典メディアは禁止。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
@@ -373,6 +374,11 @@ def _build_imagen_prompt(base_prompt: str, logo_brand: str | None, logo_domain: 
 
     return (
         f"{base_prompt}. "
+        "Editorial relevance is mandatory: depict only the concrete primary subject or event specified in the "
+        "opening brief. Do not add generic crypto-news decoration. Do not show a government building, capitol, "
+        "parliament, White House, landmark, monument, flag, skyline, data center, trading monitor, coin, or chart "
+        "unless it is explicitly named in the opening brief. The image must be visually specific to this article, "
+        "not a reusable generic news scene. "
         "Photojournalism, Reuters news photography style. "
         "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
         "Professional studio lighting or natural window light, realistic textures and materials. "

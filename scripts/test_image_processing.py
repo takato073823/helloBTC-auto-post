@@ -11,8 +11,10 @@ from image_processing import SAFE_COMPOSITION_PROMPT, fit_image_to_jpeg
 class ImageProcessingTests(unittest.TestCase):
     def test_shared_prompt_protects_subject_framing(self):
         self.assertIn("8 percent safe margin from all four edges", SAFE_COMPOSITION_PROMPT)
-        self.assertIn("complete structure from its visible ground line", SAFE_COMPOSITION_PROMPT)
-        self.assertIn("no more than 55 percent of the image height", SAFE_COMPOSITION_PROMPT)
+        self.assertIn("Never crop, obscure, or cut off the primary subject", SAFE_COMPOSITION_PROMPT)
+        self.assertIn("final 1.91:1 crop", SAFE_COMPOSITION_PROMPT)
+        self.assertNotIn("building dome", SAFE_COMPOSITION_PROMPT.lower())
+        self.assertNotIn("architecture", SAFE_COMPOSITION_PROMPT.lower())
 
     def test_fit_crops_without_distorting_centered_square(self):
         source = Image.new("RGB", (800, 800), "black")

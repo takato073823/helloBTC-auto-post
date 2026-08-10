@@ -55,13 +55,19 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("coin must be completely unbranded", prompt)
 
     def test_primary_subject_has_safe_composition_margin(self):
-        prompt = _build_imagen_prompt("United States Capitol dome", None, None)
+        prompt = _build_imagen_prompt("hardware wallet on a desk", None, None)
         self.assertIn("8 percent safe margin from all four edges", prompt)
-        self.assertIn("Never crop a building dome", prompt)
+        self.assertIn("Never crop, obscure, or cut off the primary subject", prompt)
         self.assertIn("35 to 60 percent of the frame", prompt)
         self.assertIn("final 1.91:1 crop", prompt)
-        self.assertIn("complete structure from its visible ground line", prompt)
-        self.assertIn("no more than 55 percent of the image height", prompt)
+
+    def test_featured_image_requires_article_specific_subject(self):
+        prompt = _build_imagen_prompt("hardware wallet on a desk", None, None)
+        self.assertIn("Editorial relevance is mandatory", prompt)
+        self.assertIn("Do not add generic crypto-news decoration", prompt)
+        self.assertIn("government building, capitol, parliament, White House", prompt)
+        self.assertIn("unless it is explicitly named in the opening brief", prompt)
+        self.assertIn("not a reusable generic news scene", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'
