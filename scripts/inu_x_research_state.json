@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T14:06:54+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T14:06:54+00:00",
+  "last_deep_scan_at": "2026-08-10T15:39:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T15:39:32+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -502,6 +502,19 @@
       "result_count": 5,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T15:39:32+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T15:39:32+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -532,35 +545,6 @@
       "summary": "BREAKING: Michael Saylor's 'Strategy' sold 1,690 Bitcoin worth $108 million. https://t.co/MczgqN4A7v",
       "topic": "watcher_guru",
       "why_trending": "表示127,106・投稿後30分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 2509,
-      "discovered_at": "2026-08-10T10:02:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "AbbeyOnChain",
-      "has_video": false,
-      "headline": "I wanted to see what actually changes when you trade through Jumper Advanced, so I put it to the test with a real ETH → USDC swap. I used 0.001232 ETH on Ethereum and followed the ",
-      "impression_count": 558,
-      "like_count": 8,
-      "linked_urls": [
-        "https://x.com/AbbeyOnChain/status/2086743873456427246/photo/1",
-        "https://twitter.com/jumperapp/status/2085002909096329349"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086743873456427246",
-      "post_url": "https://x.com/AbbeyOnChain/status/2086743873456427246",
-      "posted_at": "2026-08-10T09:18:03+00:00",
-      "quote_count": 2,
-      "reply_count": 7,
-      "repost_count": 0,
-      "score": 72.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "I wanted to see what actually changes when you trade through Jumper Advanced, so I put it to the test with a real ETH → USDC swap. I used 0.001232 ETH on Ethereum and followed the transaction from the initial quote all the way to completion. What stood out was everything I https://t.co/70P1MgD8Sb https://t.co/TDTmmHNKlI",
-      "topic": "onchain_exchange",
-      "why_trending": "表示558・投稿後44分・反応率4.2%・公式候補リンクあり"
     },
     {
       "author_followers": 696,
@@ -696,34 +680,6 @@
       "why_trending": "表示172,143・投稿後92分・反応率1.3%"
     },
     {
-      "author_followers": 4972,
-      "discovered_at": "2026-08-10T11:34:53+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Alvarez__Crypto",
-      "has_video": true,
-      "headline": "This is the most important macro week for crypto since the Iran conflict began. Here is every event that matters and what each one means for your portfolio. Wednesday 8:30 AM ET — ",
-      "impression_count": 314,
-      "like_count": 7,
-      "linked_urls": [
-        "https://x.com/Alvarez__Crypto/status/2086748392735051872/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2086748392735051872",
-      "post_url": "https://x.com/Alvarez__Crypto/status/2086748392735051872",
-      "posted_at": "2026-08-10T09:36:01+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 4,
-      "score": 48.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "This is the most important macro week for crypto since the Iran conflict began. Here is every event that matters and what each one means for your portfolio. Wednesday 8:30 AM ET — CPI and Core CPI This is the one. Dimon just warned that margin debt is at an all-time high and https://t.co/DlyQK7G0b7",
-      "topic": "macro_rates",
-      "why_trending": "表示314・投稿後118分・反応率5.3%・動画あり"
-    },
-    {
       "author_followers": 4657,
       "discovered_at": "2026-08-10T11:34:53+00:00",
       "discovery_type": "official_x_api",
@@ -778,32 +734,6 @@
       "summary": "1/ $853 million into Bitcoin ETFs last week. $0 into XRP ETFs. These two numbers explain the entire crypto market right now. Here is what that gap tells you — and the one thing every XRP holder needs to do before September 14. 2/ August 10, 2026. Monday morning. Bitcoin: https://t.co/TRcTe0wJTE",
       "topic": "regulation",
       "why_trending": "表示67・投稿後78分・反応率3.0%"
-    },
-    {
-      "author_followers": 601,
-      "discovered_at": "2026-08-10T10:02:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "HypedLaunches",
-      "has_video": false,
-      "headline": "WHALE ALERT: 37,390 $HYPE moved to KuCoin. A whale deposited 37.39K $HYPE worth approximately $2.03M to KuCoin just 6 hours ago. The same wallet also transferred 290.75K $USDC to K",
-      "impression_count": 59,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/OnchainLens/status/2086653844772274328"
-      ],
-      "media_types": [],
-      "post_id": "2086727141757014259",
-      "post_url": "https://x.com/HypedLaunches/status/2086727141757014259",
-      "posted_at": "2026-08-10T08:11:34+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "WHALE ALERT: 37,390 $HYPE moved to KuCoin. A whale deposited 37.39K $HYPE worth approximately $2.03M to KuCoin just 6 hours ago. The same wallet also transferred 290.75K $USDC to Kraken roughly one hour earlier. Large exchange deposits are always worth watching. Moving $HYPE https://t.co/ig8FISHuhM",
-      "topic": "onchain_exchange",
-      "why_trending": "表示59・投稿後111分・反応率1.7%・公式候補リンクあり"
     },
     {
       "author_followers": 8915,
