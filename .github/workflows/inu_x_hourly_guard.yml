@@ -3,7 +3,7 @@ name: INU 毎時投稿ガード
 on:
   schedule:
     # 毎時投稿ワークフローの定刻起動が欠落したときの別系統の復旧確認。
-    - cron: "11,31,51 * * * *"
+    - cron: "33 * * * *"
   workflow_dispatch:
 
 permissions:

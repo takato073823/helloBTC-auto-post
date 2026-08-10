@@ -94,6 +94,58 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual("⚡️ 米国ビットコインETFの資金が反転", selected["hook"])
         self.assertEqual("", selected["opinion"])
 
+    def test_economy_mode_skips_grok_editorial_rewrite(self):
+        item = candidate()
+        with patch.dict("os.environ", {"INU_ECONOMY_MODE": "true"}, clear=False), patch.object(
+            inu_auto_hourly, "generate_editorial_json"
+        ) as grok:
+            selected = inu_auto_hourly._select_grok_editorial_copy(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": [], "reservations": []},
+                NOW,
+            )
+        self.assertEqual(item, selected)
+        grok.assert_not_called()
+
+    def test_economy_mode_uses_verified_evidence_instead_of_ai_image(self):
+        item = candidate(
+            topic_type="breaking_news",
+            visual_route="official_text_crop",
+            published_at="2026-08-04T11:00:00Z",
+        )
+        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
+            artifact_dir = Path(directory) / "inu-auto"
+            with patch.dict("os.environ", {"INU_ECONOMY_MODE": "true"}, clear=False), patch.object(
+                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+            ), patch.object(inu_auto_hourly, "ARTIFACT_DIR", artifact_dir), patch.object(
+                inu_auto_hourly, "capture_official_evidence"
+            ), patch.object(
+                inu_auto_hourly, "capture_source_hero_image", side_effect=ValueError("主画像なし")
+            ), patch.object(
+                inu_auto_hourly, "generate_editorial_news_visual"
+            ) as generated, patch.object(inu_auto_hourly, "validate_test_item"):
+                built, selected = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    [{"url": item["source_url"], "title": "official"}],
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertTrue(built["media_path"].endswith("-evidence.png"))
+        self.assertTrue(selected["evidence_as_primary"])
+        generated.assert_not_called()
+
+    def test_economy_mode_limits_urgent_posts_per_day(self):
+        state = {
+            "history": [{
+                "priority": "breaking",
+                "posted_at": NOW.isoformat(),
+            }] * 3,
+        }
+        with patch.dict("os.environ", {"INU_ECONOMY_MODE": "true"}, clear=False):
+            self.assertTrue(inu_auto_hourly._urgent_post_budget_exhausted(state, NOW))
+
     def test_tracking_parameters_are_removed(self):
         actual = inu_auto_hourly.normalize_url(
             "HTTPS://Example.COM/release/?utm_source=x&id=2#top"
@@ -794,6 +846,35 @@ class INUAutoHourlyTests(unittest.TestCase):
             clear=False,
         ), patch.object(Path, "read_text", return_value=event):
             self.assertFalse(inu_auto_hourly._is_primary_grok_run())
+
+    def test_economy_watchdog_uses_market_fallback_without_research_api(self):
+        args = SimpleNamespace(state="/tmp/unused-state.json", slot="", priority_url="", priority_hint="", promote_signals=False, topic="", dry_run=True, no_market_fallback=False)
+        market_item = {
+            "id": "inu_market_economy",
+            "topic_type": "crypto_market",
+            "visual_route": "market_service_screenshot",
+            "text": "📈 $BTC、24時間で+5.00％\n\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        market_candidate = {
+            "topic_type": "crypto_market",
+            "hook": "📈 $BTC、24時間で+5.00％",
+            "why_now": "主要銘柄を比較した確定値で大きな値動きが出たためです。",
+            "follow_value": "大きく動いた銘柄の価格と関連する一次情報を継続して確認できます。",
+            "source_url": "https://www.tradingview.com/symbols/COINBASE-BTCUSD/",
+            "published_at": NOW.isoformat(),
+        }
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ", {"INU_ECONOMY_MODE": "true", "INU_SCHEDULE_RUN_KIND": "watchdog"}, clear=False
+        ), patch.object(inu_auto_hourly, "load_state", return_value={"history": [], "reservations": [], "posted_slots": []}), patch.object(
+            inu_auto_hourly, "research_candidates_with_grok"
+        ) as research, patch.object(
+            inu_auto_hourly, "build_market_data_fallback", return_value=(market_item, market_candidate)
+        ) as fallback, patch.object(inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        research.assert_not_called()
+        fallback.assert_called_once()
 
     def test_primary_and_watchdog_share_one_hourly_slot(self):
         now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)

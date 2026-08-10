@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   review:
-    if: github.event_name == 'workflow_dispatch' || vars.INU_AUTOMATION_ENABLED == 'true'
+    if: github.event_name == 'workflow_dispatch' || (vars.INU_AUTOMATION_ENABLED == 'true' && vars.INU_GROWTH_ENABLED == 'true')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

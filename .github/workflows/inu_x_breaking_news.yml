@@ -2,7 +2,7 @@ name: INU 重要ニュース速報
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -10,7 +10,6 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  actions: write
   contents: write
 
 jobs:
@@ -55,6 +54,8 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INU_COPY_MODEL: gpt-5.6-luna
+          INU_ECONOMY_MODE: true
+          INU_ECONOMY_MAX_URGENT_POSTS_PER_DAY: 3
           INU_EVENT_KEY: ${{ steps.probe.outputs.event_key }}
           INU_PRIORITY_URL: ${{ steps.probe.outputs.source_url }}
           INU_PRIORITY_HINT: ${{ steps.probe.outputs.headline }}
@@ -93,19 +94,3 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: record INU breaking news [skip ci]"
           git pull --rebase
           git push
-
-      - name: 定時投稿の欠落を確認
-        id: hourly_guard
-        if: github.event_name == 'schedule'
-        run: python scripts/inu_hourly_guard.py
-
-      - name: 欠落した定時投稿を復旧起動
-        if: github.event_name == 'schedule' && steps.hourly_guard.outputs.needs_recovery == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: >-
-          gh workflow run inu_x_hourly.yml
-          --repo "$GITHUB_REPOSITORY"
-          --ref main
-          -f live=true
-          -f recovery=true

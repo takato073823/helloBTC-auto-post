@@ -67,6 +67,7 @@ CURATED_X_SOURCES_PATH = SCRIPT_DIR / "inu_curated_x_sources.json"
 MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 MAX_SCHEDULED_CHECKS = 168
+ECONOMY_MAX_URGENT_POSTS_PER_DAY = 3
 GROWTH_TOPIC_ROTATION = (
     "etf_flow",
     "onchain",
@@ -443,7 +444,7 @@ def collect_discovery_signals() -> list[dict[str, str]]:
 
 def _is_primary_grok_run() -> bool:
     """主探索だけでGrokの広域検索を行い、復旧確認のコストを抑える。"""
-    if not os.environ.get("XAI_API_KEY", "").strip():
+    if _economy_mode_enabled() or not os.environ.get("XAI_API_KEY", "").strip():
         return False
     event_path = os.environ.get("GITHUB_EVENT_PATH", "").strip()
     if not event_path:
@@ -528,6 +529,9 @@ def build_grok_prompt(now: dt.datetime, state: dict) -> str:
 
 
 def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[str, str]]:
+    if _economy_mode_enabled():
+        logger.info("節約モードではGrokのX探索を実行しません")
+        return []
     if not _is_primary_grok_run():
         if os.environ.get("XAI_API_KEY", "").strip():
             logger.info("47分の再確認枠ではGrok検索を省略し、月間予算を守ります")
@@ -1145,6 +1149,10 @@ def _select_grok_editorial_copy(
     required_topic: str | None = None,
 ) -> dict:
     """複数案を既存品質ゲートで選別し、最初に通ったものだけを採用する。"""
+    if _economy_mode_enabled():
+        # 検証済みの見出し・事実はテンプレートでそのまま投稿できるため、
+        # 毎時の再編集APIを使わない。
+        return candidate
     try:
         options = _grok_editorial_copy_options(candidate)
     except Exception as exc:
@@ -1508,6 +1516,38 @@ def _scheduled_run_kind() -> str:
     return os.environ.get("INU_SCHEDULE_RUN_KIND", "").strip().lower()
 
 
+def _economy_mode_enabled() -> bool:
+    """従量課金APIを最小化する運用モードかを返す。"""
+    return os.environ.get("INU_ECONOMY_MODE", "false").strip().lower() in {"1", "true", "yes"}
+
+
+def _urgent_post_budget_exhausted(state: dict, now: dt.datetime) -> bool:
+    """節約モードの重要速報を日次上限内に収める。"""
+    if not _economy_mode_enabled():
+        return False
+    configured = os.environ.get("INU_ECONOMY_MAX_URGENT_POSTS_PER_DAY", "")
+    try:
+        limit = int(configured or ECONOMY_MAX_URGENT_POSTS_PER_DAY)
+    except ValueError:
+        limit = ECONOMY_MAX_URGENT_POSTS_PER_DAY
+    if limit <= 0:
+        return True
+    today = now.astimezone(JST).date()
+    count = 0
+    for row in list(state.get("history", [])) + list(state.get("reservations", [])):
+        if not isinstance(row, dict) or row.get("priority") not in {"breaking", "signal"}:
+            continue
+        for key in ("posted_at", "reserved_at"):
+            try:
+                timestamp = _parse_timestamp(str(row.get(key, "")))
+            except (TypeError, ValueError):
+                continue
+            if timestamp.astimezone(JST).date() == today:
+                count += 1
+                break
+    return count >= limit
+
+
 def _scheduled_slot_key(now: dt.datetime, kind: str) -> str:
     """主探索とすべての定刻復旧確認で、毎時1枠を共有する。"""
     hour = now.astimezone(JST).strftime("%Y-%m-%d-%H")
@@ -1649,6 +1689,21 @@ def _build_item_from_candidate(
             is_primary_source=bool(selected["is_primary_source"]),
         )
     except Exception as source_image_error:
+        if _economy_mode_enabled():
+            # 主画像の取得に失敗しても、確認済みの公式根拠画像はすでにある。
+            # 節約モードでは生成画像へ切り替えず、その根拠画像1枚で公開する。
+            logger.info("節約モードのため生成画像へ切り替えず、公式根拠画像を使用: %s", source_image_error)
+            selected["evidence_as_primary"] = True
+            item = {
+                "id": _candidate_id(selected),
+                "topic_type": selected["topic_type"],
+                "visual_route": selected["visual_route"],
+                "text": compose_candidate_text(selected),
+                "media_path": _repo_relative(evidence_path),
+                "source_manifest": _repo_relative(evidence_path.with_suffix(".source.json")),
+            }
+            validate_test_item(item)
+            return item, selected
         if _generated_editorial_visual_count(state, now) >= MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY:
             raise ValueError("主画像がなく、生成画像の日次上限に達しています") from source_image_error
         logger.info("出典の主画像を取得できないため生成ビジュアルへ切替: %s", source_image_error)
@@ -2085,6 +2140,11 @@ def prepare(args: argparse.Namespace) -> int:
         _emit_output("ready", "false")
         return 0
     priority = "review" if target_topic else "signal" if promote_signals else "breaking" if priority_url else "scheduled"
+    if priority in {"breaking", "signal"} and _urgent_post_budget_exhausted(state, now):
+        logger.info("節約モードの重要速報は日次上限に達したため見送ります")
+        _emit_output("ready", "false")
+        return 0
+    economy_recovery = _economy_mode_enabled() and scheduled_kind in {"fallback", "watchdog"}
     candidates: list[dict] = []
     sources: list[dict[str, str]] = []
     signals: list[dict[str, str]] = []
@@ -2121,7 +2181,7 @@ def prepare(args: argparse.Namespace) -> int:
     elif not promote_signals:
         # 発見済みの高反応シグナルは、一般探索の候補群に埋もれさせない。毎時枠では
         # まず同じ出来事の一次資料を検証し、通らなければ処理結果を残して次へ進む。
-        pending_signals = [] if target_topic else collect_promotion_signals(now, limit=3)
+        pending_signals = [] if target_topic or _economy_mode_enabled() else collect_promotion_signals(now, limit=3)
         for signal in pending_signals:
             try:
                 focused_candidates, focused_sources, _ = research_candidates_with_grok(
@@ -2139,10 +2199,10 @@ def prepare(args: argparse.Namespace) -> int:
             selected_signal = signal
             break
 
-    if not priority_url and not promote_signals and not candidates:
+    if not priority_url and not promote_signals and not candidates and not economy_recovery:
         # Xで伸びている新着の動画・画像は、ニュース探索の失敗時だけではなく
         # 定期的に優先する。速報URLがある場合は上の分岐で一次資料を最優先する。
-        if not target_topic and _prefer_overseas_kol_turn(state):
+        if not target_topic and not _economy_mode_enabled() and _prefer_overseas_kol_turn(state):
             try:
                 overseas_quote = _build_overseas_kol_quote_item(now, state)
                 if overseas_quote:
@@ -2198,7 +2258,7 @@ def prepare(args: argparse.Namespace) -> int:
                     unreachable_hosts.add(host)
                 # 事実・URL・鮮度は維持したまま、文章の判定だけで落ちた候補を
                 # そのまま捨てない。一度だけ文章欄を修復して同じ検証を通す。
-                if not _is_editorial_repairable_error(exc):
+                if _economy_mode_enabled() or not _is_editorial_repairable_error(exc):
                     continue
                 try:
                     repaired = repair_candidate_editorial_copy(option, reason)
@@ -2260,7 +2320,7 @@ def prepare(args: argparse.Namespace) -> int:
 
     # 最初の候補群で止まらず、失敗理由を渡して探索入口を変える。特に、Xで見つけた
     # 話題から一次URLに辿れない、または公式ページの表現が弱い時間をここで救う。
-    if item is None and not priority_url and not promote_signals:
+    if item is None and not priority_url and not promote_signals and not _economy_mode_enabled():
         try:
             rescue_candidates, rescue_sources = research_rescue_candidates(
                 now,
@@ -2277,7 +2337,7 @@ def prepare(args: argparse.Namespace) -> int:
     # 一次資料の候補がこの時点で成立しない場合、海外KOLリストで実測済みの
     # 新着動画・画像をネイティブ引用として検討する。元投稿のメディアと投稿者を
     # そのまま表示し、データのない生成画像や転載画像には置き換えない。
-    if item is None and not priority_url and not target_topic:
+    if item is None and not priority_url and not target_topic and not _economy_mode_enabled():
         try:
             overseas_quote = _build_overseas_kol_quote_item(now, state)
             if overseas_quote:

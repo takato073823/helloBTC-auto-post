@@ -2,11 +2,9 @@ name: INU 画像付き毎時投稿
 
 on:
   schedule:
-    # GitHub Actionsの定刻実行は遅延・欠落することがあるため、毎時2回だけに
-    # 依存しない。03分を主探索、以後10分ごとを同一時間枠の復旧確認として実行する。
-    # スクリプト側がJST時間単位で予約・公開済みを判定するため、1時間に複数投稿はしない。
+    # 節約モードでは毎時03分の主実行だけで候補を生成する。欠落時だけ別の
+    # 軽量ガードが市場データ投稿を起動するため、同じ時間にAI探索を重ねない。
     - cron: "3 * * * *"
-    - cron: "13,23,33,43,53 * * * *"
   workflow_dispatch:
     inputs:
       live:
@@ -61,16 +59,9 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
-          XAI_RESEARCH_MODEL: grok-4.3
-          INU_GROK_EDITORIAL_ENABLED: true
-          INU_IMAGE_PROVIDER: openai
-          INU_IMAGE_FALLBACK_PROVIDER: none
+          INU_ECONOMY_MODE: true
+          INU_GROK_EDITORIAL_ENABLED: false
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare --dry-run
 
@@ -79,16 +70,9 @@ jobs:
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
-          XAI_RESEARCH_MODEL: grok-4.3
-          INU_GROK_EDITORIAL_ENABLED: true
-          INU_IMAGE_PROVIDER: openai
-          INU_IMAGE_FALLBACK_PROVIDER: none
+          INU_ECONOMY_MODE: true
+          INU_GROK_EDITORIAL_ENABLED: false
         working-directory: scripts
         run: python inu_auto_hourly.py --prepare
 
