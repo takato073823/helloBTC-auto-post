@@ -967,6 +967,33 @@ class INUAutoHourlyTests(unittest.TestCase):
         research.assert_not_called()
         fallback.assert_called_once()
 
+    def test_economy_watchdog_reuses_queue_before_market_fallback(self):
+        args = SimpleNamespace(state="/tmp/unused-state.json", slot="", priority_url="", priority_hint="", promote_signals=False, topic="", dry_run=True, no_market_fallback=False)
+        queued = candidate()
+        queued_item = {
+            "id": "inu_queued_economy",
+            "topic_type": "etf_flow",
+            "visual_route": "official_data_crop",
+            "text": "📈 $BTC ETF、資金フローを更新\n\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ", {"INU_ECONOMY_MODE": "true", "INU_SCHEDULE_RUN_KIND": "watchdog"}, clear=False
+        ), patch.object(inu_auto_hourly, "load_state", return_value={"history": [], "reservations": [], "posted_slots": []}), patch.object(
+            inu_auto_hourly, "research_candidates_with_grok"
+        ) as research, patch.object(
+            inu_auto_hourly, "_take_queued_research_candidate", return_value=([queued], [{"url": queued["source_url"], "title": "official"}])
+        ) as take_queue, patch.object(
+            inu_auto_hourly, "_build_item_from_candidate", return_value=(queued_item, queued)
+        ), patch.object(
+            inu_auto_hourly, "build_market_data_fallback"
+        ) as fallback, patch.object(inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        research.assert_not_called()
+        take_queue.assert_called_once()
+        fallback.assert_not_called()
+
     def test_primary_and_watchdog_share_one_hourly_slot(self):
         now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)
         self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "primary"))

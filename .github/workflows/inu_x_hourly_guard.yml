@@ -2,8 +2,9 @@ name: INU 毎時投稿ガード
 
 on:
   schedule:
-    # 毎時投稿ワークフローの定刻起動が欠落したときの別系統の復旧確認。
-    - cron: "33 * * * *"
+    # GitHub Actionsの定刻遅延・欠落を吸収するため10分ごとに確認する。
+    # 実際の投稿起動は、JST時間枠に公開・予約がない場合の1回だけ。
+    - cron: "7,17,27,37,47,57 * * * *"
   workflow_dispatch:
 
 permissions:

@@ -2345,7 +2345,7 @@ def prepare(args: argparse.Namespace) -> int:
             selected_signal = signal
             break
 
-    if not priority_url and not promote_signals and not candidates and not economy_recovery:
+    if not priority_url and not promote_signals and not candidates:
         # Xで伸びている新着の動画・画像は、ニュース探索の失敗時だけではなく
         # 定期的に優先する。速報URLがある場合は上の分岐で一次資料を最優先する。
         if not target_topic and not _economy_mode_enabled() and _prefer_overseas_kol_turn(state):
@@ -2357,7 +2357,7 @@ def prepare(args: argparse.Namespace) -> int:
             except Exception as exc:
                 failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
                 logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
-        if item is None and paid_web_research:
+        if item is None and paid_web_research and not economy_recovery:
             try:
                 candidates, sources, signals = research_candidates_with_grok(
                     now, state, target_topic=target_topic
