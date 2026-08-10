@@ -2,8 +2,8 @@ name: INU 画像付き毎時投稿
 
 on:
   schedule:
-    # 節約モードでは毎時03分の主実行だけで候補を生成する。欠落時だけ別の
-    # 軽量ガードが市場データ投稿を起動するため、同じ時間にAI探索を重ねない。
+    # 毎時03分に投稿を準備する。節約モードでは3時間ごとだけ深いWeb調査を行い、
+    # その回で検証した候補キューを残りの時間に再検証して使う。
     - cron: "3 * * * *"
   workflow_dispatch:
     inputs:
@@ -61,6 +61,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
           INU_ECONOMY_MODE: true
+          INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 3
           INU_GROK_EDITORIAL_ENABLED: false
           INU_ECONOMY_GENERATED_VISUALS: true
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
@@ -76,6 +77,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INU_RESEARCH_MODEL: gpt-5.6-terra
           INU_ECONOMY_MODE: true
+          INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 3
           INU_GROK_EDITORIAL_ENABLED: false
           INU_ECONOMY_GENERATED_VISUALS: true
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6

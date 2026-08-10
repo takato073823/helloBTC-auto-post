@@ -193,6 +193,50 @@ class INUAutoHourlyTests(unittest.TestCase):
         with patch.dict("os.environ", {"INU_ECONOMY_MODE": "true"}, clear=False):
             self.assertTrue(inu_auto_hourly._urgent_post_budget_exhausted(state, NOW))
 
+    def test_economy_mode_runs_paid_web_research_every_three_hours(self):
+        with patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS": "3",
+            },
+            clear=False,
+        ):
+            self.assertTrue(inu_auto_hourly._should_run_paid_web_research(NOW))
+            self.assertFalse(
+                inu_auto_hourly._should_run_paid_web_research(NOW + dt.timedelta(hours=1))
+            )
+            self.assertTrue(
+                inu_auto_hourly._should_run_paid_web_research(
+                    NOW + dt.timedelta(hours=1),
+                    priority_url="https://example.com/official/urgent",
+                )
+            )
+
+    def test_economy_reuses_verified_candidate_queue_without_web_research(self):
+        first = candidate()
+        second = candidate(
+            source_url="https://example.com/official/flow-2",
+            evidence_anchor="Net inflow 200 million",
+            facts=["公式集計で2億ドルの純流入を確認しました。"],
+        )
+        state = {"history": [], "reservations": []}
+        sources = [
+            {"url": first["source_url"], "title": "first official"},
+            {"url": second["source_url"], "title": "second official"},
+        ]
+        inu_auto_hourly._queue_research_candidates(
+            state,
+            [first, second],
+            sources,
+            NOW,
+            selected_candidate=first,
+        )
+        queued, queued_sources = inu_auto_hourly._take_queued_research_candidate(state, NOW)
+        self.assertEqual([second], queued)
+        self.assertEqual([{"url": second["source_url"], "title": "second official"}], queued_sources)
+        self.assertEqual([], state["research_queue"])
+
     def test_tracking_parameters_are_removed(self):
         actual = inu_auto_hourly.normalize_url(
             "HTTPS://Example.COM/release/?utm_source=x&id=2#top"

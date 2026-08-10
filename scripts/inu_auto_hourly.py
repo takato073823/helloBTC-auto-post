@@ -69,6 +69,8 @@ MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 MAX_SCHEDULED_CHECKS = 168
 ECONOMY_MAX_URGENT_POSTS_PER_DAY = 3
 ECONOMY_MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 6
+ECONOMY_WEB_RESEARCH_INTERVAL_HOURS = 3
+MAX_RESEARCH_QUEUE = 18
 GROWTH_TOPIC_ROTATION = (
     "etf_flow",
     "onchain",
@@ -744,7 +746,8 @@ def research_candidates(
         ),
         schema_name="inu_live_candidate_set",
         schema=CANDIDATE_SET_SCHEMA,
-        max_output_tokens=5200,
+        # 3時間分の候補に必要な分だけに制限し、冗長な探索出力を課金対象にしない。
+        max_output_tokens=3600,
         # 複数市場から一次資料まで辿る必要があるため、検索選定はTerraを使う。
         model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
         request_timeout_seconds=70.0,
@@ -1527,6 +1530,125 @@ def _economy_generated_visuals_enabled() -> bool:
     return os.environ.get("INU_ECONOMY_GENERATED_VISUALS", "false").strip().lower() in {"1", "true", "yes"}
 
 
+def _economy_web_research_interval_hours() -> int:
+    """節約モードで、Web検索を実行する時間間隔を返す。"""
+    configured = os.environ.get("INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS", "")
+    try:
+        interval = int(configured or ECONOMY_WEB_RESEARCH_INTERVAL_HOURS)
+    except ValueError:
+        interval = ECONOMY_WEB_RESEARCH_INTERVAL_HOURS
+    return max(1, min(interval, 24))
+
+
+def _should_run_paid_web_research(
+    now: dt.datetime,
+    *,
+    priority_url: str = "",
+    promote_signals: bool = False,
+    target_topic: str | None = None,
+) -> bool:
+    """通常枠のWeb検索を間引き、緊急・個別指定は常に優先する。"""
+    if not _economy_mode_enabled():
+        return True
+    if priority_url or promote_signals or target_topic:
+        return True
+    return now.astimezone(JST).hour % _economy_web_research_interval_hours() == 0
+
+
+def _queue_candidate_is_usable(row: dict, state: dict, now: dt.datetime) -> bool:
+    """一次資料の候補キューを、鮮度・重複の条件付きで再利用する。"""
+    candidate = row.get("candidate")
+    sources = row.get("sources")
+    if not isinstance(candidate, dict) or not isinstance(sources, list):
+        return False
+    topic = str(candidate.get("topic_type", ""))
+    if topic not in MAX_AGE_HOURS:
+        return False
+    try:
+        age = now.astimezone(dt.timezone.utc) - _parse_timestamp(str(candidate.get("published_at", "")))
+    except (TypeError, ValueError):
+        return False
+    # 次の定期枠へ回す候補は、通常の鮮度上限に加えて6時間以内に限定する。
+    if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=min(MAX_AGE_HOURS[topic], 6)):
+        return False
+    source_url = normalize_url(str(candidate.get("source_url", "")))
+    if not source_url:
+        return False
+    used_urls = {
+        normalize_url(str(item.get("source_url", "")))
+        for item in list(state.get("history", [])) + list(state.get("reservations", []))
+        if isinstance(item, dict)
+    }
+    if source_url in used_urls:
+        return False
+    return any(normalize_url(str(source.get("url", ""))) == source_url for source in sources if isinstance(source, dict))
+
+
+def _take_queued_research_candidate(
+    state: dict,
+    now: dt.datetime,
+) -> tuple[list[dict], list[dict[str, str]]]:
+    """前回の深いWeb調査で確認済みの未使用候補を1件だけ取り出す。"""
+    queue = [row for row in state.get("research_queue", []) if isinstance(row, dict)]
+    kept: list[dict] = []
+    selected: dict | None = None
+    for row in queue:
+        if not _queue_candidate_is_usable(row, state, now):
+            continue
+        if selected is None:
+            selected = row
+        else:
+            kept.append(row)
+    state["research_queue"] = kept[-MAX_RESEARCH_QUEUE:]
+    if selected is None:
+        return [], []
+    candidate = dict(selected["candidate"])
+    sources = [dict(source) for source in selected["sources"] if isinstance(source, dict)]
+    logger.info("検証済み候補キューから一次資料を再確認: %s", candidate.get("source_url", ""))
+    return [candidate], sources
+
+
+def _queue_research_candidates(
+    state: dict,
+    candidates: list[dict],
+    sources: list[dict[str, str]],
+    now: dt.datetime,
+    *,
+    selected_candidate: dict | None = None,
+) -> None:
+    """深いWeb調査の残り候補を、次の毎時枠用に短時間だけ保存する。"""
+    existing = [
+        row for row in state.get("research_queue", [])
+        if isinstance(row, dict) and _queue_candidate_is_usable(row, state, now)
+    ]
+    selected_url = normalize_url(str((selected_candidate or {}).get("source_url", "")))
+    seen_urls = {
+        normalize_url(str(row.get("candidate", {}).get("source_url", "")))
+        for row in existing
+        if isinstance(row.get("candidate"), dict)
+    }
+    for candidate in candidates:
+        if not isinstance(candidate, dict):
+            continue
+        source_url = normalize_url(str(candidate.get("source_url", "")))
+        if not source_url or source_url == selected_url or source_url in seen_urls:
+            continue
+        candidate_sources = [
+            {"url": source_url, "title": str(source.get("title", ""))}
+            for source in sources
+            if isinstance(source, dict) and normalize_url(str(source.get("url", ""))) == source_url
+        ]
+        row = {
+            "candidate": dict(candidate),
+            "sources": candidate_sources,
+            "queued_at": now.isoformat(),
+        }
+        if _queue_candidate_is_usable(row, state, now):
+            existing.append(row)
+            seen_urls.add(source_url)
+    state["research_queue"] = existing[-MAX_RESEARCH_QUEUE:]
+
+
 def _generated_editorial_visual_limit() -> int:
     """画像生成の1日上限を、節約モードではより低く保つ。"""
     if not _economy_mode_enabled():
@@ -2163,6 +2285,12 @@ def prepare(args: argparse.Namespace) -> int:
         _emit_output("ready", "false")
         return 0
     economy_recovery = _economy_mode_enabled() and scheduled_kind in {"fallback", "watchdog"}
+    paid_web_research = _should_run_paid_web_research(
+        now,
+        priority_url=priority_url,
+        promote_signals=promote_signals,
+        target_topic=target_topic,
+    )
     candidates: list[dict] = []
     sources: list[dict[str, str]] = []
     signals: list[dict[str, str]] = []
@@ -2229,7 +2357,7 @@ def prepare(args: argparse.Namespace) -> int:
             except Exception as exc:
                 failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
                 logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
-        if item is None:
+        if item is None and paid_web_research:
             try:
                 candidates, sources, signals = research_candidates_with_grok(
                     now, state, target_topic=target_topic
@@ -2242,6 +2370,10 @@ def prepare(args: argparse.Namespace) -> int:
                     for row in signals
                     if row.get("url")
                 ]
+        elif item is None:
+            candidates, sources = _take_queued_research_candidate(state, now)
+            if not candidates:
+                logger.info("節約モードの通常枠はWeb検索を省略し、候補キューを確認しましたが未使用候補はありません")
 
     def try_candidates(
         options: list[dict],
@@ -2329,6 +2461,22 @@ def prepare(args: argparse.Namespace) -> int:
 
     if item is None:
         try_candidates(candidates, sources, phase="一次探索")
+
+    if (
+        item is not None
+        and _economy_mode_enabled()
+        and paid_web_research
+        and not priority_url
+        and not promote_signals
+        and candidate is not None
+    ):
+        _queue_research_candidates(
+            state,
+            candidates,
+            sources,
+            now,
+            selected_candidate=candidate,
+        )
 
     if selected_signal is not None and item is None and not promote_signals:
         promotion_results.append(
