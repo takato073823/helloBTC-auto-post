@@ -655,6 +655,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-10T04:45:58.159145+00:00"
+    },
+    {
+      "slot": "2026-08-10-17-a",
+      "post_id": "inu_market_2026_08_10_17_a_crypto-pengu-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PENGUUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PENGU-USD",
+      "reserved_at": "2026-08-10T08:13:17.172432+00:00"
     }
   ],
   "history": [
