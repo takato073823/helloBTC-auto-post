@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-07T16:08:25+00:00",
-  "last_watcher_guru_scan_at": "2026-08-07T16:08:25+00:00",
+  "last_deep_scan_at": "2026-08-10T06:02:30+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T06:02:30+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -430,6 +430,19 @@
       "action": "search_error",
       "checked_at": "2026-08-08T13:09:03+00:00",
       "error": "402 Payment Required\ncredits depleted",
+      "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T06:02:30+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T06:02:30+00:00",
+      "result_count": 0,
+      "spike": false,
       "topic": "fixed_primary_x"
     }
   ],
