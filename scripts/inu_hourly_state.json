@@ -407,6 +407,20 @@
       "posted_at": "2026-08-10T06:17:36.722330+00:00",
       "hook": "📈 $PUMP、24時間で+14.00％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-10-17-a",
+      "post_id": "inu_market_2026_08_10_17_a_crypto-pengu-usd",
+      "tweet_id": "2086727718750527619",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PENGU-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PENGUUSD",
+      "published_at": "2026-08-10T08:00:00+00:00",
+      "posted_at": "2026-08-10T08:13:52.627905+00:00",
+      "hook": "📈 $PENGU、24時間で+5.64％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -445,7 +459,8 @@
     "inu_auto_a7c800434720c4",
     "inu_market_2026_08_08_00_a_crypto-ondo-usd",
     "inu_market_2026_08_08_01_a_crypto-bonk-usd",
-    "inu_market_2026_08_10_15_a_crypto-pump-usd"
+    "inu_market_2026_08_10_15_a_crypto-pump-usd",
+    "inu_market_2026_08_10_17_a_crypto-pengu-usd"
   ],
   "reservations": [
     {
@@ -655,16 +670,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-10T04:45:58.159145+00:00"
-    },
-    {
-      "slot": "2026-08-10-17-a",
-      "post_id": "inu_market_2026_08_10_17_a_crypto-pengu-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PENGUUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PENGU-USD",
-      "reserved_at": "2026-08-10T08:13:17.172432+00:00"
     }
   ],
   "history": [
@@ -1119,6 +1124,20 @@
       "published_at": "2026-08-10T06:00:00+00:00",
       "posted_at": "2026-08-10T06:17:36.722330+00:00",
       "hook": "📈 $PUMP、24時間で+14.00％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-10-17-a",
+      "post_id": "inu_market_2026_08_10_17_a_crypto-pengu-usd",
+      "tweet_id": "2086727718750527619",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PENGU-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PENGUUSD",
+      "published_at": "2026-08-10T08:00:00+00:00",
+      "posted_at": "2026-08-10T08:13:52.627905+00:00",
+      "hook": "📈 $PENGU、24時間で+5.64％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
