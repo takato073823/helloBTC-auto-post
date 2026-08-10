@@ -2486,7 +2486,13 @@ def prepare(args: argparse.Namespace) -> int:
 
     # 最初の候補群で止まらず、失敗理由を渡して探索入口を変える。特に、Xで見つけた
     # 話題から一次URLに辿れない、または公式ページの表現が弱い時間をここで救う。
-    if item is None and not priority_url and not promote_signals and not _economy_mode_enabled():
+    # 2時間ごとの定期枠は、最初の探索候補が品質・接続・画像のいずれかで落ちても
+    # 同じ枠内で一次情報を一度だけ探し直す。節約モードでも主実行で既に探索を
+    # 行った場合に限るため、復旧ガードから余分な従量課金探索は起動しない。
+    allow_rescue_research = not _economy_mode_enabled() or (
+        paid_web_research and not economy_recovery
+    )
+    if item is None and not priority_url and not promote_signals and allow_rescue_research:
         try:
             rescue_candidates, rescue_sources = research_rescue_candidates(
                 now,

@@ -213,6 +213,18 @@ class INUAutoHourlyTests(unittest.TestCase):
                 )
             )
 
+    def test_economy_mode_can_research_every_regular_slot(self):
+        with patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS": "1",
+            },
+            clear=False,
+        ):
+            self.assertTrue(inu_auto_hourly._should_run_paid_web_research(NOW))
+            self.assertTrue(inu_auto_hourly._should_run_paid_web_research(NOW + dt.timedelta(hours=2)))
+
     def test_economy_reuses_verified_candidate_queue_without_web_research(self):
         first = candidate()
         second = candidate(
@@ -1086,6 +1098,46 @@ class INUAutoHourlyTests(unittest.TestCase):
             self.assertEqual(2, build.call_count)
             prepared = json.loads(prepared_path.read_text(encoding="utf-8"))
             self.assertEqual(options[1]["source_url"], prepared["candidate"]["source_url"])
+
+    def test_economy_regular_slot_researches_once_more_when_first_candidate_fails(self):
+        first = candidate()
+        rescue = candidate(source_url="https://example.com/official/rescue")
+        item = {
+            "id": "inu_auto_rescue",
+            "topic_type": "etf_flow",
+            "visual_route": "official_data_crop",
+            "text": "📈 ETF資金フローを更新\n\n公式集計で新しい数値が公表されました。\n\n#仮想通貨",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        args = SimpleNamespace(state="/tmp/unused-state.json", slot="2026-08-04-21", priority_url="", dry_run=True)
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS": "1",
+                "INU_SCHEDULE_RUN_KIND": "primary",
+            },
+            clear=False,
+        ), patch.object(
+            inu_auto_hourly, "load_state", return_value={"history": []}
+        ), patch.object(
+            inu_auto_hourly,
+            "research_candidates_with_grok",
+            return_value=([first], [{"url": first["source_url"], "title": "first official"}], []),
+        ), patch.object(
+            inu_auto_hourly,
+            "_build_item_from_candidate",
+            side_effect=[ValueError("source timed out"), (item, rescue)],
+        ), patch.object(
+            inu_auto_hourly,
+            "research_rescue_candidates",
+            return_value=([rescue], [{"url": rescue["source_url"], "title": "rescue official"}]),
+        ) as rescue_research, patch.object(
+            inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"
+        ):
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        rescue_research.assert_called_once()
 
     def test_fallback_researches_again_after_primary_had_no_candidate(self):
         args = SimpleNamespace(state="/tmp/unused-state.json", slot="2026-08-04-21", priority_url="", dry_run=True)
