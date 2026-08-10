@@ -20,6 +20,16 @@ class ReplaceFeaturedImageTests(unittest.TestCase):
             self.assertEqual(b"approved-image", image)
             generate.assert_not_called()
 
+    def test_resolves_approved_image_from_repository_root(self):
+        with patch("replace_featured_image.generate_featured_image") as generate:
+            image = load_replacement_image(
+                "assets/featured/robinhood-uk-crypto-ai.png",
+                image_prompt="ignored", tags=[], logo_brand=None,
+                logo_domain=None, article_title="タイトル", article_content="本文",
+            )
+        self.assertTrue(image.startswith(b"\x89PNG"))
+        generate.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()
