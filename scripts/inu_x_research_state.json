@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T17:38:06+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T18:35:26+00:00",
+  "last_deep_scan_at": "2026-08-10T19:43:14+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T19:43:14+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -540,6 +540,19 @@
       "checked_at": "2026-08-10T18:35:26+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T19:43:14+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-10T19:43:14+00:00",
+      "result_count": 7,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -566,6 +579,34 @@
       "summary": "JUST IN: 🇺🇸 Grayscale withdraws proposed Cardano, Polkadot and Hedera ETF registrations from SEC review.",
       "topic": "watcher_guru",
       "why_trending": "表示215,040・投稿後76分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 9000,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "StockWe_Com",
+      "has_video": false,
+      "headline": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeav",
+      "impression_count": 78,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/StockWe_Com/status/2086899180002525393/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086899180002525393",
+      "post_url": "https://x.com/StockWe_Com/status/2086899180002525393",
+      "posted_at": "2026-08-10T19:35:11+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 56.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeave AI算力租赁 $SE Sea Limited 东南亚电商 $CRNR https://t.co/RpxydaP5f5",
+      "topic": "chinese_market",
+      "why_trending": "表示78・投稿後8分・反応率3.3%"
     },
     {
       "author_followers": 4644454,
@@ -618,6 +659,34 @@
       "summary": "Is The CLARITY Act Dead? No, but it's on life support. The Senate pushed the vote until after the August recess, and the odds of it passing this year have dropped sharply as political fights over ethics provisions and stablecoin rules continue. If it fails: • Crypto",
       "topic": "regulation",
       "why_trending": "表示28・投稿後15分・反応率5.7%"
+    },
+    {
+      "author_followers": 3336,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ShihBSC",
+      "has_video": false,
+      "headline": "Shih the guardian of China🔶🐕⛩️ 标题：探索 Shih：下一个引领潮流的社区驱动型数字资产！ 尊敬的加密货币投资者与区块链爱好者们： 在这个充满机遇的数字时代，我们自豪地向您介绍 Shih。Shih 不是一个普通的代币，它代表着一个由社区完全接管、高度去中心化的强大共识网络。 为什么选择投资 https://t.co/Ugtcfl",
+      "impression_count": 176,
+      "like_count": 8,
+      "linked_urls": [
+        "https://x.com/ShihBSC/status/2086890999884984344/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086890999884984344",
+      "post_url": "https://x.com/ShihBSC/status/2086890999884984344",
+      "posted_at": "2026-08-10T19:02:41+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 2,
+      "score": 51.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Shih the guardian of China🔶🐕⛩️ 标题：探索 Shih：下一个引领潮流的社区驱动型数字资产！ 尊敬的加密货币投资者与区块链爱好者们： 在这个充满机遇的数字时代，我们自豪地向您介绍 Shih。Shih 不是一个普通的代币，它代表着一个由社区完全接管、高度去中心化的强大共识网络。 为什么选择投资 https://t.co/UgtcfljIWe",
+      "topic": "chinese_market",
+      "why_trending": "表示176・投稿後40分・反応率7.7%"
     },
     {
       "author_followers": 24228,
@@ -675,32 +744,60 @@
       "why_trending": "表示29・投稿後39分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 386,
-      "discovered_at": "2026-08-10T14:06:54+00:00",
+      "author_followers": 9000,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Sparty_Par",
+      "handle": "StockWe_Com",
       "has_video": false,
-      "headline": "1/ $853 million into Bitcoin ETFs last week. $0 into XRP ETFs. These two numbers explain the entire crypto market right now. Here is what that gap tells you — and the one thing eve",
-      "impression_count": 67,
-      "like_count": 0,
+      "headline": "本周美股财报，重点关注 $NBISNebius GroupAI云服务 【美股投资网2026首选股】 $COHRCoherent光通信设备 $CSCOCisco Systems网络设备龙头 $CBRSCerebras SystemsAI算力芯片 $INFQInfinity Acquisition CorpSPAC平台 $CRWVCoreWeaveAI算力租赁 ",
+      "impression_count": 74,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/Sparty_Par/status/2086796928516288736/photo/1"
+        "https://x.com/StockWe_Com/status/2086898363258327091/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086796928516288736",
-      "post_url": "https://x.com/Sparty_Par/status/2086796928516288736",
-      "posted_at": "2026-08-10T12:48:53+00:00",
+      "post_id": "2086898363258327091",
+      "post_url": "https://x.com/StockWe_Com/status/2086898363258327091",
+      "posted_at": "2026-08-10T19:31:57+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 1,
+      "repost_count": 0,
       "score": 46.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "1/ $853 million into Bitcoin ETFs last week. $0 into XRP ETFs. These two numbers explain the entire crypto market right now. Here is what that gap tells you — and the one thing every XRP holder needs to do before September 14. 2/ August 10, 2026. Monday morning. Bitcoin: https://t.co/TRcTe0wJTE",
-      "topic": "regulation",
-      "why_trending": "表示67・投稿後78分・反応率3.0%"
+      "summary": "本周美股财报，重点关注 $NBISNebius GroupAI云服务 【美股投资网2026首选股】 $COHRCoherent光通信设备 $CSCOCisco Systems网络设备龙头 $CBRSCerebras SystemsAI算力芯片 $INFQInfinity Acquisition CorpSPAC平台 $CRWVCoreWeaveAI算力租赁 $SE Sea Limited东南亚互联网 $CRNRCorner Growth https://t.co/t1etB9n4fC",
+      "topic": "chinese_market",
+      "why_trending": "表示74・投稿後11分・反応率1.4%"
+    },
+    {
+      "author_followers": 316,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "KelvinK58193861",
+      "has_video": false,
+      "headline": "金子今天走的真漂亮。 当前宏观经济与股市关系的具体评论和个人看法： 一、 对文字内容的评论：宏观经济的“两极分化” 企业盈利的强劲与韧性 “企业盈利极佳”。在过去一段时间里，大型企业（尤其是科技和头部龙头企业）通过提高效率、成本控制以及转嫁成本的能力，保持了极高的利润率。 https://t.co/j55NmAQp7c",
+      "impression_count": 63,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/KelvinK58193861/status/2086884637918494794/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086884637918494794",
+      "post_url": "https://x.com/KelvinK58193861/status/2086884637918494794",
+      "posted_at": "2026-08-10T18:37:24+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 45.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "金子今天走的真漂亮。 当前宏观经济与股市关系的具体评论和个人看法： 一、 对文字内容的评论：宏观经济的“两极分化” 企业盈利的强劲与韧性 “企业盈利极佳”。在过去一段时间里，大型企业（尤其是科技和头部龙头企业）通过提高效率、成本控制以及转嫁成本的能力，保持了极高的利润率。 https://t.co/j55NmAQp7c",
+      "topic": "chinese_market",
+      "why_trending": "表示63・投稿後65分・反応率2.5%"
     },
     {
       "author_followers": 24228,
@@ -732,58 +829,88 @@
       "why_trending": "表示161・投稿後53分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 8915,
-      "discovered_at": "2026-08-10T14:06:54+00:00",
+      "author_followers": 106,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MyCryptoAlert",
-      "has_video": false,
-      "headline": "U.S. Senate Sets September 15 CLARITY Act Vote https://t.co/k3pD9f3udL 🚨CryptoAlert Your Trusted Crypto News Outlet. ---------------- #Ripple #XRP #SEC #CryptoNews #CryptoAlert #Bl",
-      "impression_count": 251,
-      "like_count": 2,
-      "linked_urls": [
-        "https://www.thecryptoalert.com/post/u-s-senate-sets-september-15-clarity-act-vote"
-      ],
-      "media_types": [],
-      "post_id": "2086798489955246376",
-      "post_url": "https://x.com/MyCryptoAlert/status/2086798489955246376",
-      "posted_at": "2026-08-10T12:55:05+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 43.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "U.S. Senate Sets September 15 CLARITY Act Vote https://t.co/k3pD9f3udL 🚨CryptoAlert Your Trusted Crypto News Outlet. ---------------- #Ripple #XRP #SEC #CryptoNews #CryptoAlert #Blockchain #Fintech #SWIFT #CFTC #USDT",
-      "topic": "regulation",
-      "why_trending": "表示251・投稿後71分・反応率0.8%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 169,
-      "discovered_at": "2026-08-10T14:06:54+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Malowallet",
-      "has_video": false,
-      "headline": "🚨 TODAY IN CRYPTO &amp; WEB3 — AUG 10 ₿ BTC holds above $65K 💰 $1.1B flows into BTC + ETH ETFs ⚖️ Crypto regulation takes center stage Ξ ETH gains renewed ETF attention 🤖 AI + DePI",
-      "impression_count": 15,
+      "handle": "JoelLikesTurtle",
+      "has_video": true,
+      "headline": "补邀请码 现货交易所 抹茶 WEEX返佣 Deepcoin OKX返佣 比特币 背包交易所 高返佣 BTC Bitbaby返佣 空单 AI交易 Websea SOL https://t.co/6eVhICB19i",
+      "impression_count": 10,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/Malowallet/status/2086798879161188433/photo/1"
+        "https://x.com/JoelLikesTurtle/status/2086876433956172233/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2086876433956172233",
+      "post_url": "https://x.com/JoelLikesTurtle/status/2086876433956172233",
+      "posted_at": "2026-08-10T18:04:48+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 42.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "补邀请码 现货交易所 抹茶 WEEX返佣 Deepcoin OKX返佣 比特币 背包交易所 高返佣 BTC Bitbaby返佣 空单 AI交易 Websea SOL https://t.co/6eVhICB19i",
+      "topic": "chinese_market",
+      "why_trending": "表示10・投稿後98分・反応率26.0%・動画あり"
+    },
+    {
+      "author_followers": 193,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MbR_88",
+      "has_video": true,
+      "headline": "现货交易所 HTX返佣 比特币 换交易所 手续费 稳定币 IBIT返佣 Backpack U本位 EasiCoin返佣 合约手续费 火币返佣 欧意 资金费率 深币 https://t.co/MhUQuod05b",
+      "impression_count": 10,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/MbR_88/status/2086879158831923564/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2086879158831923564",
+      "post_url": "https://x.com/MbR_88/status/2086879158831923564",
+      "posted_at": "2026-08-10T18:15:38+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 41.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "现货交易所 HTX返佣 比特币 换交易所 手续费 稳定币 IBIT返佣 Backpack U本位 EasiCoin返佣 合约手续费 火币返佣 欧意 资金费率 深币 https://t.co/MhUQuod05b",
+      "topic": "chinese_market",
+      "why_trending": "表示10・投稿後87分・反応率16.0%・動画あり"
+    },
+    {
+      "author_followers": 9000,
+      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "StockWe_Com",
+      "has_video": false,
+      "headline": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeav",
+      "impression_count": 58,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/StockWe_Com/status/2086899034254672197/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086798879161188433",
-      "post_url": "https://x.com/Malowallet/status/2086798879161188433",
-      "posted_at": "2026-08-10T12:56:38+00:00",
+      "post_id": "2086899034254672197",
+      "post_url": "https://x.com/StockWe_Com/status/2086899034254672197",
+      "posted_at": "2026-08-10T19:34:37+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 40.8,
+      "score": 39.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 TODAY IN CRYPTO &amp; WEB3 — AUG 10 ₿ BTC holds above $65K 💰 $1.1B flows into BTC + ETH ETFs ⚖️ Crypto regulation takes center stage Ξ ETH gains renewed ETF attention 🤖 AI + DePIN altcoins heat up The market is moving. 👀📈 Stay informed. Stay ahead. Trade smarter with Malo https://t.co/4ql9ANh0cc",
-      "topic": "regulation",
-      "why_trending": "表示15・投稿後70分・反応率6.7%"
+      "summary": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeave AI算力租赁 $SE Sea Limited 东南亚电商 $CRNR https://t.co/0lVQiuvBTz",
+      "topic": "chinese_market",
+      "why_trending": "表示58・投稿後8分・反応率0.0%"
     },
     {
       "author_followers": 175,
