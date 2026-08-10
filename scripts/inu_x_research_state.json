@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-10T19:43:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T19:43:14+00:00",
+  "last_watcher_guru_scan_at": "2026-08-10T20:24:40+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -553,6 +553,12 @@
       "result_count": 7,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-10T20:24:40+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -635,30 +641,6 @@
       "summary": "JUST IN: Peter Schiff says \"sell Bitcoin now.\" https://t.co/mTuoGv6geT",
       "topic": "watcher_guru",
       "why_trending": "表示229,460・投稿後112分・反応率1.3%"
-    },
-    {
-      "author_followers": 314,
-      "discovered_at": "2026-08-10T14:06:54+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MrStakamoto",
-      "has_video": false,
-      "headline": "Is The CLARITY Act Dead? No, but it's on life support. The Senate pushed the vote until after the August recess, and the odds of it passing this year have dropped sharply as politi",
-      "impression_count": 28,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2086812706829488561",
-      "post_url": "https://x.com/MrStakamoto/status/2086812706829488561",
-      "posted_at": "2026-08-10T13:51:35+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 53.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Is The CLARITY Act Dead? No, but it's on life support. The Senate pushed the vote until after the August recess, and the odds of it passing this year have dropped sharply as political fights over ethics provisions and stablecoin rules continue. If it fails: • Crypto",
-      "topic": "regulation",
-      "why_trending": "表示28・投稿後15分・反応率5.7%"
     },
     {
       "author_followers": 3336,
