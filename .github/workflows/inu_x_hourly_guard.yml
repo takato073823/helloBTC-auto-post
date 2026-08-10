@@ -2,9 +2,9 @@ name: INU 毎時投稿ガード
 
 on:
   schedule:
-    # GitHub Actionsの定刻遅延・欠落を吸収するため10分ごとに確認する。
-    # 実際の投稿起動は、JST時間枠に公開・予約がない場合の1回だけ。
-    - cron: "7,17,27,37,47,57 * * * *"
+    # GitHub Actionsの定刻遅延・欠落を吸収するため、定期投稿の対象時だけ
+    # 10分ごとに確認する。実際の投稿起動は、JST時間枠に公開・予約がない場合の1回だけ。
+    - cron: "7,17,27,37,47,57 0-22/2 * * *"
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,9 @@ jobs:
 
       - name: この時間枠の公開・予約状態を確認
         id: state
+        env:
+          INU_POST_INTERVAL_HOURS: "2"
+          INU_POST_START_HOUR_JST: "1"
         run: python scripts/inu_hourly_guard.py
 
       - name: 欠落した毎時投稿を復旧起動

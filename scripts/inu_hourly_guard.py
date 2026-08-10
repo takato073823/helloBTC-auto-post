@@ -14,10 +14,37 @@ JST = ZoneInfo("Asia/Tokyo")
 DEFAULT_STATE_PATH = Path(__file__).with_name("inu_hourly_state.json")
 
 
+def _positive_int_from_env(name: str, default: int, *, maximum: int) -> int:
+    """壊れた環境変数で、復旧ガードが全時間帯に誤作動しないようにする。"""
+    try:
+        value = int(os.environ.get(name, str(default)))
+    except ValueError:
+        return default
+    return value if 1 <= value <= maximum else default
+
+
+def post_interval_hours() -> int:
+    """定期投稿の時間間隔。現在は2時間ごと。"""
+    interval = _positive_int_from_env("INU_POST_INTERVAL_HOURS", 1, maximum=24)
+    return interval if 24 % interval == 0 else 1
+
+
+def post_start_hour_jst() -> int:
+    """周期の起点となるJST時刻。現在は奇数時に投稿する。"""
+    return _positive_int_from_env("INU_POST_START_HOUR_JST", 0, maximum=23)
+
+
 def current_slot(now: dt.datetime | None = None) -> str:
     """定期投稿と同じ JST の1時間枠キーを返す。"""
     moment = now or dt.datetime.now(dt.timezone.utc)
     return f"{moment.astimezone(JST).strftime('%Y-%m-%d-%H')}-a"
+
+
+def is_scheduled_post_hour(now: dt.datetime | None = None) -> bool:
+    """現在のJST時間が、定期投稿と復旧の対象時間かを返す。"""
+    moment = now or dt.datetime.now(dt.timezone.utc)
+    hour = moment.astimezone(JST).hour
+    return (hour - post_start_hour_jst()) % post_interval_hours() == 0
 
 
 def load_state(path: Path = DEFAULT_STATE_PATH) -> dict:
@@ -61,10 +88,13 @@ def emit_output(name: str, value: str) -> None:
 
 
 def main() -> int:
-    slot = current_slot()
+    now = dt.datetime.now(dt.timezone.utc)
+    slot = current_slot(now)
+    scheduled = is_scheduled_post_hour(now)
     active = has_hourly_activity(load_state(), slot)
     emit_output("slot", slot)
-    emit_output("needs_recovery", "false" if active else "true")
+    emit_output("scheduled_slot", "true" if scheduled else "false")
+    emit_output("needs_recovery", "true" if scheduled and not active else "false")
     return 0
 
 
