@@ -477,6 +477,20 @@
       "posted_at": "2026-08-10T20:54:45.012219+00:00",
       "hook": "📈 $CRV、24時間で+8.45％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-11-07-a",
+      "post_id": "inu_market_2026_08_11_07_a_crypto-pump-usd",
+      "tweet_id": "2086944378388656470",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PUMP-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PUMPUSD",
+      "published_at": "2026-08-10T22:00:00+00:00",
+      "posted_at": "2026-08-10T22:34:48.292319+00:00",
+      "hook": "📈 $PUMP、24時間で+5.30％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -520,7 +534,8 @@
     "inu_market_2026_08_10_21_a_crypto-pump-usd",
     "inu_auto_6bce65793b0a25",
     "inu_market_2026_08_11_01_a_crypto-mon-usd",
-    "inu_market_2026_08_11_05_a_crypto-crv-usd"
+    "inu_market_2026_08_11_05_a_crypto-crv-usd",
+    "inu_market_2026_08_11_07_a_crypto-pump-usd"
   ],
   "reservations": [
     {
@@ -730,16 +745,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-10T04:45:58.159145+00:00"
-    },
-    {
-      "slot": "2026-08-11-07-a",
-      "post_id": "inu_market_2026_08_11_07_a_crypto-pump-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PUMPUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PUMP-USD",
-      "reserved_at": "2026-08-10T22:33:12.988984+00:00"
     }
   ],
   "history": [
@@ -1264,6 +1269,20 @@
       "published_at": "2026-08-10T20:00:00+00:00",
       "posted_at": "2026-08-10T20:54:45.012219+00:00",
       "hook": "📈 $CRV、24時間で+8.45％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-11-07-a",
+      "post_id": "inu_market_2026_08_11_07_a_crypto-pump-usd",
+      "tweet_id": "2086944378388656470",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PUMP-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PUMPUSD",
+      "published_at": "2026-08-10T22:00:00+00:00",
+      "posted_at": "2026-08-10T22:34:48.292319+00:00",
+      "hook": "📈 $PUMP、24時間で+5.30％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
