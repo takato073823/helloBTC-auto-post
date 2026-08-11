@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-11T11:31:39+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T11:31:39+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T12:29:22+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -668,37 +668,15 @@
       "result_count": 8,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T12:29:22+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
-    {
-      "author_followers": 2147,
-      "discovered_at": "2026-08-11T06:37:11+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "zBit_Official",
-      "has_video": false,
-      "headline": "🇺🇸 SEC Crypto Regulation Update The SEC is scheduled to discuss a proposed framework for certain crypto asset investment contracts on August 14, covering areas such as disclosure r",
-      "impression_count": 26,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/zBit_Official/status/2087063111824261487/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087063111824261487",
-      "post_url": "https://x.com/zBit_Official/status/2087063111824261487",
-      "posted_at": "2026-08-11T06:26:36+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 57.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🇺🇸 SEC Crypto Regulation Update The SEC is scheduled to discuss a proposed framework for certain crypto asset investment contracts on August 14, covering areas such as disclosure requirements, safe harbors and registration exemptions. A potentially important development for the https://t.co/LMbtS9JqFi",
-      "topic": "regulation",
-      "why_trending": "表示26・投稿後10分・反応率3.8%"
-    },
     {
       "author_followers": 459,
       "discovered_at": "2026-08-11T11:31:39+00:00",
@@ -860,34 +838,6 @@
       "summary": "９月の株式分割が熱い。あす急落しそうな４銘柄。あす急騰しそうな９銘柄。好決算なのに急落中の１６銘柄銘柄。８月１１日:水曜・祝日版～あす上がる株。最新の日本株情報～ 📷 チャンネル登録者数 28.7万人株リアルライブ https://t.co/yTtVObDxC4",
       "topic": "japanese_market",
       "why_trending": "表示22・投稿後28分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 88732,
-      "discovered_at": "2026-08-11T06:37:11+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinGapeMedia",
-      "has_video": false,
-      "headline": "⚡️JUST IN: Is the SEC Preparing a New Path for #Crypto? The U.S. SEC will hold an open meeting to consider new rules for crypto investment contracts, aligning with Chair @SECPaulSA",
-      "impression_count": 900,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CoinGapeMedia/status/2087058966048305251/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087058966048305251",
-      "post_url": "https://x.com/CoinGapeMedia/status/2087058966048305251",
-      "posted_at": "2026-08-11T06:10:07+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 40.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "⚡️JUST IN: Is the SEC Preparing a New Path for #Crypto? The U.S. SEC will hold an open meeting to consider new rules for crypto investment contracts, aligning with Chair @SECPaulSAtkins proposed “Regulation Crypto Assets” safe-harbor framework. With the SEC and CFTC considering https://t.co/fkE30XrGbK",
-      "topic": "regulation",
-      "why_trending": "表示900・投稿後27分・反応率0.3%"
     },
     {
       "author_followers": 24233,
