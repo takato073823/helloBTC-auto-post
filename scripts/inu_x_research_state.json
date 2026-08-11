@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T14:06:52+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T14:06:52+00:00",
+  "last_deep_scan_at": "2026-08-11T15:40:34+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T15:40:34+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -687,6 +687,19 @@
       "result_count": 7,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T15:40:34+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T15:40:34+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
@@ -718,6 +731,30 @@
       "summary": "突发：🇷🇺 俄罗斯中央银行发布草案法规，将比特币、以太坊和USDT纳入俄罗斯交易所的公开交易！ 莫斯科，8月11日 塔斯社。 监管机构在其 Telegram 频道上宣布，俄罗斯央行已将比特币（Bitcoin）、以太坊（Ethereum）和泰达币（Tether, USDT）列入批准在俄国内交易所公开交易的加密货币名录中。 https://t.co/8qAzNqxZGC https://t.co/47QrKuXAk8",
       "topic": "chinese_market",
       "why_trending": "表示37・投稿後11分・反応率4.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4649024,
+      "discovered_at": "2026-08-11T15:40:34+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 $15 trillion BlackRock says tokenization is the \"next generation for markets.\"",
+      "impression_count": 234798,
+      "like_count": 3190,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087173980012564646",
+      "post_url": "https://x.com/WatcherGuru/status/2087173980012564646",
+      "posted_at": "2026-08-11T13:47:09+00:00",
+      "quote_count": 86,
+      "reply_count": 241,
+      "repost_count": 414,
+      "score": 56.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 $15 trillion BlackRock says tokenization is the \"next generation for markets.\"",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示234,798・投稿後113分・反応率1.9%"
     },
     {
       "author_followers": 1381,
@@ -826,32 +863,6 @@
       "summary": "Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。 加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4 月中旬以来最佳周表现；以太坊 ETF 则连续第五周净流入，增加 2.449 亿美元",
       "topic": "chinese_market",
       "why_trending": "表示26・投稿後31分・反応率6.2%"
-    },
-    {
-      "author_followers": 54,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Nhw3c",
-      "has_video": false,
-      "headline": "さおりさんの分析、またドンピシャで20ドルとれてる👏 安心してトレードできました！ ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA SP500 オルカン https://t.co/9PApnkyhC1",
-      "impression_count": 562,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/saorii_fx/status/2086961518000873736"
-      ],
-      "media_types": [],
-      "post_id": "2087111782493995172",
-      "post_url": "https://x.com/Nhw3c/status/2087111782493995172",
-      "posted_at": "2026-08-11T09:40:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "さおりさんの分析、またドンピシャで20ドルとれてる👏 安心してトレードできました！ ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA SP500 オルカン https://t.co/9PApnkyhC1",
-      "topic": "japanese_market",
-      "why_trending": "表示562・投稿後111分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 1039,
