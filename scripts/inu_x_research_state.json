@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-11T17:42:26+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T17:42:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T18:37:33+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -719,9 +719,39 @@
       "result_count": 6,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T18:37:33+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4650029,
+      "discovered_at": "2026-08-11T18:37:33+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 CFTC says it is prepared to advance crypto regulations even if Congress fails to pass the crypto Clarity Act.",
+      "impression_count": 178931,
+      "like_count": 2978,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087232342905536833",
+      "post_url": "https://x.com/WatcherGuru/status/2087232342905536833",
+      "posted_at": "2026-08-11T17:39:04+00:00",
+      "quote_count": 43,
+      "reply_count": 227,
+      "repost_count": 378,
+      "score": 82.2,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 CFTC says it is prepared to advance crypto regulations even if Congress fails to pass the crypto Clarity Act.",
+      "topic": "watcher_guru",
+      "why_trending": "表示178,931・投稿後58分・反応率2.3%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 2172,
       "discovered_at": "2026-08-11T14:06:52+00:00",
@@ -1004,30 +1034,6 @@
       "summary": "📰 Top Crypto News | Aug. 11 1️⃣ Bitcoin futures carry trades are yielding 7.89%, helping fuel $850M in BTC ETF flows. 2️⃣ Strategy sold $213M BTC and still needs $785M to close STRC's final gap. 3️⃣ SharpLink reported a $1B loss as its $1.7B ETH treasury faces a lengthy",
       "topic": "crypto_market",
       "why_trending": "表示94・投稿後38分・反応率1.1%"
-    },
-    {
-      "author_followers": 1730,
-      "discovered_at": "2026-08-11T14:06:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "senperson",
-      "has_video": false,
-      "headline": "Wintermute：资金轮动撤离比特币叙事扭转，机构或正按计划「吸筹」 8 月 11 日，Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4",
-      "impression_count": 801,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087155201580937602",
-      "post_url": "https://x.com/senperson/status/2087155201580937602",
-      "posted_at": "2026-08-11T12:32:32+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Wintermute：资金轮动撤离比特币叙事扭转，机构或正按计划「吸筹」 8 月 11 日，Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4",
-      "topic": "chinese_market",
-      "why_trending": "表示801・投稿後94分・反応率0.0%"
     },
     {
       "author_followers": 2562,
