@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T11:31:39+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T12:29:22+00:00",
+  "last_deep_scan_at": "2026-08-11T14:06:52+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T14:06:52+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -674,9 +674,79 @@
       "checked_at": "2026-08-11T12:29:22+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T14:06:52+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T14:06:52+00:00",
+      "result_count": 7,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
+    {
+      "author_followers": 2172,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ChanyuBTC_33",
+      "has_video": false,
+      "headline": "突发：🇷🇺 俄罗斯中央银行发布草案法规，将比特币、以太坊和USDT纳入俄罗斯交易所的公开交易！ 莫斯科，8月11日 塔斯社。 监管机构在其 Telegram 频道上宣布，俄罗斯央行已将比特币（Bitcoin）、以太坊（Ethereum）和泰达币（Tether, USDT）列入批准在俄国内交易所公开交易的加密货币名录中。 https://t.co/8qAzNq",
+      "impression_count": 37,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/ChanyuBTC_33/status/2087176009351401507/photo/1",
+        "https://twitter.com/cryptorover/status/2087171181036151239"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087176009351401507",
+      "post_url": "https://x.com/ChanyuBTC_33/status/2087176009351401507",
+      "posted_at": "2026-08-11T13:55:13+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 66.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "突发：🇷🇺 俄罗斯中央银行发布草案法规，将比特币、以太坊和USDT纳入俄罗斯交易所的公开交易！ 莫斯科，8月11日 塔斯社。 监管机构在其 Telegram 频道上宣布，俄罗斯央行已将比特币（Bitcoin）、以太坊（Ethereum）和泰达币（Tether, USDT）列入批准在俄国内交易所公开交易的加密货币名录中。 https://t.co/8qAzNqxZGC https://t.co/47QrKuXAk8",
+      "topic": "chinese_market",
+      "why_trending": "表示37・投稿後11分・反応率4.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1381,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "SAM1021219",
+      "has_video": false,
+      "headline": "最近对比了一圈各大交易所的美股页面。 抛开财报、公司资讯、行情这些常规功能，其实能明显感觉到：各家都开始认真做美股了，但方向完全不一样。 Bitget：功能做得很全。 能看出来团队在美股这块投入了不少精力，从美股现货到期权，整体功能已经比较丰富。 https://t.co/pYg3rvlBbL",
+      "impression_count": 478,
+      "like_count": 10,
+      "linked_urls": [
+        "https://x.com/SAM1021219/status/2087156948231950774/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087156948231950774",
+      "post_url": "https://x.com/SAM1021219/status/2087156948231950774",
+      "posted_at": "2026-08-11T12:39:28+00:00",
+      "quote_count": 1,
+      "reply_count": 2,
+      "repost_count": 1,
+      "score": 52.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "最近对比了一圈各大交易所的美股页面。 抛开财报、公司资讯、行情这些常规功能，其实能明显感觉到：各家都开始认真做美股了，但方向完全不一样。 Bitget：功能做得很全。 能看出来团队在美股这块投入了不少精力，从美股现货到期权，整体功能已经比较丰富。 https://t.co/pYg3rvlBbL",
+      "topic": "chinese_market",
+      "why_trending": "表示478・投稿後87分・反応率3.6%"
+    },
     {
       "author_followers": 459,
       "discovered_at": "2026-08-11T11:31:39+00:00",
@@ -734,6 +804,30 @@
       "why_trending": "表示118・投稿後25分・反応率0.8%"
     },
     {
+      "author_followers": 394,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "rabbittu_bnb",
+      "has_video": false,
+      "headline": "Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。 加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4 月中旬以来最佳周表现；以太坊 ETF 则连续第五周净流入，增加 2.449 亿美元",
+      "impression_count": 26,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087170991910957239",
+      "post_url": "https://x.com/rabbittu_bnb/status/2087170991910957239",
+      "posted_at": "2026-08-11T13:35:16+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 46.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。 加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4 月中旬以来最佳周表现；以太坊 ETF 则连续第五周净流入，增加 2.449 亿美元",
+      "topic": "chinese_market",
+      "why_trending": "表示26・投稿後31分・反応率6.2%"
+    },
+    {
       "author_followers": 54,
       "discovered_at": "2026-08-11T11:31:39+00:00",
       "discovery_type": "official_x_api",
@@ -758,6 +852,30 @@
       "summary": "さおりさんの分析、またドンピシャで20ドルとれてる👏 安心してトレードできました！ ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA SP500 オルカン https://t.co/9PApnkyhC1",
       "topic": "japanese_market",
       "why_trending": "表示562・投稿後111分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1039,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "halou168",
+      "has_video": false,
+      "headline": "Backpack：连接传统金融与链上世界的新一代 Neobrokerage 在加密货币与传统金融加速融合的今天，Backpack（背包）正成为一股不可忽视的力量。它不只是一个普通的加密交易所，而是把自己定位为“你的 neobrokerage、你的交易所、你的钱”——一个同时覆盖加密交易、自托管钱包与真实美股的综合平台。",
+      "impression_count": 14,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087172768949547395",
+      "post_url": "https://x.com/halou168/status/2087172768949547395",
+      "posted_at": "2026-08-11T13:42:20+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Backpack：连接传统金融与链上世界的新一代 Neobrokerage 在加密货币与传统金融加速融合的今天，Backpack（背包）正成为一股不可忽视的力量。它不只是一个普通的加密交易所，而是把自己定位为“你的 neobrokerage、你的交易所、你的钱”——一个同时覆盖加密交易、自托管钱包与真实美股的综合平台。",
+      "topic": "chinese_market",
+      "why_trending": "表示14・投稿後24分・反応率14.3%"
     },
     {
       "author_followers": 2430,
@@ -814,6 +932,30 @@
       "why_trending": "表示39・投稿後93分・反応率0.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 29763,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "andy88988696",
+      "has_video": false,
+      "headline": "我一直有一个小小的问题想要请教一下大家。 就是现在如果使用一般我们传统看到的加密货币交易所（像是币安、OKX 甚至是 Bitget）来交易美股的话，有什么优势？ 如果我们要交易美股，为什么不要从一般我们以前常用的传统管道去交易就好呢？",
+      "impression_count": 245,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087157233859940719",
+      "post_url": "https://x.com/andy88988696/status/2087157233859940719",
+      "posted_at": "2026-08-11T12:40:36+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 40.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "我一直有一个小小的问题想要请教一下大家。 就是现在如果使用一般我们传统看到的加密货币交易所（像是币安、OKX 甚至是 Bitget）来交易美股的话，有什么优势？ 如果我们要交易美股，为什么不要从一般我们以前常用的传统管道去交易就好呢？",
+      "topic": "chinese_market",
+      "why_trending": "表示245・投稿後86分・反応率2.8%"
+    },
+    {
       "author_followers": 6170,
       "discovered_at": "2026-08-11T11:31:39+00:00",
       "discovery_type": "official_x_api",
@@ -838,6 +980,30 @@
       "summary": "９月の株式分割が熱い。あす急落しそうな４銘柄。あす急騰しそうな９銘柄。好決算なのに急落中の１６銘柄銘柄。８月１１日:水曜・祝日版～あす上がる株。最新の日本株情報～ 📷 チャンネル登録者数 28.7万人株リアルライブ https://t.co/yTtVObDxC4",
       "topic": "japanese_market",
       "why_trending": "表示22・投稿後28分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 45,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "jason_binance",
+      "has_video": false,
+      "headline": "加密市场晚间新闻｜2026/08/11 恐惧贪婪：38（恐惧）｜BTC 24h：-1.10% 全网市值：$2.19万亿（-0.96%）｜BTC市占率：58.7% 山寨季指数：39（中性）",
+      "impression_count": 79,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087158817008324850",
+      "post_url": "https://x.com/jason_binance/status/2087158817008324850",
+      "posted_at": "2026-08-11T12:46:54+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "加密市场晚间新闻｜2026/08/11 恐惧贪婪：38（恐惧）｜BTC 24h：-1.10% 全网市值：$2.19万亿（-0.96%）｜BTC市占率：58.7% 山寨季指数：39（中性）",
+      "topic": "chinese_market",
+      "why_trending": "表示79・投稿後79分・反応率1.3%"
     },
     {
       "author_followers": 24233,
@@ -867,6 +1033,30 @@
       "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ブラックロック、8.5億ドル超のETF資金流入でビットコイン投資家心理の転換を指摘⭐️ 詳細URL👇 https://t.co/QEtJwyxzFC https://t.co/H2uTv3BXtD",
       "topic": "japanese_market",
       "why_trending": "表示112・投稿後97分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1730,
+      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "senperson",
+      "has_video": false,
+      "headline": "Wintermute：资金轮动撤离比特币叙事扭转，机构或正按计划「吸筹」 8 月 11 日，Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4",
+      "impression_count": 801,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087155201580937602",
+      "post_url": "https://x.com/senperson/status/2087155201580937602",
+      "posted_at": "2026-08-11T12:32:32+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Wintermute：资金轮动撤离比特币叙事扭转，机构或正按计划「吸筹」 8 月 11 日，Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4",
+      "topic": "chinese_market",
+      "why_trending": "表示801・投稿後94分・反応率0.0%"
     },
     {
       "author_followers": 310,
