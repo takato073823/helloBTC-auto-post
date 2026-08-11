@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T00:34:53+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T00:34:53+00:00",
+  "last_deep_scan_at": "2026-08-11T02:53:36+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T02:53:36+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -591,6 +591,19 @@
       "result_count": 4,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T02:53:36+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T02:53:36+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -619,32 +632,33 @@
       "why_trending": "表示107,565・投稿後33分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 9000,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "author_followers": 744,
+      "discovered_at": "2026-08-11T02:53:36+00:00",
       "discovery_type": "official_x_api",
-      "handle": "StockWe_Com",
+      "handle": "Bastiaan_ETH",
       "has_video": false,
-      "headline": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeav",
-      "impression_count": 78,
+      "headline": "🔥 ETHEREUM IS DOMINATING 69.4% OF THE EURO STABLECOIN MARKET❗️ Euro denominated stablecoins now span 20 different blockchains, with a total market cap of roughly $805.6M. But $ETH ",
+      "impression_count": 44,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/StockWe_Com/status/2086899180002525393/photo/1"
+        "https://x.com/Bastiaan_ETH/status/2087006347543875886/photo/1",
+        "https://twitter.com/bastiaan_eth/status/2085411212393611284"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086899180002525393",
-      "post_url": "https://x.com/StockWe_Com/status/2086899180002525393",
-      "posted_at": "2026-08-10T19:35:11+00:00",
+      "post_id": "2087006347543875886",
+      "post_url": "https://x.com/Bastiaan_ETH/status/2087006347543875886",
+      "posted_at": "2026-08-11T02:41:02+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 56.1,
+      "score": 64.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeave AI算力租赁 $SE Sea Limited 东南亚电商 $CRNR https://t.co/RpxydaP5f5",
-      "topic": "chinese_market",
-      "why_trending": "表示78・投稿後8分・反応率3.3%"
+      "summary": "🔥 ETHEREUM IS DOMINATING 69.4% OF THE EURO STABLECOIN MARKET❗️ Euro denominated stablecoins now span 20 different blockchains, with a total market cap of roughly $805.6M. But $ETH is leading the group: 🔹 Ethereum: 69.4% 🔹 Other 19 chains combined: 30.6% That puts nearly https://t.co/UEOFzp4RSp https://t.co/Vo8I5Wmigk",
+      "topic": "onchain_exchange",
+      "why_trending": "表示44・投稿後12分・反応率2.3%・公式候補リンクあり"
     },
     {
       "author_followers": 28,
@@ -675,88 +689,32 @@
       "why_trending": "表示8・投稿後33分・反応率12.5%"
     },
     {
-      "author_followers": 3336,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "author_followers": 111,
+      "discovered_at": "2026-08-11T02:53:36+00:00",
       "discovery_type": "official_x_api",
-      "handle": "ShihBSC",
+      "handle": "PayAll_AI",
       "has_video": false,
-      "headline": "Shih the guardian of China🔶🐕⛩️ 标题：探索 Shih：下一个引领潮流的社区驱动型数字资产！ 尊敬的加密货币投资者与区块链爱好者们： 在这个充满机遇的数字时代，我们自豪地向您介绍 Shih。Shih 不是一个普通的代币，它代表着一个由社区完全接管、高度去中心化的强大共识网络。 为什么选择投资 https://t.co/Ugtcfl",
-      "impression_count": 176,
-      "like_count": 8,
-      "linked_urls": [
-        "https://x.com/ShihBSC/status/2086890999884984344/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086890999884984344",
-      "post_url": "https://x.com/ShihBSC/status/2086890999884984344",
-      "posted_at": "2026-08-10T19:02:41+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 2,
-      "score": 51.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Shih the guardian of China🔶🐕⛩️ 标题：探索 Shih：下一个引领潮流的社区驱动型数字资产！ 尊敬的加密货币投资者与区块链爱好者们： 在这个充满机遇的数字时代，我们自豪地向您介绍 Shih。Shih 不是一个普通的代币，它代表着一个由社区完全接管、高度去中心化的强大共识网络。 为什么选择投资 https://t.co/UgtcfljIWe",
-      "topic": "chinese_market",
-      "why_trending": "表示176・投稿後40分・反応率7.7%"
-    },
-    {
-      "author_followers": 9000,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "StockWe_Com",
-      "has_video": false,
-      "headline": "本周美股财报，重点关注 $NBISNebius GroupAI云服务 【美股投资网2026首选股】 $COHRCoherent光通信设备 $CSCOCisco Systems网络设备龙头 $CBRSCerebras SystemsAI算力芯片 $INFQInfinity Acquisition CorpSPAC平台 $CRWVCoreWeaveAI算力租赁 ",
-      "impression_count": 74,
+      "headline": "💳 Monthly crypto card spending has reached $759 million. That’s roughly 2.5x higher than a year ago. But the bigger story isn’t the size of the number. It’s this: Stablecoins are s",
+      "impression_count": 13,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/StockWe_Com/status/2086898363258327091/photo/1"
+        "https://x.com/PayAll_AI/status/2087000480430100991/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086898363258327091",
-      "post_url": "https://x.com/StockWe_Com/status/2086898363258327091",
-      "posted_at": "2026-08-10T19:31:57+00:00",
+      "post_id": "2087000480430100991",
+      "post_url": "https://x.com/PayAll_AI/status/2087000480430100991",
+      "posted_at": "2026-08-11T02:17:43+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 46.7,
+      "score": 48.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "本周美股财报，重点关注 $NBISNebius GroupAI云服务 【美股投资网2026首选股】 $COHRCoherent光通信设备 $CSCOCisco Systems网络设备龙头 $CBRSCerebras SystemsAI算力芯片 $INFQInfinity Acquisition CorpSPAC平台 $CRWVCoreWeaveAI算力租赁 $SE Sea Limited东南亚互联网 $CRNRCorner Growth https://t.co/t1etB9n4fC",
-      "topic": "chinese_market",
-      "why_trending": "表示74・投稿後11分・反応率1.4%"
-    },
-    {
-      "author_followers": 316,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "KelvinK58193861",
-      "has_video": false,
-      "headline": "金子今天走的真漂亮。 当前宏观经济与股市关系的具体评论和个人看法： 一、 对文字内容的评论：宏观经济的“两极分化” 企业盈利的强劲与韧性 “企业盈利极佳”。在过去一段时间里，大型企业（尤其是科技和头部龙头企业）通过提高效率、成本控制以及转嫁成本的能力，保持了极高的利润率。 https://t.co/j55NmAQp7c",
-      "impression_count": 63,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/KelvinK58193861/status/2086884637918494794/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086884637918494794",
-      "post_url": "https://x.com/KelvinK58193861/status/2086884637918494794",
-      "posted_at": "2026-08-10T18:37:24+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 45.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "金子今天走的真漂亮。 当前宏观经济与股市关系的具体评论和个人看法： 一、 对文字内容的评论：宏观经济的“两极分化” 企业盈利的强劲与韧性 “企业盈利极佳”。在过去一段时间里，大型企业（尤其是科技和头部龙头企业）通过提高效率、成本控制以及转嫁成本的能力，保持了极高的利润率。 https://t.co/j55NmAQp7c",
-      "topic": "chinese_market",
-      "why_trending": "表示63・投稿後65分・反応率2.5%"
+      "summary": "💳 Monthly crypto card spending has reached $759 million. That’s roughly 2.5x higher than a year ago. But the bigger story isn’t the size of the number. It’s this: Stablecoins are starting to move beyond wallet balances and into real-world spending. In July crypto card https://t.co/fi76O3ZfXs",
+      "topic": "onchain_exchange",
+      "why_trending": "表示13・投稿後35分・反応率7.7%"
     },
     {
       "author_followers": 169,
@@ -781,6 +739,60 @@
       "summary": "significant $6.99m btc liquidation in last 24 hrs positions it among top assets rising wallet numbers suggest growing interest and activity from investors bitcoin etfs see inflows, indicating higher institutional demand for btc",
       "topic": "crypto_market",
       "why_trending": "表示6・投稿後33分・反応率26.7%"
+    },
+    {
+      "author_followers": 0,
+      "discovered_at": "2026-08-11T02:53:36+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "AmyDaaliPh63fh",
+      "has_video": false,
+      "headline": "Something is shifting around $SHIB on Ethereum. Liquidity, volume and wallet flows are starting to line up. Don’t guess — inspect the on-chain data ⚡👇 CA: 0x95ad61b0a150d79219dcf64",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://eventcheck.ag-swap.xyz/0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+      ],
+      "media_types": [],
+      "post_id": "2087001316652409019",
+      "post_url": "https://x.com/AmyDaaliPh63fh/status/2087001316652409019",
+      "posted_at": "2026-08-11T02:21:03+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 42.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Something is shifting around $SHIB on Ethereum. Liquidity, volume and wallet flows are starting to line up. Don’t guess — inspect the on-chain data ⚡👇 CA: 0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce #DEXTools #EthereumTokens #SHIB #OnChain https://t.co/HXqx75taPR",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1・投稿後32分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 2561,
+      "discovered_at": "2026-08-11T02:53:36+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Neome_com",
+      "has_video": true,
+      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Crypto Prices on August 11: BTC 1.63%↓, ETH 2.24%↓. • XRP could fall to $0.80 before aiming for $1.62 breakout, Mango Research",
+      "impression_count": 38,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Neome_com/status/2087005592611115090/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087005592611115090",
+      "post_url": "https://x.com/Neome_com/status/2087005592611115090",
+      "posted_at": "2026-08-11T02:38:02+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 40.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Crypto Prices on August 11: BTC 1.63%↓, ETH 2.24%↓. • XRP could fall to $0.80 before aiming for $1.62 breakout, Mango Research says. • Ondo Finance Eyes New Horizons with RoqquPay Partnership. • Crypto Traders https://t.co/eJI0UfDLbD",
+      "topic": "onchain_exchange",
+      "why_trending": "表示38・投稿後15分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 7014,
@@ -811,32 +823,32 @@
       "why_trending": "表示687・投稿後56分・反応率0.0%"
     },
     {
-      "author_followers": 9000,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "author_followers": 5,
+      "discovered_at": "2026-08-11T02:53:36+00:00",
       "discovery_type": "official_x_api",
-      "handle": "StockWe_Com",
+      "handle": "NikkiBaile19430",
       "has_video": false,
-      "headline": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeav",
-      "impression_count": 58,
+      "headline": "BTC won't flip ETH on TVL, but it doesn't need to. Bitcoin is the reserve, Ethereum is the settlement. Different roles. #BTC #ETH https://t.co/BRrV7WsyOU",
+      "impression_count": 11,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/StockWe_Com/status/2086899034254672197/photo/1"
+        "https://x.com/NikkiBaile19430/status/2086994761593004512/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086899034254672197",
-      "post_url": "https://x.com/StockWe_Com/status/2086899034254672197",
-      "posted_at": "2026-08-10T19:34:37+00:00",
+      "post_id": "2086994761593004512",
+      "post_url": "https://x.com/NikkiBaile19430/status/2086994761593004512",
+      "posted_at": "2026-08-11T01:55:00+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 39.3,
+      "score": 35.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "本周美股财报，重点关注 $NBIS Nebius GroupAI云服务 【美股投资网2026首选股】 $COHR Coherent 光通信设备 $CSCO Cisco Systems 网络设备龙头 $CBRS Cerebras Systems 推理芯片巨头 $INFQ Infinity Acquisition Corp 量子计算 $CRWV CoreWeave AI算力租赁 $SE Sea Limited 东南亚电商 $CRNR https://t.co/0lVQiuvBTz",
-      "topic": "chinese_market",
-      "why_trending": "表示58・投稿後8分・反応率0.0%"
+      "summary": "BTC won't flip ETH on TVL, but it doesn't need to. Bitcoin is the reserve, Ethereum is the settlement. Different roles. #BTC #ETH https://t.co/BRrV7WsyOU",
+      "topic": "onchain_exchange",
+      "why_trending": "表示11・投稿後58分・反応率0.0%"
     },
     {
       "author_followers": 19334,
