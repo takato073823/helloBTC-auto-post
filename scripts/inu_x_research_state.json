@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T09:44:11+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T10:35:49+00:00",
+  "last_deep_scan_at": "2026-08-11T11:31:39+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T11:31:39+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -655,6 +655,19 @@
       "checked_at": "2026-08-11T10:35:49+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T11:31:39+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T11:31:39+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -687,56 +700,166 @@
       "why_trending": "表示26・投稿後10分・反応率3.8%"
     },
     {
-      "author_followers": 5145,
-      "discovered_at": "2026-08-11T06:37:11+00:00",
+      "author_followers": 459,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
       "discovery_type": "official_x_api",
-      "handle": "timoassi",
+      "handle": "CryptoAssety",
       "has_video": false,
-      "headline": "Happy Tuesday all! If you missed the past 24 hours in crypto and stocks, here's your full recap: 🚨 Major Headlines &amp; Market Moves 🚨 Trump Media &amp; Technology disclosed a Bit",
-      "impression_count": 262,
-      "like_count": 15,
+      "headline": "【アルトコインETFに異変？】Grayscaleが3銘柄の申請を静かに取り下げ💡 米大手のグレースケール社が、カルダノ（ADA）、ポルカドット（DOT）、ヘデラ（HBAR）のETF計画を「自ら」取り下げました。 一見ショッキングですが、初心者が冷静に知っておくべきポイントは3つです👇 1️⃣ https://t.co/12gxtWc4Y8",
+      "impression_count": 24,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/timoassi/status/2087040829814673729/photo/1"
+        "https://x.com/CryptoAssety/status/2087126190251545030/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087040829814673729",
-      "post_url": "https://x.com/timoassi/status/2087040829814673729",
-      "posted_at": "2026-08-11T04:58:03+00:00",
-      "quote_count": 1,
-      "reply_count": 12,
+      "post_id": "2087126190251545030",
+      "post_url": "https://x.com/CryptoAssety/status/2087126190251545030",
+      "posted_at": "2026-08-11T10:37:15+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
       "repost_count": 0,
-      "score": 44.8,
+      "score": 47.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Happy Tuesday all! If you missed the past 24 hours in crypto and stocks, here's your full recap: 🚨 Major Headlines &amp; Market Moves 🚨 Trump Media &amp; Technology disclosed a Bitcoin treasury of 14,139 BTC worth over $900 million. Michael Saylor's Strategy sold 1,690 Bitcoin https://t.co/itvmlxrbkn",
-      "topic": "regulation",
-      "why_trending": "表示262・投稿後99分・反応率13.8%"
+      "summary": "【アルトコインETFに異変？】Grayscaleが3銘柄の申請を静かに取り下げ💡 米大手のグレースケール社が、カルダノ（ADA）、ポルカドット（DOT）、ヘデラ（HBAR）のETF計画を「自ら」取り下げました。 一見ショッキングですが、初心者が冷静に知っておくべきポイントは3つです👇 1️⃣ https://t.co/12gxtWc4Y8",
+      "topic": "japanese_market",
+      "why_trending": "表示24・投稿後54分・反応率13.3%"
     },
     {
-      "author_followers": 7348,
-      "discovered_at": "2026-08-11T06:37:11+00:00",
+      "author_followers": 154,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Krypto_Bishop",
+      "handle": "shimokitapine",
       "has_video": false,
-      "headline": "GM builders and fellow enthusiasts ☀️ BTC is holding above $65k even after the Senate punted the Clarity Act to September. The delay was largely priced in. What is actually support",
-      "impression_count": 265,
-      "like_count": 90,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087036507198472403",
-      "post_url": "https://x.com/Krypto_Bishop/status/2087036507198472403",
-      "posted_at": "2026-08-11T04:40:53+00:00",
+      "headline": "ビットワイズ・ソラナETFの\"矛盾\"——2億6700万ドル流入なのに純資産が減った理由を完全解説 これ、ちゃんと理解してる人が少ない。 「2億6700万ドル集めた」のに「純資産は減った」——一見矛盾に見えるこのニュース、実は2026年の暗号資産市場の本質が詰まっています。 https://t.co/SIcLzNJE4p",
+      "impression_count": 118,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/shimokitapine/status/2087133545953112232/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087133545953112232",
+      "post_url": "https://x.com/shimokitapine/status/2087133545953112232",
+      "posted_at": "2026-08-11T11:06:29+00:00",
       "quote_count": 0,
-      "reply_count": 99,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 42.0,
+      "score": 46.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "GM builders and fellow enthusiasts ☀️ BTC is holding above $65k even after the Senate punted the Clarity Act to September. The delay was largely priced in. What is actually supporting price right now is steady ETF inflows and a softer dollar backdrop after the weak jobs data.",
-      "topic": "regulation",
-      "why_trending": "表示265・投稿後116分・反応率93.7%"
+      "summary": "ビットワイズ・ソラナETFの\"矛盾\"——2億6700万ドル流入なのに純資産が減った理由を完全解説 これ、ちゃんと理解してる人が少ない。 「2億6700万ドル集めた」のに「純資産は減った」——一見矛盾に見えるこのニュース、実は2026年の暗号資産市場の本質が詰まっています。 https://t.co/SIcLzNJE4p",
+      "topic": "japanese_market",
+      "why_trending": "表示118・投稿後25分・反応率0.8%"
+    },
+    {
+      "author_followers": 54,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Nhw3c",
+      "has_video": false,
+      "headline": "さおりさんの分析、またドンピシャで20ドルとれてる👏 安心してトレードできました！ ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA SP500 オルカン https://t.co/9PApnkyhC1",
+      "impression_count": 562,
+      "like_count": 0,
+      "linked_urls": [
+        "https://twitter.com/saorii_fx/status/2086961518000873736"
+      ],
+      "media_types": [],
+      "post_id": "2087111782493995172",
+      "post_url": "https://x.com/Nhw3c/status/2087111782493995172",
+      "posted_at": "2026-08-11T09:40:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 46.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "さおりさんの分析、またドンピシャで20ドルとれてる👏 安心してトレードできました！ ゴールドロング 急騰 金利 米国株 ビットコイン 日経平均 NISA SP500 オルカン https://t.co/9PApnkyhC1",
+      "topic": "japanese_market",
+      "why_trending": "表示562・投稿後111分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 2430,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "buycrypto_jp",
+      "has_video": true,
+      "headline": "【BlackRock：BTC投資家は下落局面でも「長期保有」】 BlackRockがBloombergに対し、現物ビットコインETFの投資家について、 「今回の下落局面でも、BTCを買って長期保有する動きが一貫して見られる」 とコメント。 📉 BTC価格が調整する一方で 💰 ビットコインETFには資金流入 💎",
+      "impression_count": 29,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/BitcoinMagazine/status/2086862332467020054/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087116464935571598",
+      "post_url": "https://x.com/buycrypto_jp/status/2087116464935571598",
+      "posted_at": "2026-08-11T09:58:36+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 41.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【BlackRock：BTC投資家は下落局面でも「長期保有」】 BlackRockがBloombergに対し、現物ビットコインETFの投資家について、 「今回の下落局面でも、BTCを買って長期保有する動きが一貫して見られる」 とコメント。 📉 BTC価格が調整する一方で 💰 ビットコインETFには資金流入 💎",
+      "topic": "japanese_market",
+      "why_trending": "表示29・投稿後93分・反応率13.8%・動画あり"
+    },
+    {
+      "author_followers": 43,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "hellobtc_jp",
+      "has_video": false,
+      "headline": "【ニュース】Riot Platforms株が20%急騰、Anthropicと91億ドルのAI契約 ・Riot株が取引前に20％超上昇 ・Anthropicと91億ドルの20年契約 ・191MWのAI計算能力を提供 ▶ https://t.co/Qa6hnuUFgQ #ビットコイン #仮想通貨 #RiotPlatforms",
+      "impression_count": 39,
+      "like_count": 0,
+      "linked_urls": [
+        "https://hellobtc.jp/riot-anthropic-ai-deal"
+      ],
+      "media_types": [],
+      "post_id": "2087116403161919867",
+      "post_url": "https://x.com/hellobtc_jp/status/2087116403161919867",
+      "posted_at": "2026-08-11T09:58:21+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 41.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【ニュース】Riot Platforms株が20%急騰、Anthropicと91億ドルのAI契約 ・Riot株が取引前に20％超上昇 ・Anthropicと91億ドルの20年契約 ・191MWのAI計算能力を提供 ▶ https://t.co/Qa6hnuUFgQ #ビットコイン #仮想通貨 #RiotPlatforms",
+      "topic": "japanese_market",
+      "why_trending": "表示39・投稿後93分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 6170,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "koike2009128",
+      "has_video": false,
+      "headline": "９月の株式分割が熱い。あす急落しそうな４銘柄。あす急騰しそうな９銘柄。好決算なのに急落中の１６銘柄銘柄。８月１１日:水曜・祝日版～あす上がる株。最新の日本株情報～ 📷 チャンネル登録者数 28.7万人株リアルライブ https://t.co/yTtVObDxC4",
+      "impression_count": 22,
+      "like_count": 0,
+      "linked_urls": [
+        "https://www.youtube.com/watch?v=Ay6bTPaNC2M"
+      ],
+      "media_types": [],
+      "post_id": "2087132723056202052",
+      "post_url": "https://x.com/koike2009128/status/2087132723056202052",
+      "posted_at": "2026-08-11T11:03:12+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 40.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "９月の株式分割が熱い。あす急落しそうな４銘柄。あす急騰しそうな９銘柄。好決算なのに急落中の１６銘柄銘柄。８月１１日:水曜・祝日版～あす上がる株。最新の日本株情報～ 📷 チャンネル登録者数 28.7万人株リアルライブ https://t.co/yTtVObDxC4",
+      "topic": "japanese_market",
+      "why_trending": "表示22・投稿後28分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 88732,
@@ -767,32 +890,61 @@
       "why_trending": "表示900・投稿後27分・反応率0.3%"
     },
     {
-      "author_followers": 90918,
-      "discovered_at": "2026-08-11T06:37:11+00:00",
+      "author_followers": 24233,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MikybullCrypto",
+      "handle": "CoinmatomeNews",
       "has_video": false,
-      "headline": "The White House remains fully committed to passing the CLARITY Act next month, keeping U.S. crypto regulation firmly in focus. MARA has reportedly sold a large portion of its Bitco",
-      "impression_count": 2061,
-      "like_count": 11,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ブラックロック、8.5億ドル超のETF資金流入でビットコイン投資家心理の転換を指摘⭐️ 詳細URL👇 https://t.co/QEtJwyxzFC https://t.co/H2uTv3BXtD",
+      "impression_count": 112,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/MikybullCrypto/status/2087042977755549865/photo/1"
+        "https://ift.tt/C6qd2uW",
+        "https://x.com/CoinmatomeNews/status/2087115391222874153/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087042977755549865",
-      "post_url": "https://x.com/MikybullCrypto/status/2087042977755549865",
-      "posted_at": "2026-08-11T05:06:35+00:00",
+      "post_id": "2087115391222874153",
+      "post_url": "https://x.com/CoinmatomeNews/status/2087115391222874153",
+      "posted_at": "2026-08-11T09:54:20+00:00",
       "quote_count": 0,
-      "reply_count": 5,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 37.5,
+      "score": 37.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "The White House remains fully committed to passing the CLARITY Act next month, keeping U.S. crypto regulation firmly in focus. MARA has reportedly sold a large portion of its Bitcoin holdings, marking another major move by a publicly traded miner. Trump again says the Strait of https://t.co/jA0ycXtgwx",
-      "topic": "regulation",
-      "why_trending": "表示2,061・投稿後90分・反応率0.9%"
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ブラックロック、8.5億ドル超のETF資金流入でビットコイン投資家心理の転換を指摘⭐️ 詳細URL👇 https://t.co/QEtJwyxzFC https://t.co/H2uTv3BXtD",
+      "topic": "japanese_market",
+      "why_trending": "表示112・投稿後97分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 310,
+      "discovered_at": "2026-08-11T11:31:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CyberBullJP",
+      "has_video": false,
+      "headline": "「規制が増える＝仮想通貨には悪材料」そう思っているなら、今回の韓国のニュースは少し見方が変わるかもしれません。本質は規制の厳しさではなく、政府が暗号資産を\"取り締まる対象\"から\"制度の中で扱う資産\"へ変え始めていることです。 韓国がトラベルルール（Travel https://t.co/7cyAM59mE5",
+      "impression_count": 3,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/CyberBullJP/status/2087119332325113891/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087119332325113891",
+      "post_url": "https://x.com/CyberBullJP/status/2087119332325113891",
+      "posted_at": "2026-08-11T10:10:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "「規制が増える＝仮想通貨には悪材料」そう思っているなら、今回の韓国のニュースは少し見方が変わるかもしれません。本質は規制の厳しさではなく、政府が暗号資産を\"取り締まる対象\"から\"制度の中で扱う資産\"へ変え始めていることです。 韓国がトラベルルール（Travel https://t.co/7cyAM59mE5",
+      "topic": "japanese_market",
+      "why_trending": "表示3・投稿後81分・反応率33.3%"
     }
   ],
   "trends": [],
