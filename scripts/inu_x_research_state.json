@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T15:40:34+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T16:37:35+00:00",
+  "last_deep_scan_at": "2026-08-11T17:42:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T17:42:26+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -706,6 +706,19 @@
       "checked_at": "2026-08-11T16:37:35+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T17:42:26+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T17:42:26+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -739,6 +752,35 @@
       "why_trending": "表示37・投稿後11分・反応率4.3%・公式候補リンクあり"
     },
     {
+      "author_followers": 275,
+      "discovered_at": "2026-08-11T17:42:26+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Cryptocratico",
+      "has_video": false,
+      "headline": "🔎 CONTEXT UPDATE: Coinbase BTC Flow Looks Internal The earlier 1,619.60 BTC transfer from Coinbase Institutional to bc1qmak… no longer appears to be a clean exchange outflow. The s",
+      "impression_count": 23,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/Cryptocratico/status/2087222264362078263/photo/1",
+        "https://twitter.com/cryptocratico/status/2087164872547021155"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087222264362078263",
+      "post_url": "https://x.com/Cryptocratico/status/2087222264362078263",
+      "posted_at": "2026-08-11T16:59:01+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 60.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔎 CONTEXT UPDATE: Coinbase BTC Flow Looks Internal The earlier 1,619.60 BTC transfer from Coinbase Institutional to bc1qmak… no longer appears to be a clean exchange outflow. The same address has now transferred **901.80 BTC — approximately $57.3M — back to 3MqUP6…, an https://t.co/wqveMUjcn3 https://t.co/L3JK5HsHrQ",
+      "topic": "crypto_market",
+      "why_trending": "表示23・投稿後43分・反応率4.3%・公式候補リンクあり"
+    },
+    {
       "author_followers": 4649024,
       "discovered_at": "2026-08-11T15:40:34+00:00",
       "discovery_type": "official_x_api",
@@ -761,6 +803,35 @@
       "summary": "JUST IN: 🇺🇸 $15 trillion BlackRock says tokenization is the \"next generation for markets.\"",
       "topic": "fixed_primary_x",
       "why_trending": "表示234,798・投稿後113分・反応率1.9%"
+    },
+    {
+      "author_followers": 4608,
+      "discovered_at": "2026-08-11T17:42:26+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BitcoinStrat",
+      "has_video": true,
+      "headline": "🤯 Wall Street Owns Only 3% But Controls Price Bitcoin and Ethereum ETFs hold just 3% of supply, yet they're flipping who wins the price war. When ETF absorption shifts, the market ",
+      "impression_count": 176,
+      "like_count": 2,
+      "linked_urls": [
+        "https://the-bitcoin-strategy.com/r/Mw6yQ8av",
+        "https://x.com/BitcoinStrat/status/2087215486681653657/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087215486681653657",
+      "post_url": "https://x.com/BitcoinStrat/status/2087215486681653657",
+      "posted_at": "2026-08-11T16:32:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 55.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🤯 Wall Street Owns Only 3% But Controls Price Bitcoin and Ethereum ETFs hold just 3% of supply, yet they're flipping who wins the price war. When ETF absorption shifts, the market follows. The… $BTC #bitcoin #cryptoetf Get a free premium trade: https://t.co/zq3CVEsVQl https://t.co/fUzfpOL5NG",
+      "topic": "crypto_market",
+      "why_trending": "表示176・投稿後70分・反応率2.3%・公式候補リンクあり・動画あり"
     },
     {
       "author_followers": 1381,
@@ -789,34 +860,6 @@
       "summary": "最近对比了一圈各大交易所的美股页面。 抛开财报、公司资讯、行情这些常规功能，其实能明显感觉到：各家都开始认真做美股了，但方向完全不一样。 Bitget：功能做得很全。 能看出来团队在美股这块投入了不少精力，从美股现货到期权，整体功能已经比较丰富。 https://t.co/pYg3rvlBbL",
       "topic": "chinese_market",
       "why_trending": "表示478・投稿後87分・反応率3.6%"
-    },
-    {
-      "author_followers": 154,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "shimokitapine",
-      "has_video": false,
-      "headline": "ビットワイズ・ソラナETFの\"矛盾\"——2億6700万ドル流入なのに純資産が減った理由を完全解説 これ、ちゃんと理解してる人が少ない。 「2億6700万ドル集めた」のに「純資産は減った」——一見矛盾に見えるこのニュース、実は2026年の暗号資産市場の本質が詰まっています。 https://t.co/SIcLzNJE4p",
-      "impression_count": 118,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/shimokitapine/status/2087133545953112232/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087133545953112232",
-      "post_url": "https://x.com/shimokitapine/status/2087133545953112232",
-      "posted_at": "2026-08-11T11:06:29+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ビットワイズ・ソラナETFの\"矛盾\"——2億6700万ドル流入なのに純資産が減った理由を完全解説 これ、ちゃんと理解してる人が少ない。 「2億6700万ドル集めた」のに「純資産は減った」——一見矛盾に見えるこのニュース、実は2026年の暗号資産市場の本質が詰まっています。 https://t.co/SIcLzNJE4p",
-      "topic": "japanese_market",
-      "why_trending": "表示118・投稿後25分・反応率0.8%"
     },
     {
       "author_followers": 394,
@@ -891,30 +934,28 @@
       "why_trending": "表示245・投稿後86分・反応率2.8%"
     },
     {
-      "author_followers": 6170,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
+      "author_followers": 222,
+      "discovered_at": "2026-08-11T17:42:26+00:00",
       "discovery_type": "official_x_api",
-      "handle": "koike2009128",
+      "handle": "dexeteralabs",
       "has_video": false,
-      "headline": "９月の株式分割が熱い。あす急落しそうな４銘柄。あす急騰しそうな９銘柄。好決算なのに急落中の１６銘柄銘柄。８月１１日:水曜・祝日版～あす上がる株。最新の日本株情報～ 📷 チャンネル登録者数 28.7万人株リアルライブ https://t.co/yTtVObDxC4",
+      "headline": "XRP and ether lead losses. Traders eye $70K bitcoin. Everyone watches price. The real edge is in what moves around it: funding rates, open interest skew, basis trades. Dexetera let",
       "impression_count": 22,
-      "like_count": 0,
-      "linked_urls": [
-        "https://www.youtube.com/watch?v=Ay6bTPaNC2M"
-      ],
+      "like_count": 1,
+      "linked_urls": [],
       "media_types": [],
-      "post_id": "2087132723056202052",
-      "post_url": "https://x.com/koike2009128/status/2087132723056202052",
-      "posted_at": "2026-08-11T11:03:12+00:00",
+      "post_id": "2087208800423981265",
+      "post_url": "https://x.com/dexeteralabs/status/2087208800423981265",
+      "posted_at": "2026-08-11T16:05:31+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 40.5,
+      "score": 39.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "９月の株式分割が熱い。あす急落しそうな４銘柄。あす急騰しそうな９銘柄。好決算なのに急落中の１６銘柄銘柄。８月１１日:水曜・祝日版～あす上がる株。最新の日本株情報～ 📷 チャンネル登録者数 28.7万人株リアルライブ https://t.co/yTtVObDxC4",
-      "topic": "japanese_market",
-      "why_trending": "表示22・投稿後28分・反応率0.0%・公式候補リンクあり"
+      "summary": "XRP and ether lead losses. Traders eye $70K bitcoin. Everyone watches price. The real edge is in what moves around it: funding rates, open interest skew, basis trades. Dexetera lets you create futures on any derivatives metric — not just the spot price. Trade the structure,",
+      "topic": "crypto_market",
+      "why_trending": "表示22・投稿後96分・反応率4.5%"
     },
     {
       "author_followers": 45,
@@ -941,6 +982,30 @@
       "why_trending": "表示79・投稿後79分・反応率1.3%"
     },
     {
+      "author_followers": 44239,
+      "discovered_at": "2026-08-11T17:42:26+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoArena_Co",
+      "has_video": false,
+      "headline": "📰 Top Crypto News | Aug. 11 1️⃣ Bitcoin futures carry trades are yielding 7.89%, helping fuel $850M in BTC ETF flows. 2️⃣ Strategy sold $213M BTC and still needs $785M to close STR",
+      "impression_count": 94,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087223411668091248",
+      "post_url": "https://x.com/CryptoArena_Co/status/2087223411668091248",
+      "posted_at": "2026-08-11T17:03:34+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📰 Top Crypto News | Aug. 11 1️⃣ Bitcoin futures carry trades are yielding 7.89%, helping fuel $850M in BTC ETF flows. 2️⃣ Strategy sold $213M BTC and still needs $785M to close STRC's final gap. 3️⃣ SharpLink reported a $1B loss as its $1.7B ETH treasury faces a lengthy",
+      "topic": "crypto_market",
+      "why_trending": "表示94・投稿後38分・反応率1.1%"
+    },
+    {
       "author_followers": 1730,
       "discovered_at": "2026-08-11T14:06:52+00:00",
       "discovery_type": "official_x_api",
@@ -963,6 +1028,62 @@
       "summary": "Wintermute：资金轮动撤离比特币叙事扭转，机构或正按计划「吸筹」 8 月 11 日，Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4",
       "topic": "chinese_market",
       "why_trending": "表示801・投稿後94分・反応率0.0%"
+    },
+    {
+      "author_followers": 2562,
+      "discovered_at": "2026-08-11T17:42:26+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Neome_com",
+      "has_video": true,
+      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ravencoin’s Long Fall Hits Bottom as Exploit Freezes Transfers. • Coinbase-backed Flowdesk secures full broker-dealer license ",
+      "impression_count": 40,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Neome_com/status/2087222838889521572/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087222838889521572",
+      "post_url": "https://x.com/Neome_com/status/2087222838889521572",
+      "posted_at": "2026-08-11T17:01:18+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ravencoin’s Long Fall Hits Bottom as Exploit Freezes Transfers. • Coinbase-backed Flowdesk secures full broker-dealer license in Dubai. • Is Ethereum a Good Buy at Current Prices?. • Is Bitcoin a Good Buy at Current https://t.co/mQoeZ878JG",
+      "topic": "crypto_market",
+      "why_trending": "表示40・投稿後41分・反応率0.0%・動画あり"
+    },
+    {
+      "author_followers": 171,
+      "discovered_at": "2026-08-11T17:42:26+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BullishByBlood",
+      "has_video": false,
+      "headline": "BTC 4-hour chart update (63503) Fear and Greed: 29 (Fear) BTC Dom: 59.14% Price action: Price down 0.7% from the close of yesterday. Premium Index: UP Funding Rates: UP Open Intere",
+      "impression_count": 5,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/BullishByBlood/status/2087230139813986511/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087230139813986511",
+      "post_url": "https://x.com/BullishByBlood/status/2087230139813986511",
+      "posted_at": "2026-08-11T17:30:18+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BTC 4-hour chart update (63503) Fear and Greed: 29 (Fear) BTC Dom: 59.14% Price action: Price down 0.7% from the close of yesterday. Premium Index: UP Funding Rates: UP Open Interest: $32.68 B Volume: $5.67 B Outlook: Cautious https://t.co/GewWfPSVm1",
+      "topic": "crypto_market",
+      "why_trending": "表示5・投稿後12分・反応率0.0%"
     }
   ],
   "trends": [],
