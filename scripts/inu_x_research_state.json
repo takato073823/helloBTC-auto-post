@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-10T21:26:31+00:00",
-  "last_watcher_guru_scan_at": "2026-08-10T22:20:42+00:00",
+  "last_deep_scan_at": "2026-08-11T00:34:53+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T00:34:53+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -578,6 +578,19 @@
       "checked_at": "2026-08-10T22:20:42+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T00:34:53+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T00:34:53+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -634,32 +647,32 @@
       "why_trending": "表示78・投稿後8分・反応率3.3%"
     },
     {
-      "author_followers": 4644454,
-      "discovered_at": "2026-08-10T18:35:26+00:00",
+      "author_followers": 28,
+      "discovered_at": "2026-08-11T00:34:53+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
+      "handle": "cryptoreportsHQ",
       "has_video": false,
-      "headline": "JUST IN: Peter Schiff says \"sell Bitcoin now.\" https://t.co/mTuoGv6geT",
-      "impression_count": 229460,
-      "like_count": 1705,
+      "headline": "🚨 BTC SIGNAL UPDATE Bias: NEUTRAL Phase: NO EDGE Confidence: 27% Range conditions • Weak volume • 🟢 Strong capital inflow detected • Fear bounce potential • Trend exhaustion #Bitco",
+      "impression_count": 8,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/WatcherGuru/status/2086855762949656767/photo/1"
+        "https://x.com/cryptoreportsHQ/status/2086966164735787227/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086855762949656767",
-      "post_url": "https://x.com/WatcherGuru/status/2086855762949656767",
-      "posted_at": "2026-08-10T16:42:40+00:00",
-      "quote_count": 87,
-      "reply_count": 516,
-      "repost_count": 160,
-      "score": 54.4,
+      "post_id": "2086966164735787227",
+      "post_url": "https://x.com/cryptoreportsHQ/status/2086966164735787227",
+      "posted_at": "2026-08-11T00:01:22+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 51.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "JUST IN: Peter Schiff says \"sell Bitcoin now.\" https://t.co/mTuoGv6geT",
-      "topic": "watcher_guru",
-      "why_trending": "表示229,460・投稿後112分・反応率1.3%"
+      "summary": "🚨 BTC SIGNAL UPDATE Bias: NEUTRAL Phase: NO EDGE Confidence: 27% Range conditions • Weak volume • 🟢 Strong capital inflow detected • Fear bounce potential • Trend exhaustion #Bitcoin #Crypto https://t.co/zW7QHAlLAw",
+      "topic": "crypto_market",
+      "why_trending": "表示8・投稿後33分・反応率12.5%"
     },
     {
       "author_followers": 3336,
@@ -688,61 +701,6 @@
       "summary": "Shih the guardian of China🔶🐕⛩️ 标题：探索 Shih：下一个引领潮流的社区驱动型数字资产！ 尊敬的加密货币投资者与区块链爱好者们： 在这个充满机遇的数字时代，我们自豪地向您介绍 Shih。Shih 不是一个普通的代币，它代表着一个由社区完全接管、高度去中心化的强大共识网络。 为什么选择投资 https://t.co/UgtcfljIWe",
       "topic": "chinese_market",
       "why_trending": "表示176・投稿後40分・反応率7.7%"
-    },
-    {
-      "author_followers": 24228,
-      "discovered_at": "2026-08-10T17:38:06+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️米上院が暗号資産規制法案の採決を先送り、成立への道に暗雲⭐️ 詳細URL👇 https://t.co/XKQpFNuxyN https://t.co/6Umfw4KSeO",
-      "impression_count": 146,
-      "like_count": 1,
-      "linked_urls": [
-        "https://ift.tt/cmW86EG",
-        "https://x.com/CoinmatomeNews/status/2086856193201275312/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086856193201275312",
-      "post_url": "https://x.com/CoinmatomeNews/status/2086856193201275312",
-      "posted_at": "2026-08-10T16:44:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 49.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️米上院が暗号資産規制法案の採決を先送り、成立への道に暗雲⭐️ 詳細URL👇 https://t.co/XKQpFNuxyN https://t.co/6Umfw4KSeO",
-      "topic": "japanese_market",
-      "why_trending": "表示146・投稿後53分・反応率0.7%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 77,
-      "discovered_at": "2026-08-10T17:38:06+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "miyupidngmngbn1",
-      "has_video": false,
-      "headline": "7月の日経平均急落でも日本株投資信託に高水準の資金が流入！インデックスとアクティブの動きから見えた個人投資家の「強気姿勢」【投資信託の最前線】(ダイヤモンド・オンライン) https://t.co/cYDmxjTmqe",
-      "impression_count": 29,
-      "like_count": 0,
-      "linked_urls": [
-        "https://wwx6.newscat.online/38nwphzg7c.html"
-      ],
-      "media_types": [],
-      "post_id": "2086859691473441197",
-      "post_url": "https://x.com/miyupidngmngbn1/status/2086859691473441197",
-      "posted_at": "2026-08-10T16:58:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "7月の日経平均急落でも日本株投資信託に高水準の資金が流入！インデックスとアクティブの動きから見えた個人投資家の「強気姿勢」【投資信託の最前線】(ダイヤモンド・オンライン) https://t.co/cYDmxjTmqe",
-      "topic": "japanese_market",
-      "why_trending": "表示29・投稿後39分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 9000,
@@ -801,89 +759,56 @@
       "why_trending": "表示63・投稿後65分・反応率2.5%"
     },
     {
-      "author_followers": 24228,
-      "discovered_at": "2026-08-10T17:38:06+00:00",
+      "author_followers": 169,
+      "discovered_at": "2026-08-11T00:34:53+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
+      "handle": "VirtualsNikita",
       "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️【速報】🇺🇸 ビットコイン現物ETF、4月以来最大の週間資金流入を記録、8億5,000万ドル相当のBTCが流入 🚀 強気 🐂⭐️ 詳細URL👇 https://t.co/zFrxH7cqUU https://t.co/6VKUAvLPLs",
-      "impression_count": 161,
+      "headline": "significant $6.99m btc liquidation in last 24 hrs positions it among top assets rising wallet numbers suggest growing interest and activity from investors bitcoin etfs see inflows,",
+      "impression_count": 6,
       "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/tVgwdBH",
-        "https://x.com/CoinmatomeNews/status/2086856199303999916/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086856199303999916",
-      "post_url": "https://x.com/CoinmatomeNews/status/2086856199303999916",
-      "posted_at": "2026-08-10T16:44:24+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️【速報】🇺🇸 ビットコイン現物ETF、4月以来最大の週間資金流入を記録、8億5,000万ドル相当のBTCが流入 🚀 強気 🐂⭐️ 詳細URL👇 https://t.co/zFrxH7cqUU https://t.co/6VKUAvLPLs",
-      "topic": "japanese_market",
-      "why_trending": "表示161・投稿後53分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 106,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "JoelLikesTurtle",
-      "has_video": true,
-      "headline": "补邀请码 现货交易所 抹茶 WEEX返佣 Deepcoin OKX返佣 比特币 背包交易所 高返佣 BTC Bitbaby返佣 空单 AI交易 Websea SOL https://t.co/6eVhICB19i",
-      "impression_count": 10,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/JoelLikesTurtle/status/2086876433956172233/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2086876433956172233",
-      "post_url": "https://x.com/JoelLikesTurtle/status/2086876433956172233",
-      "posted_at": "2026-08-10T18:04:48+00:00",
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2086966114920054861",
+      "post_url": "https://x.com/VirtualsNikita/status/2086966114920054861",
+      "posted_at": "2026-08-11T00:01:10+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
       "score": 42.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "补邀请码 现货交易所 抹茶 WEEX返佣 Deepcoin OKX返佣 比特币 背包交易所 高返佣 BTC Bitbaby返佣 空单 AI交易 Websea SOL https://t.co/6eVhICB19i",
-      "topic": "chinese_market",
-      "why_trending": "表示10・投稿後98分・反応率26.0%・動画あり"
+      "summary": "significant $6.99m btc liquidation in last 24 hrs positions it among top assets rising wallet numbers suggest growing interest and activity from investors bitcoin etfs see inflows, indicating higher institutional demand for btc",
+      "topic": "crypto_market",
+      "why_trending": "表示6・投稿後33分・反応率26.7%"
     },
     {
-      "author_followers": 193,
-      "discovered_at": "2026-08-10T19:43:14+00:00",
+      "author_followers": 7014,
+      "discovered_at": "2026-08-11T00:34:53+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MbR_88",
-      "has_video": true,
-      "headline": "现货交易所 HTX返佣 比特币 换交易所 手续费 稳定币 IBIT返佣 Backpack U本位 EasiCoin返佣 合约手续费 火币返佣 欧意 资金费率 深币 https://t.co/MhUQuod05b",
-      "impression_count": 10,
+      "handle": "CoinPost_Alert",
+      "has_video": false,
+      "headline": "BTC Spot Exchanges In/Outflow 8/11 08:38 JST Price $63,904 | Mempool 83,384 unconfirmed #Bitcoin #BTC https://t.co/AkfEkfmn2A",
+      "impression_count": 687,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/MbR_88/status/2086879158831923564/video/1"
+        "https://x.com/CoinPost_Alert/status/2086960466103091555/photo/1"
       ],
       "media_types": [
-        "video"
+        "photo"
       ],
-      "post_id": "2086879158831923564",
-      "post_url": "https://x.com/MbR_88/status/2086879158831923564",
-      "posted_at": "2026-08-10T18:15:38+00:00",
+      "post_id": "2086960466103091555",
+      "post_url": "https://x.com/CoinPost_Alert/status/2086960466103091555",
+      "posted_at": "2026-08-10T23:38:43+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 41.3,
+      "score": 39.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "现货交易所 HTX返佣 比特币 换交易所 手续费 稳定币 IBIT返佣 Backpack U本位 EasiCoin返佣 合约手续费 火币返佣 欧意 资金费率 深币 https://t.co/MhUQuod05b",
-      "topic": "chinese_market",
-      "why_trending": "表示10・投稿後87分・反応率16.0%・動画あり"
+      "summary": "BTC Spot Exchanges In/Outflow 8/11 08:38 JST Price $63,904 | Mempool 83,384 unconfirmed #Bitcoin #BTC https://t.co/AkfEkfmn2A",
+      "topic": "crypto_market",
+      "why_trending": "表示687・投稿後56分・反応率0.0%"
     },
     {
       "author_followers": 9000,
@@ -914,52 +839,32 @@
       "why_trending": "表示58・投稿後8分・反応率0.0%"
     },
     {
-      "author_followers": 175,
-      "discovered_at": "2026-08-10T17:38:06+00:00",
+      "author_followers": 19334,
+      "discovered_at": "2026-08-11T00:34:53+00:00",
       "discovery_type": "official_x_api",
-      "handle": "kessan_sokuho",
+      "handle": "BCryptodinero",
       "has_video": false,
-      "headline": "📊 $CLSK クリーンスパーク Q3決算（8-K速報）FY2026 ビットコイン採掘事業の難局、インフラ転換戦へ 一言：採掘収益30%減、大型長期リース契約で事業転換 💰 業績（前年同期比） ・売上: $138.0M（約20.7B円、-30.5%） ・EPS: -$0.89（前年同期 $0.90から赤字転換） ・Adjusted EBITDA:",
-      "impression_count": 477,
+      "headline": "🔥 BTC Liquidation Heatmap Niveles de mayor liquidez: TF ▲ Up ▼ Down 24H $66,400 $63,700 1W $66,000 $63,600 1M $66,000 $61,800 🔵 24h · 🟢 1w · 🟡 1m Fuente: @coinglass_com #Bitcoin #B",
+      "impression_count": 140,
       "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2086853352147521643",
-      "post_url": "https://x.com/kessan_sokuho/status/2086853352147521643",
-      "posted_at": "2026-08-10T16:33:05+00:00",
+      "linked_urls": [
+        "https://x.com/BCryptodinero/status/2086968367513051561/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2086968367513051561",
+      "post_url": "https://x.com/BCryptodinero/status/2086968367513051561",
+      "posted_at": "2026-08-11T00:10:07+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 35.2,
+      "score": 34.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "📊 $CLSK クリーンスパーク Q3決算（8-K速報）FY2026 ビットコイン採掘事業の難局、インフラ転換戦へ 一言：採掘収益30%減、大型長期リース契約で事業転換 💰 業績（前年同期比） ・売上: $138.0M（約20.7B円、-30.5%） ・EPS: -$0.89（前年同期 $0.90から赤字転換） ・Adjusted EBITDA:",
-      "topic": "japanese_market",
-      "why_trending": "表示477・投稿後65分・反応率0.0%"
-    },
-    {
-      "author_followers": 812,
-      "discovered_at": "2026-08-10T17:38:06+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoLiam__",
-      "has_video": false,
-      "headline": "なぜビットコインは下落したのか？ 1️⃣8月12日～13日に米国の経済指標が発表され、資金がリスク回避に動いた。🇺🇸 2️⃣イランがトランプ政権との交渉を、トランプ大統領の任期終了まで中断した。🇮🇷 3️⃣円安が再び加速し、対ドルレートは159円に迫った。9月の日銀による利上げの可能性が高まっている。🇯🇵",
-      "impression_count": 366,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2086854512397201517",
-      "post_url": "https://x.com/CryptoLiam__/status/2086854512397201517",
-      "posted_at": "2026-08-10T16:37:42+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "なぜビットコインは下落したのか？ 1️⃣8月12日～13日に米国の経済指標が発表され、資金がリスク回避に動いた。🇺🇸 2️⃣イランがトランプ政権との交渉を、トランプ大統領の任期終了まで中断した。🇮🇷 3️⃣円安が再び加速し、対ドルレートは159円に迫った。9月の日銀による利上げの可能性が高まっている。🇯🇵",
-      "topic": "japanese_market",
-      "why_trending": "表示366・投稿後60分・反応率0.0%"
+      "summary": "🔥 BTC Liquidation Heatmap Niveles de mayor liquidez: TF ▲ Up ▼ Down 24H $66,400 $63,700 1W $66,000 $63,600 1M $66,000 $61,800 🔵 24h · 🟢 1w · 🟡 1m Fuente: @coinglass_com #Bitcoin #BTC #Crypto #Liquidations #Trading https://t.co/SvcB0iyVEP",
+      "topic": "crypto_market",
+      "why_trending": "表示140・投稿後24分・反応率0.0%"
     }
   ],
   "trends": [],
