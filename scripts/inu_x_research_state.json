@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-11T15:40:34+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T15:40:34+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T16:37:35+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -700,6 +700,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T16:37:35+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -785,34 +791,6 @@
       "why_trending": "表示478・投稿後87分・反応率3.6%"
     },
     {
-      "author_followers": 459,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoAssety",
-      "has_video": false,
-      "headline": "【アルトコインETFに異変？】Grayscaleが3銘柄の申請を静かに取り下げ💡 米大手のグレースケール社が、カルダノ（ADA）、ポルカドット（DOT）、ヘデラ（HBAR）のETF計画を「自ら」取り下げました。 一見ショッキングですが、初心者が冷静に知っておくべきポイントは3つです👇 1️⃣ https://t.co/12gxtWc4Y8",
-      "impression_count": 24,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CryptoAssety/status/2087126190251545030/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087126190251545030",
-      "post_url": "https://x.com/CryptoAssety/status/2087126190251545030",
-      "posted_at": "2026-08-11T10:37:15+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 47.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【アルトコインETFに異変？】Grayscaleが3銘柄の申請を静かに取り下げ💡 米大手のグレースケール社が、カルダノ（ADA）、ポルカドット（DOT）、ヘデラ（HBAR）のETF計画を「自ら」取り下げました。 一見ショッキングですが、初心者が冷静に知っておくべきポイントは3つです👇 1️⃣ https://t.co/12gxtWc4Y8",
-      "topic": "japanese_market",
-      "why_trending": "表示24・投稿後54分・反応率13.3%"
-    },
-    {
       "author_followers": 154,
       "discovered_at": "2026-08-11T11:31:39+00:00",
       "discovery_type": "official_x_api",
@@ -889,60 +867,6 @@
       "why_trending": "表示14・投稿後24分・反応率14.3%"
     },
     {
-      "author_followers": 2430,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "buycrypto_jp",
-      "has_video": true,
-      "headline": "【BlackRock：BTC投資家は下落局面でも「長期保有」】 BlackRockがBloombergに対し、現物ビットコインETFの投資家について、 「今回の下落局面でも、BTCを買って長期保有する動きが一貫して見られる」 とコメント。 📉 BTC価格が調整する一方で 💰 ビットコインETFには資金流入 💎",
-      "impression_count": 29,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/BitcoinMagazine/status/2086862332467020054/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087116464935571598",
-      "post_url": "https://x.com/buycrypto_jp/status/2087116464935571598",
-      "posted_at": "2026-08-11T09:58:36+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 41.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【BlackRock：BTC投資家は下落局面でも「長期保有」】 BlackRockがBloombergに対し、現物ビットコインETFの投資家について、 「今回の下落局面でも、BTCを買って長期保有する動きが一貫して見られる」 とコメント。 📉 BTC価格が調整する一方で 💰 ビットコインETFには資金流入 💎",
-      "topic": "japanese_market",
-      "why_trending": "表示29・投稿後93分・反応率13.8%・動画あり"
-    },
-    {
-      "author_followers": 43,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "hellobtc_jp",
-      "has_video": false,
-      "headline": "【ニュース】Riot Platforms株が20%急騰、Anthropicと91億ドルのAI契約 ・Riot株が取引前に20％超上昇 ・Anthropicと91億ドルの20年契約 ・191MWのAI計算能力を提供 ▶ https://t.co/Qa6hnuUFgQ #ビットコイン #仮想通貨 #RiotPlatforms",
-      "impression_count": 39,
-      "like_count": 0,
-      "linked_urls": [
-        "https://hellobtc.jp/riot-anthropic-ai-deal"
-      ],
-      "media_types": [],
-      "post_id": "2087116403161919867",
-      "post_url": "https://x.com/hellobtc_jp/status/2087116403161919867",
-      "posted_at": "2026-08-11T09:58:21+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 41.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【ニュース】Riot Platforms株が20%急騰、Anthropicと91億ドルのAI契約 ・Riot株が取引前に20％超上昇 ・Anthropicと91億ドルの20年契約 ・191MWのAI計算能力を提供 ▶ https://t.co/Qa6hnuUFgQ #ビットコイン #仮想通貨 #RiotPlatforms",
-      "topic": "japanese_market",
-      "why_trending": "表示39・投稿後93分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 29763,
       "discovered_at": "2026-08-11T14:06:52+00:00",
       "discovery_type": "official_x_api",
@@ -1017,35 +941,6 @@
       "why_trending": "表示79・投稿後79分・反応率1.3%"
     },
     {
-      "author_followers": 24233,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ブラックロック、8.5億ドル超のETF資金流入でビットコイン投資家心理の転換を指摘⭐️ 詳細URL👇 https://t.co/QEtJwyxzFC https://t.co/H2uTv3BXtD",
-      "impression_count": 112,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/C6qd2uW",
-        "https://x.com/CoinmatomeNews/status/2087115391222874153/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087115391222874153",
-      "post_url": "https://x.com/CoinmatomeNews/status/2087115391222874153",
-      "posted_at": "2026-08-11T09:54:20+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ブラックロック、8.5億ドル超のETF資金流入でビットコイン投資家心理の転換を指摘⭐️ 詳細URL👇 https://t.co/QEtJwyxzFC https://t.co/H2uTv3BXtD",
-      "topic": "japanese_market",
-      "why_trending": "表示112・投稿後97分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 1730,
       "discovered_at": "2026-08-11T14:06:52+00:00",
       "discovery_type": "official_x_api",
@@ -1068,34 +963,6 @@
       "summary": "Wintermute：资金轮动撤离比特币叙事扭转，机构或正按计划「吸筹」 8 月 11 日，Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4",
       "topic": "chinese_market",
       "why_trending": "表示801・投稿後94分・反応率0.0%"
-    },
-    {
-      "author_followers": 310,
-      "discovered_at": "2026-08-11T11:31:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CyberBullJP",
-      "has_video": false,
-      "headline": "「規制が増える＝仮想通貨には悪材料」そう思っているなら、今回の韓国のニュースは少し見方が変わるかもしれません。本質は規制の厳しさではなく、政府が暗号資産を\"取り締まる対象\"から\"制度の中で扱う資産\"へ変え始めていることです。 韓国がトラベルルール（Travel https://t.co/7cyAM59mE5",
-      "impression_count": 3,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CyberBullJP/status/2087119332325113891/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087119332325113891",
-      "post_url": "https://x.com/CyberBullJP/status/2087119332325113891",
-      "posted_at": "2026-08-11T10:10:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "「規制が増える＝仮想通貨には悪材料」そう思っているなら、今回の韓国のニュースは少し見方が変わるかもしれません。本質は規制の厳しさではなく、政府が暗号資産を\"取り締まる対象\"から\"制度の中で扱う資産\"へ変え始めていることです。 韓国がトラベルルール（Travel https://t.co/7cyAM59mE5",
-      "topic": "japanese_market",
-      "why_trending": "表示3・投稿後81分・反応率33.3%"
     }
   ],
   "trends": [],
