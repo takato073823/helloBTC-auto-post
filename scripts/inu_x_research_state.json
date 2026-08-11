@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-11T22:24:46+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T22:24:46+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T23:24:35+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -757,6 +757,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T23:24:35+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -835,35 +841,6 @@
       "why_trending": "表示126・投稿後36分・反応率8.9%・公式候補リンクあり"
     },
     {
-      "author_followers": 275,
-      "discovered_at": "2026-08-11T17:42:26+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Cryptocratico",
-      "has_video": false,
-      "headline": "🔎 CONTEXT UPDATE: Coinbase BTC Flow Looks Internal The earlier 1,619.60 BTC transfer from Coinbase Institutional to bc1qmak… no longer appears to be a clean exchange outflow. The s",
-      "impression_count": 23,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/Cryptocratico/status/2087222264362078263/photo/1",
-        "https://twitter.com/cryptocratico/status/2087164872547021155"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087222264362078263",
-      "post_url": "https://x.com/Cryptocratico/status/2087222264362078263",
-      "posted_at": "2026-08-11T16:59:01+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 60.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔎 CONTEXT UPDATE: Coinbase BTC Flow Looks Internal The earlier 1,619.60 BTC transfer from Coinbase Institutional to bc1qmak… no longer appears to be a clean exchange outflow. The same address has now transferred **901.80 BTC — approximately $57.3M — back to 3MqUP6…, an https://t.co/wqveMUjcn3 https://t.co/L3JK5HsHrQ",
-      "topic": "crypto_market",
-      "why_trending": "表示23・投稿後43分・反応率4.3%・公式候補リンクあり"
-    },
-    {
       "author_followers": 15,
       "discovered_at": "2026-08-11T19:47:20+00:00",
       "discovery_type": "official_x_api",
@@ -888,35 +865,6 @@
       "summary": "🔴 BREAKING: Ravencoin Crashes 20% as Critical Exploit Threatens to Rollback Network https://t.co/4DqQ0RPkqW #Crypto #Web3 #Regulation #Markets #CryptoNews #Bitcoin #Blockchain #DeFi #Ethereum #Altcoins",
       "topic": "onchain_exchange",
       "why_trending": "表示33・投稿後95分・反応率10.9%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 4608,
-      "discovered_at": "2026-08-11T17:42:26+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BitcoinStrat",
-      "has_video": true,
-      "headline": "🤯 Wall Street Owns Only 3% But Controls Price Bitcoin and Ethereum ETFs hold just 3% of supply, yet they're flipping who wins the price war. When ETF absorption shifts, the market ",
-      "impression_count": 176,
-      "like_count": 2,
-      "linked_urls": [
-        "https://the-bitcoin-strategy.com/r/Mw6yQ8av",
-        "https://x.com/BitcoinStrat/status/2087215486681653657/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087215486681653657",
-      "post_url": "https://x.com/BitcoinStrat/status/2087215486681653657",
-      "posted_at": "2026-08-11T16:32:05+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 55.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🤯 Wall Street Owns Only 3% But Controls Price Bitcoin and Ethereum ETFs hold just 3% of supply, yet they're flipping who wins the price war. When ETF absorption shifts, the market follows. The… $BTC #bitcoin #cryptoetf Get a free premium trade: https://t.co/zq3CVEsVQl https://t.co/fUzfpOL5NG",
-      "topic": "crypto_market",
-      "why_trending": "表示176・投稿後70分・反応率2.3%・公式候補リンクあり・動画あり"
     },
     {
       "author_followers": 53554,
@@ -1087,58 +1035,6 @@
       "summary": "💧 ONCHAIN INSIGHTS LIQUIDITY RECAP - AUGUST 11, 2026 📈 STOCKS &amp; VOLATILITY • Major Indices: S&amp;P 500 slipped 0.32% to 7,728.09, Nasdaq 100 fell 0.33% to 29,525.48, and Dow Jones declined 0.34% to 53,791.97. • VIX Gauge: Volatility fell 0.1 point to 15.3, signaling contained https://t.co/pdryDCocIf",
       "topic": "macro_rates",
       "why_trending": "表示55・投稿後29分・反応率0.0%"
-    },
-    {
-      "author_followers": 44239,
-      "discovered_at": "2026-08-11T17:42:26+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoArena_Co",
-      "has_video": false,
-      "headline": "📰 Top Crypto News | Aug. 11 1️⃣ Bitcoin futures carry trades are yielding 7.89%, helping fuel $850M in BTC ETF flows. 2️⃣ Strategy sold $213M BTC and still needs $785M to close STR",
-      "impression_count": 94,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087223411668091248",
-      "post_url": "https://x.com/CryptoArena_Co/status/2087223411668091248",
-      "posted_at": "2026-08-11T17:03:34+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📰 Top Crypto News | Aug. 11 1️⃣ Bitcoin futures carry trades are yielding 7.89%, helping fuel $850M in BTC ETF flows. 2️⃣ Strategy sold $213M BTC and still needs $785M to close STRC's final gap. 3️⃣ SharpLink reported a $1B loss as its $1.7B ETH treasury faces a lengthy",
-      "topic": "crypto_market",
-      "why_trending": "表示94・投稿後38分・反応率1.1%"
-    },
-    {
-      "author_followers": 2562,
-      "discovered_at": "2026-08-11T17:42:26+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": true,
-      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ravencoin’s Long Fall Hits Bottom as Exploit Freezes Transfers. • Coinbase-backed Flowdesk secures full broker-dealer license ",
-      "impression_count": 40,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Neome_com/status/2087222838889521572/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087222838889521572",
-      "post_url": "https://x.com/Neome_com/status/2087222838889521572",
-      "posted_at": "2026-08-11T17:01:18+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ravencoin’s Long Fall Hits Bottom as Exploit Freezes Transfers. • Coinbase-backed Flowdesk secures full broker-dealer license in Dubai. • Is Ethereum a Good Buy at Current Prices?. • Is Bitcoin a Good Buy at Current https://t.co/mQoeZ878JG",
-      "topic": "crypto_market",
-      "why_trending": "表示40・投稿後41分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 171,
