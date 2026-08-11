@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T17:42:26+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T18:37:33+00:00",
+  "last_deep_scan_at": "2026-08-11T19:47:20+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T19:47:20+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -725,6 +725,19 @@
       "checked_at": "2026-08-11T18:37:33+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T19:47:20+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T19:47:20+00:00",
+      "result_count": 7,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -782,6 +795,32 @@
       "why_trending": "表示37・投稿後11分・反応率4.3%・公式候補リンクあり"
     },
     {
+      "author_followers": 3379,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WasimxWeb3",
+      "has_video": false,
+      "headline": "I said @base has been quiet lately, but then I looked at what they’ve actually built in 3 years. And 2days ago, Base just turned 3 3 years ago it was just another Ethereum L2 Now l",
+      "impression_count": 126,
+      "like_count": 6,
+      "linked_urls": [
+        "https://twitter.com/wasimxweb3/status/2087052655780930034"
+      ],
+      "media_types": [],
+      "post_id": "2087255332016042458",
+      "post_url": "https://x.com/WasimxWeb3/status/2087255332016042458",
+      "posted_at": "2026-08-11T19:10:25+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 1,
+      "score": 60.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "I said @base has been quiet lately, but then I looked at what they’ve actually built in 3 years. And 2days ago, Base just turned 3 3 years ago it was just another Ethereum L2 Now look at the numbers: – Almost $5B TVL – $46T cumulative stablecoin volume – 90% of x402 https://t.co/FgL0M7knag",
+      "topic": "onchain_exchange",
+      "why_trending": "表示126・投稿後36分・反応率8.9%・公式候補リンクあり"
+    },
+    {
       "author_followers": 275,
       "discovered_at": "2026-08-11T17:42:26+00:00",
       "discovery_type": "official_x_api",
@@ -811,28 +850,30 @@
       "why_trending": "表示23・投稿後43分・反応率4.3%・公式候補リンクあり"
     },
     {
-      "author_followers": 4649024,
-      "discovered_at": "2026-08-11T15:40:34+00:00",
+      "author_followers": 15,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
+      "handle": "NewsLayerApp",
       "has_video": false,
-      "headline": "JUST IN: 🇺🇸 $15 trillion BlackRock says tokenization is the \"next generation for markets.\"",
-      "impression_count": 234798,
-      "like_count": 3190,
-      "linked_urls": [],
+      "headline": "🔴 BREAKING: Ravencoin Crashes 20% as Critical Exploit Threatens to Rollback Network https://t.co/4DqQ0RPkqW #Crypto #Web3 #Regulation #Markets #CryptoNews #Bitcoin #Blockchain #DeF",
+      "impression_count": 33,
+      "like_count": 2,
+      "linked_urls": [
+        "https://newslayer.com/api/v1/s/ravencoin-crashes-20-as-critical-exploit-threatens-to-rollback-network-137bef"
+      ],
       "media_types": [],
-      "post_id": "2087173980012564646",
-      "post_url": "https://x.com/WatcherGuru/status/2087173980012564646",
-      "posted_at": "2026-08-11T13:47:09+00:00",
-      "quote_count": 86,
-      "reply_count": 241,
-      "repost_count": 414,
-      "score": 56.0,
+      "post_id": "2087240674047389782",
+      "post_url": "https://x.com/NewsLayerApp/status/2087240674047389782",
+      "posted_at": "2026-08-11T18:12:10+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 56.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 $15 trillion BlackRock says tokenization is the \"next generation for markets.\"",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示234,798・投稿後113分・反応率1.9%"
+      "summary": "🔴 BREAKING: Ravencoin Crashes 20% as Critical Exploit Threatens to Rollback Network https://t.co/4DqQ0RPkqW #Crypto #Web3 #Regulation #Markets #CryptoNews #Bitcoin #Blockchain #DeFi #Ethereum #Altcoins",
+      "topic": "onchain_exchange",
+      "why_trending": "表示33・投稿後95分・反応率10.9%・公式候補リンクあり"
     },
     {
       "author_followers": 4608,
@@ -864,104 +905,118 @@
       "why_trending": "表示176・投稿後70分・反応率2.3%・公式候補リンクあり・動画あり"
     },
     {
-      "author_followers": 1381,
-      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "author_followers": 53554,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
       "discovery_type": "official_x_api",
-      "handle": "SAM1021219",
-      "has_video": false,
-      "headline": "最近对比了一圈各大交易所的美股页面。 抛开财报、公司资讯、行情这些常规功能，其实能明显感觉到：各家都开始认真做美股了，但方向完全不一样。 Bitget：功能做得很全。 能看出来团队在美股这块投入了不少精力，从美股现货到期权，整体功能已经比较丰富。 https://t.co/pYg3rvlBbL",
-      "impression_count": 478,
-      "like_count": 10,
+      "handle": "RealPabloHeman",
+      "has_video": true,
+      "headline": "Major Whale Signal Alert on Bitcoin! How high can Bitcoin and Gold go in the upcoming Bull Run?! I show you what the evidence is pointing at! Pablo uses this crypto exchange with l",
+      "impression_count": 2205,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/SAM1021219/status/2087156948231950774/photo/1"
+        "https://www.bitunix.com/activity/basic/PabloHeman0806?vipCode=k1mk",
+        "https://x.com/RealPabloHeman/status/2087239893806445003/video/1",
+        "https://twitter.com/RealPabloHeman/status/2065055869851840771"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087239893806445003",
+      "post_url": "https://x.com/RealPabloHeman/status/2087239893806445003",
+      "posted_at": "2026-08-11T18:09:04+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 48.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Major Whale Signal Alert on Bitcoin! How high can Bitcoin and Gold go in the upcoming Bull Run?! I show you what the evidence is pointing at! Pablo uses this crypto exchange with lots of great bonuses! Click here👇 https://t.co/XFJKiUdQrd https://t.co/NW6or4SH4z https://t.co/7Ud03bxuN1",
+      "topic": "onchain_exchange",
+      "why_trending": "表示2,205・投稿後98分・反応率0.1%・公式候補リンクあり・動画あり"
+    },
+    {
+      "author_followers": 197,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "bdicinsurance",
+      "has_video": false,
+      "headline": "\"Insurance is not one product. It is a category that has to scale from a wallet to a treasury.\" A person holding $8,000 on an exchange and a DAO holding $40 million in stablecoins ",
+      "impression_count": 19,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/bdicinsurance/status/2087252824627265677/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087156948231950774",
-      "post_url": "https://x.com/SAM1021219/status/2087156948231950774",
-      "posted_at": "2026-08-11T12:39:28+00:00",
-      "quote_count": 1,
-      "reply_count": 2,
+      "post_id": "2087252824627265677",
+      "post_url": "https://x.com/bdicinsurance/status/2087252824627265677",
+      "posted_at": "2026-08-11T19:00:27+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
       "repost_count": 1,
-      "score": 52.6,
+      "score": 48.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "最近对比了一圈各大交易所的美股页面。 抛开财报、公司资讯、行情这些常规功能，其实能明显感觉到：各家都开始认真做美股了，但方向完全不一样。 Bitget：功能做得很全。 能看出来团队在美股这块投入了不少精力，从美股现货到期权，整体功能已经比较丰富。 https://t.co/pYg3rvlBbL",
-      "topic": "chinese_market",
-      "why_trending": "表示478・投稿後87分・反応率3.6%"
+      "summary": "\"Insurance is not one product. It is a category that has to scale from a wallet to a treasury.\" A person holding $8,000 on an exchange and a DAO holding $40 million in stablecoins face overlapping risks. They need entirely different products. One needs simple terms and a clear https://t.co/XvmpCmj8hh",
+      "topic": "onchain_exchange",
+      "why_trending": "表示19・投稿後46分・反応率24.2%"
     },
     {
-      "author_followers": 394,
-      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "author_followers": 1221,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
       "discovery_type": "official_x_api",
-      "handle": "rabbittu_bnb",
-      "has_video": false,
-      "headline": "Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。 加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4 月中旬以来最佳周表现；以太坊 ETF 则连续第五周净流入，增加 2.449 亿美元",
-      "impression_count": 26,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087170991910957239",
-      "post_url": "https://x.com/rabbittu_bnb/status/2087170991910957239",
-      "posted_at": "2026-08-11T13:35:16+00:00",
+      "handle": "azattelevision",
+      "has_video": true,
+      "headline": "A $130M Coldcard exploit has investors rushing $850M into Bitcoin ETFs! Is self-custody losing its appeal? The market's shifting towards regulated security, even impacting Ethereum",
+      "impression_count": 10,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/azattelevision/status/2087255380648739039/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087255380648739039",
+      "post_url": "https://x.com/azattelevision/status/2087255380648739039",
+      "posted_at": "2026-08-11T19:10:36+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 46.8,
+      "score": 47.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Wintermute 发布报告表示，即将于周三公布的美国 CPI 数据将成为检验此次利率重新定价能否持续的关键。 加密货币市场加入了风险偏好回升的行列。美国现货比特币 ETF 连续五个交易日净流入，合计吸金 8.535 亿美元，创下 4 月中旬以来最佳周表现；以太坊 ETF 则连续第五周净流入，增加 2.449 亿美元",
-      "topic": "chinese_market",
-      "why_trending": "表示26・投稿後31分・反応率6.2%"
+      "summary": "A $130M Coldcard exploit has investors rushing $850M into Bitcoin ETFs! Is self-custody losing its appeal? The market's shifting towards regulated security, even impacting Ethereum inflows. What does this mean for crypto's future? https://t.co/54ouSKTcnU",
+      "topic": "onchain_exchange",
+      "why_trending": "表示10・投稿後36分・反応率36.0%・動画あり"
     },
     {
-      "author_followers": 1039,
-      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "author_followers": 8411,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
       "discovery_type": "official_x_api",
-      "handle": "halou168",
+      "handle": "Motivator_Peter",
       "has_video": false,
-      "headline": "Backpack：连接传统金融与链上世界的新一代 Neobrokerage 在加密货币与传统金融加速融合的今天，Backpack（背包）正成为一股不可忽视的力量。它不只是一个普通的加密交易所，而是把自己定位为“你的 neobrokerage、你的交易所、你的钱”——一个同时覆盖加密交易、自托管钱包与真实美股的综合平台。",
-      "impression_count": 14,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087172768949547395",
-      "post_url": "https://x.com/halou168/status/2087172768949547395",
-      "posted_at": "2026-08-11T13:42:20+00:00",
+      "headline": "A stablecoin usually answers one question: where can I hold a digital dollar? USDD 2.0 is designed to answer three: How can I create liquidity without selling my crypto? How can th",
+      "impression_count": 70,
+      "like_count": 6,
+      "linked_urls": [
+        "https://x.com/Motivator_Peter/status/2087242320265523285/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087242320265523285",
+      "post_url": "https://x.com/Motivator_Peter/status/2087242320265523285",
+      "posted_at": "2026-08-11T18:18:42+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Backpack：连接传统金融与链上世界的新一代 Neobrokerage 在加密货币与传统金融加速融合的今天，Backpack（背包）正成为一股不可忽视的力量。它不只是一个普通的加密交易所，而是把自己定位为“你的 neobrokerage、你的交易所、你的钱”——一个同时覆盖加密交易、自托管钱包与真实美股的综合平台。",
-      "topic": "chinese_market",
-      "why_trending": "表示14・投稿後24分・反応率14.3%"
-    },
-    {
-      "author_followers": 29763,
-      "discovered_at": "2026-08-11T14:06:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "andy88988696",
-      "has_video": false,
-      "headline": "我一直有一个小小的问题想要请教一下大家。 就是现在如果使用一般我们传统看到的加密货币交易所（像是币安、OKX 甚至是 Bitget）来交易美股的话，有什么优势？ 如果我们要交易美股，为什么不要从一般我们以前常用的传统管道去交易就好呢？",
-      "impression_count": 245,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087157233859940719",
-      "post_url": "https://x.com/andy88988696/status/2087157233859940719",
-      "posted_at": "2026-08-11T12:40:36+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
+      "reply_count": 6,
+      "repost_count": 2,
       "score": 40.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "我一直有一个小小的问题想要请教一下大家。 就是现在如果使用一般我们传统看到的加密货币交易所（像是币安、OKX 甚至是 Bitget）来交易美股的话，有什么优势？ 如果我们要交易美股，为什么不要从一般我们以前常用的传统管道去交易就好呢？",
-      "topic": "chinese_market",
-      "why_trending": "表示245・投稿後86分・反応率2.8%"
+      "summary": "A stablecoin usually answers one question: where can I hold a digital dollar? USDD 2.0 is designed to answer three: How can I create liquidity without selling my crypto? How can that liquidity remain exchangeable near its target value? How can it continue working after it https://t.co/EotVbImleT",
+      "topic": "onchain_exchange",
+      "why_trending": "表示70・投稿後88分・反応率28.0%"
     },
     {
       "author_followers": 222,
@@ -988,28 +1043,32 @@
       "why_trending": "表示22・投稿後96分・反応率4.5%"
     },
     {
-      "author_followers": 45,
-      "discovered_at": "2026-08-11T14:06:52+00:00",
+      "author_followers": 17391,
+      "discovered_at": "2026-08-11T19:47:20+00:00",
       "discovery_type": "official_x_api",
-      "handle": "jason_binance",
+      "handle": "MirelVegar",
       "has_video": false,
-      "headline": "加密市场晚间新闻｜2026/08/11 恐惧贪婪：38（恐惧）｜BTC 24h：-1.10% 全网市值：$2.19万亿（-0.96%）｜BTC市占率：58.7% 山寨季指数：39（中性）",
-      "impression_count": 79,
+      "headline": "A stablecoin may display $1 in your wallet and still cost you value when you try to move into or out of it. That hidden friction is what the USDD Peg Stability Module is designed t",
+      "impression_count": 38,
       "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087158817008324850",
-      "post_url": "https://x.com/jason_binance/status/2087158817008324850",
-      "posted_at": "2026-08-11T12:46:54+00:00",
+      "linked_urls": [
+        "https://x.com/MirelVegar/status/2087242586650009635/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087242586650009635",
+      "post_url": "https://x.com/MirelVegar/status/2087242586650009635",
+      "posted_at": "2026-08-11T18:19:46+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 37.9,
+      "score": 37.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "加密市场晚间新闻｜2026/08/11 恐惧贪婪：38（恐惧）｜BTC 24h：-1.10% 全网市值：$2.19万亿（-0.96%）｜BTC市占率：58.7% 山寨季指数：39（中性）",
-      "topic": "chinese_market",
-      "why_trending": "表示79・投稿後79分・反応率1.3%"
+      "summary": "A stablecoin may display $1 in your wallet and still cost you value when you try to move into or out of it. That hidden friction is what the USDD Peg Stability Module is designed to remove. Instead of sending users through an open-market trade, the PSM enables direct conversion https://t.co/Sp8asgbRxC",
+      "topic": "onchain_exchange",
+      "why_trending": "表示38・投稿後87分・反応率2.6%"
     },
     {
       "author_followers": 44239,
