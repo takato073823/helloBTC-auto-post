@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T06:37:11+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T07:56:51+00:00",
+  "last_deep_scan_at": "2026-08-11T09:44:11+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T09:44:11+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -636,38 +636,22 @@
       "checked_at": "2026-08-11T07:56:51+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T09:44:11+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T09:44:11+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
-    {
-      "author_followers": 744,
-      "discovered_at": "2026-08-11T02:53:36+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Bastiaan_ETH",
-      "has_video": false,
-      "headline": "🔥 ETHEREUM IS DOMINATING 69.4% OF THE EURO STABLECOIN MARKET❗️ Euro denominated stablecoins now span 20 different blockchains, with a total market cap of roughly $805.6M. But $ETH ",
-      "impression_count": 44,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/Bastiaan_ETH/status/2087006347543875886/photo/1",
-        "https://twitter.com/bastiaan_eth/status/2085411212393611284"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087006347543875886",
-      "post_url": "https://x.com/Bastiaan_ETH/status/2087006347543875886",
-      "posted_at": "2026-08-11T02:41:02+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 64.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔥 ETHEREUM IS DOMINATING 69.4% OF THE EURO STABLECOIN MARKET❗️ Euro denominated stablecoins now span 20 different blockchains, with a total market cap of roughly $805.6M. But $ETH is leading the group: 🔹 Ethereum: 69.4% 🔹 Other 19 chains combined: 30.6% That puts nearly https://t.co/UEOFzp4RSp https://t.co/Vo8I5Wmigk",
-      "topic": "onchain_exchange",
-      "why_trending": "表示44・投稿後12分・反応率2.3%・公式候補リンクあり"
-    },
     {
       "author_followers": 2147,
       "discovered_at": "2026-08-11T06:37:11+00:00",
@@ -697,34 +681,6 @@
       "why_trending": "表示26・投稿後10分・反応率3.8%"
     },
     {
-      "author_followers": 111,
-      "discovered_at": "2026-08-11T02:53:36+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "PayAll_AI",
-      "has_video": false,
-      "headline": "💳 Monthly crypto card spending has reached $759 million. That’s roughly 2.5x higher than a year ago. But the bigger story isn’t the size of the number. It’s this: Stablecoins are s",
-      "impression_count": 13,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/PayAll_AI/status/2087000480430100991/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087000480430100991",
-      "post_url": "https://x.com/PayAll_AI/status/2087000480430100991",
-      "posted_at": "2026-08-11T02:17:43+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "💳 Monthly crypto card spending has reached $759 million. That’s roughly 2.5x higher than a year ago. But the bigger story isn’t the size of the number. It’s this: Stablecoins are starting to move beyond wallet balances and into real-world spending. In July crypto card https://t.co/fi76O3ZfXs",
-      "topic": "onchain_exchange",
-      "why_trending": "表示13・投稿後35分・反応率7.7%"
-    },
-    {
       "author_followers": 5145,
       "discovered_at": "2026-08-11T06:37:11+00:00",
       "discovery_type": "official_x_api",
@@ -751,32 +707,6 @@
       "summary": "Happy Tuesday all! If you missed the past 24 hours in crypto and stocks, here's your full recap: 🚨 Major Headlines &amp; Market Moves 🚨 Trump Media &amp; Technology disclosed a Bitcoin treasury of 14,139 BTC worth over $900 million. Michael Saylor's Strategy sold 1,690 Bitcoin https://t.co/itvmlxrbkn",
       "topic": "regulation",
       "why_trending": "表示262・投稿後99分・反応率13.8%"
-    },
-    {
-      "author_followers": 0,
-      "discovered_at": "2026-08-11T02:53:36+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "AmyDaaliPh63fh",
-      "has_video": false,
-      "headline": "Something is shifting around $SHIB on Ethereum. Liquidity, volume and wallet flows are starting to line up. Don’t guess — inspect the on-chain data ⚡👇 CA: 0x95ad61b0a150d79219dcf64",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://eventcheck.ag-swap.xyz/0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
-      ],
-      "media_types": [],
-      "post_id": "2087001316652409019",
-      "post_url": "https://x.com/AmyDaaliPh63fh/status/2087001316652409019",
-      "posted_at": "2026-08-11T02:21:03+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 42.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Something is shifting around $SHIB on Ethereum. Liquidity, volume and wallet flows are starting to line up. Don’t guess — inspect the on-chain data ⚡👇 CA: 0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce #DEXTools #EthereumTokens #SHIB #OnChain https://t.co/HXqx75taPR",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後32分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 7348,
@@ -829,34 +759,6 @@
       "summary": "⚡️JUST IN: Is the SEC Preparing a New Path for #Crypto? The U.S. SEC will hold an open meeting to consider new rules for crypto investment contracts, aligning with Chair @SECPaulSAtkins proposed “Regulation Crypto Assets” safe-harbor framework. With the SEC and CFTC considering https://t.co/fkE30XrGbK",
       "topic": "regulation",
       "why_trending": "表示900・投稿後27分・反応率0.3%"
-    },
-    {
-      "author_followers": 2561,
-      "discovered_at": "2026-08-11T02:53:36+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": true,
-      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Crypto Prices on August 11: BTC 1.63%↓, ETH 2.24%↓. • XRP could fall to $0.80 before aiming for $1.62 breakout, Mango Research",
-      "impression_count": 38,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Neome_com/status/2087005592611115090/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087005592611115090",
-      "post_url": "https://x.com/Neome_com/status/2087005592611115090",
-      "posted_at": "2026-08-11T02:38:02+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Crypto Prices on August 11: BTC 1.63%↓, ETH 2.24%↓. • XRP could fall to $0.80 before aiming for $1.62 breakout, Mango Research says. • Ondo Finance Eyes New Horizons with RoqquPay Partnership. • Crypto Traders https://t.co/eJI0UfDLbD",
-      "topic": "onchain_exchange",
-      "why_trending": "表示38・投稿後15分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 90918,
