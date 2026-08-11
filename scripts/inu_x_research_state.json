@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T04:54:10+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T04:54:10+00:00",
+  "last_deep_scan_at": "2026-08-11T06:37:11+00:00",
+  "last_watcher_guru_scan_at": "2026-08-11T06:37:11+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -617,6 +617,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-11T06:37:11+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-11T06:37:11+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -650,32 +663,32 @@
       "why_trending": "表示44・投稿後12分・反応率2.3%・公式候補リンクあり"
     },
     {
-      "author_followers": 28,
-      "discovered_at": "2026-08-11T00:34:53+00:00",
+      "author_followers": 2147,
+      "discovered_at": "2026-08-11T06:37:11+00:00",
       "discovery_type": "official_x_api",
-      "handle": "cryptoreportsHQ",
+      "handle": "zBit_Official",
       "has_video": false,
-      "headline": "🚨 BTC SIGNAL UPDATE Bias: NEUTRAL Phase: NO EDGE Confidence: 27% Range conditions • Weak volume • 🟢 Strong capital inflow detected • Fear bounce potential • Trend exhaustion #Bitco",
-      "impression_count": 8,
+      "headline": "🇺🇸 SEC Crypto Regulation Update The SEC is scheduled to discuss a proposed framework for certain crypto asset investment contracts on August 14, covering areas such as disclosure r",
+      "impression_count": 26,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/cryptoreportsHQ/status/2086966164735787227/photo/1"
+        "https://x.com/zBit_Official/status/2087063111824261487/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086966164735787227",
-      "post_url": "https://x.com/cryptoreportsHQ/status/2086966164735787227",
-      "posted_at": "2026-08-11T00:01:22+00:00",
+      "post_id": "2087063111824261487",
+      "post_url": "https://x.com/zBit_Official/status/2087063111824261487",
+      "posted_at": "2026-08-11T06:26:36+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 51.9,
+      "score": 57.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 BTC SIGNAL UPDATE Bias: NEUTRAL Phase: NO EDGE Confidence: 27% Range conditions • Weak volume • 🟢 Strong capital inflow detected • Fear bounce potential • Trend exhaustion #Bitcoin #Crypto https://t.co/zW7QHAlLAw",
-      "topic": "crypto_market",
-      "why_trending": "表示8・投稿後33分・反応率12.5%"
+      "summary": "🇺🇸 SEC Crypto Regulation Update The SEC is scheduled to discuss a proposed framework for certain crypto asset investment contracts on August 14, covering areas such as disclosure requirements, safe harbors and registration exemptions. A potentially important development for the https://t.co/LMbtS9JqFi",
+      "topic": "regulation",
+      "why_trending": "表示26・投稿後10分・反応率3.8%"
     },
     {
       "author_followers": 111,
@@ -706,28 +719,32 @@
       "why_trending": "表示13・投稿後35分・反応率7.7%"
     },
     {
-      "author_followers": 169,
-      "discovered_at": "2026-08-11T00:34:53+00:00",
+      "author_followers": 5145,
+      "discovered_at": "2026-08-11T06:37:11+00:00",
       "discovery_type": "official_x_api",
-      "handle": "VirtualsNikita",
+      "handle": "timoassi",
       "has_video": false,
-      "headline": "significant $6.99m btc liquidation in last 24 hrs positions it among top assets rising wallet numbers suggest growing interest and activity from investors bitcoin etfs see inflows,",
-      "impression_count": 6,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2086966114920054861",
-      "post_url": "https://x.com/VirtualsNikita/status/2086966114920054861",
-      "posted_at": "2026-08-11T00:01:10+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
+      "headline": "Happy Tuesday all! If you missed the past 24 hours in crypto and stocks, here's your full recap: 🚨 Major Headlines &amp; Market Moves 🚨 Trump Media &amp; Technology disclosed a Bit",
+      "impression_count": 262,
+      "like_count": 15,
+      "linked_urls": [
+        "https://x.com/timoassi/status/2087040829814673729/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087040829814673729",
+      "post_url": "https://x.com/timoassi/status/2087040829814673729",
+      "posted_at": "2026-08-11T04:58:03+00:00",
+      "quote_count": 1,
+      "reply_count": 12,
       "repost_count": 0,
-      "score": 42.6,
+      "score": 44.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "significant $6.99m btc liquidation in last 24 hrs positions it among top assets rising wallet numbers suggest growing interest and activity from investors bitcoin etfs see inflows, indicating higher institutional demand for btc",
-      "topic": "crypto_market",
-      "why_trending": "表示6・投稿後33分・反応率26.7%"
+      "summary": "Happy Tuesday all! If you missed the past 24 hours in crypto and stocks, here's your full recap: 🚨 Major Headlines &amp; Market Moves 🚨 Trump Media &amp; Technology disclosed a Bitcoin treasury of 14,139 BTC worth over $900 million. Michael Saylor's Strategy sold 1,690 Bitcoin https://t.co/itvmlxrbkn",
+      "topic": "regulation",
+      "why_trending": "表示262・投稿後99分・反応率13.8%"
     },
     {
       "author_followers": 0,
@@ -754,6 +771,58 @@
       "summary": "Something is shifting around $SHIB on Ethereum. Liquidity, volume and wallet flows are starting to line up. Don’t guess — inspect the on-chain data ⚡👇 CA: 0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce #DEXTools #EthereumTokens #SHIB #OnChain https://t.co/HXqx75taPR",
       "topic": "onchain_exchange",
       "why_trending": "表示1・投稿後32分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 7348,
+      "discovered_at": "2026-08-11T06:37:11+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Krypto_Bishop",
+      "has_video": false,
+      "headline": "GM builders and fellow enthusiasts ☀️ BTC is holding above $65k even after the Senate punted the Clarity Act to September. The delay was largely priced in. What is actually support",
+      "impression_count": 265,
+      "like_count": 90,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087036507198472403",
+      "post_url": "https://x.com/Krypto_Bishop/status/2087036507198472403",
+      "posted_at": "2026-08-11T04:40:53+00:00",
+      "quote_count": 0,
+      "reply_count": 99,
+      "repost_count": 0,
+      "score": 42.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "GM builders and fellow enthusiasts ☀️ BTC is holding above $65k even after the Senate punted the Clarity Act to September. The delay was largely priced in. What is actually supporting price right now is steady ETF inflows and a softer dollar backdrop after the weak jobs data.",
+      "topic": "regulation",
+      "why_trending": "表示265・投稿後116分・反応率93.7%"
+    },
+    {
+      "author_followers": 88732,
+      "discovered_at": "2026-08-11T06:37:11+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinGapeMedia",
+      "has_video": false,
+      "headline": "⚡️JUST IN: Is the SEC Preparing a New Path for #Crypto? The U.S. SEC will hold an open meeting to consider new rules for crypto investment contracts, aligning with Chair @SECPaulSA",
+      "impression_count": 900,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/CoinGapeMedia/status/2087058966048305251/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087058966048305251",
+      "post_url": "https://x.com/CoinGapeMedia/status/2087058966048305251",
+      "posted_at": "2026-08-11T06:10:07+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 40.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "⚡️JUST IN: Is the SEC Preparing a New Path for #Crypto? The U.S. SEC will hold an open meeting to consider new rules for crypto investment contracts, aligning with Chair @SECPaulSAtkins proposed “Regulation Crypto Assets” safe-harbor framework. With the SEC and CFTC considering https://t.co/fkE30XrGbK",
+      "topic": "regulation",
+      "why_trending": "表示900・投稿後27分・反応率0.3%"
     },
     {
       "author_followers": 2561,
@@ -784,32 +853,32 @@
       "why_trending": "表示38・投稿後15分・反応率0.0%・動画あり"
     },
     {
-      "author_followers": 7014,
-      "discovered_at": "2026-08-11T00:34:53+00:00",
+      "author_followers": 90918,
+      "discovered_at": "2026-08-11T06:37:11+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CoinPost_Alert",
+      "handle": "MikybullCrypto",
       "has_video": false,
-      "headline": "BTC Spot Exchanges In/Outflow 8/11 08:38 JST Price $63,904 | Mempool 83,384 unconfirmed #Bitcoin #BTC https://t.co/AkfEkfmn2A",
-      "impression_count": 687,
-      "like_count": 0,
+      "headline": "The White House remains fully committed to passing the CLARITY Act next month, keeping U.S. crypto regulation firmly in focus. MARA has reportedly sold a large portion of its Bitco",
+      "impression_count": 2061,
+      "like_count": 11,
       "linked_urls": [
-        "https://x.com/CoinPost_Alert/status/2086960466103091555/photo/1"
+        "https://x.com/MikybullCrypto/status/2087042977755549865/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2086960466103091555",
-      "post_url": "https://x.com/CoinPost_Alert/status/2086960466103091555",
-      "posted_at": "2026-08-10T23:38:43+00:00",
+      "post_id": "2087042977755549865",
+      "post_url": "https://x.com/MikybullCrypto/status/2087042977755549865",
+      "posted_at": "2026-08-11T05:06:35+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 5,
       "repost_count": 0,
-      "score": 39.8,
+      "score": 37.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "BTC Spot Exchanges In/Outflow 8/11 08:38 JST Price $63,904 | Mempool 83,384 unconfirmed #Bitcoin #BTC https://t.co/AkfEkfmn2A",
-      "topic": "crypto_market",
-      "why_trending": "表示687・投稿後56分・反応率0.0%"
+      "summary": "The White House remains fully committed to passing the CLARITY Act next month, keeping U.S. crypto regulation firmly in focus. MARA has reportedly sold a large portion of its Bitcoin holdings, marking another major move by a publicly traded miner. Trump again says the Strait of https://t.co/jA0ycXtgwx",
+      "topic": "regulation",
+      "why_trending": "表示2,061・投稿後90分・反応率0.9%"
     },
     {
       "author_followers": 5,
@@ -838,34 +907,6 @@
       "summary": "BTC won't flip ETH on TVL, but it doesn't need to. Bitcoin is the reserve, Ethereum is the settlement. Different roles. #BTC #ETH https://t.co/BRrV7WsyOU",
       "topic": "onchain_exchange",
       "why_trending": "表示11・投稿後58分・反応率0.0%"
-    },
-    {
-      "author_followers": 19334,
-      "discovered_at": "2026-08-11T00:34:53+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BCryptodinero",
-      "has_video": false,
-      "headline": "🔥 BTC Liquidation Heatmap Niveles de mayor liquidez: TF ▲ Up ▼ Down 24H $66,400 $63,700 1W $66,000 $63,600 1M $66,000 $61,800 🔵 24h · 🟢 1w · 🟡 1m Fuente: @coinglass_com #Bitcoin #B",
-      "impression_count": 140,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/BCryptodinero/status/2086968367513051561/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2086968367513051561",
-      "post_url": "https://x.com/BCryptodinero/status/2086968367513051561",
-      "posted_at": "2026-08-11T00:10:07+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔥 BTC Liquidation Heatmap Niveles de mayor liquidez: TF ▲ Up ▼ Down 24H $66,400 $63,700 1W $66,000 $63,600 1M $66,000 $61,800 🔵 24h · 🟢 1w · 🟡 1m Fuente: @coinglass_com #Bitcoin #BTC #Crypto #Liquidations #Trading https://t.co/SvcB0iyVEP",
-      "topic": "crypto_market",
-      "why_trending": "表示140・投稿後24分・反応率0.0%"
     }
   ],
   "trends": [],
