@@ -673,6 +673,20 @@
       "posted_at": "2026-08-12T16:55:42.467881+00:00",
       "hook": "📈 $APR、24時間で+115.93％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-13-03-a",
+      "post_id": "inu_market_2026_08_13_03_a_crypto-virtual-usd",
+      "tweet_id": "2087614603207590026",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:VIRTUAL-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-VIRTUALUSD",
+      "published_at": "2026-08-12T18:00:00+00:00",
+      "posted_at": "2026-08-12T18:58:02.399307+00:00",
+      "hook": "📈 $VIRTUAL、24時間で+14.78％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -730,7 +744,8 @@
     "inu_market_2026_08_12_16_a_crypto-pump-usd",
     "inu_market_2026_08_12_18_a_crypto-apr-usd",
     "inu_market_2026_08_12_19_a_crypto-cap-usd",
-    "inu_market_2026_08_13_01_a_crypto-apr-usd"
+    "inu_market_2026_08_13_01_a_crypto-apr-usd",
+    "inu_market_2026_08_13_03_a_crypto-virtual-usd"
   ],
   "reservations": [
     {
@@ -950,16 +965,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-13-03-a",
-      "post_id": "inu_market_2026_08_13_03_a_crypto-virtual-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-VIRTUALUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:VIRTUAL-USD",
-      "reserved_at": "2026-08-12T18:57:08.035235+00:00"
     }
   ],
   "history": [
@@ -1680,6 +1685,20 @@
       "published_at": "2026-08-12T16:00:00+00:00",
       "posted_at": "2026-08-12T16:55:42.467881+00:00",
       "hook": "📈 $APR、24時間で+115.93％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-13-03-a",
+      "post_id": "inu_market_2026_08_13_03_a_crypto-virtual-usd",
+      "tweet_id": "2087614603207590026",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:VIRTUAL-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-VIRTUALUSD",
+      "published_at": "2026-08-12T18:00:00+00:00",
+      "posted_at": "2026-08-12T18:58:02.399307+00:00",
+      "hook": "📈 $VIRTUAL、24時間で+14.78％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
