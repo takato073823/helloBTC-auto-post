@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T15:40:04+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T16:37:29+00:00",
+  "last_deep_scan_at": "2026-08-12T17:43:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T17:43:55+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -886,6 +886,19 @@
       "checked_at": "2026-08-12T16:37:29+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T17:43:55+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T17:43:55+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1127,34 +1140,6 @@
       "why_trending": "表示20・投稿後2分・反応率0.0%・動画あり"
     },
     {
-      "author_followers": 23928,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CW8900",
-      "has_video": false,
-      "headline": "Stablecoin net flows to exchange have returned to a net inflow state, ending a brief trend of net outflows. Yesterday, there was a large-scale net outflow, and $BTC showed a bearis",
-      "impression_count": 1398,
-      "like_count": 14,
-      "linked_urls": [
-        "https://x.com/CW8900/status/2087493217717825865/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087493217717825865",
-      "post_url": "https://x.com/CW8900/status/2087493217717825865",
-      "posted_at": "2026-08-12T10:55:41+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 39.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Stablecoin net flows to exchange have returned to a net inflow state, ending a brief trend of net outflows. Yesterday, there was a large-scale net outflow, and $BTC showed a bearish trend. https://t.co/AN72j6hQdb",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1,398・投稿後97分・反応率1.1%"
-    },
-    {
       "author_followers": 2549,
       "discovered_at": "2026-08-12T12:33:15+00:00",
       "discovery_type": "official_x_api",
@@ -1233,62 +1218,6 @@
       "summary": "TD Cowen gives the Clarity Act a 25 percent chance this fall. Meanwhile the CFTC says it will write crypto rules on its own authority if Congress stalls, and the SEC meets on crypto regulation Friday. The rules are coming either way. The only question left is who writes them. https://t.co/zRnsSJZXuV",
       "topic": "regulation",
       "why_trending": "表示13・投稿後80分・反応率12.3%"
-    },
-    {
-      "author_followers": 12236,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "HTX_Research",
-      "has_video": false,
-      "headline": "BTC Flows Daily Report | 12 Aug 2026 Last week's $853.5M of spot $BTC ETF inflows marked the strongest buying streak since early July, with Monday's outflow remaining modest relati",
-      "impression_count": 21,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/HTX_Research/status/2087489661380018580/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087489661380018580",
-      "post_url": "https://x.com/HTX_Research/status/2087489661380018580",
-      "posted_at": "2026-08-12T10:41:33+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BTC Flows Daily Report | 12 Aug 2026 Last week's $853.5M of spot $BTC ETF inflows marked the strongest buying streak since early July, with Monday's outflow remaining modest relative to the prior week's demand. Open interest climbed to a record 283.6K BTC as leverage increased https://t.co/mS8OUBhL80",
-      "topic": "crypto_market",
-      "why_trending": "表示21・投稿後1分・反応率0.0%"
-    },
-    {
-      "author_followers": 1143859,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CNBCTV18News",
-      "has_video": true,
-      "headline": "#CryptoCornerSeason2 | Crypto Sentiment Turns Cautious Across Board - Senate pushes CLARITY Act vote to mid-September - ⁠Spot Bitcoin ETFs experience sharp outflow @BinanceForIN | ",
-      "impression_count": 3439,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CNBCTV18News/status/2087489828330099120/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087489828330099120",
-      "post_url": "https://x.com/CNBCTV18News/status/2087489828330099120",
-      "posted_at": "2026-08-12T10:42:13+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "#CryptoCornerSeason2 | Crypto Sentiment Turns Cautious Across Board - Senate pushes CLARITY Act vote to mid-September - ⁠Spot Bitcoin ETFs experience sharp outflow @BinanceForIN | @Manisha3005 | #Bitcoin #Ethereum #Crypto https://t.co/cd1sVaG8QN",
-      "topic": "onchain_exchange",
-      "why_trending": "表示3,439・投稿後111分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 675,
