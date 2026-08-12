@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-12T21:29:16+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T21:29:16+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T22:25:00+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -918,6 +918,12 @@
       "result_count": 9,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T22:25:00+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1179,34 +1185,6 @@
       "summary": "ネビウス(NBIS)が好決算で28％急騰。 売上高は前年比454％増、AIクラウド売上は約6倍に拡大しました。 さらに注目なのが、浮動株の約30％に達する空売り残高です。 今回の急騰は好業績だけでなく、ショートカバーが値動きを増幅させた可能性もあります。",
       "topic": "japanese_market",
       "why_trending": "表示276・投稿後110分・反応率0.4%"
-    },
-    {
-      "author_followers": 675,
-      "discovered_at": "2026-08-12T15:40:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "The_CryptoPost",
-      "has_video": false,
-      "headline": "⚙️ Crypto regulation moves without Congress The CLARITY Act remains stalled in the Senate, but that does not mean the push for a U.S. crypto regulatory framework has stopped. The S",
-      "impression_count": 6,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/The_CryptoPost/status/2087562253419827689/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087562253419827689",
-      "post_url": "https://x.com/The_CryptoPost/status/2087562253419827689",
-      "posted_at": "2026-08-12T15:30:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "⚙️ Crypto regulation moves without Congress The CLARITY Act remains stalled in the Senate, but that does not mean the push for a U.S. crypto regulatory framework has stopped. The SEC and CFTC are moving forward together through Project Crypto, an initiative aimed at https://t.co/0s9oZpFQFm",
-      "topic": "regulation",
-      "why_trending": "表示6・投稿後10分・反応率0.0%"
     }
   ],
   "trends": [],
