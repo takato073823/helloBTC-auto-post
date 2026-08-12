@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-11T22:24:46+00:00",
-  "last_watcher_guru_scan_at": "2026-08-11T23:24:35+00:00",
+  "last_deep_scan_at": "2026-08-12T00:43:15+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T00:43:15+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -763,33 +763,22 @@
       "checked_at": "2026-08-11T23:24:35+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T00:43:15+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T00:43:15+00:00",
+      "result_count": 9,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4650029,
-      "discovered_at": "2026-08-11T18:37:33+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 CFTC says it is prepared to advance crypto regulations even if Congress fails to pass the crypto Clarity Act.",
-      "impression_count": 178931,
-      "like_count": 2978,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087232342905536833",
-      "post_url": "https://x.com/WatcherGuru/status/2087232342905536833",
-      "posted_at": "2026-08-11T17:39:04+00:00",
-      "quote_count": 43,
-      "reply_count": 227,
-      "repost_count": 378,
-      "score": 82.2,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 CFTC says it is prepared to advance crypto regulations even if Congress fails to pass the crypto Clarity Act.",
-      "topic": "watcher_guru",
-      "why_trending": "表示178,931・投稿後58分・反応率2.3%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4650699,
       "discovered_at": "2026-08-11T20:28:29+00:00",
@@ -841,60 +830,88 @@
       "why_trending": "表示126・投稿後36分・反応率8.9%・公式候補リンクあり"
     },
     {
-      "author_followers": 15,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
+      "author_followers": 12246,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "NewsLayerApp",
-      "has_video": false,
-      "headline": "🔴 BREAKING: Ravencoin Crashes 20% as Critical Exploit Threatens to Rollback Network https://t.co/4DqQ0RPkqW #Crypto #Web3 #Regulation #Markets #CryptoNews #Bitcoin #Blockchain #DeF",
-      "impression_count": 33,
-      "like_count": 2,
-      "linked_urls": [
-        "https://newslayer.com/api/v1/s/ravencoin-crashes-20-as-critical-exploit-threatens-to-rollback-network-137bef"
-      ],
-      "media_types": [],
-      "post_id": "2087240674047389782",
-      "post_url": "https://x.com/NewsLayerApp/status/2087240674047389782",
-      "posted_at": "2026-08-11T18:12:10+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 56.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔴 BREAKING: Ravencoin Crashes 20% as Critical Exploit Threatens to Rollback Network https://t.co/4DqQ0RPkqW #Crypto #Web3 #Regulation #Markets #CryptoNews #Bitcoin #Blockchain #DeFi #Ethereum #Altcoins",
-      "topic": "onchain_exchange",
-      "why_trending": "表示33・投稿後95分・反応率10.9%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 53554,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "RealPabloHeman",
+      "handle": "BlueWolfNFTs",
       "has_video": true,
-      "headline": "Major Whale Signal Alert on Bitcoin! How high can Bitcoin and Gold go in the upcoming Bull Run?! I show you what the evidence is pointing at! Pablo uses this crypto exchange with l",
-      "impression_count": 2205,
-      "like_count": 2,
+      "headline": "#bluesnews - crypto and stock news with my views! GM if you are happy that Trump pulled the switcheroo in Turkey to stay safe. Good luck if you were on airforce one as fodder. 😱 It",
+      "impression_count": 160,
+      "like_count": 4,
       "linked_urls": [
-        "https://www.bitunix.com/activity/basic/PabloHeman0806?vipCode=k1mk",
-        "https://x.com/RealPabloHeman/status/2087239893806445003/video/1",
-        "https://twitter.com/RealPabloHeman/status/2065055869851840771"
+        "https://x.com/BlueWolfNFTs/status/2087332166791495895/photo/1"
       ],
       "media_types": [
-        "video"
+        "photo",
+        "animated_gif"
       ],
-      "post_id": "2087239893806445003",
-      "post_url": "https://x.com/RealPabloHeman/status/2087239893806445003",
-      "posted_at": "2026-08-11T18:09:04+00:00",
+      "post_id": "2087332166791495895",
+      "post_url": "https://x.com/BlueWolfNFTs/status/2087332166791495895",
+      "posted_at": "2026-08-12T00:15:43+00:00",
+      "quote_count": 0,
+      "reply_count": 7,
+      "repost_count": 1,
+      "score": 54.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "#bluesnews - crypto and stock news with my views! GM if you are happy that Trump pulled the switcheroo in Turkey to stay safe. Good luck if you were on airforce one as fodder. 😱 It’s humpday down under. The week is half cooked but there is still plenty of time to grind. https://t.co/Z0vtJ5p4sS",
+      "topic": "regulation",
+      "why_trending": "表示160・投稿後27分・反応率10.8%・動画あり"
+    },
+    {
+      "author_followers": 851,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "digital__assenc",
+      "has_video": true,
+      "headline": "🚨🇺🇸💥THE CFTC ISN’T WAITING💥🇺🇸🚨 The CFTC says it’s ready to move forward with crypto regulation even if Congress fails to pass the CLARITY Act. Washington can keep delaying. Crypto ",
+      "impression_count": 4,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/TheCryptoSquire/status/2087241791913242776/video/1"
+      ],
+      "media_types": [
+        "video",
+        "photo"
+      ],
+      "post_id": "2087337152950771775",
+      "post_url": "https://x.com/digital__assenc/status/2087337152950771775",
+      "posted_at": "2026-08-12T00:35:32+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 48.6,
+      "score": 52.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Major Whale Signal Alert on Bitcoin! How high can Bitcoin and Gold go in the upcoming Bull Run?! I show you what the evidence is pointing at! Pablo uses this crypto exchange with lots of great bonuses! Click here👇 https://t.co/XFJKiUdQrd https://t.co/NW6or4SH4z https://t.co/7Ud03bxuN1",
-      "topic": "onchain_exchange",
-      "why_trending": "表示2,205・投稿後98分・反応率0.1%・公式候補リンクあり・動画あり"
+      "summary": "🚨🇺🇸💥THE CFTC ISN’T WAITING💥🇺🇸🚨 The CFTC says it’s ready to move forward with crypto regulation even if Congress fails to pass the CLARITY Act. Washington can keep delaying. Crypto isn’t going to wait forever. 💪🏻💥🇺🇸 https://t.co/xyVVZw7LGm",
+      "topic": "regulation",
+      "why_trending": "表示4・投稿後7分・反応率25.0%・動画あり"
+    },
+    {
+      "author_followers": 1090,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "SmithThei3",
+      "has_video": false,
+      "headline": "🇺🇸 Interesting development from the CFTC. Even if Congress doesn't get the CLARITY Act across the finish line, the agency says it's prepared to keep moving on crypto regulation. Se",
+      "impression_count": 49,
+      "like_count": 2,
+      "linked_urls": [
+        "https://twitter.com/WatcherGuru/status/2087232342905536833"
+      ],
+      "media_types": [],
+      "post_id": "2087309617025916959",
+      "post_url": "https://x.com/SmithThei3/status/2087309617025916959",
+      "posted_at": "2026-08-11T22:46:07+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 50.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🇺🇸 Interesting development from the CFTC. Even if Congress doesn't get the CLARITY Act across the finish line, the agency says it's prepared to keep moving on crypto regulation. September just got even more interesting. $BTC | $ETH | $SOL | $XRP | $DOGE | $PEPE | $FET | $HYPE https://t.co/4bmkT2XqQO",
+      "topic": "regulation",
+      "why_trending": "表示49・投稿後117分・反応率4.1%・公式候補リンクあり"
     },
     {
       "author_followers": 197,
@@ -953,60 +970,112 @@
       "why_trending": "表示10・投稿後36分・反応率36.0%・動画あり"
     },
     {
-      "author_followers": 8411,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
+      "author_followers": 2937405,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Motivator_Peter",
+      "handle": "Cointelegraph",
       "has_video": false,
-      "headline": "A stablecoin usually answers one question: where can I hold a digital dollar? USDD 2.0 is designed to answer three: How can I create liquidity without selling my crypto? How can th",
-      "impression_count": 70,
-      "like_count": 6,
+      "headline": "🇺🇸 BIG: SEC to address crypto regulation on its own after the Clarity Act failed to pass Congress last week. https://t.co/zJ8jJBOXOA",
+      "impression_count": 26677,
+      "like_count": 127,
       "linked_urls": [
-        "https://x.com/Motivator_Peter/status/2087242320265523285/photo/1"
+        "https://cointelegraph.com/news/sec-crypto-regulations-absence-clarity-act"
       ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087242320265523285",
-      "post_url": "https://x.com/Motivator_Peter/status/2087242320265523285",
-      "posted_at": "2026-08-11T18:18:42+00:00",
-      "quote_count": 0,
-      "reply_count": 6,
-      "repost_count": 2,
-      "score": 40.7,
+      "media_types": [],
+      "post_id": "2087318333255278795",
+      "post_url": "https://x.com/Cointelegraph/status/2087318333255278795",
+      "posted_at": "2026-08-11T23:20:45+00:00",
+      "quote_count": 1,
+      "reply_count": 19,
+      "repost_count": 20,
+      "score": 43.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "A stablecoin usually answers one question: where can I hold a digital dollar? USDD 2.0 is designed to answer three: How can I create liquidity without selling my crypto? How can that liquidity remain exchangeable near its target value? How can it continue working after it https://t.co/EotVbImleT",
-      "topic": "onchain_exchange",
-      "why_trending": "表示70・投稿後88分・反応率28.0%"
+      "summary": "🇺🇸 BIG: SEC to address crypto regulation on its own after the Clarity Act failed to pass Congress last week. https://t.co/zJ8jJBOXOA",
+      "topic": "regulation",
+      "why_trending": "表示26,677・投稿後82分・反応率0.7%"
     },
     {
-      "author_followers": 17391,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
+      "author_followers": 75,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MirelVegar",
+      "handle": "jared_noblnotes",
       "has_video": false,
-      "headline": "A stablecoin may display $1 in your wallet and still cost you value when you try to move into or out of it. That hidden friction is what the USDD Peg Stability Module is designed t",
-      "impression_count": 38,
-      "like_count": 1,
+      "headline": "The CLARITY Act may be stalled, but U.S. crypto regulation is still moving. If the SEC rolls out major new plans while Congress negotiates. Real prediction on ResoMarket: Will CLAR",
+      "impression_count": 31,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/MirelVegar/status/2087242586650009635/photo/1"
+        "https://twitter.com/AshCrypto/status/2087266209842507905"
       ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087242586650009635",
-      "post_url": "https://x.com/MirelVegar/status/2087242586650009635",
-      "posted_at": "2026-08-11T18:19:46+00:00",
+      "media_types": [],
+      "post_id": "2087308998940754300",
+      "post_url": "https://x.com/jared_noblnotes/status/2087308998940754300",
+      "posted_at": "2026-08-11T22:43:40+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 37.7,
+      "score": 40.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "A stablecoin may display $1 in your wallet and still cost you value when you try to move into or out of it. That hidden friction is what the USDD Peg Stability Module is designed to remove. Instead of sending users through an open-market trade, the PSM enables direct conversion https://t.co/Sp8asgbRxC",
-      "topic": "onchain_exchange",
-      "why_trending": "表示38・投稿後87分・反応率2.6%"
+      "summary": "The CLARITY Act may be stalled, but U.S. crypto regulation is still moving. If the SEC rolls out major new plans while Congress negotiates. Real prediction on ResoMarket: Will CLARITY Act still become law in 2026? $BTC | $ETH | $SOL | $XRP | $DOGE | $PEPE | $FET | $HYPE https://t.co/O3WNTcrKqt",
+      "topic": "regulation",
+      "why_trending": "表示31・投稿後119分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 21,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "DeFiRaptorApp",
+      "has_video": false,
+      "headline": "📰 Crypto brief · 12 Aug • SEC, CFTC sue Goliath Ventures over $400M crypto Ponzi scheme • Bitcoin Holders Get 96% Cheaper Entry Into BlackRock’s ETF Without https://t.co/YsVsfNKHmk",
+      "impression_count": 5,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/DeFiRaptorApp/status/2087334094547927260/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087334094547927260",
+      "post_url": "https://x.com/DeFiRaptorApp/status/2087334094547927260",
+      "posted_at": "2026-08-12T00:23:23+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 40.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📰 Crypto brief · 12 Aug • SEC, CFTC sue Goliath Ventures over $400M crypto Ponzi scheme • Bitcoin Holders Get 96% Cheaper Entry Into BlackRock’s ETF Without https://t.co/YsVsfNKHmk https://t.co/RKvjEHMtVl",
+      "topic": "regulation",
+      "why_trending": "表示5・投稿後19分・反応率0.0%"
+    },
+    {
+      "author_followers": 619,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptomegaNews",
+      "has_video": false,
+      "headline": "Crypto's latest headlines: a blend of enforcement, evolving investment access, and a complex regulatory dance. • SEC &amp; CFTC sue Goliath Ventures over an alleged $400M crypto Po",
+      "impression_count": 20,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/CryptomegaNews/status/2087335853873836463/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087335853873836463",
+      "post_url": "https://x.com/CryptomegaNews/status/2087335853873836463",
+      "posted_at": "2026-08-12T00:30:23+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Crypto's latest headlines: a blend of enforcement, evolving investment access, and a complex regulatory dance. • SEC &amp; CFTC sue Goliath Ventures over an alleged $400M crypto Ponzi scheme. • Bitcoin holders gain 96% cheaper entry into BlackRock’s ETF without selling their $BTC. https://t.co/rLf6YNu0T5",
+      "topic": "regulation",
+      "why_trending": "表示20・投稿後12分・反応率0.0%"
     },
     {
       "author_followers": 439,
@@ -1037,32 +1106,60 @@
       "why_trending": "表示55・投稿後29分・反応率0.0%"
     },
     {
-      "author_followers": 171,
-      "discovered_at": "2026-08-11T17:42:26+00:00",
+      "author_followers": 587,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "BullishByBlood",
+      "handle": "JLoescher",
       "has_video": false,
-      "headline": "BTC 4-hour chart update (63503) Fear and Greed: 29 (Fear) BTC Dom: 59.14% Price action: Price down 0.7% from the close of yesterday. Premium Index: UP Funding Rates: UP Open Intere",
-      "impression_count": 5,
+      "headline": "Three XRP developments from the last 72 hours: • National Bank of Canada disclosed 330 shares of the Bitwise XRP ETF (~$3,848) in its latest 13F filing (as of June 30). Small posit",
+      "impression_count": 6,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/BullishByBlood/status/2087230139813986511/photo/1"
+        "https://x.com/JLoescher/status/2087338654452658637/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087230139813986511",
-      "post_url": "https://x.com/BullishByBlood/status/2087230139813986511",
-      "posted_at": "2026-08-11T17:30:18+00:00",
+      "post_id": "2087338654452658637",
+      "post_url": "https://x.com/JLoescher/status/2087338654452658637",
+      "posted_at": "2026-08-12T00:41:30+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 34.1,
+      "score": 34.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "BTC 4-hour chart update (63503) Fear and Greed: 29 (Fear) BTC Dom: 59.14% Price action: Price down 0.7% from the close of yesterday. Premium Index: UP Funding Rates: UP Open Interest: $32.68 B Volume: $5.67 B Outlook: Cautious https://t.co/GewWfPSVm1",
-      "topic": "crypto_market",
-      "why_trending": "表示5・投稿後12分・反応率0.0%"
+      "summary": "Three XRP developments from the last 72 hours: • National Bank of Canada disclosed 330 shares of the Bitwise XRP ETF (~$3,848) in its latest 13F filing (as of June 30). Small position relative to its Bitcoin ETF holdings, but one of the clearer early bank appearances of https://t.co/AXIqd4jUmt",
+      "topic": "regulation",
+      "why_trending": "表示6・投稿後1分・反応率0.0%"
+    },
+    {
+      "author_followers": 517,
+      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Mudassi40363073",
+      "has_video": true,
+      "headline": "⚠️ THE CFTC ISN’T WAITING. IT’S READY TO MOVE FORWARD WITH CRYPTO REGULATION — EVEN IF CONGRESS FAILS TO PASS THE CLARITY ACT. WASHINGTON CAN DELAY. CRYPTO WON’T. #CLARITYACT #XRP ",
+      "impression_count": 2,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Mudassi40363073/status/2087335848018637039/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087335848018637039",
+      "post_url": "https://x.com/Mudassi40363073/status/2087335848018637039",
+      "posted_at": "2026-08-12T00:30:21+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "⚠️ THE CFTC ISN’T WAITING. IT’S READY TO MOVE FORWARD WITH CRYPTO REGULATION — EVEN IF CONGRESS FAILS TO PASS THE CLARITY ACT. WASHINGTON CAN DELAY. CRYPTO WON’T. #CLARITYACT #XRP #100KVIEWS #XLM #CRYPTO https://t.co/HqL2CWmXge",
+      "topic": "regulation",
+      "why_trending": "表示2・投稿後12分・反応率0.0%・動画あり"
     }
   ],
   "trends": [],
