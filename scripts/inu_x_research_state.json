@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T00:43:15+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T00:43:15+00:00",
+  "last_deep_scan_at": "2026-08-12T03:12:41+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T03:12:41+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -776,59 +776,22 @@
       "result_count": 9,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T03:12:41+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T03:12:41+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4650699,
-      "discovered_at": "2026-08-11T20:28:29+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 SEC to unveil major crypto plans, Bloomberg reports.",
-      "impression_count": 149274,
-      "like_count": 2528,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087264856508334451",
-      "post_url": "https://x.com/WatcherGuru/status/2087264856508334451",
-      "posted_at": "2026-08-11T19:48:15+00:00",
-      "quote_count": 35,
-      "reply_count": 214,
-      "repost_count": 280,
-      "score": 82.0,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 SEC to unveil major crypto plans, Bloomberg reports.",
-      "topic": "watcher_guru",
-      "why_trending": "表示149,274・投稿後40分・反応率2.3%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 3379,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WasimxWeb3",
-      "has_video": false,
-      "headline": "I said @base has been quiet lately, but then I looked at what they’ve actually built in 3 years. And 2days ago, Base just turned 3 3 years ago it was just another Ethereum L2 Now l",
-      "impression_count": 126,
-      "like_count": 6,
-      "linked_urls": [
-        "https://twitter.com/wasimxweb3/status/2087052655780930034"
-      ],
-      "media_types": [],
-      "post_id": "2087255332016042458",
-      "post_url": "https://x.com/WasimxWeb3/status/2087255332016042458",
-      "posted_at": "2026-08-11T19:10:25+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 1,
-      "score": 60.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "I said @base has been quiet lately, but then I looked at what they’ve actually built in 3 years. And 2days ago, Base just turned 3 3 years ago it was just another Ethereum L2 Now look at the numbers: – Almost $5B TVL – $46T cumulative stablecoin volume – 90% of x402 https://t.co/FgL0M7knag",
-      "topic": "onchain_exchange",
-      "why_trending": "表示126・投稿後36分・反応率8.9%・公式候補リンクあり"
-    },
     {
       "author_followers": 12246,
       "discovered_at": "2026-08-12T00:43:15+00:00",
@@ -912,62 +875,6 @@
       "summary": "🇺🇸 Interesting development from the CFTC. Even if Congress doesn't get the CLARITY Act across the finish line, the agency says it's prepared to keep moving on crypto regulation. September just got even more interesting. $BTC | $ETH | $SOL | $XRP | $DOGE | $PEPE | $FET | $HYPE https://t.co/4bmkT2XqQO",
       "topic": "regulation",
       "why_trending": "表示49・投稿後117分・反応率4.1%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 197,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "bdicinsurance",
-      "has_video": false,
-      "headline": "\"Insurance is not one product. It is a category that has to scale from a wallet to a treasury.\" A person holding $8,000 on an exchange and a DAO holding $40 million in stablecoins ",
-      "impression_count": 19,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/bdicinsurance/status/2087252824627265677/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087252824627265677",
-      "post_url": "https://x.com/bdicinsurance/status/2087252824627265677",
-      "posted_at": "2026-08-11T19:00:27+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 1,
-      "score": 48.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "\"Insurance is not one product. It is a category that has to scale from a wallet to a treasury.\" A person holding $8,000 on an exchange and a DAO holding $40 million in stablecoins face overlapping risks. They need entirely different products. One needs simple terms and a clear https://t.co/XvmpCmj8hh",
-      "topic": "onchain_exchange",
-      "why_trending": "表示19・投稿後46分・反応率24.2%"
-    },
-    {
-      "author_followers": 1221,
-      "discovered_at": "2026-08-11T19:47:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "azattelevision",
-      "has_video": true,
-      "headline": "A $130M Coldcard exploit has investors rushing $850M into Bitcoin ETFs! Is self-custody losing its appeal? The market's shifting towards regulated security, even impacting Ethereum",
-      "impression_count": 10,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/azattelevision/status/2087255380648739039/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087255380648739039",
-      "post_url": "https://x.com/azattelevision/status/2087255380648739039",
-      "posted_at": "2026-08-11T19:10:36+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 47.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A $130M Coldcard exploit has investors rushing $850M into Bitcoin ETFs! Is self-custody losing its appeal? The market's shifting towards regulated security, even impacting Ethereum inflows. What does this mean for crypto's future? https://t.co/54ouSKTcnU",
-      "topic": "onchain_exchange",
-      "why_trending": "表示10・投稿後36分・反応率36.0%・動画あり"
     },
     {
       "author_followers": 2937405,
