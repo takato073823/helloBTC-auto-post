@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T03:12:41+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T03:12:41+00:00",
+  "last_deep_scan_at": "2026-08-12T05:19:19+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T05:19:19+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -789,6 +789,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T05:19:19+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T05:19:19+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -851,30 +864,56 @@
       "why_trending": "表示4・投稿後7分・反応率25.0%・動画あり"
     },
     {
-      "author_followers": 1090,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "author_followers": 23,
+      "discovered_at": "2026-08-12T05:19:19+00:00",
       "discovery_type": "official_x_api",
-      "handle": "SmithThei3",
+      "handle": "JyotiWalla28610",
       "has_video": false,
-      "headline": "🇺🇸 Interesting development from the CFTC. Even if Congress doesn't get the CLARITY Act across the finish line, the agency says it's prepared to keep moving on crypto regulation. Se",
-      "impression_count": 49,
-      "like_count": 2,
+      "headline": "自分の雑なトレードとは 次元が違いすぎて笑うしかない🤣 勝ちたい人は絶対にフォローしておいた方がいいよ👀 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 日銀総裁 トランプコールド XAU 米国株投資 仮想通貨 株式市場 金利引き下げ 利下げ https://t.co/jyrGCzmPxD",
+      "impression_count": 0,
+      "like_count": 1,
       "linked_urls": [
-        "https://twitter.com/WatcherGuru/status/2087232342905536833"
+        "https://twitter.com/miyabi_fx_1997/status/2087369886779760935"
       ],
       "media_types": [],
-      "post_id": "2087309617025916959",
-      "post_url": "https://x.com/SmithThei3/status/2087309617025916959",
-      "posted_at": "2026-08-11T22:46:07+00:00",
+      "post_id": "2087393639534125110",
+      "post_url": "https://x.com/JyotiWalla28610/status/2087393639534125110",
+      "posted_at": "2026-08-12T04:20:00+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 50.7,
+      "score": 48.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🇺🇸 Interesting development from the CFTC. Even if Congress doesn't get the CLARITY Act across the finish line, the agency says it's prepared to keep moving on crypto regulation. September just got even more interesting. $BTC | $ETH | $SOL | $XRP | $DOGE | $PEPE | $FET | $HYPE https://t.co/4bmkT2XqQO",
-      "topic": "regulation",
-      "why_trending": "表示49・投稿後117分・反応率4.1%・公式候補リンクあり"
+      "summary": "自分の雑なトレードとは 次元が違いすぎて笑うしかない🤣 勝ちたい人は絶対にフォローしておいた方がいいよ👀 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 日銀総裁 トランプコールド XAU 米国株投資 仮想通貨 株式市場 金利引き下げ 利下げ https://t.co/jyrGCzmPxD",
+      "topic": "japanese_market",
+      "why_trending": "表示0・投稿後59分・反応率100.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1018,
+      "discovered_at": "2026-08-12T05:19:19+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "kicka_one",
+      "has_video": false,
+      "headline": "❇️ キッカ的暗号資産トレードのこれから 結論から言ってしまえば ビットコイントレードは「長期保有」と「スイング」 私は、ビットコインのスポットETFの話が出た頃から、最終的には「既存金融システムの一部」へ取り込まれていくと考えていたから取引スタイルも変えた。 https://t.co/nCkEHHGeUC",
+      "impression_count": 94,
+      "like_count": 0,
+      "linked_urls": [
+        "https://twitter.com/kicka_one/status/2087394448842051865"
+      ],
+      "media_types": [],
+      "post_id": "2087395099978125341",
+      "post_url": "https://x.com/kicka_one/status/2087395099978125341",
+      "posted_at": "2026-08-12T04:25:48+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 45.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "❇️ キッカ的暗号資産トレードのこれから 結論から言ってしまえば ビットコイントレードは「長期保有」と「スイング」 私は、ビットコインのスポットETFの話が出た頃から、最終的には「既存金融システムの一部」へ取り込まれていくと考えていたから取引スタイルも変えた。 https://t.co/nCkEHHGeUC",
+      "topic": "japanese_market",
+      "why_trending": "表示94・投稿後53分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 2937405,
@@ -901,32 +940,6 @@
       "summary": "🇺🇸 BIG: SEC to address crypto regulation on its own after the Clarity Act failed to pass Congress last week. https://t.co/zJ8jJBOXOA",
       "topic": "regulation",
       "why_trending": "表示26,677・投稿後82分・反応率0.7%"
-    },
-    {
-      "author_followers": 75,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "jared_noblnotes",
-      "has_video": false,
-      "headline": "The CLARITY Act may be stalled, but U.S. crypto regulation is still moving. If the SEC rolls out major new plans while Congress negotiates. Real prediction on ResoMarket: Will CLAR",
-      "impression_count": 31,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/AshCrypto/status/2087266209842507905"
-      ],
-      "media_types": [],
-      "post_id": "2087308998940754300",
-      "post_url": "https://x.com/jared_noblnotes/status/2087308998940754300",
-      "posted_at": "2026-08-11T22:43:40+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "The CLARITY Act may be stalled, but U.S. crypto regulation is still moving. If the SEC rolls out major new plans while Congress negotiates. Real prediction on ResoMarket: Will CLARITY Act still become law in 2026? $BTC | $ETH | $SOL | $XRP | $DOGE | $PEPE | $FET | $HYPE https://t.co/O3WNTcrKqt",
-      "topic": "regulation",
-      "why_trending": "表示31・投稿後119分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 21,
@@ -985,32 +998,54 @@
       "why_trending": "表示20・投稿後12分・反応率0.0%"
     },
     {
-      "author_followers": 439,
-      "discovered_at": "2026-08-11T22:24:46+00:00",
+      "author_followers": 1,
+      "discovered_at": "2026-08-12T05:19:19+00:00",
       "discovery_type": "official_x_api",
-      "handle": "OnchainIns5699",
+      "handle": "CE_USStockLab",
       "has_video": false,
-      "headline": "💧 ONCHAIN INSIGHTS LIQUIDITY RECAP - AUGUST 11, 2026 📈 STOCKS &amp; VOLATILITY • Major Indices: S&amp;P 500 slipped 0.32% to 7,728.09, Nasdaq 100 fell 0.33% to 29,525.48, and Dow J",
-      "impression_count": 55,
+      "headline": "🧪 CEのデイリーレポート 📅 2026/8/12 🇺🇸 米国株 🟢 PLTR（約$175.23） ・前日終値からやや軟化し、$170〜180のレンジでもみ合い ・11四半期連続GAAP黒字を維持 ・通期の調整後営業利益ガイダンスを48.9〜49.1億ドルへ上方修正 ・現金・有価証券は約92億ドル、実質無借金 https://t.co/YVLJe9e8lk",
+      "impression_count": 3,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/OnchainIns5699/status/2087296873010692574/photo/1"
+        "https://twitter.com/ce_usstocklab/status/2087150699901755768"
       ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087296873010692574",
-      "post_url": "https://x.com/OnchainIns5699/status/2087296873010692574",
-      "posted_at": "2026-08-11T21:55:29+00:00",
+      "media_types": [],
+      "post_id": "2087382769555157290",
+      "post_url": "https://x.com/CE_USStockLab/status/2087382769555157290",
+      "posted_at": "2026-08-12T03:36:48+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 36.7,
+      "score": 36.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "💧 ONCHAIN INSIGHTS LIQUIDITY RECAP - AUGUST 11, 2026 📈 STOCKS &amp; VOLATILITY • Major Indices: S&amp;P 500 slipped 0.32% to 7,728.09, Nasdaq 100 fell 0.33% to 29,525.48, and Dow Jones declined 0.34% to 53,791.97. • VIX Gauge: Volatility fell 0.1 point to 15.3, signaling contained https://t.co/pdryDCocIf",
-      "topic": "macro_rates",
-      "why_trending": "表示55・投稿後29分・反応率0.0%"
+      "summary": "🧪 CEのデイリーレポート 📅 2026/8/12 🇺🇸 米国株 🟢 PLTR（約$175.23） ・前日終値からやや軟化し、$170〜180のレンジでもみ合い ・11四半期連続GAAP黒字を維持 ・通期の調整後営業利益ガイダンスを48.9〜49.1億ドルへ上方修正 ・現金・有価証券は約92億ドル、実質無借金 https://t.co/YVLJe9e8lk",
+      "topic": "japanese_market",
+      "why_trending": "表示3・投稿後102分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1233,
+      "discovered_at": "2026-08-12T05:19:19+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "yanoteck",
+      "has_video": false,
+      "headline": "🟧 BTCニュース要約（2026-08-12 14:08:38 JST） 🎯 おすすめポジション: 🟡👀 様子見 📌 重要度スコア上位（参考） 1) 24点 ナスダック、「常時稼働」市場に向けた取り組みでLeveL Marketsを買収へ（原文: Nasdaq to acquire LeveL Markets in push toward ‘always-o",
+      "impression_count": 24,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087407967935386001",
+      "post_url": "https://x.com/yanoteck/status/2087407967935386001",
+      "posted_at": "2026-08-12T05:16:56+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🟧 BTCニュース要約（2026-08-12 14:08:38 JST） 🎯 おすすめポジション: 🟡👀 様子見 📌 重要度スコア上位（参考） 1) 24点 ナスダック、「常時稼働」市場に向けた取り組みでLeveL Marketsを買収へ（原文: Nasdaq to acquire LeveL Markets in push toward ‘always-on’ m） 2) 16点",
+      "topic": "japanese_market",
+      "why_trending": "表示24・投稿後2分・反応率0.0%"
     },
     {
       "author_followers": 587,
