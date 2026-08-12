@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T14:07:15+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T14:07:15+00:00",
+  "last_deep_scan_at": "2026-08-12T15:40:04+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T15:40:04+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -867,6 +867,19 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T15:40:04+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T15:40:04+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -900,33 +913,28 @@
       "why_trending": "表示1,471・投稿後13分・反応率0.4%・公式候補リンクあり"
     },
     {
-      "author_followers": 252,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "author_followers": 43,
+      "discovered_at": "2026-08-12T15:40:04+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Rina_BingX",
+      "handle": "WhaleRadarX",
       "has_video": false,
-      "headline": "📉 Crypto Market Overview (Aug.12) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC: Currently 63,815 USDT, down roughly 0.7% on the day. Overnight it dipped from ~64,300 to a low of 63",
-      "impression_count": 212,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Rina_BingX/status/2087467955780997524/photo/1",
-        "https://twitter.com/Rina_BingX/status/2033093750428451054"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087467955780997524",
-      "post_url": "https://x.com/Rina_BingX/status/2087467955780997524",
-      "posted_at": "2026-08-12T09:15:18+00:00",
-      "quote_count": 1,
-      "reply_count": 4,
-      "repost_count": 0,
-      "score": 62.8,
+      "headline": "🐋 𝗪𝗵𝗮𝗹𝗲𝗥𝗮𝗱𝗮𝗿 24H Crypto News 🗞️ Top crypto developments from the last 24 hours: 1) Russia moves to restrict retail crypto trading to bitcoin, ether and USDT 2) Fidelity files with ",
+      "impression_count": 16,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087561880520802620",
+      "post_url": "https://x.com/WhaleRadarX/status/2087561880520802620",
+      "posted_at": "2026-08-12T15:28:31+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 57.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "📉 Crypto Market Overview (Aug.12) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC: Currently 63,815 USDT, down roughly 0.7% on the day. Overnight it dipped from ~64,300 to a low of 63,200 around 02:30 UTC+8, then recovered into the 63,600–63,850 range. Volume was heaviest https://t.co/j5KCQOnNIa https://t.co/xzuEXM6CYf",
-      "topic": "crypto_market",
-      "why_trending": "表示212・投稿後87分・反応率5.4%・公式候補リンクあり"
+      "summary": "🐋 𝗪𝗵𝗮𝗹𝗲𝗥𝗮𝗱𝗮𝗿 24H Crypto News 🗞️ Top crypto developments from the last 24 hours: 1) Russia moves to restrict retail crypto trading to bitcoin, ether and USDT 2) Fidelity files with SEC to add staking to Ethereum ETF 3) Bitcoin holds near $64,000 as U.S. inflation data",
+      "topic": "regulation",
+      "why_trending": "表示16・投稿後11分・反応率18.8%"
     },
     {
       "author_followers": 54,
@@ -1013,60 +1021,32 @@
       "why_trending": "表示72・投稿後39分・反応率3.6%"
     },
     {
-      "author_followers": 134496,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "author_followers": 99,
+      "discovered_at": "2026-08-12T15:40:04+00:00",
       "discovery_type": "official_x_api",
-      "handle": "alanrog3",
+      "handle": "CTRadarNews",
       "has_video": false,
-      "headline": "Market Snapshot $BTC: $63.9k $ETH: $1.89k Crypto MC: $2.248T Monthly stablecoin card spending reached a record $1.04 billion in July, according to PaymentsScan. Bitcoin sellers are",
-      "impression_count": 12671,
-      "like_count": 179,
+      "headline": "⚖️ CFTC Chairman Michael Selig announced that the agency is preparing proposals for cryptocurrency regulation rules, intending to finalize them before the current administration en",
+      "impression_count": 43,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/alanrog3/status/2087473355545010466/photo/1"
+        "https://x.com/CTRadarNews/status/2087540698459349236/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087473355545010466",
-      "post_url": "https://x.com/alanrog3/status/2087473355545010466",
-      "posted_at": "2026-08-12T09:36:45+00:00",
-      "quote_count": 1,
-      "reply_count": 19,
-      "repost_count": 3,
-      "score": 49.0,
+      "post_id": "2087540698459349236",
+      "post_url": "https://x.com/CTRadarNews/status/2087540698459349236",
+      "posted_at": "2026-08-12T14:04:21+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Market Snapshot $BTC: $63.9k $ETH: $1.89k Crypto MC: $2.248T Monthly stablecoin card spending reached a record $1.04 billion in July, according to PaymentsScan. Bitcoin sellers are showing signs of exhaustion, but a historical market bottom has not yet been confirmed, https://t.co/bRMhYT1iJp",
-      "topic": "crypto_market",
-      "why_trending": "表示12,671・投稿後66分・反応率1.7%"
-    },
-    {
-      "author_followers": 317871,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "g13m",
-      "has_video": false,
-      "headline": "Just saw the latest U.S. spot crypto ETF numbers: 🟢 Bitcoin ETFs: +$4.89M inflows 🔴 Ethereum ETFs: –$1.76M outflows Interesting little divergence today. BTC still getting some quie",
-      "impression_count": 1335,
-      "like_count": 13,
-      "linked_urls": [
-        "https://x.com/g13m/status/2087472078865813958/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087472078865813958",
-      "post_url": "https://x.com/g13m/status/2087472078865813958",
-      "posted_at": "2026-08-12T09:31:41+00:00",
-      "quote_count": 2,
-      "reply_count": 6,
-      "repost_count": 5,
-      "score": 46.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Just saw the latest U.S. spot crypto ETF numbers: 🟢 Bitcoin ETFs: +$4.89M inflows 🔴 Ethereum ETFs: –$1.76M outflows Interesting little divergence today. BTC still getting some quiet inflows while ETH is seeing mild selling. https://t.co/jGfr7tCgnZ",
-      "topic": "crypto_market",
-      "why_trending": "表示1,335・投稿後71分・反応率2.7%"
+      "summary": "⚖️ CFTC Chairman Michael Selig announced that the agency is preparing proposals for cryptocurrency regulation rules, intending to finalize them before the current administration ends, even if Congress does not pass the CLARITY bill. SEC Commissioner Hester Peirce also noted that https://t.co/FNKy08BW0Q",
+      "topic": "regulation",
+      "why_trending": "表示43・投稿後95分・反応率4.7%"
     },
     {
       "author_followers": 2717,
@@ -1119,6 +1099,30 @@
       "summary": "Bitcoin holds steady near $64,000 ahead of U.S. inflation data as Harmony navigates a major 4 billion token exploit. Institutional moves continue with Fidelity’s plans for Ethereum staking and massive whale outflows from exchanges.",
       "topic": "onchain_exchange",
       "why_trending": "表示5・投稿後28分・反応率160.0%"
+    },
+    {
+      "author_followers": 25,
+      "discovered_at": "2026-08-12T15:40:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "LeaderOne783",
+      "has_video": false,
+      "headline": "🚨 SEC MOVES AHEAD AS THE CLARITY ACT STALLS 🇺🇸 The SEC is preparing new crypto initiatives this week as Congress remains deadlocked over the CLARITY Act. The regulator is consideri",
+      "impression_count": 39,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087537443721662709",
+      "post_url": "https://x.com/LeaderOne783/status/2087537443721662709",
+      "posted_at": "2026-08-12T13:51:25+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 42.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 SEC MOVES AHEAD AS THE CLARITY ACT STALLS 🇺🇸 The SEC is preparing new crypto initiatives this week as Congress remains deadlocked over the CLARITY Act. The regulator is considering new rules aimed at creating a clearer framework for crypto fundraising and token markets.",
+      "topic": "regulation",
+      "why_trending": "表示39・投稿後108分・反応率2.6%"
     },
     {
       "author_followers": 2566,
@@ -1205,30 +1209,6 @@
       "why_trending": "表示136・投稿後37分・反応率0.0%・動画あり"
     },
     {
-      "author_followers": 1156,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "NordFX",
-      "has_video": false,
-      "headline": "🚀 𝗡𝗼𝗿𝗱𝗙𝗫 𝗖𝗿𝘆𝗽𝘁𝗼 𝗪𝗲𝗲𝗸𝗹𝘆 (𝗔𝘂𝗴 𝟱-𝟭𝟮) ₿ BTC $63.9K-65.9K, easing into CPI Ξ ETH down to $1,873 💰 BTC ETFs flip to $144.6M outflow, snapping 7-day inflow streak 🔥 All eyes on Aug 12 CPI",
-      "impression_count": 30,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087472524435014078",
-      "post_url": "https://x.com/NordFX/status/2087472524435014078",
-      "posted_at": "2026-08-12T09:33:27+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 38.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚀 𝗡𝗼𝗿𝗱𝗙𝗫 𝗖𝗿𝘆𝗽𝘁𝗼 𝗪𝗲𝗲𝗸𝗹𝘆 (𝗔𝘂𝗴 𝟱-𝟭𝟮) ₿ BTC $63.9K-65.9K, easing into CPI Ξ ETH down to $1,873 💰 BTC ETFs flip to $144.6M outflow, snapping 7-day inflow streak 🔥 All eyes on Aug 12 CPI: $64K max pain, $66K call wall",
-      "topic": "crypto_market",
-      "why_trending": "表示30・投稿後69分・反応率5.3%"
-    },
-    {
       "author_followers": 741,
       "discovered_at": "2026-08-12T14:07:15+00:00",
       "discovery_type": "official_x_api",
@@ -1251,6 +1231,34 @@
       "summary": "July 2026 U.S. CPI holds at 3.4% — what the in-line inflation reading means for stocks, crypto, bonds, and the average person worldwide. https://t.co/ZuSx19uvHE",
       "topic": "macro_rates",
       "why_trending": "表示120・投稿後33分・反応率0.0%"
+    },
+    {
+      "author_followers": 3017,
+      "discovered_at": "2026-08-12T15:40:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "FRDMCrypto",
+      "has_video": false,
+      "headline": "TD Cowen gives the Clarity Act a 25 percent chance this fall. Meanwhile the CFTC says it will write crypto rules on its own authority if Congress stalls, and the SEC meets on crypt",
+      "impression_count": 13,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/FRDMCrypto/status/2087544574789230658/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087544574789230658",
+      "post_url": "https://x.com/FRDMCrypto/status/2087544574789230658",
+      "posted_at": "2026-08-12T14:19:45+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 37.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "TD Cowen gives the Clarity Act a 25 percent chance this fall. Meanwhile the CFTC says it will write crypto rules on its own authority if Congress stalls, and the SEC meets on crypto regulation Friday. The rules are coming either way. The only question left is who writes them. https://t.co/zRnsSJZXuV",
+      "topic": "regulation",
+      "why_trending": "表示13・投稿後80分・反応率12.3%"
     },
     {
       "author_followers": 12236,
@@ -1307,6 +1315,34 @@
       "summary": "#CryptoCornerSeason2 | Crypto Sentiment Turns Cautious Across Board - Senate pushes CLARITY Act vote to mid-September - ⁠Spot Bitcoin ETFs experience sharp outflow @BinanceForIN | @Manisha3005 | #Bitcoin #Ethereum #Crypto https://t.co/cd1sVaG8QN",
       "topic": "onchain_exchange",
       "why_trending": "表示3,439・投稿後111分・反応率0.0%・動画あり"
+    },
+    {
+      "author_followers": 675,
+      "discovered_at": "2026-08-12T15:40:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "The_CryptoPost",
+      "has_video": false,
+      "headline": "⚙️ Crypto regulation moves without Congress The CLARITY Act remains stalled in the Senate, but that does not mean the push for a U.S. crypto regulatory framework has stopped. The S",
+      "impression_count": 6,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/The_CryptoPost/status/2087562253419827689/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087562253419827689",
+      "post_url": "https://x.com/The_CryptoPost/status/2087562253419827689",
+      "posted_at": "2026-08-12T15:30:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "⚙️ Crypto regulation moves without Congress The CLARITY Act remains stalled in the Senate, but that does not mean the push for a U.S. crypto regulatory framework has stopped. The SEC and CFTC are moving forward together through Project Crypto, an initiative aimed at https://t.co/0s9oZpFQFm",
+      "topic": "regulation",
+      "why_trending": "表示6・投稿後10分・反応率0.0%"
     },
     {
       "author_followers": 55419,
