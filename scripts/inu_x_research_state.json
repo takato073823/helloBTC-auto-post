@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T21:29:16+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T22:25:00+00:00",
+  "last_deep_scan_at": "2026-08-12T23:23:27+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T23:23:27+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -924,6 +924,19 @@
       "checked_at": "2026-08-12T22:25:00+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T23:23:27+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T23:23:27+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -978,6 +991,32 @@
       "why_trending": "表示22・投稿後3分・反応率4.5%・公式候補リンクあり"
     },
     {
+      "author_followers": 1135,
+      "discovered_at": "2026-08-12T23:23:27+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "zuoluzhou",
+      "has_video": false,
+      "headline": "TermMax在Robinhood公链新开借贷池，支持用「代币化美股ETF/英伟达股票」当抵押品，借稳定币USDG；同时开高倍积分挖矿活动吸引早期用户 对借款人:抵押SPY/QQQ/NVDA，锁定固定利息借钱，不怕市场波动导致利率突然暴涨 对存款人:存入USDG进保险库拿超高120倍积分，赚资金利息+潜在空投奖励 @TermMaxFi https://t.c",
+      "impression_count": 2,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/termmaxfi/status/2087433921915133967"
+      ],
+      "media_types": [],
+      "post_id": "2087678508697092330",
+      "post_url": "https://x.com/zuoluzhou/status/2087678508697092330",
+      "posted_at": "2026-08-12T23:11:58+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 57.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "TermMax在Robinhood公链新开借贷池，支持用「代币化美股ETF/英伟达股票」当抵押品，借稳定币USDG；同时开高倍积分挖矿活动吸引早期用户 对借款人:抵押SPY/QQQ/NVDA，锁定固定利息借钱，不怕市场波动导致利率突然暴涨 对存款人:存入USDG进保险库拿超高120倍积分，赚资金利息+潜在空投奖励 @TermMaxFi https://t.co/a2hsTWp6yi",
+      "topic": "chinese_market",
+      "why_trending": "表示2・投稿後11分・反応率50.0%・公式候補リンクあり"
+    },
+    {
       "author_followers": 202,
       "discovered_at": "2026-08-12T21:29:16+00:00",
       "discovery_type": "official_x_api",
@@ -1002,6 +1041,30 @@
       "summary": "複数配信部屋みてるけどクリーンで 居心地いい。 ライブ配信もやってくれるし、楽しい ゴールドロングも さおりさんのシナリオ通りすぎて鳥肌でした😂 米国株 ビットコイン 日経平均 ドル円 gold 急騰 暴落 高値 BTC https://t.co/9kSFe7iPGW",
       "topic": "japanese_market",
       "why_trending": "表示194・投稿後24分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 20815,
+      "discovered_at": "2026-08-12T23:23:27+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "nangongyuan",
+      "has_video": false,
+      "headline": "# 比特币热点日报（2026年8月13日） 今日最重要的3件事 1. 美国OCC明确“对加密公司开放银行牌照”，多家机构已获条件性批准",
+      "impression_count": 41,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087680693157736834",
+      "post_url": "https://x.com/nangongyuan/status/2087680693157736834",
+      "posted_at": "2026-08-12T23:20:39+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 52.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "# 比特币热点日报（2026年8月13日） 今日最重要的3件事 1. 美国OCC明确“对加密公司开放银行牌照”，多家机构已获条件性批准",
+      "topic": "chinese_market",
+      "why_trending": "表示41・投稿後2分・反応率3.9%"
     },
     {
       "author_followers": 2515,
@@ -1161,6 +1224,30 @@
       "summary": "【2026/08/13】きのうのビットコイン 🟠 🏦 ゴールドマン、NEOS買収でビットコインETF取得 🇺🇸 OCC「開店中」、銀行免許求める暗号資産企業が列 🇺🇸 Clarity Act採決停滞、当局は独自の推進策へ 🏛️ ロシア中銀、9月1日から公式取引所でBTC売買 🏢",
       "topic": "japanese_market",
       "why_trending": "表示21・投稿後6分・反応率0.0%"
+    },
+    {
+      "author_followers": 165,
+      "discovered_at": "2026-08-12T23:23:27+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "huawei52592570",
+      "has_video": false,
+      "headline": "🔹 巨鲸的沉寂与AI浪潮下的算力争夺：8月12日市场观察 2026年8月12日，加密市场在平静中暗流涌动。经历了上周的连续资金流入后，比特币现货ETF出现显著净流出，显示短期获利盘的回吐。与此同时，AI算力领域的激烈争夺正悄然重塑产业格局，并可能对加密资产的长期价值逻辑产生深远影响。",
+      "impression_count": 12,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087680907067203803",
+      "post_url": "https://x.com/huawei52592570/status/2087680907067203803",
+      "posted_at": "2026-08-12T23:21:30+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔹 巨鲸的沉寂与AI浪潮下的算力争夺：8月12日市场观察 2026年8月12日，加密市场在平静中暗流涌动。经历了上周的连续资金流入后，比特币现货ETF出现显著净流出，显示短期获利盘的回吐。与此同时，AI算力领域的激烈争夺正悄然重塑产业格局，并可能对加密资产的长期价值逻辑产生深远影响。",
+      "topic": "chinese_market",
+      "why_trending": "表示12・投稿後1分・反応率0.0%"
     },
     {
       "author_followers": 921,
