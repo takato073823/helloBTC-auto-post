@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T10:43:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T10:43:00+00:00",
+  "last_deep_scan_at": "2026-08-12T12:33:15+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T12:33:15+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -841,9 +841,51 @@
       "result_count": 8,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T12:33:15+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T12:33:15+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
+    {
+      "author_followers": 10055,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "0xNoxxx",
+      "has_video": false,
+      "headline": "ethereum:0xfc82bb4ba86045af6f327323a46e80412b91b27d made a sharp move today after a long wait, surging over 60%. Onchain, withdrawals from Binance's hot wallet to a fresh wallet. I",
+      "impression_count": 1471,
+      "like_count": 6,
+      "linked_urls": [
+        "https://x.com/0xNoxxx/status/2087514292455104520/photo/1",
+        "https://twitter.com/0xNoxxx/status/2079898361889521917"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087514292455104520",
+      "post_url": "https://x.com/0xNoxxx/status/2087514292455104520",
+      "posted_at": "2026-08-12T12:19:26+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 64.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ethereum:0xfc82bb4ba86045af6f327323a46e80412b91b27d made a sharp move today after a long wait, surging over 60%. Onchain, withdrawals from Binance's hot wallet to a fresh wallet. In the last 3 hours 900K PROM was withdrawn to the fresh wallet below ($2.4M). https://t.co/CFaVKxlpkQ https://t.co/yHOWxmeiDQ",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1,471・投稿後13分・反応率0.4%・公式候補リンクあり"
+    },
     {
       "author_followers": 252,
       "discovered_at": "2026-08-12T10:43:00+00:00",
@@ -898,33 +940,60 @@
       "why_trending": "表示74・投稿後10分・反応率3.5%"
     },
     {
-      "author_followers": 49128,
-      "discovered_at": "2026-08-12T06:58:52+00:00",
+      "author_followers": 54,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CryptoUKong",
+      "handle": "hamzakhaliq00",
       "has_video": false,
-      "headline": "昨晚整体震荡微调，宏观这根弦被重新绷紧了。 油价卡高位，长端利率没松，加上今晚美国CPI要出，资金选择在数据落地前先把敞口收一收。 台积电营收和美光HBM4量产这两条线倒是还在给AI硬件需求撑腰。 https://t.co/NGKBDjKWxr https://t.co/O0Crdrap6a",
-      "impression_count": 759,
-      "like_count": 37,
+      "headline": "🐋 ** $BSB Whale Alert** **820K $BSB (~$107.6K)** just moved to a new wallet. 👀 Exchange outflow + whale movement = **watching closely**. Is this accumulation? 🔥 #BSB #BlockStreet #",
+      "impression_count": 9,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/CryptoUKong/status/2087407917821800814/photo/1",
-        "https://twitter.com/CryptoUKong/status/2087171015172665390"
+        "https://x.com/hamzakhaliq00/status/2087513287592472780/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087407917821800814",
-      "post_url": "https://x.com/CryptoUKong/status/2087407917821800814",
-      "posted_at": "2026-08-12T05:16:44+00:00",
+      "post_id": "2087513287592472780",
+      "post_url": "https://x.com/hamzakhaliq00/status/2087513287592472780",
+      "posted_at": "2026-08-12T12:15:26+00:00",
       "quote_count": 0,
-      "reply_count": 39,
-      "repost_count": 1,
-      "score": 57.8,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 55.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "昨晚整体震荡微调，宏观这根弦被重新绷紧了。 油价卡高位，长端利率没松，加上今晚美国CPI要出，资金选择在数据落地前先把敞口收一收。 台积电营收和美光HBM4量产这两条线倒是还在给AI硬件需求撑腰。 https://t.co/NGKBDjKWxr https://t.co/O0Crdrap6a",
-      "topic": "chinese_market",
-      "why_trending": "表示759・投稿後102分・反応率13.4%・公式候補リンクあり"
+      "summary": "🐋 ** $BSB Whale Alert** **820K $BSB (~$107.6K)** just moved to a new wallet. 👀 Exchange outflow + whale movement = **watching closely**. Is this accumulation? 🔥 #BSB #BlockStreet #WhaleAlert #OnChain #Crypto https://t.co/aWfao9ktXy",
+      "topic": "onchain_exchange",
+      "why_trending": "表示9・投稿後17分・反応率11.1%"
+    },
+    {
+      "author_followers": 581,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Oak_crypt1",
+      "has_video": false,
+      "headline": "LAST 24HR CRYPTO UPDATE (AUG 12) 🔥 HOT ➢ Harmony (ONE) hit by a major unauthorized mint. → ~4B ONE created, roughly 26% of prior supply. ~2.8B moved toward exchanges. Bridge paused",
+      "impression_count": 29,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Oak_crypt1/status/2087513204381397447/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087513204381397447",
+      "post_url": "https://x.com/Oak_crypt1/status/2087513204381397447",
+      "posted_at": "2026-08-12T12:15:06+00:00",
+      "quote_count": 1,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 53.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "LAST 24HR CRYPTO UPDATE (AUG 12) 🔥 HOT ➢ Harmony (ONE) hit by a major unauthorized mint. → ~4B ONE created, roughly 26% of prior supply. ~2.8B moved toward exchanges. Bridge paused, validator patch deployed, rollback being considered. ⚠️ ➢ Ravencoin faces a consensus https://t.co/mmk6Ej2ofc",
+      "topic": "onchain_exchange",
+      "why_trending": "表示29・投稿後18分・反応率6.9%"
     },
     {
       "author_followers": 9090,
@@ -1039,52 +1108,112 @@
       "why_trending": "表示34・投稿後56分・反応率7.6%"
     },
     {
-      "author_followers": 151,
-      "discovered_at": "2026-08-12T06:58:52+00:00",
+      "author_followers": 44,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "liuqianwei19",
+      "handle": "realJester777",
       "has_video": false,
-      "headline": "比特币当前价格约 $63,700–$63,800（2026年8月12日前后数据），市值约1.27–1.28万亿美元。 相比2025年10月历史高点约$126,200，已回落约49–50%。 https://t.co/1N2pvOhfLQ 当前价格与市场概况",
-      "impression_count": 50,
-      "like_count": 34,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087409700279087352",
-      "post_url": "https://x.com/liuqianwei19/status/2087409700279087352",
-      "posted_at": "2026-08-12T05:23:49+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "比特币当前价格约 $63,700–$63,800（2026年8月12日前后数据），市值约1.27–1.28万亿美元。 相比2025年10月历史高点约$126,200，已回落约49–50%。 https://t.co/1N2pvOhfLQ 当前价格与市场概况",
-      "topic": "chinese_market",
-      "why_trending": "表示50・投稿後95分・反応率68.0%"
-    },
-    {
-      "author_followers": 9285,
-      "discovered_at": "2026-08-12T06:58:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "fansheng8888",
-      "has_video": false,
-      "headline": "多方消息证实，Bitget 将重启 3 年未上线的 CNY RMB 相关 C2C 业务，该交易所近期向人才市场，高薪挖了不少相关从业者。 近期内部，视该业务为美股之后，今年最重要的业务之一，而背后原因是该交易所，想打通寻求投资美股人士，从入金、获得稳定币、美股投资的全过程。 正在招聘OTC商家",
-      "impression_count": 33,
+      "headline": "Bitcoin holds steady near $64,000 ahead of U.S. inflation data as Harmony navigates a major 4 billion token exploit. Institutional moves continue with Fidelity’s plans for Ethereum",
+      "impression_count": 5,
       "like_count": 0,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2087419076268400973",
-      "post_url": "https://x.com/fansheng8888/status/2087419076268400973",
-      "posted_at": "2026-08-12T06:01:04+00:00",
+      "post_id": "2087510492914811081",
+      "post_url": "https://x.com/realJester777/status/2087510492914811081",
+      "posted_at": "2026-08-12T12:04:20+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 5,
       "repost_count": 0,
-      "score": 43.9,
+      "score": 45.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "多方消息证实，Bitget 将重启 3 年未上线的 CNY RMB 相关 C2C 业务，该交易所近期向人才市场，高薪挖了不少相关从业者。 近期内部，视该业务为美股之后，今年最重要的业务之一，而背后原因是该交易所，想打通寻求投资美股人士，从入金、获得稳定币、美股投资的全过程。 正在招聘OTC商家",
-      "topic": "chinese_market",
-      "why_trending": "表示33・投稿後57分・反応率4.8%"
+      "summary": "Bitcoin holds steady near $64,000 ahead of U.S. inflation data as Harmony navigates a major 4 billion token exploit. Institutional moves continue with Fidelity’s plans for Ethereum staking and massive whale outflows from exchanges.",
+      "topic": "onchain_exchange",
+      "why_trending": "表示5・投稿後28分・反応率160.0%"
+    },
+    {
+      "author_followers": 2566,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Neome_com",
+      "has_video": true,
+      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu: A Tumultuous Path with Futuristic Prospects. • Beyond earnings, Bolt urges drivers to consider its health insurance",
+      "impression_count": 20,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Neome_com/status/2087517167881248871/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087517167881248871",
+      "post_url": "https://x.com/Neome_com/status/2087517167881248871",
+      "posted_at": "2026-08-12T12:30:51+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 40.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu: A Tumultuous Path with Futuristic Prospects. • Beyond earnings, Bolt urges drivers to consider its health insurance as reward. • Coinbase (COIN) Stock Climbs on Deribit’s High-Speed Trading Engine Launch. https://t.co/zyumxH1b3u",
+      "topic": "onchain_exchange",
+      "why_trending": "表示20・投稿後2分・反応率0.0%・動画あり"
+    },
+    {
+      "author_followers": 23928,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CW8900",
+      "has_video": false,
+      "headline": "Stablecoin net flows to exchange have returned to a net inflow state, ending a brief trend of net outflows. Yesterday, there was a large-scale net outflow, and $BTC showed a bearis",
+      "impression_count": 1398,
+      "like_count": 14,
+      "linked_urls": [
+        "https://x.com/CW8900/status/2087493217717825865/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087493217717825865",
+      "post_url": "https://x.com/CW8900/status/2087493217717825865",
+      "posted_at": "2026-08-12T10:55:41+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 39.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Stablecoin net flows to exchange have returned to a net inflow state, ending a brief trend of net outflows. Yesterday, there was a large-scale net outflow, and $BTC showed a bearish trend. https://t.co/AN72j6hQdb",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1,398・投稿後97分・反応率1.1%"
+    },
+    {
+      "author_followers": 2549,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "DeepBlueAlpha",
+      "has_video": true,
+      "headline": "$LPT · 30-DAY WHALE FLOW What does Livepeer's on-chain activity look like when the headline price is down 2.2% in 24 hours and down 5.4% over the week? DBA tracked LPT whale wallet",
+      "impression_count": 136,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/DeepBlueAlpha/status/2087508257489207400/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087508257489207400",
+      "post_url": "https://x.com/DeepBlueAlpha/status/2087508257489207400",
+      "posted_at": "2026-08-12T11:55:27+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 38.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "$LPT · 30-DAY WHALE FLOW What does Livepeer's on-chain activity look like when the headline price is down 2.2% in 24 hours and down 5.4% over the week? DBA tracked LPT whale wallets moving $7.06M in inflows against $6.38M in outflows over the last 30 days — a net flow of https://t.co/1EaW7Dn1Rl",
+      "topic": "onchain_exchange",
+      "why_trending": "表示136・投稿後37分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 1156,
@@ -1139,52 +1268,32 @@
       "why_trending": "表示21・投稿後1分・反応率0.0%"
     },
     {
-      "author_followers": 2997,
-      "discovered_at": "2026-08-12T06:58:52+00:00",
+      "author_followers": 1143859,
+      "discovered_at": "2026-08-12T12:33:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "ElonKely_",
-      "has_video": false,
-      "headline": "敖丙社区今日加密简讯 主流盘面（截至13:00） - BTC：$63685，24H -0.47%；区间震荡，多空分歧加大 - ETH：$1881，24H +0.32%，小幅抗跌 - SOL：$76.26｜XRP：$1.02｜DOGE：$0.0722（+3.2%） - 市场情绪：恐慌指数19，处于极度恐慌区间 -",
-      "impression_count": 619,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087409787742941456",
-      "post_url": "https://x.com/ElonKely_/status/2087409787742941456",
-      "posted_at": "2026-08-12T05:24:10+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "敖丙社区今日加密简讯 主流盘面（截至13:00） - BTC：$63685，24H -0.47%；区间震荡，多空分歧加大 - ETH：$1881，24H +0.32%，小幅抗跌 - SOL：$76.26｜XRP：$1.02｜DOGE：$0.0722（+3.2%） - 市场情绪：恐慌指数19，处于极度恐慌区间 -",
-      "topic": "chinese_market",
-      "why_trending": "表示619・投稿後94分・反応率0.3%"
-    },
-    {
-      "author_followers": 1233,
-      "discovered_at": "2026-08-12T05:19:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "yanoteck",
-      "has_video": false,
-      "headline": "🟧 BTCニュース要約（2026-08-12 14:08:38 JST） 🎯 おすすめポジション: 🟡👀 様子見 📌 重要度スコア上位（参考） 1) 24点 ナスダック、「常時稼働」市場に向けた取り組みでLeveL Marketsを買収へ（原文: Nasdaq to acquire LeveL Markets in push toward ‘always-o",
-      "impression_count": 24,
+      "handle": "CNBCTV18News",
+      "has_video": true,
+      "headline": "#CryptoCornerSeason2 | Crypto Sentiment Turns Cautious Across Board - Senate pushes CLARITY Act vote to mid-September - ⁠Spot Bitcoin ETFs experience sharp outflow @BinanceForIN | ",
+      "impression_count": 3439,
       "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087407967935386001",
-      "post_url": "https://x.com/yanoteck/status/2087407967935386001",
-      "posted_at": "2026-08-12T05:16:56+00:00",
+      "linked_urls": [
+        "https://x.com/CNBCTV18News/status/2087489828330099120/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087489828330099120",
+      "post_url": "https://x.com/CNBCTV18News/status/2087489828330099120",
+      "posted_at": "2026-08-12T10:42:13+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 36.0,
+      "score": 35.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🟧 BTCニュース要約（2026-08-12 14:08:38 JST） 🎯 おすすめポジション: 🟡👀 様子見 📌 重要度スコア上位（参考） 1) 24点 ナスダック、「常時稼働」市場に向けた取り組みでLeveL Marketsを買収へ（原文: Nasdaq to acquire LeveL Markets in push toward ‘always-on’ m） 2) 16点",
-      "topic": "japanese_market",
-      "why_trending": "表示24・投稿後2分・反応率0.0%"
+      "summary": "#CryptoCornerSeason2 | Crypto Sentiment Turns Cautious Across Board - Senate pushes CLARITY Act vote to mid-September - ⁠Spot Bitcoin ETFs experience sharp outflow @BinanceForIN | @Manisha3005 | #Bitcoin #Ethereum #Crypto https://t.co/cd1sVaG8QN",
+      "topic": "onchain_exchange",
+      "why_trending": "表示3,439・投稿後111分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 55419,
