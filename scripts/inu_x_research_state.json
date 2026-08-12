@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T06:58:52+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T06:58:52+00:00",
+  "last_deep_scan_at": "2026-08-12T08:52:31+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T08:52:31+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -815,6 +815,19 @@
       "result_count": 5,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T08:52:31+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T08:52:31+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
