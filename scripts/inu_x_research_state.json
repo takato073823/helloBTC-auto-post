@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T12:33:15+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T12:33:15+00:00",
+  "last_deep_scan_at": "2026-08-12T14:07:15+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T14:07:15+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -854,6 +854,19 @@
       "result_count": 8,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T14:07:15+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T14:07:15+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -914,30 +927,6 @@
       "summary": "📉 Crypto Market Overview (Aug.12) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC: Currently 63,815 USDT, down roughly 0.7% on the day. Overnight it dipped from ~64,300 to a low of 63,200 around 02:30 UTC+8, then recovered into the 63,600–63,850 range. Volume was heaviest https://t.co/j5KCQOnNIa https://t.co/xzuEXM6CYf",
       "topic": "crypto_market",
       "why_trending": "表示212・投稿後87分・反応率5.4%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 255,
-      "discovered_at": "2026-08-12T06:58:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "tigerwaang",
-      "has_video": false,
-      "headline": "比特币正在慢慢失宠，山寨币渐成顶流 一直混迹币圈的人都能明显感知到，比特币早已没了当年万众簇拥、全民疯抢的顶级热度。老玩家陆续离场，新散户不再无脑重仓，市场资金持续分流，行情热度持续降温，比特币逐步失宠，已经是肉眼可见、无可辩驳的现实。",
-      "impression_count": 74,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087431085068357670",
-      "post_url": "https://x.com/tigerwaang/status/2087431085068357670",
-      "posted_at": "2026-08-12T06:48:47+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 61.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "比特币正在慢慢失宠，山寨币渐成顶流 一直混迹币圈的人都能明显感知到，比特币早已没了当年万众簇拥、全民疯抢的顶级热度。老玩家陆续离场，新散户不再无脑重仓，市场资金持续分流，行情热度持续降温，比特币逐步失宠，已经是肉眼可见、无可辩驳的现实。",
-      "topic": "chinese_market",
-      "why_trending": "表示74・投稿後10分・反応率3.5%"
     },
     {
       "author_followers": 54,
@@ -1238,6 +1227,30 @@
       "summary": "🚀 𝗡𝗼𝗿𝗱𝗙𝗫 𝗖𝗿𝘆𝗽𝘁𝗼 𝗪𝗲𝗲𝗸𝗹𝘆 (𝗔𝘂𝗴 𝟱-𝟭𝟮) ₿ BTC $63.9K-65.9K, easing into CPI Ξ ETH down to $1,873 💰 BTC ETFs flip to $144.6M outflow, snapping 7-day inflow streak 🔥 All eyes on Aug 12 CPI: $64K max pain, $66K call wall",
       "topic": "crypto_market",
       "why_trending": "表示30・投稿後69分・反応率5.3%"
+    },
+    {
+      "author_followers": 741,
+      "discovered_at": "2026-08-12T14:07:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "FunSadGuy",
+      "has_video": false,
+      "headline": "July 2026 U.S. CPI holds at 3.4% — what the in-line inflation reading means for stocks, crypto, bonds, and the average person worldwide. https://t.co/ZuSx19uvHE",
+      "impression_count": 120,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087533059075916118",
+      "post_url": "https://x.com/FunSadGuy/status/2087533059075916118",
+      "posted_at": "2026-08-12T13:34:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "July 2026 U.S. CPI holds at 3.4% — what the in-line inflation reading means for stocks, crypto, bonds, and the average person worldwide. https://t.co/ZuSx19uvHE",
+      "topic": "macro_rates",
+      "why_trending": "表示120・投稿後33分・反応率0.0%"
     },
     {
       "author_followers": 12236,
