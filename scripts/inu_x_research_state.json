@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T08:52:31+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T08:52:31+00:00",
+  "last_deep_scan_at": "2026-08-12T10:43:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T10:43:00+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -828,9 +828,51 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T10:43:00+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T10:43:00+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
+    {
+      "author_followers": 252,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Rina_BingX",
+      "has_video": false,
+      "headline": "📉 Crypto Market Overview (Aug.12) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC: Currently 63,815 USDT, down roughly 0.7% on the day. Overnight it dipped from ~64,300 to a low of 63",
+      "impression_count": 212,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/Rina_BingX/status/2087467955780997524/photo/1",
+        "https://twitter.com/Rina_BingX/status/2033093750428451054"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087467955780997524",
+      "post_url": "https://x.com/Rina_BingX/status/2087467955780997524",
+      "posted_at": "2026-08-12T09:15:18+00:00",
+      "quote_count": 1,
+      "reply_count": 4,
+      "repost_count": 0,
+      "score": 62.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📉 Crypto Market Overview (Aug.12) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC: Currently 63,815 USDT, down roughly 0.7% on the day. Overnight it dipped from ~64,300 to a low of 63,200 around 02:30 UTC+8, then recovered into the 63,600–63,850 range. Volume was heaviest https://t.co/j5KCQOnNIa https://t.co/xzuEXM6CYf",
+      "topic": "crypto_market",
+      "why_trending": "表示212・投稿後87分・反応率5.4%・公式候補リンクあり"
+    },
     {
       "author_followers": 255,
       "discovered_at": "2026-08-12T06:58:52+00:00",
@@ -885,30 +927,116 @@
       "why_trending": "表示759・投稿後102分・反応率13.4%・公式候補リンクあり"
     },
     {
-      "author_followers": 23,
-      "discovered_at": "2026-08-12T05:19:19+00:00",
+      "author_followers": 9090,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
       "discovery_type": "official_x_api",
-      "handle": "JyotiWalla28610",
+      "handle": "BifuGlobal",
       "has_video": false,
-      "headline": "自分の雑なトレードとは 次元が違いすぎて笑うしかない🤣 勝ちたい人は絶対にフォローしておいた方がいいよ👀 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 日銀総裁 トランプコールド XAU 米国株投資 仮想通貨 株式市場 金利引き下げ 利下げ https://t.co/jyrGCzmPxD",
-      "impression_count": 0,
+      "headline": "📡 #BifuMarketRadar｜August “Crash-Up”, Precious Metals Rise, BTC Consolidates Around USD 63,796 📈 Market Brief: U.S. equities are experiencing an unusual August “crash-up” pattern, ",
+      "impression_count": 72,
       "like_count": 1,
       "linked_urls": [
-        "https://twitter.com/miyabi_fx_1997/status/2087369886779760935"
+        "https://x.com/BifuGlobal/status/2087480047477182827/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2087393639534125110",
-      "post_url": "https://x.com/JyotiWalla28610/status/2087393639534125110",
-      "posted_at": "2026-08-12T04:20:00+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087480047477182827",
+      "post_url": "https://x.com/BifuGlobal/status/2087480047477182827",
+      "posted_at": "2026-08-12T10:03:21+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 1,
       "repost_count": 0,
-      "score": 48.0,
+      "score": 52.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "自分の雑なトレードとは 次元が違いすぎて笑うしかない🤣 勝ちたい人は絶対にフォローしておいた方がいいよ👀 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 日銀総裁 トランプコールド XAU 米国株投資 仮想通貨 株式市場 金利引き下げ 利下げ https://t.co/jyrGCzmPxD",
-      "topic": "japanese_market",
-      "why_trending": "表示0・投稿後59分・反応率100.0%・公式候補リンクあり"
+      "summary": "📡 #BifuMarketRadar｜August “Crash-Up”, Precious Metals Rise, BTC Consolidates Around USD 63,796 📈 Market Brief: U.S. equities are experiencing an unusual August “crash-up” pattern, with significantly wider market swings. Apple was downgraded as rising memory costs test its https://t.co/dUXX85P5P8",
+      "topic": "crypto_market",
+      "why_trending": "表示72・投稿後39分・反応率3.6%"
+    },
+    {
+      "author_followers": 134496,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "alanrog3",
+      "has_video": false,
+      "headline": "Market Snapshot $BTC: $63.9k $ETH: $1.89k Crypto MC: $2.248T Monthly stablecoin card spending reached a record $1.04 billion in July, according to PaymentsScan. Bitcoin sellers are",
+      "impression_count": 12671,
+      "like_count": 179,
+      "linked_urls": [
+        "https://x.com/alanrog3/status/2087473355545010466/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087473355545010466",
+      "post_url": "https://x.com/alanrog3/status/2087473355545010466",
+      "posted_at": "2026-08-12T09:36:45+00:00",
+      "quote_count": 1,
+      "reply_count": 19,
+      "repost_count": 3,
+      "score": 49.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Market Snapshot $BTC: $63.9k $ETH: $1.89k Crypto MC: $2.248T Monthly stablecoin card spending reached a record $1.04 billion in July, according to PaymentsScan. Bitcoin sellers are showing signs of exhaustion, but a historical market bottom has not yet been confirmed, https://t.co/bRMhYT1iJp",
+      "topic": "crypto_market",
+      "why_trending": "表示12,671・投稿後66分・反応率1.7%"
+    },
+    {
+      "author_followers": 317871,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "g13m",
+      "has_video": false,
+      "headline": "Just saw the latest U.S. spot crypto ETF numbers: 🟢 Bitcoin ETFs: +$4.89M inflows 🔴 Ethereum ETFs: –$1.76M outflows Interesting little divergence today. BTC still getting some quie",
+      "impression_count": 1335,
+      "like_count": 13,
+      "linked_urls": [
+        "https://x.com/g13m/status/2087472078865813958/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087472078865813958",
+      "post_url": "https://x.com/g13m/status/2087472078865813958",
+      "posted_at": "2026-08-12T09:31:41+00:00",
+      "quote_count": 2,
+      "reply_count": 6,
+      "repost_count": 5,
+      "score": 46.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Just saw the latest U.S. spot crypto ETF numbers: 🟢 Bitcoin ETFs: +$4.89M inflows 🔴 Ethereum ETFs: –$1.76M outflows Interesting little divergence today. BTC still getting some quiet inflows while ETH is seeing mild selling. https://t.co/jGfr7tCgnZ",
+      "topic": "crypto_market",
+      "why_trending": "表示1,335・投稿後71分・反応率2.7%"
+    },
+    {
+      "author_followers": 2717,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "612ceros",
+      "has_video": false,
+      "headline": "U.S. Bitcoin ETFs See $145 Million Outflow; Ether Funds Lose $14.6 Million U.S. spot Bitcoin ETFs recorded $145M in net outflows on Aug. 10, while spot Ethereum ETFs followed suit ",
+      "impression_count": 34,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/612ceros/status/2087475918126371157/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087475918126371157",
+      "post_url": "https://x.com/612ceros/status/2087475918126371157",
+      "posted_at": "2026-08-12T09:46:56+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 46.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "U.S. Bitcoin ETFs See $145 Million Outflow; Ether Funds Lose $14.6 Million U.S. spot Bitcoin ETFs recorded $145M in net outflows on Aug. 10, while spot Ethereum ETFs followed suit with $14.59M in net outflows, per SoSoValue. Grayscale's Bitcoin Mini Trust (BTC) bucked the trend, https://t.co/MEX0Rvkr5h",
+      "topic": "crypto_market",
+      "why_trending": "表示34・投稿後56分・反応率7.6%"
     },
     {
       "author_followers": 151,
@@ -935,32 +1063,6 @@
       "why_trending": "表示50・投稿後95分・反応率68.0%"
     },
     {
-      "author_followers": 1018,
-      "discovered_at": "2026-08-12T05:19:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kicka_one",
-      "has_video": false,
-      "headline": "❇️ キッカ的暗号資産トレードのこれから 結論から言ってしまえば ビットコイントレードは「長期保有」と「スイング」 私は、ビットコインのスポットETFの話が出た頃から、最終的には「既存金融システムの一部」へ取り込まれていくと考えていたから取引スタイルも変えた。 https://t.co/nCkEHHGeUC",
-      "impression_count": 94,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/kicka_one/status/2087394448842051865"
-      ],
-      "media_types": [],
-      "post_id": "2087395099978125341",
-      "post_url": "https://x.com/kicka_one/status/2087395099978125341",
-      "posted_at": "2026-08-12T04:25:48+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "❇️ キッカ的暗号資産トレードのこれから 結論から言ってしまえば ビットコイントレードは「長期保有」と「スイング」 私は、ビットコインのスポットETFの話が出た頃から、最終的には「既存金融システムの一部」へ取り込まれていくと考えていたから取引スタイルも変えた。 https://t.co/nCkEHHGeUC",
-      "topic": "japanese_market",
-      "why_trending": "表示94・投稿後53分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 9285,
       "discovered_at": "2026-08-12T06:58:52+00:00",
       "discovery_type": "official_x_api",
@@ -985,30 +1087,56 @@
       "why_trending": "表示33・投稿後57分・反応率4.8%"
     },
     {
-      "author_followers": 1,
-      "discovered_at": "2026-08-12T05:19:19+00:00",
+      "author_followers": 1156,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CE_USStockLab",
+      "handle": "NordFX",
       "has_video": false,
-      "headline": "🧪 CEのデイリーレポート 📅 2026/8/12 🇺🇸 米国株 🟢 PLTR（約$175.23） ・前日終値からやや軟化し、$170〜180のレンジでもみ合い ・11四半期連続GAAP黒字を維持 ・通期の調整後営業利益ガイダンスを48.9〜49.1億ドルへ上方修正 ・現金・有価証券は約92億ドル、実質無借金 https://t.co/YVLJe9e8lk",
-      "impression_count": 3,
+      "headline": "🚀 𝗡𝗼𝗿𝗱𝗙𝗫 𝗖𝗿𝘆𝗽𝘁𝗼 𝗪𝗲𝗲𝗸𝗹𝘆 (𝗔𝘂𝗴 𝟱-𝟭𝟮) ₿ BTC $63.9K-65.9K, easing into CPI Ξ ETH down to $1,873 💰 BTC ETFs flip to $144.6M outflow, snapping 7-day inflow streak 🔥 All eyes on Aug 12 CPI",
+      "impression_count": 30,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087472524435014078",
+      "post_url": "https://x.com/NordFX/status/2087472524435014078",
+      "posted_at": "2026-08-12T09:33:27+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 38.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚀 𝗡𝗼𝗿𝗱𝗙𝗫 𝗖𝗿𝘆𝗽𝘁𝗼 𝗪𝗲𝗲𝗸𝗹𝘆 (𝗔𝘂𝗴 𝟱-𝟭𝟮) ₿ BTC $63.9K-65.9K, easing into CPI Ξ ETH down to $1,873 💰 BTC ETFs flip to $144.6M outflow, snapping 7-day inflow streak 🔥 All eyes on Aug 12 CPI: $64K max pain, $66K call wall",
+      "topic": "crypto_market",
+      "why_trending": "表示30・投稿後69分・反応率5.3%"
+    },
+    {
+      "author_followers": 12236,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "HTX_Research",
+      "has_video": false,
+      "headline": "BTC Flows Daily Report | 12 Aug 2026 Last week's $853.5M of spot $BTC ETF inflows marked the strongest buying streak since early July, with Monday's outflow remaining modest relati",
+      "impression_count": 21,
       "like_count": 0,
       "linked_urls": [
-        "https://twitter.com/ce_usstocklab/status/2087150699901755768"
+        "https://x.com/HTX_Research/status/2087489661380018580/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2087382769555157290",
-      "post_url": "https://x.com/CE_USStockLab/status/2087382769555157290",
-      "posted_at": "2026-08-12T03:36:48+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087489661380018580",
+      "post_url": "https://x.com/HTX_Research/status/2087489661380018580",
+      "posted_at": "2026-08-12T10:41:33+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 36.2,
+      "score": 37.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🧪 CEのデイリーレポート 📅 2026/8/12 🇺🇸 米国株 🟢 PLTR（約$175.23） ・前日終値からやや軟化し、$170〜180のレンジでもみ合い ・11四半期連続GAAP黒字を維持 ・通期の調整後営業利益ガイダンスを48.9〜49.1億ドルへ上方修正 ・現金・有価証券は約92億ドル、実質無借金 https://t.co/YVLJe9e8lk",
-      "topic": "japanese_market",
-      "why_trending": "表示3・投稿後102分・反応率0.0%・公式候補リンクあり"
+      "summary": "BTC Flows Daily Report | 12 Aug 2026 Last week's $853.5M of spot $BTC ETF inflows marked the strongest buying streak since early July, with Monday's outflow remaining modest relative to the prior week's demand. Open interest climbed to a record 283.6K BTC as leverage increased https://t.co/mS8OUBhL80",
+      "topic": "crypto_market",
+      "why_trending": "表示21・投稿後1分・反応率0.0%"
     },
     {
       "author_followers": 2997,
@@ -1057,6 +1185,30 @@
       "summary": "🟧 BTCニュース要約（2026-08-12 14:08:38 JST） 🎯 おすすめポジション: 🟡👀 様子見 📌 重要度スコア上位（参考） 1) 24点 ナスダック、「常時稼働」市場に向けた取り組みでLeveL Marketsを買収へ（原文: Nasdaq to acquire LeveL Markets in push toward ‘always-on’ m） 2) 16点",
       "topic": "japanese_market",
       "why_trending": "表示24・投稿後2分・反応率0.0%"
+    },
+    {
+      "author_followers": 55419,
+      "discovered_at": "2026-08-12T10:43:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "blckchaindaily",
+      "has_video": false,
+      "headline": "🚨 K33: BITCOIN PERPETUAL TRADING ACTIVITY ON BINANCE AND BYBIT FALLS TO LOWEST SINCE 2023, SPOT VOLUMES LOWEST SINCE FEB 2024; ELEVATED OPEN INTEREST LEAVES MARKET EXPOSED TO LIQUI",
+      "impression_count": 445,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087478678955397543",
+      "post_url": "https://x.com/blckchaindaily/status/2087478678955397543",
+      "posted_at": "2026-08-12T09:57:55+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 K33: BITCOIN PERPETUAL TRADING ACTIVITY ON BINANCE AND BYBIT FALLS TO LOWEST SINCE 2023, SPOT VOLUMES LOWEST SINCE FEB 2024; ELEVATED OPEN INTEREST LEAVES MARKET EXPOSED TO LIQUIDATION CASCADES AHEAD OF US CPI $BTC",
+      "topic": "crypto_market",
+      "why_trending": "表示445・投稿後45分・反応率0.0%"
     }
   ],
   "trends": [],
