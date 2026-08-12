@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-12T17:43:55+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T17:43:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T18:38:44+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -899,37 +899,38 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T18:38:44+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
     {
-      "author_followers": 10055,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
+      "author_followers": 4656814,
+      "discovered_at": "2026-08-12T18:38:44+00:00",
       "discovery_type": "official_x_api",
-      "handle": "0xNoxxx",
+      "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "ethereum:0xfc82bb4ba86045af6f327323a46e80412b91b27d made a sharp move today after a long wait, surging over 60%. Onchain, withdrawals from Binance's hot wallet to a fresh wallet. I",
-      "impression_count": 1471,
-      "like_count": 6,
-      "linked_urls": [
-        "https://x.com/0xNoxxx/status/2087514292455104520/photo/1",
-        "https://twitter.com/0xNoxxx/status/2079898361889521917"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087514292455104520",
-      "post_url": "https://x.com/0xNoxxx/status/2087514292455104520",
-      "posted_at": "2026-08-12T12:19:26+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 64.4,
+      "headline": "JUST IN: 🇺🇸 US budget deficit surges to $432 billion, the highest level in 5 years. It is now up 48% over the past year.",
+      "impression_count": 70763,
+      "like_count": 367,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087607265998077978",
+      "post_url": "https://x.com/WatcherGuru/status/2087607265998077978",
+      "posted_at": "2026-08-12T18:28:52+00:00",
+      "quote_count": 12,
+      "reply_count": 71,
+      "repost_count": 36,
+      "score": 77.0,
       "seen_count": 1,
-      "source_priority": "",
-      "summary": "ethereum:0xfc82bb4ba86045af6f327323a46e80412b91b27d made a sharp move today after a long wait, surging over 60%. Onchain, withdrawals from Binance's hot wallet to a fresh wallet. In the last 3 hours 900K PROM was withdrawn to the fresh wallet below ($2.4M). https://t.co/CFaVKxlpkQ https://t.co/yHOWxmeiDQ",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1,471・投稿後13分・反応率0.4%・公式候補リンクあり"
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 US budget deficit surges to $432 billion, the highest level in 5 years. It is now up 48% over the past year.",
+      "topic": "watcher_guru",
+      "why_trending": "表示70,763・投稿後9分・反応率0.8%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4656097,
@@ -980,62 +981,6 @@
       "why_trending": "表示16・投稿後11分・反応率18.8%"
     },
     {
-      "author_followers": 54,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "hamzakhaliq00",
-      "has_video": false,
-      "headline": "🐋 ** $BSB Whale Alert** **820K $BSB (~$107.6K)** just moved to a new wallet. 👀 Exchange outflow + whale movement = **watching closely**. Is this accumulation? 🔥 #BSB #BlockStreet #",
-      "impression_count": 9,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/hamzakhaliq00/status/2087513287592472780/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087513287592472780",
-      "post_url": "https://x.com/hamzakhaliq00/status/2087513287592472780",
-      "posted_at": "2026-08-12T12:15:26+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 55.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🐋 ** $BSB Whale Alert** **820K $BSB (~$107.6K)** just moved to a new wallet. 👀 Exchange outflow + whale movement = **watching closely**. Is this accumulation? 🔥 #BSB #BlockStreet #WhaleAlert #OnChain #Crypto https://t.co/aWfao9ktXy",
-      "topic": "onchain_exchange",
-      "why_trending": "表示9・投稿後17分・反応率11.1%"
-    },
-    {
-      "author_followers": 581,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Oak_crypt1",
-      "has_video": false,
-      "headline": "LAST 24HR CRYPTO UPDATE (AUG 12) 🔥 HOT ➢ Harmony (ONE) hit by a major unauthorized mint. → ~4B ONE created, roughly 26% of prior supply. ~2.8B moved toward exchanges. Bridge paused",
-      "impression_count": 29,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Oak_crypt1/status/2087513204381397447/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087513204381397447",
-      "post_url": "https://x.com/Oak_crypt1/status/2087513204381397447",
-      "posted_at": "2026-08-12T12:15:06+00:00",
-      "quote_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 53.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "LAST 24HR CRYPTO UPDATE (AUG 12) 🔥 HOT ➢ Harmony (ONE) hit by a major unauthorized mint. → ~4B ONE created, roughly 26% of prior supply. ~2.8B moved toward exchanges. Bridge paused, validator patch deployed, rollback being considered. ⚠️ ➢ Ravencoin faces a consensus https://t.co/mmk6Ej2ofc",
-      "topic": "onchain_exchange",
-      "why_trending": "表示29・投稿後18分・反応率6.9%"
-    },
-    {
       "author_followers": 99,
       "discovered_at": "2026-08-12T15:40:04+00:00",
       "discovery_type": "official_x_api",
@@ -1064,30 +1009,6 @@
       "why_trending": "表示43・投稿後95分・反応率4.7%"
     },
     {
-      "author_followers": 44,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "realJester777",
-      "has_video": false,
-      "headline": "Bitcoin holds steady near $64,000 ahead of U.S. inflation data as Harmony navigates a major 4 billion token exploit. Institutional moves continue with Fidelity’s plans for Ethereum",
-      "impression_count": 5,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087510492914811081",
-      "post_url": "https://x.com/realJester777/status/2087510492914811081",
-      "posted_at": "2026-08-12T12:04:20+00:00",
-      "quote_count": 0,
-      "reply_count": 5,
-      "repost_count": 0,
-      "score": 45.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Bitcoin holds steady near $64,000 ahead of U.S. inflation data as Harmony navigates a major 4 billion token exploit. Institutional moves continue with Fidelity’s plans for Ethereum staking and massive whale outflows from exchanges.",
-      "topic": "onchain_exchange",
-      "why_trending": "表示5・投稿後28分・反応率160.0%"
-    },
-    {
       "author_followers": 25,
       "discovered_at": "2026-08-12T15:40:04+00:00",
       "discovery_type": "official_x_api",
@@ -1110,62 +1031,6 @@
       "summary": "🚨 SEC MOVES AHEAD AS THE CLARITY ACT STALLS 🇺🇸 The SEC is preparing new crypto initiatives this week as Congress remains deadlocked over the CLARITY Act. The regulator is considering new rules aimed at creating a clearer framework for crypto fundraising and token markets.",
       "topic": "regulation",
       "why_trending": "表示39・投稿後108分・反応率2.6%"
-    },
-    {
-      "author_followers": 2566,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": true,
-      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu: A Tumultuous Path with Futuristic Prospects. • Beyond earnings, Bolt urges drivers to consider its health insurance",
-      "impression_count": 20,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Neome_com/status/2087517167881248871/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087517167881248871",
-      "post_url": "https://x.com/Neome_com/status/2087517167881248871",
-      "posted_at": "2026-08-12T12:30:51+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu: A Tumultuous Path with Futuristic Prospects. • Beyond earnings, Bolt urges drivers to consider its health insurance as reward. • Coinbase (COIN) Stock Climbs on Deribit’s High-Speed Trading Engine Launch. https://t.co/zyumxH1b3u",
-      "topic": "onchain_exchange",
-      "why_trending": "表示20・投稿後2分・反応率0.0%・動画あり"
-    },
-    {
-      "author_followers": 2549,
-      "discovered_at": "2026-08-12T12:33:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "DeepBlueAlpha",
-      "has_video": true,
-      "headline": "$LPT · 30-DAY WHALE FLOW What does Livepeer's on-chain activity look like when the headline price is down 2.2% in 24 hours and down 5.4% over the week? DBA tracked LPT whale wallet",
-      "impression_count": 136,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/DeepBlueAlpha/status/2087508257489207400/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087508257489207400",
-      "post_url": "https://x.com/DeepBlueAlpha/status/2087508257489207400",
-      "posted_at": "2026-08-12T11:55:27+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "$LPT · 30-DAY WHALE FLOW What does Livepeer's on-chain activity look like when the headline price is down 2.2% in 24 hours and down 5.4% over the week? DBA tracked LPT whale wallets moving $7.06M in inflows against $6.38M in outflows over the last 30 days — a net flow of https://t.co/1EaW7Dn1Rl",
-      "topic": "onchain_exchange",
-      "why_trending": "表示136・投稿後37分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 741,
