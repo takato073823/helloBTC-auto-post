@@ -875,6 +875,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
+    },
+    {
+      "slot": "2026-08-12-13-a",
+      "post_id": "inu_market_2026_08_12_13_a_crypto-cap-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-CAPUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:CAP-USD",
+      "reserved_at": "2026-08-12T04:03:18.367306+00:00"
     }
   ],
   "history": [
