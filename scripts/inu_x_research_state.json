@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T05:19:19+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T05:19:19+00:00",
+  "last_deep_scan_at": "2026-08-12T06:58:52+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T06:58:52+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -802,66 +802,74 @@
       "result_count": 4,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T06:58:52+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-12T06:58:52+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
     {
-      "author_followers": 12246,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "author_followers": 255,
+      "discovered_at": "2026-08-12T06:58:52+00:00",
       "discovery_type": "official_x_api",
-      "handle": "BlueWolfNFTs",
-      "has_video": true,
-      "headline": "#bluesnews - crypto and stock news with my views! GM if you are happy that Trump pulled the switcheroo in Turkey to stay safe. Good luck if you were on airforce one as fodder. 😱 It",
-      "impression_count": 160,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/BlueWolfNFTs/status/2087332166791495895/photo/1"
-      ],
-      "media_types": [
-        "photo",
-        "animated_gif"
-      ],
-      "post_id": "2087332166791495895",
-      "post_url": "https://x.com/BlueWolfNFTs/status/2087332166791495895",
-      "posted_at": "2026-08-12T00:15:43+00:00",
+      "handle": "tigerwaang",
+      "has_video": false,
+      "headline": "比特币正在慢慢失宠，山寨币渐成顶流 一直混迹币圈的人都能明显感知到，比特币早已没了当年万众簇拥、全民疯抢的顶级热度。老玩家陆续离场，新散户不再无脑重仓，市场资金持续分流，行情热度持续降温，比特币逐步失宠，已经是肉眼可见、无可辩驳的现实。",
+      "impression_count": 74,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087431085068357670",
+      "post_url": "https://x.com/tigerwaang/status/2087431085068357670",
+      "posted_at": "2026-08-12T06:48:47+00:00",
       "quote_count": 0,
-      "reply_count": 7,
-      "repost_count": 1,
-      "score": 54.2,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 61.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "#bluesnews - crypto and stock news with my views! GM if you are happy that Trump pulled the switcheroo in Turkey to stay safe. Good luck if you were on airforce one as fodder. 😱 It’s humpday down under. The week is half cooked but there is still plenty of time to grind. https://t.co/Z0vtJ5p4sS",
-      "topic": "regulation",
-      "why_trending": "表示160・投稿後27分・反応率10.8%・動画あり"
+      "summary": "比特币正在慢慢失宠，山寨币渐成顶流 一直混迹币圈的人都能明显感知到，比特币早已没了当年万众簇拥、全民疯抢的顶级热度。老玩家陆续离场，新散户不再无脑重仓，市场资金持续分流，行情热度持续降温，比特币逐步失宠，已经是肉眼可见、无可辩驳的现实。",
+      "topic": "chinese_market",
+      "why_trending": "表示74・投稿後10分・反応率3.5%"
     },
     {
-      "author_followers": 851,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "author_followers": 49128,
+      "discovered_at": "2026-08-12T06:58:52+00:00",
       "discovery_type": "official_x_api",
-      "handle": "digital__assenc",
-      "has_video": true,
-      "headline": "🚨🇺🇸💥THE CFTC ISN’T WAITING💥🇺🇸🚨 The CFTC says it’s ready to move forward with crypto regulation even if Congress fails to pass the CLARITY Act. Washington can keep delaying. Crypto ",
-      "impression_count": 4,
-      "like_count": 1,
+      "handle": "CryptoUKong",
+      "has_video": false,
+      "headline": "昨晚整体震荡微调，宏观这根弦被重新绷紧了。 油价卡高位，长端利率没松，加上今晚美国CPI要出，资金选择在数据落地前先把敞口收一收。 台积电营收和美光HBM4量产这两条线倒是还在给AI硬件需求撑腰。 https://t.co/NGKBDjKWxr https://t.co/O0Crdrap6a",
+      "impression_count": 759,
+      "like_count": 37,
       "linked_urls": [
-        "https://x.com/TheCryptoSquire/status/2087241791913242776/video/1"
+        "https://x.com/CryptoUKong/status/2087407917821800814/photo/1",
+        "https://twitter.com/CryptoUKong/status/2087171015172665390"
       ],
       "media_types": [
-        "video",
         "photo"
       ],
-      "post_id": "2087337152950771775",
-      "post_url": "https://x.com/digital__assenc/status/2087337152950771775",
-      "posted_at": "2026-08-12T00:35:32+00:00",
+      "post_id": "2087407917821800814",
+      "post_url": "https://x.com/CryptoUKong/status/2087407917821800814",
+      "posted_at": "2026-08-12T05:16:44+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 52.6,
+      "reply_count": 39,
+      "repost_count": 1,
+      "score": 57.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨🇺🇸💥THE CFTC ISN’T WAITING💥🇺🇸🚨 The CFTC says it’s ready to move forward with crypto regulation even if Congress fails to pass the CLARITY Act. Washington can keep delaying. Crypto isn’t going to wait forever. 💪🏻💥🇺🇸 https://t.co/xyVVZw7LGm",
-      "topic": "regulation",
-      "why_trending": "表示4・投稿後7分・反応率25.0%・動画あり"
+      "summary": "昨晚整体震荡微调，宏观这根弦被重新绷紧了。 油价卡高位，长端利率没松，加上今晚美国CPI要出，资金选择在数据落地前先把敞口收一收。 台积电营收和美光HBM4量产这两条线倒是还在给AI硬件需求撑腰。 https://t.co/NGKBDjKWxr https://t.co/O0Crdrap6a",
+      "topic": "chinese_market",
+      "why_trending": "表示759・投稿後102分・反応率13.4%・公式候補リンクあり"
     },
     {
       "author_followers": 23,
@@ -890,6 +898,30 @@
       "why_trending": "表示0・投稿後59分・反応率100.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 151,
+      "discovered_at": "2026-08-12T06:58:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "liuqianwei19",
+      "has_video": false,
+      "headline": "比特币当前价格约 $63,700–$63,800（2026年8月12日前后数据），市值约1.27–1.28万亿美元。 相比2025年10月历史高点约$126,200，已回落约49–50%。 https://t.co/1N2pvOhfLQ 当前价格与市场概况",
+      "impression_count": 50,
+      "like_count": 34,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087409700279087352",
+      "post_url": "https://x.com/liuqianwei19/status/2087409700279087352",
+      "posted_at": "2026-08-12T05:23:49+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 45.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "比特币当前价格约 $63,700–$63,800（2026年8月12日前后数据），市值约1.27–1.28万亿美元。 相比2025年10月历史高点约$126,200，已回落约49–50%。 https://t.co/1N2pvOhfLQ 当前价格与市场概况",
+      "topic": "chinese_market",
+      "why_trending": "表示50・投稿後95分・反応率68.0%"
+    },
+    {
       "author_followers": 1018,
       "discovered_at": "2026-08-12T05:19:19+00:00",
       "discovery_type": "official_x_api",
@@ -916,86 +948,28 @@
       "why_trending": "表示94・投稿後53分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 2937405,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
+      "author_followers": 9285,
+      "discovered_at": "2026-08-12T06:58:52+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Cointelegraph",
+      "handle": "fansheng8888",
       "has_video": false,
-      "headline": "🇺🇸 BIG: SEC to address crypto regulation on its own after the Clarity Act failed to pass Congress last week. https://t.co/zJ8jJBOXOA",
-      "impression_count": 26677,
-      "like_count": 127,
-      "linked_urls": [
-        "https://cointelegraph.com/news/sec-crypto-regulations-absence-clarity-act"
-      ],
+      "headline": "多方消息证实，Bitget 将重启 3 年未上线的 CNY RMB 相关 C2C 业务，该交易所近期向人才市场，高薪挖了不少相关从业者。 近期内部，视该业务为美股之后，今年最重要的业务之一，而背后原因是该交易所，想打通寻求投资美股人士，从入金、获得稳定币、美股投资的全过程。 正在招聘OTC商家",
+      "impression_count": 33,
+      "like_count": 0,
+      "linked_urls": [],
       "media_types": [],
-      "post_id": "2087318333255278795",
-      "post_url": "https://x.com/Cointelegraph/status/2087318333255278795",
-      "posted_at": "2026-08-11T23:20:45+00:00",
-      "quote_count": 1,
-      "reply_count": 19,
-      "repost_count": 20,
+      "post_id": "2087419076268400973",
+      "post_url": "https://x.com/fansheng8888/status/2087419076268400973",
+      "posted_at": "2026-08-12T06:01:04+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
       "score": 43.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🇺🇸 BIG: SEC to address crypto regulation on its own after the Clarity Act failed to pass Congress last week. https://t.co/zJ8jJBOXOA",
-      "topic": "regulation",
-      "why_trending": "表示26,677・投稿後82分・反応率0.7%"
-    },
-    {
-      "author_followers": 21,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "DeFiRaptorApp",
-      "has_video": false,
-      "headline": "📰 Crypto brief · 12 Aug • SEC, CFTC sue Goliath Ventures over $400M crypto Ponzi scheme • Bitcoin Holders Get 96% Cheaper Entry Into BlackRock’s ETF Without https://t.co/YsVsfNKHmk",
-      "impression_count": 5,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/DeFiRaptorApp/status/2087334094547927260/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087334094547927260",
-      "post_url": "https://x.com/DeFiRaptorApp/status/2087334094547927260",
-      "posted_at": "2026-08-12T00:23:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📰 Crypto brief · 12 Aug • SEC, CFTC sue Goliath Ventures over $400M crypto Ponzi scheme • Bitcoin Holders Get 96% Cheaper Entry Into BlackRock’s ETF Without https://t.co/YsVsfNKHmk https://t.co/RKvjEHMtVl",
-      "topic": "regulation",
-      "why_trending": "表示5・投稿後19分・反応率0.0%"
-    },
-    {
-      "author_followers": 619,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptomegaNews",
-      "has_video": false,
-      "headline": "Crypto's latest headlines: a blend of enforcement, evolving investment access, and a complex regulatory dance. • SEC &amp; CFTC sue Goliath Ventures over an alleged $400M crypto Po",
-      "impression_count": 20,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CryptomegaNews/status/2087335853873836463/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087335853873836463",
-      "post_url": "https://x.com/CryptomegaNews/status/2087335853873836463",
-      "posted_at": "2026-08-12T00:30:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Crypto's latest headlines: a blend of enforcement, evolving investment access, and a complex regulatory dance. • SEC &amp; CFTC sue Goliath Ventures over an alleged $400M crypto Ponzi scheme. • Bitcoin holders gain 96% cheaper entry into BlackRock’s ETF without selling their $BTC. https://t.co/rLf6YNu0T5",
-      "topic": "regulation",
-      "why_trending": "表示20・投稿後12分・反応率0.0%"
+      "summary": "多方消息证实，Bitget 将重启 3 年未上线的 CNY RMB 相关 C2C 业务，该交易所近期向人才市场，高薪挖了不少相关从业者。 近期内部，视该业务为美股之后，今年最重要的业务之一，而背后原因是该交易所，想打通寻求投资美股人士，从入金、获得稳定币、美股投资的全过程。 正在招聘OTC商家",
+      "topic": "chinese_market",
+      "why_trending": "表示33・投稿後57分・反応率4.8%"
     },
     {
       "author_followers": 1,
@@ -1024,6 +998,30 @@
       "why_trending": "表示3・投稿後102分・反応率0.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 2997,
+      "discovered_at": "2026-08-12T06:58:52+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ElonKely_",
+      "has_video": false,
+      "headline": "敖丙社区今日加密简讯 主流盘面（截至13:00） - BTC：$63685，24H -0.47%；区间震荡，多空分歧加大 - ETH：$1881，24H +0.32%，小幅抗跌 - SOL：$76.26｜XRP：$1.02｜DOGE：$0.0722（+3.2%） - 市场情绪：恐慌指数19，处于极度恐慌区间 -",
+      "impression_count": 619,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087409787742941456",
+      "post_url": "https://x.com/ElonKely_/status/2087409787742941456",
+      "posted_at": "2026-08-12T05:24:10+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "敖丙社区今日加密简讯 主流盘面（截至13:00） - BTC：$63685，24H -0.47%；区间震荡，多空分歧加大 - ETH：$1881，24H +0.32%，小幅抗跌 - SOL：$76.26｜XRP：$1.02｜DOGE：$0.0722（+3.2%） - 市场情绪：恐慌指数19，处于极度恐慌区间 -",
+      "topic": "chinese_market",
+      "why_trending": "表示619・投稿後94分・反応率0.3%"
+    },
+    {
       "author_followers": 1233,
       "discovered_at": "2026-08-12T05:19:19+00:00",
       "discovery_type": "official_x_api",
@@ -1046,62 +1044,6 @@
       "summary": "🟧 BTCニュース要約（2026-08-12 14:08:38 JST） 🎯 おすすめポジション: 🟡👀 様子見 📌 重要度スコア上位（参考） 1) 24点 ナスダック、「常時稼働」市場に向けた取り組みでLeveL Marketsを買収へ（原文: Nasdaq to acquire LeveL Markets in push toward ‘always-on’ m） 2) 16点",
       "topic": "japanese_market",
       "why_trending": "表示24・投稿後2分・反応率0.0%"
-    },
-    {
-      "author_followers": 587,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "JLoescher",
-      "has_video": false,
-      "headline": "Three XRP developments from the last 72 hours: • National Bank of Canada disclosed 330 shares of the Bitwise XRP ETF (~$3,848) in its latest 13F filing (as of June 30). Small posit",
-      "impression_count": 6,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/JLoescher/status/2087338654452658637/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087338654452658637",
-      "post_url": "https://x.com/JLoescher/status/2087338654452658637",
-      "posted_at": "2026-08-12T00:41:30+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Three XRP developments from the last 72 hours: • National Bank of Canada disclosed 330 shares of the Bitwise XRP ETF (~$3,848) in its latest 13F filing (as of June 30). Small position relative to its Bitcoin ETF holdings, but one of the clearer early bank appearances of https://t.co/AXIqd4jUmt",
-      "topic": "regulation",
-      "why_trending": "表示6・投稿後1分・反応率0.0%"
-    },
-    {
-      "author_followers": 517,
-      "discovered_at": "2026-08-12T00:43:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Mudassi40363073",
-      "has_video": true,
-      "headline": "⚠️ THE CFTC ISN’T WAITING. IT’S READY TO MOVE FORWARD WITH CRYPTO REGULATION — EVEN IF CONGRESS FAILS TO PASS THE CLARITY ACT. WASHINGTON CAN DELAY. CRYPTO WON’T. #CLARITYACT #XRP ",
-      "impression_count": 2,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Mudassi40363073/status/2087335848018637039/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087335848018637039",
-      "post_url": "https://x.com/Mudassi40363073/status/2087335848018637039",
-      "posted_at": "2026-08-12T00:30:21+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "⚠️ THE CFTC ISN’T WAITING. IT’S READY TO MOVE FORWARD WITH CRYPTO REGULATION — EVEN IF CONGRESS FAILS TO PASS THE CLARITY ACT. WASHINGTON CAN DELAY. CRYPTO WON’T. #CLARITYACT #XRP #100KVIEWS #XLM #CRYPTO https://t.co/HqL2CWmXge",
-      "topic": "regulation",
-      "why_trending": "表示2・投稿後12分・反応率0.0%・動画あり"
     }
   ],
   "trends": [],
