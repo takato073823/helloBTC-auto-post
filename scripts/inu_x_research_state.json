@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-12T15:40:04+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T15:40:04+00:00",
+  "last_watcher_guru_scan_at": "2026-08-12T16:37:29+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -880,6 +880,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-12T16:37:29+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -911,6 +917,30 @@
       "summary": "ethereum:0xfc82bb4ba86045af6f327323a46e80412b91b27d made a sharp move today after a long wait, surging over 60%. Onchain, withdrawals from Binance's hot wallet to a fresh wallet. In the last 3 hours 900K PROM was withdrawn to the fresh wallet below ($2.4M). https://t.co/CFaVKxlpkQ https://t.co/yHOWxmeiDQ",
       "topic": "onchain_exchange",
       "why_trending": "表示1,471・投稿後13分・反応率0.4%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4656097,
+      "discovered_at": "2026-08-12T16:37:29+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 SEC prepares \"innovation exemption\" to allow 24/7 blockchain trading of tokenized stocks.",
+      "impression_count": 282506,
+      "like_count": 4068,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087555716651372940",
+      "post_url": "https://x.com/WatcherGuru/status/2087555716651372940",
+      "posted_at": "2026-08-12T15:04:02+00:00",
+      "quote_count": 157,
+      "reply_count": 271,
+      "repost_count": 588,
+      "score": 57.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 SEC prepares \"innovation exemption\" to allow 24/7 blockchain trading of tokenized stocks.",
+      "topic": "watcher_guru",
+      "why_trending": "表示282,506・投稿後93分・反応率2.1%"
     },
     {
       "author_followers": 43,
@@ -993,34 +1023,6 @@
       "why_trending": "表示29・投稿後18分・反応率6.9%"
     },
     {
-      "author_followers": 9090,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BifuGlobal",
-      "has_video": false,
-      "headline": "📡 #BifuMarketRadar｜August “Crash-Up”, Precious Metals Rise, BTC Consolidates Around USD 63,796 📈 Market Brief: U.S. equities are experiencing an unusual August “crash-up” pattern, ",
-      "impression_count": 72,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/BifuGlobal/status/2087480047477182827/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087480047477182827",
-      "post_url": "https://x.com/BifuGlobal/status/2087480047477182827",
-      "posted_at": "2026-08-12T10:03:21+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 52.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📡 #BifuMarketRadar｜August “Crash-Up”, Precious Metals Rise, BTC Consolidates Around USD 63,796 📈 Market Brief: U.S. equities are experiencing an unusual August “crash-up” pattern, with significantly wider market swings. Apple was downgraded as rising memory costs test its https://t.co/dUXX85P5P8",
-      "topic": "crypto_market",
-      "why_trending": "表示72・投稿後39分・反応率3.6%"
-    },
-    {
       "author_followers": 99,
       "discovered_at": "2026-08-12T15:40:04+00:00",
       "discovery_type": "official_x_api",
@@ -1047,34 +1049,6 @@
       "summary": "⚖️ CFTC Chairman Michael Selig announced that the agency is preparing proposals for cryptocurrency regulation rules, intending to finalize them before the current administration ends, even if Congress does not pass the CLARITY bill. SEC Commissioner Hester Peirce also noted that https://t.co/FNKy08BW0Q",
       "topic": "regulation",
       "why_trending": "表示43・投稿後95分・反応率4.7%"
-    },
-    {
-      "author_followers": 2717,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "612ceros",
-      "has_video": false,
-      "headline": "U.S. Bitcoin ETFs See $145 Million Outflow; Ether Funds Lose $14.6 Million U.S. spot Bitcoin ETFs recorded $145M in net outflows on Aug. 10, while spot Ethereum ETFs followed suit ",
-      "impression_count": 34,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/612ceros/status/2087475918126371157/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087475918126371157",
-      "post_url": "https://x.com/612ceros/status/2087475918126371157",
-      "posted_at": "2026-08-12T09:46:56+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 46.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "U.S. Bitcoin ETFs See $145 Million Outflow; Ether Funds Lose $14.6 Million U.S. spot Bitcoin ETFs recorded $145M in net outflows on Aug. 10, while spot Ethereum ETFs followed suit with $14.59M in net outflows, per SoSoValue. Grayscale's Bitcoin Mini Trust (BTC) bucked the trend, https://t.co/MEX0Rvkr5h",
-      "topic": "crypto_market",
-      "why_trending": "表示34・投稿後56分・反応率7.6%"
     },
     {
       "author_followers": 44,
@@ -1343,30 +1317,6 @@
       "summary": "⚙️ Crypto regulation moves without Congress The CLARITY Act remains stalled in the Senate, but that does not mean the push for a U.S. crypto regulatory framework has stopped. The SEC and CFTC are moving forward together through Project Crypto, an initiative aimed at https://t.co/0s9oZpFQFm",
       "topic": "regulation",
       "why_trending": "表示6・投稿後10分・反応率0.0%"
-    },
-    {
-      "author_followers": 55419,
-      "discovered_at": "2026-08-12T10:43:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "blckchaindaily",
-      "has_video": false,
-      "headline": "🚨 K33: BITCOIN PERPETUAL TRADING ACTIVITY ON BINANCE AND BYBIT FALLS TO LOWEST SINCE 2023, SPOT VOLUMES LOWEST SINCE FEB 2024; ELEVATED OPEN INTEREST LEAVES MARKET EXPOSED TO LIQUI",
-      "impression_count": 445,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087478678955397543",
-      "post_url": "https://x.com/blckchaindaily/status/2087478678955397543",
-      "posted_at": "2026-08-12T09:57:55+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 K33: BITCOIN PERPETUAL TRADING ACTIVITY ON BINANCE AND BYBIT FALLS TO LOWEST SINCE 2023, SPOT VOLUMES LOWEST SINCE FEB 2024; ELEVATED OPEN INTEREST LEAVES MARKET EXPOSED TO LIQUIDATION CASCADES AHEAD OF US CPI $BTC",
-      "topic": "crypto_market",
-      "why_trending": "表示445・投稿後45分・反応率0.0%"
     }
   ],
   "trends": [],
