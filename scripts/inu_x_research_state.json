@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T07:03:15+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T07:03:15+00:00",
+  "last_deep_scan_at": "2026-08-13T08:55:30+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T08:55:30+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -989,37 +989,102 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T08:55:30+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T08:55:30+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
     {
-      "author_followers": 3495,
-      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "author_followers": 867807,
+      "discovered_at": "2026-08-13T08:55:30+00:00",
       "discovery_type": "official_x_api",
-      "handle": "ANCrypto_",
+      "handle": "CryptoKing4Ever",
       "has_video": false,
-      "headline": "📰 CRYPTO MARKET BRIEF — AUG 13 with ANCRYPTO PPI DAY • BTC HOLDS $63K • FEAR REMAINS Crypto remains range-bound after July CPI failed to trigger a breakout. Market Cap: ~$2.20T BTC",
-      "impression_count": 75,
-      "like_count": 1,
+      "headline": "U.S. CRYPTO REGULATION IS MOVING. This Friday, the 🇺🇸 SEC is set to discuss a new framework for certain crypto offerings. And this comes while the CLARITY Act remains unfinished in",
+      "impression_count": 1784,
+      "like_count": 15,
       "linked_urls": [
-        "https://x.com/ANCrypto_/status/2087732853085966687/photo/1",
-        "https://twitter.com/ANCrypto_/status/2087365850366169459"
+        "https://x.com/CryptoKing4Ever/status/2087821065695240371/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087732853085966687",
-      "post_url": "https://x.com/ANCrypto_/status/2087732853085966687",
-      "posted_at": "2026-08-13T02:47:55+00:00",
+      "post_id": "2087821065695240371",
+      "post_url": "https://x.com/CryptoKing4Ever/status/2087821065695240371",
+      "posted_at": "2026-08-13T08:38:26+00:00",
       "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 61.7,
+      "reply_count": 12,
+      "repost_count": 5,
+      "score": 58.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "📰 CRYPTO MARKET BRIEF — AUG 13 with ANCRYPTO PPI DAY • BTC HOLDS $63K • FEAR REMAINS Crypto remains range-bound after July CPI failed to trigger a breakout. Market Cap: ~$2.20T BTC Dominance: 58.6% Fear &amp; Greed: 27 — Fear Today’s key catalyst: U.S. PPI at 8:30 AM ET / 19:30 https://t.co/VInG7GDLR6 https://t.co/fEuXgQNADN",
-      "topic": "crypto_market",
-      "why_trending": "表示75・投稿後28分・反応率3.5%・公式候補リンクあり"
+      "summary": "U.S. CRYPTO REGULATION IS MOVING. This Friday, the 🇺🇸 SEC is set to discuss a new framework for certain crypto offerings. And this comes while the CLARITY Act remains unfinished in Congress. Congress may be moving slowly… But the SEC is already working on a crypto-specific https://t.co/cTHVLxs1dw",
+      "topic": "regulation",
+      "why_trending": "表示1,784・投稿後17分・反応率2.5%"
+    },
+    {
+      "author_followers": 2193,
+      "discovered_at": "2026-08-13T08:55:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "itesaitama",
+      "has_video": false,
+      "headline": "Bitnomial launched $INJ futures on April 15, opening the door to a possible INJ ETF That puts $INJ in the same group as BTC, ETH, and SOL Cryptocurrencies with CFTC-regulated futur",
+      "impression_count": 152,
+      "like_count": 11,
+      "linked_urls": [
+        "https://x.com/itesaitama/status/2087805341132276171/photo/1",
+        "https://twitter.com/itesaitama/status/2084682011068006694"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087805341132276171",
+      "post_url": "https://x.com/itesaitama/status/2087805341132276171",
+      "posted_at": "2026-08-13T07:35:57+00:00",
+      "quote_count": 0,
+      "reply_count": 4,
+      "repost_count": 2,
+      "score": 56.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Bitnomial launched $INJ futures on April 15, opening the door to a possible INJ ETF That puts $INJ in the same group as BTC, ETH, and SOL Cryptocurrencies with CFTC-regulated futures trading in the US SEC wants six months of regulated futures trading before it fast-tracks a https://t.co/TIL0XYyRK4 https://t.co/BVHQQ5Z3W4",
+      "topic": "regulation",
+      "why_trending": "表示152・投稿後79分・反応率14.1%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1605013,
+      "discovered_at": "2026-08-13T08:55:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "cryptorover",
+      "has_video": false,
+      "headline": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. T",
+      "impression_count": 26518,
+      "like_count": 260,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087814663748612142",
+      "post_url": "https://x.com/cryptorover/status/2087814663748612142",
+      "posted_at": "2026-08-13T08:13:00+00:00",
+      "quote_count": 5,
+      "reply_count": 57,
+      "repost_count": 37,
+      "score": 56.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. This is the most pro-crypto SEC ever! 🚀",
+      "topic": "regulation",
+      "why_trending": "表示26,518・投稿後42分・反応率1.6%"
     },
     {
       "author_followers": 8414,
@@ -1106,32 +1171,28 @@
       "why_trending": "表示16・投稿後8分・反応率0.0%"
     },
     {
-      "author_followers": 6164,
-      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "author_followers": 26419,
+      "discovered_at": "2026-08-13T08:55:30+00:00",
       "discovery_type": "official_x_api",
-      "handle": "FINANCIERNEWS",
-      "has_video": true,
-      "headline": "Goldman Sachs Buys Neos for Up to $2.25B The bank will absorb Neos Investments, adding the Bitcoin High Income ETF, Boosted Bitcoin High Income ETF and Ethereum High Income ETF to ",
-      "impression_count": 43,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/FINANCIERNEWS/status/2087720788476497940/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087720788476497940",
-      "post_url": "https://x.com/FINANCIERNEWS/status/2087720788476497940",
-      "posted_at": "2026-08-13T01:59:58+00:00",
+      "handle": "XiZnping",
+      "has_video": false,
+      "headline": "🚨🇺🇸 CRYPTO JUST GOT A MASSIVE SIGNAL FROM WASHINGTON. The Senate stalled the CLARITY Act — but the SEC &amp; CFTC aren’t waiting. Paul Atkins is pushing a major crypto regulatory f",
+      "impression_count": 192,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087822666921345340",
+      "post_url": "https://x.com/XiZnping/status/2087822666921345340",
+      "posted_at": "2026-08-13T08:44:48+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 42.9,
+      "score": 39.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Goldman Sachs Buys Neos for Up to $2.25B The bank will absorb Neos Investments, adding the Bitcoin High Income ETF, Boosted Bitcoin High Income ETF and Ethereum High Income ETF to its lineup. $BTC exposure now sits inside a major Wall Street balance sheet. #ETFs #Banking https://t.co/x6njT102M8",
-      "topic": "crypto_market",
-      "why_trending": "表示43・投稿後76分・反応率8.4%・動画あり"
+      "summary": "🚨🇺🇸 CRYPTO JUST GOT A MASSIVE SIGNAL FROM WASHINGTON. The Senate stalled the CLARITY Act — but the SEC &amp; CFTC aren’t waiting. Paul Atkins is pushing a major crypto regulatory framework. Congress hit pause. Regulators hit GO. 🚀₿ The U.S. is preparing to rewrite the rules of",
+      "topic": "regulation",
+      "why_trending": "表示192・投稿後10分・反応率0.0%"
     },
     {
       "author_followers": 56,
@@ -1214,32 +1275,28 @@
       "why_trending": "表示18・投稿後2分・反応率0.0%"
     },
     {
-      "author_followers": 670,
-      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "author_followers": 11,
+      "discovered_at": "2026-08-13T08:55:30+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Ten_Sion247",
+      "handle": "Binancetrasgds",
       "has_video": false,
-      "headline": "📊 ETF FLOWS — Aug. 11: BTC: +$4.89M ETH: -$1.76M SOL: +$1.43M Bitcoin and Solana spot ETFs recorded net inflows, while Ethereum spot ETFs saw outflows. https://t.co/vn1tylazkY",
-      "impression_count": 7,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/Ten_Sion247/status/2087720537933942996/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087720537933942996",
-      "post_url": "https://x.com/Ten_Sion247/status/2087720537933942996",
-      "posted_at": "2026-08-13T01:58:58+00:00",
+      "headline": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. T",
+      "impression_count": 20,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087815568166416663",
+      "post_url": "https://x.com/Binancetrasgds/status/2087815568166416663",
+      "posted_at": "2026-08-13T08:16:35+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 1,
-      "score": 36.4,
+      "repost_count": 0,
+      "score": 35.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "📊 ETF FLOWS — Aug. 11: BTC: +$4.89M ETH: -$1.76M SOL: +$1.43M Bitcoin and Solana spot ETFs recorded net inflows, while Ethereum spot ETFs saw outflows. https://t.co/vn1tylazkY",
-      "topic": "crypto_market",
-      "why_trending": "表示7・投稿後77分・反応率42.9%"
+      "summary": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. This is the most pro-crypto SEC ever! 🚀",
+      "topic": "regulation",
+      "why_trending": "表示20・投稿後38分・反応率0.0%"
     },
     {
       "author_followers": 250,
@@ -1268,6 +1325,30 @@
       "summary": "BTC ETF — Weak Demand, Small Outflow Current Latest Bitcoin ETF session is negative. Daily Total Net Inflow -$46.80M -736 BTC This is not panic selling. But ETF demand is weak again. ETF Session Most funds are inactive. Only one visible seller: FBTC → -736 BTC GBTC https://t.co/i1cxTLMxzv",
       "topic": "crypto_market",
       "why_trending": "表示10・投稿後15分・反応率0.0%"
+    },
+    {
+      "author_followers": 85,
+      "discovered_at": "2026-08-13T08:55:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TradingCopter",
+      "has_video": false,
+      "headline": "MOST PEOPLE ARE LOOKING AT THE CLARITY ACT. I’m watching the SEC. The SEC is set to vote Friday on whether to propose a new framework for certain crypto offerings. Important distin",
+      "impression_count": 16,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087818167204876356",
+      "post_url": "https://x.com/TradingCopter/status/2087818167204876356",
+      "posted_at": "2026-08-13T08:26:55+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "MOST PEOPLE ARE LOOKING AT THE CLARITY ACT. I’m watching the SEC. The SEC is set to vote Friday on whether to propose a new framework for certain crypto offerings. Important distinction: it’s a PROPOSAL, not a final rule. But that may be the bigger story. Congress is stuck.",
+      "topic": "regulation",
+      "why_trending": "表示16・投稿後28分・反応率0.0%"
     }
   ],
   "trends": [],
