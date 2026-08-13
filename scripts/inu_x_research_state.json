@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T03:16:30+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T03:16:30+00:00",
+  "last_deep_scan_at": "2026-08-13T05:23:38+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T05:23:38+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -963,35 +963,22 @@
       "result_count": 6,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T05:23:38+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T05:23:38+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
-    {
-      "author_followers": 1454,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "k_koga555",
-      "has_video": false,
-      "headline": "https://t.co/2kxN7DNCjK 「ビットコイン、運命の1週間！とてつもなく大きな動きが来る」― ラウル・パル＆トム・リー｜BTC最新情報 Crypto Nutshell #AI要約 ラウル・パル氏とトム・リー氏が見る暗号資産市場の次の上昇局面 🔳暗号資産市場を支える2つの要因",
-      "impression_count": 22,
-      "like_count": 1,
-      "linked_urls": [
-        "https://www.youtube.com/watch?v=MI3nQz1F46c"
-      ],
-      "media_types": [],
-      "post_id": "2087651835268247799",
-      "post_url": "https://x.com/k_koga555/status/2087651835268247799",
-      "posted_at": "2026-08-12T21:25:58+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 63.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "https://t.co/2kxN7DNCjK 「ビットコイン、運命の1週間！とてつもなく大きな動きが来る」― ラウル・パル＆トム・リー｜BTC最新情報 Crypto Nutshell #AI要約 ラウル・パル氏とトム・リー氏が見る暗号資産市場の次の上昇局面 🔳暗号資産市場を支える2つの要因",
-      "topic": "japanese_market",
-      "why_trending": "表示22・投稿後3分・反応率4.5%・公式候補リンクあり"
-    },
     {
       "author_followers": 3495,
       "discovered_at": "2026-08-13T03:16:30+00:00",
@@ -1022,54 +1009,32 @@
       "why_trending": "表示75・投稿後28分・反応率3.5%・公式候補リンクあり"
     },
     {
-      "author_followers": 1135,
-      "discovered_at": "2026-08-12T23:23:27+00:00",
+      "author_followers": 8414,
+      "discovered_at": "2026-08-13T05:23:38+00:00",
       "discovery_type": "official_x_api",
-      "handle": "zuoluzhou",
+      "handle": "REHANH0SSAIN",
       "has_video": false,
-      "headline": "TermMax在Robinhood公链新开借贷池，支持用「代币化美股ETF/英伟达股票」当抵押品，借稳定币USDG；同时开高倍积分挖矿活动吸引早期用户 对借款人:抵押SPY/QQQ/NVDA，锁定固定利息借钱，不怕市场波动导致利率突然暴涨 对存款人:存入USDG进保险库拿超高120倍积分，赚资金利息+潜在空投奖励 @TermMaxFi https://t.c",
-      "impression_count": 2,
-      "like_count": 1,
+      "headline": "Here’s the part of Quip Network I think more people should be talking about. It’s not only building a quantum compute network. @quipnetwork is also working on protecting today’s on",
+      "impression_count": 124,
+      "like_count": 31,
       "linked_urls": [
-        "https://twitter.com/termmaxfi/status/2087433921915133967"
+        "https://x.com/REHANH0SSAIN/status/2087765028275658879/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2087678508697092330",
-      "post_url": "https://x.com/zuoluzhou/status/2087678508697092330",
-      "posted_at": "2026-08-12T23:11:58+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087765028275658879",
+      "post_url": "https://x.com/REHANH0SSAIN/status/2087765028275658879",
+      "posted_at": "2026-08-13T04:55:46+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 57.4,
+      "reply_count": 30,
+      "repost_count": 1,
+      "score": 50.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "TermMax在Robinhood公链新开借贷池，支持用「代币化美股ETF/英伟达股票」当抵押品，借稳定币USDG；同时开高倍积分挖矿活动吸引早期用户 对借款人:抵押SPY/QQQ/NVDA，锁定固定利息借钱，不怕市场波动导致利率突然暴涨 对存款人:存入USDG进保险库拿超高120倍积分，赚资金利息+潜在空投奖励 @TermMaxFi https://t.co/a2hsTWp6yi",
-      "topic": "chinese_market",
-      "why_trending": "表示2・投稿後11分・反応率50.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 20815,
-      "discovered_at": "2026-08-12T23:23:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "nangongyuan",
-      "has_video": false,
-      "headline": "# 比特币热点日报（2026年8月13日） 今日最重要的3件事 1. 美国OCC明确“对加密公司开放银行牌照”，多家机构已获条件性批准",
-      "impression_count": 41,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087680693157736834",
-      "post_url": "https://x.com/nangongyuan/status/2087680693157736834",
-      "posted_at": "2026-08-12T23:20:39+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 52.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "# 比特币热点日报（2026年8月13日） 今日最重要的3件事 1. 美国OCC明确“对加密公司开放银行牌照”，多家机构已获条件性批准",
-      "topic": "chinese_market",
-      "why_trending": "表示41・投稿後2分・反応率3.9%"
+      "summary": "Here’s the part of Quip Network I think more people should be talking about. It’s not only building a quantum compute network. @quipnetwork is also working on protecting today’s onchain assets from future quantum attacks. Its quantum-resistant wallets use post-quantum https://t.co/Ismegr2Qcb",
+      "topic": "onchain_exchange",
+      "why_trending": "表示124・投稿後27分・反応率65.3%"
     },
     {
       "author_followers": 1145,
@@ -1100,28 +1065,32 @@
       "why_trending": "表示5・投稿後15分・反応率52.0%"
     },
     {
-      "author_followers": 44,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
+      "author_followers": 9,
+      "discovered_at": "2026-08-13T05:23:38+00:00",
       "discovery_type": "official_x_api",
-      "handle": "mueck0711",
+      "handle": "MarketPulse2026",
       "has_video": false,
-      "headline": "【2026/08/13】きのうのビットコイン 🟠 🏦 ゴールドマン、NEOS買収でビットコインETF取得 🇺🇸 OCC「開店中」、銀行免許求める暗号資産企業が列 🇺🇸 Clarity Act採決停滞、当局は独自の推進策へ 🏛️ ロシア中銀、9月1日から公式取引所でBTC売買 🏢",
-      "impression_count": 21,
+      "headline": "📚 MARKETPULSE ACADEMY LESSON 10 — WHAT IS A CRYPTO WHALE? 🐋 🐋 WHAT IS A CRYPTO WHALE? A crypto whale is an individual, institution, fund, company, or other entity that holds or con",
+      "impression_count": 16,
       "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087651121326342230",
-      "post_url": "https://x.com/mueck0711/status/2087651121326342230",
-      "posted_at": "2026-08-12T21:23:08+00:00",
+      "linked_urls": [
+        "https://x.com/MarketPulse2026/status/2087769897191530831/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087769897191530831",
+      "post_url": "https://x.com/MarketPulse2026/status/2087769897191530831",
+      "posted_at": "2026-08-13T05:15:07+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 43.0,
+      "score": 44.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【2026/08/13】きのうのビットコイン 🟠 🏦 ゴールドマン、NEOS買収でビットコインETF取得 🇺🇸 OCC「開店中」、銀行免許求める暗号資産企業が列 🇺🇸 Clarity Act採決停滞、当局は独自の推進策へ 🏛️ ロシア中銀、9月1日から公式取引所でBTC売買 🏢",
-      "topic": "japanese_market",
-      "why_trending": "表示21・投稿後6分・反応率0.0%"
+      "summary": "📚 MARKETPULSE ACADEMY LESSON 10 — WHAT IS A CRYPTO WHALE? 🐋 🐋 WHAT IS A CRYPTO WHALE? A crypto whale is an individual, institution, fund, company, or other entity that holds or controls a large amount of a cryptocurrency or digital asset. Because of the size of their https://t.co/VsaAQJYeeF",
+      "topic": "onchain_exchange",
+      "why_trending": "表示16・投稿後8分・反応率0.0%"
     },
     {
       "author_followers": 6164,
@@ -1152,6 +1121,30 @@
       "why_trending": "表示43・投稿後76分・反応率8.4%・動画あり"
     },
     {
+      "author_followers": 56,
+      "discovered_at": "2026-08-13T05:23:38+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TacTanner",
+      "has_video": false,
+      "headline": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Thursday, 13 August 2026 06:04 CEST - Zurich, Switzerland 🇨🇭 Bitcoin is sitting around $63,600, Ethereum is barely moving, and most of the large caps are sligh",
+      "impression_count": 91,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087759505115226149",
+      "post_url": "https://x.com/TacTanner/status/2087759505115226149",
+      "posted_at": "2026-08-13T04:33:49+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 38.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Thursday, 13 August 2026 06:04 CEST - Zurich, Switzerland 🇨🇭 Bitcoin is sitting around $63,600, Ethereum is barely moving, and most of the large caps are slightly red. Hyperliquid, however, seems to have missed the memo and is up more than",
+      "topic": "onchain_exchange",
+      "why_trending": "表示91・投稿後49分・反応率0.0%"
+    },
+    {
       "author_followers": 250,
       "discovered_at": "2026-08-13T03:16:30+00:00",
       "discovery_type": "official_x_api",
@@ -1180,6 +1173,34 @@
       "why_trending": "表示13・投稿後5分・反応率0.0%"
     },
     {
+      "author_followers": 591,
+      "discovered_at": "2026-08-13T05:23:38+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TradeSignals_24",
+      "has_video": false,
+      "headline": "🚨 From $91M Unrealized Profit to a $19.7M Loss This Bitcoin whale is sitting on a painful reversal. 🐳 The wallet accumulated 1,768 BTC at an average price of around $74,603, puttin",
+      "impression_count": 18,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/TradeSignals_24/status/2087771326505509266/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087771326505509266",
+      "post_url": "https://x.com/TradeSignals_24/status/2087771326505509266",
+      "posted_at": "2026-08-13T05:20:47+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 From $91M Unrealized Profit to a $19.7M Loss This Bitcoin whale is sitting on a painful reversal. 🐳 The wallet accumulated 1,768 BTC at an average price of around $74,603, putting the total position at approximately $131.91M. 📈 At Bitcoin’s peak, the position was showing https://t.co/whfNweHzNY",
+      "topic": "onchain_exchange",
+      "why_trending": "表示18・投稿後2分・反応率0.0%"
+    },
+    {
       "author_followers": 670,
       "discovered_at": "2026-08-13T03:16:30+00:00",
       "discovery_type": "official_x_api",
@@ -1206,30 +1227,6 @@
       "summary": "📊 ETF FLOWS — Aug. 11: BTC: +$4.89M ETH: -$1.76M SOL: +$1.43M Bitcoin and Solana spot ETFs recorded net inflows, while Ethereum spot ETFs saw outflows. https://t.co/vn1tylazkY",
       "topic": "crypto_market",
       "why_trending": "表示7・投稿後77分・反応率42.9%"
-    },
-    {
-      "author_followers": 165,
-      "discovered_at": "2026-08-12T23:23:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "huawei52592570",
-      "has_video": false,
-      "headline": "🔹 巨鲸的沉寂与AI浪潮下的算力争夺：8月12日市场观察 2026年8月12日，加密市场在平静中暗流涌动。经历了上周的连续资金流入后，比特币现货ETF出现显著净流出，显示短期获利盘的回吐。与此同时，AI算力领域的激烈争夺正悄然重塑产业格局，并可能对加密资产的长期价值逻辑产生深远影响。",
-      "impression_count": 12,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087680907067203803",
-      "post_url": "https://x.com/huawei52592570/status/2087680907067203803",
-      "posted_at": "2026-08-12T23:21:30+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔹 巨鲸的沉寂与AI浪潮下的算力争夺：8月12日市场观察 2026年8月12日，加密市场在平静中暗流涌动。经历了上周的连续资金流入后，比特币现货ETF出现显著净流出，显示短期获利盘的回吐。与此同时，AI算力领域的激烈争夺正悄然重塑产业格局，并可能对加密资产的长期价值逻辑产生深远影响。",
-      "topic": "chinese_market",
-      "why_trending": "表示12・投稿後1分・反応率0.0%"
     },
     {
       "author_followers": 250,
