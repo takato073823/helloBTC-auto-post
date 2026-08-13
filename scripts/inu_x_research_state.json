@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T00:44:41+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T00:44:41+00:00",
+  "last_deep_scan_at": "2026-08-13T03:16:30+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T03:16:30+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -950,6 +950,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T03:16:30+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T03:16:30+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -980,6 +993,35 @@
       "why_trending": "表示22・投稿後3分・反応率4.5%・公式候補リンクあり"
     },
     {
+      "author_followers": 3495,
+      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ANCrypto_",
+      "has_video": false,
+      "headline": "📰 CRYPTO MARKET BRIEF — AUG 13 with ANCRYPTO PPI DAY • BTC HOLDS $63K • FEAR REMAINS Crypto remains range-bound after July CPI failed to trigger a breakout. Market Cap: ~$2.20T BTC",
+      "impression_count": 75,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/ANCrypto_/status/2087732853085966687/photo/1",
+        "https://twitter.com/ANCrypto_/status/2087365850366169459"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087732853085966687",
+      "post_url": "https://x.com/ANCrypto_/status/2087732853085966687",
+      "posted_at": "2026-08-13T02:47:55+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 61.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📰 CRYPTO MARKET BRIEF — AUG 13 with ANCRYPTO PPI DAY • BTC HOLDS $63K • FEAR REMAINS Crypto remains range-bound after July CPI failed to trigger a breakout. Market Cap: ~$2.20T BTC Dominance: 58.6% Fear &amp; Greed: 27 — Fear Today’s key catalyst: U.S. PPI at 8:30 AM ET / 19:30 https://t.co/VInG7GDLR6 https://t.co/fEuXgQNADN",
+      "topic": "crypto_market",
+      "why_trending": "表示75・投稿後28分・反応率3.5%・公式候補リンクあり"
+    },
+    {
       "author_followers": 1135,
       "discovered_at": "2026-08-12T23:23:27+00:00",
       "discovery_type": "official_x_api",
@@ -1006,32 +1048,6 @@
       "why_trending": "表示2・投稿後11分・反応率50.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 202,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "yazawa241829",
-      "has_video": false,
-      "headline": "複数配信部屋みてるけどクリーンで 居心地いい。 ライブ配信もやってくれるし、楽しい ゴールドロングも さおりさんのシナリオ通りすぎて鳥肌でした😂 米国株 ビットコイン 日経平均 ドル円 gold 急騰 暴落 高値 BTC https://t.co/9kSFe7iPGW",
-      "impression_count": 194,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/saorii_fx/status/2086961518000873736"
-      ],
-      "media_types": [],
-      "post_id": "2087646556233036142",
-      "post_url": "https://x.com/yazawa241829/status/2087646556233036142",
-      "posted_at": "2026-08-12T21:05:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 53.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "複数配信部屋みてるけどクリーンで 居心地いい。 ライブ配信もやってくれるし、楽しい ゴールドロングも さおりさんのシナリオ通りすぎて鳥肌でした😂 米国株 ビットコイン 日経平均 ドル円 gold 急騰 暴落 高値 BTC https://t.co/9kSFe7iPGW",
-      "topic": "japanese_market",
-      "why_trending": "表示194・投稿後24分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 20815,
       "discovered_at": "2026-08-12T23:23:27+00:00",
       "discovery_type": "official_x_api",
@@ -1056,139 +1072,32 @@
       "why_trending": "表示41・投稿後2分・反応率3.9%"
     },
     {
-      "author_followers": 2515,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
+      "author_followers": 1145,
+      "discovered_at": "2026-08-13T03:16:30+00:00",
       "discovery_type": "official_x_api",
-      "handle": "kabuaka_koga",
+      "handle": "hoangday_ne",
       "has_video": false,
-      "headline": "📈【俺ポジ&amp;トレード更新】8/12 🇺🇸米CPI、辛うじて無事通過！ 利上げ観測もやや後退し、米国株はしっかり。夜の日本株も堅調です📈 ただし、日本は利上げ方向へ。 これからはより一層、 「業績が飛び抜けて強い銘柄」を選ぶ相場になりそうです。 今回の記事では👇 ✅ 米CPIと今後の金利動向 ✅ https://t.co/UCPMl7UjUc http",
-      "impression_count": 93,
+      "headline": "$4.9M inflow for BTC and $4.9M outflow for ETH $1.8M in the latest session suggest steady demand for Bitcoin while Ethereum faces some selling pressure. #BTC #ETH NFA NFA. https://",
+      "impression_count": 5,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/kabuaka_koga/status/2087644110014574827/photo/1",
-        "https://twitter.com/kogamaboo/status/2087623656730173749"
+        "https://x.com/hoangday_ne/status/2087736183648665753/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087644110014574827",
-      "post_url": "https://x.com/kabuaka_koga/status/2087644110014574827",
-      "posted_at": "2026-08-12T20:55:17+00:00",
+      "post_id": "2087736183648665753",
+      "post_url": "https://x.com/hoangday_ne/status/2087736183648665753",
+      "posted_at": "2026-08-13T03:01:09+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 1,
       "repost_count": 0,
-      "score": 52.3,
+      "score": 48.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "📈【俺ポジ&amp;トレード更新】8/12 🇺🇸米CPI、辛うじて無事通過！ 利上げ観測もやや後退し、米国株はしっかり。夜の日本株も堅調です📈 ただし、日本は利上げ方向へ。 これからはより一層、 「業績が飛び抜けて強い銘柄」を選ぶ相場になりそうです。 今回の記事では👇 ✅ 米CPIと今後の金利動向 ✅ https://t.co/UCPMl7UjUc https://t.co/3QW9A5yY6M",
-      "topic": "japanese_market",
-      "why_trending": "表示93・投稿後33分・反応率1.1%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 202,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "yazawa241829",
-      "has_video": false,
-      "headline": "朝のシナリオもありがたいけどラジオもまじでよかった！ 無料だしコミュニティ入っててよかった。 先月と今月が過去最大に利益出てるかも🔥 米国株 ビットコイン 日経平均 ドル円 gold 急騰 暴落 高値 BTC https://t.co/6Y3f1KVrEw",
-      "impression_count": 125,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/saorii_fx/status/2087471640636497920"
-      ],
-      "media_types": [],
-      "post_id": "2087645081637715993",
-      "post_url": "https://x.com/yazawa241829/status/2087645081637715993",
-      "posted_at": "2026-08-12T20:59:08+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 52.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "朝のシナリオもありがたいけどラジオもまじでよかった！ 無料だしコミュニティ入っててよかった。 先月と今月が過去最大に利益出てるかも🔥 米国株 ビットコイン 日経平均 ドル円 gold 急騰 暴落 高値 BTC https://t.co/6Y3f1KVrEw",
-      "topic": "japanese_market",
-      "why_trending": "表示125・投稿後30分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 234,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "27DbbCZSYXABJRq",
-      "has_video": false,
-      "headline": "✅8月12日 (水)米国株アフター AI決算とCPI軟化が半導体を押し上げ VIX急落でリスクオン再加速の一日 👇🏻Grok氏レポート 🇺🇸【マクロ要因とニュース】 〜CPIとAI関連決算が利上げ懸念を後退させた〜 ・7月CPIは前年比+3.4％・前月比+0.1％で予想通り鈍化 https://t.co/54ycXveebE",
-      "impression_count": 295,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/27DbbCZSYXABJRq/status/2087634768942989627/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087634768942989627",
-      "post_url": "https://x.com/27DbbCZSYXABJRq/status/2087634768942989627",
-      "posted_at": "2026-08-12T20:18:09+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 50.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "✅8月12日 (水)米国株アフター AI決算とCPI軟化が半導体を押し上げ VIX急落でリスクオン再加速の一日 👇🏻Grok氏レポート 🇺🇸【マクロ要因とニュース】 〜CPIとAI関連決算が利上げ懸念を後退させた〜 ・7月CPIは前年比+3.4％・前月比+0.1％で予想通り鈍化 https://t.co/54ycXveebE",
-      "topic": "japanese_market",
-      "why_trending": "表示295・投稿後71分・反応率2.6%"
-    },
-    {
-      "author_followers": 1062,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "yoko_stock",
-      "has_video": false,
-      "headline": "📈【超保存推奨】8/13(木) 日本株決算発表予定まとめ！ 約220社が発表ラッシュ🔥 場中67社・引け後119社・時間未確認35社を1枚に完全整理！ ★大注目2銘柄 ①メタプラネット（3350）2Q 仮想通貨・ビットコイン関連の注目成長銘柄✨ 発表時間未確認（前回17:00頃） ②PowerX（485A）2Q https://t.co/qgqJ3YuUTw",
-      "impression_count": 47,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/yoko_stock/status/2087644906131235038/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087644906131235038",
-      "post_url": "https://x.com/yoko_stock/status/2087644906131235038",
-      "posted_at": "2026-08-12T20:58:26+00:00",
-      "quote_count": 1,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 49.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📈【超保存推奨】8/13(木) 日本株決算発表予定まとめ！ 約220社が発表ラッシュ🔥 場中67社・引け後119社・時間未確認35社を1枚に完全整理！ ★大注目2銘柄 ①メタプラネット（3350）2Q 仮想通貨・ビットコイン関連の注目成長銘柄✨ 発表時間未確認（前回17:00頃） ②PowerX（485A）2Q https://t.co/qgqJ3YuUTw",
-      "topic": "japanese_market",
-      "why_trending": "表示47・投稿後30分・反応率14.9%"
-    },
-    {
-      "author_followers": 921,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BeikokuS",
-      "has_video": false,
-      "headline": "📈【米国株動向】8/12はAI関連株が相場をけん引📈 S&amp;P500 +0.26％、ナスダック +0.54％、ダウ平均 -0.04％。AIクラウド、AIサーバー、光通信、メモリなどAIインフラ関連株に買いが集中しました。 ✅NBIS +34.14％：ネビウス、好決算と空売り比率の高さを背景に急騰。 ✅QNT",
-      "impression_count": 517,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087639527850668487",
-      "post_url": "https://x.com/BeikokuS/status/2087639527850668487",
-      "posted_at": "2026-08-12T20:37:04+00:00",
-      "quote_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📈【米国株動向】8/12はAI関連株が相場をけん引📈 S&amp;P500 +0.26％、ナスダック +0.54％、ダウ平均 -0.04％。AIクラウド、AIサーバー、光通信、メモリなどAIインフラ関連株に買いが集中しました。 ✅NBIS +34.14％：ネビウス、好決算と空売り比率の高さを背景に急騰。 ✅QNT",
-      "topic": "japanese_market",
-      "why_trending": "表示517・投稿後52分・反応率0.6%"
+      "summary": "$4.9M inflow for BTC and $4.9M outflow for ETH $1.8M in the latest session suggest steady demand for Bitcoin while Ethereum faces some selling pressure. #BTC #ETH NFA NFA. https://t.co/jcHy8hfXwq",
+      "topic": "crypto_market",
+      "why_trending": "表示5・投稿後15分・反応率52.0%"
     },
     {
       "author_followers": 44,
@@ -1215,6 +1124,90 @@
       "why_trending": "表示21・投稿後6分・反応率0.0%"
     },
     {
+      "author_followers": 6164,
+      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "FINANCIERNEWS",
+      "has_video": true,
+      "headline": "Goldman Sachs Buys Neos for Up to $2.25B The bank will absorb Neos Investments, adding the Bitcoin High Income ETF, Boosted Bitcoin High Income ETF and Ethereum High Income ETF to ",
+      "impression_count": 43,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/FINANCIERNEWS/status/2087720788476497940/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087720788476497940",
+      "post_url": "https://x.com/FINANCIERNEWS/status/2087720788476497940",
+      "posted_at": "2026-08-13T01:59:58+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 42.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Goldman Sachs Buys Neos for Up to $2.25B The bank will absorb Neos Investments, adding the Bitcoin High Income ETF, Boosted Bitcoin High Income ETF and Ethereum High Income ETF to its lineup. $BTC exposure now sits inside a major Wall Street balance sheet. #ETFs #Banking https://t.co/x6njT102M8",
+      "topic": "crypto_market",
+      "why_trending": "表示43・投稿後76分・反応率8.4%・動画あり"
+    },
+    {
+      "author_followers": 250,
+      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "DjakhongirMukh1",
+      "has_video": false,
+      "headline": "BTC — Spot, Futures, ETF, Liquidity Map, OI &amp; Order Book Current BTC is trading near $63.5K–$63.9K. Structure is still mixed. Spot is weak. ETF flow is negative. Futures improv",
+      "impression_count": 13,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/DjakhongirMukh1/status/2087738621637833077/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087738621637833077",
+      "post_url": "https://x.com/DjakhongirMukh1/status/2087738621637833077",
+      "posted_at": "2026-08-13T03:10:50+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BTC — Spot, Futures, ETF, Liquidity Map, OI &amp; Order Book Current BTC is trading near $63.5K–$63.9K. Structure is still mixed. Spot is weak. ETF flow is negative. Futures improved, but the size is not strong. OI is rising again, so leverage is active. This is not a clean https://t.co/5FeDkCIbn0",
+      "topic": "crypto_market",
+      "why_trending": "表示13・投稿後5分・反応率0.0%"
+    },
+    {
+      "author_followers": 670,
+      "discovered_at": "2026-08-13T03:16:30+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Ten_Sion247",
+      "has_video": false,
+      "headline": "📊 ETF FLOWS — Aug. 11: BTC: +$4.89M ETH: -$1.76M SOL: +$1.43M Bitcoin and Solana spot ETFs recorded net inflows, while Ethereum spot ETFs saw outflows. https://t.co/vn1tylazkY",
+      "impression_count": 7,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/Ten_Sion247/status/2087720537933942996/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087720537933942996",
+      "post_url": "https://x.com/Ten_Sion247/status/2087720537933942996",
+      "posted_at": "2026-08-13T01:58:58+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 36.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📊 ETF FLOWS — Aug. 11: BTC: +$4.89M ETH: -$1.76M SOL: +$1.43M Bitcoin and Solana spot ETFs recorded net inflows, while Ethereum spot ETFs saw outflows. https://t.co/vn1tylazkY",
+      "topic": "crypto_market",
+      "why_trending": "表示7・投稿後77分・反応率42.9%"
+    },
+    {
       "author_followers": 165,
       "discovered_at": "2026-08-12T23:23:27+00:00",
       "discovery_type": "official_x_api",
@@ -1239,28 +1232,32 @@
       "why_trending": "表示12・投稿後1分・反応率0.0%"
     },
     {
-      "author_followers": 921,
-      "discovered_at": "2026-08-12T21:29:16+00:00",
+      "author_followers": 250,
+      "discovered_at": "2026-08-13T03:16:30+00:00",
       "discovery_type": "official_x_api",
-      "handle": "BeikokuS",
+      "handle": "DjakhongirMukh1",
       "has_video": false,
-      "headline": "ネビウス(NBIS)が好決算で28％急騰。 売上高は前年比454％増、AIクラウド売上は約6倍に拡大しました。 さらに注目なのが、浮動株の約30％に達する空売り残高です。 今回の急騰は好業績だけでなく、ショートカバーが値動きを増幅させた可能性もあります。",
-      "impression_count": 276,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087624875162960287",
-      "post_url": "https://x.com/BeikokuS/status/2087624875162960287",
-      "posted_at": "2026-08-12T19:38:51+00:00",
+      "headline": "BTC ETF — Weak Demand, Small Outflow Current Latest Bitcoin ETF session is negative. Daily Total Net Inflow -$46.80M -736 BTC This is not panic selling. But ETF demand is weak agai",
+      "impression_count": 10,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/DjakhongirMukh1/status/2087736099321827729/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087736099321827729",
+      "post_url": "https://x.com/DjakhongirMukh1/status/2087736099321827729",
+      "posted_at": "2026-08-13T03:00:48+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 34.9,
+      "score": 35.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "ネビウス(NBIS)が好決算で28％急騰。 売上高は前年比454％増、AIクラウド売上は約6倍に拡大しました。 さらに注目なのが、浮動株の約30％に達する空売り残高です。 今回の急騰は好業績だけでなく、ショートカバーが値動きを増幅させた可能性もあります。",
-      "topic": "japanese_market",
-      "why_trending": "表示276・投稿後110分・反応率0.4%"
+      "summary": "BTC ETF — Weak Demand, Small Outflow Current Latest Bitcoin ETF session is negative. Daily Total Net Inflow -$46.80M -736 BTC This is not panic selling. But ETF demand is weak again. ETF Session Most funds are inactive. Only one visible seller: FBTC → -736 BTC GBTC https://t.co/i1cxTLMxzv",
+      "topic": "crypto_market",
+      "why_trending": "表示10・投稿後15分・反応率0.0%"
     }
   ],
   "trends": [],
