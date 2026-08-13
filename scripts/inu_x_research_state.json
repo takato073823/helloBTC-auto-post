@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T14:08:46+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T14:08:46+00:00",
+  "last_deep_scan_at": "2026-08-13T15:39:58+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T15:39:58+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1047,9 +1047,50 @@
       "result_count": 6,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T15:39:58+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T15:39:58+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4662282,
+      "discovered_at": "2026-08-13T15:39:58+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇨🇭 Switzerland's largest bank UBS increases spot Bitcoin ETF holdings by 230% to $90 million. https://t.co/ySF5UFIvIB",
+      "impression_count": 125458,
+      "like_count": 1204,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2087916687760953475/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087916687760953475",
+      "post_url": "https://x.com/WatcherGuru/status/2087916687760953475",
+      "posted_at": "2026-08-13T14:58:24+00:00",
+      "quote_count": 14,
+      "reply_count": 108,
+      "repost_count": 138,
+      "score": 78.3,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇨🇭 Switzerland's largest bank UBS increases spot Bitcoin ETF holdings by 230% to $90 million. https://t.co/ySF5UFIvIB",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示125,458・投稿後41分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 18779,
       "discovered_at": "2026-08-13T14:08:46+00:00",
@@ -1078,58 +1119,6 @@
       "summary": "我在 @WeexCn 上买的 $SOXX 也有点小收益。我挪过来的资金不多，一个小仓位试试水。 我采取的是定投的方式，这样慢慢买，它的安全边际会好一点，目前是赚钱的啊。 @WeexCn 平台，它打通了N种资产，统一到一个市场： 想要买美股、美股基金、黄金、黄金 ETF https://t.co/fkNqXytUCb https://t.co/x9w8S1AA3r",
       "topic": "chinese_market",
       "why_trending": "表示303・投稿後55分・反応率12.1%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 867807,
-      "discovered_at": "2026-08-13T08:55:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoKing4Ever",
-      "has_video": false,
-      "headline": "U.S. CRYPTO REGULATION IS MOVING. This Friday, the 🇺🇸 SEC is set to discuss a new framework for certain crypto offerings. And this comes while the CLARITY Act remains unfinished in",
-      "impression_count": 1784,
-      "like_count": 15,
-      "linked_urls": [
-        "https://x.com/CryptoKing4Ever/status/2087821065695240371/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087821065695240371",
-      "post_url": "https://x.com/CryptoKing4Ever/status/2087821065695240371",
-      "posted_at": "2026-08-13T08:38:26+00:00",
-      "quote_count": 0,
-      "reply_count": 12,
-      "repost_count": 5,
-      "score": 58.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "U.S. CRYPTO REGULATION IS MOVING. This Friday, the 🇺🇸 SEC is set to discuss a new framework for certain crypto offerings. And this comes while the CLARITY Act remains unfinished in Congress. Congress may be moving slowly… But the SEC is already working on a crypto-specific https://t.co/cTHVLxs1dw",
-      "topic": "regulation",
-      "why_trending": "表示1,784・投稿後17分・反応率2.5%"
-    },
-    {
-      "author_followers": 1605013,
-      "discovered_at": "2026-08-13T08:55:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "cryptorover",
-      "has_video": false,
-      "headline": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. T",
-      "impression_count": 26518,
-      "like_count": 260,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087814663748612142",
-      "post_url": "https://x.com/cryptorover/status/2087814663748612142",
-      "posted_at": "2026-08-13T08:13:00+00:00",
-      "quote_count": 5,
-      "reply_count": 57,
-      "repost_count": 37,
-      "score": 56.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. This is the most pro-crypto SEC ever! 🚀",
-      "topic": "regulation",
-      "why_trending": "表示26,518・投稿後42分・反応率1.6%"
     },
     {
       "author_followers": 3,
@@ -1394,30 +1383,6 @@
       "why_trending": "表示127・投稿後19分・反応率0.0%"
     },
     {
-      "author_followers": 26419,
-      "discovered_at": "2026-08-13T08:55:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "XiZnping",
-      "has_video": false,
-      "headline": "🚨🇺🇸 CRYPTO JUST GOT A MASSIVE SIGNAL FROM WASHINGTON. The Senate stalled the CLARITY Act — but the SEC &amp; CFTC aren’t waiting. Paul Atkins is pushing a major crypto regulatory f",
-      "impression_count": 192,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087822666921345340",
-      "post_url": "https://x.com/XiZnping/status/2087822666921345340",
-      "posted_at": "2026-08-13T08:44:48+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 39.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨🇺🇸 CRYPTO JUST GOT A MASSIVE SIGNAL FROM WASHINGTON. The Senate stalled the CLARITY Act — but the SEC &amp; CFTC aren’t waiting. Paul Atkins is pushing a major crypto regulatory framework. Congress hit pause. Regulators hit GO. 🚀₿ The U.S. is preparing to rewrite the rules of",
-      "topic": "regulation",
-      "why_trending": "表示192・投稿後10分・反応率0.0%"
-    },
-    {
       "author_followers": 47,
       "discovered_at": "2026-08-13T14:08:46+00:00",
       "discovery_type": "official_x_api",
@@ -1492,30 +1457,6 @@
       "why_trending": "表示15・投稿後68分・反応率17.3%"
     },
     {
-      "author_followers": 11,
-      "discovered_at": "2026-08-13T08:55:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Binancetrasgds",
-      "has_video": false,
-      "headline": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. T",
-      "impression_count": 20,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087815568166416663",
-      "post_url": "https://x.com/Binancetrasgds/status/2087815568166416663",
-      "posted_at": "2026-08-13T08:16:35+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. This is the most pro-crypto SEC ever! 🚀",
-      "topic": "regulation",
-      "why_trending": "表示20・投稿後38分・反応率0.0%"
-    },
-    {
       "author_followers": 2744,
       "discovered_at": "2026-08-13T12:34:02+00:00",
       "discovery_type": "official_x_api",
@@ -1543,30 +1484,6 @@
       "summary": "Bitcoin/Ordinals Newsフィード （8/13 20:01 JST） Robinhood Chain上でローンチしたRH Machinesが、24時間で100ETH超の出来高を記録し、姉妹コレクションのBTC https://t.co/M735wR8mg9 https://t.co/yK0rpkIWJm",
       "topic": "japanese_market",
       "why_trending": "表示176・投稿後86分・反応率0.6%・動画あり"
-    },
-    {
-      "author_followers": 85,
-      "discovered_at": "2026-08-13T08:55:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "TradingCopter",
-      "has_video": false,
-      "headline": "MOST PEOPLE ARE LOOKING AT THE CLARITY ACT. I’m watching the SEC. The SEC is set to vote Friday on whether to propose a new framework for certain crypto offerings. Important distin",
-      "impression_count": 16,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087818167204876356",
-      "post_url": "https://x.com/TradingCopter/status/2087818167204876356",
-      "posted_at": "2026-08-13T08:26:55+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "MOST PEOPLE ARE LOOKING AT THE CLARITY ACT. I’m watching the SEC. The SEC is set to vote Friday on whether to propose a new framework for certain crypto offerings. Important distinction: it’s a PROPOSAL, not a final rule. But that may be the bigger story. Congress is stuck.",
-      "topic": "regulation",
-      "why_trending": "表示16・投稿後28分・反応率0.0%"
     }
   ],
   "trends": [],
