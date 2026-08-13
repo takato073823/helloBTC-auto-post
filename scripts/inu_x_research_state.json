@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-13T10:45:26+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T10:45:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T11:34:13+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1015,6 +1015,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T11:34:13+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1100,62 +1106,6 @@
       "why_trending": "表示26,518・投稿後42分・反応率1.6%"
     },
     {
-      "author_followers": 8414,
-      "discovered_at": "2026-08-13T05:23:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "REHANH0SSAIN",
-      "has_video": false,
-      "headline": "Here’s the part of Quip Network I think more people should be talking about. It’s not only building a quantum compute network. @quipnetwork is also working on protecting today’s on",
-      "impression_count": 124,
-      "like_count": 31,
-      "linked_urls": [
-        "https://x.com/REHANH0SSAIN/status/2087765028275658879/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087765028275658879",
-      "post_url": "https://x.com/REHANH0SSAIN/status/2087765028275658879",
-      "posted_at": "2026-08-13T04:55:46+00:00",
-      "quote_count": 0,
-      "reply_count": 30,
-      "repost_count": 1,
-      "score": 50.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Here’s the part of Quip Network I think more people should be talking about. It’s not only building a quantum compute network. @quipnetwork is also working on protecting today’s onchain assets from future quantum attacks. Its quantum-resistant wallets use post-quantum https://t.co/Ismegr2Qcb",
-      "topic": "onchain_exchange",
-      "why_trending": "表示124・投稿後27分・反応率65.3%"
-    },
-    {
-      "author_followers": 9,
-      "discovered_at": "2026-08-13T05:23:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MarketPulse2026",
-      "has_video": false,
-      "headline": "📚 MARKETPULSE ACADEMY LESSON 10 — WHAT IS A CRYPTO WHALE? 🐋 🐋 WHAT IS A CRYPTO WHALE? A crypto whale is an individual, institution, fund, company, or other entity that holds or con",
-      "impression_count": 16,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/MarketPulse2026/status/2087769897191530831/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087769897191530831",
-      "post_url": "https://x.com/MarketPulse2026/status/2087769897191530831",
-      "posted_at": "2026-08-13T05:15:07+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📚 MARKETPULSE ACADEMY LESSON 10 — WHAT IS A CRYPTO WHALE? 🐋 🐋 WHAT IS A CRYPTO WHALE? A crypto whale is an individual, institution, fund, company, or other entity that holds or controls a large amount of a cryptocurrency or digital asset. Because of the size of their https://t.co/VsaAQJYeeF",
-      "topic": "onchain_exchange",
-      "why_trending": "表示16・投稿後8分・反応率0.0%"
-    },
-    {
       "author_followers": 26419,
       "discovered_at": "2026-08-13T08:55:30+00:00",
       "discovery_type": "official_x_api",
@@ -1178,34 +1128,6 @@
       "summary": "🚨🇺🇸 CRYPTO JUST GOT A MASSIVE SIGNAL FROM WASHINGTON. The Senate stalled the CLARITY Act — but the SEC &amp; CFTC aren’t waiting. Paul Atkins is pushing a major crypto regulatory framework. Congress hit pause. Regulators hit GO. 🚀₿ The U.S. is preparing to rewrite the rules of",
       "topic": "regulation",
       "why_trending": "表示192・投稿後10分・反応率0.0%"
-    },
-    {
-      "author_followers": 591,
-      "discovered_at": "2026-08-13T05:23:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "TradeSignals_24",
-      "has_video": false,
-      "headline": "🚨 From $91M Unrealized Profit to a $19.7M Loss This Bitcoin whale is sitting on a painful reversal. 🐳 The wallet accumulated 1,768 BTC at an average price of around $74,603, puttin",
-      "impression_count": 18,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/TradeSignals_24/status/2087771326505509266/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087771326505509266",
-      "post_url": "https://x.com/TradeSignals_24/status/2087771326505509266",
-      "posted_at": "2026-08-13T05:20:47+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 From $91M Unrealized Profit to a $19.7M Loss This Bitcoin whale is sitting on a painful reversal. 🐳 The wallet accumulated 1,768 BTC at an average price of around $74,603, putting the total position at approximately $131.91M. 📈 At Bitcoin’s peak, the position was showing https://t.co/whfNweHzNY",
-      "topic": "onchain_exchange",
-      "why_trending": "表示18・投稿後2分・反応率0.0%"
     },
     {
       "author_followers": 11,
