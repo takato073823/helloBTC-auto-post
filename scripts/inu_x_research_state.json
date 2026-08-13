@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T08:55:30+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T08:55:30+00:00",
+  "last_deep_scan_at": "2026-08-13T10:45:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T10:45:26+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1002,6 +1002,19 @@
       "result_count": 6,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T10:45:26+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T10:45:26+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1115,34 +1128,6 @@
       "why_trending": "表示124・投稿後27分・反応率65.3%"
     },
     {
-      "author_followers": 1145,
-      "discovered_at": "2026-08-13T03:16:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "hoangday_ne",
-      "has_video": false,
-      "headline": "$4.9M inflow for BTC and $4.9M outflow for ETH $1.8M in the latest session suggest steady demand for Bitcoin while Ethereum faces some selling pressure. #BTC #ETH NFA NFA. https://",
-      "impression_count": 5,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/hoangday_ne/status/2087736183648665753/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087736183648665753",
-      "post_url": "https://x.com/hoangday_ne/status/2087736183648665753",
-      "posted_at": "2026-08-13T03:01:09+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 48.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "$4.9M inflow for BTC and $4.9M outflow for ETH $1.8M in the latest session suggest steady demand for Bitcoin while Ethereum faces some selling pressure. #BTC #ETH NFA NFA. https://t.co/jcHy8hfXwq",
-      "topic": "crypto_market",
-      "why_trending": "表示5・投稿後15分・反応率52.0%"
-    },
-    {
       "author_followers": 9,
       "discovered_at": "2026-08-13T05:23:38+00:00",
       "discovery_type": "official_x_api",
@@ -1195,58 +1180,6 @@
       "why_trending": "表示192・投稿後10分・反応率0.0%"
     },
     {
-      "author_followers": 56,
-      "discovered_at": "2026-08-13T05:23:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "TacTanner",
-      "has_video": false,
-      "headline": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Thursday, 13 August 2026 06:04 CEST - Zurich, Switzerland 🇨🇭 Bitcoin is sitting around $63,600, Ethereum is barely moving, and most of the large caps are sligh",
-      "impression_count": 91,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087759505115226149",
-      "post_url": "https://x.com/TacTanner/status/2087759505115226149",
-      "posted_at": "2026-08-13T04:33:49+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "𝗖𝗥𝗬𝗣𝗧𝗢 𝗠𝗢𝗥𝗡𝗜𝗡𝗚 𝗕𝗥𝗜𝗘𝗙 Thursday, 13 August 2026 06:04 CEST - Zurich, Switzerland 🇨🇭 Bitcoin is sitting around $63,600, Ethereum is barely moving, and most of the large caps are slightly red. Hyperliquid, however, seems to have missed the memo and is up more than",
-      "topic": "onchain_exchange",
-      "why_trending": "表示91・投稿後49分・反応率0.0%"
-    },
-    {
-      "author_followers": 250,
-      "discovered_at": "2026-08-13T03:16:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "DjakhongirMukh1",
-      "has_video": false,
-      "headline": "BTC — Spot, Futures, ETF, Liquidity Map, OI &amp; Order Book Current BTC is trading near $63.5K–$63.9K. Structure is still mixed. Spot is weak. ETF flow is negative. Futures improv",
-      "impression_count": 13,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/DjakhongirMukh1/status/2087738621637833077/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087738621637833077",
-      "post_url": "https://x.com/DjakhongirMukh1/status/2087738621637833077",
-      "posted_at": "2026-08-13T03:10:50+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BTC — Spot, Futures, ETF, Liquidity Map, OI &amp; Order Book Current BTC is trading near $63.5K–$63.9K. Structure is still mixed. Spot is weak. ETF flow is negative. Futures improved, but the size is not strong. OI is rising again, so leverage is active. This is not a clean https://t.co/5FeDkCIbn0",
-      "topic": "crypto_market",
-      "why_trending": "表示13・投稿後5分・反応率0.0%"
-    },
-    {
       "author_followers": 591,
       "discovered_at": "2026-08-13T05:23:38+00:00",
       "discovery_type": "official_x_api",
@@ -1297,34 +1230,6 @@
       "summary": "This Friday, the 🇺🇸 SEC will officially discuss a new framework for crypto offerings. Crypto regulation is moving forward rapidly, even though the CLARITY Act has not yet passed. This is the most pro-crypto SEC ever! 🚀",
       "topic": "regulation",
       "why_trending": "表示20・投稿後38分・反応率0.0%"
-    },
-    {
-      "author_followers": 250,
-      "discovered_at": "2026-08-13T03:16:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "DjakhongirMukh1",
-      "has_video": false,
-      "headline": "BTC ETF — Weak Demand, Small Outflow Current Latest Bitcoin ETF session is negative. Daily Total Net Inflow -$46.80M -736 BTC This is not panic selling. But ETF demand is weak agai",
-      "impression_count": 10,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/DjakhongirMukh1/status/2087736099321827729/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087736099321827729",
-      "post_url": "https://x.com/DjakhongirMukh1/status/2087736099321827729",
-      "posted_at": "2026-08-13T03:00:48+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BTC ETF — Weak Demand, Small Outflow Current Latest Bitcoin ETF session is negative. Daily Total Net Inflow -$46.80M -736 BTC This is not panic selling. But ETF demand is weak again. ETF Session Most funds are inactive. Only one visible seller: FBTC → -736 BTC GBTC https://t.co/i1cxTLMxzv",
-      "topic": "crypto_market",
-      "why_trending": "表示10・投稿後15分・反応率0.0%"
     },
     {
       "author_followers": 85,
