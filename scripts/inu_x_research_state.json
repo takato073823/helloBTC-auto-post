@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T19:45:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T20:23:04+00:00",
+  "last_deep_scan_at": "2026-08-13T22:25:30+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T22:25:30+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1098,6 +1098,19 @@
       "checked_at": "2026-08-13T20:23:04+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T22:25:30+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T22:25:30+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -1124,34 +1137,6 @@
       "summary": "JUST IN: 🇺🇸 White House to meet with top crypto executives next week.",
       "topic": "watcher_guru",
       "why_trending": "表示71,485・投稿後11分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4662282,
-      "discovered_at": "2026-08-13T15:39:58+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇨🇭 Switzerland's largest bank UBS increases spot Bitcoin ETF holdings by 230% to $90 million. https://t.co/ySF5UFIvIB",
-      "impression_count": 125458,
-      "like_count": 1204,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2087916687760953475/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087916687760953475",
-      "post_url": "https://x.com/WatcherGuru/status/2087916687760953475",
-      "posted_at": "2026-08-13T14:58:24+00:00",
-      "quote_count": 14,
-      "reply_count": 108,
-      "repost_count": 138,
-      "score": 78.3,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇨🇭 Switzerland's largest bank UBS increases spot Bitcoin ETF holdings by 230% to $90 million. https://t.co/ySF5UFIvIB",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示125,458・投稿後41分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4663466,
@@ -1374,32 +1359,32 @@
       "why_trending": "表示50・投稿後103分・反応率3.2%・動画あり"
     },
     {
-      "author_followers": 3623,
-      "discovered_at": "2026-08-13T17:43:55+00:00",
+      "author_followers": 173,
+      "discovered_at": "2026-08-13T22:25:30+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Lisa01_FC",
+      "handle": "jeffnab3",
       "has_video": false,
-      "headline": "What changed in crypto market structure in '26? Watching @BTC and @ETH feels less like a retail cycle now ✸ @ETF flows turned spot demand into a daily scoreboard ✸ @whale wallets s",
-      "impression_count": 18,
-      "like_count": 1,
+      "headline": "THE BRAZILIAN STOCK MARKET, EXPLAINED IN ENGLISH: EVERY TERM YOU NEED TO READ B3 LIKE A LOCAL Everything below is jargon from the Brazilian stock exchange, which is called B3 — sho",
+      "impression_count": 99,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/Lisa01_FC/status/2087933894104596618/photo/1"
+        "https://x.com/jeffnab3/status/2088007059425968169/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087933894104596618",
-      "post_url": "https://x.com/Lisa01_FC/status/2087933894104596618",
-      "posted_at": "2026-08-13T16:06:46+00:00",
+      "post_id": "2088007059425968169",
+      "post_url": "https://x.com/jeffnab3/status/2088007059425968169",
+      "posted_at": "2026-08-13T20:57:30+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 37.6,
+      "score": 42.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "What changed in crypto market structure in '26? Watching @BTC and @ETH feels less like a retail cycle now ✸ @ETF flows turned spot demand into a daily scoreboard ✸ @whale wallets still matter, but they move around institutional liquidity ✸ @stablecoin rails became the actual https://t.co/UqTsRvePog",
-      "topic": "crypto_market",
-      "why_trending": "表示18・投稿後97分・反応率14.4%"
+      "summary": "THE BRAZILIAN STOCK MARKET, EXPLAINED IN ENGLISH: EVERY TERM YOU NEED TO READ B3 LIKE A LOCAL Everything below is jargon from the Brazilian stock exchange, which is called B3 — short for Brasil, Bolsa, Balcão. It is the only stock exchange in Brazil: one exchange, one https://t.co/ICfK8gpNMu",
+      "topic": "macro_rates",
+      "why_trending": "表示99・投稿後88分・反応率1.6%"
     },
     {
       "author_followers": 43047,
