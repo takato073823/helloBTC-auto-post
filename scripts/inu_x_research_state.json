@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-12T23:23:27+00:00",
-  "last_watcher_guru_scan_at": "2026-08-12T23:23:27+00:00",
+  "last_deep_scan_at": "2026-08-13T00:44:41+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T00:44:41+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -937,33 +937,22 @@
       "result_count": 3,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T00:44:41+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T00:44:41+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4656814,
-      "discovered_at": "2026-08-12T18:38:44+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 US budget deficit surges to $432 billion, the highest level in 5 years. It is now up 48% over the past year.",
-      "impression_count": 70763,
-      "like_count": 367,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087607265998077978",
-      "post_url": "https://x.com/WatcherGuru/status/2087607265998077978",
-      "posted_at": "2026-08-12T18:28:52+00:00",
-      "quote_count": 12,
-      "reply_count": 71,
-      "repost_count": 36,
-      "score": 77.0,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 US budget deficit surges to $432 billion, the highest level in 5 years. It is now up 48% over the past year.",
-      "topic": "watcher_guru",
-      "why_trending": "表示70,763・投稿後9分・反応率0.8%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 1454,
       "discovered_at": "2026-08-12T21:29:16+00:00",
