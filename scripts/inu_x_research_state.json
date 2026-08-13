@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T17:43:55+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T18:39:31+00:00",
+  "last_deep_scan_at": "2026-08-13T19:45:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T19:45:00+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1079,6 +1079,19 @@
       "checked_at": "2026-08-13T18:39:31+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T19:45:00+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T19:45:00+00:00",
+      "result_count": 7,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -1111,35 +1124,6 @@
       "why_trending": "表示125,458・投稿後41分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 18779,
-      "discovered_at": "2026-08-13T14:08:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "zfcbtc",
-      "has_video": false,
-      "headline": "我在 @WeexCn 上买的 $SOXX 也有点小收益。我挪过来的资金不多，一个小仓位试试水。 我采取的是定投的方式，这样慢慢买，它的安全边际会好一点，目前是赚钱的啊。 @WeexCn 平台，它打通了N种资产，统一到一个市场： 想要买美股、美股基金、黄金、黄金 ETF https://t.co/fkNqXytUCb https://t.co/x9w8S1AA",
-      "impression_count": 303,
-      "like_count": 16,
-      "linked_urls": [
-        "https://x.com/zfcbtc/status/2087890340384809129/photo/1",
-        "https://twitter.com/zfcbtc/status/2087518121519464754"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087890340384809129",
-      "post_url": "https://x.com/zfcbtc/status/2087890340384809129",
-      "posted_at": "2026-08-13T13:13:42+00:00",
-      "quote_count": 0,
-      "reply_count": 13,
-      "repost_count": 0,
-      "score": 63.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "我在 @WeexCn 上买的 $SOXX 也有点小收益。我挪过来的资金不多，一个小仓位试试水。 我采取的是定投的方式，这样慢慢买，它的安全边际会好一点，目前是赚钱的啊。 @WeexCn 平台，它打通了N种资产，统一到一个市场： 想要买美股、美股基金、黄金、黄金 ETF https://t.co/fkNqXytUCb https://t.co/x9w8S1AA3r",
-      "topic": "chinese_market",
-      "why_trending": "表示303・投稿後55分・反応率12.1%・公式候補リンクあり"
-    },
-    {
       "author_followers": 4663466,
       "discovered_at": "2026-08-13T18:39:31+00:00",
       "discovery_type": "official_x_api",
@@ -1166,6 +1150,30 @@
       "summary": "JUST IN: Bitcoin falls back under $63,000 https://t.co/H10UrAjHfY",
       "topic": "watcher_guru",
       "why_trending": "表示189,819・投稿後116分・反応率1.6%"
+    },
+    {
+      "author_followers": 314,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "OpenPulsechain",
+      "has_video": false,
+      "headline": "🐋 Bridge whale — $99.1k WETH bridged OUT to Ethereum A single transfer moved 53 WETH from PulseChain to Ethereum on Aug 13, 18:51 UTC. Wallet: 0xb38a90f14b24ae81ec0b8f1373694f5b598",
+      "impression_count": 65,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087977819720585392",
+      "post_url": "https://x.com/OpenPulsechain/status/2087977819720585392",
+      "posted_at": "2026-08-13T19:01:19+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 53.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🐋 Bridge whale — $99.1k WETH bridged OUT to Ethereum A single transfer moved 53 WETH from PulseChain to Ethereum on Aug 13, 18:51 UTC. Wallet: 0xb38a90f14b24ae81ec0b8f1373694f5b59811d8a Tx: 0x472f8a0c237a0df11fe9e762d7f477f23126f051e2f7213854aa1766214dae63 #PulseChain",
+      "topic": "onchain_exchange",
+      "why_trending": "表示65・投稿後43分・反応率3.1%"
     },
     {
       "author_followers": 653,
@@ -1224,6 +1232,34 @@
       "why_trending": "表示266・投稿後37分・反応率35.5%"
     },
     {
+      "author_followers": 6846,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "thenameisfedro",
+      "has_video": false,
+      "headline": "Where Stability Meets DeFi Imagine having a digital asset designed around a stable $1 value while still being able to participate in decentralized finance. That’s the role USDD aim",
+      "impression_count": 9,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/thenameisfedro/status/2087985588616233085/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087985588616233085",
+      "post_url": "https://x.com/thenameisfedro/status/2087985588616233085",
+      "posted_at": "2026-08-13T19:32:11+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 50.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Where Stability Meets DeFi Imagine having a digital asset designed around a stable $1 value while still being able to participate in decentralized finance. That’s the role USDD aims to play. Instead of treating a stablecoin as something that simply sits in a wallet, USDD can https://t.co/pmHNOaUok5",
+      "topic": "onchain_exchange",
+      "why_trending": "表示9・投稿後12分・反応率17.8%"
+    },
+    {
       "author_followers": 60963,
       "discovered_at": "2026-08-13T17:43:55+00:00",
       "discovery_type": "official_x_api",
@@ -1252,6 +1288,34 @@
       "why_trending": "表示1,765・投稿後28分・反応率0.8%・動画あり"
     },
     {
+      "author_followers": 2242,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "0xGr1mm",
+      "has_video": false,
+      "headline": "stablecoins made money programmable. public blockchains made corporate finances searchable. one payment can expose your wallet, balances, counterparties and transaction history. pa",
+      "impression_count": 52,
+      "like_count": 5,
+      "linked_urls": [
+        "https://x.com/0xGr1mm/status/2087978038742950144/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087978038742950144",
+      "post_url": "https://x.com/0xGr1mm/status/2087978038742950144",
+      "posted_at": "2026-08-13T19:02:11+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 48.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "stablecoins made money programmable. public blockchains made corporate finances searchable. one payment can expose your wallet, balances, counterparties and transaction history. pay a supplier and they may see how much cash you hold. move funds between wallets and competitors https://t.co/gpvfUevvFV",
+      "topic": "onchain_exchange",
+      "why_trending": "表示52・投稿後42分・反応率12.7%"
+    },
+    {
       "author_followers": 47209,
       "discovered_at": "2026-08-13T14:08:46+00:00",
       "discovery_type": "official_x_api",
@@ -1276,28 +1340,32 @@
       "why_trending": "表示774・投稿後17分・反応率1.2%"
     },
     {
-      "author_followers": 5081,
-      "discovered_at": "2026-08-13T14:08:46+00:00",
+      "author_followers": 2576,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
       "discovery_type": "official_x_api",
-      "handle": "gushanjishui",
-      "has_video": false,
-      "headline": "史上最大VC寒冬 4 月加密 VC 融资仅 $659M，为两年低点； 6 月只有 61 轮融资，2020 年 11 月以来最低 - 比 5 月的 89 轮下降 31.5%，比 2020 年 12 月以来月均值低 52%，比历史峰值月（218 轮）低 72%； 活跃加密 VC 机构只剩 150 家，为 2020 年以来最低。 造就VC寒冬的杀手是 AI 虹吸效",
-      "impression_count": 294,
-      "like_count": 3,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087890323082969518",
-      "post_url": "https://x.com/gushanjishui/status/2087890323082969518",
-      "posted_at": "2026-08-13T13:13:38+00:00",
+      "handle": "Neome_com",
+      "has_video": true,
+      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu Token Movements Hint at Potential Stability. • Shiba Inu exchange netflow hits -44 billion SHIB as sell pressure dro",
+      "impression_count": 50,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Neome_com/status/2087962646700032272/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087962646700032272",
+      "post_url": "https://x.com/Neome_com/status/2087962646700032272",
+      "posted_at": "2026-08-13T18:01:02+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 43.2,
+      "score": 43.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "史上最大VC寒冬 4 月加密 VC 融资仅 $659M，为两年低点； 6 月只有 61 轮融资，2020 年 11 月以来最低 - 比 5 月的 89 轮下降 31.5%，比 2020 年 12 月以来月均值低 52%，比历史峰值月（218 轮）低 72%； 活跃加密 VC 机构只剩 150 家，为 2020 年以来最低。 造就VC寒冬的杀手是 AI 虹吸效应。",
-      "topic": "chinese_market",
-      "why_trending": "表示294・投稿後55分・反応率1.6%"
+      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu Token Movements Hint at Potential Stability. • Shiba Inu exchange netflow hits -44 billion SHIB as sell pressure drops. • SK Hynix workers launch unified union due to stalled wages. • XRP Support Holds Near https://t.co/G4FBZQ3PaH",
+      "topic": "onchain_exchange",
+      "why_trending": "表示50・投稿後103分・反応率3.2%・動画あり"
     },
     {
       "author_followers": 49363,
@@ -1356,30 +1424,88 @@
       "why_trending": "表示18・投稿後97分・反応率14.4%"
     },
     {
-      "author_followers": 1591,
-      "discovered_at": "2026-08-13T14:08:46+00:00",
+      "author_followers": 43047,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
       "discovery_type": "official_x_api",
-      "handle": "suishuojiami",
+      "handle": "0xSpop",
       "has_video": false,
-      "headline": "加密交易所Bullish二季度财报：净亏损2.8亿美元，数字资产交易额为326亿美元 8月13日消息，加密货币交易所 Bullish（纽约证券交易所代码：BLSH）公布了第二季度财务业绩。第二季度数字资产交易额为 326 亿美元，去年同期为 586 亿美元；净利润（亏损）为 2.8 亿美元，而去年同期为 1.083 https://t.co/FTrXqL93",
-      "impression_count": 15,
-      "like_count": 1,
+      "headline": "Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Read that again. Crypto happenings you should know abo",
+      "impression_count": 198,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/Bullish/status/2087854759126487319"
+        "https://x.com/0xSpop/status/2087963982527172767/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2087886852166664421",
-      "post_url": "https://x.com/suishuojiami/status/2087886852166664421",
-      "posted_at": "2026-08-13T12:59:51+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087963982527172767",
+      "post_url": "https://x.com/0xSpop/status/2087963982527172767",
+      "posted_at": "2026-08-13T18:06:20+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 36.1,
+      "score": 36.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "加密交易所Bullish二季度财报：净亏损2.8亿美元，数字资产交易额为326亿美元 8月13日消息，加密货币交易所 Bullish（纽约证券交易所代码：BLSH）公布了第二季度财务业绩。第二季度数字资产交易额为 326 亿美元，去年同期为 586 亿美元；净利润（亏损）为 2.8 亿美元，而去年同期为 1.083 https://t.co/FTrXqL93aq",
-      "topic": "chinese_market",
-      "why_trending": "表示15・投稿後68分・反応率17.3%"
+      "summary": "Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Read that again. Crypto happenings you should know about from the past 24 hours: → Harmony confirmed an exploit that minted ~4B ONE, roughly 26% of https://t.co/lcR8p8MFMg",
+      "topic": "onchain_exchange",
+      "why_trending": "表示198・投稿後98分・反応率1.8%"
+    },
+    {
+      "author_followers": 134,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "JoPoYo67",
+      "has_video": false,
+      "headline": "Trezor customer data exposed via a third-party shipping leak! 🚨 What does this mean for personal privacy, phishing risks, and self-custody security? The latest episode from @crypto",
+      "impression_count": 26,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/JoPoYo67/status/2087976795056275578/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087976795056275578",
+      "post_url": "https://x.com/JoPoYo67/status/2087976795056275578",
+      "posted_at": "2026-08-13T18:57:15+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Trezor customer data exposed via a third-party shipping leak! 🚨 What does this mean for personal privacy, phishing risks, and self-custody security? The latest episode from @cryptonewshq is live! 🎙️ ⏱️ EPISODE BREAKDOWN: • Trezor Shipping Data Exposure — Over 13,680 customer https://t.co/Q41LM7Nhei",
+      "topic": "onchain_exchange",
+      "why_trending": "表示26・投稿後47分・反応率0.0%"
+    },
+    {
+      "author_followers": 6846,
+      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "thenameisfedro",
+      "has_video": false,
+      "headline": "One USDD, Multiple DeFi Possibilities What can you actually do with a stablecoin? With USDD, the answer goes far beyond simply holding an asset pegged around $1. ➙ Use it as a medi",
+      "impression_count": 9,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/thenameisfedro/status/2087986804108759296/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087986804108759296",
+      "post_url": "https://x.com/thenameisfedro/status/2087986804108759296",
+      "posted_at": "2026-08-13T19:37:01+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "One USDD, Multiple DeFi Possibilities What can you actually do with a stablecoin? With USDD, the answer goes far beyond simply holding an asset pegged around $1. ➙ Use it as a medium of exchange USDD provides a stable-value option for moving capital within the blockchain https://t.co/kfdtt9S4MX",
+      "topic": "onchain_exchange",
+      "why_trending": "表示9・投稿後7分・反応率0.0%"
     },
     {
       "author_followers": 32,
