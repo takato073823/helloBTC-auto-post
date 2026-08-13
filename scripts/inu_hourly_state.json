@@ -757,6 +757,20 @@
       "posted_at": "2026-08-13T14:54:19.684427+00:00",
       "hook": "📉 $CRV、24時間で-8.75％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-14-01-a",
+      "post_id": "inu_market_2026_08_14_01_a_crypto-apr-usd",
+      "tweet_id": "2087945659223883909",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:APR-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-APRUSD",
+      "published_at": "2026-08-13T16:00:00+00:00",
+      "posted_at": "2026-08-13T16:53:32.366193+00:00",
+      "hook": "📈 $APR、24時間で+16.97％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -821,7 +835,8 @@
     "inu_market_2026_08_13_16_a_crypto-hype-usd",
     "inu_market_2026_08_13_18_a_crypto-coti-usd",
     "inu_breaking_us_indices_record_2026-08-13",
-    "inu_market_2026_08_13_23_a_crypto-crv-usd"
+    "inu_market_2026_08_13_23_a_crypto-crv-usd",
+    "inu_market_2026_08_14_01_a_crypto-apr-usd"
   ],
   "reservations": [
     {
@@ -1041,16 +1056,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-14-01-a",
-      "post_id": "inu_market_2026_08_14_01_a_crypto-apr-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-APRUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:APR-USD",
-      "reserved_at": "2026-08-13T16:53:00.170979+00:00"
     }
   ],
   "history": [
@@ -1866,6 +1871,20 @@
       "published_at": "2026-08-13T14:00:00+00:00",
       "posted_at": "2026-08-13T14:54:19.684427+00:00",
       "hook": "📉 $CRV、24時間で-8.75％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-14-01-a",
+      "post_id": "inu_market_2026_08_14_01_a_crypto-apr-usd",
+      "tweet_id": "2087945659223883909",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:APR-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-APRUSD",
+      "published_at": "2026-08-13T16:00:00+00:00",
+      "posted_at": "2026-08-13T16:53:32.366193+00:00",
+      "hook": "📈 $APR、24時間で+16.97％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
