@@ -785,6 +785,20 @@
       "posted_at": "2026-08-13T20:38:31.887132+00:00",
       "hook": "📈 $AVNT、24時間で+20.32％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-14-07-a",
+      "post_id": "inu_market_2026_08_14_07_a_crypto-ethfi-usd",
+      "tweet_id": "2088032318300533063",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ETHFI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHFIUSD",
+      "published_at": "2026-08-13T22:00:00+00:00",
+      "posted_at": "2026-08-13T22:37:53.456061+00:00",
+      "hook": "📈 $ETHFI、24時間で+18.01％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -851,7 +865,8 @@
     "inu_breaking_us_indices_record_2026-08-13",
     "inu_market_2026_08_13_23_a_crypto-crv-usd",
     "inu_market_2026_08_14_01_a_crypto-apr-usd",
-    "inu_market_2026_08_14_05_a_crypto-avnt-usd"
+    "inu_market_2026_08_14_05_a_crypto-avnt-usd",
+    "inu_market_2026_08_14_07_a_crypto-ethfi-usd"
   ],
   "reservations": [
     {
@@ -1071,16 +1086,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-14-07-a",
-      "post_id": "inu_market_2026_08_14_07_a_crypto-ethfi-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHFIUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:ETHFI-USD",
-      "reserved_at": "2026-08-13T22:37:13.313307+00:00"
     }
   ],
   "history": [
@@ -1924,6 +1929,20 @@
       "published_at": "2026-08-13T20:00:00+00:00",
       "posted_at": "2026-08-13T20:38:31.887132+00:00",
       "hook": "📈 $AVNT、24時間で+20.32％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-14-07-a",
+      "post_id": "inu_market_2026_08_14_07_a_crypto-ethfi-usd",
+      "tweet_id": "2088032318300533063",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ETHFI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHFIUSD",
+      "published_at": "2026-08-13T22:00:00+00:00",
+      "posted_at": "2026-08-13T22:37:53.456061+00:00",
+      "hook": "📈 $ETHFI、24時間で+18.01％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
