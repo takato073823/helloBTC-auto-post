@@ -729,6 +729,20 @@
       "posted_at": "2026-08-13T07:21:34.280091+00:00",
       "hook": "📈 $HYPE、24時間で+4.69％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-13-18-a",
+      "post_id": "inu_market_2026_08_13_18_a_crypto-coti-usd",
+      "tweet_id": "2087828689056575873",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:COTI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-COTIUSD",
+      "published_at": "2026-08-13T09:00:00+00:00",
+      "posted_at": "2026-08-13T09:08:44.435733+00:00",
+      "hook": "📈 $COTI、24時間で+12.63％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -790,7 +804,8 @@
     "inu_market_2026_08_13_03_a_crypto-virtual-usd",
     "inu_market_2026_08_13_07_a_crypto-pengu-usd",
     "inu_market_2026_08_13_15_a_crypto-apr-usd",
-    "inu_market_2026_08_13_16_a_crypto-hype-usd"
+    "inu_market_2026_08_13_16_a_crypto-hype-usd",
+    "inu_market_2026_08_13_18_a_crypto-coti-usd"
   ],
   "reservations": [
     {
@@ -1010,16 +1025,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-13-18-a",
-      "post_id": "inu_market_2026_08_13_18_a_crypto-coti-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-COTIUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:COTI-USD",
-      "reserved_at": "2026-08-13T09:08:11.881119+00:00"
     }
   ],
   "history": [
@@ -1796,6 +1801,20 @@
       "published_at": "2026-08-13T07:00:00+00:00",
       "posted_at": "2026-08-13T07:21:34.280091+00:00",
       "hook": "📈 $HYPE、24時間で+4.69％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-13-18-a",
+      "post_id": "inu_market_2026_08_13_18_a_crypto-coti-usd",
+      "tweet_id": "2087828689056575873",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:COTI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-COTIUSD",
+      "published_at": "2026-08-13T09:00:00+00:00",
+      "posted_at": "2026-08-13T09:08:44.435733+00:00",
+      "hook": "📈 $COTI、24時間で+12.63％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
