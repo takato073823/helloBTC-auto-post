@@ -805,7 +805,8 @@
     "inu_market_2026_08_13_07_a_crypto-pengu-usd",
     "inu_market_2026_08_13_15_a_crypto-apr-usd",
     "inu_market_2026_08_13_16_a_crypto-hype-usd",
-    "inu_market_2026_08_13_18_a_crypto-coti-usd"
+    "inu_market_2026_08_13_18_a_crypto-coti-usd",
+    "inu_breaking_us_indices_record_2026-08-13"
   ],
   "reservations": [
     {
@@ -1025,13 +1026,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "event_key": "us_indices_record_2026-08-13",
-      "post_id": "inu_breaking_us_indices_record_2026-08-13",
-      "topic_type": "historical_milestone",
-      "priority": "breaking",
-      "reserved_at": "2026-08-13T13:55:47.500831+00:00"
     }
   ],
   "history": [
@@ -1823,6 +1817,17 @@
       "posted_at": "2026-08-13T09:08:44.435733+00:00",
       "hook": "📈 $COTI、24時間で+12.63％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "event_key": "us_indices_record_2026-08-13",
+      "post_id": "inu_breaking_us_indices_record_2026-08-13",
+      "tweet_id": "2087900944046727341",
+      "topic_type": "historical_milestone",
+      "priority": "breaking",
+      "source_url": "https://finance.yahoo.com/quote/%5EGSPC/",
+      "published_at": "2026-08-13T13:55:32+00:00",
+      "posted_at": "2026-08-13T13:55:51.294398+00:00",
+      "hook": "S&P 500が史上最高値を更新"
     }
   ],
   "scheduled_checks": [
