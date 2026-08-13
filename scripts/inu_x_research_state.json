@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-13T17:43:55+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T17:43:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T18:39:31+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1073,6 +1073,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T18:39:31+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1132,6 +1138,34 @@
       "summary": "我在 @WeexCn 上买的 $SOXX 也有点小收益。我挪过来的资金不多，一个小仓位试试水。 我采取的是定投的方式，这样慢慢买，它的安全边际会好一点，目前是赚钱的啊。 @WeexCn 平台，它打通了N种资产，统一到一个市场： 想要买美股、美股基金、黄金、黄金 ETF https://t.co/fkNqXytUCb https://t.co/x9w8S1AA3r",
       "topic": "chinese_market",
       "why_trending": "表示303・投稿後55分・反応率12.1%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4663466,
+      "discovered_at": "2026-08-13T18:39:31+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Bitcoin falls back under $63,000 https://t.co/H10UrAjHfY",
+      "impression_count": 189819,
+      "like_count": 2113,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2087942892786483686/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087942892786483686",
+      "post_url": "https://x.com/WatcherGuru/status/2087942892786483686",
+      "posted_at": "2026-08-13T16:42:32+00:00",
+      "quote_count": 58,
+      "reply_count": 321,
+      "repost_count": 188,
+      "score": 55.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Bitcoin falls back under $63,000 https://t.co/H10UrAjHfY",
+      "topic": "watcher_guru",
+      "why_trending": "表示189,819・投稿後116分・反応率1.6%"
     },
     {
       "author_followers": 653,
@@ -1242,63 +1276,6 @@
       "why_trending": "表示774・投稿後17分・反応率1.2%"
     },
     {
-      "author_followers": 24248,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️メタプラネット、社債発行プログラム「BitBonds」創設──中間決算で1842億円のBTC評価損（NADA NEWS）⭐️ 詳細URL👇 https://t.co/okeaHHJqyz https://t.co/Pirdvg9shv",
-      "impression_count": 174,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/ETlc6gi",
-        "https://x.com/CoinmatomeNews/status/2087870408812871829/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087870408812871829",
-      "post_url": "https://x.com/CoinmatomeNews/status/2087870408812871829",
-      "posted_at": "2026-08-13T11:54:30+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️メタプラネット、社債発行プログラム「BitBonds」創設──中間決算で1842億円のBTC評価損（NADA NEWS）⭐️ 詳細URL👇 https://t.co/okeaHHJqyz https://t.co/Pirdvg9shv",
-      "topic": "japanese_market",
-      "why_trending": "表示174・投稿後39分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 154,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "shimokitapine",
-      "has_video": false,
-      "headline": "ロビンフッドが英国で仮想通貨取引を解禁｜50銘柄以上・手数料ゼロの衝撃、欧米に続く第三の市場制覇なるか ロビンフッドが動いた。英国市場に、手数料ゼロで50種類以上の仮想通貨取引を持ち込んだ。これは単なるサービス拡張じゃない。暗号資産業界の地殻変動の始まりかもしれない。 英国上陸の全貌 https://t.co/17q8nDyXh6",
-      "impression_count": 298,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/shimokitapine/status/2087868645971996871/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087868645971996871",
-      "post_url": "https://x.com/shimokitapine/status/2087868645971996871",
-      "posted_at": "2026-08-13T11:47:30+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ロビンフッドが英国で仮想通貨取引を解禁｜50銘柄以上・手数料ゼロの衝撃、欧米に続く第三の市場制覇なるか ロビンフッドが動いた。英国市場に、手数料ゼロで50種類以上の仮想通貨取引を持ち込んだ。これは単なるサービス拡張じゃない。暗号資産業界の地殻変動の始まりかもしれない。 英国上陸の全貌 https://t.co/17q8nDyXh6",
-      "topic": "japanese_market",
-      "why_trending": "表示298・投稿後46分・反応率0.3%"
-    },
-    {
       "author_followers": 5081,
       "discovered_at": "2026-08-13T14:08:46+00:00",
       "discovery_type": "official_x_api",
@@ -1351,30 +1328,6 @@
       "why_trending": "表示251・投稿後18分・反応率0.4%"
     },
     {
-      "author_followers": 1713,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kokonoe_culture",
-      "has_video": false,
-      "headline": "【今日の決算】8/13発表の時価総額500億以上の大型株から6社をピックアップ。増収増益が並ぶ一方、メタプラネットは暗号資産評価損に振り回された 08/13（木）#光通信（9435） 2026/6期 1Q決算 ✅ 売上高：1,926億（+15.2%） ✅ 営業利益：292億（+6.1%） ✅ 純利益：367億（+30.1%）",
-      "impression_count": 127,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087875572416606368",
-      "post_url": "https://x.com/kokonoe_culture/status/2087875572416606368",
-      "posted_at": "2026-08-13T12:15:01+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 39.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【今日の決算】8/13発表の時価総額500億以上の大型株から6社をピックアップ。増収増益が並ぶ一方、メタプラネットは暗号資産評価損に振り回された 08/13（木）#光通信（9435） 2026/6期 1Q決算 ✅ 売上高：1,926億（+15.2%） ✅ 営業利益：292億（+6.1%） ✅ 純利益：367億（+30.1%）",
-      "topic": "japanese_market",
-      "why_trending": "表示127・投稿後19分・反応率0.0%"
-    },
-    {
       "author_followers": 3623,
       "discovered_at": "2026-08-13T17:43:55+00:00",
       "discovery_type": "official_x_api",
@@ -1401,54 +1354,6 @@
       "summary": "What changed in crypto market structure in '26? Watching @BTC and @ETH feels less like a retail cycle now ✸ @ETF flows turned spot demand into a daily scoreboard ✸ @whale wallets still matter, but they move around institutional liquidity ✸ @stablecoin rails became the actual https://t.co/UqTsRvePog",
       "topic": "crypto_market",
       "why_trending": "表示18・投稿後97分・反応率14.4%"
-    },
-    {
-      "author_followers": 47,
-      "discovered_at": "2026-08-13T14:08:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "jason_binance",
-      "has_video": false,
-      "headline": "加密市场晚间新闻｜2026/08/13 恐惧贪婪：37（恐惧）｜BTC 24h：-1.32% 全网市值：$2.18万亿（-1.08%）｜BTC市占率：58.5% 山寨季指数：46（中性） 一句话总览：美国SEC计划为代币化股票制定规则，同时批准富兰克林坦伯顿基金投资链上货币基金，监管框架的推进成为今日加密市场最核心的叙事。",
-      "impression_count": 78,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087880038809276667",
-      "post_url": "https://x.com/jason_binance/status/2087880038809276667",
-      "posted_at": "2026-08-13T12:32:46+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "加密市场晚间新闻｜2026/08/13 恐惧贪婪：37（恐惧）｜BTC 24h：-1.32% 全网市值：$2.18万亿（-1.08%）｜BTC市占率：58.5% 山寨季指数：46（中性） 一句话总览：美国SEC计划为代币化股票制定规则，同时批准富兰克林坦伯顿基金投资链上货币基金，监管框架的推进成为今日加密市场最核心的叙事。",
-      "topic": "chinese_market",
-      "why_trending": "表示78・投稿後96分・反応率1.3%"
-    },
-    {
-      "author_followers": 24248,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ メタプラネット、社債発行プログラム「BitBonds」創設──中間決算で1842億円のBTC評価損 ⭐️ メタプラネットは8月13日、継続的に社債を発行する新たなプログラム「BitBonds（ビットボンズ）」を創設し、初回として総額約2億円の無担保普通社債を少人数…",
-      "impression_count": 106,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087876527400562894",
-      "post_url": "https://x.com/CoinmatomeNews/status/2087876527400562894",
-      "posted_at": "2026-08-13T12:18:49+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ メタプラネット、社債発行プログラム「BitBonds」創設──中間決算で1842億円のBTC評価損 ⭐️ メタプラネットは8月13日、継続的に社債を発行する新たなプログラム「BitBonds（ビットボンズ）」を創設し、初回として総額約2億円の無担保普通社債を少人数…",
-      "topic": "japanese_market",
-      "why_trending": "表示106・投稿後15分・反応率0.0%"
     },
     {
       "author_followers": 1591,
