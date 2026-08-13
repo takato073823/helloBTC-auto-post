@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-13T19:45:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T19:45:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T20:23:04+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1092,9 +1092,39 @@
       "result_count": 7,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T20:23:04+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4664080,
+      "discovered_at": "2026-08-13T20:23:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 White House to meet with top crypto executives next week.",
+      "impression_count": 71485,
+      "like_count": 672,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087995546720166352",
+      "post_url": "https://x.com/WatcherGuru/status/2087995546720166352",
+      "posted_at": "2026-08-13T20:11:46+00:00",
+      "quote_count": 21,
+      "reply_count": 98,
+      "repost_count": 104,
+      "score": 80.8,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 White House to meet with top crypto executives next week.",
+      "topic": "watcher_guru",
+      "why_trending": "表示71,485・投稿後11分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 4662282,
       "discovered_at": "2026-08-13T15:39:58+00:00",
@@ -1316,30 +1346,6 @@
       "why_trending": "表示52・投稿後42分・反応率12.7%"
     },
     {
-      "author_followers": 47209,
-      "discovered_at": "2026-08-13T14:08:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WiseInvest513",
-      "has_video": false,
-      "headline": "最近一段时间，链上美股正在如火如荼地进行中，几乎所有的主流交易所都接入了美股产品。 放在一年多之前，你想要在内地购买美股，那可真的是一件非常费劲的事情！",
-      "impression_count": 774,
-      "like_count": 4,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087899722715693122",
-      "post_url": "https://x.com/WiseInvest513/status/2087899722715693122",
-      "posted_at": "2026-08-13T13:50:59+00:00",
-      "quote_count": 1,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 48.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "最近一段时间，链上美股正在如火如荼地进行中，几乎所有的主流交易所都接入了美股产品。 放在一年多之前，你想要在内地购买美股，那可真的是一件非常费劲的事情！",
-      "topic": "chinese_market",
-      "why_trending": "表示774・投稿後17分・反応率1.2%"
-    },
-    {
       "author_followers": 2576,
       "discovered_at": "2026-08-13T19:45:00+00:00",
       "discovery_type": "official_x_api",
@@ -1366,34 +1372,6 @@
       "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu Token Movements Hint at Potential Stability. • Shiba Inu exchange netflow hits -44 billion SHIB as sell pressure drops. • SK Hynix workers launch unified union due to stalled wages. • XRP Support Holds Near https://t.co/G4FBZQ3PaH",
       "topic": "onchain_exchange",
       "why_trending": "表示50・投稿後103分・反応率3.2%・動画あり"
-    },
-    {
-      "author_followers": 49363,
-      "discovered_at": "2026-08-13T14:08:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CausMoney",
-      "has_video": false,
-      "headline": "美股开盘走高，通胀压力缓和强化美联储暂缓加息预期 美股周四开盘走高。最新生产者价格数据低于预期，进一步缓解市场对通胀的担忧，投资者对美联储短期内继续加息的预期明显降温。与此同时，油价大幅回落，美国国债收益率下行，也为股市提供支撑。 https://t.co/sBGbiviMSx",
-      "impression_count": 251,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CausMoney/status/2087899504070606896/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087899504070606896",
-      "post_url": "https://x.com/CausMoney/status/2087899504070606896",
-      "posted_at": "2026-08-13T13:50:07+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 42.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "美股开盘走高，通胀压力缓和强化美联储暂缓加息预期 美股周四开盘走高。最新生产者价格数据低于预期，进一步缓解市场对通胀的担忧，投资者对美联储短期内继续加息的预期明显降温。与此同时，油价大幅回落，美国国债收益率下行，也为股市提供支撑。 https://t.co/sBGbiviMSx",
-      "topic": "chinese_market",
-      "why_trending": "表示251・投稿後18分・反応率0.4%"
     },
     {
       "author_followers": 3623,
