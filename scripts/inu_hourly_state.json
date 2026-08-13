@@ -1041,6 +1041,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
+    },
+    {
+      "slot": "2026-08-14-01-a",
+      "post_id": "inu_market_2026_08_14_01_a_crypto-apr-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-APRUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:APR-USD",
+      "reserved_at": "2026-08-13T16:53:00.170979+00:00"
     }
   ],
   "history": [
