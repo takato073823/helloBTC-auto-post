@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T15:39:58+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T15:39:58+00:00",
+  "last_deep_scan_at": "2026-08-13T17:43:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-13T17:43:55+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1060,6 +1060,19 @@
       "result_count": 1,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-13T17:43:55+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-13T17:43:55+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -1121,85 +1134,88 @@
       "why_trending": "表示303・投稿後55分・反応率12.1%・公式候補リンクあり"
     },
     {
-      "author_followers": 3,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
+      "author_followers": 653,
+      "discovered_at": "2026-08-13T17:43:55+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CE_USStockLab",
+      "handle": "ForexxKriptoEn",
       "has_video": false,
-      "headline": "🧪 CEのデイリーレポート 📅 2026/8/13 🇺🇸 米国株 🟢 PLTR（約$174.94） ・前日からほぼ横ばい ・11四半期連続GAAP黒字を維持 ・通期売上成長ガイダンスは約+82% ・調整後営業利益ガイダンスは48.9〜49.1億ドルへ上方修正済み ・米国防総省が最大2.44億ドル規模の単独調達を検討との報道 ・Mercury https://",
-      "impression_count": 8,
+      "headline": "🔐 END-OF-DAY MARKET REPORT — August 13, 2026 🌐 TODAY’S TOP HEADLINES Metaplanet CEO Simon Gerovich said the transfer of 5,014 BTC ($322 million) was a routine treasury operation, w",
+      "impression_count": 65,
       "like_count": 2,
       "linked_urls": [
-        "https://twitter.com/ce_usstocklab/status/2087382769555157290"
-      ],
-      "media_types": [],
-      "post_id": "2087863927631757650",
-      "post_url": "https://x.com/CE_USStockLab/status/2087863927631757650",
-      "posted_at": "2026-08-13T11:28:45+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 54.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🧪 CEのデイリーレポート 📅 2026/8/13 🇺🇸 米国株 🟢 PLTR（約$174.94） ・前日からほぼ横ばい ・11四半期連続GAAP黒字を維持 ・通期売上成長ガイダンスは約+82% ・調整後営業利益ガイダンスは48.9〜49.1億ドルへ上方修正済み ・米国防総省が最大2.44億ドル規模の単独調達を検討との報道 ・Mercury https://t.co/e6K1dtwqzE",
-      "topic": "japanese_market",
-      "why_trending": "表示8・投稿後65分・反応率25.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 469,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoAssety",
-      "has_video": false,
-      "headline": "🚨 「株式市場は平日の日中だけ」が変わるかもしれません。 米SECが、トークン化された証券をブロックチェーン上で取引しやすくする「イノベーション免除」を準備していると報じられています。 https://t.co/XIjIP0tXRb https://t.co/bv4ir59TXL",
-      "impression_count": 19,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CryptoAssety/status/2087859724561608995/photo/1",
-        "https://twitter.com/watcherguru/status/2087555716651372940"
+        "https://x.com/ForexxKriptoEn/status/2087951347593150782/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087859724561608995",
-      "post_url": "https://x.com/CryptoAssety/status/2087859724561608995",
-      "posted_at": "2026-08-13T11:12:03+00:00",
+      "post_id": "2087951347593150782",
+      "post_url": "https://x.com/ForexxKriptoEn/status/2087951347593150782",
+      "posted_at": "2026-08-13T17:16:08+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 51.3,
+      "score": 52.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 「株式市場は平日の日中だけ」が変わるかもしれません。 米SECが、トークン化された証券をブロックチェーン上で取引しやすくする「イノベーション免除」を準備していると報じられています。 https://t.co/XIjIP0tXRb https://t.co/bv4ir59TXL",
-      "topic": "japanese_market",
-      "why_trending": "表示19・投稿後81分・反応率5.3%・公式候補リンクあり"
+      "summary": "🔐 END-OF-DAY MARKET REPORT — August 13, 2026 🌐 TODAY’S TOP HEADLINES Metaplanet CEO Simon Gerovich said the transfer of 5,014 BTC ($322 million) was a routine treasury operation, with no sale taking place and the company’s 43,000 BTC holdings remaining unchanged; the transfer https://t.co/qoTcD2tsFi",
+      "topic": "crypto_market",
+      "why_trending": "表示65・投稿後27分・反応率3.1%"
     },
     {
-      "author_followers": 1465,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
+      "author_followers": 11367,
+      "discovered_at": "2026-08-13T17:43:55+00:00",
       "discovery_type": "official_x_api",
-      "handle": "k_koga555",
+      "handle": "BroosterWeb3",
       "has_video": false,
-      "headline": "https://t.co/c8HrtHHAaI ビットコインが分岐する！？新コイン付与の可能性！相場は安定化局面か。仮想通貨最新ニュース&amp;ドル建てチャート分析 Moshin / ビットコイン #AI要約 ビットコイン相場とハードフォーク計画の注目点 🔳ビットコインはレンジ相場が継続",
-      "impression_count": 686,
-      "like_count": 2,
+      "headline": "Good Evening Legends!🔥 Before my GN, today’s crypto highlights: - Bitcoin just dropped below $63,000 while the stock market hit an all-time high. - Switzerland’s largest bank UBS n",
+      "impression_count": 266,
+      "like_count": 32,
       "linked_urls": [
-        "https://www.youtube.com/watch?v=dtB25k4bk1c"
+        "https://x.com/BroosterWeb3/status/2087949006353600549/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2087859757910757790",
-      "post_url": "https://x.com/k_koga555/status/2087859757910757790",
-      "posted_at": "2026-08-13T11:12:11+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087949006353600549",
+      "post_url": "https://x.com/BroosterWeb3/status/2087949006353600549",
+      "posted_at": "2026-08-13T17:06:49+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 39,
       "repost_count": 0,
-      "score": 49.1,
+      "score": 52.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "https://t.co/c8HrtHHAaI ビットコインが分岐する！？新コイン付与の可能性！相場は安定化局面か。仮想通貨最新ニュース&amp;ドル建てチャート分析 Moshin / ビットコイン #AI要約 ビットコイン相場とハードフォーク計画の注目点 🔳ビットコインはレンジ相場が継続",
-      "topic": "japanese_market",
-      "why_trending": "表示686・投稿後81分・反応率0.3%・公式候補リンクあり"
+      "summary": "Good Evening Legends!🔥 Before my GN, today’s crypto highlights: - Bitcoin just dropped below $63,000 while the stock market hit an all-time high. - Switzerland’s largest bank UBS now holds $83.2 million to $90 million in BlackRock’s Bitcoin ETF after boosting its position by https://t.co/iyR8yFk8qM",
+      "topic": "crypto_market",
+      "why_trending": "表示266・投稿後37分・反応率35.5%"
+    },
+    {
+      "author_followers": 60963,
+      "discovered_at": "2026-08-13T17:43:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TheETFTracker",
+      "has_video": true,
+      "headline": "Here is the full suite of Grayscale ETFs: https://t.co/VVKhg86ReY $GAVA Grayscale Avalanche Staking ETF $BCOR Grayscale Bitcoin Adopters ETF $BTCC Grayscale Bitcoin Covered Call ET",
+      "impression_count": 1765,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/NateGeraci/status/2086907336765940028/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2087951079535267902",
+      "post_url": "https://x.com/TheETFTracker/status/2087951079535267902",
+      "posted_at": "2026-08-13T17:15:04+00:00",
+      "quote_count": 0,
+      "reply_count": 7,
+      "repost_count": 0,
+      "score": 48.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Here is the full suite of Grayscale ETFs: https://t.co/VVKhg86ReY $GAVA Grayscale Avalanche Staking ETF $BCOR Grayscale Bitcoin Adopters ETF $BTCC Grayscale Bitcoin Covered Call ETF $MNRS Grayscale Bitcoin Miners ETF $BTC Grayscale Bitcoin Mini Trust ETF $BPI Grayscale Bitcoin",
+      "topic": "crypto_market",
+      "why_trending": "表示1,765・投稿後28分・反応率0.8%・動画あり"
     },
     {
       "author_followers": 47209,
@@ -1224,30 +1240,6 @@
       "summary": "最近一段时间，链上美股正在如火如荼地进行中，几乎所有的主流交易所都接入了美股产品。 放在一年多之前，你想要在内地购买美股，那可真的是一件非常费劲的事情！",
       "topic": "chinese_market",
       "why_trending": "表示774・投稿後17分・反応率1.2%"
-    },
-    {
-      "author_followers": 31,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "bGdCRw3f7HXAUQ6",
-      "has_video": false,
-      "headline": "発行上限がある仮想通貨5選 ビットコイン（BTC） 発行上限は2100万枚。これが最も有名で、供給が限られているから「デジタルゴールド」と呼ばれる理由のひとつ。 ライトコイン（LTC） 上限は8400万枚。ビットコインの4倍で、比較的シンプルに設計されている。 ビットコインキャッシュ（BCH）",
-      "impression_count": 145,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087866520353611902",
-      "post_url": "https://x.com/bGdCRw3f7HXAUQ6/status/2087866520353611902",
-      "posted_at": "2026-08-13T11:39:03+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 46.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "発行上限がある仮想通貨5選 ビットコイン（BTC） 発行上限は2100万枚。これが最も有名で、供給が限られているから「デジタルゴールド」と呼ばれる理由のひとつ。 ライトコイン（LTC） 上限は8400万枚。ビットコインの4倍で、比較的シンプルに設計されている。 ビットコインキャッシュ（BCH）",
-      "topic": "japanese_market",
-      "why_trending": "表示145・投稿後54分・反応率1.4%"
     },
     {
       "author_followers": 24248,
@@ -1383,6 +1375,34 @@
       "why_trending": "表示127・投稿後19分・反応率0.0%"
     },
     {
+      "author_followers": 3623,
+      "discovered_at": "2026-08-13T17:43:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Lisa01_FC",
+      "has_video": false,
+      "headline": "What changed in crypto market structure in '26? Watching @BTC and @ETH feels less like a retail cycle now ✸ @ETF flows turned spot demand into a daily scoreboard ✸ @whale wallets s",
+      "impression_count": 18,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/Lisa01_FC/status/2087933894104596618/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2087933894104596618",
+      "post_url": "https://x.com/Lisa01_FC/status/2087933894104596618",
+      "posted_at": "2026-08-13T16:06:46+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 37.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "What changed in crypto market structure in '26? Watching @BTC and @ETH feels less like a retail cycle now ✸ @ETF flows turned spot demand into a daily scoreboard ✸ @whale wallets still matter, but they move around institutional liquidity ✸ @stablecoin rails became the actual https://t.co/UqTsRvePog",
+      "topic": "crypto_market",
+      "why_trending": "表示18・投稿後97分・反応率14.4%"
+    },
+    {
       "author_followers": 47,
       "discovered_at": "2026-08-13T14:08:46+00:00",
       "discovery_type": "official_x_api",
@@ -1457,33 +1477,28 @@
       "why_trending": "表示15・投稿後68分・反応率17.3%"
     },
     {
-      "author_followers": 2744,
-      "discovered_at": "2026-08-13T12:34:02+00:00",
+      "author_followers": 32,
+      "discovered_at": "2026-08-13T17:43:55+00:00",
       "discovery_type": "official_x_api",
-      "handle": "tktokyoBTC",
-      "has_video": true,
-      "headline": "Bitcoin/Ordinals Newsフィード （8/13 20:01 JST） Robinhood Chain上でローンチしたRH Machinesが、24時間で100ETH超の出来高を記録し、姉妹コレクションのBTC https://t.co/M735wR8mg9 https://t.co/yK0rpkIWJm",
-      "impression_count": 176,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/tktokyoBTC/status/2087858706054541782/video/1",
-        "https://x.com/i/status/2087771162466300069"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2087858706054541782",
-      "post_url": "https://x.com/tktokyoBTC/status/2087858706054541782",
-      "posted_at": "2026-08-13T11:08:00+00:00",
+      "handle": "onlyhashes",
+      "has_video": false,
+      "headline": "Bitcoin Holds Range as ETF Demand Outpaces Supply BTC Price →$63,831 24h Return →-0.17% 7d Return ↓-1.08% Bitcoin holds near $63,830, flat on the day and down about 1% for the week",
+      "impression_count": 14,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2087947372970053779",
+      "post_url": "https://x.com/onlyhashes/status/2087947372970053779",
+      "posted_at": "2026-08-13T17:00:20+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 34.8,
+      "score": 34.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Bitcoin/Ordinals Newsフィード （8/13 20:01 JST） Robinhood Chain上でローンチしたRH Machinesが、24時間で100ETH超の出来高を記録し、姉妹コレクションのBTC https://t.co/M735wR8mg9 https://t.co/yK0rpkIWJm",
-      "topic": "japanese_market",
-      "why_trending": "表示176・投稿後86分・反応率0.6%・動画あり"
+      "summary": "Bitcoin Holds Range as ETF Demand Outpaces Supply BTC Price →$63,831 24h Return →-0.17% 7d Return ↓-1.08% Bitcoin holds near $63,830, flat on the day and down about 1% for the week, still capped below the low-$68,000s as short-term holders sell into strength to break even,",
+      "topic": "crypto_market",
+      "why_trending": "表示14・投稿後43分・反応率0.0%"
     }
   ],
   "trends": [],
