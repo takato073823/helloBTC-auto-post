@@ -1010,6 +1010,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
+    },
+    {
+      "slot": "2026-08-13-18-a",
+      "post_id": "inu_market_2026_08_13_18_a_crypto-coti-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-COTIUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:COTI-USD",
+      "reserved_at": "2026-08-13T09:08:11.881119+00:00"
     }
   ],
   "history": [
