@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T12:29:31+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T12:29:31+00:00",
+  "last_deep_scan_at": "2026-08-14T14:03:40+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T14:03:40+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1214,63 +1214,22 @@
       "result_count": 4,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T14:03:40+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T14:03:40+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
-    {
-      "author_followers": 14035,
-      "discovered_at": "2026-08-14T06:59:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "jeonleetogether",
-      "has_video": false,
-      "headline": "千呼万唤始出来 termmax要tge了！！ termmax要tge了！！ termmax要tge了！！ 时间：8.25 终于终于 等了这么久😭！！ 这几天要猛猛写了 终于等到你 还好我没放弃😭 最近 RWA 这条线又开始热起来了，尤其是 Ondo 这边，链上股票已经不是“概念阶段”了。 现在 Ondo Stocks 支持的资产已经超过 440 https:",
-      "impression_count": 98,
-      "like_count": 15,
-      "linked_urls": [
-        "https://twitter.com/termmaxfi/status/2088148595396735322"
-      ],
-      "media_types": [],
-      "post_id": "2088156509280870748",
-      "post_url": "https://x.com/jeonleetogether/status/2088156509280870748",
-      "posted_at": "2026-08-14T06:51:22+00:00",
-      "quote_count": 0,
-      "reply_count": 13,
-      "repost_count": 0,
-      "score": 66.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "千呼万唤始出来 termmax要tge了！！ termmax要tge了！！ termmax要tge了！！ 时间：8.25 终于终于 等了这么久😭！！ 这几天要猛猛写了 终于等到你 还好我没放弃😭 最近 RWA 这条线又开始热起来了，尤其是 Ondo 这边，链上股票已经不是“概念阶段”了。 现在 Ondo Stocks 支持的资产已经超过 440 https://t.co/9U8xcSbqwA",
-      "topic": "chinese_market",
-      "why_trending": "表示98・投稿後7分・反応率36.5%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 7062,
-      "discovered_at": "2026-08-14T06:59:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "l_ljq94913",
-      "has_video": false,
-      "headline": "昨晚美股最重要的事，不是又创新高，而是创新高的方式变了。 7 月 PPI 低于预期，长端收益率回落，标普 500 和纳指顺势刷新收盘纪录。这说明市场最核心的假设还没坏：通胀在降，利率压力在缓，估值还能撑。但如果只看到这个层面，就容易忽略另一个更锋利的信号。 Cisco 财报不差，甚至可以说挺强。AI https://t.co/culcNr1G4O",
-      "impression_count": 42,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/l_ljq94913/status/2088155668549358016/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088155668549358016",
-      "post_url": "https://x.com/l_ljq94913/status/2088155668549358016",
-      "posted_at": "2026-08-14T06:48:02+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 54.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "昨晚美股最重要的事，不是又创新高，而是创新高的方式变了。 7 月 PPI 低于预期，长端收益率回落，标普 500 和纳指顺势刷新收盘纪录。这说明市场最核心的假设还没坏：通胀在降，利率压力在缓，估值还能撑。但如果只看到这个层面，就容易忽略另一个更锋利的信号。 Cisco 财报不差，甚至可以说挺强。AI https://t.co/culcNr1G4O",
-      "topic": "chinese_market",
-      "why_trending": "表示42・投稿後11分・反応率13.8%"
-    },
     {
       "author_followers": 65,
       "discovered_at": "2026-08-14T10:40:33+00:00",
@@ -1355,32 +1314,6 @@
       "why_trending": "表示13・投稿後72分・反応率7.7%・公式候補リンクあり"
     },
     {
-      "author_followers": 201762,
-      "discovered_at": "2026-08-14T08:48:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "fsa_JAPAN",
-      "has_video": false,
-      "headline": "開催まで約2か月！ 資産運用立国の実現に向け、国内外の多彩なイベントが集結する「Japan Weeks」。本日、特設サイトを更新し、登録イベントは 53件 となりました。 ぜひご確認ください https://t.co/bHU27a1JPx #JapanWeeks #金融庁",
-      "impression_count": 2134,
-      "like_count": 5,
-      "linked_urls": [
-        "https://www.fsa.go.jp/internationalfinancialcenter/lp/japanweeks2026"
-      ],
-      "media_types": [],
-      "post_id": "2088158854400049660",
-      "post_url": "https://x.com/fsa_JAPAN/status/2088158854400049660",
-      "posted_at": "2026-08-14T07:00:41+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 47.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "開催まで約2か月！ 資産運用立国の実現に向け、国内外の多彩なイベントが集結する「Japan Weeks」。本日、特設サイトを更新し、登録イベントは 53件 となりました。 ぜひご確認ください https://t.co/bHU27a1JPx #JapanWeeks #金融庁",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示2,134・投稿後107分・反応率0.2%・公式候補リンクあり"
-    },
-    {
       "author_followers": 1311,
       "discovered_at": "2026-08-14T10:40:33+00:00",
       "discovery_type": "official_x_api",
@@ -1407,34 +1340,6 @@
       "summary": "ETF Flows Flip Again – Bitcoin Out, Ethereum &amp; Solana In Capital is rotating inside crypto, not leaving. On August 12, U.S. spot Bitcoin ETFs saw roughly $61 million in net outflows while Ethereum and Solana products attracted fresh inflows. The divergence is becoming clearer. https://t.co/sOyHkpYQg1",
       "topic": "crypto_market",
       "why_trending": "表示9・投稿後30分・反応率11.1%"
-    },
-    {
-      "author_followers": 8736,
-      "discovered_at": "2026-08-14T06:59:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Mandy_youzi",
-      "has_video": false,
-      "headline": "利好频出，市场不买账，谁来接盘比特币？ 通胀降温，市场冷对 今早公布的 7 月 CPI 数据几乎未扰动市场：核心通胀降 0.1 个百分点至 2.5%，整体通胀持平。政策利率自去年 12 月按兵不动，实际利率仍处紧缩区间，且随着通胀缓慢下行，这一差距正在扩大。 https://t.co/xrpTCwEFjQ",
-      "impression_count": 6,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Mandy_youzi/status/2088152266406826237/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088152266406826237",
-      "post_url": "https://x.com/Mandy_youzi/status/2088152266406826237",
-      "posted_at": "2026-08-14T06:34:30+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 44.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "利好频出，市场不买账，谁来接盘比特币？ 通胀降温，市场冷对 今早公布的 7 月 CPI 数据几乎未扰动市场：核心通胀降 0.1 个百分点至 2.5%，整体通胀持平。政策利率自去年 12 月按兵不动，实际利率仍处紧缩区间，且随着通胀缓慢下行，这一差距正在扩大。 https://t.co/xrpTCwEFjQ",
-      "topic": "chinese_market",
-      "why_trending": "表示6・投稿後24分・反応率130.0%"
     },
     {
       "author_followers": 127845,
