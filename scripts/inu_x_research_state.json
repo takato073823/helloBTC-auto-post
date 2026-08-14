@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T15:34:01+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T16:34:05+00:00",
+  "last_deep_scan_at": "2026-08-14T18:34:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T18:34:32+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1246,6 +1246,19 @@
       "checked_at": "2026-08-14T16:34:05+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T18:34:32+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T18:34:32+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1388,34 +1401,6 @@
       "why_trending": "表示24・投稿後48分・反応率63.3%"
     },
     {
-      "author_followers": 102238,
-      "discovered_at": "2026-08-14T12:29:31+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "StarPlatinum_",
-      "has_video": false,
-      "headline": "This was the greatest memecoin trader ever recorded onchain - $11,593 invested - 103.33 TRILLION $SHIB accumulated He made $8.9B at the intraday ATH, 770,000x on paper at the absol",
-      "impression_count": 8567,
-      "like_count": 104,
-      "linked_urls": [
-        "https://x.com/StarPlatinum_/status/2088216500305817824/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088216500305817824",
-      "post_url": "https://x.com/StarPlatinum_/status/2088216500305817824",
-      "posted_at": "2026-08-14T10:49:45+00:00",
-      "quote_count": 5,
-      "reply_count": 42,
-      "repost_count": 7,
-      "score": 50.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "This was the greatest memecoin trader ever recorded onchain - $11,593 invested - 103.33 TRILLION $SHIB accumulated He made $8.9B at the intraday ATH, 770,000x on paper at the absolute peak never actually cashes out the billions Shibtoshi, the anonymous whale behind the trade, https://t.co/w7s0O3LJJ7",
-      "topic": "onchain_exchange",
-      "why_trending": "表示8,567・投稿後99分・反応率2.3%"
-    },
-    {
       "author_followers": 3692,
       "discovered_at": "2026-08-14T15:34:01+00:00",
       "discovery_type": "official_x_api",
@@ -1442,32 +1427,6 @@
       "summary": "SEC delays crypto regulation again (today’s meeting canceled). Clarity is still taking forever. Anyway, @injective already made a real move with the SEC back in July by filing as a transfer agent for onchain securities and RWAs. Some teams are already building the regulated https://t.co/xX1gqEaEQz",
       "topic": "regulation",
       "why_trending": "表示54・投稿後42分・反応率7.4%"
-    },
-    {
-      "author_followers": 1021,
-      "discovered_at": "2026-08-14T12:29:31+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "NewsLayerApp",
-      "has_video": false,
-      "headline": "🔴 BREAKING: Crypto wallet maker Trezor confirms 13,000 customers' details exposed in logistics breach https://t.co/LnRC2AhraR #Crypto #Defi #CryptoNews #Bitcoin #Web3 #Blockchain #",
-      "impression_count": 13,
-      "like_count": 1,
-      "linked_urls": [
-        "https://newslayer.com/api/v1/s/crypto-wallet-maker-trezor-confirms-13-000-customers-details-exposed-in-logistic-0f54b8"
-      ],
-      "media_types": [],
-      "post_id": "2088223380868644871",
-      "post_url": "https://x.com/NewsLayerApp/status/2088223380868644871",
-      "posted_at": "2026-08-14T11:17:05+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 47.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔴 BREAKING: Crypto wallet maker Trezor confirms 13,000 customers' details exposed in logistics breach https://t.co/LnRC2AhraR #Crypto #Defi #CryptoNews #Bitcoin #Web3 #Blockchain #Ethereum #Altcoins #CryptoRegulation #DigitalAssets",
-      "topic": "onchain_exchange",
-      "why_trending": "表示13・投稿後72分・反応率7.7%・公式候補リンクあり"
     },
     {
       "author_followers": 18390,
@@ -1524,58 +1483,6 @@
       "summary": "📷 AUGUST 20: THE CFTC IS PUTTING CRYPTO “FROM UNCERTAINTY TO CLARITY.” 📷 While the CLARITY Act remains stalled in Congress, the CFTC is moving ahead with its own conversation about the future of digital-asset regulation. On August 20, the agency’s Innovation Advisory Committee https://t.co/XxsGbv21j3",
       "topic": "regulation",
       "why_trending": "表示35・投稿後62分・反応率139.4%"
-    },
-    {
-      "author_followers": 901,
-      "discovered_at": "2026-08-14T12:29:31+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "SimonMonkam",
-      "has_video": false,
-      "headline": "Cryptocurrency and Macroeconomic Round-Up for Friday, August 14, 2026 1. Bitcoin: Around $63,000-$65,000, market remains in a consolidation phase. The cryptocurrency market remains",
-      "impression_count": 57,
-      "like_count": 3,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088217678611652904",
-      "post_url": "https://x.com/SimonMonkam/status/2088217678611652904",
-      "posted_at": "2026-08-14T10:54:26+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 40.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Cryptocurrency and Macroeconomic Round-Up for Friday, August 14, 2026 1. Bitcoin: Around $63,000-$65,000, market remains in a consolidation phase. The cryptocurrency market remains relatively quiet following the latest US inflation data. Bitcoin is trading in the",
-      "topic": "onchain_exchange",
-      "why_trending": "表示57・投稿後95分・反応率8.1%"
-    },
-    {
-      "author_followers": 2579,
-      "discovered_at": "2026-08-14T12:29:31+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": true,
-      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • XRP Faces Final Drop to $0.93 as Major Bottom Signal Takes Shape. • XRP Holds Steady as Major Holders Bolster Their Positions.",
-      "impression_count": 56,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Neome_com/status/2088234401268154646/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088234401268154646",
-      "post_url": "https://x.com/Neome_com/status/2088234401268154646",
-      "posted_at": "2026-08-14T12:00:53+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • XRP Faces Final Drop to $0.93 as Major Bottom Signal Takes Shape. • XRP Holds Steady as Major Holders Bolster Their Positions. • Bitcoin Slips After U.S. Inflation Data as ETFs See Two-Day Drawdown. • MTN Nigeria https://t.co/P1InWhOEfX",
-      "topic": "onchain_exchange",
-      "why_trending": "表示56・投稿後28分・反応率0.0%・動画あり"
     }
   ],
   "trends": [],
