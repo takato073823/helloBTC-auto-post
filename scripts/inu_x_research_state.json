@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T20:15:51+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T21:03:18+00:00",
+  "last_deep_scan_at": "2026-08-14T21:59:46+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T21:59:46+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1284,6 +1284,19 @@
       "checked_at": "2026-08-14T21:03:18+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T21:59:46+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T21:59:46+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -1316,32 +1329,6 @@
       "why_trending": "表示118,499・投稿後33分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 3237,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CliffordRoboshi",
-      "has_video": false,
-      "headline": "For people who think the SEC &amp; CFTC hasn’t done anything for two years in regard to crypto regulation. https://t.co/DPHX1Vvpe2",
-      "impression_count": 63,
-      "like_count": 0,
-      "linked_urls": [
-        "https://grok.com/share/bGVnYWN5LWNvcHk_51935565-81fb-42b4-8e79-846d75d34fef"
-      ],
-      "media_types": [],
-      "post_id": "2088283980441276820",
-      "post_url": "https://x.com/CliffordRoboshi/status/2088283980441276820",
-      "posted_at": "2026-08-14T15:17:54+00:00",
-      "quote_count": 1,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 64.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "For people who think the SEC &amp; CFTC hasn’t done anything for two years in regard to crypto regulation. https://t.co/DPHX1Vvpe2",
-      "topic": "regulation",
-      "why_trending": "表示63・投稿後16分・反応率5.7%・公式候補リンクあり"
-    },
-    {
       "author_followers": 107,
       "discovered_at": "2026-08-14T20:15:51+00:00",
       "discovery_type": "official_x_api",
@@ -1370,32 +1357,33 @@
       "why_trending": "表示14・投稿後14分・反応率11.4%"
     },
     {
-      "author_followers": 5639,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
+      "author_followers": 84,
+      "discovered_at": "2026-08-14T21:59:46+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CoachChad_1",
-      "has_video": true,
-      "headline": "🚨 HESTER PEIRCE JUST WEIGHED IN SEC Commissioner Hester Peirce says she expects the CLARITY Act to pass this summer—a statement that could put even more attention on the ongoing fi",
-      "impression_count": 82,
-      "like_count": 1,
+      "handle": "wutong7979",
+      "has_video": false,
+      "headline": "不质押，不授权，本金随用随取，收益自动到账，真实预言机交易所套利平台，不是Dapp，充值每笔交易链上可查，浏览器打开，不连钱包，告别病毒🦠安全🔐可靠🎉真实预言交易全球最大预言交易所polymarket交易所 毛利日化1%，毛利月化30% 不是项目，是用Ai在预言机交易所套利 https://t.co/f6m5nLtEvC https://t.co/04PBJ",
+      "impression_count": 10,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/Blockchain3alvw/status/2088280399566786983/video/1"
+        "https://www.arbpolymarket.com/register?invite=BOTMESH-8441-3095",
+        "https://x.com/wutong7979/status/2088357132727181334/photo/1"
       ],
       "media_types": [
-        "video"
+        "photo"
       ],
-      "post_id": "2088280399566786983",
-      "post_url": "https://x.com/CoachChad_1/status/2088280399566786983",
-      "posted_at": "2026-08-14T15:03:40+00:00",
+      "post_id": "2088357132727181334",
+      "post_url": "https://x.com/wutong7979/status/2088357132727181334",
+      "posted_at": "2026-08-14T20:08:34+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 52.6,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 52.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 HESTER PEIRCE JUST WEIGHED IN SEC Commissioner Hester Peirce says she expects the CLARITY Act to pass this summer—a statement that could put even more attention on the ongoing fight for crypto regulation in Washington. 🇺🇸 #CLARITYAct #HesterPeirce #XRP https://t.co/ZBjwJq5pU5",
-      "topic": "regulation",
-      "why_trending": "表示82・投稿後30分・反応率3.7%・動画あり"
+      "summary": "不质押，不授权，本金随用随取，收益自动到账，真实预言机交易所套利平台，不是Dapp，充值每笔交易链上可查，浏览器打开，不连钱包，告别病毒🦠安全🔐可靠🎉真实预言交易全球最大预言交易所polymarket交易所 毛利日化1%，毛利月化30% 不是项目，是用Ai在预言机交易所套利 https://t.co/f6m5nLtEvC https://t.co/04PBJUBSR8",
+      "topic": "chinese_market",
+      "why_trending": "表示10・投稿後111分・反応率16.0%・公式候補リンクあり"
     },
     {
       "author_followers": 40723,
@@ -1446,6 +1434,56 @@
       "summary": "⚡️**【激動】サンディスク（SNDK）株価が1,600ドル突破！乱高下のワケをサクッと解説**📉📈 ​「急落したと思ったら連日の急騰…」 いまメモリ半導体銘柄の動きがかなり激しくなっています💥 ​📊直近の株価データ（8/14終値） ​📉 終値：1,626.37ドル ​📈 前日比：+98.26ドル（+6.43%）",
       "topic": "japanese_market",
       "why_trending": "表示7・投稿後19分・反応率14.3%"
+    },
+    {
+      "author_followers": 103,
+      "discovered_at": "2026-08-14T21:59:46+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "shengfeng782",
+      "has_video": false,
+      "headline": "关于中国当前低利率环境与人民币汇率走势的分析报告 ——基于@Summer_trading 2026年8月14日帖文的解读与扩展 报告日期：2026年8月15日 分析对象：X平台用户@Summer_trading（全职美股/加密交易员）发布的宏观分析帖文 核心议题：银行存款利率与人民币汇率的“反常”组合及其背后的政策逻辑 一、摘要 https://t.co/D",
+      "impression_count": 87,
+      "like_count": 0,
+      "linked_urls": [
+        "https://twitter.com/summer_trading/status/2088266391300591896"
+      ],
+      "media_types": [],
+      "post_id": "2088364953447420162",
+      "post_url": "https://x.com/shengfeng782/status/2088364953447420162",
+      "posted_at": "2026-08-14T20:39:39+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 43.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "关于中国当前低利率环境与人民币汇率走势的分析报告 ——基于@Summer_trading 2026年8月14日帖文的解读与扩展 报告日期：2026年8月15日 分析对象：X平台用户@Summer_trading（全职美股/加密交易员）发布的宏观分析帖文 核心议题：银行存款利率与人民币汇率的“反常”组合及其背后的政策逻辑 一、摘要 https://t.co/DQm8ua0ZPa",
+      "topic": "chinese_market",
+      "why_trending": "表示87・投稿後80分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 33967,
+      "discovered_at": "2026-08-14T21:59:46+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Balder13946731",
+      "has_video": false,
+      "headline": "【美股复盘 · 8月14日】 **大市**｜美股周五反复偏软，主要指数低位靠稳收市，全日缺乏方向。标普500指数ETF( $SPY )收报776.00点，跌0.24%；纳指ETF( QQQ )收报729.70点，跌0.32%，为三大指数中跌幅最深；道指ETF( DIA )收报537.10点，跌0.15%，跌势相对受控。资金转向中小型股，罗素2000ETF( ",
+      "impression_count": 872,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088377881659625906",
+      "post_url": "https://x.com/Balder13946731/status/2088377881659625906",
+      "posted_at": "2026-08-14T21:31:01+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 40.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【美股复盘 · 8月14日】 **大市**｜美股周五反复偏软，主要指数低位靠稳收市，全日缺乏方向。标普500指数ETF( $SPY )收报776.00点，跌0.24%；纳指ETF( QQQ )收报729.70点，跌0.32%，为三大指数中跌幅最深；道指ETF( DIA )收报537.10点，跌0.15%，跌势相对受控。资金转向中小型股，罗素2000ETF( IWM",
+      "topic": "chinese_market",
+      "why_trending": "表示872・投稿後28分・反応率0.7%"
     },
     {
       "author_followers": 5645,
@@ -1556,6 +1594,54 @@
       "summary": "【注目開示】Ｇ－ＧＮＩ（2160） 通期業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📈 株価：2,935円（前日比+1.31%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/e1JUyV6a9k",
       "topic": "japanese_market",
       "why_trending": "表示1・投稿後103分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 49,
+      "discovered_at": "2026-08-14T21:59:46+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "OwenLiuyf",
+      "has_video": false,
+      "headline": "Binance刚刚向所有用户宣布，停止处理与16个加密货币平台的交易，其中包括主要交易所 HTX 怪不得前几天CZ取关孙哥。 但我觉得这个事情应该问题不大，孙哥现在流量口碑忽然变好，现在CZ不至于去跟他撕破脸",
+      "impression_count": 7,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088381167255052689",
+      "post_url": "https://x.com/OwenLiuyf/status/2088381167255052689",
+      "posted_at": "2026-08-14T21:44:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Binance刚刚向所有用户宣布，停止处理与16个加密货币平台的交易，其中包括主要交易所 HTX 怪不得前几天CZ取关孙哥。 但我觉得这个事情应该问题不大，孙哥现在流量口碑忽然变好，现在CZ不至于去跟他撕破脸",
+      "topic": "chinese_market",
+      "why_trending": "表示7・投稿後15分・反応率0.0%"
+    },
+    {
+      "author_followers": 9093,
+      "discovered_at": "2026-08-14T21:59:46+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "StockWe_Com",
+      "has_video": false,
+      "headline": "美股AMD今天为什么上涨？ AMD今天股价上涨的原因是，主要受到人工智能（AI）业务扩张以及机构投资者信心增强等多项强劲催化因素推动。 以下是推动AMD股价上涨的几个主要原因：",
+      "impression_count": 377,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088365893864784347",
+      "post_url": "https://x.com/StockWe_Com/status/2088365893864784347",
+      "posted_at": "2026-08-14T20:43:23+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 35.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "美股AMD今天为什么上涨？ AMD今天股价上涨的原因是，主要受到人工智能（AI）业务扩张以及机构投资者信心增强等多项强劲催化因素推动。 以下是推动AMD股价上涨的几个主要原因：",
+      "topic": "chinese_market",
+      "why_trending": "表示377・投稿後76分・反応率1.4%"
     },
     {
       "author_followers": 4,
