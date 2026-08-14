@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T05:20:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T05:20:14+00:00",
+  "last_deep_scan_at": "2026-08-14T06:59:15+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T06:59:15+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1156,36 +1156,104 @@
       "result_count": 4,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T06:59:15+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T06:59:15+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
     {
-      "author_followers": 125,
-      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "author_followers": 14035,
+      "discovered_at": "2026-08-14T06:59:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MichelleKR1xcc",
-      "has_video": true,
-      "headline": "🔥 MASSIVE CLARITY ACT UPDATE! 🇺🇸 The CFTC says it’s prepared to move forward with crypto regulation—even if Congress continues to stall the CLARITY Act. 🚨 Crypto regulation isn’t w",
-      "impression_count": 30,
-      "like_count": 1,
+      "handle": "jeonleetogether",
+      "has_video": false,
+      "headline": "千呼万唤始出来 termmax要tge了！！ termmax要tge了！！ termmax要tge了！！ 时间：8.25 终于终于 等了这么久😭！！ 这几天要猛猛写了 终于等到你 还好我没放弃😭 最近 RWA 这条线又开始热起来了，尤其是 Ondo 这边，链上股票已经不是“概念阶段”了。 现在 Ondo Stocks 支持的资产已经超过 440 https:",
+      "impression_count": 98,
+      "like_count": 15,
       "linked_urls": [
-        "https://x.com/MichelleKR1xcc/status/2088045893702287793/video/1"
+        "https://twitter.com/termmaxfi/status/2088148595396735322"
       ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088045893702287793",
-      "post_url": "https://x.com/MichelleKR1xcc/status/2088045893702287793",
-      "posted_at": "2026-08-13T23:31:49+00:00",
+      "media_types": [],
+      "post_id": "2088156509280870748",
+      "post_url": "https://x.com/jeonleetogether/status/2088156509280870748",
+      "posted_at": "2026-08-14T06:51:22+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 50.1,
+      "reply_count": 13,
+      "repost_count": 0,
+      "score": 66.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🔥 MASSIVE CLARITY ACT UPDATE! 🇺🇸 The CFTC says it’s prepared to move forward with crypto regulation—even if Congress continues to stall the CLARITY Act. 🚨 Crypto regulation isn’t waiting anymore. The rules are coming. 👀📈 #CLARITYAct #CFTC #CryptoNews #XRP #Ripple #Crypto https://t.co/NWahWiFAoZ",
-      "topic": "regulation",
-      "why_trending": "表示30・投稿後72分・反応率10.0%・動画あり"
+      "summary": "千呼万唤始出来 termmax要tge了！！ termmax要tge了！！ termmax要tge了！！ 时间：8.25 终于终于 等了这么久😭！！ 这几天要猛猛写了 终于等到你 还好我没放弃😭 最近 RWA 这条线又开始热起来了，尤其是 Ondo 这边，链上股票已经不是“概念阶段”了。 现在 Ondo Stocks 支持的资产已经超过 440 https://t.co/9U8xcSbqwA",
+      "topic": "chinese_market",
+      "why_trending": "表示98・投稿後7分・反応率36.5%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 119852,
+      "discovered_at": "2026-08-14T06:59:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "sanshunyi",
+      "has_video": false,
+      "headline": "加密交易所正在变成24小时美股终端，Gate正在成为最大黑马 加密交易所的下一场竞争，可能已经不只是Crypto，谁能成为全球投资者的24小时美股交易终端。 根据CryptoQuant统计，TradFi股权永续合约的月交易量，从4月约：50亿美元增长至7月约：2500亿美元 短短三个月增长接近 https://t.co/CDDnbiI8Qm https://",
+      "impression_count": 1340,
+      "like_count": 24,
+      "linked_urls": [
+        "https://x.com/sanshunyi/status/2088135083895210370/photo/1",
+        "https://twitter.com/JoeyJia11/status/2087439323495112950"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088135083895210370",
+      "post_url": "https://x.com/sanshunyi/status/2088135083895210370",
+      "posted_at": "2026-08-14T05:26:14+00:00",
+      "quote_count": 0,
+      "reply_count": 23,
+      "repost_count": 0,
+      "score": 59.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "加密交易所正在变成24小时美股终端，Gate正在成为最大黑马 加密交易所的下一场竞争，可能已经不只是Crypto，谁能成为全球投资者的24小时美股交易终端。 根据CryptoQuant统计，TradFi股权永续合约的月交易量，从4月约：50亿美元增长至7月约：2500亿美元 短短三个月增长接近 https://t.co/CDDnbiI8Qm https://t.co/UI0xOAgORY",
+      "topic": "chinese_market",
+      "why_trending": "表示1,340・投稿後93分・反応率4.5%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 7062,
+      "discovered_at": "2026-08-14T06:59:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "l_ljq94913",
+      "has_video": false,
+      "headline": "昨晚美股最重要的事，不是又创新高，而是创新高的方式变了。 7 月 PPI 低于预期，长端收益率回落，标普 500 和纳指顺势刷新收盘纪录。这说明市场最核心的假设还没坏：通胀在降，利率压力在缓，估值还能撑。但如果只看到这个层面，就容易忽略另一个更锋利的信号。 Cisco 财报不差，甚至可以说挺强。AI https://t.co/culcNr1G4O",
+      "impression_count": 42,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/l_ljq94913/status/2088155668549358016/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088155668549358016",
+      "post_url": "https://x.com/l_ljq94913/status/2088155668549358016",
+      "posted_at": "2026-08-14T06:48:02+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 54.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "昨晚美股最重要的事，不是又创新高，而是创新高的方式变了。 7 月 PPI 低于预期，长端收益率回落，标普 500 和纳指顺势刷新收盘纪录。这说明市场最核心的假设还没坏：通胀在降，利率压力在缓，估值还能撑。但如果只看到这个层面，就容易忽略另一个更锋利的信号。 Cisco 财报不差，甚至可以说挺强。AI https://t.co/culcNr1G4O",
+      "topic": "chinese_market",
+      "why_trending": "表示42・投稿後11分・反応率13.8%"
     },
     {
       "author_followers": 146,
@@ -1216,32 +1284,6 @@
       "why_trending": "表示46・投稿後119分・反応率6.5%"
     },
     {
-      "author_followers": 0,
-      "discovered_at": "2026-08-14T00:43:58+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "KristianMclouth",
-      "has_video": false,
-      "headline": "SEC pulls Reg Crypto proposal and postpones meeting with no new date set. 😬 What does this mean for crypto regulation? 👇 https://t.co/x3KC4DHaCj #SEC #Crypto #Regulation",
-      "impression_count": 22,
-      "like_count": 0,
-      "linked_urls": [
-        "https://marketbit.net/p/sec-cancels-reg-crypto-proposal-meeting-postponed-without-new-date.webm"
-      ],
-      "media_types": [],
-      "post_id": "2088049909077274823",
-      "post_url": "https://x.com/KristianMclouth/status/2088049909077274823",
-      "posted_at": "2026-08-13T23:47:47+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "SEC pulls Reg Crypto proposal and postpones meeting with no new date set. 😬 What does this mean for crypto regulation? 👇 https://t.co/x3KC4DHaCj #SEC #Crypto #Regulation",
-      "topic": "regulation",
-      "why_trending": "表示22・投稿後56分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 246,
       "discovered_at": "2026-08-14T05:20:14+00:00",
       "discovery_type": "official_x_api",
@@ -1270,60 +1312,84 @@
       "why_trending": "表示80・投稿後55分・反応率1.2%"
     },
     {
-      "author_followers": 662,
-      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "author_followers": 19645,
+      "discovered_at": "2026-08-14T06:59:15+00:00",
       "discovery_type": "official_x_api",
-      "handle": "ThCryptoCook",
+      "handle": "0xTraderYi",
       "has_video": false,
-      "headline": "⚡️ BREAKING: 🇺🇸 The SEC has canceled its planned vote on new crypto rules, citing an unforeseen scheduling issue. The meeting was expected to consider exemptions that could make it",
-      "impression_count": 19,
+      "headline": "币圈这轮彻底没有新东西了， 最搞笑的是以前都说crypto圈是革命，要吸圈外传统流动性 结果这一轮山寨 meme 彻底被推翻成伪证， 交易所都赶着上币股，传统资产， 直接把币圈的流动性吸没了，看一眼交易量的都去搞币股了 有可能这轮大饼 $btc 磨底的时间会更长要有这种准备， https://t.co/Dv6b2hIjZ3",
+      "impression_count": 162,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/ThCryptoCook/status/2088051069754437826/photo/1"
+        "https://x.com/0xTraderYi/status/2088146901208383689/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088051069754437826",
-      "post_url": "https://x.com/ThCryptoCook/status/2088051069754437826",
-      "posted_at": "2026-08-13T23:52:23+00:00",
+      "post_id": "2088146901208383689",
+      "post_url": "https://x.com/0xTraderYi/status/2088146901208383689",
+      "posted_at": "2026-08-14T06:13:11+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 44.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "币圈这轮彻底没有新东西了， 最搞笑的是以前都说crypto圈是革命，要吸圈外传统流动性 结果这一轮山寨 meme 彻底被推翻成伪证， 交易所都赶着上币股，传统资产， 直接把币圈的流动性吸没了，看一眼交易量的都去搞币股了 有可能这轮大饼 $btc 磨底的时间会更长要有这种准备， https://t.co/Dv6b2hIjZ3",
+      "topic": "chinese_market",
+      "why_trending": "表示162・投稿後46分・反応率2.0%"
+    },
+    {
+      "author_followers": 8736,
+      "discovered_at": "2026-08-14T06:59:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Mandy_youzi",
+      "has_video": false,
+      "headline": "利好频出，市场不买账，谁来接盘比特币？ 通胀降温，市场冷对 今早公布的 7 月 CPI 数据几乎未扰动市场：核心通胀降 0.1 个百分点至 2.5%，整体通胀持平。政策利率自去年 12 月按兵不动，实际利率仍处紧缩区间，且随着通胀缓慢下行，这一差距正在扩大。 https://t.co/xrpTCwEFjQ",
+      "impression_count": 6,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/Mandy_youzi/status/2088152266406826237/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088152266406826237",
+      "post_url": "https://x.com/Mandy_youzi/status/2088152266406826237",
+      "posted_at": "2026-08-14T06:34:30+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 44.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "利好频出，市场不买账，谁来接盘比特币？ 通胀降温，市场冷对 今早公布的 7 月 CPI 数据几乎未扰动市场：核心通胀降 0.1 个百分点至 2.5%，整体通胀持平。政策利率自去年 12 月按兵不动，实际利率仍处紧缩区间，且随着通胀缓慢下行，这一差距正在扩大。 https://t.co/xrpTCwEFjQ",
+      "topic": "chinese_market",
+      "why_trending": "表示6・投稿後24分・反応率130.0%"
+    },
+    {
+      "author_followers": 1660,
+      "discovered_at": "2026-08-14T06:59:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Egnay_iel",
+      "has_video": false,
+      "headline": "槽！通胀降温、油价松动、美股创新高，比特币和以太坊却连个水花都溅不起来。 这不是什么利好没兑现，币圈现在是什么好消息都接不住了。",
+      "impression_count": 111,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088132818891116954",
+      "post_url": "https://x.com/Egnay_iel/status/2088132818891116954",
+      "posted_at": "2026-08-14T05:17:14+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 45.8,
+      "score": 41.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "⚡️ BREAKING: 🇺🇸 The SEC has canceled its planned vote on new crypto rules, citing an unforeseen scheduling issue. The meeting was expected to consider exemptions that could make it easier for crypto startups to raise capital. The delay comes as the CLARITY Act remains stalled in https://t.co/ZkGDQ8zcHl",
-      "topic": "regulation",
-      "why_trending": "表示19・投稿後51分・反応率8.4%"
-    },
-    {
-      "author_followers": 301397,
-      "discovered_at": "2026-08-14T00:43:58+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptosR_Us",
-      "has_video": false,
-      "headline": "The White House is set to host crypto and prediction-market leaders next week. 🇺🇸 The gathering is expected on August 19, with traditional finance executives potentially joining as",
-      "impression_count": 4023,
-      "like_count": 16,
-      "linked_urls": [
-        "https://x.com/CryptosR_Us/status/2088049220355842085/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088049220355842085",
-      "post_url": "https://x.com/CryptosR_Us/status/2088049220355842085",
-      "posted_at": "2026-08-13T23:45:02+00:00",
-      "quote_count": 0,
-      "reply_count": 4,
-      "repost_count": 3,
-      "score": 44.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "The White House is set to host crypto and prediction-market leaders next week. 🇺🇸 The gathering is expected on August 19, with traditional finance executives potentially joining as well. It comes just one day before a major CFTC meeting on crypto regulation and prediction https://t.co/luXSDuSUuN",
-      "topic": "regulation",
-      "why_trending": "表示4,023・投稿後58分・反応率0.7%"
+      "summary": "槽！通胀降温、油价松动、美股创新高，比特币和以太坊却连个水花都溅不起来。 这不是什么利好没兑现，币圈现在是什么好消息都接不住了。",
+      "topic": "chinese_market",
+      "why_trending": "表示111・投稿後102分・反応率3.2%"
     },
     {
       "author_followers": 130,
