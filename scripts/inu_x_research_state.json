@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T10:40:33+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T11:29:25+00:00",
+  "last_deep_scan_at": "2026-08-14T12:29:31+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T12:29:31+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1201,6 +1201,19 @@
       "checked_at": "2026-08-14T11:29:25+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T12:29:31+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T12:29:31+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -1288,6 +1301,60 @@
       "why_trending": "表示7・投稿後113分・反応率228.6%・公式候補リンクあり"
     },
     {
+      "author_followers": 102238,
+      "discovered_at": "2026-08-14T12:29:31+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "StarPlatinum_",
+      "has_video": false,
+      "headline": "This was the greatest memecoin trader ever recorded onchain - $11,593 invested - 103.33 TRILLION $SHIB accumulated He made $8.9B at the intraday ATH, 770,000x on paper at the absol",
+      "impression_count": 8567,
+      "like_count": 104,
+      "linked_urls": [
+        "https://x.com/StarPlatinum_/status/2088216500305817824/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088216500305817824",
+      "post_url": "https://x.com/StarPlatinum_/status/2088216500305817824",
+      "posted_at": "2026-08-14T10:49:45+00:00",
+      "quote_count": 5,
+      "reply_count": 42,
+      "repost_count": 7,
+      "score": 50.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "This was the greatest memecoin trader ever recorded onchain - $11,593 invested - 103.33 TRILLION $SHIB accumulated He made $8.9B at the intraday ATH, 770,000x on paper at the absolute peak never actually cashes out the billions Shibtoshi, the anonymous whale behind the trade, https://t.co/w7s0O3LJJ7",
+      "topic": "onchain_exchange",
+      "why_trending": "表示8,567・投稿後99分・反応率2.3%"
+    },
+    {
+      "author_followers": 1021,
+      "discovered_at": "2026-08-14T12:29:31+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "NewsLayerApp",
+      "has_video": false,
+      "headline": "🔴 BREAKING: Crypto wallet maker Trezor confirms 13,000 customers' details exposed in logistics breach https://t.co/LnRC2AhraR #Crypto #Defi #CryptoNews #Bitcoin #Web3 #Blockchain #",
+      "impression_count": 13,
+      "like_count": 1,
+      "linked_urls": [
+        "https://newslayer.com/api/v1/s/crypto-wallet-maker-trezor-confirms-13-000-customers-details-exposed-in-logistic-0f54b8"
+      ],
+      "media_types": [],
+      "post_id": "2088223380868644871",
+      "post_url": "https://x.com/NewsLayerApp/status/2088223380868644871",
+      "posted_at": "2026-08-14T11:17:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔴 BREAKING: Crypto wallet maker Trezor confirms 13,000 customers' details exposed in logistics breach https://t.co/LnRC2AhraR #Crypto #Defi #CryptoNews #Bitcoin #Web3 #Blockchain #Ethereum #Altcoins #CryptoRegulation #DigitalAssets",
+      "topic": "onchain_exchange",
+      "why_trending": "表示13・投稿後72分・反応率7.7%・公式候補リンクあり"
+    },
+    {
       "author_followers": 201762,
       "discovered_at": "2026-08-14T08:48:39+00:00",
       "discovery_type": "official_x_api",
@@ -1312,34 +1379,6 @@
       "summary": "開催まで約2か月！ 資産運用立国の実現に向け、国内外の多彩なイベントが集結する「Japan Weeks」。本日、特設サイトを更新し、登録イベントは 53件 となりました。 ぜひご確認ください https://t.co/bHU27a1JPx #JapanWeeks #金融庁",
       "topic": "fixed_primary_x",
       "why_trending": "表示2,134・投稿後107分・反応率0.2%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 19645,
-      "discovered_at": "2026-08-14T06:59:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "0xTraderYi",
-      "has_video": false,
-      "headline": "币圈这轮彻底没有新东西了， 最搞笑的是以前都说crypto圈是革命，要吸圈外传统流动性 结果这一轮山寨 meme 彻底被推翻成伪证， 交易所都赶着上币股，传统资产， 直接把币圈的流动性吸没了，看一眼交易量的都去搞币股了 有可能这轮大饼 $btc 磨底的时间会更长要有这种准备， https://t.co/Dv6b2hIjZ3",
-      "impression_count": 162,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/0xTraderYi/status/2088146901208383689/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088146901208383689",
-      "post_url": "https://x.com/0xTraderYi/status/2088146901208383689",
-      "posted_at": "2026-08-14T06:13:11+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 44.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "币圈这轮彻底没有新东西了， 最搞笑的是以前都说crypto圈是革命，要吸圈外传统流动性 结果这一轮山寨 meme 彻底被推翻成伪证， 交易所都赶着上币股，传统资产， 直接把币圈的流动性吸没了，看一眼交易量的都去搞币股了 有可能这轮大饼 $btc 磨底的时间会更长要有这种准备， https://t.co/Dv6b2hIjZ3",
-      "topic": "chinese_market",
-      "why_trending": "表示162・投稿後46分・反応率2.0%"
     },
     {
       "author_followers": 1311,
@@ -1426,6 +1465,30 @@
       "why_trending": "表示1,345・投稿後115分・反応率1.5%"
     },
     {
+      "author_followers": 901,
+      "discovered_at": "2026-08-14T12:29:31+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "SimonMonkam",
+      "has_video": false,
+      "headline": "Cryptocurrency and Macroeconomic Round-Up for Friday, August 14, 2026 1. Bitcoin: Around $63,000-$65,000, market remains in a consolidation phase. The cryptocurrency market remains",
+      "impression_count": 57,
+      "like_count": 3,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088217678611652904",
+      "post_url": "https://x.com/SimonMonkam/status/2088217678611652904",
+      "posted_at": "2026-08-14T10:54:26+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 40.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Cryptocurrency and Macroeconomic Round-Up for Friday, August 14, 2026 1. Bitcoin: Around $63,000-$65,000, market remains in a consolidation phase. The cryptocurrency market remains relatively quiet following the latest US inflation data. Bitcoin is trading in the",
+      "topic": "onchain_exchange",
+      "why_trending": "表示57・投稿後95分・反応率8.1%"
+    },
+    {
       "author_followers": 2578,
       "discovered_at": "2026-08-14T10:40:33+00:00",
       "discovery_type": "official_x_api",
@@ -1452,6 +1515,34 @@
       "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ripple CTO Emeritus Schwartz rejects Bitcoin data limits after BIP-110 failure. • BTC Drops Below $63K: Should Investors Start Worrying?. • Bitcoin Exchanges Upbit and Bithumb Announce Joint Delisting, Declaring https://t.co/7Dpn3NHegU",
       "topic": "crypto_market",
       "why_trending": "表示20・投稿後9分・反応率0.0%・動画あり"
+    },
+    {
+      "author_followers": 2579,
+      "discovered_at": "2026-08-14T12:29:31+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Neome_com",
+      "has_video": true,
+      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • XRP Faces Final Drop to $0.93 as Major Bottom Signal Takes Shape. • XRP Holds Steady as Major Holders Bolster Their Positions.",
+      "impression_count": 56,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Neome_com/status/2088234401268154646/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2088234401268154646",
+      "post_url": "https://x.com/Neome_com/status/2088234401268154646",
+      "posted_at": "2026-08-14T12:00:53+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • XRP Faces Final Drop to $0.93 as Major Bottom Signal Takes Shape. • XRP Holds Steady as Major Holders Bolster Their Positions. • Bitcoin Slips After U.S. Inflation Data as ETFs See Two-Day Drawdown. • MTN Nigeria https://t.co/P1InWhOEfX",
+      "topic": "onchain_exchange",
+      "why_trending": "表示56・投稿後28分・反応率0.0%・動画あり"
     }
   ],
   "trends": [],
