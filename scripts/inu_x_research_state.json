@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T00:43:58+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T00:43:58+00:00",
+  "last_deep_scan_at": "2026-08-14T03:13:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T03:13:55+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1130,85 +1130,22 @@
       "result_count": 6,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T03:13:55+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T03:13:55+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4664080,
-      "discovered_at": "2026-08-13T20:23:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 White House to meet with top crypto executives next week.",
-      "impression_count": 71485,
-      "like_count": 672,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087995546720166352",
-      "post_url": "https://x.com/WatcherGuru/status/2087995546720166352",
-      "posted_at": "2026-08-13T20:11:46+00:00",
-      "quote_count": 21,
-      "reply_count": 98,
-      "repost_count": 104,
-      "score": 80.8,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 White House to meet with top crypto executives next week.",
-      "topic": "watcher_guru",
-      "why_trending": "表示71,485・投稿後11分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 314,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "OpenPulsechain",
-      "has_video": false,
-      "headline": "🐋 Bridge whale — $99.1k WETH bridged OUT to Ethereum A single transfer moved 53 WETH from PulseChain to Ethereum on Aug 13, 18:51 UTC. Wallet: 0xb38a90f14b24ae81ec0b8f1373694f5b598",
-      "impression_count": 65,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2087977819720585392",
-      "post_url": "https://x.com/OpenPulsechain/status/2087977819720585392",
-      "posted_at": "2026-08-13T19:01:19+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 53.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🐋 Bridge whale — $99.1k WETH bridged OUT to Ethereum A single transfer moved 53 WETH from PulseChain to Ethereum on Aug 13, 18:51 UTC. Wallet: 0xb38a90f14b24ae81ec0b8f1373694f5b59811d8a Tx: 0x472f8a0c237a0df11fe9e762d7f477f23126f051e2f7213854aa1766214dae63 #PulseChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示65・投稿後43分・反応率3.1%"
-    },
-    {
-      "author_followers": 6846,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "thenameisfedro",
-      "has_video": false,
-      "headline": "Where Stability Meets DeFi Imagine having a digital asset designed around a stable $1 value while still being able to participate in decentralized finance. That’s the role USDD aim",
-      "impression_count": 9,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/thenameisfedro/status/2087985588616233085/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087985588616233085",
-      "post_url": "https://x.com/thenameisfedro/status/2087985588616233085",
-      "posted_at": "2026-08-13T19:32:11+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 50.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Where Stability Meets DeFi Imagine having a digital asset designed around a stable $1 value while still being able to participate in decentralized finance. That’s the role USDD aims to play. Instead of treating a stablecoin as something that simply sits in a wallet, USDD can https://t.co/pmHNOaUok5",
-      "topic": "onchain_exchange",
-      "why_trending": "表示9・投稿後12分・反応率17.8%"
-    },
     {
       "author_followers": 125,
       "discovered_at": "2026-08-14T00:43:58+00:00",
@@ -1236,34 +1173,6 @@
       "summary": "🔥 MASSIVE CLARITY ACT UPDATE! 🇺🇸 The CFTC says it’s prepared to move forward with crypto regulation—even if Congress continues to stall the CLARITY Act. 🚨 Crypto regulation isn’t waiting anymore. The rules are coming. 👀📈 #CLARITYAct #CFTC #CryptoNews #XRP #Ripple #Crypto https://t.co/NWahWiFAoZ",
       "topic": "regulation",
       "why_trending": "表示30・投稿後72分・反応率10.0%・動画あり"
-    },
-    {
-      "author_followers": 2242,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "0xGr1mm",
-      "has_video": false,
-      "headline": "stablecoins made money programmable. public blockchains made corporate finances searchable. one payment can expose your wallet, balances, counterparties and transaction history. pa",
-      "impression_count": 52,
-      "like_count": 5,
-      "linked_urls": [
-        "https://x.com/0xGr1mm/status/2087978038742950144/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087978038742950144",
-      "post_url": "https://x.com/0xGr1mm/status/2087978038742950144",
-      "posted_at": "2026-08-13T19:02:11+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 48.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "stablecoins made money programmable. public blockchains made corporate finances searchable. one payment can expose your wallet, balances, counterparties and transaction history. pay a supplier and they may see how much cash you hold. move funds between wallets and competitors https://t.co/gpvfUevvFV",
-      "topic": "onchain_exchange",
-      "why_trending": "表示52・投稿後42分・反応率12.7%"
     },
     {
       "author_followers": 0,
@@ -1348,34 +1257,6 @@
       "why_trending": "表示4,023・投稿後58分・反応率0.7%"
     },
     {
-      "author_followers": 173,
-      "discovered_at": "2026-08-13T22:25:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "jeffnab3",
-      "has_video": false,
-      "headline": "THE BRAZILIAN STOCK MARKET, EXPLAINED IN ENGLISH: EVERY TERM YOU NEED TO READ B3 LIKE A LOCAL Everything below is jargon from the Brazilian stock exchange, which is called B3 — sho",
-      "impression_count": 99,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/jeffnab3/status/2088007059425968169/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088007059425968169",
-      "post_url": "https://x.com/jeffnab3/status/2088007059425968169",
-      "posted_at": "2026-08-13T20:57:30+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 42.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "THE BRAZILIAN STOCK MARKET, EXPLAINED IN ENGLISH: EVERY TERM YOU NEED TO READ B3 LIKE A LOCAL Everything below is jargon from the Brazilian stock exchange, which is called B3 — short for Brasil, Bolsa, Balcão. It is the only stock exchange in Brazil: one exchange, one https://t.co/ICfK8gpNMu",
-      "topic": "macro_rates",
-      "why_trending": "表示99・投稿後88分・反応率1.6%"
-    },
-    {
       "author_followers": 9514,
       "discovered_at": "2026-08-14T00:43:58+00:00",
       "discovery_type": "official_x_api",
@@ -1402,62 +1283,6 @@
       "summary": "🚨 BRÆKING: SEC + CFTC said fuck waiting on Congress. 📅 Aug. 14 — SEC 📅 Aug. 20 — CFTC 📅 Sept. 15 — Congress tries to catch up with CLARITY. Crypto regulation is moving with or without them. The timeline is $Stupid FAFO. https://t.co/MA4OTrIgjm",
       "topic": "regulation",
       "why_trending": "表示118・投稿後107分・反応率12.9%"
-    },
-    {
-      "author_followers": 134,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "JoPoYo67",
-      "has_video": false,
-      "headline": "Trezor customer data exposed via a third-party shipping leak! 🚨 What does this mean for personal privacy, phishing risks, and self-custody security? The latest episode from @crypto",
-      "impression_count": 26,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/JoPoYo67/status/2087976795056275578/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087976795056275578",
-      "post_url": "https://x.com/JoPoYo67/status/2087976795056275578",
-      "posted_at": "2026-08-13T18:57:15+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Trezor customer data exposed via a third-party shipping leak! 🚨 What does this mean for personal privacy, phishing risks, and self-custody security? The latest episode from @cryptonewshq is live! 🎙️ ⏱️ EPISODE BREAKDOWN: • Trezor Shipping Data Exposure — Over 13,680 customer https://t.co/Q41LM7Nhei",
-      "topic": "onchain_exchange",
-      "why_trending": "表示26・投稿後47分・反応率0.0%"
-    },
-    {
-      "author_followers": 6846,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "thenameisfedro",
-      "has_video": false,
-      "headline": "One USDD, Multiple DeFi Possibilities What can you actually do with a stablecoin? With USDD, the answer goes far beyond simply holding an asset pegged around $1. ➙ Use it as a medi",
-      "impression_count": 9,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/thenameisfedro/status/2087986804108759296/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2087986804108759296",
-      "post_url": "https://x.com/thenameisfedro/status/2087986804108759296",
-      "posted_at": "2026-08-13T19:37:01+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "One USDD, Multiple DeFi Possibilities What can you actually do with a stablecoin? With USDD, the answer goes far beyond simply holding an asset pegged around $1. ➙ Use it as a medium of exchange USDD provides a stable-value option for moving capital within the blockchain https://t.co/kfdtt9S4MX",
-      "topic": "onchain_exchange",
-      "why_trending": "表示9・投稿後7分・反応率0.0%"
     },
     {
       "author_followers": 689,
