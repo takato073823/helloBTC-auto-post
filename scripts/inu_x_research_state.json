@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T08:48:39+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T08:48:39+00:00",
+  "last_deep_scan_at": "2026-08-14T10:40:33+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T10:40:33+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1182,6 +1182,19 @@
       "result_count": 1,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T10:40:33+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T10:40:33+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -1269,6 +1282,35 @@
       "why_trending": "表示42・投稿後11分・反応率13.8%"
     },
     {
+      "author_followers": 65,
+      "discovered_at": "2026-08-14T10:40:33+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ChainScoreNexus",
+      "has_video": false,
+      "headline": "ChainScoreNexus: $BTC stalls near $63,500 as volatility compresses &amp; derivatives open interest builds up! Watch the next breakout: https://t.co/fbUsgZoCRg #Bitcoin #Crypto #Cha",
+      "impression_count": 7,
+      "like_count": 16,
+      "linked_urls": [
+        "https://www.chainscorenexus.com",
+        "https://x.com/ChainScoreNexus/status/2088185692484759739/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088185692484759739",
+      "post_url": "https://x.com/ChainScoreNexus/status/2088185692484759739",
+      "posted_at": "2026-08-14T08:47:20+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 51.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ChainScoreNexus: $BTC stalls near $63,500 as volatility compresses &amp; derivatives open interest builds up! Watch the next breakout: https://t.co/fbUsgZoCRg #Bitcoin #Crypto #ChainScoreNexus https://t.co/LWSG16keIH",
+      "topic": "crypto_market",
+      "why_trending": "表示7・投稿後113分・反応率228.6%・公式候補リンクあり"
+    },
+    {
       "author_followers": 201762,
       "discovered_at": "2026-08-14T08:48:39+00:00",
       "discovery_type": "official_x_api",
@@ -1293,62 +1335,6 @@
       "summary": "開催まで約2か月！ 資産運用立国の実現に向け、国内外の多彩なイベントが集結する「Japan Weeks」。本日、特設サイトを更新し、登録イベントは 53件 となりました。 ぜひご確認ください https://t.co/bHU27a1JPx #JapanWeeks #金融庁",
       "topic": "fixed_primary_x",
       "why_trending": "表示2,134・投稿後107分・反応率0.2%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 146,
-      "discovered_at": "2026-08-14T05:20:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kanonweb30",
-      "has_video": false,
-      "headline": "アメリカで「暗号資産のルール作り」が法律なしで動き始めました🚨 SECとCFTCという2つの規制機関が、議会の新法を待たずに独自でルールを整えようとしています。 https://t.co/pmcUwO3LVw",
-      "impression_count": 46,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/kanonweb30/status/2088103487888572880/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088103487888572880",
-      "post_url": "https://x.com/kanonweb30/status/2088103487888572880",
-      "posted_at": "2026-08-14T03:20:41+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "アメリカで「暗号資産のルール作り」が法律なしで動き始めました🚨 SECとCFTCという2つの規制機関が、議会の新法を待たずに独自でルールを整えようとしています。 https://t.co/pmcUwO3LVw",
-      "topic": "japanese_market",
-      "why_trending": "表示46・投稿後119分・反応率6.5%"
-    },
-    {
-      "author_followers": 246,
-      "discovered_at": "2026-08-14T05:20:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kloster333",
-      "has_video": false,
-      "headline": "ゴールドマン・サックスが動いた。 これはもう「様子見」じゃない。 米金融大手Goldman Sachsが、ビットコイン・イーサリアムのカバードコールETFを運用するNEOS Investmentsの買収を進めていることが明らかに。 機関投資家の本格参入が、また一歩現実になっています。 今回のポイントはこちら https://t.co/FIyJwGIarJ",
-      "impression_count": 80,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/kloster333/status/2088119673930096881/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088119673930096881",
-      "post_url": "https://x.com/kloster333/status/2088119673930096881",
-      "posted_at": "2026-08-14T04:25:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ゴールドマン・サックスが動いた。 これはもう「様子見」じゃない。 米金融大手Goldman Sachsが、ビットコイン・イーサリアムのカバードコールETFを運用するNEOS Investmentsの買収を進めていることが明らかに。 機関投資家の本格参入が、また一歩現実になっています。 今回のポイントはこちら https://t.co/FIyJwGIarJ",
-      "topic": "japanese_market",
-      "why_trending": "表示80・投稿後55分・反応率1.2%"
     },
     {
       "author_followers": 19645,
@@ -1379,6 +1365,34 @@
       "why_trending": "表示162・投稿後46分・反応率2.0%"
     },
     {
+      "author_followers": 1311,
+      "discovered_at": "2026-08-14T10:40:33+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "haxeth89",
+      "has_video": false,
+      "headline": "ETF Flows Flip Again – Bitcoin Out, Ethereum &amp; Solana In Capital is rotating inside crypto, not leaving. On August 12, U.S. spot Bitcoin ETFs saw roughly $61 million in net out",
+      "impression_count": 9,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/haxeth89/status/2088206496039366823/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088206496039366823",
+      "post_url": "https://x.com/haxeth89/status/2088206496039366823",
+      "posted_at": "2026-08-14T10:10:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ETF Flows Flip Again – Bitcoin Out, Ethereum &amp; Solana In Capital is rotating inside crypto, not leaving. On August 12, U.S. spot Bitcoin ETFs saw roughly $61 million in net outflows while Ethereum and Solana products attracted fresh inflows. The divergence is becoming clearer. https://t.co/sOyHkpYQg1",
+      "topic": "crypto_market",
+      "why_trending": "表示9・投稿後30分・反応率11.1%"
+    },
+    {
       "author_followers": 8736,
       "discovered_at": "2026-08-14T06:59:15+00:00",
       "discovery_type": "official_x_api",
@@ -1407,6 +1421,34 @@
       "why_trending": "表示6・投稿後24分・反応率130.0%"
     },
     {
+      "author_followers": 127845,
+      "discovered_at": "2026-08-14T10:40:33+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoSavingExp",
+      "has_video": false,
+      "headline": "BITCOIN BREAKS BELOW $63K SUPPORT BTC has slipped below the important $63,000 support level after failing to hold the recent range. The rejection from $65,700 resistance and inabil",
+      "impression_count": 1345,
+      "like_count": 6,
+      "linked_urls": [
+        "https://x.com/CryptoSavingExp/status/2088185060176642255/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088185060176642255",
+      "post_url": "https://x.com/CryptoSavingExp/status/2088185060176642255",
+      "posted_at": "2026-08-14T08:44:49+00:00",
+      "quote_count": 0,
+      "reply_count": 6,
+      "repost_count": 2,
+      "score": 42.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BITCOIN BREAKS BELOW $63K SUPPORT BTC has slipped below the important $63,000 support level after failing to hold the recent range. The rejection from $65,700 resistance and inability to reclaim $64,000 has shifted short-term momentum back towards the bears. Key areas to https://t.co/bI8QbxWHPP",
+      "topic": "crypto_market",
+      "why_trending": "表示1,345・投稿後115分・反応率1.5%"
+    },
+    {
       "author_followers": 1660,
       "discovered_at": "2026-08-14T06:59:15+00:00",
       "discovery_type": "official_x_api",
@@ -1431,56 +1473,32 @@
       "why_trending": "表示111・投稿後102分・反応率3.2%"
     },
     {
-      "author_followers": 130,
-      "discovered_at": "2026-08-14T05:20:14+00:00",
+      "author_followers": 2578,
+      "discovered_at": "2026-08-14T10:40:33+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Sugizoai",
-      "has_video": false,
-      "headline": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・経済｜米7月PPI予想下回りインフレ沈静化が決定的に ・米PPIも下振れ：CPIに続き7月PPI（生産者物価指数）も予想を下回り、FRBの9月早期利下げ観測が超盤石に！ https://t.co/3nACcMQVhw",
-      "impression_count": 661,
-      "like_count": 2,
+      "handle": "Neome_com",
+      "has_video": true,
+      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ripple CTO Emeritus Schwartz rejects Bitcoin data limits after BIP-110 failure. • BTC Drops Below $63K: Should Investors Start",
+      "impression_count": 20,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/Sugizoai/status/2088106728923766801/photo/1"
+        "https://x.com/Neome_com/status/2088211775296516440/video/1"
       ],
       "media_types": [
-        "photo"
+        "video"
       ],
-      "post_id": "2088106728923766801",
-      "post_url": "https://x.com/Sugizoai/status/2088106728923766801",
-      "posted_at": "2026-08-14T03:33:33+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 39.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・経済｜米7月PPI予想下回りインフレ沈静化が決定的に ・米PPIも下振れ：CPIに続き7月PPI（生産者物価指数）も予想を下回り、FRBの9月早期利下げ観測が超盤石に！ https://t.co/3nACcMQVhw",
-      "topic": "japanese_market",
-      "why_trending": "表示661・投稿後106分・反応率0.5%"
-    },
-    {
-      "author_followers": 531,
-      "discovered_at": "2026-08-14T05:20:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kamefire4",
-      "has_video": false,
-      "headline": "【決算発表後の「押し目買い」3ステップチェック📊】 ​好決算発表後に株価が急落したときは、この3つをチェック👇 ​1️⃣ 売上・営業利益がしっかり伸びているか （一時的な特需ではなく、本業で稼げているか） ​2️⃣ 通期計画（業績予想）の上方修正や進捗率は順調か",
-      "impression_count": 20,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088118304078713222",
-      "post_url": "https://x.com/kamefire4/status/2088118304078713222",
-      "posted_at": "2026-08-14T04:19:33+00:00",
+      "post_id": "2088211775296516440",
+      "post_url": "https://x.com/Neome_com/status/2088211775296516440",
+      "posted_at": "2026-08-14T10:30:58+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 37.9,
+      "score": 39.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【決算発表後の「押し目買い」3ステップチェック📊】 ​好決算発表後に株価が急落したときは、この3つをチェック👇 ​1️⃣ 売上・営業利益がしっかり伸びているか （一時的な特需ではなく、本業で稼げているか） ​2️⃣ 通期計画（業績予想）の上方修正や進捗率は順調か",
-      "topic": "japanese_market",
-      "why_trending": "表示20・投稿後60分・反応率5.0%"
+      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ripple CTO Emeritus Schwartz rejects Bitcoin data limits after BIP-110 failure. • BTC Drops Below $63K: Should Investors Start Worrying?. • Bitcoin Exchanges Upbit and Bithumb Announce Joint Delisting, Declaring https://t.co/7Dpn3NHegU",
+      "topic": "crypto_market",
+      "why_trending": "表示20・投稿後9分・反応率0.0%・動画あり"
     }
   ],
   "trends": [],
