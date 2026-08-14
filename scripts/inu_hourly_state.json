@@ -855,6 +855,20 @@
       "posted_at": "2026-08-14T12:57:23.184129+00:00",
       "hook": "📉 $UNI、24時間で-9.32％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-14-23-a",
+      "post_id": "inu_market_2026_08_14_23_a_crypto-bch-usd",
+      "tweet_id": "2088276589335249022",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BCH-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BCHUSD",
+      "published_at": "2026-08-14T14:00:00+00:00",
+      "posted_at": "2026-08-14T14:48:32.352662+00:00",
+      "hook": "📉 $BCH、24時間で-5.10％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -926,7 +940,8 @@
     "inu_market_2026_08_14_11_a_crypto-pump-usd",
     "inu_market_2026_08_14_13_a_crypto-apr-usd",
     "inu_market_2026_08_14_18_a_crypto-ethfi-usd",
-    "inu_market_2026_08_14_21_a_crypto-uni-usd"
+    "inu_market_2026_08_14_21_a_crypto-uni-usd",
+    "inu_market_2026_08_14_23_a_crypto-bch-usd"
   ],
   "reservations": [
     {
@@ -1146,16 +1161,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-14-23-a",
-      "post_id": "inu_market_2026_08_14_23_a_crypto-bch-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BCHUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BCH-USD",
-      "reserved_at": "2026-08-14T14:47:26.224429+00:00"
     }
   ],
   "history": [
@@ -2069,6 +2074,20 @@
       "published_at": "2026-08-14T12:00:00+00:00",
       "posted_at": "2026-08-14T12:57:23.184129+00:00",
       "hook": "📉 $UNI、24時間で-9.32％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-14-23-a",
+      "post_id": "inu_market_2026_08_14_23_a_crypto-bch-usd",
+      "tweet_id": "2088276589335249022",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BCH-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BCHUSD",
+      "published_at": "2026-08-14T14:00:00+00:00",
+      "posted_at": "2026-08-14T14:48:32.352662+00:00",
+      "hook": "📉 $BCH、24時間で-5.10％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
