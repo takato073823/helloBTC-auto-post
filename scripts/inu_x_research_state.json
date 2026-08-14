@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-13T22:25:30+00:00",
-  "last_watcher_guru_scan_at": "2026-08-13T23:25:19+00:00",
+  "last_deep_scan_at": "2026-08-14T00:43:58+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T00:43:58+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1117,6 +1117,19 @@
       "checked_at": "2026-08-13T23:25:19+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T00:43:58+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T00:43:58+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -1197,6 +1210,34 @@
       "why_trending": "表示9・投稿後12分・反応率17.8%"
     },
     {
+      "author_followers": 125,
+      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MichelleKR1xcc",
+      "has_video": true,
+      "headline": "🔥 MASSIVE CLARITY ACT UPDATE! 🇺🇸 The CFTC says it’s prepared to move forward with crypto regulation—even if Congress continues to stall the CLARITY Act. 🚨 Crypto regulation isn’t w",
+      "impression_count": 30,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/MichelleKR1xcc/status/2088045893702287793/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2088045893702287793",
+      "post_url": "https://x.com/MichelleKR1xcc/status/2088045893702287793",
+      "posted_at": "2026-08-13T23:31:49+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 50.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔥 MASSIVE CLARITY ACT UPDATE! 🇺🇸 The CFTC says it’s prepared to move forward with crypto regulation—even if Congress continues to stall the CLARITY Act. 🚨 Crypto regulation isn’t waiting anymore. The rules are coming. 👀📈 #CLARITYAct #CFTC #CryptoNews #XRP #Ripple #Crypto https://t.co/NWahWiFAoZ",
+      "topic": "regulation",
+      "why_trending": "表示30・投稿後72分・反応率10.0%・動画あり"
+    },
+    {
       "author_followers": 2242,
       "discovered_at": "2026-08-13T19:45:00+00:00",
       "discovery_type": "official_x_api",
@@ -1225,32 +1266,86 @@
       "why_trending": "表示52・投稿後42分・反応率12.7%"
     },
     {
-      "author_followers": 2576,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "author_followers": 0,
+      "discovered_at": "2026-08-14T00:43:58+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": true,
-      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu Token Movements Hint at Potential Stability. • Shiba Inu exchange netflow hits -44 billion SHIB as sell pressure dro",
-      "impression_count": 50,
+      "handle": "KristianMclouth",
+      "has_video": false,
+      "headline": "SEC pulls Reg Crypto proposal and postpones meeting with no new date set. 😬 What does this mean for crypto regulation? 👇 https://t.co/x3KC4DHaCj #SEC #Crypto #Regulation",
+      "impression_count": 22,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/Neome_com/status/2087962646700032272/video/1"
+        "https://marketbit.net/p/sec-cancels-reg-crypto-proposal-meeting-postponed-without-new-date.webm"
+      ],
+      "media_types": [],
+      "post_id": "2088049909077274823",
+      "post_url": "https://x.com/KristianMclouth/status/2088049909077274823",
+      "posted_at": "2026-08-13T23:47:47+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 46.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "SEC pulls Reg Crypto proposal and postpones meeting with no new date set. 😬 What does this mean for crypto regulation? 👇 https://t.co/x3KC4DHaCj #SEC #Crypto #Regulation",
+      "topic": "regulation",
+      "why_trending": "表示22・投稿後56分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 662,
+      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ThCryptoCook",
+      "has_video": false,
+      "headline": "⚡️ BREAKING: 🇺🇸 The SEC has canceled its planned vote on new crypto rules, citing an unforeseen scheduling issue. The meeting was expected to consider exemptions that could make it",
+      "impression_count": 19,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/ThCryptoCook/status/2088051069754437826/photo/1"
       ],
       "media_types": [
-        "video"
+        "photo"
       ],
-      "post_id": "2087962646700032272",
-      "post_url": "https://x.com/Neome_com/status/2087962646700032272",
-      "posted_at": "2026-08-13T18:01:02+00:00",
+      "post_id": "2088051069754437826",
+      "post_url": "https://x.com/ThCryptoCook/status/2088051069754437826",
+      "posted_at": "2026-08-13T23:52:23+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 43.1,
+      "score": 45.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Shiba Inu Token Movements Hint at Potential Stability. • Shiba Inu exchange netflow hits -44 billion SHIB as sell pressure drops. • SK Hynix workers launch unified union due to stalled wages. • XRP Support Holds Near https://t.co/G4FBZQ3PaH",
-      "topic": "onchain_exchange",
-      "why_trending": "表示50・投稿後103分・反応率3.2%・動画あり"
+      "summary": "⚡️ BREAKING: 🇺🇸 The SEC has canceled its planned vote on new crypto rules, citing an unforeseen scheduling issue. The meeting was expected to consider exemptions that could make it easier for crypto startups to raise capital. The delay comes as the CLARITY Act remains stalled in https://t.co/ZkGDQ8zcHl",
+      "topic": "regulation",
+      "why_trending": "表示19・投稿後51分・反応率8.4%"
+    },
+    {
+      "author_followers": 301397,
+      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptosR_Us",
+      "has_video": false,
+      "headline": "The White House is set to host crypto and prediction-market leaders next week. 🇺🇸 The gathering is expected on August 19, with traditional finance executives potentially joining as",
+      "impression_count": 4023,
+      "like_count": 16,
+      "linked_urls": [
+        "https://x.com/CryptosR_Us/status/2088049220355842085/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088049220355842085",
+      "post_url": "https://x.com/CryptosR_Us/status/2088049220355842085",
+      "posted_at": "2026-08-13T23:45:02+00:00",
+      "quote_count": 0,
+      "reply_count": 4,
+      "repost_count": 3,
+      "score": 44.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "The White House is set to host crypto and prediction-market leaders next week. 🇺🇸 The gathering is expected on August 19, with traditional finance executives potentially joining as well. It comes just one day before a major CFTC meeting on crypto regulation and prediction https://t.co/luXSDuSUuN",
+      "topic": "regulation",
+      "why_trending": "表示4,023・投稿後58分・反応率0.7%"
     },
     {
       "author_followers": 173,
@@ -1281,32 +1376,32 @@
       "why_trending": "表示99・投稿後88分・反応率1.6%"
     },
     {
-      "author_followers": 43047,
-      "discovered_at": "2026-08-13T19:45:00+00:00",
+      "author_followers": 9514,
+      "discovered_at": "2026-08-14T00:43:58+00:00",
       "discovery_type": "official_x_api",
-      "handle": "0xSpop",
+      "handle": "stupidlabia",
       "has_video": false,
-      "headline": "Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Read that again. Crypto happenings you should know abo",
-      "impression_count": 198,
-      "like_count": 2,
+      "headline": "🚨 BRÆKING: SEC + CFTC said fuck waiting on Congress. 📅 Aug. 14 — SEC 📅 Aug. 20 — CFTC 📅 Sept. 15 — Congress tries to catch up with CLARITY. Crypto regulation is moving with or with",
+      "impression_count": 118,
+      "like_count": 8,
       "linked_urls": [
-        "https://x.com/0xSpop/status/2087963982527172767/photo/1"
+        "https://x.com/stupidlabia/status/2088037007570108682/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2087963982527172767",
-      "post_url": "https://x.com/0xSpop/status/2087963982527172767",
-      "posted_at": "2026-08-13T18:06:20+00:00",
+      "post_id": "2088037007570108682",
+      "post_url": "https://x.com/stupidlabia/status/2088037007570108682",
+      "posted_at": "2026-08-13T22:56:31+00:00",
       "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 36.6,
+      "reply_count": 2,
+      "repost_count": 2,
+      "score": 41.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Web3 isn't all about Robinhood trenching. Read that again. Crypto happenings you should know about from the past 24 hours: → Harmony confirmed an exploit that minted ~4B ONE, roughly 26% of https://t.co/lcR8p8MFMg",
-      "topic": "onchain_exchange",
-      "why_trending": "表示198・投稿後98分・反応率1.8%"
+      "summary": "🚨 BRÆKING: SEC + CFTC said fuck waiting on Congress. 📅 Aug. 14 — SEC 📅 Aug. 20 — CFTC 📅 Sept. 15 — Congress tries to catch up with CLARITY. Crypto regulation is moving with or without them. The timeline is $Stupid FAFO. https://t.co/MA4OTrIgjm",
+      "topic": "regulation",
+      "why_trending": "表示118・投稿後107分・反応率12.9%"
     },
     {
       "author_followers": 134,
@@ -1363,6 +1458,30 @@
       "summary": "One USDD, Multiple DeFi Possibilities What can you actually do with a stablecoin? With USDD, the answer goes far beyond simply holding an asset pegged around $1. ➙ Use it as a medium of exchange USDD provides a stable-value option for moving capital within the blockchain https://t.co/kfdtt9S4MX",
       "topic": "onchain_exchange",
       "why_trending": "表示9・投稿後7分・反応率0.0%"
+    },
+    {
+      "author_followers": 689,
+      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MintedTools",
+      "has_video": false,
+      "headline": "JUST IN: The SEC abruptly CANCELED tomorrow’s big crypto-rule vote. The meeting was supposed to consider new exemptions for crypto startups. No new date yet. And this comes right a",
+      "impression_count": 51,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088041071620112422",
+      "post_url": "https://x.com/MintedTools/status/2088041071620112422",
+      "posted_at": "2026-08-13T23:12:40+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: The SEC abruptly CANCELED tomorrow’s big crypto-rule vote. The meeting was supposed to consider new exemptions for crypto startups. No new date yet. And this comes right after Congress left town without voting on the CLARITY Act. Crypto regulation just hit TWO major",
+      "topic": "regulation",
+      "why_trending": "表示51・投稿後91分・反応率2.0%"
     }
   ],
   "trends": [],
