@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-14T20:15:51+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T20:15:51+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T21:03:18+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1278,6 +1278,12 @@
       "result_count": 8,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T21:03:18+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1392,34 +1398,6 @@
       "why_trending": "表示82・投稿後30分・反応率3.7%・動画あり"
     },
     {
-      "author_followers": 137,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sanyajr001",
-      "has_video": false,
-      "headline": "🚨 $XRP ETF FLOWS COLLAPSE 93% But here’s the interesting part… 👀 🐋 Whales are still accumulating. 💧 RLUSD continues growing. 🇺🇸 Crypto regulation remains in focus. Weak sentiment ≠",
-      "impression_count": 24,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/Sanyajr001/status/2088275879327605112/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088275879327605112",
-      "post_url": "https://x.com/Sanyajr001/status/2088275879327605112",
-      "posted_at": "2026-08-14T14:45:42+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 4,
-      "score": 51.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 $XRP ETF FLOWS COLLAPSE 93% But here’s the interesting part… 👀 🐋 Whales are still accumulating. 💧 RLUSD continues growing. 🇺🇸 Crypto regulation remains in focus. Weak sentiment ≠ weak fundamentals. #XRP #XRPL https://t.co/rAlsdOPSNk",
-      "topic": "regulation",
-      "why_trending": "表示24・投稿後48分・反応率63.3%"
-    },
-    {
       "author_followers": 40723,
       "discovered_at": "2026-08-14T20:15:51+00:00",
       "discovery_type": "official_x_api",
@@ -1446,34 +1424,6 @@
       "why_trending": "表示689・投稿後47分・反応率2.3%"
     },
     {
-      "author_followers": 3692,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MB14H0110",
-      "has_video": false,
-      "headline": "SEC delays crypto regulation again (today’s meeting canceled). Clarity is still taking forever. Anyway, @injective already made a real move with the SEC back in July by filing as a",
-      "impression_count": 54,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/MB14H0110/status/2088277452086771999/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088277452086771999",
-      "post_url": "https://x.com/MB14H0110/status/2088277452086771999",
-      "posted_at": "2026-08-14T14:51:57+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "SEC delays crypto regulation again (today’s meeting canceled). Clarity is still taking forever. Anyway, @injective already made a real move with the SEC back in July by filing as a transfer agent for onchain securities and RWAs. Some teams are already building the regulated https://t.co/xX1gqEaEQz",
-      "topic": "regulation",
-      "why_trending": "表示54・投稿後42分・反応率7.4%"
-    },
-    {
       "author_followers": 258,
       "discovered_at": "2026-08-14T20:15:51+00:00",
       "discovery_type": "official_x_api",
@@ -1496,62 +1446,6 @@
       "summary": "⚡️**【激動】サンディスク（SNDK）株価が1,600ドル突破！乱高下のワケをサクッと解説**📉📈 ​「急落したと思ったら連日の急騰…」 いまメモリ半導体銘柄の動きがかなり激しくなっています💥 ​📊直近の株価データ（8/14終値） ​📉 終値：1,626.37ドル ​📈 前日比：+98.26ドル（+6.43%）",
       "topic": "japanese_market",
       "why_trending": "表示7・投稿後19分・反応率14.3%"
-    },
-    {
-      "author_followers": 18390,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "_Michellekirby1",
-      "has_video": true,
-      "headline": "🚨 BLACKROCK CLARITY WARNING! 👀 A major development involving BlackRock and U.S. crypto regulation could have investors paying close attention. 🇺🇸📈 Is the crypto market entering a n",
-      "impression_count": 110,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/_Michellekirby1/status/2088268626268717528/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088268626268717528",
-      "post_url": "https://x.com/_Michellekirby1/status/2088268626268717528",
-      "posted_at": "2026-08-14T14:16:53+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 43.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 BLACKROCK CLARITY WARNING! 👀 A major development involving BlackRock and U.S. crypto regulation could have investors paying close attention. 🇺🇸📈 Is the crypto market entering a new phase? #BlackRock #CLARITYAct #XRP #Bitcoin #CryptoNews https://t.co/uwWOBhNwrY",
-      "topic": "regulation",
-      "why_trending": "表示110・投稿後77分・反応率2.7%・動画あり"
-    },
-    {
-      "author_followers": 1862,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "_TiaAudreana",
-      "has_video": false,
-      "headline": "📷 AUGUST 20: THE CFTC IS PUTTING CRYPTO “FROM UNCERTAINTY TO CLARITY.” 📷 While the CLARITY Act remains stalled in Congress, the CFTC is moving ahead with its own conversation about",
-      "impression_count": 35,
-      "like_count": 30,
-      "linked_urls": [
-        "https://x.com/_TiaAudreana/status/2088272412294955363/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088272412294955363",
-      "post_url": "https://x.com/_TiaAudreana/status/2088272412294955363",
-      "posted_at": "2026-08-14T14:31:55+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 7,
-      "score": 40.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📷 AUGUST 20: THE CFTC IS PUTTING CRYPTO “FROM UNCERTAINTY TO CLARITY.” 📷 While the CLARITY Act remains stalled in Congress, the CFTC is moving ahead with its own conversation about the future of digital-asset regulation. On August 20, the agency’s Innovation Advisory Committee https://t.co/XxsGbv21j3",
-      "topic": "regulation",
-      "why_trending": "表示35・投稿後62分・反応率139.4%"
     },
     {
       "author_followers": 5645,
