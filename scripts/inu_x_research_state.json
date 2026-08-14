@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T06:59:15+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T06:59:15+00:00",
+  "last_deep_scan_at": "2026-08-14T08:48:39+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T08:48:39+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1169,6 +1169,19 @@
       "result_count": 6,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T08:48:39+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T08:48:39+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
@@ -1254,6 +1267,32 @@
       "summary": "昨晚美股最重要的事，不是又创新高，而是创新高的方式变了。 7 月 PPI 低于预期，长端收益率回落，标普 500 和纳指顺势刷新收盘纪录。这说明市场最核心的假设还没坏：通胀在降，利率压力在缓，估值还能撑。但如果只看到这个层面，就容易忽略另一个更锋利的信号。 Cisco 财报不差，甚至可以说挺强。AI https://t.co/culcNr1G4O",
       "topic": "chinese_market",
       "why_trending": "表示42・投稿後11分・反応率13.8%"
+    },
+    {
+      "author_followers": 201762,
+      "discovered_at": "2026-08-14T08:48:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "fsa_JAPAN",
+      "has_video": false,
+      "headline": "開催まで約2か月！ 資産運用立国の実現に向け、国内外の多彩なイベントが集結する「Japan Weeks」。本日、特設サイトを更新し、登録イベントは 53件 となりました。 ぜひご確認ください https://t.co/bHU27a1JPx #JapanWeeks #金融庁",
+      "impression_count": 2134,
+      "like_count": 5,
+      "linked_urls": [
+        "https://www.fsa.go.jp/internationalfinancialcenter/lp/japanweeks2026"
+      ],
+      "media_types": [],
+      "post_id": "2088158854400049660",
+      "post_url": "https://x.com/fsa_JAPAN/status/2088158854400049660",
+      "posted_at": "2026-08-14T07:00:41+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "開催まで約2か月！ 資産運用立国の実現に向け、国内外の多彩なイベントが集結する「Japan Weeks」。本日、特設サイトを更新し、登録イベントは 53件 となりました。 ぜひご確認ください https://t.co/bHU27a1JPx #JapanWeeks #金融庁",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示2,134・投稿後107分・反応率0.2%・公式候補リンクあり"
     },
     {
       "author_followers": 146,
