@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T18:34:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T19:38:12+00:00",
+  "last_deep_scan_at": "2026-08-14T20:15:51+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T20:15:51+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1265,6 +1265,19 @@
       "checked_at": "2026-08-14T19:38:12+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T20:15:51+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T20:15:51+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -1323,6 +1336,34 @@
       "why_trending": "表示63・投稿後16分・反応率5.7%・公式候補リンクあり"
     },
     {
+      "author_followers": 107,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "anpota_info",
+      "has_video": false,
+      "headline": "Cboeが3倍レバレッジのビットコイン・イーサリアムETFの上場申請を提出。先物を使用して日次の値動きを3倍にする仕組み。SEC審査開始で認可は未確定だが、規制当局による暗号資産金融商品の評価進展として注視の価値あり。 https://t.co/ENYFBbyLP0",
+      "impression_count": 14,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/anpota_info/status/2088355309731651841/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088355309731651841",
+      "post_url": "https://x.com/anpota_info/status/2088355309731651841",
+      "posted_at": "2026-08-14T20:01:20+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 55.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Cboeが3倍レバレッジのビットコイン・イーサリアムETFの上場申請を提出。先物を使用して日次の値動きを3倍にする仕組み。SEC審査開始で認可は未確定だが、規制当局による暗号資産金融商品の評価進展として注視の価値あり。 https://t.co/ENYFBbyLP0",
+      "topic": "japanese_market",
+      "why_trending": "表示14・投稿後14分・反応率11.4%"
+    },
+    {
       "author_followers": 5639,
       "discovered_at": "2026-08-14T15:34:01+00:00",
       "discovery_type": "official_x_api",
@@ -1349,34 +1390,6 @@
       "summary": "🚨 HESTER PEIRCE JUST WEIGHED IN SEC Commissioner Hester Peirce says she expects the CLARITY Act to pass this summer—a statement that could put even more attention on the ongoing fight for crypto regulation in Washington. 🇺🇸 #CLARITYAct #HesterPeirce #XRP https://t.co/ZBjwJq5pU5",
       "topic": "regulation",
       "why_trending": "表示82・投稿後30分・反応率3.7%・動画あり"
-    },
-    {
-      "author_followers": 262,
-      "discovered_at": "2026-08-14T15:34:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Michellekicb",
-      "has_video": true,
-      "headline": "🚨🇺🇸 CLARITY ACT VOTE DATE SET! The next major test for U.S. crypto regulation is approaching. 👀🔥 Could this be a turning point for XRP, Bitcoin, and the broader crypto market? #CLA",
-      "impression_count": 75,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/Michellekicb/status/2088267470872207360/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088267470872207360",
-      "post_url": "https://x.com/Michellekicb/status/2088267470872207360",
-      "posted_at": "2026-08-14T14:12:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 2,
-      "score": 51.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨🇺🇸 CLARITY ACT VOTE DATE SET! The next major test for U.S. crypto regulation is approaching. 👀🔥 Could this be a turning point for XRP, Bitcoin, and the broader crypto market? #CLARITYAct #XRP #Bitcoin #Crypto #CryptoNews https://t.co/kAFHAcvtWc",
-      "topic": "regulation",
-      "why_trending": "表示75・投稿後81分・反応率8.0%・動画あり"
     },
     {
       "author_followers": 137,
@@ -1407,6 +1420,32 @@
       "why_trending": "表示24・投稿後48分・反応率63.3%"
     },
     {
+      "author_followers": 40723,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "PaPaPa80755851",
+      "has_video": false,
+      "headline": "SEC、長らく待たれていた暗号資産規制の提案をキャンセル、会議は新しい日程なしで延期 https://t.co/vpwDKNqD2w 米国証券取引委員会が提案する最初の大規模な暗号資産ルールは、突然の延期で、もう少し待たなければならなくなった。",
+      "impression_count": 689,
+      "like_count": 14,
+      "linked_urls": [
+        "https://www.coindesk.com/policy/2026/08/13/sec-cancels-long-awaited-proposal-of-reg-crypto-postponing-meeting-without-new-date"
+      ],
+      "media_types": [],
+      "post_id": "2088346994733658192",
+      "post_url": "https://x.com/PaPaPa80755851/status/2088346994733658192",
+      "posted_at": "2026-08-14T19:28:17+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 48.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "SEC、長らく待たれていた暗号資産規制の提案をキャンセル、会議は新しい日程なしで延期 https://t.co/vpwDKNqD2w 米国証券取引委員会が提案する最初の大規模な暗号資産ルールは、突然の延期で、もう少し待たなければならなくなった。",
+      "topic": "japanese_market",
+      "why_trending": "表示689・投稿後47分・反応率2.3%"
+    },
+    {
       "author_followers": 3692,
       "discovered_at": "2026-08-14T15:34:01+00:00",
       "discovery_type": "official_x_api",
@@ -1433,6 +1472,30 @@
       "summary": "SEC delays crypto regulation again (today’s meeting canceled). Clarity is still taking forever. Anyway, @injective already made a real move with the SEC back in July by filing as a transfer agent for onchain securities and RWAs. Some teams are already building the regulated https://t.co/xX1gqEaEQz",
       "topic": "regulation",
       "why_trending": "表示54・投稿後42分・反応率7.4%"
+    },
+    {
+      "author_followers": 258,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MIv777RXNH75184",
+      "has_video": false,
+      "headline": "⚡️**【激動】サンディスク（SNDK）株価が1,600ドル突破！乱高下のワケをサクッと解説**📉📈 ​「急落したと思ったら連日の急騰…」 いまメモリ半導体銘柄の動きがかなり激しくなっています💥 ​📊直近の株価データ（8/14終値） ​📉 終値：1,626.37ドル ​📈 前日比：+98.26ドル（+6.43%）",
+      "impression_count": 7,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088353985157894385",
+      "post_url": "https://x.com/MIv777RXNH75184/status/2088353985157894385",
+      "posted_at": "2026-08-14T19:56:04+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "⚡️**【激動】サンディスク（SNDK）株価が1,600ドル突破！乱高下のワケをサクッと解説**📉📈 ​「急落したと思ったら連日の急騰…」 いまメモリ半導体銘柄の動きがかなり激しくなっています💥 ​📊直近の株価データ（8/14終値） ​📉 終値：1,626.37ドル ​📈 前日比：+98.26ドル（+6.43%）",
+      "topic": "japanese_market",
+      "why_trending": "表示7・投稿後19分・反応率14.3%"
     },
     {
       "author_followers": 18390,
@@ -1489,6 +1552,146 @@
       "summary": "📷 AUGUST 20: THE CFTC IS PUTTING CRYPTO “FROM UNCERTAINTY TO CLARITY.” 📷 While the CLARITY Act remains stalled in Congress, the CFTC is moving ahead with its own conversation about the future of digital-asset regulation. On August 20, the agency’s Innovation Advisory Committee https://t.co/XxsGbv21j3",
       "topic": "regulation",
       "why_trending": "表示35・投稿後62分・反応率139.4%"
+    },
+    {
+      "author_followers": 5645,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Meki_Chill",
+      "has_video": false,
+      "headline": "AI関連、キオクシアがレバETF💀 マネーが集中した末に急落しそう 私はブレずにBTC買い増してる ガチホで大優勝🩷 🧸最近のBTCまとめ🧸 ロシア プーチン署名の暗号法9/1から規制下で BTC取引解禁（クロスボーダーOK） アメリカ トランプ政権の戦略的ビットコイン",
+      "impression_count": 445,
+      "like_count": 7,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088332395435249968",
+      "post_url": "https://x.com/Meki_Chill/status/2088332395435249968",
+      "posted_at": "2026-08-14T18:30:17+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 39.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "AI関連、キオクシアがレバETF💀 マネーが集中した末に急落しそう 私はブレずにBTC買い増してる ガチホで大優勝🩷 🧸最近のBTCまとめ🧸 ロシア プーチン署名の暗号法9/1から規制下で BTC取引解禁（クロスボーダーOK） アメリカ トランプ政権の戦略的ビットコイン",
+      "topic": "japanese_market",
+      "why_trending": "表示445・投稿後105分・反応率1.9%"
+    },
+    {
+      "author_followers": 181,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "PlantreeX",
+      "has_video": false,
+      "headline": "パブリックチェーンの意味が変わり始めた。 ① 暗号資産を送る台帳 ② Stablecoin / DeFiの決済層 ③ RWAを載せる場所 ④ そして2026年── 規制金融資産の「法的な所有台帳」へ 最近では BNYがDigital Transfer Agencyを開始。 Baillie Giffordの英国規制ファンドBAGEYでは、Ethereum / ",
+      "impression_count": 9,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/PlantreeX/status/2088342650092962247/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088342650092962247",
+      "post_url": "https://x.com/PlantreeX/status/2088342650092962247",
+      "posted_at": "2026-08-14T19:11:01+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 38.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "パブリックチェーンの意味が変わり始めた。 ① 暗号資産を送る台帳 ② Stablecoin / DeFiの決済層 ③ RWAを載せる場所 ④ そして2026年── 規制金融資産の「法的な所有台帳」へ 最近では BNYがDigital Transfer Agencyを開始。 Baillie Giffordの英国規制ファンドBAGEYでは、Ethereum / https://t.co/AfyXquIrMI",
+      "topic": "japanese_market",
+      "why_trending": "表示9・投稿後64分・反応率17.8%"
+    },
+    {
+      "author_followers": 4,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "impakt_signal",
+      "has_video": false,
+      "headline": "【注目開示】ユニカフェ（2597） 業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📉 株価：1,164円（前日比-0.34%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/JvVyweLBJk",
+      "impression_count": 0,
+      "like_count": 0,
+      "linked_urls": [
+        "https://impakt-signal.com",
+        "https://x.com/impakt_signal/status/2088357870588829934/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088357870588829934",
+      "post_url": "https://x.com/impakt_signal/status/2088357870588829934",
+      "posted_at": "2026-08-14T20:11:30+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 38.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【注目開示】ユニカフェ（2597） 業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📉 株価：1,164円（前日比-0.34%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/JvVyweLBJk",
+      "topic": "japanese_market",
+      "why_trending": "表示0・投稿後4分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "impakt_signal",
+      "has_video": false,
+      "headline": "【注目開示】Ｇ－ＧＮＩ（2160） 通期業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📈 株価：2,935円（前日比+1.31%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/e1JUyV6a9k",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://impakt-signal.com",
+        "https://x.com/impakt_signal/status/2088332981492424989/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088332981492424989",
+      "post_url": "https://x.com/impakt_signal/status/2088332981492424989",
+      "posted_at": "2026-08-14T18:32:36+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【注目開示】Ｇ－ＧＮＩ（2160） 通期業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📈 株価：2,935円（前日比+1.31%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/e1JUyV6a9k",
+      "topic": "japanese_market",
+      "why_trending": "表示1・投稿後103分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4,
+      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "impakt_signal",
+      "has_video": false,
+      "headline": "【デモ公開中】IMPAKT ― 重要開示をリアルタイム検知 TDnet・EDINETの開示を最速アラート。COMBO検出・ウォッチリスト・スクリーナー搭載。 📊 デモ画面はこちら → https://t.co/i02ceiflyJ 🎁 このリンクから登録で初月20%OFF → https://t.co/ScBK6hvYgF #日本株 #決算 #適時開示 ht",
+      "impression_count": 0,
+      "like_count": 0,
+      "linked_urls": [
+        "https://impakt-signal.com/demo",
+        "https://impakt-signal.com",
+        "https://x.com/impakt_signal/status/2088351000490836206/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088351000490836206",
+      "post_url": "https://x.com/impakt_signal/status/2088351000490836206",
+      "posted_at": "2026-08-14T19:44:12+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【デモ公開中】IMPAKT ― 重要開示をリアルタイム検知 TDnet・EDINETの開示を最速アラート。COMBO検出・ウォッチリスト・スクリーナー搭載。 📊 デモ画面はこちら → https://t.co/i02ceiflyJ 🎁 このリンクから登録で初月20%OFF → https://t.co/ScBK6hvYgF #日本株 #決算 #適時開示 https://t.co/ObaKFuvLcy",
+      "topic": "japanese_market",
+      "why_trending": "表示0・投稿後31分・反応率0.0%・公式候補リンクあり"
     }
   ],
   "trends": [],
