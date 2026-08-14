@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-14T21:59:46+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T21:59:46+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T23:00:35+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1297,36 +1297,38 @@
       "result_count": 5,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T23:00:35+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
     {
-      "author_followers": 4669411,
-      "discovered_at": "2026-08-14T16:34:05+00:00",
+      "author_followers": 4671755,
+      "discovered_at": "2026-08-14T23:00:35+00:00",
       "discovery_type": "official_x_api",
       "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "JUST IN: Peter Schiff says \"sell\" Bitcoin. https://t.co/Eq6cLs1KPC",
-      "impression_count": 118499,
-      "like_count": 858,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2088294681524277466/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088294681524277466",
-      "post_url": "https://x.com/WatcherGuru/status/2088294681524277466",
-      "posted_at": "2026-08-14T16:00:25+00:00",
-      "quote_count": 52,
-      "reply_count": 329,
-      "repost_count": 67,
-      "score": 78.4,
+      "headline": "JUST IN: 🇺🇸 Trump family crypto company World Liberty Financial receives approval to become a federally chartered bank.",
+      "impression_count": 274493,
+      "like_count": 3928,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088372860943274205",
+      "post_url": "https://x.com/WatcherGuru/status/2088372860943274205",
+      "posted_at": "2026-08-14T21:11:04+00:00",
+      "quote_count": 177,
+      "reply_count": 416,
+      "repost_count": 574,
+      "score": 58.2,
       "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Peter Schiff says \"sell\" Bitcoin. https://t.co/Eq6cLs1KPC",
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 Trump family crypto company World Liberty Financial receives approval to become a federally chartered bank.",
       "topic": "watcher_guru",
-      "why_trending": "表示118,499・投稿後33分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
+      "why_trending": "表示274,493・投稿後109分・反応率2.2%"
     },
     {
       "author_followers": 107,
