@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-14T10:40:33+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T10:40:33+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T11:29:25+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1195,6 +1195,12 @@
       "result_count": 4,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T11:29:25+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1223,35 +1229,6 @@
       "summary": "千呼万唤始出来 termmax要tge了！！ termmax要tge了！！ termmax要tge了！！ 时间：8.25 终于终于 等了这么久😭！！ 这几天要猛猛写了 终于等到你 还好我没放弃😭 最近 RWA 这条线又开始热起来了，尤其是 Ondo 这边，链上股票已经不是“概念阶段”了。 现在 Ondo Stocks 支持的资产已经超过 440 https://t.co/9U8xcSbqwA",
       "topic": "chinese_market",
       "why_trending": "表示98・投稿後7分・反応率36.5%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 119852,
-      "discovered_at": "2026-08-14T06:59:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "sanshunyi",
-      "has_video": false,
-      "headline": "加密交易所正在变成24小时美股终端，Gate正在成为最大黑马 加密交易所的下一场竞争，可能已经不只是Crypto，谁能成为全球投资者的24小时美股交易终端。 根据CryptoQuant统计，TradFi股权永续合约的月交易量，从4月约：50亿美元增长至7月约：2500亿美元 短短三个月增长接近 https://t.co/CDDnbiI8Qm https://",
-      "impression_count": 1340,
-      "like_count": 24,
-      "linked_urls": [
-        "https://x.com/sanshunyi/status/2088135083895210370/photo/1",
-        "https://twitter.com/JoeyJia11/status/2087439323495112950"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088135083895210370",
-      "post_url": "https://x.com/sanshunyi/status/2088135083895210370",
-      "posted_at": "2026-08-14T05:26:14+00:00",
-      "quote_count": 0,
-      "reply_count": 23,
-      "repost_count": 0,
-      "score": 59.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "加密交易所正在变成24小时美股终端，Gate正在成为最大黑马 加密交易所的下一场竞争，可能已经不只是Crypto，谁能成为全球投资者的24小时美股交易终端。 根据CryptoQuant统计，TradFi股权永续合约的月交易量，从4月约：50亿美元增长至7月约：2500亿美元 短短三个月增长接近 https://t.co/CDDnbiI8Qm https://t.co/UI0xOAgORY",
-      "topic": "chinese_market",
-      "why_trending": "表示1,340・投稿後93分・反応率4.5%・公式候補リンクあり"
     },
     {
       "author_followers": 7062,
@@ -1447,30 +1424,6 @@
       "summary": "BITCOIN BREAKS BELOW $63K SUPPORT BTC has slipped below the important $63,000 support level after failing to hold the recent range. The rejection from $65,700 resistance and inability to reclaim $64,000 has shifted short-term momentum back towards the bears. Key areas to https://t.co/bI8QbxWHPP",
       "topic": "crypto_market",
       "why_trending": "表示1,345・投稿後115分・反応率1.5%"
-    },
-    {
-      "author_followers": 1660,
-      "discovered_at": "2026-08-14T06:59:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Egnay_iel",
-      "has_video": false,
-      "headline": "槽！通胀降温、油价松动、美股创新高，比特币和以太坊却连个水花都溅不起来。 这不是什么利好没兑现，币圈现在是什么好消息都接不住了。",
-      "impression_count": 111,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088132818891116954",
-      "post_url": "https://x.com/Egnay_iel/status/2088132818891116954",
-      "posted_at": "2026-08-14T05:17:14+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 41.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "槽！通胀降温、油价松动、美股创新高，比特币和以太坊却连个水花都溅不起来。 这不是什么利好没兑现，币圈现在是什么好消息都接不住了。",
-      "topic": "chinese_market",
-      "why_trending": "表示111・投稿後102分・反応率3.2%"
     },
     {
       "author_followers": 2578,
