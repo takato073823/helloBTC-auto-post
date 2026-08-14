@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-14T15:34:01+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T15:34:01+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T16:34:05+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1240,9 +1240,43 @@
       "result_count": 7,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T16:34:05+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4669411,
+      "discovered_at": "2026-08-14T16:34:05+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Peter Schiff says \"sell\" Bitcoin. https://t.co/Eq6cLs1KPC",
+      "impression_count": 118499,
+      "like_count": 858,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2088294681524277466/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088294681524277466",
+      "post_url": "https://x.com/WatcherGuru/status/2088294681524277466",
+      "posted_at": "2026-08-14T16:00:25+00:00",
+      "quote_count": 52,
+      "reply_count": 329,
+      "repost_count": 67,
+      "score": 78.4,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Peter Schiff says \"sell\" Bitcoin. https://t.co/Eq6cLs1KPC",
+      "topic": "watcher_guru",
+      "why_trending": "表示118,499・投稿後33分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 3237,
       "discovered_at": "2026-08-14T15:34:01+00:00",
@@ -1436,34 +1470,6 @@
       "why_trending": "表示13・投稿後72分・反応率7.7%・公式候補リンクあり"
     },
     {
-      "author_followers": 1311,
-      "discovered_at": "2026-08-14T10:40:33+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "haxeth89",
-      "has_video": false,
-      "headline": "ETF Flows Flip Again – Bitcoin Out, Ethereum &amp; Solana In Capital is rotating inside crypto, not leaving. On August 12, U.S. spot Bitcoin ETFs saw roughly $61 million in net out",
-      "impression_count": 9,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/haxeth89/status/2088206496039366823/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088206496039366823",
-      "post_url": "https://x.com/haxeth89/status/2088206496039366823",
-      "posted_at": "2026-08-14T10:10:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ETF Flows Flip Again – Bitcoin Out, Ethereum &amp; Solana In Capital is rotating inside crypto, not leaving. On August 12, U.S. spot Bitcoin ETFs saw roughly $61 million in net outflows while Ethereum and Solana products attracted fresh inflows. The divergence is becoming clearer. https://t.co/sOyHkpYQg1",
-      "topic": "crypto_market",
-      "why_trending": "表示9・投稿後30分・反応率11.1%"
-    },
-    {
       "author_followers": 18390,
       "discovered_at": "2026-08-14T15:34:01+00:00",
       "discovery_type": "official_x_api",
@@ -1542,34 +1548,6 @@
       "summary": "Cryptocurrency and Macroeconomic Round-Up for Friday, August 14, 2026 1. Bitcoin: Around $63,000-$65,000, market remains in a consolidation phase. The cryptocurrency market remains relatively quiet following the latest US inflation data. Bitcoin is trading in the",
       "topic": "onchain_exchange",
       "why_trending": "表示57・投稿後95分・反応率8.1%"
-    },
-    {
-      "author_followers": 2578,
-      "discovered_at": "2026-08-14T10:40:33+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": true,
-      "headline": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ripple CTO Emeritus Schwartz rejects Bitcoin data limits after BIP-110 failure. • BTC Drops Below $63K: Should Investors Start",
-      "impression_count": 20,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Neome_com/status/2088211775296516440/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088211775296516440",
-      "post_url": "https://x.com/Neome_com/status/2088211775296516440",
-      "posted_at": "2026-08-14T10:30:58+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 39.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Ripple CTO Emeritus Schwartz rejects Bitcoin data limits after BIP-110 failure. • BTC Drops Below $63K: Should Investors Start Worrying?. • Bitcoin Exchanges Upbit and Bithumb Announce Joint Delisting, Declaring https://t.co/7Dpn3NHegU",
-      "topic": "crypto_market",
-      "why_trending": "表示20・投稿後9分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 2579,
