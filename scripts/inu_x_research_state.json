@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-14T03:13:55+00:00",
-  "last_watcher_guru_scan_at": "2026-08-14T03:13:55+00:00",
+  "last_deep_scan_at": "2026-08-14T05:20:14+00:00",
+  "last_watcher_guru_scan_at": "2026-08-14T05:20:14+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1143,6 +1143,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-14T05:20:14+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-14T05:20:14+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -1175,6 +1188,34 @@
       "why_trending": "表示30・投稿後72分・反応率10.0%・動画あり"
     },
     {
+      "author_followers": 146,
+      "discovered_at": "2026-08-14T05:20:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "kanonweb30",
+      "has_video": false,
+      "headline": "アメリカで「暗号資産のルール作り」が法律なしで動き始めました🚨 SECとCFTCという2つの規制機関が、議会の新法を待たずに独自でルールを整えようとしています。 https://t.co/pmcUwO3LVw",
+      "impression_count": 46,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/kanonweb30/status/2088103487888572880/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088103487888572880",
+      "post_url": "https://x.com/kanonweb30/status/2088103487888572880",
+      "posted_at": "2026-08-14T03:20:41+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 46.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "アメリカで「暗号資産のルール作り」が法律なしで動き始めました🚨 SECとCFTCという2つの規制機関が、議会の新法を待たずに独自でルールを整えようとしています。 https://t.co/pmcUwO3LVw",
+      "topic": "japanese_market",
+      "why_trending": "表示46・投稿後119分・反応率6.5%"
+    },
+    {
       "author_followers": 0,
       "discovered_at": "2026-08-14T00:43:58+00:00",
       "discovery_type": "official_x_api",
@@ -1199,6 +1240,34 @@
       "summary": "SEC pulls Reg Crypto proposal and postpones meeting with no new date set. 😬 What does this mean for crypto regulation? 👇 https://t.co/x3KC4DHaCj #SEC #Crypto #Regulation",
       "topic": "regulation",
       "why_trending": "表示22・投稿後56分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 246,
+      "discovered_at": "2026-08-14T05:20:14+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "kloster333",
+      "has_video": false,
+      "headline": "ゴールドマン・サックスが動いた。 これはもう「様子見」じゃない。 米金融大手Goldman Sachsが、ビットコイン・イーサリアムのカバードコールETFを運用するNEOS Investmentsの買収を進めていることが明らかに。 機関投資家の本格参入が、また一歩現実になっています。 今回のポイントはこちら https://t.co/FIyJwGIarJ",
+      "impression_count": 80,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/kloster333/status/2088119673930096881/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088119673930096881",
+      "post_url": "https://x.com/kloster333/status/2088119673930096881",
+      "posted_at": "2026-08-14T04:25:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 46.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ゴールドマン・サックスが動いた。 これはもう「様子見」じゃない。 米金融大手Goldman Sachsが、ビットコイン・イーサリアムのカバードコールETFを運用するNEOS Investmentsの買収を進めていることが明らかに。 機関投資家の本格参入が、また一歩現実になっています。 今回のポイントはこちら https://t.co/FIyJwGIarJ",
+      "topic": "japanese_market",
+      "why_trending": "表示80・投稿後55分・反応率1.2%"
     },
     {
       "author_followers": 662,
@@ -1257,56 +1326,56 @@
       "why_trending": "表示4,023・投稿後58分・反応率0.7%"
     },
     {
-      "author_followers": 9514,
-      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "author_followers": 130,
+      "discovered_at": "2026-08-14T05:20:14+00:00",
       "discovery_type": "official_x_api",
-      "handle": "stupidlabia",
+      "handle": "Sugizoai",
       "has_video": false,
-      "headline": "🚨 BRÆKING: SEC + CFTC said fuck waiting on Congress. 📅 Aug. 14 — SEC 📅 Aug. 20 — CFTC 📅 Sept. 15 — Congress tries to catch up with CLARITY. Crypto regulation is moving with or with",
-      "impression_count": 118,
-      "like_count": 8,
+      "headline": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・経済｜米7月PPI予想下回りインフレ沈静化が決定的に ・米PPIも下振れ：CPIに続き7月PPI（生産者物価指数）も予想を下回り、FRBの9月早期利下げ観測が超盤石に！ https://t.co/3nACcMQVhw",
+      "impression_count": 661,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/stupidlabia/status/2088037007570108682/photo/1"
+        "https://x.com/Sugizoai/status/2088106728923766801/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088037007570108682",
-      "post_url": "https://x.com/stupidlabia/status/2088037007570108682",
-      "posted_at": "2026-08-13T22:56:31+00:00",
+      "post_id": "2088106728923766801",
+      "post_url": "https://x.com/Sugizoai/status/2088106728923766801",
+      "posted_at": "2026-08-14T03:33:33+00:00",
       "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 2,
-      "score": 41.6,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 39.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 BRÆKING: SEC + CFTC said fuck waiting on Congress. 📅 Aug. 14 — SEC 📅 Aug. 20 — CFTC 📅 Sept. 15 — Congress tries to catch up with CLARITY. Crypto regulation is moving with or without them. The timeline is $Stupid FAFO. https://t.co/MA4OTrIgjm",
-      "topic": "regulation",
-      "why_trending": "表示118・投稿後107分・反応率12.9%"
+      "summary": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・経済｜米7月PPI予想下回りインフレ沈静化が決定的に ・米PPIも下振れ：CPIに続き7月PPI（生産者物価指数）も予想を下回り、FRBの9月早期利下げ観測が超盤石に！ https://t.co/3nACcMQVhw",
+      "topic": "japanese_market",
+      "why_trending": "表示661・投稿後106分・反応率0.5%"
     },
     {
-      "author_followers": 689,
-      "discovered_at": "2026-08-14T00:43:58+00:00",
+      "author_followers": 531,
+      "discovered_at": "2026-08-14T05:20:14+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MintedTools",
+      "handle": "kamefire4",
       "has_video": false,
-      "headline": "JUST IN: The SEC abruptly CANCELED tomorrow’s big crypto-rule vote. The meeting was supposed to consider new exemptions for crypto startups. No new date yet. And this comes right a",
-      "impression_count": 51,
+      "headline": "【決算発表後の「押し目買い」3ステップチェック📊】 ​好決算発表後に株価が急落したときは、この3つをチェック👇 ​1️⃣ 売上・営業利益がしっかり伸びているか （一時的な特需ではなく、本業で稼げているか） ​2️⃣ 通期計画（業績予想）の上方修正や進捗率は順調か",
+      "impression_count": 20,
       "like_count": 1,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2088041071620112422",
-      "post_url": "https://x.com/MintedTools/status/2088041071620112422",
-      "posted_at": "2026-08-13T23:12:40+00:00",
+      "post_id": "2088118304078713222",
+      "post_url": "https://x.com/kamefire4/status/2088118304078713222",
+      "posted_at": "2026-08-14T04:19:33+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 35.1,
+      "score": 37.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "JUST IN: The SEC abruptly CANCELED tomorrow’s big crypto-rule vote. The meeting was supposed to consider new exemptions for crypto startups. No new date yet. And this comes right after Congress left town without voting on the CLARITY Act. Crypto regulation just hit TWO major",
-      "topic": "regulation",
-      "why_trending": "表示51・投稿後91分・反応率2.0%"
+      "summary": "【決算発表後の「押し目買い」3ステップチェック📊】 ​好決算発表後に株価が急落したときは、この3つをチェック👇 ​1️⃣ 売上・営業利益がしっかり伸びているか （一時的な特需ではなく、本業で稼げているか） ​2️⃣ 通期計画（業績予想）の上方修正や進捗率は順調か",
+      "topic": "japanese_market",
+      "why_trending": "表示20・投稿後60分・反応率5.0%"
     }
   ],
   "trends": [],
