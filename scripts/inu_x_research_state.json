@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T02:04:16+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T03:23:59+00:00",
+  "last_deep_scan_at": "2026-08-15T04:14:56+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T04:14:56+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1335,9 +1335,48 @@
       "checked_at": "2026-08-15T03:23:59+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T04:14:56+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T04:14:56+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
+    {
+      "author_followers": 7649,
+      "discovered_at": "2026-08-15T04:14:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "NewsLayerApp",
+      "has_video": false,
+      "headline": "🔴 BREAKING: $116M Bitcoin Wallet Exploit Sparks Self-Custody Debate Amid ETF Inflows https://t.co/DKwNTjXS8z #Bitcoin #Crypto #Markets #CryptoNews #Web3 #Blockchain #DeFi #Ethereum",
+      "impression_count": 28,
+      "like_count": 2,
+      "linked_urls": [
+        "https://newslayer.com/api/v1/s/116m-bitcoin-wallet-exploit-sparks-self-custody-debate-amid-etf-inflows-82df72"
+      ],
+      "media_types": [],
+      "post_id": "2088452043488821594",
+      "post_url": "https://x.com/NewsLayerApp/status/2088452043488821594",
+      "posted_at": "2026-08-15T02:25:43+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 52.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔴 BREAKING: $116M Bitcoin Wallet Exploit Sparks Self-Custody Debate Amid ETF Inflows https://t.co/DKwNTjXS8z #Bitcoin #Crypto #Markets #CryptoNews #Web3 #Blockchain #DeFi #Ethereum #Altcoins #CryptoRegulation",
+      "topic": "onchain_exchange",
+      "why_trending": "表示28・投稿後109分・反応率12.9%・公式候補リンクあり"
+    },
     {
       "author_followers": 226359,
       "discovered_at": "2026-08-15T02:04:16+00:00",
@@ -1365,30 +1404,6 @@
       "summary": "BTC open interest +15% this month (+37K BTC in perps). This is interesting given that the volatility is at all time lows. Highest perps BTC notional OI we've seen since the 2022-2023 pre-ETF era. https://t.co/wxvfnhpQEy",
       "topic": "crypto_market",
       "why_trending": "表示748・投稿後2分・反応率0.4%"
-    },
-    {
-      "author_followers": 33967,
-      "discovered_at": "2026-08-14T21:59:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Balder13946731",
-      "has_video": false,
-      "headline": "【美股复盘 · 8月14日】 **大市**｜美股周五反复偏软，主要指数低位靠稳收市，全日缺乏方向。标普500指数ETF( $SPY )收报776.00点，跌0.24%；纳指ETF( QQQ )收报729.70点，跌0.32%，为三大指数中跌幅最深；道指ETF( DIA )收报537.10点，跌0.15%，跌势相对受控。资金转向中小型股，罗素2000ETF( ",
-      "impression_count": 872,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088377881659625906",
-      "post_url": "https://x.com/Balder13946731/status/2088377881659625906",
-      "posted_at": "2026-08-14T21:31:01+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 40.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【美股复盘 · 8月14日】 **大市**｜美股周五反复偏软，主要指数低位靠稳收市，全日缺乏方向。标普500指数ETF( $SPY )收报776.00点，跌0.24%；纳指ETF( QQQ )收报729.70点，跌0.32%，为三大指数中跌幅最深；道指ETF( DIA )收报537.10点，跌0.15%，跌势相对受控。资金转向中小型股，罗素2000ETF( IWM",
-      "topic": "chinese_market",
-      "why_trending": "表示872・投稿後28分・反応率0.7%"
     },
     {
       "author_followers": 55,
@@ -1467,28 +1482,108 @@
       "why_trending": "表示504・投稿後54分・反応率0.4%"
     },
     {
-      "author_followers": 49,
-      "discovered_at": "2026-08-14T21:59:46+00:00",
+      "author_followers": 3,
+      "discovered_at": "2026-08-15T04:14:56+00:00",
       "discovery_type": "official_x_api",
-      "handle": "OwenLiuyf",
+      "handle": "sentinelbtccom",
       "has_video": false,
-      "headline": "Binance刚刚向所有用户宣布，停止处理与16个加密货币平台的交易，其中包括主要交易所 HTX 怪不得前几天CZ取关孙哥。 但我觉得这个事情应该问题不大，孙哥现在流量口碑忽然变好，现在CZ不至于去跟他撕破脸",
-      "impression_count": 7,
+      "headline": "A whale just moved 2,460 $BTC ($155.2M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
+      "impression_count": 1,
       "like_count": 0,
-      "linked_urls": [],
+      "linked_urls": [
+        "https://sentinelbtc.com/e/ux_1ovbcw"
+      ],
       "media_types": [],
-      "post_id": "2088381167255052689",
-      "post_url": "https://x.com/OwenLiuyf/status/2088381167255052689",
-      "posted_at": "2026-08-14T21:44:05+00:00",
+      "post_id": "2088462743066042434",
+      "post_url": "https://x.com/sentinelbtccom/status/2088462743066042434",
+      "posted_at": "2026-08-15T03:08:14+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 36.2,
+      "score": 35.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Binance刚刚向所有用户宣布，停止处理与16个加密货币平台的交易，其中包括主要交易所 HTX 怪不得前几天CZ取关孙哥。 但我觉得这个事情应该问题不大，孙哥现在流量口碑忽然变好，现在CZ不至于去跟他撕破脸",
-      "topic": "chinese_market",
-      "why_trending": "表示7・投稿後15分・反応率0.0%"
+      "summary": "A whale just moved 2,460 $BTC ($155.2M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/CTRT56yG7o #Bitcoin #Whale #OnChain",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1・投稿後66分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 3,
+      "discovered_at": "2026-08-15T04:14:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "sentinelbtccom",
+      "has_video": false,
+      "headline": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://sentinelbtc.com/e/ux_1b5ejql"
+      ],
+      "media_types": [],
+      "post_id": "2088459773515583529",
+      "post_url": "https://x.com/sentinelbtccom/status/2088459773515583529",
+      "posted_at": "2026-08-15T02:56:26+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/aq4xmzpXeW #Bitcoin #Whale #OnChain",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1・投稿後78分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 3,
+      "discovered_at": "2026-08-15T04:14:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "sentinelbtccom",
+      "has_video": false,
+      "headline": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://sentinelbtc.com/e/ux_1cuynqv"
+      ],
+      "media_types": [],
+      "post_id": "2088459713268625916",
+      "post_url": "https://x.com/sentinelbtccom/status/2088459713268625916",
+      "posted_at": "2026-08-15T02:56:12+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/G4gaQjqhPs #Bitcoin #Whale #OnChain",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1・投稿後78分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 3,
+      "discovered_at": "2026-08-15T04:14:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "sentinelbtccom",
+      "has_video": false,
+      "headline": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://sentinelbtc.com/e/ux_edvig0"
+      ],
+      "media_types": [],
+      "post_id": "2088456692707008612",
+      "post_url": "https://x.com/sentinelbtccom/status/2088456692707008612",
+      "posted_at": "2026-08-15T02:44:11+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/4y0WHSX1id #Bitcoin #Whale #OnChain",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1・投稿後90分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 24,
