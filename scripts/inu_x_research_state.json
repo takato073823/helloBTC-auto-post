@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T11:57:20+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T11:57:20+00:00",
+  "last_deep_scan_at": "2026-08-15T13:18:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T13:18:32+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1424,6 +1424,19 @@
       "result_count": 8,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T13:18:32+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T13:18:32+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -1454,6 +1467,35 @@
       "summary": "こんにちは！ 🚨BTCが24時間でわずか0.3%しか動いていない。 「何も起きてないなら、見る必要ないよね？」 実は、私は逆だと思っています👀 ━━━━━━━━━━━━━━━ 📊 BTCが動かないことに注目 ━━━━━━━━━━━━━━━ https://t.co/Dm2FUbCxuY",
       "topic": "japanese_market",
       "why_trending": "表示25・投稿後11分・反応率4.0%"
+    },
+    {
+      "author_followers": 1065,
+      "discovered_at": "2026-08-15T13:18:32+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "SevenXL77",
+      "has_video": false,
+      "headline": "连工具都没摸全就敢冲美股？光靠X上刷喊单，跟闭着眼跳进去有什么区别。这10个网站，打开任何一个都比你刷一天帖子有用。 📊 盘面扫雷 1️⃣ Finviz—热力图、筛选器、技术形态、板块强弱一屏扫完。每天开盘第一眼就是它，谁强谁弱心里立马有数 🔗 https://t.co/pppYnjyjBX 📈 基本面初筛 2️⃣ https://t.co/TxowhSPg",
+      "impression_count": 2185,
+      "like_count": 10,
+      "linked_urls": [
+        "https://finviz.com",
+        "https://x.com/SevenXL77/status/2088601232675840087/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088601232675840087",
+      "post_url": "https://x.com/SevenXL77/status/2088601232675840087",
+      "posted_at": "2026-08-15T12:18:32+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 56.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "连工具都没摸全就敢冲美股？光靠X上刷喊单，跟闭着眼跳进去有什么区别。这10个网站，打开任何一个都比你刷一天帖子有用。 📊 盘面扫雷 1️⃣ Finviz—热力图、筛选器、技术形态、板块强弱一屏扫完。每天开盘第一眼就是它，谁强谁弱心里立马有数 🔗 https://t.co/pppYnjyjBX 📈 基本面初筛 2️⃣ https://t.co/TxowhSPg4D",
+      "topic": "chinese_market",
+      "why_trending": "表示2,185・投稿後60分・反応率0.6%・公式候補リンクあり"
     },
     {
       "author_followers": 972,
@@ -1542,32 +1584,59 @@
       "why_trending": "表示292・投稿後72分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 80,
-      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "author_followers": 123103,
+      "discovered_at": "2026-08-15T13:18:32+00:00",
       "discovery_type": "official_x_api",
-      "handle": "s21655446",
+      "handle": "NFTCPS",
       "has_video": false,
-      "headline": "Unclear regs force crypto builders to design around fear, not potential. Ambiguity kills bold products and slows innovation. Clarity unlocks progress. #Crypto #Regulation https://t",
-      "impression_count": 21,
-      "like_count": 1,
+      "headline": "炒美股的都看看，今天这10个网站，随便打开一个，都比你刷一整天帖子管用。 📊 盘面扫雷 1️⃣ Finviz，热力图、筛选器、技术形态、板块强弱，一屏全给你摆出来。每天开盘我第一眼就看它，谁强谁弱，心里当场就有数。 🔗 https://t.co/xI57Etp0bm 📈 基本面初筛 2️⃣ https://t.co/h26p739CYe",
+      "impression_count": 1396,
+      "like_count": 6,
       "linked_urls": [
-        "https://x.com/s21655446/status/2088517745768071333/photo/1"
+        "https://finviz.com",
+        "https://x.com/NFTCPS/status/2088586969639247906/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088517745768071333",
-      "post_url": "https://x.com/s21655446/status/2088517745768071333",
-      "posted_at": "2026-08-15T06:46:48+00:00",
+      "post_id": "2088586969639247906",
+      "post_url": "https://x.com/NFTCPS/status/2088586969639247906",
+      "posted_at": "2026-08-15T11:21:52+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 1,
+      "score": 47.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "炒美股的都看看，今天这10个网站，随便打开一个，都比你刷一整天帖子管用。 📊 盘面扫雷 1️⃣ Finviz，热力图、筛选器、技术形态、板块强弱，一屏全给你摆出来。每天开盘我第一眼就看它，谁强谁弱，心里当场就有数。 🔗 https://t.co/xI57Etp0bm 📈 基本面初筛 2️⃣ https://t.co/h26p739CYe",
+      "topic": "chinese_market",
+      "why_trending": "表示1,396・投稿後116分・反応率0.8%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 595,
+      "discovered_at": "2026-08-15T13:18:32+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "kekedekebao",
+      "has_video": false,
+      "headline": "下载OKX欧易加密货币交易所 ，可以便捷投资美股，比特币和以太坊，注册邀请码:85141046，零门槛开户美股，无需港卡，新用户注册送20u盲盒奖励，永久返佣20%手续费！ 欧易 https://t.co/I5Y4RIYps2",
+      "impression_count": 8,
+      "like_count": 1,
+      "linked_urls": [
+        "https://yowebmmy.com/join/85141046"
+      ],
+      "media_types": [],
+      "post_id": "2088591887045472374",
+      "post_url": "https://x.com/kekedekebao/status/2088591887045472374",
+      "posted_at": "2026-08-15T11:41:24+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 1,
+      "repost_count": 0,
       "score": 46.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Unclear regs force crypto builders to design around fear, not potential. Ambiguity kills bold products and slows innovation. Clarity unlocks progress. #Crypto #Regulation https://t.co/LVHWDwsd0U",
-      "topic": "regulation",
-      "why_trending": "表示21・投稿後73分・反応率14.3%"
+      "summary": "下载OKX欧易加密货币交易所 ，可以便捷投资美股，比特币和以太坊，注册邀请码:85141046，零门槛开户美股，无需港卡，新用户注册送20u盲盒奖励，永久返佣20%手续费！ 欧易 https://t.co/I5Y4RIYps2",
+      "topic": "chinese_market",
+      "why_trending": "表示8・投稿後97分・反応率12.5%・公式候補リンクあり"
     },
     {
       "author_followers": 103,
@@ -1622,54 +1691,56 @@
       "why_trending": "表示406・投稿後96分・反応率9.1%"
     },
     {
-      "author_followers": 10772,
-      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "author_followers": 19713,
+      "discovered_at": "2026-08-15T13:18:32+00:00",
       "discovery_type": "official_x_api",
-      "handle": "blockonomi",
+      "handle": "jiaojiaojio",
       "has_video": false,
-      "headline": "🚨 CLARITY Act odds have fallen to just 10% for 2026, according to Galaxy Research. 🇺🇸 With Senate talks stalled, the SEC and CFTC are pushing ahead with crypto rules. $BTC $ETH #Cr",
-      "impression_count": 101,
-      "like_count": 2,
+      "headline": "复盘一下 @Binance 2026年至今的大动作。 如果只把币安理解成一家加密货币交易所，可能已经落后了。 今年币安真正的主线，是从Crypto Exchange走向连接Crypto、TradFi、RWA、支付、Web3和AI的全球金融平台。 时间线如下： 1月5日 https://t.co/XhAVZDh13x",
+      "impression_count": 421,
+      "like_count": 6,
       "linked_urls": [
-        "https://blockonomi.com/galaxy-digital-cuts-clarity-act-passage-odds-to-10-as-senate-vote-slips"
+        "https://x.com/jiaojiaojio/status/2088598526230167677/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2088510516104732835",
-      "post_url": "https://x.com/blockonomi/status/2088510516104732835",
-      "posted_at": "2026-08-15T06:18:04+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088598526230167677",
+      "post_url": "https://x.com/jiaojiaojio/status/2088598526230167677",
+      "posted_at": "2026-08-15T12:07:47+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.1,
+      "reply_count": 4,
+      "repost_count": 1,
+      "score": 45.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 CLARITY Act odds have fallen to just 10% for 2026, according to Galaxy Research. 🇺🇸 With Senate talks stalled, the SEC and CFTC are pushing ahead with crypto rules. $BTC $ETH #Crypto #Regulation #Blockonomi 👉 Full Story Below 👇 https://t.co/kwH6VKbGFE",
-      "topic": "regulation",
-      "why_trending": "表示101・投稿後102分・反応率2.0%・公式候補リンクあり"
+      "summary": "复盘一下 @Binance 2026年至今的大动作。 如果只把币安理解成一家加密货币交易所，可能已经落后了。 今年币安真正的主线，是从Crypto Exchange走向连接Crypto、TradFi、RWA、支付、Web3和AI的全球金融平台。 时间线如下： 1月5日 https://t.co/XhAVZDh13x",
+      "topic": "chinese_market",
+      "why_trending": "表示421・投稿後70分・反応率3.4%"
     },
     {
-      "author_followers": 3383,
-      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "author_followers": 1042,
+      "discovered_at": "2026-08-15T13:18:32+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CryptotickerIo",
+      "handle": "dizhu818",
       "has_video": false,
-      "headline": "SEC scrapped its first vote on a tailored US crypto offering regime hours before it was due. The proposal remains pending, but no new date exists. $BTC slipped below $63K as ETF ou",
-      "impression_count": 38,
-      "like_count": 0,
+      "headline": "各大交易所最近几个月都在疯狂的推美股，币圈的各个币种反而像后妈养的孩子一样，无人问津 但当币圈的牛市来临的时候，那些买股票的资金还不得乖乖的流入币圈",
+      "impression_count": 16,
+      "like_count": 1,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2088525181773877332",
-      "post_url": "https://x.com/CryptotickerIo/status/2088525181773877332",
-      "posted_at": "2026-08-15T07:16:20+00:00",
+      "post_id": "2088611162266976383",
+      "post_url": "https://x.com/dizhu818/status/2088611162266976383",
+      "posted_at": "2026-08-15T12:58:00+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 45.0,
+      "score": 44.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "SEC scrapped its first vote on a tailored US crypto offering regime hours before it was due. The proposal remains pending, but no new date exists. $BTC slipped below $63K as ETF outflows hit $192M in two days. Next signal: CFTC on Aug. 20. #CryptoRegulation",
-      "topic": "regulation",
-      "why_trending": "表示38・投稿後43分・反応率4.2%"
+      "summary": "各大交易所最近几个月都在疯狂的推美股，币圈的各个币种反而像后妈养的孩子一样，无人问津 但当币圈的牛市来临的时候，那些买股票的资金还不得乖乖的流入币圈",
+      "topic": "chinese_market",
+      "why_trending": "表示16・投稿後20分・反応率16.2%"
     },
     {
       "author_followers": 25,
@@ -1782,32 +1853,28 @@
       "why_trending": "表示112・投稿後82分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 18885,
-      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "author_followers": 51586,
+      "discovered_at": "2026-08-15T13:18:32+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MarketCoinpedia",
+      "handle": "YSI_crypto",
       "has_video": false,
-      "headline": "Top Crypto News Updates Today 🚨 • #Trump, SEC Chair Paul Atkins, and CFTC Chair Mike Selig are expected at the White House #crypto meeting on Aug. 19. • Citigroup CEO Jane Fraser c",
-      "impression_count": 593,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/MarketCoinpedia/status/2088511842557776249/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088511842557776249",
-      "post_url": "https://x.com/MarketCoinpedia/status/2088511842557776249",
-      "posted_at": "2026-08-15T06:23:20+00:00",
+      "headline": "交易所虽然是 7x24 小时的美股合约，但有个机制蛮好的，周末的资金费率是 0％。 至少没亏冤枉钱。",
+      "impression_count": 2691,
+      "like_count": 15,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088593879012606441",
+      "post_url": "https://x.com/YSI_crypto/status/2088593879012606441",
+      "posted_at": "2026-08-15T11:49:19+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 4,
       "repost_count": 0,
-      "score": 35.1,
+      "score": 36.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Top Crypto News Updates Today 🚨 • #Trump, SEC Chair Paul Atkins, and CFTC Chair Mike Selig are expected at the White House #crypto meeting on Aug. 19. • Citigroup CEO Jane Fraser calls for the CLARITY Act to pass. • More than 20 million #Bitcoin have now been mined. • https://t.co/Ev1KVvErXG",
-      "topic": "regulation",
-      "why_trending": "表示593・投稿後96分・反応率0.9%"
+      "summary": "交易所虽然是 7x24 小时的美股合约，但有个机制蛮好的，周末的资金费率是 0％。 至少没亏冤枉钱。",
+      "topic": "chinese_market",
+      "why_trending": "表示2,691・投稿後89分・反応率0.8%"
     }
   ],
   "trends": [],
