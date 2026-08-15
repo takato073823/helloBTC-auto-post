@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-15T02:04:16+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T02:04:16+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T03:23:59+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1329,62 +1329,15 @@
       "result_count": 5,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T03:23:59+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4671755,
-      "discovered_at": "2026-08-14T23:00:35+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 Trump family crypto company World Liberty Financial receives approval to become a federally chartered bank.",
-      "impression_count": 274493,
-      "like_count": 3928,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088372860943274205",
-      "post_url": "https://x.com/WatcherGuru/status/2088372860943274205",
-      "posted_at": "2026-08-14T21:11:04+00:00",
-      "quote_count": 177,
-      "reply_count": 416,
-      "repost_count": 574,
-      "score": 58.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 Trump family crypto company World Liberty Financial receives approval to become a federally chartered bank.",
-      "topic": "watcher_guru",
-      "why_trending": "表示274,493・投稿後109分・反応率2.2%"
-    },
-    {
-      "author_followers": 84,
-      "discovered_at": "2026-08-14T21:59:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "wutong7979",
-      "has_video": false,
-      "headline": "不质押，不授权，本金随用随取，收益自动到账，真实预言机交易所套利平台，不是Dapp，充值每笔交易链上可查，浏览器打开，不连钱包，告别病毒🦠安全🔐可靠🎉真实预言交易全球最大预言交易所polymarket交易所 毛利日化1%，毛利月化30% 不是项目，是用Ai在预言机交易所套利 https://t.co/f6m5nLtEvC https://t.co/04PBJ",
-      "impression_count": 10,
-      "like_count": 0,
-      "linked_urls": [
-        "https://www.arbpolymarket.com/register?invite=BOTMESH-8441-3095",
-        "https://x.com/wutong7979/status/2088357132727181334/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088357132727181334",
-      "post_url": "https://x.com/wutong7979/status/2088357132727181334",
-      "posted_at": "2026-08-14T20:08:34+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 52.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "不质押，不授权，本金随用随取，收益自动到账，真实预言机交易所套利平台，不是Dapp，充值每笔交易链上可查，浏览器打开，不连钱包，告别病毒🦠安全🔐可靠🎉真实预言交易全球最大预言交易所polymarket交易所 毛利日化1%，毛利月化30% 不是项目，是用Ai在预言机交易所套利 https://t.co/f6m5nLtEvC https://t.co/04PBJUBSR8",
-      "topic": "chinese_market",
-      "why_trending": "表示10・投稿後111分・反応率16.0%・公式候補リンクあり"
-    },
     {
       "author_followers": 226359,
       "discovered_at": "2026-08-15T02:04:16+00:00",
@@ -1412,32 +1365,6 @@
       "summary": "BTC open interest +15% this month (+37K BTC in perps). This is interesting given that the volatility is at all time lows. Highest perps BTC notional OI we've seen since the 2022-2023 pre-ETF era. https://t.co/wxvfnhpQEy",
       "topic": "crypto_market",
       "why_trending": "表示748・投稿後2分・反応率0.4%"
-    },
-    {
-      "author_followers": 103,
-      "discovered_at": "2026-08-14T21:59:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "shengfeng782",
-      "has_video": false,
-      "headline": "关于中国当前低利率环境与人民币汇率走势的分析报告 ——基于@Summer_trading 2026年8月14日帖文的解读与扩展 报告日期：2026年8月15日 分析对象：X平台用户@Summer_trading（全职美股/加密交易员）发布的宏观分析帖文 核心议题：银行存款利率与人民币汇率的“反常”组合及其背后的政策逻辑 一、摘要 https://t.co/D",
-      "impression_count": 87,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/summer_trading/status/2088266391300591896"
-      ],
-      "media_types": [],
-      "post_id": "2088364953447420162",
-      "post_url": "https://x.com/shengfeng782/status/2088364953447420162",
-      "posted_at": "2026-08-14T20:39:39+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 43.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "关于中国当前低利率环境与人民币汇率走势的分析报告 ——基于@Summer_trading 2026年8月14日帖文的解读与扩展 报告日期：2026年8月15日 分析对象：X平台用户@Summer_trading（全职美股/加密交易员）发布的宏观分析帖文 核心议题：银行存款利率与人民币汇率的“反常”组合及其背后的政策逻辑 一、摘要 https://t.co/DQm8ua0ZPa",
-      "topic": "chinese_market",
-      "why_trending": "表示87・投稿後80分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 33967,
@@ -1516,35 +1443,6 @@
       "why_trending": "表示116・投稿後88分・反応率2.2%"
     },
     {
-      "author_followers": 4,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "impakt_signal",
-      "has_video": false,
-      "headline": "【注目開示】ユニカフェ（2597） 業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📉 株価：1,164円（前日比-0.34%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/JvVyweLBJk",
-      "impression_count": 0,
-      "like_count": 0,
-      "linked_urls": [
-        "https://impakt-signal.com",
-        "https://x.com/impakt_signal/status/2088357870588829934/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088357870588829934",
-      "post_url": "https://x.com/impakt_signal/status/2088357870588829934",
-      "posted_at": "2026-08-14T20:11:30+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【注目開示】ユニカフェ（2597） 業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📉 株価：1,164円（前日比-0.34%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/JvVyweLBJk",
-      "topic": "japanese_market",
-      "why_trending": "表示0・投稿後4分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 55456,
       "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
@@ -1591,30 +1489,6 @@
       "summary": "Binance刚刚向所有用户宣布，停止处理与16个加密货币平台的交易，其中包括主要交易所 HTX 怪不得前几天CZ取关孙哥。 但我觉得这个事情应该问题不大，孙哥现在流量口碑忽然变好，现在CZ不至于去跟他撕破脸",
       "topic": "chinese_market",
       "why_trending": "表示7・投稿後15分・反応率0.0%"
-    },
-    {
-      "author_followers": 9093,
-      "discovered_at": "2026-08-14T21:59:46+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "StockWe_Com",
-      "has_video": false,
-      "headline": "美股AMD今天为什么上涨？ AMD今天股价上涨的原因是，主要受到人工智能（AI）业务扩张以及机构投资者信心增强等多项强劲催化因素推动。 以下是推动AMD股价上涨的几个主要原因：",
-      "impression_count": 377,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088365893864784347",
-      "post_url": "https://x.com/StockWe_Com/status/2088365893864784347",
-      "posted_at": "2026-08-14T20:43:23+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 35.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "美股AMD今天为什么上涨？ AMD今天股价上涨的原因是，主要受到人工智能（AI）业务扩张以及机构投资者信心增强等多项强劲催化因素推动。 以下是推动AMD股价上涨的几个主要原因：",
-      "topic": "chinese_market",
-      "why_trending": "表示377・投稿後76分・反応率1.4%"
     },
     {
       "author_followers": 24,
