@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T08:00:08+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T09:03:07+00:00",
+  "last_deep_scan_at": "2026-08-15T09:59:38+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T09:59:38+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1392,6 +1392,19 @@
       "checked_at": "2026-08-15T09:03:07+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T09:59:38+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T09:59:38+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1530,30 +1543,32 @@
       "why_trending": "表示38・投稿後43分・反応率4.2%"
     },
     {
-      "author_followers": 3,
-      "discovered_at": "2026-08-15T04:14:56+00:00",
+      "author_followers": 25,
+      "discovered_at": "2026-08-15T09:59:38+00:00",
       "discovery_type": "official_x_api",
-      "handle": "sentinelbtccom",
+      "handle": "Serzh_rus",
       "has_video": false,
-      "headline": "A whale just moved 2,460 $BTC ($155.2M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
-      "impression_count": 1,
+      "headline": "🚨🚨🚨 Michael Burry’s Final Public Bet — Why Going Dark is a Signal for Crypto 🚨🚨🚨 Michael Burry didn't just close Scion Asset Management and withdraw his SEC registration. He closed",
+      "impression_count": 13,
       "like_count": 0,
       "linked_urls": [
-        "https://sentinelbtc.com/e/ux_1ovbcw"
+        "https://x.com/Serzh_rus/status/2088561921884594433/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2088462743066042434",
-      "post_url": "https://x.com/sentinelbtccom/status/2088462743066042434",
-      "posted_at": "2026-08-15T03:08:14+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088561921884594433",
+      "post_url": "https://x.com/Serzh_rus/status/2088561921884594433",
+      "posted_at": "2026-08-15T09:42:20+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 35.4,
+      "score": 42.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "A whale just moved 2,460 $BTC ($155.2M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/CTRT56yG7o #Bitcoin #Whale #OnChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後66分・反応率0.0%・公式候補リンクあり"
+      "summary": "🚨🚨🚨 Michael Burry’s Final Public Bet — Why Going Dark is a Signal for Crypto 🚨🚨🚨 Michael Burry didn't just close Scion Asset Management and withdraw his SEC registration. He closed the window. For years, Wall Street had a quarterly peek into Burry’s mind through his 13F https://t.co/CpYKCSb442",
+      "topic": "equities_ai",
+      "why_trending": "表示13・投稿後17分・反応率0.0%"
     },
     {
       "author_followers": 18885,
