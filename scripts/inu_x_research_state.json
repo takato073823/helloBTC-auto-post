@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-15T13:18:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T13:18:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T14:00:32+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1437,6 +1437,12 @@
       "result_count": 6,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T14:00:32+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1496,34 +1502,6 @@
       "summary": "连工具都没摸全就敢冲美股？光靠X上刷喊单，跟闭着眼跳进去有什么区别。这10个网站，打开任何一个都比你刷一天帖子有用。 📊 盘面扫雷 1️⃣ Finviz—热力图、筛选器、技术形态、板块强弱一屏扫完。每天开盘第一眼就是它，谁强谁弱心里立马有数 🔗 https://t.co/pppYnjyjBX 📈 基本面初筛 2️⃣ https://t.co/TxowhSPg4D",
       "topic": "chinese_market",
       "why_trending": "表示2,185・投稿後60分・反応率0.6%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 972,
-      "discovered_at": "2026-08-15T08:00:08+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoChad_1",
-      "has_video": true,
-      "headline": "🚨🚨 BREAKING: SEC CRYPTO MEETING CANCELED 🇺🇸 THE SEC HAS CANCELED THE CRYPTOCURRENCY MEETING THAT WAS SCHEDULED FOR TOMORROW. THE BIG QUESTION: WHAT HAPPENS NEXT FOR CRYPTO REGULATI",
-      "impression_count": 4,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CryptoChad_1/status/2088532196680212722/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088532196680212722",
-      "post_url": "https://x.com/CryptoChad_1/status/2088532196680212722",
-      "posted_at": "2026-08-15T07:44:13+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 51.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨🚨 BREAKING: SEC CRYPTO MEETING CANCELED 🇺🇸 THE SEC HAS CANCELED THE CRYPTOCURRENCY MEETING THAT WAS SCHEDULED FOR TOMORROW. THE BIG QUESTION: WHAT HAPPENS NEXT FOR CRYPTO REGULATION? 👀 #XRP #XRPUpdate #Crypto https://t.co/Psw20plkJD",
-      "topic": "regulation",
-      "why_trending": "表示4・投稿後15分・反応率75.0%・動画あり"
     },
     {
       "author_followers": 1171,
