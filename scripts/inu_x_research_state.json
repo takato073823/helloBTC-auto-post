@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-15T15:00:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T15:00:14+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T15:57:43+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1456,9 +1456,39 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T15:57:43+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4676493,
+      "discovered_at": "2026-08-15T15:57:43+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "FUN FACT: Less than 10% of the global population is invested in cryptocurrency.",
+      "impression_count": 156748,
+      "like_count": 1825,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088646082750210315",
+      "post_url": "https://x.com/WatcherGuru/status/2088646082750210315",
+      "posted_at": "2026-08-15T15:16:45+00:00",
+      "quote_count": 81,
+      "reply_count": 310,
+      "repost_count": 208,
+      "score": 79.3,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "FUN FACT: Less than 10% of the global population is invested in cryptocurrency.",
+      "topic": "watcher_guru",
+      "why_trending": "表示156,748・投稿後40分・反応率1.8%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 138,
       "discovered_at": "2026-08-15T11:57:20+00:00",
@@ -1732,34 +1762,6 @@
       "summary": "各大交易所最近几个月都在疯狂的推美股，币圈的各个币种反而像后妈养的孩子一样，无人问津 但当币圈的牛市来临的时候，那些买股票的资金还不得乖乖的流入币圈",
       "topic": "chinese_market",
       "why_trending": "表示16・投稿後20分・反応率16.2%"
-    },
-    {
-      "author_followers": 25,
-      "discovered_at": "2026-08-15T09:59:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Serzh_rus",
-      "has_video": false,
-      "headline": "🚨🚨🚨 Michael Burry’s Final Public Bet — Why Going Dark is a Signal for Crypto 🚨🚨🚨 Michael Burry didn't just close Scion Asset Management and withdraw his SEC registration. He closed",
-      "impression_count": 13,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Serzh_rus/status/2088561921884594433/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088561921884594433",
-      "post_url": "https://x.com/Serzh_rus/status/2088561921884594433",
-      "posted_at": "2026-08-15T09:42:20+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 42.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨🚨🚨 Michael Burry’s Final Public Bet — Why Going Dark is a Signal for Crypto 🚨🚨🚨 Michael Burry didn't just close Scion Asset Management and withdraw his SEC registration. He closed the window. For years, Wall Street had a quarterly peek into Burry’s mind through his 13F https://t.co/CpYKCSb442",
-      "topic": "equities_ai",
-      "why_trending": "表示13・投稿後17分・反応率0.0%"
     },
     {
       "author_followers": 107,
