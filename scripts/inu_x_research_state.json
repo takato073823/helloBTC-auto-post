@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T06:01:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T07:17:05+00:00",
+  "last_deep_scan_at": "2026-08-15T08:00:08+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T08:00:08+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1373,6 +1373,19 @@
       "checked_at": "2026-08-15T07:17:05+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T08:00:08+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T08:00:08+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -1431,6 +1444,34 @@
       "why_trending": "表示28・投稿後109分・反応率12.9%・公式候補リンクあり"
     },
     {
+      "author_followers": 972,
+      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoChad_1",
+      "has_video": true,
+      "headline": "🚨🚨 BREAKING: SEC CRYPTO MEETING CANCELED 🇺🇸 THE SEC HAS CANCELED THE CRYPTOCURRENCY MEETING THAT WAS SCHEDULED FOR TOMORROW. THE BIG QUESTION: WHAT HAPPENS NEXT FOR CRYPTO REGULATI",
+      "impression_count": 4,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/CryptoChad_1/status/2088532196680212722/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2088532196680212722",
+      "post_url": "https://x.com/CryptoChad_1/status/2088532196680212722",
+      "posted_at": "2026-08-15T07:44:13+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 51.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨🚨 BREAKING: SEC CRYPTO MEETING CANCELED 🇺🇸 THE SEC HAS CANCELED THE CRYPTOCURRENCY MEETING THAT WAS SCHEDULED FOR TOMORROW. THE BIG QUESTION: WHAT HAPPENS NEXT FOR CRYPTO REGULATION? 👀 #XRP #XRPUpdate #Crypto https://t.co/Psw20plkJD",
+      "topic": "regulation",
+      "why_trending": "表示4・投稿後15分・反応率75.0%・動画あり"
+    },
+    {
       "author_followers": 226359,
       "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
@@ -1457,6 +1498,84 @@
       "summary": "BTC open interest +15% this month (+37K BTC in perps). This is interesting given that the volatility is at all time lows. Highest perps BTC notional OI we've seen since the 2022-2023 pre-ETF era. https://t.co/wxvfnhpQEy",
       "topic": "crypto_market",
       "why_trending": "表示748・投稿後2分・反応率0.4%"
+    },
+    {
+      "author_followers": 80,
+      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "s21655446",
+      "has_video": false,
+      "headline": "Unclear regs force crypto builders to design around fear, not potential. Ambiguity kills bold products and slows innovation. Clarity unlocks progress. #Crypto #Regulation https://t",
+      "impression_count": 21,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/s21655446/status/2088517745768071333/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088517745768071333",
+      "post_url": "https://x.com/s21655446/status/2088517745768071333",
+      "posted_at": "2026-08-15T06:46:48+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 46.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Unclear regs force crypto builders to design around fear, not potential. Ambiguity kills bold products and slows innovation. Clarity unlocks progress. #Crypto #Regulation https://t.co/LVHWDwsd0U",
+      "topic": "regulation",
+      "why_trending": "表示21・投稿後73分・反応率14.3%"
+    },
+    {
+      "author_followers": 10772,
+      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "blockonomi",
+      "has_video": false,
+      "headline": "🚨 CLARITY Act odds have fallen to just 10% for 2026, according to Galaxy Research. 🇺🇸 With Senate talks stalled, the SEC and CFTC are pushing ahead with crypto rules. $BTC $ETH #Cr",
+      "impression_count": 101,
+      "like_count": 2,
+      "linked_urls": [
+        "https://blockonomi.com/galaxy-digital-cuts-clarity-act-passage-odds-to-10-as-senate-vote-slips"
+      ],
+      "media_types": [],
+      "post_id": "2088510516104732835",
+      "post_url": "https://x.com/blockonomi/status/2088510516104732835",
+      "posted_at": "2026-08-15T06:18:04+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 46.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 CLARITY Act odds have fallen to just 10% for 2026, according to Galaxy Research. 🇺🇸 With Senate talks stalled, the SEC and CFTC are pushing ahead with crypto rules. $BTC $ETH #Crypto #Regulation #Blockonomi 👉 Full Story Below 👇 https://t.co/kwH6VKbGFE",
+      "topic": "regulation",
+      "why_trending": "表示101・投稿後102分・反応率2.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 3383,
+      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptotickerIo",
+      "has_video": false,
+      "headline": "SEC scrapped its first vote on a tailored US crypto offering regime hours before it was due. The proposal remains pending, but no new date exists. $BTC slipped below $63K as ETF ou",
+      "impression_count": 38,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088525181773877332",
+      "post_url": "https://x.com/CryptotickerIo/status/2088525181773877332",
+      "posted_at": "2026-08-15T07:16:20+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 45.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "SEC scrapped its first vote on a tailored US crypto offering regime hours before it was due. The proposal remains pending, but no new date exists. $BTC slipped below $63K as ETF outflows hit $192M in two days. Next signal: CFTC on Aug. 20. #CryptoRegulation",
+      "topic": "regulation",
+      "why_trending": "表示38・投稿後43分・反応率4.2%"
     },
     {
       "author_followers": 55,
@@ -1561,6 +1680,34 @@
       "why_trending": "表示1・投稿後78分・反応率0.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 18885,
+      "discovered_at": "2026-08-15T08:00:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MarketCoinpedia",
+      "has_video": false,
+      "headline": "Top Crypto News Updates Today 🚨 • #Trump, SEC Chair Paul Atkins, and CFTC Chair Mike Selig are expected at the White House #crypto meeting on Aug. 19. • Citigroup CEO Jane Fraser c",
+      "impression_count": 593,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/MarketCoinpedia/status/2088511842557776249/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088511842557776249",
+      "post_url": "https://x.com/MarketCoinpedia/status/2088511842557776249",
+      "posted_at": "2026-08-15T06:23:20+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 35.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Top Crypto News Updates Today 🚨 • #Trump, SEC Chair Paul Atkins, and CFTC Chair Mike Selig are expected at the White House #crypto meeting on Aug. 19. • Citigroup CEO Jane Fraser calls for the CLARITY Act to pass. • More than 20 million #Bitcoin have now been mined. • https://t.co/Ev1KVvErXG",
+      "topic": "regulation",
+      "why_trending": "表示593・投稿後96分・反応率0.9%"
+    },
+    {
       "author_followers": 3,
       "discovered_at": "2026-08-15T04:14:56+00:00",
       "discovery_type": "official_x_api",
@@ -1585,30 +1732,6 @@
       "summary": "A whale just moved 2,460 $BTC ($155.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/4y0WHSX1id #Bitcoin #Whale #OnChain",
       "topic": "onchain_exchange",
       "why_trending": "表示1・投稿後90分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 24,
-      "discovered_at": "2026-08-15T02:04:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "LeaderOne783",
-      "has_video": false,
-      "headline": "🔥 SOLANA ETFs ARE LEADING CRYPTO ETF GROWTH IN 2026 Solana ETFs have recorded approximately 33% growth in 2026, currently leading the major crypto ETF categories by percentage grow",
-      "impression_count": 10,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088440447295455479",
-      "post_url": "https://x.com/LeaderOne783/status/2088440447295455479",
-      "posted_at": "2026-08-15T01:39:38+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔥 SOLANA ETFs ARE LEADING CRYPTO ETF GROWTH IN 2026 Solana ETFs have recorded approximately 33% growth in 2026, currently leading the major crypto ETF categories by percentage growth. XRP ETFs follow with around 28% growth, while Bitcoin ETFs have seen their cumulative inflows",
-      "topic": "crypto_market",
-      "why_trending": "表示10・投稿後24分・反応率0.0%"
     }
   ],
   "trends": [],
