@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T21:57:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T22:59:07+00:00",
+  "last_deep_scan_at": "2026-08-15T23:58:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T23:58:00+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1519,6 +1519,19 @@
       "checked_at": "2026-08-15T22:59:07+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T23:58:00+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T23:58:00+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -1579,6 +1592,112 @@
       "why_trending": "表示26・投稿後11分・反応率17.7%"
     },
     {
+      "author_followers": 1458,
+      "discovered_at": "2026-08-15T23:58:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MichelleKrr1",
+      "has_video": false,
+      "headline": "🚨 IT’S FINALLY HAPPENING! 🇺🇸🔥 President Trump is set to meet with crypto industry leaders at the White House as discussions around the CLARITY Act continue. Crypto regulation could",
+      "impression_count": 81,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/cryptorover/status/2088489432793903475"
+      ],
+      "media_types": [],
+      "post_id": "2088761428064817425",
+      "post_url": "https://x.com/MichelleKrr1/status/2088761428064817425",
+      "posted_at": "2026-08-15T22:55:06+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 53.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 IT’S FINALLY HAPPENING! 🇺🇸🔥 President Trump is set to meet with crypto industry leaders at the White House as discussions around the CLARITY Act continue. Crypto regulation could be entering a major new chapter. 👀 #Crypto #CLARITYAct #XRP #Bitcoin https://t.co/jK4Q2y4b6E",
+      "topic": "regulation",
+      "why_trending": "表示81・投稿後62分・反応率3.7%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1458,
+      "discovered_at": "2026-08-15T23:58:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MichelleKrr1",
+      "has_video": false,
+      "headline": "🚨 HUGE CLARITY ACT UPDATE! 🇺🇸 The Senate has moved the CLARITY Act process forward, with a key vote expected in September. If it passes, U.S. crypto regulation could enter a whole ",
+      "impression_count": 73,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/ripplexrpie/status/2088577343132402145"
+      ],
+      "media_types": [],
+      "post_id": "2088751298237620487",
+      "post_url": "https://x.com/MichelleKrr1/status/2088751298237620487",
+      "posted_at": "2026-08-15T22:14:51+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 51.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 HUGE CLARITY ACT UPDATE! 🇺🇸 The Senate has moved the CLARITY Act process forward, with a key vote expected in September. If it passes, U.S. crypto regulation could enter a whole new era. 🔥 XRP holders… KEEP WATCHING. 👀🚀 #XRP #Crypto #CLARITYAct #Ripple https://t.co/LHI5kGmrSH",
+      "topic": "regulation",
+      "why_trending": "表示73・投稿後103分・反応率4.1%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1458,
+      "discovered_at": "2026-08-15T23:58:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MichelleKrr1",
+      "has_video": false,
+      "headline": "🚨 CONFIRMED: THE CLARITY ACT IS MOVING FORWARD! 🇺🇸🔥 The Senate has set up a key vote for September 15. Passage is NOT guaranteed yet—but the fight is far from over. Crypto regulati",
+      "impression_count": 40,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/cryptorover/status/2088662195139670121"
+      ],
+      "media_types": [],
+      "post_id": "2088751615129919743",
+      "post_url": "https://x.com/MichelleKrr1/status/2088751615129919743",
+      "posted_at": "2026-08-15T22:16:06+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 49.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 CONFIRMED: THE CLARITY ACT IS MOVING FORWARD! 🇺🇸🔥 The Senate has set up a key vote for September 15. Passage is NOT guaranteed yet—but the fight is far from over. Crypto regulation could be entering a historic new chapter. 👀🚀 #CLARITYAct #XRP #Crypto #Ripple https://t.co/k1lVWGR6la",
+      "topic": "regulation",
+      "why_trending": "表示40・投稿後101分・反応率7.5%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 624,
+      "discovered_at": "2026-08-15T23:58:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "OnchainTien",
+      "has_video": false,
+      "headline": "Trump is bringing major crypto CEOs to the White House on August 19. Coinbase, Ripple, Robinhood, Gemini and other crypto &amp; prediction-market leaders are expected to join, alon",
+      "impression_count": 32,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/OnchainTien/status/2088769595511652452/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088769595511652452",
+      "post_url": "https://x.com/OnchainTien/status/2088769595511652452",
+      "posted_at": "2026-08-15T23:27:33+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 48.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Trump is bringing major crypto CEOs to the White House on August 19. Coinbase, Ripple, Robinhood, Gemini and other crypto &amp; prediction-market leaders are expected to join, alongside SEC and CFTC officials. The timing is important. The CLARITY Act is facing serious delays in https://t.co/fXO9GiYO2p",
+      "topic": "regulation",
+      "why_trending": "表示32・投稿後30分・反応率5.0%"
+    },
+    {
       "author_followers": 36,
       "discovered_at": "2026-08-15T19:57:13+00:00",
       "discovery_type": "official_x_api",
@@ -1603,34 +1722,6 @@
       "summary": "🐋 $6.4M in $AAVE moved from unknown wallet to Balancer on Ethereum. Live AAVE whale flows → https://t.co/TESk0TT0RL",
       "topic": "onchain_exchange",
       "why_trending": "表示5・投稿後7分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 2054,
-      "discovered_at": "2026-08-15T17:58:22+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "ScalpingX",
-      "has_video": false,
-      "headline": "Crypto Market Overview for August 10–15: Bitcoin Retreats from $65,000 as Capital Flows and Volatility Cool 📉 Bitcoin started the week around $64,800–$65,200, briefly moved above $",
-      "impression_count": 60,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/ScalpingX/status/2088683490254680515/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088683490254680515",
-      "post_url": "https://x.com/ScalpingX/status/2088683490254680515",
-      "posted_at": "2026-08-15T17:45:24+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Crypto Market Overview for August 10–15: Bitcoin Retreats from $65,000 as Capital Flows and Volatility Cool 📉 Bitcoin started the week around $64,800–$65,200, briefly moved above $65,300, but failed to sustain the advance and slipped toward $62,800–$63,100 by the end of the https://t.co/K0ZP3QNUmK",
-      "topic": "crypto_market",
-      "why_trending": "表示60・投稿後12分・反応率1.7%"
     },
     {
       "author_followers": 1800,
@@ -1705,6 +1796,34 @@
       "summary": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m wallets). TOBY began as the currency and community layer: 420T fixed supply, roughly 69%",
       "topic": "onchain_exchange",
       "why_trending": "表示137・投稿後112分・反応率12.8%"
+    },
+    {
+      "author_followers": 301361,
+      "discovered_at": "2026-08-15T23:58:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptosR_Us",
+      "has_video": true,
+      "headline": "The U.S. becoming the “crypto capital of the world” comes down to 3 things, according to Noah’s CEO: 1️⃣ What is a stablecoin, and how do we make it safe? That’s the GENIUS Act. 2️",
+      "impression_count": 4882,
+      "like_count": 18,
+      "linked_urls": [
+        "https://x.com/BitcoinNews/status/2088600340958753189/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2088755362530840737",
+      "post_url": "https://x.com/CryptosR_Us/status/2088755362530840737",
+      "posted_at": "2026-08-15T22:31:00+00:00",
+      "quote_count": 0,
+      "reply_count": 7,
+      "repost_count": 3,
+      "score": 41.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "The U.S. becoming the “crypto capital of the world” comes down to 3 things, according to Noah’s CEO: 1️⃣ What is a stablecoin, and how do we make it safe? That’s the GENIUS Act. 2️⃣ Who regulates crypto? The CLARITY Act -- defining where the SEC ends and the CFTC begins. 3️⃣ How",
+      "topic": "regulation",
+      "why_trending": "表示4,882・投稿後87分・反応率0.7%・動画あり"
     },
     {
       "author_followers": 1,
@@ -1785,58 +1904,6 @@
       "summary": "What If Someone Suddenly Touched Satoshi Nakamoto’s Bitcoin? 👀₿ 1/ Imagine waking up tomorrow and seeing a Bitcoin transaction from an address believed to belong to Satoshi Nakamoto. Not a rumor. Not an old screenshot. A real transaction. 2/ The first thing that would https://t.co/qJ84c9O40n",
       "topic": "onchain_exchange",
       "why_trending": "表示19・投稿後59分・反応率0.0%"
-    },
-    {
-      "author_followers": 32,
-      "discovered_at": "2026-08-15T17:58:22+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "onlyhashes",
-      "has_video": false,
-      "headline": "Bitcoin Steadies Near Monthly Low As Funding Flips BTC Price →$62,967 7d Return ↓-3.1% Fee (Next Block) →1.5 sat/vB Bitcoin trades near $63,000, roughly flat on the day but down ab",
-      "impression_count": 15,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088672123317281028",
-      "post_url": "https://x.com/onlyhashes/status/2088672123317281028",
-      "posted_at": "2026-08-15T17:00:14+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Bitcoin Steadies Near Monthly Low As Funding Flips BTC Price →$62,967 7d Return ↓-3.1% Fee (Next Block) →1.5 sat/vB Bitcoin trades near $63,000, roughly flat on the day but down about 3% for the week and just above its 30-day low as a thin-liquidity weekend begins. Fees",
-      "topic": "crypto_market",
-      "why_trending": "表示15・投稿後58分・反応率0.0%"
-    },
-    {
-      "author_followers": 748,
-      "discovered_at": "2026-08-15T17:58:22+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Crypto__Falcon",
-      "has_video": false,
-      "headline": "🚨WEEKLY ETF FLOWS: $BTC ETFs: -$389.7 MILLION NET OUTFLOW. $ETH ETFs: +$6.7 MILLION NET INFLOW. CAPITAL ROTATING FROM BTC TO ETH. https://t.co/kUGvBCwuJ8",
-      "impression_count": 10,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Crypto__Falcon/status/2088681813913080148/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088681813913080148",
-      "post_url": "https://x.com/Crypto__Falcon/status/2088681813913080148",
-      "posted_at": "2026-08-15T17:38:44+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨WEEKLY ETF FLOWS: $BTC ETFs: -$389.7 MILLION NET OUTFLOW. $ETH ETFs: +$6.7 MILLION NET INFLOW. CAPITAL ROTATING FROM BTC TO ETH. https://t.co/kUGvBCwuJ8",
-      "topic": "crypto_market",
-      "why_trending": "表示10・投稿後19分・反応率0.0%"
     }
   ],
   "trends": [],
