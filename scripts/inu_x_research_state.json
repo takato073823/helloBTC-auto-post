@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-15T17:58:22+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T17:58:22+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T19:03:50+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1475,6 +1475,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T19:03:50+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1503,35 +1509,6 @@
       "why_trending": "表示156,748・投稿後40分・反応率1.8%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 1065,
-      "discovered_at": "2026-08-15T13:18:32+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "SevenXL77",
-      "has_video": false,
-      "headline": "连工具都没摸全就敢冲美股？光靠X上刷喊单，跟闭着眼跳进去有什么区别。这10个网站，打开任何一个都比你刷一天帖子有用。 📊 盘面扫雷 1️⃣ Finviz—热力图、筛选器、技术形态、板块强弱一屏扫完。每天开盘第一眼就是它，谁强谁弱心里立马有数 🔗 https://t.co/pppYnjyjBX 📈 基本面初筛 2️⃣ https://t.co/TxowhSPg",
-      "impression_count": 2185,
-      "like_count": 10,
-      "linked_urls": [
-        "https://finviz.com",
-        "https://x.com/SevenXL77/status/2088601232675840087/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088601232675840087",
-      "post_url": "https://x.com/SevenXL77/status/2088601232675840087",
-      "posted_at": "2026-08-15T12:18:32+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 56.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "连工具都没摸全就敢冲美股？光靠X上刷喊单，跟闭着眼跳进去有什么区别。这10个网站，打开任何一个都比你刷一天帖子有用。 📊 盘面扫雷 1️⃣ Finviz—热力图、筛选器、技术形态、板块强弱一屏扫完。每天开盘第一眼就是它，谁强谁弱心里立马有数 🔗 https://t.co/pppYnjyjBX 📈 基本面初筛 2️⃣ https://t.co/TxowhSPg4D",
-      "topic": "chinese_market",
-      "why_trending": "表示2,185・投稿後60分・反応率0.6%・公式候補リンクあり"
-    },
-    {
       "author_followers": 2054,
       "discovered_at": "2026-08-15T17:58:22+00:00",
       "discovery_type": "official_x_api",
@@ -1558,58 +1535,6 @@
       "summary": "Crypto Market Overview for August 10–15: Bitcoin Retreats from $65,000 as Capital Flows and Volatility Cool 📉 Bitcoin started the week around $64,800–$65,200, briefly moved above $65,300, but failed to sustain the advance and slipped toward $62,800–$63,100 by the end of the https://t.co/K0ZP3QNUmK",
       "topic": "crypto_market",
       "why_trending": "表示60・投稿後12分・反応率1.7%"
-    },
-    {
-      "author_followers": 19713,
-      "discovered_at": "2026-08-15T13:18:32+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "jiaojiaojio",
-      "has_video": false,
-      "headline": "复盘一下 @Binance 2026年至今的大动作。 如果只把币安理解成一家加密货币交易所，可能已经落后了。 今年币安真正的主线，是从Crypto Exchange走向连接Crypto、TradFi、RWA、支付、Web3和AI的全球金融平台。 时间线如下： 1月5日 https://t.co/XhAVZDh13x",
-      "impression_count": 421,
-      "like_count": 6,
-      "linked_urls": [
-        "https://x.com/jiaojiaojio/status/2088598526230167677/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088598526230167677",
-      "post_url": "https://x.com/jiaojiaojio/status/2088598526230167677",
-      "posted_at": "2026-08-15T12:07:47+00:00",
-      "quote_count": 0,
-      "reply_count": 4,
-      "repost_count": 1,
-      "score": 45.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "复盘一下 @Binance 2026年至今的大动作。 如果只把币安理解成一家加密货币交易所，可能已经落后了。 今年币安真正的主线，是从Crypto Exchange走向连接Crypto、TradFi、RWA、支付、Web3和AI的全球金融平台。 时间线如下： 1月5日 https://t.co/XhAVZDh13x",
-      "topic": "chinese_market",
-      "why_trending": "表示421・投稿後70分・反応率3.4%"
-    },
-    {
-      "author_followers": 1042,
-      "discovered_at": "2026-08-15T13:18:32+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "dizhu818",
-      "has_video": false,
-      "headline": "各大交易所最近几个月都在疯狂的推美股，币圈的各个币种反而像后妈养的孩子一样，无人问津 但当币圈的牛市来临的时候，那些买股票的资金还不得乖乖的流入币圈",
-      "impression_count": 16,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088611162266976383",
-      "post_url": "https://x.com/dizhu818/status/2088611162266976383",
-      "posted_at": "2026-08-15T12:58:00+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 44.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "各大交易所最近几个月都在疯狂的推美股，币圈的各个币种反而像后妈养的孩子一样，无人问津 但当币圈的牛市来临的时候，那些买股票的资金还不得乖乖的流入币圈",
-      "topic": "chinese_market",
-      "why_trending": "表示16・投稿後20分・反応率16.2%"
     },
     {
       "author_followers": 9902,
