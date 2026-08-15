@@ -911,6 +911,20 @@
       "posted_at": "2026-08-15T02:48:40.910508+00:00",
       "hook": "📉 $UNI、24時間で-8.34％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-15-13-a",
+      "post_id": "inu_market_2026_08_15_13_a_crypto-robo-usd",
+      "tweet_id": "2088482399487181087",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ROBO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ROBOUSD",
+      "published_at": "2026-08-15T04:00:00+00:00",
+      "posted_at": "2026-08-15T04:26:21.129565+00:00",
+      "hook": "📈 $ROBO、24時間で+42.85％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -986,7 +1000,8 @@
     "inu_market_2026_08_14_23_a_crypto-bch-usd",
     "inu_market_2026_08_15_01_a_crypto-cap-usd",
     "inu_market_2026_08_15_05_a_crypto-uni-usd",
-    "inu_market_2026_08_15_11_a_crypto-uni-usd"
+    "inu_market_2026_08_15_11_a_crypto-uni-usd",
+    "inu_market_2026_08_15_13_a_crypto-robo-usd"
   ],
   "reservations": [
     {
@@ -1206,16 +1221,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-15-13-a",
-      "post_id": "inu_market_2026_08_15_13_a_crypto-robo-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-ROBOUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:ROBO-USD",
-      "reserved_at": "2026-08-15T04:25:24.627288+00:00"
     }
   ],
   "history": [
@@ -2185,6 +2190,20 @@
       "published_at": "2026-08-15T02:00:00+00:00",
       "posted_at": "2026-08-15T02:48:40.910508+00:00",
       "hook": "📉 $UNI、24時間で-8.34％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-15-13-a",
+      "post_id": "inu_market_2026_08_15_13_a_crypto-robo-usd",
+      "tweet_id": "2088482399487181087",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ROBO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ROBOUSD",
+      "published_at": "2026-08-15T04:00:00+00:00",
+      "posted_at": "2026-08-15T04:26:21.129565+00:00",
+      "hook": "📈 $ROBO、24時間で+42.85％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
