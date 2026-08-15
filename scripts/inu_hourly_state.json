@@ -967,6 +967,20 @@
       "posted_at": "2026-08-15T10:18:39.550977+00:00",
       "hook": "📈 $ETHFI、24時間で+12.65％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-15-23-a",
+      "post_id": "inu_market_2026_08_15_23_a_crypto-wal-usd",
+      "tweet_id": "2088631413696307348",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:WAL-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-WALUSD",
+      "published_at": "2026-08-15T14:00:00+00:00",
+      "posted_at": "2026-08-15T14:18:28.885800+00:00",
+      "hook": "📈 $WAL、24時間で+28.11％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -1046,7 +1060,8 @@
     "inu_market_2026_08_15_13_a_crypto-robo-usd",
     "inu_market_2026_08_15_15_a_crypto-link-usd",
     "inu_market_2026_08_15_17_a_crypto-prl-usd",
-    "inu_market_2026_08_15_19_a_crypto-ethfi-usd"
+    "inu_market_2026_08_15_19_a_crypto-ethfi-usd",
+    "inu_market_2026_08_15_23_a_crypto-wal-usd"
   ],
   "reservations": [
     {
@@ -1276,16 +1291,6 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
-    },
-    {
-      "slot": "2026-08-15-23-a",
-      "post_id": "inu_market_2026_08_15_23_a_crypto-wal-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-WALUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:WAL-USD",
-      "reserved_at": "2026-08-15T14:17:40.540769+00:00"
     }
   ],
   "history": [
@@ -2311,6 +2316,20 @@
       "published_at": "2026-08-15T10:00:00+00:00",
       "posted_at": "2026-08-15T10:18:39.550977+00:00",
       "hook": "📈 $ETHFI、24時間で+12.65％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-15-23-a",
+      "post_id": "inu_market_2026_08_15_23_a_crypto-wal-usd",
+      "tweet_id": "2088631413696307348",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:WAL-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-WALUSD",
+      "published_at": "2026-08-15T14:00:00+00:00",
+      "posted_at": "2026-08-15T14:18:28.885800+00:00",
+      "hook": "📈 $WAL、24時間で+28.11％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
