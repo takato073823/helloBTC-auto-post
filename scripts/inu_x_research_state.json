@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-15T21:57:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T21:57:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T22:59:07+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1513,9 +1513,43 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T22:59:07+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4678814,
+      "discovered_at": "2026-08-15T22:59:07+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Billionaire Mark Cuban says computer chips \"will be the new crypto.\" https://t.co/fkV9wzCOUy",
+      "impression_count": 186413,
+      "like_count": 1268,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2088740544486764549/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088740544486764549",
+      "post_url": "https://x.com/WatcherGuru/status/2088740544486764549",
+      "posted_at": "2026-08-15T21:32:07+00:00",
+      "quote_count": 51,
+      "reply_count": 317,
+      "repost_count": 105,
+      "score": 71.1,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Billionaire Mark Cuban says computer chips \"will be the new crypto.\" https://t.co/fkV9wzCOUy",
+      "topic": "watcher_guru",
+      "why_trending": "表示186,413・投稿後87分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 422,
       "discovered_at": "2026-08-15T19:57:13+00:00",
@@ -1751,62 +1785,6 @@
       "summary": "What If Someone Suddenly Touched Satoshi Nakamoto’s Bitcoin? 👀₿ 1/ Imagine waking up tomorrow and seeing a Bitcoin transaction from an address believed to belong to Satoshi Nakamoto. Not a rumor. Not an old screenshot. A real transaction. 2/ The first thing that would https://t.co/qJ84c9O40n",
       "topic": "onchain_exchange",
       "why_trending": "表示19・投稿後59分・反応率0.0%"
-    },
-    {
-      "author_followers": 9902,
-      "discovered_at": "2026-08-15T17:58:22+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "tradingdiff",
-      "has_video": false,
-      "headline": "📊 Bitcoin Aggregated Data — Free Section Price: ~63.06K USD 📈 Price Action #BTC is trading around 63,062 USD. After the recent rejection from the 65K–65.3K area, price has develope",
-      "impression_count": 377,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/tradingdiff/status/2088668704556937617/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088668704556937617",
-      "post_url": "https://x.com/tradingdiff/status/2088668704556937617",
-      "posted_at": "2026-08-15T16:46:39+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 35.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📊 Bitcoin Aggregated Data — Free Section Price: ~63.06K USD 📈 Price Action #BTC is trading around 63,062 USD. After the recent rejection from the 65K–65.3K area, price has developed a sequence of lower highs and moved back toward the 62.5K–63K region. For now, BTC is https://t.co/zLBf7YEmhH",
-      "topic": "crypto_market",
-      "why_trending": "表示377・投稿後71分・反応率1.1%"
-    },
-    {
-      "author_followers": 116,
-      "discovered_at": "2026-08-15T17:58:22+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "HypeEconomics",
-      "has_video": false,
-      "headline": "📊 Crypto Market Update 📌 BTC: $62,983 ETH: $1,881 BNB: $610 SOL: $75 💰 Market Cap: $2.25T 📉 24h Volume: $39.5B 🧠 Fear &amp; Greed: 34 ⚡ Open Interest: $48.08B 🔥 Liquidations: $114.",
-      "impression_count": 3,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/HypeEconomics/status/2088665031835619465/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088665031835619465",
-      "post_url": "https://x.com/HypeEconomics/status/2088665031835619465",
-      "posted_at": "2026-08-15T16:32:03+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📊 Crypto Market Update 📌 BTC: $62,983 ETH: $1,881 BNB: $610 SOL: $75 💰 Market Cap: $2.25T 📉 24h Volume: $39.5B 🧠 Fear &amp; Greed: 34 ⚡ Open Interest: $48.08B 🔥 Liquidations: $114.5M ⚠️ Market sentiment remains cautious as BTC hovers below $63K https://t.co/JFClAqSWyU",
-      "topic": "crypto_market",
-      "why_trending": "表示3・投稿後86分・反応率33.3%"
     },
     {
       "author_followers": 32,
