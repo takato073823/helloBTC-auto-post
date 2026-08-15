@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T00:00:18+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T00:00:18+00:00",
+  "last_deep_scan_at": "2026-08-15T02:04:16+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T02:04:16+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1316,6 +1316,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T02:04:16+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T02:04:16+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -1342,34 +1355,6 @@
       "summary": "JUST IN: 🇺🇸 Trump family crypto company World Liberty Financial receives approval to become a federally chartered bank.",
       "topic": "watcher_guru",
       "why_trending": "表示274,493・投稿後109分・反応率2.2%"
-    },
-    {
-      "author_followers": 107,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "anpota_info",
-      "has_video": false,
-      "headline": "Cboeが3倍レバレッジのビットコイン・イーサリアムETFの上場申請を提出。先物を使用して日次の値動きを3倍にする仕組み。SEC審査開始で認可は未確定だが、規制当局による暗号資産金融商品の評価進展として注視の価値あり。 https://t.co/ENYFBbyLP0",
-      "impression_count": 14,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/anpota_info/status/2088355309731651841/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088355309731651841",
-      "post_url": "https://x.com/anpota_info/status/2088355309731651841",
-      "posted_at": "2026-08-14T20:01:20+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 55.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Cboeが3倍レバレッジのビットコイン・イーサリアムETFの上場申請を提出。先物を使用して日次の値動きを3倍にする仕組み。SEC審査開始で認可は未確定だが、規制当局による暗号資産金融商品の評価進展として注視の価値あり。 https://t.co/ENYFBbyLP0",
-      "topic": "japanese_market",
-      "why_trending": "表示14・投稿後14分・反応率11.4%"
     },
     {
       "author_followers": 84,
@@ -1401,54 +1386,32 @@
       "why_trending": "表示10・投稿後111分・反応率16.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 40723,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "author_followers": 226359,
+      "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
-      "handle": "PaPaPa80755851",
+      "handle": "SalsaTekila",
       "has_video": false,
-      "headline": "SEC、長らく待たれていた暗号資産規制の提案をキャンセル、会議は新しい日程なしで延期 https://t.co/vpwDKNqD2w 米国証券取引委員会が提案する最初の大規模な暗号資産ルールは、突然の延期で、もう少し待たなければならなくなった。",
-      "impression_count": 689,
-      "like_count": 14,
+      "headline": "BTC open interest +15% this month (+37K BTC in perps). This is interesting given that the volatility is at all time lows. Highest perps BTC notional OI we've seen since the 2022-20",
+      "impression_count": 748,
+      "like_count": 3,
       "linked_urls": [
-        "https://www.coindesk.com/policy/2026/08/13/sec-cancels-long-awaited-proposal-of-reg-crypto-postponing-meeting-without-new-date"
+        "https://x.com/SalsaTekila/status/2088445959135228212/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2088346994733658192",
-      "post_url": "https://x.com/PaPaPa80755851/status/2088346994733658192",
-      "posted_at": "2026-08-14T19:28:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 48.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "SEC、長らく待たれていた暗号資産規制の提案をキャンセル、会議は新しい日程なしで延期 https://t.co/vpwDKNqD2w 米国証券取引委員会が提案する最初の大規模な暗号資産ルールは、突然の延期で、もう少し待たなければならなくなった。",
-      "topic": "japanese_market",
-      "why_trending": "表示689・投稿後47分・反応率2.3%"
-    },
-    {
-      "author_followers": 258,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MIv777RXNH75184",
-      "has_video": false,
-      "headline": "⚡️**【激動】サンディスク（SNDK）株価が1,600ドル突破！乱高下のワケをサクッと解説**📉📈 ​「急落したと思ったら連日の急騰…」 いまメモリ半導体銘柄の動きがかなり激しくなっています💥 ​📊直近の株価データ（8/14終値） ​📉 終値：1,626.37ドル ​📈 前日比：+98.26ドル（+6.43%）",
-      "impression_count": 7,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088353985157894385",
-      "post_url": "https://x.com/MIv777RXNH75184/status/2088353985157894385",
-      "posted_at": "2026-08-14T19:56:04+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088445959135228212",
+      "post_url": "https://x.com/SalsaTekila/status/2088445959135228212",
+      "posted_at": "2026-08-15T02:01:32+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 47.7,
+      "score": 47.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "⚡️**【激動】サンディスク（SNDK）株価が1,600ドル突破！乱高下のワケをサクッと解説**📉📈 ​「急落したと思ったら連日の急騰…」 いまメモリ半導体銘柄の動きがかなり激しくなっています💥 ​📊直近の株価データ（8/14終値） ​📉 終値：1,626.37ドル ​📈 前日比：+98.26ドル（+6.43%）",
-      "topic": "japanese_market",
-      "why_trending": "表示7・投稿後19分・反応率14.3%"
+      "summary": "BTC open interest +15% this month (+37K BTC in perps). This is interesting given that the volatility is at all time lows. Highest perps BTC notional OI we've seen since the 2022-2023 pre-ETF era. https://t.co/wxvfnhpQEy",
+      "topic": "crypto_market",
+      "why_trending": "表示748・投稿後2分・反応率0.4%"
     },
     {
       "author_followers": 103,
@@ -1501,56 +1464,56 @@
       "why_trending": "表示872・投稿後28分・反応率0.7%"
     },
     {
-      "author_followers": 5645,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "author_followers": 55,
+      "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Meki_Chill",
+      "handle": "octodamusai",
       "has_video": false,
-      "headline": "AI関連、キオクシアがレバETF💀 マネーが集中した末に急落しそう 私はブレずにBTC買い増してる ガチホで大優勝🩷 🧸最近のBTCまとめ🧸 ロシア プーチン署名の暗号法9/1から規制下で BTC取引解禁（クロスボーダーOK） アメリカ トランプ政権の戦略的ビットコイン",
-      "impression_count": 445,
-      "like_count": 7,
+      "headline": "CME $ETH open interest climbed +2.4% in 24 hours while Binance OI went flat. Institutional hands building quietly while 72% of Binance perp traders are long and paying up to +0.72%",
+      "impression_count": 0,
+      "like_count": 0,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2088332395435249968",
-      "post_url": "https://x.com/Meki_Chill/status/2088332395435249968",
-      "posted_at": "2026-08-14T18:30:17+00:00",
+      "post_id": "2088446088491712809",
+      "post_url": "https://x.com/octodamusai/status/2088446088491712809",
+      "posted_at": "2026-08-15T02:02:03+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 39.4,
+      "score": 40.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "AI関連、キオクシアがレバETF💀 マネーが集中した末に急落しそう 私はブレずにBTC買い増してる ガチホで大優勝🩷 🧸最近のBTCまとめ🧸 ロシア プーチン署名の暗号法9/1から規制下で BTC取引解禁（クロスボーダーOK） アメリカ トランプ政権の戦略的ビットコイン",
-      "topic": "japanese_market",
-      "why_trending": "表示445・投稿後105分・反応率1.9%"
+      "summary": "CME $ETH open interest climbed +2.4% in 24 hours while Binance OI went flat. Institutional hands building quietly while 72% of Binance perp traders are long and paying up to +0.72% funding to hold.",
+      "topic": "crypto_market",
+      "why_trending": "表示0・投稿後2分・反応率160.0%"
     },
     {
-      "author_followers": 181,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "author_followers": 8903,
+      "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
-      "handle": "PlantreeX",
+      "handle": "CryptoHamsterIO",
       "has_video": false,
-      "headline": "パブリックチェーンの意味が変わり始めた。 ① 暗号資産を送る台帳 ② Stablecoin / DeFiの決済層 ③ RWAを載せる場所 ④ そして2026年── 規制金融資産の「法的な所有台帳」へ 最近では BNYがDigital Transfer Agencyを開始。 Baillie Giffordの英国規制ファンドBAGEYでは、Ethereum / ",
-      "impression_count": 9,
-      "like_count": 0,
+      "headline": "HyperAICharts daily newsletter – August 14, 2026 #Bitcoin has slipped back toward the lower end of its multi-week range as institutional demand weakens, U.S. regulatory progress st",
+      "impression_count": 116,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/PlantreeX/status/2088342650092962247/photo/1"
+        "https://x.com/CryptoHamsterIO/status/2088424285216076092/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088342650092962247",
-      "post_url": "https://x.com/PlantreeX/status/2088342650092962247",
-      "posted_at": "2026-08-14T19:11:01+00:00",
+      "post_id": "2088424285216076092",
+      "post_url": "https://x.com/CryptoHamsterIO/status/2088424285216076092",
+      "posted_at": "2026-08-15T00:35:25+00:00",
       "quote_count": 0,
       "reply_count": 1,
       "repost_count": 0,
-      "score": 38.6,
+      "score": 38.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "パブリックチェーンの意味が変わり始めた。 ① 暗号資産を送る台帳 ② Stablecoin / DeFiの決済層 ③ RWAを載せる場所 ④ そして2026年── 規制金融資産の「法的な所有台帳」へ 最近では BNYがDigital Transfer Agencyを開始。 Baillie Giffordの英国規制ファンドBAGEYでは、Ethereum / https://t.co/AfyXquIrMI",
-      "topic": "japanese_market",
-      "why_trending": "表示9・投稿後64分・反応率17.8%"
+      "summary": "HyperAICharts daily newsletter – August 14, 2026 #Bitcoin has slipped back toward the lower end of its multi-week range as institutional demand weakens, U.S. regulatory progress stalls, and softer economic data create an increasingly complicated macro picture. The central https://t.co/Ub8VZxqpHw",
+      "topic": "crypto_market",
+      "why_trending": "表示116・投稿後88分・反応率2.2%"
     },
     {
       "author_followers": 4,
@@ -1582,33 +1545,28 @@
       "why_trending": "表示0・投稿後4分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 4,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "author_followers": 55456,
+      "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
-      "handle": "impakt_signal",
+      "handle": "blckchaindaily",
       "has_video": false,
-      "headline": "【注目開示】Ｇ－ＧＮＩ（2160） 通期業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📈 株価：2,935円（前日比+1.31%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/e1JUyV6a9k",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://impakt-signal.com",
-        "https://x.com/impakt_signal/status/2088332981492424989/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088332981492424989",
-      "post_url": "https://x.com/impakt_signal/status/2088332981492424989",
-      "posted_at": "2026-08-14T18:32:36+00:00",
+      "headline": "🚨 JPMORGAN RAISES BLACKROCK BITCOIN ETF STAKE 25% TO 10.4M SHARES AND MORE THAN QUADRUPLES ETHEREUM ETF POSITION TO 1.17M SHARES $BTC $ETH $JPM $IBIT",
+      "impression_count": 504,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088432879629938976",
+      "post_url": "https://x.com/blckchaindaily/status/2088432879629938976",
+      "posted_at": "2026-08-15T01:09:34+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 37.0,
+      "score": 36.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【注目開示】Ｇ－ＧＮＩ（2160） 通期業績予想の修正に関するお知らせ 📅 2026/08/15(土) 📈 株価：2,935円（前日比+1.31%） 重要開示をリアルタイムで検知するIMPAKT。 無料で始める → https://t.co/7JOhWWGT4G #決算 #適時開示 #日本株 https://t.co/e1JUyV6a9k",
-      "topic": "japanese_market",
-      "why_trending": "表示1・投稿後103分・反応率0.0%・公式候補リンクあり"
+      "summary": "🚨 JPMORGAN RAISES BLACKROCK BITCOIN ETF STAKE 25% TO 10.4M SHARES AND MORE THAN QUADRUPLES ETHEREUM ETF POSITION TO 1.17M SHARES $BTC $ETH $JPM $IBIT",
+      "topic": "crypto_market",
+      "why_trending": "表示504・投稿後54分・反応率0.4%"
     },
     {
       "author_followers": 49,
@@ -1659,34 +1617,28 @@
       "why_trending": "表示377・投稿後76分・反応率1.4%"
     },
     {
-      "author_followers": 4,
-      "discovered_at": "2026-08-14T20:15:51+00:00",
+      "author_followers": 24,
+      "discovered_at": "2026-08-15T02:04:16+00:00",
       "discovery_type": "official_x_api",
-      "handle": "impakt_signal",
+      "handle": "LeaderOne783",
       "has_video": false,
-      "headline": "【デモ公開中】IMPAKT ― 重要開示をリアルタイム検知 TDnet・EDINETの開示を最速アラート。COMBO検出・ウォッチリスト・スクリーナー搭載。 📊 デモ画面はこちら → https://t.co/i02ceiflyJ 🎁 このリンクから登録で初月20%OFF → https://t.co/ScBK6hvYgF #日本株 #決算 #適時開示 ht",
-      "impression_count": 0,
+      "headline": "🔥 SOLANA ETFs ARE LEADING CRYPTO ETF GROWTH IN 2026 Solana ETFs have recorded approximately 33% growth in 2026, currently leading the major crypto ETF categories by percentage grow",
+      "impression_count": 10,
       "like_count": 0,
-      "linked_urls": [
-        "https://impakt-signal.com/demo",
-        "https://impakt-signal.com",
-        "https://x.com/impakt_signal/status/2088351000490836206/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088351000490836206",
-      "post_url": "https://x.com/impakt_signal/status/2088351000490836206",
-      "posted_at": "2026-08-14T19:44:12+00:00",
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088440447295455479",
+      "post_url": "https://x.com/LeaderOne783/status/2088440447295455479",
+      "posted_at": "2026-08-15T01:39:38+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 34.0,
+      "score": 35.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【デモ公開中】IMPAKT ― 重要開示をリアルタイム検知 TDnet・EDINETの開示を最速アラート。COMBO検出・ウォッチリスト・スクリーナー搭載。 📊 デモ画面はこちら → https://t.co/i02ceiflyJ 🎁 このリンクから登録で初月20%OFF → https://t.co/ScBK6hvYgF #日本株 #決算 #適時開示 https://t.co/ObaKFuvLcy",
-      "topic": "japanese_market",
-      "why_trending": "表示0・投稿後31分・反応率0.0%・公式候補リンクあり"
+      "summary": "🔥 SOLANA ETFs ARE LEADING CRYPTO ETF GROWTH IN 2026 Solana ETFs have recorded approximately 33% growth in 2026, currently leading the major crypto ETF categories by percentage growth. XRP ETFs follow with around 28% growth, while Bitcoin ETFs have seen their cumulative inflows",
+      "topic": "crypto_market",
+      "why_trending": "表示10・投稿後24分・反応率0.0%"
     }
   ],
   "trends": [],
