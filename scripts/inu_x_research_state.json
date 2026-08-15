@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T15:00:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T15:57:43+00:00",
+  "last_deep_scan_at": "2026-08-15T17:58:22+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T17:58:22+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1462,6 +1462,19 @@
       "checked_at": "2026-08-15T15:57:43+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T17:58:22+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T17:58:22+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -1488,34 +1501,6 @@
       "summary": "FUN FACT: Less than 10% of the global population is invested in cryptocurrency.",
       "topic": "watcher_guru",
       "why_trending": "表示156,748・投稿後40分・反応率1.8%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 138,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MASASHI509i",
-      "has_video": false,
-      "headline": "こんにちは！ 🚨BTCが24時間でわずか0.3%しか動いていない。 「何も起きてないなら、見る必要ないよね？」 実は、私は逆だと思っています👀 ━━━━━━━━━━━━━━━ 📊 BTCが動かないことに注目 ━━━━━━━━━━━━━━━ https://t.co/Dm2FUbCxuY",
-      "impression_count": 25,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/MASASHI509i/status/2088592985877573712/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088592985877573712",
-      "post_url": "https://x.com/MASASHI509i/status/2088592985877573712",
-      "posted_at": "2026-08-15T11:45:46+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 58.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "こんにちは！ 🚨BTCが24時間でわずか0.3%しか動いていない。 「何も起きてないなら、見る必要ないよね？」 実は、私は逆だと思っています👀 ━━━━━━━━━━━━━━━ 📊 BTCが動かないことに注目 ━━━━━━━━━━━━━━━ https://t.co/Dm2FUbCxuY",
-      "topic": "japanese_market",
-      "why_trending": "表示25・投稿後11分・反応率4.0%"
     },
     {
       "author_followers": 1065,
@@ -1547,169 +1532,32 @@
       "why_trending": "表示2,185・投稿後60分・反応率0.6%・公式候補リンクあり"
     },
     {
-      "author_followers": 1171,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "author_followers": 2054,
+      "discovered_at": "2026-08-15T17:58:22+00:00",
       "discovery_type": "official_x_api",
-      "handle": "nyu10_t",
+      "handle": "ScalpingX",
       "has_video": false,
-      "headline": "ドル円 振り返りと展望😨💦 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/BIlHGyFL",
-      "impression_count": 290,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/nyu10_t/status/2088577824076730392/photo/1",
-        "https://twitter.com/soraemonxl2/status/2088460922528686273"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088577824076730392",
-      "post_url": "https://x.com/nyu10_t/status/2088577824076730392",
-      "posted_at": "2026-08-15T10:45:31+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 47.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ドル円 振り返りと展望😨💦 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/BIlHGyFL5J https://t.co/t5NpaONyqK",
-      "topic": "japanese_market",
-      "why_trending": "表示290・投稿後71分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 1171,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "nyu10_t",
-      "has_video": false,
-      "headline": "ドル円 振り返りと展望😘✨ 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 ✅来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/QJ8vO2A",
-      "impression_count": 292,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/nyu10_t/status/2088577687677980738/photo/1",
-        "https://twitter.com/miku_fx_story/status/2088563347130044829"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088577687677980738",
-      "post_url": "https://x.com/nyu10_t/status/2088577687677980738",
-      "posted_at": "2026-08-15T10:44:59+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 47.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ドル円 振り返りと展望😘✨ 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 ✅来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/QJ8vO2A2Uz https://t.co/cLti4miKMo",
-      "topic": "japanese_market",
-      "why_trending": "表示292・投稿後72分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 123103,
-      "discovered_at": "2026-08-15T13:18:32+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "NFTCPS",
-      "has_video": false,
-      "headline": "炒美股的都看看，今天这10个网站，随便打开一个，都比你刷一整天帖子管用。 📊 盘面扫雷 1️⃣ Finviz，热力图、筛选器、技术形态、板块强弱，一屏全给你摆出来。每天开盘我第一眼就看它，谁强谁弱，心里当场就有数。 🔗 https://t.co/xI57Etp0bm 📈 基本面初筛 2️⃣ https://t.co/h26p739CYe",
-      "impression_count": 1396,
-      "like_count": 6,
-      "linked_urls": [
-        "https://finviz.com",
-        "https://x.com/NFTCPS/status/2088586969639247906/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088586969639247906",
-      "post_url": "https://x.com/NFTCPS/status/2088586969639247906",
-      "posted_at": "2026-08-15T11:21:52+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 1,
-      "score": 47.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "炒美股的都看看，今天这10个网站，随便打开一个，都比你刷一整天帖子管用。 📊 盘面扫雷 1️⃣ Finviz，热力图、筛选器、技术形态、板块强弱，一屏全给你摆出来。每天开盘我第一眼就看它，谁强谁弱，心里当场就有数。 🔗 https://t.co/xI57Etp0bm 📈 基本面初筛 2️⃣ https://t.co/h26p739CYe",
-      "topic": "chinese_market",
-      "why_trending": "表示1,396・投稿後116分・反応率0.8%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 595,
-      "discovered_at": "2026-08-15T13:18:32+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "kekedekebao",
-      "has_video": false,
-      "headline": "下载OKX欧易加密货币交易所 ，可以便捷投资美股，比特币和以太坊，注册邀请码:85141046，零门槛开户美股，无需港卡，新用户注册送20u盲盒奖励，永久返佣20%手续费！ 欧易 https://t.co/I5Y4RIYps2",
-      "impression_count": 8,
+      "headline": "Crypto Market Overview for August 10–15: Bitcoin Retreats from $65,000 as Capital Flows and Volatility Cool 📉 Bitcoin started the week around $64,800–$65,200, briefly moved above $",
+      "impression_count": 60,
       "like_count": 1,
       "linked_urls": [
-        "https://yowebmmy.com/join/85141046"
-      ],
-      "media_types": [],
-      "post_id": "2088591887045472374",
-      "post_url": "https://x.com/kekedekebao/status/2088591887045472374",
-      "posted_at": "2026-08-15T11:41:24+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 46.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "下载OKX欧易加密货币交易所 ，可以便捷投资美股，比特币和以太坊，注册邀请码:85141046，零门槛开户美股，无需港卡，新用户注册送20u盲盒奖励，永久返佣20%手续费！ 欧易 https://t.co/I5Y4RIYps2",
-      "topic": "chinese_market",
-      "why_trending": "表示8・投稿後97分・反応率12.5%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 103,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CrazyArmszt",
-      "has_video": false,
-      "headline": "【暗号資産のルールが変わる】 CLARITY法案でBTC・ETH・アルトコインはどうなる？ 全15回で徹底解説。 【第3回 前編】 こんばんは、よろしくお願いします。 「ビットコインもアルトコインも、 同じ暗号資産なんだから同じルールでしょ？」 実は、そう単純ではありません。",
-      "impression_count": 10,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088589009358627112",
-      "post_url": "https://x.com/CrazyArmszt/status/2088589009358627112",
-      "posted_at": "2026-08-15T11:29:58+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 46.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【暗号資産のルールが変わる】 CLARITY法案でBTC・ETH・アルトコインはどうなる？ 全15回で徹底解説。 【第3回 前編】 こんばんは、よろしくお願いします。 「ビットコインもアルトコインも、 同じ暗号資産なんだから同じルールでしょ？」 実は、そう単純ではありません。",
-      "topic": "japanese_market",
-      "why_trending": "表示10・投稿後27分・反応率16.0%"
-    },
-    {
-      "author_followers": 6727,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "okaneno_kyokan",
-      "has_video": false,
-      "headline": "これだけは抑えよう👮‍♂️！！ 今週の🇺🇸米国株市場の振り返り ①インフレ：⭕️ CPI・PPIともに鈍化、利上げ観測が後退 ②企業決算：⭕️ CRWV・SMCIが決算好感で急騰、AI関連が牽引 ③為替：⭕️ ドル円は159円台で高止まり 経済指標も安全運転で無事に通過、企業の決算も良好です 今週は堅調な相場でした👮 https://t.co/TgsWQzo",
-      "impression_count": 406,
-      "like_count": 32,
-      "linked_urls": [
-        "https://x.com/okaneno_kyokan/status/2088571641366479148/photo/1"
+        "https://x.com/ScalpingX/status/2088683490254680515/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088571641366479148",
-      "post_url": "https://x.com/okaneno_kyokan/status/2088571641366479148",
-      "posted_at": "2026-08-15T10:20:57+00:00",
+      "post_id": "2088683490254680515",
+      "post_url": "https://x.com/ScalpingX/status/2088683490254680515",
+      "posted_at": "2026-08-15T17:45:24+00:00",
       "quote_count": 0,
-      "reply_count": 3,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 46.1,
+      "score": 48.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "これだけは抑えよう👮‍♂️！！ 今週の🇺🇸米国株市場の振り返り ①インフレ：⭕️ CPI・PPIともに鈍化、利上げ観測が後退 ②企業決算：⭕️ CRWV・SMCIが決算好感で急騰、AI関連が牽引 ③為替：⭕️ ドル円は159円台で高止まり 経済指標も安全運転で無事に通過、企業の決算も良好です 今週は堅調な相場でした👮 https://t.co/TgsWQzoj3l",
-      "topic": "japanese_market",
-      "why_trending": "表示406・投稿後96分・反応率9.1%"
+      "summary": "Crypto Market Overview for August 10–15: Bitcoin Retreats from $65,000 as Capital Flows and Volatility Cool 📉 Bitcoin started the week around $64,800–$65,200, briefly moved above $65,300, but failed to sustain the advance and slipped toward $62,800–$63,100 by the end of the https://t.co/K0ZP3QNUmK",
+      "topic": "crypto_market",
+      "why_trending": "表示60・投稿後12分・反応率1.7%"
     },
     {
       "author_followers": 19713,
@@ -1764,110 +1612,112 @@
       "why_trending": "表示16・投稿後20分・反応率16.2%"
     },
     {
-      "author_followers": 107,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "author_followers": 9902,
+      "discovered_at": "2026-08-15T17:58:22+00:00",
       "discovery_type": "official_x_api",
-      "handle": "anpota_info",
+      "handle": "tradingdiff",
       "has_video": false,
-      "headline": "【直近24時間まとめ】 🏛️ 米OCCがトランプ家の暗号資産企業の銀行免許を予備的・条件付きで承認 💱 ワールド・リバティ・ファイナンシャルがステーブルコイン発行・資産管理を一元化へ 🔗 バイナンス、規制対応で16社との取引を段階的に制限開始 🇮🇱",
-      "impression_count": 89,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088566387329626344",
-      "post_url": "https://x.com/anpota_info/status/2088566387329626344",
-      "posted_at": "2026-08-15T10:00:05+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 40.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【直近24時間まとめ】 🏛️ 米OCCがトランプ家の暗号資産企業の銀行免許を予備的・条件付きで承認 💱 ワールド・リバティ・ファイナンシャルがステーブルコイン発行・資産管理を一元化へ 🔗 バイナンス、規制対応で16社との取引を段階的に制限開始 🇮🇱",
-      "topic": "japanese_market",
-      "why_trending": "表示89・投稿後117分・反応率1.8%"
-    },
-    {
-      "author_followers": 24255,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン、売り圧力が規制進展を相殺し6万3000ドルを維持 執筆⭐️ 詳細URL👇 https://t.co/F3eWWrtPvg https://t.co/Dfgd2F4Zrv",
-      "impression_count": 121,
-      "like_count": 0,
+      "headline": "📊 Bitcoin Aggregated Data — Free Section Price: ~63.06K USD 📈 Price Action #BTC is trading around 63,062 USD. After the recent rejection from the 65K–65.3K area, price has develope",
+      "impression_count": 377,
+      "like_count": 2,
       "linked_urls": [
-        "https://ift.tt/ctgimSu",
-        "https://x.com/CoinmatomeNews/status/2088575126019137931/photo/1"
+        "https://x.com/tradingdiff/status/2088668704556937617/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088575126019137931",
-      "post_url": "https://x.com/CoinmatomeNews/status/2088575126019137931",
-      "posted_at": "2026-08-15T10:34:48+00:00",
+      "post_id": "2088668704556937617",
+      "post_url": "https://x.com/tradingdiff/status/2088668704556937617",
+      "posted_at": "2026-08-15T16:46:39+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.9,
+      "repost_count": 1,
+      "score": 35.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン、売り圧力が規制進展を相殺し6万3000ドルを維持 執筆⭐️ 詳細URL👇 https://t.co/F3eWWrtPvg https://t.co/Dfgd2F4Zrv",
-      "topic": "japanese_market",
-      "why_trending": "表示121・投稿後82分・反応率0.0%・公式候補リンクあり"
+      "summary": "📊 Bitcoin Aggregated Data — Free Section Price: ~63.06K USD 📈 Price Action #BTC is trading around 63,062 USD. After the recent rejection from the 65K–65.3K area, price has developed a sequence of lower highs and moved back toward the 62.5K–63K region. For now, BTC is https://t.co/zLBf7YEmhH",
+      "topic": "crypto_market",
+      "why_trending": "表示377・投稿後71分・反応率1.1%"
     },
     {
-      "author_followers": 24255,
-      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "author_followers": 116,
+      "discovered_at": "2026-08-15T17:58:22+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
+      "handle": "HypeEconomics",
       "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン現物ETF、昨日5763.22万ドルの純流出、3日連続の純流出⭐️ 詳細URL👇 https://t.co/rLrqbz6lM9 https://t.co/4wRymatMOp",
-      "impression_count": 112,
-      "like_count": 0,
+      "headline": "📊 Crypto Market Update 📌 BTC: $62,983 ETH: $1,881 BNB: $610 SOL: $75 💰 Market Cap: $2.25T 📉 24h Volume: $39.5B 🧠 Fear &amp; Greed: 34 ⚡ Open Interest: $48.08B 🔥 Liquidations: $114.",
+      "impression_count": 3,
+      "like_count": 1,
       "linked_urls": [
-        "https://ift.tt/14AgW5h",
-        "https://x.com/CoinmatomeNews/status/2088575111750181357/photo/1"
+        "https://x.com/HypeEconomics/status/2088665031835619465/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088575111750181357",
-      "post_url": "https://x.com/CoinmatomeNews/status/2088575111750181357",
-      "posted_at": "2026-08-15T10:34:45+00:00",
+      "post_id": "2088665031835619465",
+      "post_url": "https://x.com/HypeEconomics/status/2088665031835619465",
+      "posted_at": "2026-08-15T16:32:03+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 37.7,
+      "score": 35.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン現物ETF、昨日5763.22万ドルの純流出、3日連続の純流出⭐️ 詳細URL👇 https://t.co/rLrqbz6lM9 https://t.co/4wRymatMOp",
-      "topic": "japanese_market",
-      "why_trending": "表示112・投稿後82分・反応率0.0%・公式候補リンクあり"
+      "summary": "📊 Crypto Market Update 📌 BTC: $62,983 ETH: $1,881 BNB: $610 SOL: $75 💰 Market Cap: $2.25T 📉 24h Volume: $39.5B 🧠 Fear &amp; Greed: 34 ⚡ Open Interest: $48.08B 🔥 Liquidations: $114.5M ⚠️ Market sentiment remains cautious as BTC hovers below $63K https://t.co/JFClAqSWyU",
+      "topic": "crypto_market",
+      "why_trending": "表示3・投稿後86分・反応率33.3%"
     },
     {
-      "author_followers": 51586,
-      "discovered_at": "2026-08-15T13:18:32+00:00",
+      "author_followers": 32,
+      "discovered_at": "2026-08-15T17:58:22+00:00",
       "discovery_type": "official_x_api",
-      "handle": "YSI_crypto",
+      "handle": "onlyhashes",
       "has_video": false,
-      "headline": "交易所虽然是 7x24 小时的美股合约，但有个机制蛮好的，周末的资金费率是 0％。 至少没亏冤枉钱。",
-      "impression_count": 2691,
-      "like_count": 15,
+      "headline": "Bitcoin Steadies Near Monthly Low As Funding Flips BTC Price →$62,967 7d Return ↓-3.1% Fee (Next Block) →1.5 sat/vB Bitcoin trades near $63,000, roughly flat on the day but down ab",
+      "impression_count": 15,
+      "like_count": 0,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2088593879012606441",
-      "post_url": "https://x.com/YSI_crypto/status/2088593879012606441",
-      "posted_at": "2026-08-15T11:49:19+00:00",
+      "post_id": "2088672123317281028",
+      "post_url": "https://x.com/onlyhashes/status/2088672123317281028",
+      "posted_at": "2026-08-15T17:00:14+00:00",
       "quote_count": 0,
-      "reply_count": 4,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 36.5,
+      "score": 34.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "交易所虽然是 7x24 小时的美股合约，但有个机制蛮好的，周末的资金费率是 0％。 至少没亏冤枉钱。",
-      "topic": "chinese_market",
-      "why_trending": "表示2,691・投稿後89分・反応率0.8%"
+      "summary": "Bitcoin Steadies Near Monthly Low As Funding Flips BTC Price →$62,967 7d Return ↓-3.1% Fee (Next Block) →1.5 sat/vB Bitcoin trades near $63,000, roughly flat on the day but down about 3% for the week and just above its 30-day low as a thin-liquidity weekend begins. Fees",
+      "topic": "crypto_market",
+      "why_trending": "表示15・投稿後58分・反応率0.0%"
+    },
+    {
+      "author_followers": 748,
+      "discovered_at": "2026-08-15T17:58:22+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Crypto__Falcon",
+      "has_video": false,
+      "headline": "🚨WEEKLY ETF FLOWS: $BTC ETFs: -$389.7 MILLION NET OUTFLOW. $ETH ETFs: +$6.7 MILLION NET INFLOW. CAPITAL ROTATING FROM BTC TO ETH. https://t.co/kUGvBCwuJ8",
+      "impression_count": 10,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Crypto__Falcon/status/2088681813913080148/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088681813913080148",
+      "post_url": "https://x.com/Crypto__Falcon/status/2088681813913080148",
+      "posted_at": "2026-08-15T17:38:44+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨WEEKLY ETF FLOWS: $BTC ETFs: -$389.7 MILLION NET OUTFLOW. $ETH ETFs: +$6.7 MILLION NET INFLOW. CAPITAL ROTATING FROM BTC TO ETH. https://t.co/kUGvBCwuJ8",
+      "topic": "crypto_market",
+      "why_trending": "表示10・投稿後19分・反応率0.0%"
     }
   ],
   "trends": [],
