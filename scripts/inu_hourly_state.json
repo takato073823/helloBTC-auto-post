@@ -1236,6 +1236,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-11T07:00:00.745589+00:00"
+    },
+    {
+      "slot": "2026-08-15-17-a",
+      "post_id": "inu_market_2026_08_15_17_a_crypto-prl-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PRLUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PRL-USD",
+      "reserved_at": "2026-08-15T08:38:26.853829+00:00"
     }
   ],
   "history": [
