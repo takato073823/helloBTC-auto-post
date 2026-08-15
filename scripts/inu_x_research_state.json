@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T09:59:38+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T10:59:56+00:00",
+  "last_deep_scan_at": "2026-08-15T11:57:20+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T11:57:20+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1411,36 +1411,49 @@
       "checked_at": "2026-08-15T10:59:56+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T11:57:20+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T11:57:20+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
     {
-      "author_followers": 1604,
-      "discovered_at": "2026-08-15T06:01:32+00:00",
+      "author_followers": 138,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Goeun_6121",
+      "handle": "MASASHI509i",
       "has_video": false,
-      "headline": "the US just sold 30-year debt at 5.216% in May 2020, it could borrow for 30 years at 1.25% TLT is now back at levels last seen in 2004 and the weird part is inflation data actually",
-      "impression_count": 39,
+      "headline": "こんにちは！ 🚨BTCが24時間でわずか0.3%しか動いていない。 「何も起きてないなら、見る必要ないよね？」 実は、私は逆だと思っています👀 ━━━━━━━━━━━━━━━ 📊 BTCが動かないことに注目 ━━━━━━━━━━━━━━━ https://t.co/Dm2FUbCxuY",
+      "impression_count": 25,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/Goeun_6121/status/2088501647248945503/photo/1"
+        "https://x.com/MASASHI509i/status/2088592985877573712/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088501647248945503",
-      "post_url": "https://x.com/Goeun_6121/status/2088501647248945503",
-      "posted_at": "2026-08-15T05:42:49+00:00",
+      "post_id": "2088592985877573712",
+      "post_url": "https://x.com/MASASHI509i/status/2088592985877573712",
+      "posted_at": "2026-08-15T11:45:46+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 1,
-      "score": 53.4,
+      "repost_count": 0,
+      "score": 58.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "the US just sold 30-year debt at 5.216% in May 2020, it could borrow for 30 years at 1.25% TLT is now back at levels last seen in 2004 and the weird part is inflation data actually softened this week the long end is looking past CPI now $2T deficits, relentless Treasury https://t.co/REpzREJ7fS",
-      "topic": "macro_rates",
-      "why_trending": "表示39・投稿後18分・反応率7.7%"
+      "summary": "こんにちは！ 🚨BTCが24時間でわずか0.3%しか動いていない。 「何も起きてないなら、見る必要ないよね？」 実は、私は逆だと思っています👀 ━━━━━━━━━━━━━━━ 📊 BTCが動かないことに注目 ━━━━━━━━━━━━━━━ https://t.co/Dm2FUbCxuY",
+      "topic": "japanese_market",
+      "why_trending": "表示25・投稿後11分・反応率4.0%"
     },
     {
       "author_followers": 972,
@@ -1471,6 +1484,64 @@
       "why_trending": "表示4・投稿後15分・反応率75.0%・動画あり"
     },
     {
+      "author_followers": 1171,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "nyu10_t",
+      "has_video": false,
+      "headline": "ドル円 振り返りと展望😨💦 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/BIlHGyFL",
+      "impression_count": 290,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/nyu10_t/status/2088577824076730392/photo/1",
+        "https://twitter.com/soraemonxl2/status/2088460922528686273"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088577824076730392",
+      "post_url": "https://x.com/nyu10_t/status/2088577824076730392",
+      "posted_at": "2026-08-15T10:45:31+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ドル円 振り返りと展望😨💦 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/BIlHGyFL5J https://t.co/t5NpaONyqK",
+      "topic": "japanese_market",
+      "why_trending": "表示290・投稿後71分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1171,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "nyu10_t",
+      "has_video": false,
+      "headline": "ドル円 振り返りと展望😘✨ 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 ✅来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/QJ8vO2A",
+      "impression_count": 292,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/nyu10_t/status/2088577687677980738/photo/1",
+        "https://twitter.com/miku_fx_story/status/2088563347130044829"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088577687677980738",
+      "post_url": "https://x.com/nyu10_t/status/2088577687677980738",
+      "posted_at": "2026-08-15T10:44:59+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ドル円 振り返りと展望😘✨ 今週の振り返り 157円台から調整に入り、週末には急落する場面もあったがレンジ推移 ✅来週の展望 レンジ継続をみて、レンジブレイクがあればローリバ買い目線です 仮想通貨/暗号資産/DOGE/XRP/リップル/ETH/ドージ/ビットコイン/BTC/Bitcoin/イーサリアム/日経/メタプラ https://t.co/QJ8vO2A2Uz https://t.co/cLti4miKMo",
+      "topic": "japanese_market",
+      "why_trending": "表示292・投稿後72分・反応率0.0%・公式候補リンクあり"
+    },
+    {
       "author_followers": 80,
       "discovered_at": "2026-08-15T08:00:08+00:00",
       "discovery_type": "official_x_api",
@@ -1497,6 +1568,58 @@
       "summary": "Unclear regs force crypto builders to design around fear, not potential. Ambiguity kills bold products and slows innovation. Clarity unlocks progress. #Crypto #Regulation https://t.co/LVHWDwsd0U",
       "topic": "regulation",
       "why_trending": "表示21・投稿後73分・反応率14.3%"
+    },
+    {
+      "author_followers": 103,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CrazyArmszt",
+      "has_video": false,
+      "headline": "【暗号資産のルールが変わる】 CLARITY法案でBTC・ETH・アルトコインはどうなる？ 全15回で徹底解説。 【第3回 前編】 こんばんは、よろしくお願いします。 「ビットコインもアルトコインも、 同じ暗号資産なんだから同じルールでしょ？」 実は、そう単純ではありません。",
+      "impression_count": 10,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088589009358627112",
+      "post_url": "https://x.com/CrazyArmszt/status/2088589009358627112",
+      "posted_at": "2026-08-15T11:29:58+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 46.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【暗号資産のルールが変わる】 CLARITY法案でBTC・ETH・アルトコインはどうなる？ 全15回で徹底解説。 【第3回 前編】 こんばんは、よろしくお願いします。 「ビットコインもアルトコインも、 同じ暗号資産なんだから同じルールでしょ？」 実は、そう単純ではありません。",
+      "topic": "japanese_market",
+      "why_trending": "表示10・投稿後27分・反応率16.0%"
+    },
+    {
+      "author_followers": 6727,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "okaneno_kyokan",
+      "has_video": false,
+      "headline": "これだけは抑えよう👮‍♂️！！ 今週の🇺🇸米国株市場の振り返り ①インフレ：⭕️ CPI・PPIともに鈍化、利上げ観測が後退 ②企業決算：⭕️ CRWV・SMCIが決算好感で急騰、AI関連が牽引 ③為替：⭕️ ドル円は159円台で高止まり 経済指標も安全運転で無事に通過、企業の決算も良好です 今週は堅調な相場でした👮 https://t.co/TgsWQzo",
+      "impression_count": 406,
+      "like_count": 32,
+      "linked_urls": [
+        "https://x.com/okaneno_kyokan/status/2088571641366479148/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088571641366479148",
+      "post_url": "https://x.com/okaneno_kyokan/status/2088571641366479148",
+      "posted_at": "2026-08-15T10:20:57+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 46.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "これだけは抑えよう👮‍♂️！！ 今週の🇺🇸米国株市場の振り返り ①インフレ：⭕️ CPI・PPIともに鈍化、利上げ観測が後退 ②企業決算：⭕️ CRWV・SMCIが決算好感で急騰、AI関連が牽引 ③為替：⭕️ ドル円は159円台で高止まり 経済指標も安全運転で無事に通過、企業の決算も良好です 今週は堅調な相場でした👮 https://t.co/TgsWQzoj3l",
+      "topic": "japanese_market",
+      "why_trending": "表示406・投稿後96分・反応率9.1%"
     },
     {
       "author_followers": 10772,
@@ -1575,6 +1698,88 @@
       "summary": "🚨🚨🚨 Michael Burry’s Final Public Bet — Why Going Dark is a Signal for Crypto 🚨🚨🚨 Michael Burry didn't just close Scion Asset Management and withdraw his SEC registration. He closed the window. For years, Wall Street had a quarterly peek into Burry’s mind through his 13F https://t.co/CpYKCSb442",
       "topic": "equities_ai",
       "why_trending": "表示13・投稿後17分・反応率0.0%"
+    },
+    {
+      "author_followers": 107,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "anpota_info",
+      "has_video": false,
+      "headline": "【直近24時間まとめ】 🏛️ 米OCCがトランプ家の暗号資産企業の銀行免許を予備的・条件付きで承認 💱 ワールド・リバティ・ファイナンシャルがステーブルコイン発行・資産管理を一元化へ 🔗 バイナンス、規制対応で16社との取引を段階的に制限開始 🇮🇱",
+      "impression_count": 89,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088566387329626344",
+      "post_url": "https://x.com/anpota_info/status/2088566387329626344",
+      "posted_at": "2026-08-15T10:00:05+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 40.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【直近24時間まとめ】 🏛️ 米OCCがトランプ家の暗号資産企業の銀行免許を予備的・条件付きで承認 💱 ワールド・リバティ・ファイナンシャルがステーブルコイン発行・資産管理を一元化へ 🔗 バイナンス、規制対応で16社との取引を段階的に制限開始 🇮🇱",
+      "topic": "japanese_market",
+      "why_trending": "表示89・投稿後117分・反応率1.8%"
+    },
+    {
+      "author_followers": 24255,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン、売り圧力が規制進展を相殺し6万3000ドルを維持 執筆⭐️ 詳細URL👇 https://t.co/F3eWWrtPvg https://t.co/Dfgd2F4Zrv",
+      "impression_count": 121,
+      "like_count": 0,
+      "linked_urls": [
+        "https://ift.tt/ctgimSu",
+        "https://x.com/CoinmatomeNews/status/2088575126019137931/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088575126019137931",
+      "post_url": "https://x.com/CoinmatomeNews/status/2088575126019137931",
+      "posted_at": "2026-08-15T10:34:48+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン、売り圧力が規制進展を相殺し6万3000ドルを維持 執筆⭐️ 詳細URL👇 https://t.co/F3eWWrtPvg https://t.co/Dfgd2F4Zrv",
+      "topic": "japanese_market",
+      "why_trending": "表示121・投稿後82分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 24255,
+      "discovered_at": "2026-08-15T11:57:20+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン現物ETF、昨日5763.22万ドルの純流出、3日連続の純流出⭐️ 詳細URL👇 https://t.co/rLrqbz6lM9 https://t.co/4wRymatMOp",
+      "impression_count": 112,
+      "like_count": 0,
+      "linked_urls": [
+        "https://ift.tt/14AgW5h",
+        "https://x.com/CoinmatomeNews/status/2088575111750181357/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088575111750181357",
+      "post_url": "https://x.com/CoinmatomeNews/status/2088575111750181357",
+      "posted_at": "2026-08-15T10:34:45+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ビットコイン現物ETF、昨日5763.22万ドルの純流出、3日連続の純流出⭐️ 詳細URL👇 https://t.co/rLrqbz6lM9 https://t.co/4wRymatMOp",
+      "topic": "japanese_market",
+      "why_trending": "表示112・投稿後82分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 18885,
