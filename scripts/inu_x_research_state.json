@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T19:57:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T20:59:41+00:00",
+  "last_deep_scan_at": "2026-08-15T21:57:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T21:57:45+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1500,33 +1500,22 @@
       "checked_at": "2026-08-15T20:59:41+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T21:57:45+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T21:57:45+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4676493,
-      "discovered_at": "2026-08-15T15:57:43+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "FUN FACT: Less than 10% of the global population is invested in cryptocurrency.",
-      "impression_count": 156748,
-      "like_count": 1825,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088646082750210315",
-      "post_url": "https://x.com/WatcherGuru/status/2088646082750210315",
-      "posted_at": "2026-08-15T15:16:45+00:00",
-      "quote_count": 81,
-      "reply_count": 310,
-      "repost_count": 208,
-      "score": 79.3,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "FUN FACT: Less than 10% of the global population is invested in cryptocurrency.",
-      "topic": "watcher_guru",
-      "why_trending": "表示156,748・投稿後40分・反応率1.8%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 422,
       "discovered_at": "2026-08-15T19:57:13+00:00",
@@ -1682,6 +1671,34 @@
       "summary": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m wallets). TOBY began as the currency and community layer: 420T fixed supply, roughly 69%",
       "topic": "onchain_exchange",
       "why_trending": "表示137・投稿後112分・反応率12.8%"
+    },
+    {
+      "author_followers": 1,
+      "discovered_at": "2026-08-15T21:57:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "marketsetup26",
+      "has_video": true,
+      "headline": "The Fed decision is old news. The FOMC minutes may reveal what policymakers were really worried about—and whether the rate outlook is shifting. Watch USD, gold, yields, stocks and ",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/marketsetup26/status/2088743128459329997/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2088743128459329997",
+      "post_url": "https://x.com/marketsetup26/status/2088743128459329997",
+      "posted_at": "2026-08-15T21:42:23+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 40.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "The Fed decision is old news. The FOMC minutes may reveal what policymakers were really worried about—and whether the rate outlook is shifting. Watch USD, gold, yields, stocks and crypto. https://t.co/xNURrQpmwG",
+      "topic": "macro_rates",
+      "why_trending": "表示1・投稿後15分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 1800,
