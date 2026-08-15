@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T04:14:56+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T05:03:18+00:00",
+  "last_deep_scan_at": "2026-08-15T06:01:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T06:01:32+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1354,9 +1354,50 @@
       "checked_at": "2026-08-15T05:03:18+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T06:01:32+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-15T06:01:32+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
+    {
+      "author_followers": 1604,
+      "discovered_at": "2026-08-15T06:01:32+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Goeun_6121",
+      "has_video": false,
+      "headline": "the US just sold 30-year debt at 5.216% in May 2020, it could borrow for 30 years at 1.25% TLT is now back at levels last seen in 2004 and the weird part is inflation data actually",
+      "impression_count": 39,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/Goeun_6121/status/2088501647248945503/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088501647248945503",
+      "post_url": "https://x.com/Goeun_6121/status/2088501647248945503",
+      "posted_at": "2026-08-15T05:42:49+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 53.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "the US just sold 30-year debt at 5.216% in May 2020, it could borrow for 30 years at 1.25% TLT is now back at levels last seen in 2004 and the weird part is inflation data actually softened this week the long end is looking past CPI now $2T deficits, relentless Treasury https://t.co/REpzREJ7fS",
+      "topic": "macro_rates",
+      "why_trending": "表示39・投稿後18分・反応率7.7%"
+    },
     {
       "author_followers": 7649,
       "discovered_at": "2026-08-15T04:14:56+00:00",
