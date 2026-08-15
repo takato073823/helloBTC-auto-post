@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-15T06:01:32+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T06:01:32+00:00",
+  "last_watcher_guru_scan_at": "2026-08-15T07:17:05+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1367,6 +1367,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-15T07:17:05+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1475,58 +1481,6 @@
       "summary": "CME $ETH open interest climbed +2.4% in 24 hours while Binance OI went flat. Institutional hands building quietly while 72% of Binance perp traders are long and paying up to +0.72% funding to hold.",
       "topic": "crypto_market",
       "why_trending": "表示0・投稿後2分・反応率160.0%"
-    },
-    {
-      "author_followers": 8903,
-      "discovered_at": "2026-08-15T02:04:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoHamsterIO",
-      "has_video": false,
-      "headline": "HyperAICharts daily newsletter – August 14, 2026 #Bitcoin has slipped back toward the lower end of its multi-week range as institutional demand weakens, U.S. regulatory progress st",
-      "impression_count": 116,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CryptoHamsterIO/status/2088424285216076092/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088424285216076092",
-      "post_url": "https://x.com/CryptoHamsterIO/status/2088424285216076092",
-      "posted_at": "2026-08-15T00:35:25+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 38.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "HyperAICharts daily newsletter – August 14, 2026 #Bitcoin has slipped back toward the lower end of its multi-week range as institutional demand weakens, U.S. regulatory progress stalls, and softer economic data create an increasingly complicated macro picture. The central https://t.co/Ub8VZxqpHw",
-      "topic": "crypto_market",
-      "why_trending": "表示116・投稿後88分・反応率2.2%"
-    },
-    {
-      "author_followers": 55456,
-      "discovered_at": "2026-08-15T02:04:16+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "blckchaindaily",
-      "has_video": false,
-      "headline": "🚨 JPMORGAN RAISES BLACKROCK BITCOIN ETF STAKE 25% TO 10.4M SHARES AND MORE THAN QUADRUPLES ETHEREUM ETF POSITION TO 1.17M SHARES $BTC $ETH $JPM $IBIT",
-      "impression_count": 504,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088432879629938976",
-      "post_url": "https://x.com/blckchaindaily/status/2088432879629938976",
-      "posted_at": "2026-08-15T01:09:34+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 JPMORGAN RAISES BLACKROCK BITCOIN ETF STAKE 25% TO 10.4M SHARES AND MORE THAN QUADRUPLES ETHEREUM ETF POSITION TO 1.17M SHARES $BTC $ETH $JPM $IBIT",
-      "topic": "crypto_market",
-      "why_trending": "表示504・投稿後54分・反応率0.4%"
     },
     {
       "author_followers": 3,
