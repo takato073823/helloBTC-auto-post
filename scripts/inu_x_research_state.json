@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T07:18:50+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T07:18:50+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T08:01:17+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1596,6 +1596,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T08:01:17+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1817,64 +1823,6 @@
       "summary": "“买美股上币安，人人都是小股东 ”当下全球资本市场之中，美股汇聚苹果、特斯拉、英伟达等一众世界级龙头企业，无数普通投资者都希望分享这些巨头企业的成长红利。但在传统模式下，普通个人想要参与美股投资，会遇到不少现实阻碍，开户流程复杂、资金门槛高、操作繁琐，把很多普通人挡在门外。 https://t.co/rR6XPtKNnv",
       "topic": "chinese_market",
       "why_trending": "表示9・投稿後20分・反応率28.9%"
-    },
-    {
-      "author_followers": 24253,
-      "discovered_at": "2026-08-16T03:33:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ダートマス大学基金の暗号資産ETF保有額、15%減の1,240万ドルに⭐️ 詳細URL👇 https://t.co/MtjfVlBaOy https://t.co/9oloCskPXO",
-      "impression_count": 119,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/oqJWBfe",
-        "https://x.com/CoinmatomeNews/status/2088807910792978601/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088807910792978601",
-      "post_url": "https://x.com/CoinmatomeNews/status/2088807910792978601",
-      "posted_at": "2026-08-16T01:59:48+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ダートマス大学基金の暗号資産ETF保有額、15%減の1,240万ドルに⭐️ 詳細URL👇 https://t.co/MtjfVlBaOy https://t.co/9oloCskPXO",
-      "topic": "japanese_market",
-      "why_trending": "表示119・投稿後93分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 24253,
-      "discovered_at": "2026-08-16T03:33:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️アイルランド、初の国家マネーロンダリング対策戦略を発表——暗号資産ウォレットに厳格な規制⭐️ 詳細URL👇 https://t.co/xjPqnW7H78 https://t.co/d3ozcrTgnC",
-      "impression_count": 112,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/I9MPApd",
-        "https://x.com/CoinmatomeNews/status/2088807901179650189/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088807901179650189",
-      "post_url": "https://x.com/CoinmatomeNews/status/2088807901179650189",
-      "posted_at": "2026-08-16T01:59:46+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️アイルランド、初の国家マネーロンダリング対策戦略を発表——暗号資産ウォレットに厳格な規制⭐️ 詳細URL👇 https://t.co/xjPqnW7H78 https://t.co/d3ozcrTgnC",
-      "topic": "japanese_market",
-      "why_trending": "表示112・投稿後93分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 78078,
