@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T15:00:04+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T15:58:25+00:00",
+  "last_deep_scan_at": "2026-08-16T17:00:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T17:00:55+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1678,6 +1678,19 @@
       "checked_at": "2026-08-16T15:58:25+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T17:00:55+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T17:00:55+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1736,60 +1749,6 @@
       "summary": "JUST IN: Franklin Crypto’s Chris Perkins says the crypto industry will be “just fine” even if the CLARITY Act never passes. He says the SEC and CFTC are already creating “policy and precedent every single day.” 🔥 Crypto regulation is moving forward with or without CLARITY. https://t.co/FpDlS5EyyZ",
       "topic": "regulation",
       "why_trending": "表示542・投稿後90分・反応率3.2%"
-    },
-    {
-      "author_followers": 8723,
-      "discovered_at": "2026-08-16T11:00:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Calcalistech",
-      "has_video": false,
-      "headline": "Israeli crypto exchange Bits of Gold was hit by a supply-chain breach affecting hundreds of companies globally. ID numbers, emails, phone, bank + wallet details may have been expos",
-      "impression_count": 125,
-      "like_count": 2,
-      "linked_urls": [
-        "https://www.calcalistech.com/ctechnews/article/hkserzkvfe"
-      ],
-      "media_types": [],
-      "post_id": "2088932326042484759",
-      "post_url": "https://x.com/Calcalistech/status/2088932326042484759",
-      "posted_at": "2026-08-16T10:14:11+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 52.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Israeli crypto exchange Bits of Gold was hit by a supply-chain breach affecting hundreds of companies globally. ID numbers, emails, phone, bank + wallet details may have been exposed, but funds and passwords were not touched, the company says. Read more: https://t.co/exO2bMmw16",
-      "topic": "onchain_exchange",
-      "why_trending": "表示125・投稿後46分・反応率1.6%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 2279,
-      "discovered_at": "2026-08-16T11:00:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Lavanya_inj",
-      "has_video": false,
-      "headline": "Perpetual futures (perps) started out as a crypto thing — a way to trade Bitcoin or Ethereum with leverage without an expiry date. But it turns out this idea isn't just useful for ",
-      "impression_count": 5,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/Lavanya_inj/status/2088940691980501302/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088940691980501302",
-      "post_url": "https://x.com/Lavanya_inj/status/2088940691980501302",
-      "posted_at": "2026-08-16T10:47:26+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 49.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Perpetual futures (perps) started out as a crypto thing — a way to trade Bitcoin or Ethereum with leverage without an expiry date. But it turns out this idea isn't just useful for crypto. It works for almost any asset. @injective uses perps to let people trade things like: • https://t.co/vjWn0Nlya4",
-      "topic": "onchain_exchange",
-      "why_trending": "表示5・投稿後12分・反応率20.0%"
     },
     {
       "author_followers": 259,
