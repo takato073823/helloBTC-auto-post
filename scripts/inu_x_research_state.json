@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T13:19:38+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T14:00:29+00:00",
+  "last_deep_scan_at": "2026-08-16T15:00:04+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T15:00:04+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1659,64 +1659,77 @@
       "checked_at": "2026-08-16T14:00:29+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T15:00:04+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T15:00:04+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
     {
-      "author_followers": 153,
-      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "author_followers": 31,
+      "discovered_at": "2026-08-16T15:00:04+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CTRadarNews",
+      "handle": "DAILYXRPUPDATES",
       "has_video": false,
-      "headline": "🚨 THE $18B CRYPTO LIQUIDATION STORY ISN’T THAT SIMPLE A massive liquidation figure is making headlines again — but the real story is more complicated. A Solana Research Institute a",
-      "impression_count": 33,
+      "headline": "The President is meeting crypto execs at the White House. Coinbase. Ripple. Chainlink. a16z. Kalshi. With the SEC Chair and CFTC Chair in the room. 4 weeks before the Clarity Act v",
+      "impression_count": 43,
       "like_count": 2,
       "linked_urls": [
-        "https://x.com/CTRadarNews/status/2088905512507134285/photo/1"
+        "https://x.com/DAILYXRPUPDATES/status/2088996834731495650/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088905512507134285",
-      "post_url": "https://x.com/CTRadarNews/status/2088905512507134285",
-      "posted_at": "2026-08-16T08:27:38+00:00",
-      "quote_count": 1,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 54.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 THE $18B CRYPTO LIQUIDATION STORY ISN’T THAT SIMPLE A massive liquidation figure is making headlines again — but the real story is more complicated. A Solana Research Institute analysis cited roughly $18 BILLION in crypto liquidations during the October 10, 2025 crash. But https://t.co/igm3yYyz5H",
-      "topic": "crypto_market",
-      "why_trending": "表示33・投稿後36分・反応率17.0%"
-    },
-    {
-      "author_followers": 2715,
-      "discovered_at": "2026-08-16T09:03:55+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "charlesnwawo",
-      "has_video": false,
-      "headline": "The next generation of trading won’t be defined by how many charts you can open. It’ll be defined by how quickly you can connect the dots. That’s the bet @ARX_TRADE is making. ARX ",
-      "impression_count": 27,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/charlesnwawo/status/2088913401422475668/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088913401422475668",
-      "post_url": "https://x.com/charlesnwawo/status/2088913401422475668",
-      "posted_at": "2026-08-16T08:58:59+00:00",
+      "post_id": "2088996834731495650",
+      "post_url": "https://x.com/DAILYXRPUPDATES/status/2088996834731495650",
+      "posted_at": "2026-08-16T14:30:31+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 53.9,
+      "score": 55.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "The next generation of trading won’t be defined by how many charts you can open. It’ll be defined by how quickly you can connect the dots. That’s the bet @ARX_TRADE is making. ARX is building a mobile-first, non-custodial trading layer on Hyperliquid where crypto and RWA perps https://t.co/8NYUuo4rmZ",
-      "topic": "crypto_market",
-      "why_trending": "表示27・投稿後4分・反応率7.4%"
+      "summary": "The President is meeting crypto execs at the White House. Coinbase. Ripple. Chainlink. a16z. Kalshi. With the SEC Chair and CFTC Chair in the room. 4 weeks before the Clarity Act vote. This is not a drill. 👀 #Crypto #Regulation https://t.co/XrA4cdpmsF",
+      "topic": "regulation",
+      "why_trending": "表示43・投稿後29分・反応率4.7%"
+    },
+    {
+      "author_followers": 390,
+      "discovered_at": "2026-08-16T15:00:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "rajas2704",
+      "has_video": false,
+      "headline": "JUST IN: Franklin Crypto’s Chris Perkins says the crypto industry will be “just fine” even if the CLARITY Act never passes. He says the SEC and CFTC are already creating “policy an",
+      "impression_count": 542,
+      "like_count": 14,
+      "linked_urls": [
+        "https://x.com/rajas2704/status/2088981482199224748/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088981482199224748",
+      "post_url": "https://x.com/rajas2704/status/2088981482199224748",
+      "posted_at": "2026-08-16T13:29:31+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 52.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Franklin Crypto’s Chris Perkins says the crypto industry will be “just fine” even if the CLARITY Act never passes. He says the SEC and CFTC are already creating “policy and precedent every single day.” 🔥 Crypto regulation is moving forward with or without CLARITY. https://t.co/FpDlS5EyyZ",
+      "topic": "regulation",
+      "why_trending": "表示542・投稿後90分・反応率3.2%"
     },
     {
       "author_followers": 8723,
@@ -1743,34 +1756,6 @@
       "summary": "Israeli crypto exchange Bits of Gold was hit by a supply-chain breach affecting hundreds of companies globally. ID numbers, emails, phone, bank + wallet details may have been exposed, but funds and passwords were not touched, the company says. Read more: https://t.co/exO2bMmw16",
       "topic": "onchain_exchange",
       "why_trending": "表示125・投稿後46分・反応率1.6%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 101,
-      "discovered_at": "2026-08-16T09:03:55+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Elite_Block_Res",
-      "has_video": false,
-      "headline": "🧵 Open interest -0.6% in 24 hours. Fresh positions at this pace mean leverage is building while price digests. Moves that start this way rarely resolve quietly. Full data read belo",
-      "impression_count": 6,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Elite_Block_Res/status/2088910281569190335/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088910281569190335",
-      "post_url": "https://x.com/Elite_Block_Res/status/2088910281569190335",
-      "posted_at": "2026-08-16T08:46:35+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 50.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🧵 Open interest -0.6% in 24 hours. Fresh positions at this pace mean leverage is building while price digests. Moves that start this way rarely resolve quietly. Full data read below ↓ $BTC https://t.co/2GaRcErLcB",
-      "topic": "crypto_market",
-      "why_trending": "表示6・投稿後17分・反応率26.7%"
     },
     {
       "author_followers": 2279,
@@ -1827,6 +1812,30 @@
       "why_trending": "表示38・投稿後67分・反応率2.6%・公式候補リンクあり"
     },
     {
+      "author_followers": 259,
+      "discovered_at": "2026-08-16T15:00:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "QuenofWeb3",
+      "has_video": false,
+      "headline": "Bitcoin is currently trading around the $63K area, while Ethereum is hovering near $ 1.8K. The market is still waiting for a clear breakout, especially with BTC struggling to firml",
+      "impression_count": 1,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089004140730929323",
+      "post_url": "https://x.com/QuenofWeb3/status/2089004140730929323",
+      "posted_at": "2026-08-16T14:59:33+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Bitcoin is currently trading around the $63K area, while Ethereum is hovering near $ 1.8K. The market is still waiting for a clear breakout, especially with BTC struggling to firmly reclaim the $64K–$65K zone. But price action isn’t the only thing happening Institutional demand",
+      "topic": "regulation",
+      "why_trending": "表示1・投稿後0分・反応率100.0%"
+    },
+    {
       "author_followers": 65,
       "discovered_at": "2026-08-16T13:19:38+00:00",
       "discovery_type": "official_x_api",
@@ -1851,32 +1860,84 @@
       "why_trending": "表示27・投稿後19分・反応率0.0%"
     },
     {
-      "author_followers": 138,
-      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "author_followers": 140,
+      "discovered_at": "2026-08-16T15:00:04+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Predixa_xyz",
+      "handle": "AbdesselamS",
       "has_video": false,
-      "headline": "The Morning Line #045 - VIX falls to 14.56, a 2026 low, even as Brent jumps 5% this week - Bitcoin ETFs post $389.7M in outflows this week, worst in six weeks - World Liberty's USD",
-      "impression_count": 36,
-      "like_count": 0,
+      "headline": "THIS COULD BE THE BIGGEST WEEK FOR U.S. CRYPTO REGULATION THIS MONTH. Two major meetings are happening back-to-back: Wednesday: The White House meets with crypto and prediction-mar",
+      "impression_count": 15,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/Predixa_xyz/status/2088905602907189372/photo/1"
+        "https://x.com/AbdesselamS/status/2088977333063409675/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088905602907189372",
-      "post_url": "https://x.com/Predixa_xyz/status/2088905602907189372",
-      "posted_at": "2026-08-16T08:28:00+00:00",
+      "post_id": "2088977333063409675",
+      "post_url": "https://x.com/AbdesselamS/status/2088977333063409675",
+      "posted_at": "2026-08-16T13:13:02+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 40.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "THIS COULD BE THE BIGGEST WEEK FOR U.S. CRYPTO REGULATION THIS MONTH. Two major meetings are happening back-to-back: Wednesday: The White House meets with crypto and prediction-market leaders. Thursday: The CFTC holds a meeting focused on crypto regulation. Meanwhile, the https://t.co/cn7jf6OfTx",
+      "topic": "regulation",
+      "why_trending": "表示15・投稿後107分・反応率20.0%"
+    },
+    {
+      "author_followers": 467,
+      "discovered_at": "2026-08-16T15:00:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "coinworldstory",
+      "has_video": false,
+      "headline": "🚨 A BIG WEEK FOR CRYPTO IN WASHINGTON Two meetings could shape the next phase of U.S. crypto policy. 🇺🇸 Wednesday: White House meets crypto industry leaders + FOMC minutes 🏛️ Thurs",
+      "impression_count": 28,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088978773194752439",
+      "post_url": "https://x.com/coinworldstory/status/2088978773194752439",
+      "posted_at": "2026-08-16T13:18:45+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 38.9,
+      "score": 38.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "The Morning Line #045 - VIX falls to 14.56, a 2026 low, even as Brent jumps 5% this week - Bitcoin ETFs post $389.7M in outflows this week, worst in six weeks - World Liberty's USD1 stablecoin ($4B+ circulating) just got a shot at a bank charter The VIX slid to 14.56 this week, https://t.co/V2Y3Lb0hCC",
-      "topic": "crypto_market",
-      "why_trending": "表示36・投稿後35分・反応率0.0%"
+      "summary": "🚨 A BIG WEEK FOR CRYPTO IN WASHINGTON Two meetings could shape the next phase of U.S. crypto policy. 🇺🇸 Wednesday: White House meets crypto industry leaders + FOMC minutes 🏛️ Thursday: CFTC discusses crypto regulation Meanwhile, the CLARITY Act remains stuck in the Senate,",
+      "topic": "regulation",
+      "why_trending": "表示28・投稿後101分・反応率3.6%"
+    },
+    {
+      "author_followers": 403,
+      "discovered_at": "2026-08-16T15:00:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CongresTracker",
+      "has_video": false,
+      "headline": "This week could be pivotal for the future of crypto regulation in the U.S. The White House is set to meet with crypto industry leaders Wednesday, followed Thursday by a CFTC meetin",
+      "impression_count": 16,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/CongresTracker/status/2089002832322318550/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089002832322318550",
+      "post_url": "https://x.com/CongresTracker/status/2089002832322318550",
+      "posted_at": "2026-08-16T14:54:21+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "This week could be pivotal for the future of crypto regulation in the U.S. The White House is set to meet with crypto industry leaders Wednesday, followed Thursday by a CFTC meeting focused on crypto rules. Congress has already missed its August window to advance the CLARITY https://t.co/mJkZ9VM1AL",
+      "topic": "regulation",
+      "why_trending": "表示16・投稿後5分・反応率0.0%"
     },
     {
       "author_followers": 780,
