@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T19:03:19+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T19:56:07+00:00",
+  "last_deep_scan_at": "2026-08-16T20:59:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T20:59:24+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1716,36 +1716,50 @@
       "checked_at": "2026-08-16T19:56:07+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T20:59:24+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T20:59:24+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
     {
-      "author_followers": 31,
-      "discovered_at": "2026-08-16T15:00:04+00:00",
+      "author_followers": 5,
+      "discovered_at": "2026-08-16T20:59:24+00:00",
       "discovery_type": "official_x_api",
-      "handle": "DAILYXRPUPDATES",
+      "handle": "mdididi678",
       "has_video": false,
-      "headline": "The President is meeting crypto execs at the White House. Coinbase. Ripple. Chainlink. a16z. Kalshi. With the SEC Chair and CFTC Chair in the room. 4 weeks before the Clarity Act v",
-      "impression_count": 43,
-      "like_count": 2,
+      "headline": "交易所搭建https://t.co/9C0N0kZMPr：一站式白标交付，最快3天即速上线运营 提供从0到1的全生态解决方案，覆盖现货、永续合约、期权及质押理财 #交易所开发 #币易鑫 #区块链搭建 @biyixin #Web3创业 #数字货币交易系统 #币圈工具 #金融科技 https://t.co/8CpUEYBCkQ",
+      "impression_count": 2,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/DAILYXRPUPDATES/status/2088996834731495650/photo/1"
+        "https://biyixinkj.com",
+        "https://x.com/mdididi678/status/2089085571364995097/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088996834731495650",
-      "post_url": "https://x.com/DAILYXRPUPDATES/status/2088996834731495650",
-      "posted_at": "2026-08-16T14:30:31+00:00",
+      "post_id": "2089085571364995097",
+      "post_url": "https://x.com/mdididi678/status/2089085571364995097",
+      "posted_at": "2026-08-16T20:23:08+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 55.7,
+      "score": 45.2,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "The President is meeting crypto execs at the White House. Coinbase. Ripple. Chainlink. a16z. Kalshi. With the SEC Chair and CFTC Chair in the room. 4 weeks before the Clarity Act vote. This is not a drill. 👀 #Crypto #Regulation https://t.co/XrA4cdpmsF",
-      "topic": "regulation",
-      "why_trending": "表示43・投稿後29分・反応率4.7%"
+      "summary": "交易所搭建https://t.co/9C0N0kZMPr：一站式白标交付，最快3天即速上线运营 提供从0到1的全生态解决方案，覆盖现货、永续合约、期权及质押理财 #交易所开发 #币易鑫 #区块链搭建 @biyixin #Web3创业 #数字货币交易系统 #币圈工具 #金融科技 https://t.co/8CpUEYBCkQ",
+      "topic": "chinese_market",
+      "why_trending": "表示2・投稿後36分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 259,
@@ -1800,6 +1814,35 @@
       "why_trending": "表示38・投稿後101分・反応率4.2%"
     },
     {
+      "author_followers": 0,
+      "discovered_at": "2026-08-16T20:59:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "mfafafa678",
+      "has_video": false,
+      "headline": "交易所搭建https://t.co/s8UE4GBylc：一站式白标交付，最快3天即速上线运营 提供从0到1的全生态解决方案，覆盖现货、永续合约、期权及质押理财 #交易所开发 #币易鑫 #区块链搭建 @biyixin #Web3创业 #数字货币交易系统 #币圈工具 #金融科技 https://t.co/hD4SyRA8Vw",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://biyixinkj.com",
+        "https://x.com/mfafafa678/status/2089085703938539553/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089085703938539553",
+      "post_url": "https://x.com/mfafafa678/status/2089085703938539553",
+      "posted_at": "2026-08-16T20:23:39+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "交易所搭建https://t.co/s8UE4GBylc：一站式白标交付，最快3天即速上线运营 提供从0到1的全生态解决方案，覆盖现货、永续合约、期权及质押理财 #交易所开发 #币易鑫 #区块链搭建 @biyixin #Web3创业 #数字货币交易系统 #币圈工具 #金融科技 https://t.co/hD4SyRA8Vw",
+      "topic": "chinese_market",
+      "why_trending": "表示1・投稿後35分・反応率0.0%・公式候補リンクあり"
+    },
+    {
       "author_followers": 1487,
       "discovered_at": "2026-08-16T19:03:19+00:00",
       "discovery_type": "official_x_api",
@@ -1852,6 +1895,58 @@
       "why_trending": "表示40・投稿後85分・反応率0.0%・公式候補リンクあり"
     },
     {
+      "author_followers": 17,
+      "discovered_at": "2026-08-16T20:59:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "jhwn9403",
+      "has_video": false,
+      "headline": "今天看到很多人还是搞不懂加密货币的逻辑，到现在还说最大交易所的cz诈骗 没有币安的出现，加密行业流动性达不到今天的高度 以前，你们的工资，存款，股票，都是由机构保管，他们用你的钱，稀释你的财富，你得到的就是他们给你的一串代码",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089089253808730555",
+      "post_url": "https://x.com/jhwn9403/status/2089089253808730555",
+      "posted_at": "2026-08-16T20:37:46+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 40.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "今天看到很多人还是搞不懂加密货币的逻辑，到现在还说最大交易所的cz诈骗 没有币安的出现，加密行业流动性达不到今天的高度 以前，你们的工资，存款，股票，都是由机构保管，他们用你的钱，稀释你的财富，你得到的就是他们给你的一串代码",
+      "topic": "chinese_market",
+      "why_trending": "表示1・投稿後21分・反応率160.0%"
+    },
+    {
+      "author_followers": 10335,
+      "discovered_at": "2026-08-16T20:59:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "heshou55115",
+      "has_video": false,
+      "headline": "以前我最怕的，从来不是市场的剧烈震荡。 而是等待。等美东开盘，等漫长的周末过去，等银行转账慢吞吞地到账——一个时差，就把我挡在美股门外整整两天。资金也总被割裂在不同的平台，这边是券商账户里的股票，那边是交易所里的稳定币，眼看着机会来了，却什么也做不了。 这种割裂感，在 Backpack https://t.co/2iTeSDijQ3",
+      "impression_count": 41,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/heshou55115/status/2089074884701999109/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089074884701999109",
+      "post_url": "https://x.com/heshou55115/status/2089074884701999109",
+      "posted_at": "2026-08-16T19:40:40+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 39.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "以前我最怕的，从来不是市场的剧烈震荡。 而是等待。等美东开盘，等漫长的周末过去，等银行转账慢吞吞地到账——一个时差，就把我挡在美股门外整整两天。资金也总被割裂在不同的平台，这边是券商账户里的股票，那边是交易所里的稳定币，眼看着机会来了，却什么也做不了。 这种割裂感，在 Backpack https://t.co/2iTeSDijQ3",
+      "topic": "chinese_market",
+      "why_trending": "表示41・投稿後78分・反応率7.8%"
+    },
+    {
       "author_followers": 24250,
       "discovered_at": "2026-08-16T19:03:19+00:00",
       "discovery_type": "official_x_api",
@@ -1879,34 +1974,6 @@
       "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️JPモルガン、BTC・ETH ETFの保有拡大──XRP関連商品への投資も再開(NADA NEWS)⭐️ 詳細URL👇 https://t.co/2t1BroedlQ https://t.co/fN26u8dGDt",
       "topic": "japanese_market",
       "why_trending": "表示127・投稿後93分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 403,
-      "discovered_at": "2026-08-16T15:00:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CongresTracker",
-      "has_video": false,
-      "headline": "This week could be pivotal for the future of crypto regulation in the U.S. The White House is set to meet with crypto industry leaders Wednesday, followed Thursday by a CFTC meetin",
-      "impression_count": 16,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CongresTracker/status/2089002832322318550/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089002832322318550",
-      "post_url": "https://x.com/CongresTracker/status/2089002832322318550",
-      "posted_at": "2026-08-16T14:54:21+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "This week could be pivotal for the future of crypto regulation in the U.S. The White House is set to meet with crypto industry leaders Wednesday, followed Thursday by a CFTC meeting focused on crypto rules. Congress has already missed its August window to advance the CLARITY https://t.co/mJkZ9VM1AL",
-      "topic": "regulation",
-      "why_trending": "表示16・投稿後5分・反応率0.0%"
     },
     {
       "author_followers": 24250,
