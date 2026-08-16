@@ -1107,6 +1107,20 @@
       "posted_at": "2026-08-16T16:20:16.300995+00:00",
       "hook": "📈 $ETHFI、24時間で+8.92％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-17-05-a",
+      "post_id": "inu_market_2026_08_17_05_a_crypto-chip-usd",
+      "tweet_id": "2089092631301103989",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:CHIP-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-CHIPUSD",
+      "published_at": "2026-08-16T20:00:00+00:00",
+      "posted_at": "2026-08-16T20:51:11.747399+00:00",
+      "hook": "📈 $CHIP、24時間で+8.48％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -1196,7 +1210,8 @@
     "inu_market_2026_08_16_15_a_crypto-fet-usd",
     "inu_market_2026_08_16_19_a_crypto-wal-usd",
     "inu_market_2026_08_16_23_a_crypto-chip-usd",
-    "inu_market_2026_08_17_01_a_crypto-ethfi-usd"
+    "inu_market_2026_08_17_01_a_crypto-ethfi-usd",
+    "inu_market_2026_08_17_05_a_crypto-chip-usd"
   ],
   "reservations": [
     {
@@ -1426,16 +1441,6 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
-    },
-    {
-      "slot": "2026-08-17-05-a",
-      "post_id": "inu_market_2026_08_17_05_a_crypto-chip-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-CHIPUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:CHIP-USD",
-      "reserved_at": "2026-08-16T20:50:48.738169+00:00"
     }
   ],
   "history": [
@@ -2601,6 +2606,20 @@
       "published_at": "2026-08-16T16:00:00+00:00",
       "posted_at": "2026-08-16T16:20:16.300995+00:00",
       "hook": "📈 $ETHFI、24時間で+8.92％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-17-05-a",
+      "post_id": "inu_market_2026_08_17_05_a_crypto-chip-usd",
+      "tweet_id": "2089092631301103989",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:CHIP-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-CHIPUSD",
+      "published_at": "2026-08-16T20:00:00+00:00",
+      "posted_at": "2026-08-16T20:51:11.747399+00:00",
+      "hook": "📈 $CHIP、24時間で+8.48％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
