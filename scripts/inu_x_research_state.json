@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T09:03:55+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T09:03:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T10:00:33+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1615,6 +1615,12 @@
       "result_count": 6,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T10:00:33+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1676,60 +1682,6 @@
       "why_trending": "表示193・投稿後56分・反応率6.2%・公式候補リンクあり"
     },
     {
-      "author_followers": 106,
-      "discovered_at": "2026-08-16T05:09:08+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WGiordanol66",
-      "has_video": false,
-      "headline": "难道现在交易所弄得美股交易 他是真正的货真价值么？ 他难道不是建立在所谓的U本位模式下的金融工具么？ 难道现在加密市场纵横的那些大佬他们就能笑傲江湖永续人生么？ 这都是未知的 在这个市场只有贪婪跟无底洞 如果平衡不了自己 被清算只是时间问题 https://t.co/Y5AmDq90XH",
-      "impression_count": 56,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/WGiordanol66/status/2088832646185160984"
-      ],
-      "media_types": [],
-      "post_id": "2088833103422992410",
-      "post_url": "https://x.com/WGiordanol66/status/2088833103422992410",
-      "posted_at": "2026-08-16T03:39:55+00:00",
-      "quote_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 57.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "难道现在交易所弄得美股交易 他是真正的货真价值么？ 他难道不是建立在所谓的U本位模式下的金融工具么？ 难道现在加密市场纵横的那些大佬他们就能笑傲江湖永续人生么？ 这都是未知的 在这个市场只有贪婪跟无底洞 如果平衡不了自己 被清算只是时间问题 https://t.co/Y5AmDq90XH",
-      "topic": "chinese_market",
-      "why_trending": "表示56・投稿後89分・反応率5.4%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 68,
-      "discovered_at": "2026-08-16T03:33:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "joker_64_",
-      "has_video": false,
-      "headline": "CFR WEEKLY OUTLOOK #002 AUG.17–23, 2026 THE WEEK OF CONFIRMATION 期待から、確認へ。 Bitcoinは約**$63K**。 価格が方向を探る一方、米国では暗号資産規制を巡る「時計」に遅れが生じ始めました。 今週CFRが見るのは、 市場が何を期待しているかではない。 https://t.co/Qq",
-      "impression_count": 43,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/joker_64_/status/2088826434743578978/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088826434743578978",
-      "post_url": "https://x.com/joker_64_/status/2088826434743578978",
-      "posted_at": "2026-08-16T03:13:25+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 56.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "CFR WEEKLY OUTLOOK #002 AUG.17–23, 2026 THE WEEK OF CONFIRMATION 期待から、確認へ。 Bitcoinは約**$63K**。 価格が方向を探る一方、米国では暗号資産規制を巡る「時計」に遅れが生じ始めました。 今週CFRが見るのは、 市場が何を期待しているかではない。 https://t.co/QqVUfh7jif",
-      "topic": "japanese_market",
-      "why_trending": "表示43・投稿後20分・反応率7.0%"
-    },
-    {
       "author_followers": 153,
       "discovered_at": "2026-08-16T09:03:55+00:00",
       "discovery_type": "official_x_api",
@@ -1784,34 +1736,6 @@
       "summary": "The next generation of trading won’t be defined by how many charts you can open. It’ll be defined by how quickly you can connect the dots. That’s the bet @ARX_TRADE is making. ARX is building a mobile-first, non-custodial trading layer on Hyperliquid where crypto and RWA perps https://t.co/8NYUuo4rmZ",
       "topic": "crypto_market",
       "why_trending": "表示27・投稿後4分・反応率7.4%"
-    },
-    {
-      "author_followers": 129,
-      "discovered_at": "2026-08-16T03:33:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sugizoai",
-      "has_video": false,
-      "headline": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・地政学｜中東情勢の緊張再燃＆ホルムズ海峡めぐる応酬 ・中東リスクの警戒感：米・イラン間の対立激化や海峡安全保障をめぐる発言の応酬が続き、原油市場とグローバル金融市場で警戒が再燃。 https://t.co/PD9mbuWIGN",
-      "impression_count": 226,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Sugizoai/status/2088828721457439007/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088828721457439007",
-      "post_url": "https://x.com/Sugizoai/status/2088828721457439007",
-      "posted_at": "2026-08-16T03:22:30+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 53.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・地政学｜中東情勢の緊張再燃＆ホルムズ海峡めぐる応酬 ・中東リスクの警戒感：米・イラン間の対立激化や海峡安全保障をめぐる発言の応酬が続き、原油市場とグローバル金融市場で警戒が再燃。 https://t.co/PD9mbuWIGN",
-      "topic": "japanese_market",
-      "why_trending": "表示226・投稿後11分・反応率0.7%"
     },
     {
       "author_followers": 101,
@@ -1948,34 +1872,6 @@
       "summary": "$BTC — Crypto Mining Crackdown + ETF Outflows ⚠️ Bitcoin is facing some short-term pressure, but the bigger story is happening underneath the surface. 🇷🇺 Russia is tightening crypto mining restrictions. Mining has now been banned in Moscow, the Moscow Region and parts of Kursk, https://t.co/bYcedS78U6",
       "topic": "crypto_market",
       "why_trending": "表示165・投稿後107分・反応率1.6%"
-    },
-    {
-      "author_followers": 78078,
-      "discovered_at": "2026-08-16T05:09:08+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "wukong2021",
-      "has_video": false,
-      "headline": "美股存储、芯片板块大幅上涨；但比特币并未跟随反弹，走出利好不涨的弱势格局。 核心资金层面利空原因： 比特币 ETF 持续净流出，资金流向美股其他板块，形成资金虹吸； 矿企持续抛售比特币换取现金流，部分矿企质押 BTC 融资转向 AI、能源项目；Microstrategy https://t.co/rg4QWEykYa",
-      "impression_count": 1151,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/wukong2021/status/2088826431472345526/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088826431472345526",
-      "post_url": "https://x.com/wukong2021/status/2088826431472345526",
-      "posted_at": "2026-08-16T03:13:24+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 34.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "美股存储、芯片板块大幅上涨；但比特币并未跟随反弹，走出利好不涨的弱势格局。 核心资金层面利空原因： 比特币 ETF 持续净流出，资金流向美股其他板块，形成资金虹吸； 矿企持续抛售比特币换取现金流，部分矿企质押 BTC 融资转向 AI、能源项目；Microstrategy https://t.co/rg4QWEykYa",
-      "topic": "chinese_market",
-      "why_trending": "表示1,151・投稿後115分・反応率0.7%"
     }
   ],
   "trends": [],
