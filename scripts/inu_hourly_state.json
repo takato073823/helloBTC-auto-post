@@ -1411,6 +1411,16 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
+    },
+    {
+      "slot": "2026-08-17-01-a",
+      "post_id": "inu_market_2026_08_17_01_a_crypto-ethfi-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ETHFIUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ETHFI-USD",
+      "reserved_at": "2026-08-16T16:19:41.849191+00:00"
     }
   ],
   "history": [
