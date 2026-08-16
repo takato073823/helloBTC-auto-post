@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-15T23:58:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-15T23:58:00+00:00",
+  "last_deep_scan_at": "2026-08-16T02:11:22+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T02:11:22+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1532,6 +1532,19 @@
       "result_count": 5,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T02:11:22+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T02:11:22+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1562,34 +1575,6 @@
       "summary": "JUST IN: Billionaire Mark Cuban says computer chips \"will be the new crypto.\" https://t.co/fkV9wzCOUy",
       "topic": "watcher_guru",
       "why_trending": "表示186,413・投稿後87分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 422,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "TheCycleProf",
-      "has_video": false,
-      "headline": "🚨THE NEXT CRYPTO CYCLE🚨 THE LEADER WILL NOT BE #BITCOIN #Ethereum is being prepared as the backbone of the next financial cycle, and almost nobody is treating this as the seismic e",
-      "impression_count": 26,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/TheCycleProf/status/2088713687234211950/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088713687234211950",
-      "post_url": "https://x.com/TheCycleProf/status/2088713687234211950",
-      "posted_at": "2026-08-15T19:45:24+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 1,
-      "score": 54.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨THE NEXT CRYPTO CYCLE🚨 THE LEADER WILL NOT BE #BITCOIN #Ethereum is being prepared as the backbone of the next financial cycle, and almost nobody is treating this as the seismic event it is. BlackRock just expanded its tokenized cash offerings with new blockchain-based https://t.co/9CBjjZvyVN",
-      "topic": "onchain_exchange",
-      "why_trending": "表示26・投稿後11分・反応率17.7%"
     },
     {
       "author_followers": 1458,
@@ -1698,106 +1683,6 @@
       "why_trending": "表示32・投稿後30分・反応率5.0%"
     },
     {
-      "author_followers": 36,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "SonarTrackerio",
-      "has_video": false,
-      "headline": "🐋 $6.4M in $AAVE moved from unknown wallet to Balancer on Ethereum. Live AAVE whale flows → https://t.co/TESk0TT0RL",
-      "impression_count": 5,
-      "like_count": 0,
-      "linked_urls": [
-        "https://www.sonartracker.io/token/AAVE"
-      ],
-      "media_types": [],
-      "post_id": "2088714896355582438",
-      "post_url": "https://x.com/SonarTrackerio/status/2088714896355582438",
-      "posted_at": "2026-08-15T19:50:12+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🐋 $6.4M in $AAVE moved from unknown wallet to Balancer on Ethereum. Live AAVE whale flows → https://t.co/TESk0TT0RL",
-      "topic": "onchain_exchange",
-      "why_trending": "表示5・投稿後7分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 1800,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "thegardener777",
-      "has_video": false,
-      "headline": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m ",
-      "impression_count": 294,
-      "like_count": 21,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088691777863664039",
-      "post_url": "https://x.com/thegardener777/status/2088691777863664039",
-      "posted_at": "2026-08-15T18:18:20+00:00",
-      "quote_count": 1,
-      "reply_count": 2,
-      "repost_count": 12,
-      "score": 47.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m wallets). TOBY began the journey as the first rune and one of the oldest memes on Base, acting as",
-      "topic": "onchain_exchange",
-      "why_trending": "表示294・投稿後98分・反応率17.1%"
-    },
-    {
-      "author_followers": 5767,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "mmmikema",
-      "has_video": false,
-      "headline": "Why the second act of the AI buildout settles on Ethereum https://t.co/lxLIGqSJrl",
-      "impression_count": 281,
-      "like_count": 5,
-      "linked_urls": [
-        "https://x.com/i/article/2088699624748150784"
-      ],
-      "media_types": [],
-      "post_id": "2088700440804524141",
-      "post_url": "https://x.com/mmmikema/status/2088700440804524141",
-      "posted_at": "2026-08-15T18:52:45+00:00",
-      "quote_count": 1,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 43.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Why the second act of the AI buildout settles on Ethereum https://t.co/lxLIGqSJrl",
-      "topic": "onchain_exchange",
-      "why_trending": "表示281・投稿後64分・反応率3.1%"
-    },
-    {
-      "author_followers": 1800,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "thegardener777",
-      "has_video": false,
-      "headline": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m ",
-      "impression_count": 137,
-      "like_count": 6,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088688473700241808",
-      "post_url": "https://x.com/thegardener777/status/2088688473700241808",
-      "posted_at": "2026-08-15T18:05:12+00:00",
-      "quote_count": 1,
-      "reply_count": 1,
-      "repost_count": 4,
-      "score": 42.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m wallets). TOBY began as the currency and community layer: 420T fixed supply, roughly 69%",
-      "topic": "onchain_exchange",
-      "why_trending": "表示137・投稿後112分・反応率12.8%"
-    },
-    {
       "author_followers": 301361,
       "discovered_at": "2026-08-15T23:58:00+00:00",
       "discovery_type": "official_x_api",
@@ -1852,58 +1737,6 @@
       "summary": "The Fed decision is old news. The FOMC minutes may reveal what policymakers were really worried about—and whether the rate outlook is shifting. Watch USD, gold, yields, stocks and crypto. https://t.co/xNURrQpmwG",
       "topic": "macro_rates",
       "why_trending": "表示1・投稿後15分・反応率0.0%・動画あり"
-    },
-    {
-      "author_followers": 1800,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "thegardener777",
-      "has_video": false,
-      "headline": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m ",
-      "impression_count": 54,
-      "like_count": 7,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088689475001933983",
-      "post_url": "https://x.com/thegardener777/status/2088689475001933983",
-      "posted_at": "2026-08-15T18:09:11+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 3,
-      "score": 38.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Most Base memes ask you to buy one token and wait. TobyWorld has spent over two years quietly assembling an entire onchain economy around Base’s most widely-distributed meme (1.4m wallets). TOBY began as the currency and community layer: 420T fixed supply, roughly 69%",
-      "topic": "onchain_exchange",
-      "why_trending": "表示54・投稿後108分・反応率27.0%"
-    },
-    {
-      "author_followers": 56,
-      "discovered_at": "2026-08-15T19:57:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoreTradingHQ",
-      "has_video": false,
-      "headline": "What If Someone Suddenly Touched Satoshi Nakamoto’s Bitcoin? 👀₿ 1/ Imagine waking up tomorrow and seeing a Bitcoin transaction from an address believed to belong to Satoshi Nakamot",
-      "impression_count": 19,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CoreTradingHQ/status/2088701579176096042/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088701579176096042",
-      "post_url": "https://x.com/CoreTradingHQ/status/2088701579176096042",
-      "posted_at": "2026-08-15T18:57:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "What If Someone Suddenly Touched Satoshi Nakamoto’s Bitcoin? 👀₿ 1/ Imagine waking up tomorrow and seeing a Bitcoin transaction from an address believed to belong to Satoshi Nakamoto. Not a rumor. Not an old screenshot. A real transaction. 2/ The first thing that would https://t.co/qJ84c9O40n",
-      "topic": "onchain_exchange",
-      "why_trending": "表示19・投稿後59分・反応率0.0%"
     }
   ],
   "trends": [],
