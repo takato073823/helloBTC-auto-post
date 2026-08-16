@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T02:11:22+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T02:11:22+00:00",
+  "last_deep_scan_at": "2026-08-16T03:33:42+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T03:33:42+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1545,36 +1545,75 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T03:33:42+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T03:33:42+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
     {
-      "author_followers": 4678814,
-      "discovered_at": "2026-08-15T22:59:07+00:00",
+      "author_followers": 3184,
+      "discovered_at": "2026-08-16T03:33:42+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
+      "handle": "cryptoraboth",
       "has_video": false,
-      "headline": "JUST IN: Billionaire Mark Cuban says computer chips \"will be the new crypto.\" https://t.co/fkV9wzCOUy",
-      "impression_count": 186413,
-      "like_count": 1268,
+      "headline": "🚨⚡️これは凄い😳 🇺🇸フロリダ州が動いています‼️ これ地味に見えて後々デカいニュース。 州レベルの規制フレームワークが整うと、次は機関マネーの流入速度が変わる。 暗号資産ホルダーには強気🚀 #XRP #仮想通貨 https://t.co/l1odvx5V9R",
+      "impression_count": 307,
+      "like_count": 8,
       "linked_urls": [
-        "https://x.com/WatcherGuru/status/2088740544486764549/photo/1"
+        "https://twitter.com/ripplexrpie/status/2088230196809744416"
+      ],
+      "media_types": [],
+      "post_id": "2088810903869464579",
+      "post_url": "https://x.com/cryptoraboth/status/2088810903869464579",
+      "posted_at": "2026-08-16T02:11:42+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 57.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨⚡️これは凄い😳 🇺🇸フロリダ州が動いています‼️ これ地味に見えて後々デカいニュース。 州レベルの規制フレームワークが整うと、次は機関マネーの流入速度が変わる。 暗号資産ホルダーには強気🚀 #XRP #仮想通貨 https://t.co/l1odvx5V9R",
+      "topic": "japanese_market",
+      "why_trending": "表示307・投稿後82分・反応率3.6%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 68,
+      "discovered_at": "2026-08-16T03:33:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "joker_64_",
+      "has_video": false,
+      "headline": "CFR WEEKLY OUTLOOK #002 AUG.17–23, 2026 THE WEEK OF CONFIRMATION 期待から、確認へ。 Bitcoinは約**$63K**。 価格が方向を探る一方、米国では暗号資産規制を巡る「時計」に遅れが生じ始めました。 今週CFRが見るのは、 市場が何を期待しているかではない。 https://t.co/Qq",
+      "impression_count": 43,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/joker_64_/status/2088826434743578978/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088740544486764549",
-      "post_url": "https://x.com/WatcherGuru/status/2088740544486764549",
-      "posted_at": "2026-08-15T21:32:07+00:00",
-      "quote_count": 51,
-      "reply_count": 317,
-      "repost_count": 105,
-      "score": 71.1,
+      "post_id": "2088826434743578978",
+      "post_url": "https://x.com/joker_64_/status/2088826434743578978",
+      "posted_at": "2026-08-16T03:13:25+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 56.5,
       "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Billionaire Mark Cuban says computer chips \"will be the new crypto.\" https://t.co/fkV9wzCOUy",
-      "topic": "watcher_guru",
-      "why_trending": "表示186,413・投稿後87分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
+      "source_priority": "",
+      "summary": "CFR WEEKLY OUTLOOK #002 AUG.17–23, 2026 THE WEEK OF CONFIRMATION 期待から、確認へ。 Bitcoinは約**$63K**。 価格が方向を探る一方、米国では暗号資産規制を巡る「時計」に遅れが生じ始めました。 今週CFRが見るのは、 市場が何を期待しているかではない。 https://t.co/QqVUfh7jif",
+      "topic": "japanese_market",
+      "why_trending": "表示43・投稿後20分・反応率7.0%"
     },
     {
       "author_followers": 1458,
@@ -1601,6 +1640,34 @@
       "summary": "🚨 IT’S FINALLY HAPPENING! 🇺🇸🔥 President Trump is set to meet with crypto industry leaders at the White House as discussions around the CLARITY Act continue. Crypto regulation could be entering a major new chapter. 👀 #Crypto #CLARITYAct #XRP #Bitcoin https://t.co/jK4Q2y4b6E",
       "topic": "regulation",
       "why_trending": "表示81・投稿後62分・反応率3.7%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 129,
+      "discovered_at": "2026-08-16T03:33:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Sugizoai",
+      "has_video": false,
+      "headline": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・地政学｜中東情勢の緊張再燃＆ホルムズ海峡めぐる応酬 ・中東リスクの警戒感：米・イラン間の対立激化や海峡安全保障をめぐる発言の応酬が続き、原油市場とグローバル金融市場で警戒が再燃。 https://t.co/PD9mbuWIGN",
+      "impression_count": 226,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Sugizoai/status/2088828721457439007/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088828721457439007",
+      "post_url": "https://x.com/Sugizoai/status/2088828721457439007",
+      "posted_at": "2026-08-16T03:22:30+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 53.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 政治・地政学｜中東情勢の緊張再燃＆ホルムズ海峡めぐる応酬 ・中東リスクの警戒感：米・イラン間の対立激化や海峡安全保障をめぐる発言の応酬が続き、原油市場とグローバル金融市場で警戒が再燃。 https://t.co/PD9mbuWIGN",
+      "topic": "japanese_market",
+      "why_trending": "表示226・投稿後11分・反応率0.7%"
     },
     {
       "author_followers": 1458,
@@ -1653,6 +1720,32 @@
       "summary": "🚨 CONFIRMED: THE CLARITY ACT IS MOVING FORWARD! 🇺🇸🔥 The Senate has set up a key vote for September 15. Passage is NOT guaranteed yet—but the fight is far from over. Crypto regulation could be entering a historic new chapter. 👀🚀 #CLARITYAct #XRP #Crypto #Ripple https://t.co/k1lVWGR6la",
       "topic": "regulation",
       "why_trending": "表示40・投稿後101分・反応率7.5%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 13,
+      "discovered_at": "2026-08-16T03:33:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "LarsenJosi2466",
+      "has_video": false,
+      "headline": "色んな配信者を見てきたけど みやびさんの分析精度の高さは別格ですね🤗 これほど的確な人は 他にいないのでフォロー推奨です😍 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 実質金利 リセッション 暗号資産 半導体株 S&amp;P500 https://t.co/urxwKc",
+      "impression_count": 480,
+      "like_count": 2,
+      "linked_urls": [
+        "https://twitter.com/miyabi_fx_1997/status/2088784786173346035"
+      ],
+      "media_types": [],
+      "post_id": "2088810475433680929",
+      "post_url": "https://x.com/LarsenJosi2466/status/2088810475433680929",
+      "posted_at": "2026-08-16T02:10:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 49.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "色んな配信者を見てきたけど みやびさんの分析精度の高さは別格ですね🤗 これほど的確な人は 他にいないのでフォロー推奨です😍 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 実質金利 リセッション 暗号資産 半導体株 S&amp;P500 https://t.co/urxwKchh5S",
+      "topic": "japanese_market",
+      "why_trending": "表示480・投稿後83分・反応率0.4%・公式候補リンクあり"
     },
     {
       "author_followers": 624,
@@ -1737,6 +1830,64 @@
       "summary": "The Fed decision is old news. The FOMC minutes may reveal what policymakers were really worried about—and whether the rate outlook is shifting. Watch USD, gold, yields, stocks and crypto. https://t.co/xNURrQpmwG",
       "topic": "macro_rates",
       "why_trending": "表示1・投稿後15分・反応率0.0%・動画あり"
+    },
+    {
+      "author_followers": 24253,
+      "discovered_at": "2026-08-16T03:33:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ダートマス大学基金の暗号資産ETF保有額、15%減の1,240万ドルに⭐️ 詳細URL👇 https://t.co/MtjfVlBaOy https://t.co/9oloCskPXO",
+      "impression_count": 119,
+      "like_count": 0,
+      "linked_urls": [
+        "https://ift.tt/oqJWBfe",
+        "https://x.com/CoinmatomeNews/status/2088807910792978601/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088807910792978601",
+      "post_url": "https://x.com/CoinmatomeNews/status/2088807910792978601",
+      "posted_at": "2026-08-16T01:59:48+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️ダートマス大学基金の暗号資産ETF保有額、15%減の1,240万ドルに⭐️ 詳細URL👇 https://t.co/MtjfVlBaOy https://t.co/9oloCskPXO",
+      "topic": "japanese_market",
+      "why_trending": "表示119・投稿後93分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 24253,
+      "discovered_at": "2026-08-16T03:33:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CoinmatomeNews",
+      "has_video": false,
+      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️アイルランド、初の国家マネーロンダリング対策戦略を発表——暗号資産ウォレットに厳格な規制⭐️ 詳細URL👇 https://t.co/xjPqnW7H78 https://t.co/d3ozcrTgnC",
+      "impression_count": 112,
+      "like_count": 0,
+      "linked_urls": [
+        "https://ift.tt/I9MPApd",
+        "https://x.com/CoinmatomeNews/status/2088807901179650189/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088807901179650189",
+      "post_url": "https://x.com/CoinmatomeNews/status/2088807901179650189",
+      "posted_at": "2026-08-16T01:59:46+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 37.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️アイルランド、初の国家マネーロンダリング対策戦略を発表——暗号資産ウォレットに厳格な規制⭐️ 詳細URL👇 https://t.co/xjPqnW7H78 https://t.co/d3ozcrTgnC",
+      "topic": "japanese_market",
+      "why_trending": "表示112・投稿後93分・反応率0.0%・公式候補リンクあり"
     }
   ],
   "trends": [],
