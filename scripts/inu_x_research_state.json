@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T11:00:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T11:00:13+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T11:57:35+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1634,6 +1634,12 @@
       "result_count": 4,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T11:57:35+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
