@@ -1051,6 +1051,20 @@
       "posted_at": "2026-08-16T04:31:56.156924+00:00",
       "hook": "📉 $AVAX、24時間で-6.21％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-16-15-a",
+      "post_id": "inu_market_2026_08_16_15_a_crypto-fet-usd",
+      "tweet_id": "2088876720585932957",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:FET-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-FETUSD",
+      "published_at": "2026-08-16T06:00:00+00:00",
+      "posted_at": "2026-08-16T06:33:14.612387+00:00",
+      "hook": "📉 $FET、24時間で-6.74％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -1136,7 +1150,8 @@
     "inu_market_2026_08_16_03_a_crypto-cow-usd",
     "inu_market_2026_08_16_05_a_crypto-link-usd",
     "inu_market_2026_08_16_10_a_crypto-cow-usd",
-    "inu_market_2026_08_16_13_a_crypto-avax-usd"
+    "inu_market_2026_08_16_13_a_crypto-avax-usd",
+    "inu_market_2026_08_16_15_a_crypto-fet-usd"
   ],
   "reservations": [
     {
@@ -1366,16 +1381,6 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
-    },
-    {
-      "slot": "2026-08-16-15-a",
-      "post_id": "inu_market_2026_08_16_15_a_crypto-fet-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-FETUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:FET-USD",
-      "reserved_at": "2026-08-16T06:32:37.051597+00:00"
     }
   ],
   "history": [
@@ -2485,6 +2490,20 @@
       "published_at": "2026-08-16T04:00:00+00:00",
       "posted_at": "2026-08-16T04:31:56.156924+00:00",
       "hook": "📉 $AVAX、24時間で-6.21％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-16-15-a",
+      "post_id": "inu_market_2026_08_16_15_a_crypto-fet-usd",
+      "tweet_id": "2088876720585932957",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:FET-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-FETUSD",
+      "published_at": "2026-08-16T06:00:00+00:00",
+      "posted_at": "2026-08-16T06:33:14.612387+00:00",
+      "hook": "📉 $FET、24時間で-6.74％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
