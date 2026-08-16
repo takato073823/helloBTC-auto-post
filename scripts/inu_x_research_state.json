@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T11:00:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T11:57:35+00:00",
+  "last_deep_scan_at": "2026-08-16T13:19:38+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T13:19:38+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1640,6 +1640,19 @@
       "checked_at": "2026-08-16T11:57:35+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T13:19:38+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T13:19:38+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -1808,6 +1821,30 @@
       "why_trending": "表示38・投稿後67分・反応率2.6%・公式候補リンクあり"
     },
     {
+      "author_followers": 65,
+      "discovered_at": "2026-08-16T13:19:38+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "VWFADZ",
+      "has_video": false,
+      "headline": "August 2026: • NFP Aug 7 — rate cut odds reset • CPI Aug 12 — inflation verdict • Jackson Hole Aug 27 — Fed on crypto payments • DTCC full launch 7 weeks out Every data point confi",
+      "impression_count": 27,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088974080972046805",
+      "post_url": "https://x.com/VWFADZ/status/2088974080972046805",
+      "posted_at": "2026-08-16T13:00:06+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 41.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "August 2026: • NFP Aug 7 — rate cut odds reset • CPI Aug 12 — inflation verdict • Jackson Hole Aug 27 — Fed on crypto payments • DTCC full launch 7 weeks out Every data point confirms the tokenization thesis. $CC $XRP $XLM $HBAR #crypto #tokenization",
+      "topic": "macro_rates",
+      "why_trending": "表示27・投稿後19分・反応率0.0%"
+    },
+    {
       "author_followers": 138,
       "discovered_at": "2026-08-16T09:03:55+00:00",
       "discovery_type": "official_x_api",
@@ -1882,34 +1919,6 @@
       "summary": "🔥 Stop guessing. Start tracking. What are the wallets and traders you’re interested in doing right now? With Wallet Tracker Bot, you can monitor activity in real time: 👀 On-Chain Spot activity ⚡ Hyperliquid Futures positions 🐋 Whale wallet monitoring 📊 Trader rankings &amp;",
       "topic": "onchain_exchange",
       "why_trending": "表示20・投稿後78分・反応率15.0%"
-    },
-    {
-      "author_followers": 3549,
-      "discovered_at": "2026-08-16T09:03:55+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "gulVasikova",
-      "has_video": false,
-      "headline": "$BTC — Crypto Mining Crackdown + ETF Outflows ⚠️ Bitcoin is facing some short-term pressure, but the bigger story is happening underneath the surface. 🇷🇺 Russia is tightening crypt",
-      "impression_count": 165,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/gulVasikova/status/2088887665651581086/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088887665651581086",
-      "post_url": "https://x.com/gulVasikova/status/2088887665651581086",
-      "posted_at": "2026-08-16T07:16:43+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 36.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "$BTC — Crypto Mining Crackdown + ETF Outflows ⚠️ Bitcoin is facing some short-term pressure, but the bigger story is happening underneath the surface. 🇷🇺 Russia is tightening crypto mining restrictions. Mining has now been banned in Moscow, the Moscow Region and parts of Kursk, https://t.co/bYcedS78U6",
-      "topic": "crypto_market",
-      "why_trending": "表示165・投稿後107分・反応率1.6%"
     }
   ],
   "trends": [],
