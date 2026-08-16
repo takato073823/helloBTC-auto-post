@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T19:03:19+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T19:03:19+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T19:56:07+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1710,6 +1710,12 @@
       "result_count": 7,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T19:56:07+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1740,34 +1746,6 @@
       "summary": "The President is meeting crypto execs at the White House. Coinbase. Ripple. Chainlink. a16z. Kalshi. With the SEC Chair and CFTC Chair in the room. 4 weeks before the Clarity Act vote. This is not a drill. 👀 #Crypto #Regulation https://t.co/XrA4cdpmsF",
       "topic": "regulation",
       "why_trending": "表示43・投稿後29分・反応率4.7%"
-    },
-    {
-      "author_followers": 390,
-      "discovered_at": "2026-08-16T15:00:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "rajas2704",
-      "has_video": false,
-      "headline": "JUST IN: Franklin Crypto’s Chris Perkins says the crypto industry will be “just fine” even if the CLARITY Act never passes. He says the SEC and CFTC are already creating “policy an",
-      "impression_count": 542,
-      "like_count": 14,
-      "linked_urls": [
-        "https://x.com/rajas2704/status/2088981482199224748/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088981482199224748",
-      "post_url": "https://x.com/rajas2704/status/2088981482199224748",
-      "posted_at": "2026-08-16T13:29:31+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 52.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Franklin Crypto’s Chris Perkins says the crypto industry will be “just fine” even if the CLARITY Act never passes. He says the SEC and CFTC are already creating “policy and precedent every single day.” 🔥 Crypto regulation is moving forward with or without CLARITY. https://t.co/FpDlS5EyyZ",
-      "topic": "regulation",
-      "why_trending": "表示542・投稿後90分・反応率3.2%"
     },
     {
       "author_followers": 259,
@@ -1872,58 +1850,6 @@
       "summary": "ただし景気が強い → 金利↑なら銀行・商社・建設などにかなり素直な追い風。 でも財政不安 → 国債売り → 悪い金利上昇まで行くと話が変わる。この場合は銀行すら金利上昇だから全部OKじゃなくなって、日本株全体のPER低下につながる可能性がある。 https://t.co/vNrgmYTRtA",
       "topic": "japanese_market",
       "why_trending": "表示40・投稿後85分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 140,
-      "discovered_at": "2026-08-16T15:00:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "AbdesselamS",
-      "has_video": false,
-      "headline": "THIS COULD BE THE BIGGEST WEEK FOR U.S. CRYPTO REGULATION THIS MONTH. Two major meetings are happening back-to-back: Wednesday: The White House meets with crypto and prediction-mar",
-      "impression_count": 15,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/AbdesselamS/status/2088977333063409675/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088977333063409675",
-      "post_url": "https://x.com/AbdesselamS/status/2088977333063409675",
-      "posted_at": "2026-08-16T13:13:02+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 40.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "THIS COULD BE THE BIGGEST WEEK FOR U.S. CRYPTO REGULATION THIS MONTH. Two major meetings are happening back-to-back: Wednesday: The White House meets with crypto and prediction-market leaders. Thursday: The CFTC holds a meeting focused on crypto regulation. Meanwhile, the https://t.co/cn7jf6OfTx",
-      "topic": "regulation",
-      "why_trending": "表示15・投稿後107分・反応率20.0%"
-    },
-    {
-      "author_followers": 467,
-      "discovered_at": "2026-08-16T15:00:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "coinworldstory",
-      "has_video": false,
-      "headline": "🚨 A BIG WEEK FOR CRYPTO IN WASHINGTON Two meetings could shape the next phase of U.S. crypto policy. 🇺🇸 Wednesday: White House meets crypto industry leaders + FOMC minutes 🏛️ Thurs",
-      "impression_count": 28,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088978773194752439",
-      "post_url": "https://x.com/coinworldstory/status/2088978773194752439",
-      "posted_at": "2026-08-16T13:18:45+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 A BIG WEEK FOR CRYPTO IN WASHINGTON Two meetings could shape the next phase of U.S. crypto policy. 🇺🇸 Wednesday: White House meets crypto industry leaders + FOMC minutes 🏛️ Thursday: CFTC discusses crypto regulation Meanwhile, the CLARITY Act remains stuck in the Senate,",
-      "topic": "regulation",
-      "why_trending": "表示28・投稿後101分・反応率3.6%"
     },
     {
       "author_followers": 24250,
