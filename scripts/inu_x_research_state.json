@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T20:59:24+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T21:56:57+00:00",
+  "last_deep_scan_at": "2026-08-16T22:58:23+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T22:58:23+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1735,6 +1735,19 @@
       "checked_at": "2026-08-16T21:56:57+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T22:58:23+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T22:58:23+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
