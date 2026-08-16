@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T15:00:04+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T15:00:04+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T15:58:25+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1672,6 +1672,12 @@
       "result_count": 6,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T15:58:25+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1784,32 +1790,6 @@
       "summary": "Perpetual futures (perps) started out as a crypto thing — a way to trade Bitcoin or Ethereum with leverage without an expiry date. But it turns out this idea isn't just useful for crypto. It works for almost any asset. @injective uses perps to let people trade things like: • https://t.co/vjWn0Nlya4",
       "topic": "onchain_exchange",
       "why_trending": "表示5・投稿後12分・反応率20.0%"
-    },
-    {
-      "author_followers": 11457,
-      "discovered_at": "2026-08-16T11:00:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "GREATVVIP",
-      "has_video": false,
-      "headline": "The stablecoin yield game is getting less about finding “the highest APY” and more about choosing the right route for your capital. That is what stands out to me about the latest U",
-      "impression_count": 38,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/DecentralizeUSD/status/2085698459987058921"
-      ],
-      "media_types": [],
-      "post_id": "2088926983279268301",
-      "post_url": "https://x.com/GREATVVIP/status/2088926983279268301",
-      "posted_at": "2026-08-16T09:52:57+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "The stablecoin yield game is getting less about finding “the highest APY” and more about choosing the right route for your capital. That is what stands out to me about the latest USDD yield map. You are not looking at one isolated product. USDD is being deployed across three https://t.co/96VQOSccK9",
-      "topic": "onchain_exchange",
-      "why_trending": "表示38・投稿後67分・反応率2.6%・公式候補リンクあり"
     },
     {
       "author_followers": 259,
@@ -1938,30 +1918,6 @@
       "summary": "This week could be pivotal for the future of crypto regulation in the U.S. The White House is set to meet with crypto industry leaders Wednesday, followed Thursday by a CFTC meeting focused on crypto rules. Congress has already missed its August window to advance the CLARITY https://t.co/mJkZ9VM1AL",
       "topic": "regulation",
       "why_trending": "表示16・投稿後5分・反応率0.0%"
-    },
-    {
-      "author_followers": 780,
-      "discovered_at": "2026-08-16T11:00:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WalletTrackerX",
-      "has_video": false,
-      "headline": "🔥 Stop guessing. Start tracking. What are the wallets and traders you’re interested in doing right now? With Wallet Tracker Bot, you can monitor activity in real time: 👀 On-Chain S",
-      "impression_count": 20,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088924214858309944",
-      "post_url": "https://x.com/WalletTrackerX/status/2088924214858309944",
-      "posted_at": "2026-08-16T09:41:57+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 37.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔥 Stop guessing. Start tracking. What are the wallets and traders you’re interested in doing right now? With Wallet Tracker Bot, you can monitor activity in real time: 👀 On-Chain Spot activity ⚡ Hyperliquid Futures positions 🐋 Whale wallet monitoring 📊 Trader rankings &amp;",
-      "topic": "onchain_exchange",
-      "why_trending": "表示20・投稿後78分・反応率15.0%"
     }
   ],
   "trends": [],
