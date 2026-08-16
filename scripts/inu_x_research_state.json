@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T09:03:55+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T10:00:33+00:00",
+  "last_deep_scan_at": "2026-08-16T11:00:13+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T11:00:13+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1621,66 +1621,22 @@
       "checked_at": "2026-08-16T10:00:33+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T11:00:13+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T11:00:13+00:00",
+      "result_count": 4,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
-    {
-      "author_followers": 18961,
-      "discovered_at": "2026-08-16T05:09:08+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Web3Eden01",
-      "has_video": false,
-      "headline": "BTC 6.3 万这个位置，很多人在恐慌，但我看到的却是资产的“去魅”。 现在的 BTC 越来越像宏观资产，甚至有点被美股“吸血”。黄金在高位震荡，美股在回暖，BTC 却在吃土。 再加上ETF 的连续流出和 Coinbase 显示已连续 90 天负值的溢价指数，说明美国本土的买入力度确实处于真空期。 花旗做过研究，ETF https://t.co/2hzez",
-      "impression_count": 873,
-      "like_count": 14,
-      "linked_urls": [
-        "https://x.com/Web3Eden01/status/2088852879088251133/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088852879088251133",
-      "post_url": "https://x.com/Web3Eden01/status/2088852879088251133",
-      "posted_at": "2026-08-16T04:58:30+00:00",
-      "quote_count": 4,
-      "reply_count": 13,
-      "repost_count": 0,
-      "score": 62.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BTC 6.3 万这个位置，很多人在恐慌，但我看到的却是资产的“去魅”。 现在的 BTC 越来越像宏观资产，甚至有点被美股“吸血”。黄金在高位震荡，美股在回暖，BTC 却在吃土。 再加上ETF 的连续流出和 Coinbase 显示已连续 90 天负值的溢价指数，说明美国本土的买入力度确实处于真空期。 花旗做过研究，ETF https://t.co/2hzezJXyKQ",
-      "topic": "chinese_market",
-      "why_trending": "表示873・投稿後10分・反応率4.9%"
-    },
-    {
-      "author_followers": 15231,
-      "discovered_at": "2026-08-16T05:09:08+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BNBTC8",
-      "has_video": false,
-      "headline": "如果把过去一段时间的TermMax重新梳理一遍，会发现这个项目正在经历一个非常明显的阶段变化。最初关注TermMax的人，可能只是把它理解成一个固定利率、固定期限的DeFi借贷协议，但随着产品不断扩展，这个标签已经越来越难以概括它现在正在做的事情。尤其是最近100天，从App https://t.co/haJAWe3naK https://t.co/3nqd",
-      "impression_count": 193,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/BNBTC8/status/2088841240641216696/photo/1",
-        "https://twitter.com/TermMaxFi/status/2088148595396735322"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088841240641216696",
-      "post_url": "https://x.com/BNBTC8/status/2088841240641216696",
-      "posted_at": "2026-08-16T04:12:15+00:00",
-      "quote_count": 0,
-      "reply_count": 5,
-      "repost_count": 0,
-      "score": 62.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "如果把过去一段时间的TermMax重新梳理一遍，会发现这个项目正在经历一个非常明显的阶段变化。最初关注TermMax的人，可能只是把它理解成一个固定利率、固定期限的DeFi借贷协议，但随着产品不断扩展，这个标签已经越来越难以概括它现在正在做的事情。尤其是最近100天，从App https://t.co/haJAWe3naK https://t.co/3nqdTUwM8P",
-      "topic": "chinese_market",
-      "why_trending": "表示193・投稿後56分・反応率6.2%・公式候補リンクあり"
-    },
     {
       "author_followers": 153,
       "discovered_at": "2026-08-16T09:03:55+00:00",
@@ -1738,6 +1694,32 @@
       "why_trending": "表示27・投稿後4分・反応率7.4%"
     },
     {
+      "author_followers": 8723,
+      "discovered_at": "2026-08-16T11:00:13+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Calcalistech",
+      "has_video": false,
+      "headline": "Israeli crypto exchange Bits of Gold was hit by a supply-chain breach affecting hundreds of companies globally. ID numbers, emails, phone, bank + wallet details may have been expos",
+      "impression_count": 125,
+      "like_count": 2,
+      "linked_urls": [
+        "https://www.calcalistech.com/ctechnews/article/hkserzkvfe"
+      ],
+      "media_types": [],
+      "post_id": "2088932326042484759",
+      "post_url": "https://x.com/Calcalistech/status/2088932326042484759",
+      "posted_at": "2026-08-16T10:14:11+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 52.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Israeli crypto exchange Bits of Gold was hit by a supply-chain breach affecting hundreds of companies globally. ID numbers, emails, phone, bank + wallet details may have been exposed, but funds and passwords were not touched, the company says. Read more: https://t.co/exO2bMmw16",
+      "topic": "onchain_exchange",
+      "why_trending": "表示125・投稿後46分・反応率1.6%・公式候補リンクあり"
+    },
+    {
       "author_followers": 101,
       "discovered_at": "2026-08-16T09:03:55+00:00",
       "discovery_type": "official_x_api",
@@ -1766,32 +1748,58 @@
       "why_trending": "表示6・投稿後17分・反応率26.7%"
     },
     {
-      "author_followers": 645,
-      "discovered_at": "2026-08-16T05:09:08+00:00",
+      "author_followers": 2279,
+      "discovered_at": "2026-08-16T11:00:13+00:00",
       "discovery_type": "official_x_api",
-      "handle": "fangyuanbtc",
+      "handle": "Lavanya_inj",
       "has_video": false,
-      "headline": "“买美股上币安，人人都是小股东 ”当下全球资本市场之中，美股汇聚苹果、特斯拉、英伟达等一众世界级龙头企业，无数普通投资者都希望分享这些巨头企业的成长红利。但在传统模式下，普通个人想要参与美股投资，会遇到不少现实阻碍，开户流程复杂、资金门槛高、操作繁琐，把很多普通人挡在门外。 https://t.co/rR6XPtKNnv",
-      "impression_count": 9,
+      "headline": "Perpetual futures (perps) started out as a crypto thing — a way to trade Bitcoin or Ethereum with leverage without an expiry date. But it turns out this idea isn't just useful for ",
+      "impression_count": 5,
       "like_count": 1,
       "linked_urls": [
-        "https://x.com/fangyuanbtc/status/2088850435071422937/photo/1"
+        "https://x.com/Lavanya_inj/status/2088940691980501302/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2088850435071422937",
-      "post_url": "https://x.com/fangyuanbtc/status/2088850435071422937",
-      "posted_at": "2026-08-16T04:48:47+00:00",
+      "post_id": "2088940691980501302",
+      "post_url": "https://x.com/Lavanya_inj/status/2088940691980501302",
+      "posted_at": "2026-08-16T10:47:26+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 45.7,
+      "score": 49.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "“买美股上币安，人人都是小股东 ”当下全球资本市场之中，美股汇聚苹果、特斯拉、英伟达等一众世界级龙头企业，无数普通投资者都希望分享这些巨头企业的成长红利。但在传统模式下，普通个人想要参与美股投资，会遇到不少现实阻碍，开户流程复杂、资金门槛高、操作繁琐，把很多普通人挡在门外。 https://t.co/rR6XPtKNnv",
-      "topic": "chinese_market",
-      "why_trending": "表示9・投稿後20分・反応率28.9%"
+      "summary": "Perpetual futures (perps) started out as a crypto thing — a way to trade Bitcoin or Ethereum with leverage without an expiry date. But it turns out this idea isn't just useful for crypto. It works for almost any asset. @injective uses perps to let people trade things like: • https://t.co/vjWn0Nlya4",
+      "topic": "onchain_exchange",
+      "why_trending": "表示5・投稿後12分・反応率20.0%"
+    },
+    {
+      "author_followers": 11457,
+      "discovered_at": "2026-08-16T11:00:13+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "GREATVVIP",
+      "has_video": false,
+      "headline": "The stablecoin yield game is getting less about finding “the highest APY” and more about choosing the right route for your capital. That is what stands out to me about the latest U",
+      "impression_count": 38,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/DecentralizeUSD/status/2085698459987058921"
+      ],
+      "media_types": [],
+      "post_id": "2088926983279268301",
+      "post_url": "https://x.com/GREATVVIP/status/2088926983279268301",
+      "posted_at": "2026-08-16T09:52:57+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 48.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "The stablecoin yield game is getting less about finding “the highest APY” and more about choosing the right route for your capital. That is what stands out to me about the latest USDD yield map. You are not looking at one isolated product. USDD is being deployed across three https://t.co/96VQOSccK9",
+      "topic": "onchain_exchange",
+      "why_trending": "表示38・投稿後67分・反応率2.6%・公式候補リンクあり"
     },
     {
       "author_followers": 138,
@@ -1844,6 +1852,30 @@
       "summary": "📊 BTC $63.0K | ETH $1.9K | SOL $75.4 | 16 AUGUST 2026 - CRYPTO DAILY REPORT Cboe cere ETF Bitcoin cu levier 3x. 👇 ━━━━━━━━━━━━━━━━━━━━ bitcoin:native : $63.050 (aprox. -0,1% 24h) ethereum:native : $1.881 (+0,4% 24h)",
       "topic": "crypto_market",
       "why_trending": "表示586・投稿後102分・反応率1.8%"
+    },
+    {
+      "author_followers": 780,
+      "discovered_at": "2026-08-16T11:00:13+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WalletTrackerX",
+      "has_video": false,
+      "headline": "🔥 Stop guessing. Start tracking. What are the wallets and traders you’re interested in doing right now? With Wallet Tracker Bot, you can monitor activity in real time: 👀 On-Chain S",
+      "impression_count": 20,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088924214858309944",
+      "post_url": "https://x.com/WalletTrackerX/status/2088924214858309944",
+      "posted_at": "2026-08-16T09:41:57+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 37.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔥 Stop guessing. Start tracking. What are the wallets and traders you’re interested in doing right now? With Wallet Tracker Bot, you can monitor activity in real time: 👀 On-Chain Spot activity ⚡ Hyperliquid Futures positions 🐋 Whale wallet monitoring 📊 Trader rankings &amp;",
+      "topic": "onchain_exchange",
+      "why_trending": "表示20・投稿後78分・反応率15.0%"
     },
     {
       "author_followers": 3549,
