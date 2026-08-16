@@ -1426,6 +1426,16 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
+    },
+    {
+      "slot": "2026-08-17-05-a",
+      "post_id": "inu_market_2026_08_17_05_a_crypto-chip-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-CHIPUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:CHIP-USD",
+      "reserved_at": "2026-08-16T20:50:48.738169+00:00"
     }
   ],
   "history": [
