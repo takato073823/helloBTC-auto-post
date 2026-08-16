@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T05:09:08+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T05:09:08+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T06:02:01+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1577,6 +1577,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T06:02:01+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1770,34 +1776,6 @@
       "summary": "色んな配信者を見てきたけど みやびさんの分析精度の高さは別格ですね🤗 これほど的確な人は 他にいないのでフォロー推奨です😍 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 実質金利 リセッション 暗号資産 半導体株 S&amp;P500 https://t.co/urxwKchh5S",
       "topic": "japanese_market",
       "why_trending": "表示480・投稿後83分・反応率0.4%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 624,
-      "discovered_at": "2026-08-15T23:58:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "OnchainTien",
-      "has_video": false,
-      "headline": "Trump is bringing major crypto CEOs to the White House on August 19. Coinbase, Ripple, Robinhood, Gemini and other crypto &amp; prediction-market leaders are expected to join, alon",
-      "impression_count": 32,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/OnchainTien/status/2088769595511652452/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2088769595511652452",
-      "post_url": "https://x.com/OnchainTien/status/2088769595511652452",
-      "posted_at": "2026-08-15T23:27:33+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 48.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Trump is bringing major crypto CEOs to the White House on August 19. Coinbase, Ripple, Robinhood, Gemini and other crypto &amp; prediction-market leaders are expected to join, alongside SEC and CFTC officials. The timing is important. The CLARITY Act is facing serious delays in https://t.co/fXO9GiYO2p",
-      "topic": "regulation",
-      "why_trending": "表示32・投稿後30分・反応率5.0%"
     },
     {
       "author_followers": 645,
