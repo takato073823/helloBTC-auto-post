@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T03:33:42+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T04:21:34+00:00",
+  "last_deep_scan_at": "2026-08-16T05:09:08+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T05:09:08+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1564,9 +1564,105 @@
       "checked_at": "2026-08-16T04:21:34+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T05:09:08+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T05:09:08+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
+    {
+      "author_followers": 18961,
+      "discovered_at": "2026-08-16T05:09:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Web3Eden01",
+      "has_video": false,
+      "headline": "BTC 6.3 万这个位置，很多人在恐慌，但我看到的却是资产的“去魅”。 现在的 BTC 越来越像宏观资产，甚至有点被美股“吸血”。黄金在高位震荡，美股在回暖，BTC 却在吃土。 再加上ETF 的连续流出和 Coinbase 显示已连续 90 天负值的溢价指数，说明美国本土的买入力度确实处于真空期。 花旗做过研究，ETF https://t.co/2hzez",
+      "impression_count": 873,
+      "like_count": 14,
+      "linked_urls": [
+        "https://x.com/Web3Eden01/status/2088852879088251133/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088852879088251133",
+      "post_url": "https://x.com/Web3Eden01/status/2088852879088251133",
+      "posted_at": "2026-08-16T04:58:30+00:00",
+      "quote_count": 4,
+      "reply_count": 13,
+      "repost_count": 0,
+      "score": 62.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BTC 6.3 万这个位置，很多人在恐慌，但我看到的却是资产的“去魅”。 现在的 BTC 越来越像宏观资产，甚至有点被美股“吸血”。黄金在高位震荡，美股在回暖，BTC 却在吃土。 再加上ETF 的连续流出和 Coinbase 显示已连续 90 天负值的溢价指数，说明美国本土的买入力度确实处于真空期。 花旗做过研究，ETF https://t.co/2hzezJXyKQ",
+      "topic": "chinese_market",
+      "why_trending": "表示873・投稿後10分・反応率4.9%"
+    },
+    {
+      "author_followers": 15231,
+      "discovered_at": "2026-08-16T05:09:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BNBTC8",
+      "has_video": false,
+      "headline": "如果把过去一段时间的TermMax重新梳理一遍，会发现这个项目正在经历一个非常明显的阶段变化。最初关注TermMax的人，可能只是把它理解成一个固定利率、固定期限的DeFi借贷协议，但随着产品不断扩展，这个标签已经越来越难以概括它现在正在做的事情。尤其是最近100天，从App https://t.co/haJAWe3naK https://t.co/3nqd",
+      "impression_count": 193,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/BNBTC8/status/2088841240641216696/photo/1",
+        "https://twitter.com/TermMaxFi/status/2088148595396735322"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088841240641216696",
+      "post_url": "https://x.com/BNBTC8/status/2088841240641216696",
+      "posted_at": "2026-08-16T04:12:15+00:00",
+      "quote_count": 0,
+      "reply_count": 5,
+      "repost_count": 0,
+      "score": 62.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "如果把过去一段时间的TermMax重新梳理一遍，会发现这个项目正在经历一个非常明显的阶段变化。最初关注TermMax的人，可能只是把它理解成一个固定利率、固定期限的DeFi借贷协议，但随着产品不断扩展，这个标签已经越来越难以概括它现在正在做的事情。尤其是最近100天，从App https://t.co/haJAWe3naK https://t.co/3nqdTUwM8P",
+      "topic": "chinese_market",
+      "why_trending": "表示193・投稿後56分・反応率6.2%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 106,
+      "discovered_at": "2026-08-16T05:09:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WGiordanol66",
+      "has_video": false,
+      "headline": "难道现在交易所弄得美股交易 他是真正的货真价值么？ 他难道不是建立在所谓的U本位模式下的金融工具么？ 难道现在加密市场纵横的那些大佬他们就能笑傲江湖永续人生么？ 这都是未知的 在这个市场只有贪婪跟无底洞 如果平衡不了自己 被清算只是时间问题 https://t.co/Y5AmDq90XH",
+      "impression_count": 56,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/WGiordanol66/status/2088832646185160984"
+      ],
+      "media_types": [],
+      "post_id": "2088833103422992410",
+      "post_url": "https://x.com/WGiordanol66/status/2088833103422992410",
+      "posted_at": "2026-08-16T03:39:55+00:00",
+      "quote_count": 1,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 57.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "难道现在交易所弄得美股交易 他是真正的货真价值么？ 他难道不是建立在所谓的U本位模式下的金融工具么？ 难道现在加密市场纵横的那些大佬他们就能笑傲江湖永续人生么？ 这都是未知的 在这个市场只有贪婪跟无底洞 如果平衡不了自己 被清算只是时间问题 https://t.co/Y5AmDq90XH",
+      "topic": "chinese_market",
+      "why_trending": "表示56・投稿後89分・反応率5.4%・公式候補リンクあり"
+    },
     {
       "author_followers": 3184,
       "discovered_at": "2026-08-16T03:33:42+00:00",
@@ -1620,32 +1716,6 @@
       "summary": "CFR WEEKLY OUTLOOK #002 AUG.17–23, 2026 THE WEEK OF CONFIRMATION 期待から、確認へ。 Bitcoinは約**$63K**。 価格が方向を探る一方、米国では暗号資産規制を巡る「時計」に遅れが生じ始めました。 今週CFRが見るのは、 市場が何を期待しているかではない。 https://t.co/QqVUfh7jif",
       "topic": "japanese_market",
       "why_trending": "表示43・投稿後20分・反応率7.0%"
-    },
-    {
-      "author_followers": 1458,
-      "discovered_at": "2026-08-15T23:58:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MichelleKrr1",
-      "has_video": false,
-      "headline": "🚨 IT’S FINALLY HAPPENING! 🇺🇸🔥 President Trump is set to meet with crypto industry leaders at the White House as discussions around the CLARITY Act continue. Crypto regulation could",
-      "impression_count": 81,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/cryptorover/status/2088489432793903475"
-      ],
-      "media_types": [],
-      "post_id": "2088761428064817425",
-      "post_url": "https://x.com/MichelleKrr1/status/2088761428064817425",
-      "posted_at": "2026-08-15T22:55:06+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 53.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 IT’S FINALLY HAPPENING! 🇺🇸🔥 President Trump is set to meet with crypto industry leaders at the White House as discussions around the CLARITY Act continue. Crypto regulation could be entering a major new chapter. 👀 #Crypto #CLARITYAct #XRP #Bitcoin https://t.co/jK4Q2y4b6E",
-      "topic": "regulation",
-      "why_trending": "表示81・投稿後62分・反応率3.7%・公式候補リンクあり"
     },
     {
       "author_followers": 129,
@@ -1730,32 +1800,32 @@
       "why_trending": "表示32・投稿後30分・反応率5.0%"
     },
     {
-      "author_followers": 301361,
-      "discovered_at": "2026-08-15T23:58:00+00:00",
+      "author_followers": 645,
+      "discovered_at": "2026-08-16T05:09:08+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CryptosR_Us",
-      "has_video": true,
-      "headline": "The U.S. becoming the “crypto capital of the world” comes down to 3 things, according to Noah’s CEO: 1️⃣ What is a stablecoin, and how do we make it safe? That’s the GENIUS Act. 2️",
-      "impression_count": 4882,
-      "like_count": 18,
+      "handle": "fangyuanbtc",
+      "has_video": false,
+      "headline": "“买美股上币安，人人都是小股东 ”当下全球资本市场之中，美股汇聚苹果、特斯拉、英伟达等一众世界级龙头企业，无数普通投资者都希望分享这些巨头企业的成长红利。但在传统模式下，普通个人想要参与美股投资，会遇到不少现实阻碍，开户流程复杂、资金门槛高、操作繁琐，把很多普通人挡在门外。 https://t.co/rR6XPtKNnv",
+      "impression_count": 9,
+      "like_count": 1,
       "linked_urls": [
-        "https://x.com/BitcoinNews/status/2088600340958753189/video/1"
+        "https://x.com/fangyuanbtc/status/2088850435071422937/photo/1"
       ],
       "media_types": [
-        "video"
+        "photo"
       ],
-      "post_id": "2088755362530840737",
-      "post_url": "https://x.com/CryptosR_Us/status/2088755362530840737",
-      "posted_at": "2026-08-15T22:31:00+00:00",
+      "post_id": "2088850435071422937",
+      "post_url": "https://x.com/fangyuanbtc/status/2088850435071422937",
+      "posted_at": "2026-08-16T04:48:47+00:00",
       "quote_count": 0,
-      "reply_count": 7,
-      "repost_count": 3,
-      "score": 41.2,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 45.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "The U.S. becoming the “crypto capital of the world” comes down to 3 things, according to Noah’s CEO: 1️⃣ What is a stablecoin, and how do we make it safe? That’s the GENIUS Act. 2️⃣ Who regulates crypto? The CLARITY Act -- defining where the SEC ends and the CFTC begins. 3️⃣ How",
-      "topic": "regulation",
-      "why_trending": "表示4,882・投稿後87分・反応率0.7%・動画あり"
+      "summary": "“买美股上币安，人人都是小股东 ”当下全球资本市场之中，美股汇聚苹果、特斯拉、英伟达等一众世界级龙头企业，无数普通投资者都希望分享这些巨头企业的成长红利。但在传统模式下，普通个人想要参与美股投资，会遇到不少现实阻碍，开户流程复杂、资金门槛高、操作繁琐，把很多普通人挡在门外。 https://t.co/rR6XPtKNnv",
+      "topic": "chinese_market",
+      "why_trending": "表示9・投稿後20分・反応率28.9%"
     },
     {
       "author_followers": 24253,
@@ -1814,6 +1884,34 @@
       "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️アイルランド、初の国家マネーロンダリング対策戦略を発表——暗号資産ウォレットに厳格な規制⭐️ 詳細URL👇 https://t.co/xjPqnW7H78 https://t.co/d3ozcrTgnC",
       "topic": "japanese_market",
       "why_trending": "表示112・投稿後93分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 78078,
+      "discovered_at": "2026-08-16T05:09:08+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "wukong2021",
+      "has_video": false,
+      "headline": "美股存储、芯片板块大幅上涨；但比特币并未跟随反弹，走出利好不涨的弱势格局。 核心资金层面利空原因： 比特币 ETF 持续净流出，资金流向美股其他板块，形成资金虹吸； 矿企持续抛售比特币换取现金流，部分矿企质押 BTC 融资转向 AI、能源项目；Microstrategy https://t.co/rg4QWEykYa",
+      "impression_count": 1151,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/wukong2021/status/2088826431472345526/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088826431472345526",
+      "post_url": "https://x.com/wukong2021/status/2088826431472345526",
+      "posted_at": "2026-08-16T03:13:24+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 34.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "美股存储、芯片板块大幅上涨；但比特币并未跟随反弹，走出利好不涨的弱势格局。 核心资金层面利空原因： 比特币 ETF 持续净流出，资金流向美股其他板块，形成资金虹吸； 矿企持续抛售比特币换取现金流，部分矿企质押 BTC 融资转向 AI、能源项目；Microstrategy https://t.co/rg4QWEykYa",
+      "topic": "chinese_market",
+      "why_trending": "表示1,151・投稿後115分・反応率0.7%"
     }
   ],
   "trends": [],
