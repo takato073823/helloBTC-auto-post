@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T03:33:42+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T03:33:42+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T04:21:34+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1558,6 +1558,12 @@
       "result_count": 6,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T04:21:34+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1670,58 +1676,6 @@
       "why_trending": "表示226・投稿後11分・反応率0.7%"
     },
     {
-      "author_followers": 1458,
-      "discovered_at": "2026-08-15T23:58:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MichelleKrr1",
-      "has_video": false,
-      "headline": "🚨 HUGE CLARITY ACT UPDATE! 🇺🇸 The Senate has moved the CLARITY Act process forward, with a key vote expected in September. If it passes, U.S. crypto regulation could enter a whole ",
-      "impression_count": 73,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/ripplexrpie/status/2088577343132402145"
-      ],
-      "media_types": [],
-      "post_id": "2088751298237620487",
-      "post_url": "https://x.com/MichelleKrr1/status/2088751298237620487",
-      "posted_at": "2026-08-15T22:14:51+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 51.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 HUGE CLARITY ACT UPDATE! 🇺🇸 The Senate has moved the CLARITY Act process forward, with a key vote expected in September. If it passes, U.S. crypto regulation could enter a whole new era. 🔥 XRP holders… KEEP WATCHING. 👀🚀 #XRP #Crypto #CLARITYAct #Ripple https://t.co/LHI5kGmrSH",
-      "topic": "regulation",
-      "why_trending": "表示73・投稿後103分・反応率4.1%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 1458,
-      "discovered_at": "2026-08-15T23:58:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MichelleKrr1",
-      "has_video": false,
-      "headline": "🚨 CONFIRMED: THE CLARITY ACT IS MOVING FORWARD! 🇺🇸🔥 The Senate has set up a key vote for September 15. Passage is NOT guaranteed yet—but the fight is far from over. Crypto regulati",
-      "impression_count": 40,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/cryptorover/status/2088662195139670121"
-      ],
-      "media_types": [],
-      "post_id": "2088751615129919743",
-      "post_url": "https://x.com/MichelleKrr1/status/2088751615129919743",
-      "posted_at": "2026-08-15T22:16:06+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 49.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 CONFIRMED: THE CLARITY ACT IS MOVING FORWARD! 🇺🇸🔥 The Senate has set up a key vote for September 15. Passage is NOT guaranteed yet—but the fight is far from over. Crypto regulation could be entering a historic new chapter. 👀🚀 #CLARITYAct #XRP #Crypto #Ripple https://t.co/k1lVWGR6la",
-      "topic": "regulation",
-      "why_trending": "表示40・投稿後101分・反応率7.5%・公式候補リンクあり"
-    },
-    {
       "author_followers": 13,
       "discovered_at": "2026-08-16T03:33:42+00:00",
       "discovery_type": "official_x_api",
@@ -1802,34 +1756,6 @@
       "summary": "The U.S. becoming the “crypto capital of the world” comes down to 3 things, according to Noah’s CEO: 1️⃣ What is a stablecoin, and how do we make it safe? That’s the GENIUS Act. 2️⃣ Who regulates crypto? The CLARITY Act -- defining where the SEC ends and the CFTC begins. 3️⃣ How",
       "topic": "regulation",
       "why_trending": "表示4,882・投稿後87分・反応率0.7%・動画あり"
-    },
-    {
-      "author_followers": 1,
-      "discovered_at": "2026-08-15T21:57:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "marketsetup26",
-      "has_video": true,
-      "headline": "The Fed decision is old news. The FOMC minutes may reveal what policymakers were really worried about—and whether the rate outlook is shifting. Watch USD, gold, yields, stocks and ",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/marketsetup26/status/2088743128459329997/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2088743128459329997",
-      "post_url": "https://x.com/marketsetup26/status/2088743128459329997",
-      "posted_at": "2026-08-15T21:42:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "The Fed decision is old news. The FOMC minutes may reveal what policymakers were really worried about—and whether the rate outlook is shifting. Watch USD, gold, yields, stocks and crypto. https://t.co/xNURrQpmwG",
-      "topic": "macro_rates",
-      "why_trending": "表示1・投稿後15分・反応率0.0%・動画あり"
     },
     {
       "author_followers": 24253,
