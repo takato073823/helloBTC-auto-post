@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T13:19:38+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T13:19:38+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T14:00:29+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1653,6 +1653,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T14:00:29+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1871,30 +1877,6 @@
       "summary": "The Morning Line #045 - VIX falls to 14.56, a 2026 low, even as Brent jumps 5% this week - Bitcoin ETFs post $389.7M in outflows this week, worst in six weeks - World Liberty's USD1 stablecoin ($4B+ circulating) just got a shot at a bank charter The VIX slid to 14.56 this week, https://t.co/V2Y3Lb0hCC",
       "topic": "crypto_market",
       "why_trending": "表示36・投稿後35分・反応率0.0%"
-    },
-    {
-      "author_followers": 30732,
-      "discovered_at": "2026-08-16T09:03:55+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Mr_Crypto5",
-      "has_video": false,
-      "headline": "📊 BTC $63.0K | ETH $1.9K | SOL $75.4 | 16 AUGUST 2026 - CRYPTO DAILY REPORT Cboe cere ETF Bitcoin cu levier 3x. 👇 ━━━━━━━━━━━━━━━━━━━━ bitcoin:native : $63.050 (aprox. -0,1% 24h) e",
-      "impression_count": 586,
-      "like_count": 7,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2088888840224207306",
-      "post_url": "https://x.com/Mr_Crypto5/status/2088888840224207306",
-      "posted_at": "2026-08-16T07:21:23+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 1,
-      "score": 37.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📊 BTC $63.0K | ETH $1.9K | SOL $75.4 | 16 AUGUST 2026 - CRYPTO DAILY REPORT Cboe cere ETF Bitcoin cu levier 3x. 👇 ━━━━━━━━━━━━━━━━━━━━ bitcoin:native : $63.050 (aprox. -0,1% 24h) ethereum:native : $1.881 (+0,4% 24h)",
-      "topic": "crypto_market",
-      "why_trending": "表示586・投稿後102分・反応率1.8%"
     },
     {
       "author_followers": 780,
