@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T22:58:23+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T22:58:23+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T23:57:20+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1748,6 +1748,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T23:57:20+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1781,34 +1787,6 @@
       "why_trending": "表示2・投稿後36分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 229,
-      "discovered_at": "2026-08-16T19:03:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "listedcorp_inc",
-      "has_video": false,
-      "headline": "🏢 識学（7049） ランク：D8 / -8 ・スター度：☆☆☆☆☆（下位27.3%） ・基本情報：サービス業 / グロース / 東京都品川区 ・平均年収：635万円 -------- 📊項目別ランクと内訳 ・規模 D3：時価総額 78億円 / 従業員 306人 ・決算 D3：売上 65億円（増収 +21.8%） 営業利益 5億円（利益率7.5% / htt",
-      "impression_count": 38,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/listedcorp_inc/status/2089039948083306518/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089039948083306518",
-      "post_url": "https://x.com/listedcorp_inc/status/2089039948083306518",
-      "posted_at": "2026-08-16T17:21:50+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 44.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🏢 識学（7049） ランク：D8 / -8 ・スター度：☆☆☆☆☆（下位27.3%） ・基本情報：サービス業 / グロース / 東京都品川区 ・平均年収：635万円 -------- 📊項目別ランクと内訳 ・規模 D3：時価総額 78億円 / 従業員 306人 ・決算 D3：売上 65億円（増収 +21.8%） 営業利益 5億円（利益率7.5% / https://t.co/dD6Q7rdNzl",
-      "topic": "japanese_market",
-      "why_trending": "表示38・投稿後101分・反応率4.2%"
-    },
-    {
       "author_followers": 0,
       "discovered_at": "2026-08-16T20:59:24+00:00",
       "discovery_type": "official_x_api",
@@ -1836,58 +1814,6 @@
       "summary": "交易所搭建https://t.co/s8UE4GBylc：一站式白标交付，最快3天即速上线运营 提供从0到1的全生态解决方案，覆盖现货、永续合约、期权及质押理财 #交易所开发 #币易鑫 #区块链搭建 @biyixin #Web3创业 #数字货币交易系统 #币圈工具 #金融科技 https://t.co/hD4SyRA8Vw",
       "topic": "chinese_market",
       "why_trending": "表示1・投稿後35分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 1487,
-      "discovered_at": "2026-08-16T19:03:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "k_koga555",
-      "has_video": false,
-      "headline": "https://t.co/Ja2pHH3Cyp 「緊急：史上最大級の投資チャンスを逃すな」トム・リーが語るビットコイン最新見通し【2026年】 Crypto Nutshell #AI要約 暗号資産・AI・規制が交差する新しい金融システムの展望 🔳逆風下でも強い暗号資産市場",
-      "impression_count": 148,
-      "like_count": 1,
-      "linked_urls": [
-        "https://www.youtube.com/watch?v=GOeVD3t95YM"
-      ],
-      "media_types": [],
-      "post_id": "2089048130306372043",
-      "post_url": "https://x.com/k_koga555/status/2089048130306372043",
-      "posted_at": "2026-08-16T17:54:21+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 43.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "https://t.co/Ja2pHH3Cyp 「緊急：史上最大級の投資チャンスを逃すな」トム・リーが語るビットコイン最新見通し【2026年】 Crypto Nutshell #AI要約 暗号資産・AI・規制が交差する新しい金融システムの展望 🔳逆風下でも強い暗号資産市場",
-      "topic": "japanese_market",
-      "why_trending": "表示148・投稿後68分・反応率0.7%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 27,
-      "discovered_at": "2026-08-16T19:03:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "mayokabu",
-      "has_video": false,
-      "headline": "ただし景気が強い → 金利↑なら銀行・商社・建設などにかなり素直な追い風。 でも財政不安 → 国債売り → 悪い金利上昇まで行くと話が変わる。この場合は銀行すら金利上昇だから全部OKじゃなくなって、日本株全体のPER低下につながる可能性がある。 https://t.co/vNrgmYTRtA",
-      "impression_count": 40,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/mayokabu/status/2089043713234542656"
-      ],
-      "media_types": [],
-      "post_id": "2089044026687451248",
-      "post_url": "https://x.com/mayokabu/status/2089044026687451248",
-      "posted_at": "2026-08-16T17:38:03+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 41.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ただし景気が強い → 金利↑なら銀行・商社・建設などにかなり素直な追い風。 でも財政不安 → 国債売り → 悪い金利上昇まで行くと話が変わる。この場合は銀行すら金利上昇だから全部OKじゃなくなって、日本株全体のPER低下につながる可能性がある。 https://t.co/vNrgmYTRtA",
-      "topic": "japanese_market",
-      "why_trending": "表示40・投稿後85分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 17,
@@ -1940,94 +1866,6 @@
       "summary": "以前我最怕的，从来不是市场的剧烈震荡。 而是等待。等美东开盘，等漫长的周末过去，等银行转账慢吞吞地到账——一个时差，就把我挡在美股门外整整两天。资金也总被割裂在不同的平台，这边是券商账户里的股票，那边是交易所里的稳定币，眼看着机会来了，却什么也做不了。 这种割裂感，在 Backpack https://t.co/2iTeSDijQ3",
       "topic": "chinese_market",
       "why_trending": "表示41・投稿後78分・反応率7.8%"
-    },
-    {
-      "author_followers": 24250,
-      "discovered_at": "2026-08-16T19:03:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️JPモルガン、BTC・ETH ETFの保有拡大──XRP関連商品への投資も再開(NADA NEWS)⭐️ 詳細URL👇 https://t.co/2t1BroedlQ https://t.co/fN26u8dGDt",
-      "impression_count": 127,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/XZW0Vhy",
-        "https://x.com/CoinmatomeNews/status/2089041897415213350/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089041897415213350",
-      "post_url": "https://x.com/CoinmatomeNews/status/2089041897415213350",
-      "posted_at": "2026-08-16T17:29:35+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️JPモルガン、BTC・ETH ETFの保有拡大──XRP関連商品への投資も再開(NADA NEWS)⭐️ 詳細URL👇 https://t.co/2t1BroedlQ https://t.co/fN26u8dGDt",
-      "topic": "japanese_market",
-      "why_trending": "表示127・投稿後93分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 24250,
-      "discovered_at": "2026-08-16T19:03:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️CBOE、米国内初となるビットコイン3倍レバレッジETFの上場をSECに申請 $ビットコイン (https://t.co/HNkjxVFbWO)$ および...⭐️ 詳細URL👇 https://t.co/5u5ewUq63F https://t.co/5ASzh510CX",
-      "impression_count": 107,
-      "like_count": 0,
-      "linked_urls": [
-        "https://btc.cc",
-        "https://ift.tt/3CfZ7nj",
-        "https://x.com/CoinmatomeNews/status/2089041913588363599/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089041913588363599",
-      "post_url": "https://x.com/CoinmatomeNews/status/2089041913588363599",
-      "posted_at": "2026-08-16T17:29:39+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️CBOE、米国内初となるビットコイン3倍レバレッジETFの上場をSECに申請 $ビットコイン (https://t.co/HNkjxVFbWO)$ および...⭐️ 詳細URL👇 https://t.co/5u5ewUq63F https://t.co/5ASzh510CX",
-      "topic": "japanese_market",
-      "why_trending": "表示107・投稿後93分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 24250,
-      "discovered_at": "2026-08-16T19:03:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️トランプ家の暗号資産会社、米国の銀行免許取得を規制当局が承認(NADA NEWS)⭐️ 詳細URL👇 https://t.co/kNE4s3Q1Nb https://t.co/AkmdcW7AS5",
-      "impression_count": 111,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/41nV72m",
-        "https://x.com/CoinmatomeNews/status/2089041890968551782/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089041890968551782",
-      "post_url": "https://x.com/CoinmatomeNews/status/2089041890968551782",
-      "posted_at": "2026-08-16T17:29:33+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️トランプ家の暗号資産会社、米国の銀行免許取得を規制当局が承認(NADA NEWS)⭐️ 詳細URL👇 https://t.co/kNE4s3Q1Nb https://t.co/AkmdcW7AS5",
-      "topic": "japanese_market",
-      "why_trending": "表示111・投稿後93分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 53,
