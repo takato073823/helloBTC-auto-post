@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-16T07:18:50+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T08:01:17+00:00",
+  "last_deep_scan_at": "2026-08-16T09:03:55+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T09:03:55+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1602,6 +1602,19 @@
       "checked_at": "2026-08-16T08:01:17+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T09:03:55+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-16T09:03:55+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -1689,32 +1702,6 @@
       "why_trending": "表示56・投稿後89分・反応率5.4%・公式候補リンクあり"
     },
     {
-      "author_followers": 3184,
-      "discovered_at": "2026-08-16T03:33:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "cryptoraboth",
-      "has_video": false,
-      "headline": "🚨⚡️これは凄い😳 🇺🇸フロリダ州が動いています‼️ これ地味に見えて後々デカいニュース。 州レベルの規制フレームワークが整うと、次は機関マネーの流入速度が変わる。 暗号資産ホルダーには強気🚀 #XRP #仮想通貨 https://t.co/l1odvx5V9R",
-      "impression_count": 307,
-      "like_count": 8,
-      "linked_urls": [
-        "https://twitter.com/ripplexrpie/status/2088230196809744416"
-      ],
-      "media_types": [],
-      "post_id": "2088810903869464579",
-      "post_url": "https://x.com/cryptoraboth/status/2088810903869464579",
-      "posted_at": "2026-08-16T02:11:42+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 57.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨⚡️これは凄い😳 🇺🇸フロリダ州が動いています‼️ これ地味に見えて後々デカいニュース。 州レベルの規制フレームワークが整うと、次は機関マネーの流入速度が変わる。 暗号資産ホルダーには強気🚀 #XRP #仮想通貨 https://t.co/l1odvx5V9R",
-      "topic": "japanese_market",
-      "why_trending": "表示307・投稿後82分・反応率3.6%・公式候補リンクあり"
-    },
-    {
       "author_followers": 68,
       "discovered_at": "2026-08-16T03:33:42+00:00",
       "discovery_type": "official_x_api",
@@ -1741,6 +1728,62 @@
       "summary": "CFR WEEKLY OUTLOOK #002 AUG.17–23, 2026 THE WEEK OF CONFIRMATION 期待から、確認へ。 Bitcoinは約**$63K**。 価格が方向を探る一方、米国では暗号資産規制を巡る「時計」に遅れが生じ始めました。 今週CFRが見るのは、 市場が何を期待しているかではない。 https://t.co/QqVUfh7jif",
       "topic": "japanese_market",
       "why_trending": "表示43・投稿後20分・反応率7.0%"
+    },
+    {
+      "author_followers": 153,
+      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CTRadarNews",
+      "has_video": false,
+      "headline": "🚨 THE $18B CRYPTO LIQUIDATION STORY ISN’T THAT SIMPLE A massive liquidation figure is making headlines again — but the real story is more complicated. A Solana Research Institute a",
+      "impression_count": 33,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/CTRadarNews/status/2088905512507134285/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088905512507134285",
+      "post_url": "https://x.com/CTRadarNews/status/2088905512507134285",
+      "posted_at": "2026-08-16T08:27:38+00:00",
+      "quote_count": 1,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 54.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 THE $18B CRYPTO LIQUIDATION STORY ISN’T THAT SIMPLE A massive liquidation figure is making headlines again — but the real story is more complicated. A Solana Research Institute analysis cited roughly $18 BILLION in crypto liquidations during the October 10, 2025 crash. But https://t.co/igm3yYyz5H",
+      "topic": "crypto_market",
+      "why_trending": "表示33・投稿後36分・反応率17.0%"
+    },
+    {
+      "author_followers": 2715,
+      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "charlesnwawo",
+      "has_video": false,
+      "headline": "The next generation of trading won’t be defined by how many charts you can open. It’ll be defined by how quickly you can connect the dots. That’s the bet @ARX_TRADE is making. ARX ",
+      "impression_count": 27,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/charlesnwawo/status/2088913401422475668/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088913401422475668",
+      "post_url": "https://x.com/charlesnwawo/status/2088913401422475668",
+      "posted_at": "2026-08-16T08:58:59+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 53.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "The next generation of trading won’t be defined by how many charts you can open. It’ll be defined by how quickly you can connect the dots. That’s the bet @ARX_TRADE is making. ARX is building a mobile-first, non-custodial trading layer on Hyperliquid where crypto and RWA perps https://t.co/8NYUuo4rmZ",
+      "topic": "crypto_market",
+      "why_trending": "表示27・投稿後4分・反応率7.4%"
     },
     {
       "author_followers": 129,
@@ -1771,30 +1814,32 @@
       "why_trending": "表示226・投稿後11分・反応率0.7%"
     },
     {
-      "author_followers": 13,
-      "discovered_at": "2026-08-16T03:33:42+00:00",
+      "author_followers": 101,
+      "discovered_at": "2026-08-16T09:03:55+00:00",
       "discovery_type": "official_x_api",
-      "handle": "LarsenJosi2466",
+      "handle": "Elite_Block_Res",
       "has_video": false,
-      "headline": "色んな配信者を見てきたけど みやびさんの分析精度の高さは別格ですね🤗 これほど的確な人は 他にいないのでフォロー推奨です😍 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 実質金利 リセッション 暗号資産 半導体株 S&amp;P500 https://t.co/urxwKc",
-      "impression_count": 480,
-      "like_count": 2,
+      "headline": "🧵 Open interest -0.6% in 24 hours. Fresh positions at this pace mean leverage is building while price digests. Moves that start this way rarely resolve quietly. Full data read belo",
+      "impression_count": 6,
+      "like_count": 0,
       "linked_urls": [
-        "https://twitter.com/miyabi_fx_1997/status/2088784786173346035"
+        "https://x.com/Elite_Block_Res/status/2088910281569190335/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2088810475433680929",
-      "post_url": "https://x.com/LarsenJosi2466/status/2088810475433680929",
-      "posted_at": "2026-08-16T02:10:00+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088910281569190335",
+      "post_url": "https://x.com/Elite_Block_Res/status/2088910281569190335",
+      "posted_at": "2026-08-16T08:46:35+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 1,
       "repost_count": 0,
-      "score": 49.0,
+      "score": 50.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "色んな配信者を見てきたけど みやびさんの分析精度の高さは別格ですね🤗 これほど的確な人は 他にいないのでフォロー推奨です😍 ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 実質金利 リセッション 暗号資産 半導体株 S&amp;P500 https://t.co/urxwKchh5S",
-      "topic": "japanese_market",
-      "why_trending": "表示480・投稿後83分・反応率0.4%・公式候補リンクあり"
+      "summary": "🧵 Open interest -0.6% in 24 hours. Fresh positions at this pace mean leverage is building while price digests. Moves that start this way rarely resolve quietly. Full data read below ↓ $BTC https://t.co/2GaRcErLcB",
+      "topic": "crypto_market",
+      "why_trending": "表示6・投稿後17分・反応率26.7%"
     },
     {
       "author_followers": 645,
@@ -1823,6 +1868,86 @@
       "summary": "“买美股上币安，人人都是小股东 ”当下全球资本市场之中，美股汇聚苹果、特斯拉、英伟达等一众世界级龙头企业，无数普通投资者都希望分享这些巨头企业的成长红利。但在传统模式下，普通个人想要参与美股投资，会遇到不少现实阻碍，开户流程复杂、资金门槛高、操作繁琐，把很多普通人挡在门外。 https://t.co/rR6XPtKNnv",
       "topic": "chinese_market",
       "why_trending": "表示9・投稿後20分・反応率28.9%"
+    },
+    {
+      "author_followers": 138,
+      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Predixa_xyz",
+      "has_video": false,
+      "headline": "The Morning Line #045 - VIX falls to 14.56, a 2026 low, even as Brent jumps 5% this week - Bitcoin ETFs post $389.7M in outflows this week, worst in six weeks - World Liberty's USD",
+      "impression_count": 36,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/Predixa_xyz/status/2088905602907189372/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088905602907189372",
+      "post_url": "https://x.com/Predixa_xyz/status/2088905602907189372",
+      "posted_at": "2026-08-16T08:28:00+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 38.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "The Morning Line #045 - VIX falls to 14.56, a 2026 low, even as Brent jumps 5% this week - Bitcoin ETFs post $389.7M in outflows this week, worst in six weeks - World Liberty's USD1 stablecoin ($4B+ circulating) just got a shot at a bank charter The VIX slid to 14.56 this week, https://t.co/V2Y3Lb0hCC",
+      "topic": "crypto_market",
+      "why_trending": "表示36・投稿後35分・反応率0.0%"
+    },
+    {
+      "author_followers": 30732,
+      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Mr_Crypto5",
+      "has_video": false,
+      "headline": "📊 BTC $63.0K | ETH $1.9K | SOL $75.4 | 16 AUGUST 2026 - CRYPTO DAILY REPORT Cboe cere ETF Bitcoin cu levier 3x. 👇 ━━━━━━━━━━━━━━━━━━━━ bitcoin:native : $63.050 (aprox. -0,1% 24h) e",
+      "impression_count": 586,
+      "like_count": 7,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2088888840224207306",
+      "post_url": "https://x.com/Mr_Crypto5/status/2088888840224207306",
+      "posted_at": "2026-08-16T07:21:23+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 1,
+      "score": 37.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📊 BTC $63.0K | ETH $1.9K | SOL $75.4 | 16 AUGUST 2026 - CRYPTO DAILY REPORT Cboe cere ETF Bitcoin cu levier 3x. 👇 ━━━━━━━━━━━━━━━━━━━━ bitcoin:native : $63.050 (aprox. -0,1% 24h) ethereum:native : $1.881 (+0,4% 24h)",
+      "topic": "crypto_market",
+      "why_trending": "表示586・投稿後102分・反応率1.8%"
+    },
+    {
+      "author_followers": 3549,
+      "discovered_at": "2026-08-16T09:03:55+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "gulVasikova",
+      "has_video": false,
+      "headline": "$BTC — Crypto Mining Crackdown + ETF Outflows ⚠️ Bitcoin is facing some short-term pressure, but the bigger story is happening underneath the surface. 🇷🇺 Russia is tightening crypt",
+      "impression_count": 165,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/gulVasikova/status/2088887665651581086/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2088887665651581086",
+      "post_url": "https://x.com/gulVasikova/status/2088887665651581086",
+      "posted_at": "2026-08-16T07:16:43+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 36.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "$BTC — Crypto Mining Crackdown + ETF Outflows ⚠️ Bitcoin is facing some short-term pressure, but the bigger story is happening underneath the surface. 🇷🇺 Russia is tightening crypto mining restrictions. Mining has now been banned in Moscow, the Moscow Region and parts of Kursk, https://t.co/bYcedS78U6",
+      "topic": "crypto_market",
+      "why_trending": "表示165・投稿後107分・反応率1.6%"
     },
     {
       "author_followers": 78078,
