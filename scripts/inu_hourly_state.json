@@ -1023,6 +1023,20 @@
       "posted_at": "2026-08-15T20:18:06.106577+00:00",
       "hook": "📈 $LINK、24時間で+6.67％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-16-10-a",
+      "post_id": "inu_market_2026_08_16_10_a_crypto-cow-usd",
+      "tweet_id": "2088793702919475672",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:COW-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-COWUSD",
+      "published_at": "2026-08-16T01:00:00+00:00",
+      "posted_at": "2026-08-16T01:03:21.677063+00:00",
+      "hook": "📈 $COW、24時間で+34.08％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
   "posted_ids": [
@@ -1106,7 +1120,8 @@
     "inu_market_2026_08_15_23_a_crypto-wal-usd",
     "inu_market_2026_08_16_01_a_crypto-chip-usd",
     "inu_market_2026_08_16_03_a_crypto-cow-usd",
-    "inu_market_2026_08_16_05_a_crypto-link-usd"
+    "inu_market_2026_08_16_05_a_crypto-link-usd",
+    "inu_market_2026_08_16_10_a_crypto-cow-usd"
   ],
   "reservations": [
     {
@@ -1336,16 +1351,6 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
-    },
-    {
-      "slot": "2026-08-16-10-a",
-      "post_id": "inu_market_2026_08_16_10_a_crypto-cow-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-COWUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:COW-USD",
-      "reserved_at": "2026-08-16T01:02:46.574625+00:00"
     }
   ],
   "history": [
@@ -2427,6 +2432,20 @@
       "published_at": "2026-08-15T20:00:00+00:00",
       "posted_at": "2026-08-15T20:18:06.106577+00:00",
       "hook": "📈 $LINK、24時間で+6.67％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-16-10-a",
+      "post_id": "inu_market_2026_08_16_10_a_crypto-cow-usd",
+      "tweet_id": "2088793702919475672",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:COW-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-COWUSD",
+      "published_at": "2026-08-16T01:00:00+00:00",
+      "posted_at": "2026-08-16T01:03:21.677063+00:00",
+      "hook": "📈 $COW、24時間で+34.08％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
     }
   ],
