@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-16T20:59:24+00:00",
-  "last_watcher_guru_scan_at": "2026-08-16T20:59:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-16T21:56:57+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1729,6 +1729,12 @@
       "result_count": 4,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-16T21:56:57+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1760,30 +1766,6 @@
       "summary": "交易所搭建https://t.co/9C0N0kZMPr：一站式白标交付，最快3天即速上线运营 提供从0到1的全生态解决方案，覆盖现货、永续合约、期权及质押理财 #交易所开发 #币易鑫 #区块链搭建 @biyixin #Web3创业 #数字货币交易系统 #币圈工具 #金融科技 https://t.co/8CpUEYBCkQ",
       "topic": "chinese_market",
       "why_trending": "表示2・投稿後36分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 259,
-      "discovered_at": "2026-08-16T15:00:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "QuenofWeb3",
-      "has_video": false,
-      "headline": "Bitcoin is currently trading around the $63K area, while Ethereum is hovering near $ 1.8K. The market is still waiting for a clear breakout, especially with BTC struggling to firml",
-      "impression_count": 1,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089004140730929323",
-      "post_url": "https://x.com/QuenofWeb3/status/2089004140730929323",
-      "posted_at": "2026-08-16T14:59:33+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Bitcoin is currently trading around the $63K area, while Ethereum is hovering near $ 1.8K. The market is still waiting for a clear breakout, especially with BTC struggling to firmly reclaim the $64K–$65K zone. But price action isn’t the only thing happening Institutional demand",
-      "topic": "regulation",
-      "why_trending": "表示1・投稿後0分・反応率100.0%"
     },
     {
       "author_followers": 229,
