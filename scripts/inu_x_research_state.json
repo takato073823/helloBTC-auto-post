@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T09:24:19+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T09:24:19+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T10:16:05+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1837,6 +1837,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T10:16:05+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1949,34 +1955,6 @@
       "summary": "IT HAS BEEN A BRUTAL WEEK FOR CRYPTO The market just took another serious hit. • $85B wiped from total crypto market cap • $BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, their largest weekly outflow in 6 weeks • Strategy reportedly sold https://t.co/3P3JPshI2M",
       "topic": "regulation",
       "why_trending": "表示98・投稿後34分・反応率69.4%"
-    },
-    {
-      "author_followers": 18,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "akgmea",
-      "has_video": false,
-      "headline": "🐋 The 400M+ PI Mystery Whale — Who Is Behind It? A mysterious wallet known as “GAS…ODM” is attracting major attention in the Pi Network community. On-chain reports indicate that th",
-      "impression_count": 12,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/akgmea/status/2089192848336048214/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089192848336048214",
-      "post_url": "https://x.com/akgmea/status/2089192848336048214",
-      "posted_at": "2026-08-17T03:29:25+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 43.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🐋 The 400M+ PI Mystery Whale — Who Is Behind It? A mysterious wallet known as “GAS…ODM” is attracting major attention in the Pi Network community. On-chain reports indicate that this wallet has accumulated 400M+ PI. But the big question remains: Who is actually behind this https://t.co/EmZDJYysO3",
-      "topic": "onchain_exchange",
-      "why_trending": "表示12・投稿後4分・反応率0.0%"
     },
     {
       "author_followers": 213633,
