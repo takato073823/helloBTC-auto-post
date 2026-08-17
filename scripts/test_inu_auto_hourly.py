@@ -69,6 +69,51 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn("※比較:", text)
         self.assertNotIn("画像: TradingView", text)
 
+    def test_evidence_anchor_accepts_only_formatting_differences(self):
+        self.assertTrue(
+            inu_auto_hourly._evidence_anchor_present(
+                "Net inflow: 100 million USD", "Net inflow １００ million USD"
+            )
+        )
+        self.assertTrue(
+            inu_auto_hourly._evidence_anchor_present(
+                "営業利益は前年同期比18％増", "営業利益は前年同期比１８%増"
+            )
+        )
+        self.assertFalse(
+            inu_auto_hourly._evidence_anchor_present(
+                "Net inflow: 100 million USD", "Net inflow 200 million USD"
+            )
+        )
+
+    def test_category_rotation_tries_another_primary_category_first(self):
+        repeated = candidate(topic_type="etf_flow")
+        alternative = candidate(topic_type="onchain")
+        selected = inu_auto_hourly._prioritize_category_rotation(
+            [repeated, alternative], {"history": [{"topic_type": "etf_flow"}]}
+        )
+        self.assertEqual(["onchain", "etf_flow"], [row["topic_type"] for row in selected])
+
+    def test_market_fallback_never_follows_a_market_fallback(self):
+        with self.assertRaisesRegex(RuntimeError, "直近の定期投稿が価格速報"):
+            inu_auto_hourly.build_market_data_fallback(
+                NOW,
+                {"history": [{"topic_type": "crypto_market"}]},
+                "2026-08-04-21",
+            )
+
+    def test_paid_research_quota_error_is_distinguished_from_source_errors(self):
+        self.assertTrue(
+            inu_auto_hourly._is_paid_research_quota_error(
+                RuntimeError("credit_balance_exhausted: no credits remaining")
+            )
+        )
+        self.assertFalse(
+            inu_auto_hourly._is_paid_research_quota_error(
+                RuntimeError("source timed out")
+            )
+        )
+
     def test_grok_editorial_options_cannot_change_verified_facts_or_source(self):
         item = candidate()
         grok_copy = {

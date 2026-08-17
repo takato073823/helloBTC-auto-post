@@ -43,7 +43,11 @@ from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
 from inu_tickers import format_crypto_tickers
 from inu_source_registry import topic_source_context
-from inu_source_capture import SourceCaptureSpec, capture_official_evidence
+from inu_source_capture import (
+    SourceCaptureSpec,
+    capture_official_evidence,
+    normalize_evidence_text,
+)
 from inu_x_research_agent import (
     discovery_signals as collect_official_x_api_signals,
     mark_promotion_result,
@@ -657,11 +661,17 @@ topic_typeが異なる候補を優先してください。
 - 「Grok X Search」と記載されたシグナルのX URLは発見専用であり、最終source_urlには絶対に使わない。投稿内容を公式発表・一次データで独立に確認できない場合は候補から除外する。
 - ニュースメディアやXの投稿は発見専用。Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Block、Cointelegraphなど第三者メディアのURLを最終source_urlにしてはいけない。一次資料へ到達できない場合は候補から除外する。外部記事カードはhelloBTCの価値を薄めるため、自動投稿では絶対に使わない。
 - source_urlは今回のWeb検索結果に実際に含まれる、発表主体の一次資料URLだけを使う。
+- source_urlは、ログイン不要でブラウザから取得できるHTTPSのHTMLページに限定する。SECの
+  archive/edgarの個別提出書類、PDF、検索結果、動的なログイン画面は選ばず、同じ出来事を示す
+  発表主体のニュースルーム、IRリリース、公式データページを探す。取得・切り抜きできない
+  URLを候補にして投稿枠を消費してはいけない。
 - focus_signal_urlは必須項目。個別シグナルを指定していない通常探索では必ず空文字にする。
 - 固定探索先の一覧は発見と確認の起点であり、Reuters・Nikkei・暗号資産メディアは
   最終出典にせず、必ず発表主体の同一ドメインにある一次資料へ戻る。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
-- evidence_anchorは、一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳しない。
+- evidence_anchorは、一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳
+  しない。ページ見出し・表のセル・本文から、改行や句読点を除いても連続して確認できる短い原文
+  だけを使う。検索スニペットや要約文、ページにない数値を根拠にしてはいけない。
 - evidence_as_primaryは、根拠スクリーンショット自体が一目で意味の分かる公式資料・表・チャート・図版の場合だけtrueにする。単なる記事見出しや本文、余白の多いページならfalseにする。trueなら画像はその根拠スクリーンショット1枚だけで投稿する。
 - 決算・業績は、売上・利益・通期見通し・修正などの実績または具体的な変更が公開済みの場合だけ選ぶ。決算発表予定、IRカレンダー、説明会予定、発表時刻だけのページは候補から除外する。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
@@ -708,6 +718,8 @@ INUの編集憲法:
 {json.dumps(discovery_signals or [], ensure_ascii=False)}
 次は直近と異なる系統を優先する。選択可能なtopic_typeは:
 {', '.join(AUTO_TOPIC_TYPES)}
+直近の投稿系統と同じ候補は、他カテゴリーに同等以上の新しい変化がない場合だけにする。
+価格チャートはこのリサーチ経路の候補ではない。一次資料に基づく非価格カテゴリーを優先する。
 visual_routeは数字・表・チャートが根拠ならofficial_data_crop、それ以外はofficial_text_crop。主要メディア速報だけreported_text_crop。
 """.strip()
 
@@ -723,6 +735,26 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
         policy = get_content_policy(normalized["topic_type"])
         normalized["visual_route"] = policy.visual_route
     return normalized
+
+
+def _prioritize_category_rotation(candidates: list[dict], state: dict) -> list[dict]:
+    """同一カテゴリーへの偏りを、候補の重要度を壊さずに抑える。
+
+    モデルが返した順番は重要度順として尊重する。ただし直近の定期投稿と同じ
+    カテゴリーだけを先頭に置くことは避け、同じ候補群に異なる一次情報がある
+    場合はそちらを先に検証する。価格フォールバックには適用しない。
+    """
+    recent_topics = [
+        str(row.get("topic_type", ""))
+        for row in _recent_history(state)[-2:]
+        if isinstance(row, dict)
+    ]
+    if not recent_topics:
+        return candidates
+    latest_topic = recent_topics[-1]
+    alternatives = [row for row in candidates if row.get("topic_type") != latest_topic]
+    repeated = [row for row in candidates if row.get("topic_type") == latest_topic]
+    return alternatives + repeated if alternatives else candidates
 
 
 def research_candidates(
@@ -775,7 +807,7 @@ def research_candidates(
         if origin_handle:
             for candidate in candidates:
                 candidate["origin_discovery_handle"] = origin_handle
-    return candidates, sources, signals
+    return _prioritize_category_rotation(candidates, state), sources, signals
 
 
 def research_candidates_with_grok(
@@ -971,6 +1003,9 @@ def build_rescue_research_prompt(
 必須条件:
 - source_urlは、政府・規制当局・中央銀行・上場企業IR・取引所・ETF発行体・
   プロジェクト公式・公式データ提供元の、今回のWeb検索結果に現れたHTTPSのHTMLページだけにする。
+- PDF、SEC EDGARのarchive提出書類、ログイン画面、検索結果URLは選ばない。同じ出来事を
+  発表主体のニュースルーム・IRリリース・公式データページで確認し、evidence_anchorは
+  そのページ内に句読点・改行を除いて連続して存在する原文だけにする。
 - Reuters、Nikkei、Bloomberg、CoinDesk、Decrypt、The Block、Cointelegraph等の
   第三者メディア、X投稿、カレンダー、予定だけの発表、広告、まとめ記事は禁止。
 - 公開済みか更新済みの数値、決定、制度変更、需給、価格節目、決算実績のどれかを、
@@ -1263,6 +1298,22 @@ def _compact_text(value: str) -> str:
     return re.sub(r"\s+", "", value).lower()
 
 
+def _evidence_anchor_present(visible_text: str, evidence_anchor: str) -> bool:
+    """一次ページに根拠原文が存在することを、表記ゆれだけ許容して確認する。"""
+    compact_page = _compact_text(visible_text)
+    compact_anchor = _compact_text(evidence_anchor)
+    if len(compact_anchor) < 4:
+        return False
+    if compact_anchor in compact_page:
+        return True
+
+    # 句読点・全半角・改行だけの違いを許容する。単語一致率などの曖昧な
+    # 判定には切り替えず、元の根拠原文全体が一次ページにある場合だけ通す。
+    canonical_page = normalize_evidence_text(visible_text)
+    canonical_anchor = normalize_evidence_text(evidence_anchor)
+    return len(canonical_anchor) >= 4 and canonical_anchor in canonical_page
+
+
 def fetch_and_verify_source(candidate: dict) -> str:
     url = normalize_url(candidate["source_url"])
     parts = urlsplit(url)
@@ -1285,12 +1336,8 @@ def fetch_and_verify_source(candidate: dict) -> str:
         element.decompose()
     visible_text = " ".join(soup.get_text(" ", strip=True).split())
     anchor = " ".join(candidate["evidence_anchor"].split()).strip()
-    compact_page = _compact_text(visible_text)
-    compact_anchor = _compact_text(anchor)
-    if len(compact_anchor) < 4 or compact_anchor not in compact_page:
-        prefix = compact_anchor[:24]
-        if len(prefix) < 8 or prefix not in compact_page:
-            raise ValueError("根拠原文が一次資料ページ内に確認できません")
+    if not _evidence_anchor_present(visible_text, anchor):
+        raise ValueError("根拠原文が一次資料ページ内に確認できません")
     return url
 
 
@@ -1555,6 +1602,20 @@ def _should_run_paid_web_research(
     return now.astimezone(JST).hour % _economy_web_research_interval_hours() == 0
 
 
+def _is_paid_research_quota_error(exc: Exception) -> bool:
+    """従量課金の残高不足だけを、投稿内容の問題と分けて扱う。"""
+    message = str(exc).lower()
+    return any(
+        marker in message
+        for marker in (
+            "credit_balance_exhausted",
+            "insufficient_quota",
+            "no credits remaining",
+            "billing hard limit",
+        )
+    )
+
+
 def _queue_candidate_is_usable(row: dict, state: dict, now: dt.datetime) -> bool:
     """一次資料の候補キューを、鮮度・重複の条件付きで再利用する。"""
     candidate = row.get("candidate")
@@ -1592,6 +1653,13 @@ def _take_queued_research_candidate(
     queue = [row for row in state.get("research_queue", []) if isinstance(row, dict)]
     kept: list[dict] = []
     selected: dict | None = None
+    latest_topic = str((_recent_history(state) or [{}])[-1].get("topic_type", ""))
+    queue = sorted(
+        queue,
+        key=lambda row: 1
+        if str(row.get("candidate", {}).get("topic_type", "")) == latest_topic
+        else 0,
+    )
     for row in queue:
         if not _queue_candidate_is_usable(row, state, now):
             continue
@@ -2065,6 +2133,11 @@ def build_market_data_fallback(
     slot: str,
 ) -> tuple[dict, dict]:
     """二度の一次情報探索が不発時だけ、強い市場変動だけを実画面で伝える。"""
+    last_topic = str((_recent_history(state) or [{}])[-1].get("topic_type", ""))
+    if last_topic in {"crypto_market", "us_stock", "jp_stock"}:
+        raise RuntimeError(
+            "直近の定期投稿が価格速報のため、非価格カテゴリーの一次資料を優先します"
+        )
     from x_price_chart_post import (
         calculate_metrics,
         fetch_closed_candles,
@@ -2297,6 +2370,7 @@ def prepare(args: argparse.Namespace) -> int:
     item: dict | None = None
     candidate: dict | None = None
     failure_reasons: list[str] = []
+    research_blocked_by_quota = False
     unreachable_hosts: set[str] = set()
     selected_signal: dict[str, str] | None = None
     promotion_results: list[tuple[dict[str, str], str, str, str]] = []
@@ -2363,6 +2437,9 @@ def prepare(args: argparse.Namespace) -> int:
                     now, state, target_topic=target_topic
                 )
             except Exception as exc:
+                if _is_paid_research_quota_error(exc):
+                    research_blocked_by_quota = True
+                    failure_reasons.append("OpenAI Webリサーチのクレジット残高不足")
                 logger.warning("一次資料の複数候補リサーチに失敗: %s", exc)
                 signals = collect_discovery_signals()
                 sources = [
@@ -2492,7 +2569,13 @@ def prepare(args: argparse.Namespace) -> int:
     allow_rescue_research = not _economy_mode_enabled() or (
         paid_web_research and not economy_recovery
     )
-    if item is None and not priority_url and not promote_signals and allow_rescue_research:
+    if (
+        item is None
+        and not priority_url
+        and not promote_signals
+        and allow_rescue_research
+        and not research_blocked_by_quota
+    ):
         try:
             rescue_candidates, rescue_sources = research_rescue_candidates(
                 now,
@@ -2521,6 +2604,15 @@ def prepare(args: argparse.Namespace) -> int:
 
     if item is None or candidate is None:
         persist_promotion_results()
+        if research_blocked_by_quota:
+            # 一次情報リサーチができない状態で、市場チャートだけを投稿しても
+            # カテゴリーの偏りを増やすだけになる。ユーザーが残高を補充するまで
+            # この定期枠は「候補なし」として記録し、勝手な代替投稿はしない。
+            logger.error("OpenAI Webリサーチのクレジット残高不足のため、価格チャートへの代替投稿を停止します")
+            if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
+                save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
+            _emit_output("ready", "false")
+            return 0
         if target_topic or priority_url or promote_signals or bool(getattr(args, "no_market_fallback", False)):
             logger.info(
                 "固定探索先から%sの投稿候補は確認できませんでした。別カテゴリーや価格投稿では代用しません。",

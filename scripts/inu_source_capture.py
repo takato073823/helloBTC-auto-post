@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import json
+import unicodedata
 from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
@@ -17,6 +18,20 @@ from PIL import Image, ImageChops
 
 EVIDENCE_TYPES = {"official_text_crop", "official_data_crop", "reported_text_crop"}
 BROAD_SELECTORS = {"*", "html", "body", "main", "article"}
+
+
+def normalize_evidence_text(value: str) -> str:
+    """比較用に一次資料の表記ゆれだけを吸収する。
+
+    ここで許容するのは全角/半角、改行、約物の違いだけです。語の削除や
+    あいまいな類似判定は行わないため、存在しない根拠を通す用途には使えません。
+    """
+    normalized = unicodedata.normalize("NFKC", str(value or "")).casefold()
+    return "".join(
+        char
+        for char in normalized
+        if char.isalnum() or unicodedata.category(char).startswith("L")
+    )
 
 
 @dataclass(frozen=True)
@@ -139,7 +154,36 @@ async def capture_official_evidence(
                 prefix = anchor[: min(32, len(anchor))]
                 locator = page.get_by_text(prefix, exact=False).first
             if not await locator.is_visible(timeout=3000):
-                raise ValueError("一次資料内に指定された根拠文字列が見つかりません")
+                # 検証済みの根拠原文が、改行・全半角・句読点の違いだけで
+                # Playwright の文字検索に一致しないことがある。ページ内の
+                # テキストを同じ保守的な正規化で照合し、最小の可視要素だけを
+                # 撮る。本文全体や近い別の文を撮るフォールバックではない。
+                normalized_anchor = normalize_evidence_text(anchor)
+                target_id = await page.locator("body *").evaluate_all(
+                    """
+                    (nodes, target) => {
+                      const normalise = (value) => (value || "")
+                        .normalize("NFKC")
+                        .toLocaleLowerCase()
+                        .replace(/[\\p{P}\\p{S}\\p{Z}\\s_]/gu, "");
+                      const matches = (element) => normalise(element.innerText).includes(target);
+                      const element = nodes.find((node) =>
+                        matches(node) &&
+                        !Array.from(node.children).some((child) => matches(child))
+                      );
+                      if (!element) return "";
+                      const id = "inu-evidence-" + Math.random().toString(36).slice(2);
+                      element.setAttribute("data-inu-evidence-target", id);
+                      return id;
+                    }
+                    """,
+                    normalized_anchor,
+                )
+                if not target_id:
+                    raise ValueError("一次資料内に指定された根拠文字列が見つかりません")
+                locator = page.locator(f'[data-inu-evidence-target="{target_id}"]')
+                if not await locator.is_visible(timeout=3000):
+                    raise ValueError("一次資料内の根拠箇所を表示できません")
 
             await locator.scroll_into_view_if_needed(timeout=timeout_ms)
             box = await locator.bounding_box()
