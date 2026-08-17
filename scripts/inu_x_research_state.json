@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T03:34:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T04:26:25+00:00",
+  "last_deep_scan_at": "2026-08-17T05:22:06+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T05:22:06+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1786,6 +1786,19 @@
       "checked_at": "2026-08-17T04:26:25+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T05:22:06+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T05:22:06+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -1898,6 +1911,34 @@
       "summary": "Bitcoin is sitting right below a key pressure zone. The updated 1W map puts BTC at $62,780, with the largest nearby cluster at $63,482, just 1.1% higher. Around $316M in short pressure sits there, making it an important level if price pushes up. Below spot, $62,225 is the https://t.co/a9kseKnLBc",
       "topic": "crypto_market",
       "why_trending": "表示20・投稿後91分・反応率5.0%"
+    },
+    {
+      "author_followers": 4965,
+      "discovered_at": "2026-08-17T05:22:06+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "dxbcrypto121",
+      "has_video": false,
+      "headline": "🚨 BIG WEEK AHEAD FOR CRYPTO &amp; STOCKS Markets are heading into a major decision week. 🔥 FOMC Minutes 🔥 Jobless Claims 🔥 Flash PMIs 🔥 US inflation and growth data 🔥 US-Iran tensi",
+      "impression_count": 46,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/dxbcrypto121/status/2089219272472166487/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089219272472166487",
+      "post_url": "https://x.com/dxbcrypto121/status/2089219272472166487",
+      "posted_at": "2026-08-17T05:14:25+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 39.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 BIG WEEK AHEAD FOR CRYPTO &amp; STOCKS Markets are heading into a major decision week. 🔥 FOMC Minutes 🔥 Jobless Claims 🔥 Flash PMIs 🔥 US inflation and growth data 🔥 US-Iran tensions 🔥 Strait of Hormuz risk 🔥 Oil volatility The setup is simple: Cooling US data = bullish https://t.co/vXqdQVZB8A",
+      "topic": "macro_rates",
+      "why_trending": "表示46・投稿後7分・反応率0.0%"
     },
     {
       "author_followers": 1866,
