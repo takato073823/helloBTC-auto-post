@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T18:04:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T18:04:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T19:16:37+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1913,6 +1913,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T19:16:37+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1939,32 +1945,6 @@
       "summary": "JUST IN: 🇺🇸 Treasury Secretary Bessent says the US Treasury is \"moving quickly\" to implement the crypto stablecoin Genius Act framework.",
       "topic": "watcher_guru",
       "why_trending": "表示63,319・投稿後6分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 186,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Red_OneRb",
-      "has_video": false,
-      "headline": "第一次用 WEEX TradFi 做现货，真的超级简单！ 新手也能 5 分钟上手美股代币交易今天分享一下我亲自参与的完整流程，从注册到完成一笔现货交易，全程截图说明，照着做就行。1. 注册 &amp; 登录打开 WEEX App 或官网，用邮箱/手机号注册。 新用户直接领新人礼包（链接在文末）。2. 充值 https://t.co/rKwgp1ZzY8",
-      "impression_count": 42,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/WeexCn/status/2086701055526506858"
-      ],
-      "media_types": [],
-      "post_id": "2089334882040213720",
-      "post_url": "https://x.com/Red_OneRb/status/2089334882040213720",
-      "posted_at": "2026-08-17T12:53:48+00:00",
-      "quote_count": 1,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 65.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "第一次用 WEEX TradFi 做现货，真的超级简单！ 新手也能 5 分钟上手美股代币交易今天分享一下我亲自参与的完整流程，从注册到完成一笔现货交易，全程截图说明，照着做就行。1. 注册 &amp; 登录打开 WEEX App 或官网，用邮箱/手机号注册。 新用户直接领新人礼包（链接在文末）。2. 充值 https://t.co/rKwgp1ZzY8",
-      "topic": "chinese_market",
-      "why_trending": "表示42・投稿後33分・反応率8.6%・公式候補リンクあり"
     },
     {
       "author_followers": 77759,
@@ -1994,34 +1974,6 @@
       "summary": "Bitcoin just lost the $63,000 support that was holding the whole range together Price tried to reclaim $64K several times and sellers slammed it back down every time The rejection at $65.7K was the warning, and now Bitcoin is hunting for the next real demand zone The levels https://t.co/ZCDbeGgf7O https://t.co/SuLizXzNJi",
       "topic": "crypto_market",
       "why_trending": "表示1,574・投稿後40分・反応率0.7%・公式候補リンクあり・動画あり"
-    },
-    {
-      "author_followers": 3,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "ejs3n",
-      "has_video": false,
-      "headline": "加入KTX交易所，享受实时策略分析，跟着老师吃肉，主流币，美股……更有精美周边 https://t.co/oqQ3xgtkRQ",
-      "impression_count": 8,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/ejs3n/status/2089336456703791510/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089336456703791510",
-      "post_url": "https://x.com/ejs3n/status/2089336456703791510",
-      "posted_at": "2026-08-17T13:00:03+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 52.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "加入KTX交易所，享受实时策略分析，跟着老师吃肉，主流币，美股……更有精美周边 https://t.co/oqQ3xgtkRQ",
-      "topic": "chinese_market",
-      "why_trending": "表示8・投稿後27分・反応率20.0%"
     },
     {
       "author_followers": 63162,
@@ -2132,56 +2084,6 @@
       "why_trending": "表示719・投稿後95分・反応率8.8%"
     },
     {
-      "author_followers": 24,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "lionhyena",
-      "has_video": false,
-      "headline": "根据最新信息，美股计划从2026年12月6日起，在主要交易所（如纳斯达克）试点每周5天、每天交易23小时的新制度。具体交易时段安排如下：夜间交易时段：美东时间21:00至次日4:00日间交易时段：美东时间4:00至20:00每日休市：仅在美东时间20:00至21:00之间暂停交易1小时，用于系统维护和清算。",
-      "impression_count": 15,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089328213537259971",
-      "post_url": "https://x.com/lionhyena/status/2089328213537259971",
-      "posted_at": "2026-08-17T12:27:18+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 44.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "根据最新信息，美股计划从2026年12月6日起，在主要交易所（如纳斯达克）试点每周5天、每天交易23小时的新制度。具体交易时段安排如下：夜间交易时段：美东时间21:00至次日4:00日间交易时段：美东时间4:00至20:00每日休市：仅在美东时间20:00至21:00之间暂停交易1小时，用于系统维护和清算。",
-      "topic": "chinese_market",
-      "why_trending": "表示15・投稿後60分・反応率17.3%"
-    },
-    {
-      "author_followers": 1,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "VIVI630786",
-      "has_video": false,
-      "headline": "🚀 想买比特币？第一步：注册币安 Binance！ 币安是全球交易量最大的交易所 🔥 ✅ 500+ 币种 ✅ 现货 / 合约 / 理财 ✅ 新手友好 用我的邀请码注册，立享 40% 手续费返佣 💰 📌 邀请码：BTC9149 🔗 https://t.co/dEnxyZpTEN #比特币 #加密货币 #币安 #Web3 #投资",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://www.bsmkweb.cc/join"
-      ],
-      "media_types": [],
-      "post_id": "2089333728158093339",
-      "post_url": "https://x.com/VIVI630786/status/2089333728158093339",
-      "posted_at": "2026-08-17T12:49:13+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 42.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚀 想买比特币？第一步：注册币安 Binance！ 币安是全球交易量最大的交易所 🔥 ✅ 500+ 币种 ✅ 现货 / 合约 / 理财 ✅ 新手友好 用我的邀请码注册，立享 40% 手续费返佣 💰 📌 邀请码：BTC9149 🔗 https://t.co/dEnxyZpTEN #比特币 #加密货币 #币安 #Web3 #投资",
-      "topic": "chinese_market",
-      "why_trending": "表示1・投稿後38分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 18001,
       "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
@@ -2204,30 +2106,6 @@
       "summary": "上周数据有利于放缓加息步伐，基本上黄金，美股等资产都上涨了一些，但比特币（$BTC）在这场资金大轮动中成为了最尴尬的局外人，核心原因在于其「定位的模糊性」与「流动性断层」。与美股AI",
       "topic": "chinese_market",
       "why_trending": "表示49・投稿後3分・反応率0.0%"
-    },
-    {
-      "author_followers": 3955,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "USAstockMarkets",
-      "has_video": false,
-      "headline": "美股世界： 2026年12月6日，纳斯达克计划启动每天23小时、每周五天的股票交易。SEC已批准纳斯达克23/5交易规则变更，但正式上线仍取决于SIP等行情基础设施准备及配套规则落地。",
-      "impression_count": 30,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089340541276131396",
-      "post_url": "https://x.com/USAstockMarkets/status/2089340541276131396",
-      "posted_at": "2026-08-17T13:16:17+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "美股世界： 2026年12月6日，纳斯达克计划启动每天23小时、每周五天的股票交易。SEC已批准纳斯达克23/5交易规则变更，但正式上线仍取决于SIP等行情基础设施准备及配套规则落地。",
-      "topic": "chinese_market",
-      "why_trending": "表示30・投稿後11分・反応率0.0%"
     }
   ],
   "trends": [],
