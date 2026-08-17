@@ -319,7 +319,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
 10. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
-11. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する
+11. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
@@ -330,7 +330,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
-  "image_prompt": "Describe one full-bleed photorealistic scene that directly depicts the verified central subject. Never request a webpage, document, report, headline, caption, sign, screen text, letter, number, symbol, or pseudo-text. Do not add generic crypto decoration or unrelated objects. NO people, NO brand names, NO text. Max 15 words.",
+  "image_prompt": "Describe one full-bleed photorealistic scene that directly depicts the verified central subject. A physical document, screen, or sign is allowed only when central to the verified event. If visible copy is essential, include at most three exact short English terms, initials, dates, or numbers in quotation marks; never request paragraph copy, fake words, pseudo-text, garbled text, or a webpage/headline layout. Do not add generic crypto decoration or unrelated objects. NO people. Max 25 words.",
   "logo_brand": "ニュースを発表した当事者プロジェクト名。出典メディアは禁止。該当しなければ空文字",
   "logo_domain": "当事者プロジェクトの公式サイトドメイン。出典メディアは禁止。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
@@ -367,21 +367,32 @@ def _image_article_context(article_title: str | None, article_content: str | Non
     )
 
 
-def _image_text_review_prompt(trusted_brand: str | None) -> str:
-    allowed = (
+def _image_text_review_prompt(
+    trusted_brand: str | None,
+    visual_brief: str | None = None,
+) -> str:
+    logo_rule = (
         f"The single authentic {trusted_brand} brand mark is allowed only as an integrated environmental logo. "
-        "Its native wordmark may appear, but no other writing is allowed."
+        "Reject every other logo, publisher mark, or media brand."
         if trusted_brand
-        else "No logo or wordmark is allowed."
+        else "Reject every logo, publisher mark, media brand, and watermark."
     )
+    brief = (visual_brief or "").strip()
+    brief_rule = f"The intended visual brief is: {brief}." if brief else "No visual brief was supplied."
     return f"""
 Inspect this proposed Japanese news-site featured image at full resolution.
-Reject it if any visible writing-like element appears anywhere, including Japanese, Chinese or other CJK
-characters, Latin letters, numbers, words, captions, headlines, labels, signs, UI text, documents, paragraphs,
-ticker symbols, watermarks, pseudo-text, invented glyphs, garbled characters, or unreadable character clusters.
-Text printed on screens, cards, coins, devices, walls, paper, labels, and background objects also counts.
-{allowed}
-Return exactly one line: PASS if the image satisfies the rule, otherwise REJECT followed by a short reason.
+{brief_rule}
+Short text naturally printed on an article-specific physical item such as a document, screen, sign, or device is
+allowed only when every visible word is clearly legible, correctly spelled, contextually relevant to the visual
+brief, and written in coherent Japanese or English. Correct initials, dates, numbers, and short labels are allowed.
+Reject the image for any pseudo-text, invented glyph, malformed CJK character, fake or misspelled word, broken
+number, mixed-script gibberish, duplicated fragment, corrupted text, garbled text, or unreadable character cluster.
+Reject unexpected Chinese or other-language text unless the visual brief explicitly requires that language.
+Reject dense generated paragraph copy when its wording cannot be verified. Natural depth-of-field blur is acceptable
+only when it forms neutral continuous print texture without visible fake glyphs or character-like corruption.
+Do not reject an image merely because it contains accurate, readable, contextually appropriate text on an object.
+{logo_rule}
+Return exactly one line: PASS if all visible text satisfies these rules, otherwise REJECT followed by a short reason.
 """.strip()
 
 
@@ -393,8 +404,13 @@ class ImageReviewUnavailableError(RuntimeError):
     """画像の公開前検査を実行できない場合に、生成を安全側で停止する。"""
 
 
-def _review_generated_image(client, raw_bytes: bytes, trusted_brand: str | None) -> tuple[bool, str]:
-    """Gemini Visionで文字・疑似文字を検出し、公開前に拒否する。"""
+def _review_generated_image(
+    client,
+    raw_bytes: bytes,
+    trusted_brand: str | None,
+    visual_brief: str | None = None,
+) -> tuple[bool, str]:
+    """Gemini Visionで文字の可読性と正確性を検査し、文字化け画像を拒否する。"""
     from google.genai import types
 
     mime_type = "image/png" if raw_bytes.startswith(b"\x89PNG") else "image/jpeg"
@@ -407,7 +423,7 @@ def _review_generated_image(client, raw_bytes: bytes, trusted_brand: str | None)
                 model=model_name,
                 contents=[
                     types.Part.from_bytes(data=raw_bytes, mime_type=mime_type),
-                    _image_text_review_prompt(trusted_brand),
+                    _image_text_review_prompt(trusted_brand, visual_brief),
                 ],
             )
             review = (response.text or "").strip()
@@ -440,19 +456,17 @@ def _build_imagen_prompt(
         )
     else:
         logo_instruction = (
-            "No logos, media branding, watermarks, publisher marks, trademarks, emblems, lettering, or symbols "
-            "on coins, screens, buildings, or any other object. Any coin must be completely unbranded. "
+            "No logos, media branding, watermarks, publisher marks, trademarks, or organization emblems on any "
+            "object. Short accurate contextual copy is governed by the text-quality rule below and is not a logo. "
+            "Any coin must be completely unbranded. "
         )
     text_instruction = (
-        f"Except for the single authentic {trusted_brand} brand mark required below, absolutely no other writing "
-        "or writing-like marks: no Japanese, Chinese or other CJK characters, no unrelated Latin letters, no "
-        "numbers, no words, no labels, no signs, no UI text, no ticker symbols, no pseudo-text, no invented "
-        "glyphs, and no garbled or unreadable character clusters anywhere in the frame. "
-        if trusted_brand
-        else
-        "Absolutely no writing or writing-like marks: no Japanese, Chinese or other CJK characters, no Latin "
-        "letters, no numbers, no words, no labels, no signs, no UI text, no ticker symbols, no pseudo-text, no "
-        "invented glyphs, and no garbled or unreadable character clusters anywhere in the frame. "
+        "Natural writing on an article-specific physical item is allowed only when essential to the scene. "
+        "Keep visible copy to one to three short, fully legible Japanese or English terms, initials, dates, or "
+        "numbers explicitly supported by the opening visual brief. Spell every word correctly and render every "
+        "character completely. Never invent paragraph body copy, fake words, pseudo-text, malformed CJK, mixed-script "
+        "gibberish, duplicated fragments, garbled text, corrupted characters, or unreadable character clusters. "
+        "Do not add Chinese or another language unless the opening visual brief explicitly requires it. "
     )
 
     return (
@@ -468,11 +482,12 @@ def _build_imagen_prompt(
         "Professional studio lighting or natural window light, realistic textures and materials. "
         "Muted color grading, slightly desaturated, cool tones. "
         "Sharp focus on subject, news magazine quality, high resolution. "
-        "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, document, "
-        "report, presentation, infographic, poster, headline layout, caption bar, white text panel, or text area. "
-        "Every physical surface must be plain and completely unmarked. Keep all device displays powered off and "
-        "fully black. Avoid paper, labels, packaging, keyboards, dashboards, nameplates, serial plates, coins, "
-        "cards with printed details, and control layouts that could resemble characters. "
+        "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, report-page "
+        "layout, presentation, infographic, poster, headline layout, caption bar, white text panel, or floating text "
+        "area. Physical documents, screens, and signs may appear only when explicitly relevant to the opening visual "
+        "brief; they must remain photographed objects rather than a page layout. Keep unrelated surfaces plain and "
+        "unmarked. Avoid dense paragraph copy, generic paperwork, packaging text, serial plates, and crowded control "
+        "layouts. "
         f"{text_instruction}"
         f"{SAFE_COMPOSITION_PROMPT}"
         f"{logo_instruction}"
@@ -537,21 +552,24 @@ def generate_featured_image(
                             candidate_bytes = part.inline_data.data
                 if not candidate_bytes:
                     raise ValueError("画像データが返りませんでした")
-                passed, review = _review_generated_image(client, candidate_bytes, trusted_brand)
+                passed, review = _review_generated_image(
+                    client, candidate_bytes, trusted_brand, base_prompt
+                )
                 if passed:
-                    logger.info("画像内文字検査に合格（文字・疑似文字なし）")
+                    logger.info("画像内文字品質検査に合格（文字化け・疑似文字なし）")
                     raw_bytes = candidate_bytes
                     break
                 text_rejections += 1
                 logger.warning(
-                    "画像内に禁止文字を検出したため再生成（%d/%d）: %s",
+                    "画像内に文字化け・不正文字を検出したため再生成（%d/%d）: %s",
                     text_rejections,
                     max_text_rejections,
                     review,
                 )
                 full_prompt += (
-                    " A previous attempt was rejected for visible writing. Use only unmarked physical surfaces "
-                    "and purely visual objects with no character-like strokes or printed details."
+                    " A previous attempt was rejected for corrupted or unverifiable writing. Remove all nonessential "
+                    "copy. If the visual brief requires text on an object, keep only one to three exact, short, "
+                    "correctly spelled Japanese or English terms; never invent paragraph copy or pseudo-text."
                 )
             except ImageReviewUnavailableError:
                 raise
@@ -563,7 +581,7 @@ def generate_featured_image(
 
     if not raw_bytes:
         if text_rejections >= max_text_rejections:
-            raise ValueError("文字・疑似文字のないアイキャッチを生成できませんでした")
+            raise ValueError("文字化け・疑似文字のないアイキャッチを生成できませんでした")
         raise ValueError("利用可能な画像生成モデルが見つかりません")
 
     image_data = fit_image_to_jpeg(raw_bytes, width=1200, height=630, quality=92)

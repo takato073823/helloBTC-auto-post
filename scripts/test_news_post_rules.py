@@ -95,26 +95,32 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertNotIn("Robinhoodが英国で仮想通貨取引開始", prompt)
         self.assertNotIn("英国向けの手数料無料取引", prompt)
 
-    def test_featured_image_forbids_page_layouts_and_all_pseudo_text(self):
-        prompt = _build_imagen_prompt("hardware wallet on a desk", None, None)
-        self.assertIn("Never create a webpage, news article screenshot, document", prompt)
-        self.assertIn("no Japanese, Chinese or other CJK characters", prompt)
-        self.assertIn("no pseudo-text", prompt)
-        self.assertIn("no garbled or unreadable character clusters", prompt)
-        self.assertIn("Every physical surface must be plain and completely unmarked", prompt)
-        self.assertIn("device displays powered off and fully black", prompt)
-
-    def test_generated_image_review_rejects_any_writing_like_marks(self):
-        prompt = _image_text_review_prompt(None)
+    def test_featured_image_allows_accurate_object_text_but_forbids_corruption(self):
+        prompt = _build_imagen_prompt('SEC document headed "SEC"', None, None)
+        self.assertIn("Never create a webpage, news article screenshot", prompt)
+        self.assertIn("Physical documents, screens, and signs may appear", prompt)
+        self.assertIn("one to three short, fully legible Japanese or English terms", prompt)
+        self.assertIn("Spell every word correctly", prompt)
         self.assertIn("pseudo-text", prompt)
-        self.assertIn("garbled characters", prompt)
+        self.assertIn("garbled text", prompt)
+        self.assertIn("unreadable character clusters", prompt)
+        self.assertNotIn("Absolutely no writing", prompt)
+
+    def test_generated_image_review_accepts_readable_text_and_rejects_garbling(self):
+        prompt = _image_text_review_prompt(None, 'SEC document headed "SEC"')
+        self.assertIn('SEC document headed "SEC"', prompt)
+        self.assertIn("correctly spelled", prompt)
+        self.assertIn("Do not reject an image merely because it contains accurate", prompt)
+        self.assertIn("pseudo-text", prompt)
+        self.assertIn("garbled text", prompt)
+        self.assertIn("unexpected Chinese", prompt)
         self.assertTrue(_image_review_passed("PASS"))
         self.assertFalse(_image_review_passed("REJECT: fake Chinese text"))
 
-    def test_approved_logo_is_the_only_text_exception_for_review(self):
+    def test_approved_logo_does_not_allow_other_media_branding(self):
         prompt = _image_text_review_prompt("Bitget")
         self.assertIn("single authentic Bitget brand mark", prompt)
-        self.assertIn("no other writing is allowed", prompt)
+        self.assertIn("Reject every other logo, publisher mark, or media brand", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'
