@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T05:22:06+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T06:05:43+00:00",
+  "last_deep_scan_at": "2026-08-17T07:39:42+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T07:39:42+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1805,9 +1805,132 @@
       "checked_at": "2026-08-17T06:05:43+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T07:39:42+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T07:39:42+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
+    {
+      "author_followers": 9425,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TT_BTCs",
+      "has_video": false,
+      "headline": "It’s been a brutal week for crypto. 📉 • $85B wiped from the total crypto market cap • BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, the largest",
+      "impression_count": 41,
+      "like_count": 5,
+      "linked_urls": [
+        "https://x.com/TT_BTCs/status/2089236003890368854/photo/1",
+        "https://twitter.com/TT_BTCs/status/2089198174846304278"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089236003890368854",
+      "post_url": "https://x.com/TT_BTCs/status/2089236003890368854",
+      "posted_at": "2026-08-17T06:20:54+00:00",
+      "quote_count": 0,
+      "reply_count": 5,
+      "repost_count": 0,
+      "score": 51.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "It’s been a brutal week for crypto. 📉 • $85B wiped from the total crypto market cap • BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, the largest in 6 weeks • Strategy sold another $108M worth of BTC • Altcoin market cap posted its lowest https://t.co/h7G7ie9Pj3 https://t.co/BQWQMcfAr3",
+      "topic": "regulation",
+      "why_trending": "表示41・投稿後78分・反応率31.7%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 6261,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "coin_gabbar_",
+      "has_video": false,
+      "headline": "🚨Crypto Regulation News This Week: White House, CFTC Meet 👉For More Details - https://t.co/zVLv94Us08 #CoinGabbar #CryptoRegulation #CFTC #WhiteHouse #CryptoNews #Update https://t.",
+      "impression_count": 63,
+      "like_count": 0,
+      "linked_urls": [
+        "https://www.coingabbar.com/en/crypto-currency-news/crypto-regulation-news-this-week-white-house-cftc-meeting",
+        "https://x.com/coin_gabbar_/status/2089253415583137952/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089253415583137952",
+      "post_url": "https://x.com/coin_gabbar_/status/2089253415583137952",
+      "posted_at": "2026-08-17T07:30:05+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 51.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨Crypto Regulation News This Week: White House, CFTC Meet 👉For More Details - https://t.co/zVLv94Us08 #CoinGabbar #CryptoRegulation #CFTC #WhiteHouse #CryptoNews #Update https://t.co/9cIpI5ibGQ",
+      "topic": "regulation",
+      "why_trending": "表示63・投稿後9分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 88,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "jasonsmith49944",
+      "has_video": false,
+      "headline": "Crypto regulation is hitting another pause: the SEC delayed its crypto rules vote while the CLARITY Act remains stalled. The industry still needs clear rules, not more uncertainty.",
+      "impression_count": 772,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089250857573662926",
+      "post_url": "https://x.com/jasonsmith49944/status/2089250857573662926",
+      "posted_at": "2026-08-17T07:19:55+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 49.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Crypto regulation is hitting another pause: the SEC delayed its crypto rules vote while the CLARITY Act remains stalled. The industry still needs clear rules, not more uncertainty. @AlphaWireHQ",
+      "topic": "regulation",
+      "why_trending": "表示772・投稿後19分・反応率0.1%"
+    },
+    {
+      "author_followers": 7035,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Kebbi_kingjr",
+      "has_video": false,
+      "headline": "IT HAS BEEN A BRUTAL WEEK FOR CRYPTO The market just took another serious hit. • $85B wiped from total crypto market cap • $BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs r",
+      "impression_count": 98,
+      "like_count": 26,
+      "linked_urls": [
+        "https://x.com/Kebbi_kingjr/status/2089247087657418939/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089247087657418939",
+      "post_url": "https://x.com/Kebbi_kingjr/status/2089247087657418939",
+      "posted_at": "2026-08-17T07:04:56+00:00",
+      "quote_count": 0,
+      "reply_count": 5,
+      "repost_count": 17,
+      "score": 49.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "IT HAS BEEN A BRUTAL WEEK FOR CRYPTO The market just took another serious hit. • $85B wiped from total crypto market cap • $BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, their largest weekly outflow in 6 weeks • Strategy reportedly sold https://t.co/3P3JPshI2M",
+      "topic": "regulation",
+      "why_trending": "表示98・投稿後34分・反応率69.4%"
+    },
     {
       "author_followers": 18,
       "discovered_at": "2026-08-17T03:34:14+00:00",
@@ -1835,6 +1958,62 @@
       "summary": "🐋 The 400M+ PI Mystery Whale — Who Is Behind It? A mysterious wallet known as “GAS…ODM” is attracting major attention in the Pi Network community. On-chain reports indicate that this wallet has accumulated 400M+ PI. But the big question remains: Who is actually behind this https://t.co/EmZDJYysO3",
       "topic": "onchain_exchange",
       "why_trending": "表示12・投稿後4分・反応率0.0%"
+    },
+    {
+      "author_followers": 213633,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoThro",
+      "has_video": false,
+      "headline": "🏛️ U.S. CRYPTO REGULATION FACE ANOTHER SETBACK The SEC unexpectedly canceled a meeting that was scheduled to consider new crypto-related rules, including proposed exemptions that c",
+      "impression_count": 1075,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/CryptoThro/status/2089241523833459011/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089241523833459011",
+      "post_url": "https://x.com/CryptoThro/status/2089241523833459011",
+      "posted_at": "2026-08-17T06:42:50+00:00",
+      "quote_count": 1,
+      "reply_count": 3,
+      "repost_count": 1,
+      "score": 43.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🏛️ U.S. CRYPTO REGULATION FACE ANOTHER SETBACK The SEC unexpectedly canceled a meeting that was scheduled to consider new crypto-related rules, including proposed exemptions that could make it easier for crypto startups to raise capital. The cancellation follows the Senate's https://t.co/tq4TVTCIba",
+      "topic": "regulation",
+      "why_trending": "表示1,075・投稿後56分・反応率1.1%"
+    },
+    {
+      "author_followers": 42461,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "MarzellCrypto",
+      "has_video": false,
+      "headline": "🚨 BIG WEEK FOR CRYPTO Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is no longer just a financial niche. It’",
+      "impression_count": 416,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/MarzellCrypto/status/2089238295184396761/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089238295184396761",
+      "post_url": "https://x.com/MarzellCrypto/status/2089238295184396761",
+      "posted_at": "2026-08-17T06:30:00+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 2,
+      "score": 41.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 BIG WEEK FOR CRYPTO Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is no longer just a financial niche. It’s now at the TOP of the U.S. agenda. 🇺🇸🚀 https://t.co/EPCadmr0dL",
+      "topic": "regulation",
+      "why_trending": "表示416・投稿後69分・反応率2.3%"
     },
     {
       "author_followers": 3,
@@ -1891,32 +2070,32 @@
       "why_trending": "表示148・投稿後14分・反応率0.0%"
     },
     {
-      "author_followers": 292,
-      "discovered_at": "2026-08-17T02:09:30+00:00",
+      "author_followers": 359,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
       "discovery_type": "official_x_api",
-      "handle": "AskClash",
+      "handle": "WEBSULAIMAN",
       "has_video": false,
-      "headline": "Bitcoin is sitting right below a key pressure zone. The updated 1W map puts BTC at $62,780, with the largest nearby cluster at $63,482, just 1.1% higher. Around $316M in short pres",
+      "headline": "🚨 The SEC just hit pause on crypto regulation. And that could matter more than the next Bitcoin headline. The SEC cancelled its August 14 meeting that was expected to include new c",
       "impression_count": 20,
-      "like_count": 1,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/AskClash/status/2089149732518293915/photo/1"
+        "https://x.com/WEBSULAIMAN/status/2089231682817716731/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2089149732518293915",
-      "post_url": "https://x.com/AskClash/status/2089149732518293915",
-      "posted_at": "2026-08-17T00:38:05+00:00",
+      "post_id": "2089231682817716731",
+      "post_url": "https://x.com/WEBSULAIMAN/status/2089231682817716731",
+      "posted_at": "2026-08-17T06:03:43+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 1,
       "repost_count": 0,
-      "score": 40.1,
+      "score": 39.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Bitcoin is sitting right below a key pressure zone. The updated 1W map puts BTC at $62,780, with the largest nearby cluster at $63,482, just 1.1% higher. Around $316M in short pressure sits there, making it an important level if price pushes up. Below spot, $62,225 is the https://t.co/a9kseKnLBc",
-      "topic": "crypto_market",
-      "why_trending": "表示20・投稿後91分・反応率5.0%"
+      "summary": "🚨 The SEC just hit pause on crypto regulation. And that could matter more than the next Bitcoin headline. The SEC cancelled its August 14 meeting that was expected to include new crypto regulatory proposals with no new date announced. Here's what most people are missing 👇 https://t.co/cRcgwsJa3W",
+      "topic": "regulation",
+      "why_trending": "表示20・投稿後95分・反応率18.0%"
     },
     {
       "author_followers": 4965,
@@ -1947,76 +2126,28 @@
       "why_trending": "表示46・投稿後7分・反応率0.0%"
     },
     {
-      "author_followers": 1866,
-      "discovered_at": "2026-08-17T02:09:30+00:00",
+      "author_followers": 52,
+      "discovered_at": "2026-08-17T07:39:42+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CrypstocksAI",
+      "handle": "space2402",
       "has_video": false,
-      "headline": "today is the last trading day for DEFI — the first US spot bitcoin ETF to ever be liquidated. hashdex stops the fund after aug 17, NYSE Arca delists it, and remaining holders get c",
-      "impression_count": 122,
+      "headline": "Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is now at the TOP of the U.S. agenda. This industry is massive",
+      "impression_count": 6,
       "like_count": 1,
       "linked_urls": [],
       "media_types": [],
-      "post_id": "2089163853619994931",
-      "post_url": "https://x.com/CrypstocksAI/status/2089163853619994931",
-      "posted_at": "2026-08-17T01:34:12+00:00",
+      "post_id": "2089226483982356943",
+      "post_url": "https://x.com/space2402/status/2089226483982356943",
+      "posted_at": "2026-08-17T05:43:04+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 38.4,
+      "score": 37.1,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "today is the last trading day for DEFI — the first US spot bitcoin ETF to ever be liquidated. hashdex stops the fund after aug 17, NYSE Arca delists it, and remaining holders get cash around aug 28. $BTC exits the ticker not because of performance but because of fee economics.",
-      "topic": "crypto_market",
-      "why_trending": "表示122・投稿後35分・反応率0.8%"
-    },
-    {
-      "author_followers": 2480,
-      "discovered_at": "2026-08-17T02:09:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Echochiu2",
-      "has_video": false,
-      "headline": "GM Brothers and Sisters ✅ETF fund flows have decoupled from price From August 3–7, U.S. spot BTC + ETH ETFs saw a combined net inflow of about $1.1 billion, yet BTC price barely mo",
-      "impression_count": 53,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089148847247552657",
-      "post_url": "https://x.com/Echochiu2/status/2089148847247552657",
-      "posted_at": "2026-08-17T00:34:34+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 38.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "GM Brothers and Sisters ✅ETF fund flows have decoupled from price From August 3–7, U.S. spot BTC + ETH ETFs saw a combined net inflow of about $1.1 billion, yet BTC price barely moved and stayed in the $62,000–$65,000 range. From August 10–14, BTC ETFs recorded a net outflow",
-      "topic": "crypto_market",
-      "why_trending": "表示53・投稿後94分・反応率6.8%"
-    },
-    {
-      "author_followers": 130,
-      "discovered_at": "2026-08-17T02:09:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "singapore282828",
-      "has_video": false,
-      "headline": "$BTC is holding near $63,000 and $ETH near $1,890 through the weekend, both roughly flat as fresh spot Bitcoin ETF outflows keep crypto traders cautious.",
-      "impression_count": 35,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089165013038809292",
-      "post_url": "https://x.com/singapore282828/status/2089165013038809292",
-      "posted_at": "2026-08-17T01:38:48+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "$BTC is holding near $63,000 and $ETH near $1,890 through the weekend, both roughly flat as fresh spot Bitcoin ETF outflows keep crypto traders cautious.",
-      "topic": "crypto_market",
-      "why_trending": "表示35・投稿後30分・反応率0.0%"
+      "summary": "Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is now at the TOP of the U.S. agenda. This industry is massively mispriced.",
+      "topic": "regulation",
+      "why_trending": "表示6・投稿後116分・反応率16.7%"
     },
     {
       "author_followers": 300130,
