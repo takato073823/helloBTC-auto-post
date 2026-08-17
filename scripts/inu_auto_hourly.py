@@ -48,6 +48,7 @@ from inu_source_capture import (
     capture_official_evidence,
     normalize_evidence_text,
 )
+from inu_direct_sources import collect_direct_source_candidates
 from inu_x_research_agent import (
     discovery_signals as collect_official_x_api_signals,
     mark_promotion_result,
@@ -2366,6 +2367,8 @@ def prepare(args: argparse.Namespace) -> int:
     )
     candidates: list[dict] = []
     sources: list[dict[str, str]] = []
+    direct_candidates: list[dict] = []
+    direct_sources: list[dict[str, str]] = []
     signals: list[dict[str, str]] = []
     item: dict | None = None
     candidate: dict | None = None
@@ -2388,6 +2391,18 @@ def prepare(args: argparse.Namespace) -> int:
             except Exception as exc:
                 # 昇格状態を保存できない場合は、投稿済み扱いにせず次回安全に再確認する。
                 logger.warning("発見シグナルの処理状態を保存できません: %s", exc)
+
+    # OpenAIのWeb検索とは独立して、公式APIから取得できるオンチェーン急変と
+    # 取引所ステータスを先に確認する。平常時の定型投稿には使わず、数値・状態が
+    # 明確に変わった場合だけ候補として通す。
+    if not priority_url and not promote_signals and not target_topic:
+        try:
+            direct_candidates, direct_sources = collect_direct_source_candidates(now, state)
+            direct_candidates = _prioritize_category_rotation(direct_candidates, state)
+            if direct_candidates:
+                logger.info("公式APIの直接一次情報候補を%d件検知", len(direct_candidates))
+        except Exception as exc:
+            logger.warning("公式APIの直接一次情報取得に失敗: %s", exc)
 
     if priority_url:
         try:
@@ -2431,7 +2446,7 @@ def prepare(args: argparse.Namespace) -> int:
             except Exception as exc:
                 failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
                 logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
-        if item is None and paid_web_research and not economy_recovery:
+        if item is None and paid_web_research and not economy_recovery and not direct_candidates:
             try:
                 candidates, sources, signals = research_candidates_with_grok(
                     now, state, target_topic=target_topic
@@ -2535,6 +2550,9 @@ def prepare(args: argparse.Namespace) -> int:
             logger.info("即時昇格条件の高反応シグナルは、投稿可能な一次資料に到達しませんでした")
             _emit_output("ready", "false")
             return 0
+
+    if item is None and direct_candidates:
+        try_candidates(direct_candidates, direct_sources, phase="直接一次データ")
 
     if item is None:
         try_candidates(candidates, sources, phase="一次探索")

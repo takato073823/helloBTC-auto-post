@@ -1051,6 +1051,47 @@ class INUAutoHourlyTests(unittest.TestCase):
         take_queue.assert_called_once()
         fallback.assert_not_called()
 
+    def test_direct_primary_candidate_precedes_paid_web_research(self):
+        args = SimpleNamespace(
+            state="/tmp/unused-state.json",
+            slot="",
+            priority_url="",
+            priority_hint="",
+            promote_signals=False,
+            topic="",
+            dry_run=True,
+            no_market_fallback=False,
+        )
+        direct = candidate(topic_type="onchain")
+        direct_item = {
+            "id": "inu_direct_onchain",
+            "topic_type": "onchain",
+            "visual_route": "official_data_crop",
+            "text": "⚠️ オンチェーンの混雑を確認\n\n#ビットコイン",
+            "media_path": "scripts/artifacts/inu-auto/test.png",
+            "source_manifest": "scripts/artifacts/inu-auto/test.source.json",
+        }
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS": "1",
+                "INU_SCHEDULE_RUN_KIND": "primary",
+            },
+            clear=False,
+        ), patch.object(
+            inu_auto_hourly, "load_state", return_value={"history": [], "reservations": [], "posted_slots": []}
+        ), patch.object(
+            inu_auto_hourly, "collect_direct_source_candidates", return_value=([direct], [{"url": direct["source_url"], "title": "official"}])
+        ), patch.object(
+            inu_auto_hourly, "research_candidates_with_grok"
+        ) as research, patch.object(
+            inu_auto_hourly, "_build_item_from_candidate", return_value=(direct_item, direct)
+        ), patch.object(
+            inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+        research.assert_not_called()
+
     def test_primary_and_watchdog_share_one_hourly_slot(self):
         now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)
         self.assertEqual("2026-08-04-21-a", inu_auto_hourly._scheduled_slot_key(now, "primary"))
