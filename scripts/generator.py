@@ -382,12 +382,16 @@ def _image_text_review_prompt(
     return f"""
 Inspect this proposed Japanese news-site featured image at full resolution.
 {brief_rule}
+Every negative constraint in the visual brief is mandatory. If it says no text, no print, no symbols, no logos,
+or no other objects, reject any violation even when the added element is otherwise readable or well rendered.
 Short text naturally printed on an article-specific physical item such as a document, screen, sign, or device is
 allowed only when every visible word is clearly legible, correctly spelled, contextually relevant to the visual
 brief, and written in coherent Japanese or English. Correct initials, dates, numbers, and short labels are allowed.
 Reject the image for any pseudo-text, invented glyph, malformed CJK character, fake or misspelled word, broken
 number, mixed-script gibberish, duplicated fragment, corrupted text, garbled text, or unreadable character cluster.
 Reject unexpected Chinese or other-language text unless the visual brief explicitly requires that language.
+Reject any unrequested currency sign, crypto-token mark, corporate emblem, or government/publisher symbol. A readable
+Bitcoin or Ethereum symbol is still a rejection when it is absent from, unrelated to, or forbidden by the brief.
 Reject dense generated paragraph copy when its wording cannot be verified. Natural depth-of-field blur is acceptable
 only when it forms neutral continuous print texture without visible fake glyphs or character-like corruption.
 Do not reject an image merely because it contains accurate, readable, contextually appropriate text on an object.
