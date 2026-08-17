@@ -2,7 +2,7 @@
 
 import unittest
 
-from audit_featured_images import is_legacy_generated_image
+from audit_featured_images import is_auditable_generated_image, is_legacy_generated_image
 
 
 class AuditFeaturedImagesTests(unittest.TestCase):
@@ -11,6 +11,25 @@ class AuditFeaturedImagesTests(unittest.TestCase):
         self.assertTrue(is_legacy_generated_image("https://example.com/featured-12345.png?cache=1"))
         self.assertFalse(is_legacy_generated_image("https://example.com/featured-replaced-post-12345.jpg"))
         self.assertFalse(is_legacy_generated_image("https://example.com/bingx-guide-img1.jpg"))
+
+    def test_selects_repaired_and_replaced_images_for_full_audit(self):
+        self.assertTrue(
+            is_auditable_generated_image(
+                "https://example.com/featured-repaired-example-post-12345.jpg"
+            )
+        )
+        self.assertTrue(
+            is_auditable_generated_image(
+                "https://example.com/featured-replaced-example-post-12345.jpg?cache=1"
+            )
+        )
+        self.assertFalse(
+            is_auditable_generated_image(
+                "https://example.com/featured-repaired-example-post-12345.jpg",
+                include_replaced=False,
+            )
+        )
+        self.assertFalse(is_auditable_generated_image("https://example.com/bingx-guide-img1.jpg"))
 
 
 if __name__ == "__main__":

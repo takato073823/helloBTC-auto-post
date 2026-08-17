@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""公開中の旧式アイキャッチをGemini Visionで監査する。"""
+"""公開中の自動生成アイキャッチをGemini Visionで監査する。"""
 
 from __future__ import annotations
 
@@ -14,11 +14,23 @@ from generator import _review_generated_image
 
 
 LEGACY_FEATURED_RE = re.compile(r"/featured-\d+\.(?:jpe?g|png)$", re.IGNORECASE)
+REPLACED_FEATURED_RE = re.compile(
+    r"/featured-(?:repaired|replaced)-.+-\d+\.(?:jpe?g|png)$",
+    re.IGNORECASE,
+)
 
 
 def is_legacy_generated_image(url: str) -> bool:
     """差し替え済み・ガイド用画像を除き、旧自動生成画像だけを対象にする。"""
     return bool(LEGACY_FEATURED_RE.search((url or "").split("?", 1)[0]))
+
+
+def is_auditable_generated_image(url: str, *, include_replaced: bool = True) -> bool:
+    """現在の自動生成画像を対象にし、手作業のガイド画像などは除外する。"""
+    clean_url = (url or "").split("?", 1)[0]
+    return is_legacy_generated_image(clean_url) or (
+        include_replaced and bool(REPLACED_FEATURED_RE.search(clean_url))
+    )
 
 
 def fetch_posts(base_url: str, since: str) -> list[dict]:
@@ -47,11 +59,16 @@ def main() -> None:
 
     base_url = os.getenv("WP_URL", "https://hellobtc.jp")
     since = os.getenv("AUDIT_SINCE", "2026-08-01")
+    include_replaced = os.getenv("AUDIT_INCLUDE_REPLACED", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+    }
     client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
     targets = []
     for post in fetch_posts(base_url, since):
         image_url = featured_image_url(post)
-        if is_legacy_generated_image(image_url):
+        if is_auditable_generated_image(image_url, include_replaced=include_replaced):
             targets.append((post, image_url))
 
     rejected = 0

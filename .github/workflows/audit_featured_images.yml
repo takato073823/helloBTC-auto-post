@@ -8,6 +8,11 @@ on:
         required: true
         default: "2026-08-01"
         type: string
+      include_replaced:
+        description: 差し替え後の画像も監査する
+        required: true
+        default: true
+        type: boolean
 
 jobs:
   audit-featured-images:
@@ -36,5 +41,6 @@ jobs:
           WP_URL: ${{ secrets.WP_URL }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           AUDIT_SINCE: ${{ inputs.since }}
+          AUDIT_INCLUDE_REPLACED: ${{ inputs.include_replaced }}
         working-directory: scripts
         run: python audit_featured_images.py
