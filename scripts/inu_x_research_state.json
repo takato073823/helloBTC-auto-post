@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T13:27:24+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T14:06:00+00:00",
+  "last_deep_scan_at": "2026-08-17T16:00:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T16:00:17+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1881,6 +1881,19 @@
       "checked_at": "2026-08-17T14:06:00+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T16:00:17+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T16:00:17+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
@@ -1959,32 +1972,6 @@
       "summary": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、ナスダックどうなる。仮想通貨BTC https://t.co/IH8Uc445Bb",
       "topic": "japanese_market",
       "why_trending": "表示5,149・投稿後11分・反応率0.5%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 92809,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sho54639108",
-      "has_video": false,
-      "headline": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、ナスダックどうなる。仮想通貨BTC弱い https://t.co/IH8Uc43xLD",
-      "impression_count": 17056,
-      "like_count": 57,
-      "linked_urls": [
-        "https://youtu.be/yThu54EEj3M"
-      ],
-      "media_types": [],
-      "post_id": "2089279889849319534",
-      "post_url": "https://x.com/Sho54639108/status/2089279889849319534",
-      "posted_at": "2026-08-17T09:15:17+00:00",
-      "quote_count": 0,
-      "reply_count": 10,
-      "repost_count": 5,
-      "score": 55.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、ナスダックどうなる。仮想通貨BTC弱い https://t.co/IH8Uc43xLD",
-      "topic": "japanese_market",
-      "why_trending": "表示17,056・投稿後108分・反応率0.5%・公式候補リンクあり"
     },
     {
       "author_followers": 138,
@@ -2067,35 +2054,6 @@
       "why_trending": "表示8・投稿後27分・反応率20.0%"
     },
     {
-      "author_followers": 257,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Rina_BingX",
-      "has_video": false,
-      "headline": "📈 8月17日 仮想通貨市場の相場分析 本日の内容： 価格動向/マクロ/資金動向/本日の注目ポイント🌟 🔹 BTC・ETHの価格動向と出来高 🟠 ビットコイン (BTC) 63,368 USDT (24h +0.53%) - 日内レンジ：62,700 ~ 63,684 USDT、 振幅約1.6% - 朝方に 62,886 から一気に 63,165 まで上昇、",
-      "impression_count": 1034,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/Rina_BingX/status/2089280306901913686/photo/1",
-        "https://twitter.com/Rina_BingX/status/2033093746162807222"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089280306901913686",
-      "post_url": "https://x.com/Rina_BingX/status/2089280306901913686",
-      "posted_at": "2026-08-17T09:16:56+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 50.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📈 8月17日 仮想通貨市場の相場分析 本日の内容： 価格動向/マクロ/資金動向/本日の注目ポイント🌟 🔹 BTC・ETHの価格動向と出来高 🟠 ビットコイン (BTC) 63,368 USDT (24h +0.53%) - 日内レンジ：62,700 ~ 63,684 USDT、 振幅約1.6% - 朝方に 62,886 から一気に 63,165 まで上昇、 その後 https://t.co/qStUlhJgY1 https://t.co/SzhWkbj7KR",
-      "topic": "japanese_market",
-      "why_trending": "表示1,034・投稿後106分・反応率0.1%・公式候補リンクあり"
-    },
-    {
       "author_followers": 24245,
       "discovered_at": "2026-08-17T11:03:48+00:00",
       "discovery_type": "official_x_api",
@@ -2153,58 +2111,6 @@
       "why_trending": "表示33・投稿後100分・反応率4.8%・動画あり"
     },
     {
-      "author_followers": 30,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "EVxwDIGbNH38341",
-      "has_video": false,
-      "headline": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、... https://t.co/LyPahSN9nD @YouTubeより",
-      "impression_count": 280,
-      "like_count": 0,
-      "linked_urls": [
-        "https://youtu.be/yThu54EEj3M?si=KU376KdZ1nJbTcvj"
-      ],
-      "media_types": [],
-      "post_id": "2089288536029823457",
-      "post_url": "https://x.com/EVxwDIGbNH38341/status/2089288536029823457",
-      "posted_at": "2026-08-17T09:49:38+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、... https://t.co/LyPahSN9nD @YouTubeより",
-      "topic": "japanese_market",
-      "why_trending": "表示280・投稿後74分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 49,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "FighTb2wy_",
-      "has_video": false,
-      "headline": "「もう上がりすぎじゃない？」と思ったけど、 上がったから買うんじゃなくて 押しを待つっていうのが改めて勉強になった。 MIZU会の配信ものれて＋5万の利益に😊 暗号資産 仮想通貨 ビットコイン USDJPY #usdjpy リップル #GOLD ドル円 ゴールド 太陽誘電 TOPIX アドバンテスト 金利上昇 https://t.co/OQ2fhUlAL9",
-      "impression_count": 291,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/johnson_al51910/status/2089271391858430442"
-      ],
-      "media_types": [],
-      "post_id": "2089279818542051523",
-      "post_url": "https://x.com/FighTb2wy_/status/2089279818542051523",
-      "posted_at": "2026-08-17T09:15:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 45.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "「もう上がりすぎじゃない？」と思ったけど、 上がったから買うんじゃなくて 押しを待つっていうのが改めて勉強になった。 MIZU会の配信ものれて＋5万の利益に😊 暗号資産 仮想通貨 ビットコイン USDJPY #usdjpy リップル #GOLD ドル円 ゴールド 太陽誘電 TOPIX アドバンテスト 金利上昇 https://t.co/OQ2fhUlAL9",
-      "topic": "japanese_market",
-      "why_trending": "表示291・投稿後108分・反応率0.0%・公式候補リンクあり"
-    },
-    {
       "author_followers": 24,
       "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
@@ -2255,34 +2161,6 @@
       "why_trending": "表示1・投稿後38分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 4077,
-      "discovered_at": "2026-08-17T09:24:19+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Chiondefi",
-      "has_video": false,
-      "headline": "MARKET UPDATE | August 17, 2026 The market isn't falling apart. It's becoming more selective. Bitcoin is hovering around $63K. Gold is back above $4,400. Oil remains elevated. And ",
-      "impression_count": 92,
-      "like_count": 6,
-      "linked_urls": [
-        "https://x.com/Chiondefi/status/2089262769166016627/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089262769166016627",
-      "post_url": "https://x.com/Chiondefi/status/2089262769166016627",
-      "posted_at": "2026-08-17T08:07:15+00:00",
-      "quote_count": 0,
-      "reply_count": 4,
-      "repost_count": 1,
-      "score": 42.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "MARKET UPDATE | August 17, 2026 The market isn't falling apart. It's becoming more selective. Bitcoin is hovering around $63K. Gold is back above $4,400. Oil remains elevated. And beneath the surface, earnings are doing something important. Here's what matters today 👇 https://t.co/SwoyIwDnb4",
-      "topic": "equities_ai",
-      "why_trending": "表示92・投稿後77分・反応率15.7%"
-    },
-    {
       "author_followers": 18001,
       "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
@@ -2329,32 +2207,6 @@
       "summary": "比特币熊市后期信号浮现：波动率与流动性压缩至多年低位，宏观环境已率先转暖 8 月 17 日，Bitfinex 发布最新市场报告，比特币继续在窄幅区间内运行，波动性、交易活动与流动性同步压缩至与熊市后期相符的水平。BTC 现价接近中位实现价格 63,200 美元，67,176",
       "topic": "chinese_market",
       "why_trending": "表示1,202・投稿後87分・反応率0.0%"
-    },
-    {
-      "author_followers": 24245,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ クラリティ法案の交渉難航、SECの暗号資産規制にも影響か＝CoinDesk ⭐️ 米暗号資産メディアCoinDeskは8月16日、米証券取引委員会（SEC）が予定していた暗号資産規 ... Delivered by PolitePaul service https://t.co/q10vnYKqV5",
-      "impression_count": 122,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/Y9eJTZH"
-      ],
-      "media_types": [],
-      "post_id": "2089285741025079587",
-      "post_url": "https://x.com/CoinmatomeNews/status/2089285741025079587",
-      "posted_at": "2026-08-17T09:38:32+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ クラリティ法案の交渉難航、SECの暗号資産規制にも影響か＝CoinDesk ⭐️ 米暗号資産メディアCoinDeskは8月16日、米証券取引委員会（SEC）が予定していた暗号資産規 ... Delivered by PolitePaul service https://t.co/q10vnYKqV5",
-      "topic": "japanese_market",
-      "why_trending": "表示122・投稿後85分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 3955,
