@@ -2,7 +2,7 @@
 import unittest
 
 from generator import (
-    _build_imagen_prompt, _image_article_context, _image_review_passed,
+    FEATURED_PHOTO_QUALITY_PROFILE, _build_imagen_prompt, _image_article_context, _image_review_passed,
     _image_text_review_prompt, append_source_attribution, is_duplicate_seo_topic,
     normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
 )
@@ -74,11 +74,21 @@ class NewsPostRuleTests(unittest.TestCase):
 
     def test_featured_image_requires_article_specific_subject(self):
         prompt = _build_imagen_prompt("hardware wallet on a desk", None, None)
+        self.assertIn(FEATURED_PHOTO_QUALITY_PROFILE, prompt)
+        self.assertEqual(1, prompt.count(FEATURED_PHOTO_QUALITY_PROFILE))
+        self.assertIn("photorealistic Reuters-style editorial news photography", prompt)
+        self.assertIn("article-specific real-world scene", prompt)
+        self.assertNotIn("Minimalist studio product photography", prompt)
         self.assertIn("Editorial relevance is mandatory", prompt)
         self.assertIn("Do not add generic crypto-news decoration", prompt)
         self.assertIn("government building, capitol, parliament, White House", prompt)
         self.assertIn("unless it is explicitly named in the opening brief", prompt)
         self.assertIn("not a reusable generic news scene", prompt)
+
+    def test_repair_quality_profile_is_not_duplicated(self):
+        base_prompt = f"hardware wallet on a desk, {FEATURED_PHOTO_QUALITY_PROFILE}"
+        prompt = _build_imagen_prompt(base_prompt, None, None)
+        self.assertEqual(1, prompt.count(FEATURED_PHOTO_QUALITY_PROFILE))
 
     def test_featured_image_does_not_send_japanese_article_copy_to_imagen(self):
         context = _image_article_context(

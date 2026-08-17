@@ -6,6 +6,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from repair_garbled_featured_images import (
+    PHOTO_REPAIR_SUFFIX,
     is_repair_candidate,
     load_slug_allowlist,
     normalize_repair_prompt,
@@ -18,6 +19,7 @@ class RepairGarbledFeaturedImagesTests(unittest.TestCase):
         prompt = normalize_repair_prompt('Image prompt: "A regulatory document on a desk."')
         self.assertTrue(prompt.startswith("A regulatory document on a desk"))
         self.assertIn("photorealistic Reuters-style editorial news photography", prompt)
+        self.assertEqual(1, prompt.count(PHOTO_REPAIR_SUFFIX))
         self.assertIn("prefer subjects without typographic surfaces", prompt)
         self.assertIn("pseudo-text", prompt)
         self.assertNotIn("minimalist", prompt.lower())

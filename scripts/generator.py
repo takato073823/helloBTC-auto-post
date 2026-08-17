@@ -75,6 +75,16 @@ except ImportError:
 
 SEO_ARTICLE_TYPES = ["コラム", "DeFi", "基礎知識", "取引所"]
 
+# 現在の良好なアイキャッチ品質を、通常投稿と既存画像修復で共有する固定プロファイル。
+# 修復側がこの文字列をすでに base_prompt に含めている場合は重複させない。
+FEATURED_PHOTO_QUALITY_PROFILE = (
+    "photorealistic Reuters-style editorial news photography with realistic materials, natural depth of field, "
+    "and an article-specific real-world scene; prefer subjects without typographic surfaces and turn any unavoidable "
+    "document, display, label, or control panel away from the camera or fully outside the focal plane; exclude headline "
+    "overlays, captions, watermarks, publisher marks, unrelated logos, pseudo-text, malformed characters, invented "
+    "paragraph copy, charts, and decorative numbers"
+)
+
 NEWS_ARTICLE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -481,7 +491,13 @@ def _build_imagen_prompt(
             "Do not add documents, labels, screens, nameplates, printed cards, or control panels. "
         )
     else:
+        shared_quality_profile = (
+            ""
+            if FEATURED_PHOTO_QUALITY_PROFILE in base_prompt
+            else f"{FEATURED_PHOTO_QUALITY_PROFILE}. "
+        )
         style_instruction = (
+            f"{shared_quality_profile}"
             "Photojournalism, Reuters news photography style. Shot on 85mm lens, f/2.0 aperture, shallow depth of "
             "field with soft bokeh background. Professional studio lighting or natural window light, realistic "
             "textures and materials. "

@@ -10,7 +10,7 @@ import re
 import time
 
 from audit_featured_images import fetch_posts, featured_image_url, is_legacy_generated_image
-from generator import generate_featured_image
+from generator import FEATURED_PHOTO_QUALITY_PROFILE, generate_featured_image
 from llm_client import generate_text
 from replace_featured_image import update_schema_image
 from wp_poster import WordPressAPI
@@ -19,13 +19,7 @@ from wp_poster import WordPressAPI
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-PHOTO_REPAIR_SUFFIX = (
-    "photorealistic Reuters-style editorial news photography with realistic materials, natural depth of field, "
-    "and an article-specific real-world scene; prefer subjects without typographic surfaces and turn any unavoidable "
-    "document, display, label, or control panel away from the camera or fully outside the focal plane; exclude headline "
-    "overlays, captions, watermarks, publisher marks, unrelated logos, pseudo-text, malformed characters, invented "
-    "paragraph copy, charts, and decorative numbers"
-)
+PHOTO_REPAIR_SUFFIX = FEATURED_PHOTO_QUALITY_PROFILE
 REPAIRED_FEATURED_RE = re.compile(
     r"/featured-repaired-.+-\d+\.(?:jpe?g|png)$", re.IGNORECASE
 )
