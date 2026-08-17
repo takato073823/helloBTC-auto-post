@@ -1,0 +1,61 @@
+name: 既存文字化けアイキャッチ一括修復（手動）
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 修復開始日（YYYY-MM-DD）
+        required: true
+        default: "2026-08-01"
+        type: string
+      audit_pass_slugs:
+        description: 監査合格済みスラッグ（カンマ区切り）
+        required: false
+        default: "clarity-act-senate-delay,xrpl-confidential-transfers-rwa,mica-crypto-regulation-impact"
+        type: string
+      shard_index:
+        description: シャード番号（0始まり）
+        required: true
+        default: "0"
+        type: string
+      shard_count:
+        description: シャード総数
+        required: true
+        default: "1"
+        type: string
+
+jobs:
+  repair-garbled-featured-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 一括修復ルールテスト
+        working-directory: scripts
+        run: python -m unittest test_repair_garbled_featured_images.py test_news_post_rules.py
+
+      - name: 不合格画像を再生成して差し替え
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          REPAIR_SINCE: ${{ inputs.since }}
+          AUDIT_PASS_SLUGS: ${{ inputs.audit_pass_slugs }}
+          REPAIR_SHARD_INDEX: ${{ inputs.shard_index }}
+          REPAIR_SHARD_COUNT: ${{ inputs.shard_count }}
+        working-directory: scripts
+        run: python repair_garbled_featured_images.py
