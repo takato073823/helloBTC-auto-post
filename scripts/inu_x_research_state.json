@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T13:27:24+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T13:27:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T14:06:00+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1875,9 +1875,39 @@
       "result_count": 8,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T14:06:00+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4690625,
+      "discovered_at": "2026-08-17T14:06:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 Treasury Secretary Bessent says the US Treasury is \"moving quickly\" to implement the crypto stablecoin Genius Act framework.",
+      "impression_count": 63319,
+      "like_count": 401,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089351482675966342",
+      "post_url": "https://x.com/WatcherGuru/status/2089351482675966342",
+      "posted_at": "2026-08-17T13:59:46+00:00",
+      "quote_count": 11,
+      "reply_count": 48,
+      "repost_count": 56,
+      "score": 77.8,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 Treasury Secretary Bessent says the US Treasury is \"moving quickly\" to implement the crypto stablecoin Genius Act framework.",
+      "topic": "watcher_guru",
+      "why_trending": "表示63,319・投稿後6分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 186,
       "discovered_at": "2026-08-17T13:27:24+00:00",
@@ -2035,35 +2065,6 @@
       "summary": "加入KTX交易所，享受实时策略分析，跟着老师吃肉，主流币，美股……更有精美周边 https://t.co/oqQ3xgtkRQ",
       "topic": "chinese_market",
       "why_trending": "表示8・投稿後27分・反応率20.0%"
-    },
-    {
-      "author_followers": 6261,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "coin_gabbar_",
-      "has_video": false,
-      "headline": "🚨Crypto Regulation News This Week: White House, CFTC Meet 👉For More Details - https://t.co/zVLv94Us08 #CoinGabbar #CryptoRegulation #CFTC #WhiteHouse #CryptoNews #Update https://t.",
-      "impression_count": 63,
-      "like_count": 0,
-      "linked_urls": [
-        "https://www.coingabbar.com/en/crypto-currency-news/crypto-regulation-news-this-week-white-house-cftc-meeting",
-        "https://x.com/coin_gabbar_/status/2089253415583137952/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089253415583137952",
-      "post_url": "https://x.com/coin_gabbar_/status/2089253415583137952",
-      "posted_at": "2026-08-17T07:30:05+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 51.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨Crypto Regulation News This Week: White House, CFTC Meet 👉For More Details - https://t.co/zVLv94Us08 #CoinGabbar #CryptoRegulation #CFTC #WhiteHouse #CryptoNews #Update https://t.co/9cIpI5ibGQ",
-      "topic": "regulation",
-      "why_trending": "表示63・投稿後9分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 257,
