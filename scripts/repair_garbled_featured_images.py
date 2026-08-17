@@ -21,9 +21,10 @@ logger = logging.getLogger(__name__)
 
 PHOTO_REPAIR_SUFFIX = (
     "photorealistic Reuters-style editorial news photography with realistic materials, natural depth of field, "
-    "and an article-specific real-world scene; no headline overlays, captions, watermarks, publisher marks, or "
-    "unrelated logos; visible writing on a relevant physical item is allowed only when it is short, accurate, "
-    "fully legible Japanese or English; never use pseudo-text, malformed characters, or invented paragraph copy"
+    "and an article-specific real-world scene; prefer subjects without typographic surfaces and turn any unavoidable "
+    "document, display, label, or control panel away from the camera or fully outside the focal plane; exclude headline "
+    "overlays, captions, watermarks, publisher marks, unrelated logos, pseudo-text, malformed characters, invented "
+    "paragraph copy, charts, and decorative numbers"
 )
 REPAIRED_FEATURED_RE = re.compile(
     r"/featured-repaired-.+-\d+\.(?:jpe?g|png)$", re.IGNORECASE
@@ -65,6 +66,19 @@ def select_shard(items: list, shard_index: int, shard_count: int) -> list:
     return [item for index, item in enumerate(items) if index % shard_count == shard_index]
 
 
+def load_slug_allowlist(path: str | None) -> set[str] | None:
+    """TSVの先頭列を、今回だけ修復する既存記事の許可リストとして読む。"""
+    if not path:
+        return None
+    allowlist_path = os.path.join(os.path.dirname(__file__), path)
+    with open(allowlist_path, encoding="utf-8") as handle:
+        return {
+            line.split("\t", 1)[0].strip()
+            for line in handle
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+
+
 def is_repair_candidate(image_url: str, *, include_repaired: bool) -> bool:
     """通常は旧画像、やり直し時だけ本日の抽象化された修復画像を選ぶ。"""
     clean_url = (image_url or "").split("?", 1)[0]
@@ -86,15 +100,24 @@ def main() -> None:
         "true",
         "yes",
     }
+    only_slugs = load_slug_allowlist(os.getenv("REPAIR_ONLY_SLUGS_FILE", "").strip() or None)
+    max_items = max(0, int(os.getenv("REPAIR_MAX_ITEMS", "0")))
     shard_index = int(os.getenv("REPAIR_SHARD_INDEX", "0"))
     shard_count = int(os.getenv("REPAIR_SHARD_COUNT", "1"))
 
     targets = []
     for post in fetch_posts(base_url, since):
         image_url = featured_image_url(post)
-        if is_repair_candidate(image_url, include_repaired=include_repaired) and post.get("slug") not in passed_slugs:
+        slug = post.get("slug", "")
+        if (
+            is_repair_candidate(image_url, include_repaired=include_repaired)
+            and slug not in passed_slugs
+            and (only_slugs is None or slug in only_slugs)
+        ):
             targets.append(post)
     targets = select_shard(targets, shard_index, shard_count)
+    if max_items:
+        targets = targets[:max_items]
 
     wp = WordPressAPI(
         base_url,

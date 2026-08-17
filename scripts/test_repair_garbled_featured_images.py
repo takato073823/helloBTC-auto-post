@@ -1,9 +1,13 @@
 """既存文字化け画像の一括修復ルールテスト。"""
 
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 from repair_garbled_featured_images import (
     is_repair_candidate,
+    load_slug_allowlist,
     normalize_repair_prompt,
     select_shard,
 )
@@ -14,9 +18,11 @@ class RepairGarbledFeaturedImagesTests(unittest.TestCase):
         prompt = normalize_repair_prompt('Image prompt: "A regulatory document on a desk."')
         self.assertTrue(prompt.startswith("A regulatory document on a desk"))
         self.assertIn("photorealistic Reuters-style editorial news photography", prompt)
-        self.assertIn("visible writing on a relevant physical item is allowed", prompt)
-        self.assertIn("never use pseudo-text", prompt)
+        self.assertIn("prefer subjects without typographic surfaces", prompt)
+        self.assertIn("pseudo-text", prompt)
         self.assertNotIn("minimalist", prompt.lower())
+        self.assertNotIn("no text", prompt.lower())
+        self.assertNotIn("no writing", prompt.lower())
 
     def test_shards_are_disjoint_and_complete(self):
         items = list(range(10))
@@ -32,6 +38,13 @@ class RepairGarbledFeaturedImagesTests(unittest.TestCase):
         self.assertFalse(is_repair_candidate(repaired, include_repaired=False))
         self.assertTrue(is_repair_candidate(repaired, include_repaired=True))
         self.assertFalse(is_repair_candidate(replaced, include_repaired=True))
+
+    def test_loads_only_first_tsv_column_as_slug_allowlist(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "targets.tsv"
+            path.write_text("first\thttps://example.com/1.jpg\nsecond\thttps://example.com/2.jpg\n")
+            with patch("repair_garbled_featured_images.__file__", str(Path(directory) / "module.py")):
+                self.assertEqual({"first", "second"}, load_slug_allowlist("targets.tsv"))
 
 
 if __name__ == "__main__":

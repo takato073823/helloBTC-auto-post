@@ -1,6 +1,9 @@
 name: 既存文字化けアイキャッチ一括修復（手動）
 
 on:
+  schedule:
+    # Google RPDは太平洋時間0時にリセット。夏時間中は日本時間16:10。
+    - cron: "10 7 * * *"
   workflow_dispatch:
     inputs:
       since:
@@ -18,6 +21,11 @@ on:
         required: true
         default: false
         type: boolean
+      max_items:
+        description: 1回に修復する最大件数（0は無制限）
+        required: true
+        default: "0"
+        type: string
       shard_index:
         description: シャード番号（0始まり）
         required: true
@@ -58,10 +66,12 @@ jobs:
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          REPAIR_SINCE: ${{ inputs.since }}
-          AUDIT_PASS_SLUGS: ${{ inputs.audit_pass_slugs }}
-          REPAIR_INCLUDE_REPAIRED: ${{ inputs.include_repaired }}
-          REPAIR_SHARD_INDEX: ${{ inputs.shard_index }}
-          REPAIR_SHARD_COUNT: ${{ inputs.shard_count }}
+          REPAIR_SINCE: ${{ inputs.since || '2026-08-01' }}
+          AUDIT_PASS_SLUGS: ${{ inputs.audit_pass_slugs || 'clarity-act-senate-delay,xrpl-confidential-transfers-rwa,mica-crypto-regulation-impact,sec-regulation-crypto-proposal,trump-media-bitcoin-losses,bitmine-eth-buyback-shift' }}
+          REPAIR_INCLUDE_REPAIRED: ${{ inputs.include_repaired || 'false' }}
+          REPAIR_SHARD_INDEX: ${{ inputs.shard_index || '0' }}
+          REPAIR_SHARD_COUNT: ${{ inputs.shard_count || '1' }}
+          REPAIR_MAX_ITEMS: ${{ inputs.max_items || '10' }}
+          REPAIR_ONLY_SLUGS_FILE: featured_image_pre_repair_map.tsv
         working-directory: scripts
         run: python repair_garbled_featured_images.py
