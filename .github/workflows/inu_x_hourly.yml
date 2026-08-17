@@ -59,7 +59,8 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          INU_RESEARCH_MODEL: gpt-5.6-terra
+          # 定期調査はLunaで実行し、記事投稿と共有するAPI残高を保護する。
+          INU_RESEARCH_MODEL: gpt-5.6-luna
           INU_ECONOMY_MODE: true
           # 2時間ごとの定期枠では、毎回新しい一次情報を探索する。
           # 候補キューは復旧時と、品質ゲートでの再選定用に残す。
@@ -77,7 +78,8 @@ jobs:
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          INU_RESEARCH_MODEL: gpt-5.6-terra
+          # 定期調査はLunaで実行し、記事投稿と共有するAPI残高を保護する。
+          INU_RESEARCH_MODEL: gpt-5.6-luna
           INU_ECONOMY_MODE: true
           INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 1
           INU_GROK_EDITORIAL_ENABLED: false

@@ -780,8 +780,8 @@ def research_candidates(
         schema=CANDIDATE_SET_SCHEMA,
         # 3時間分の候補に必要な分だけに制限し、冗長な探索出力を課金対象にしない。
         max_output_tokens=3600,
-        # 複数市場から一次資料まで辿る必要があるため、検索選定はTerraを使う。
-        model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
+        # 定期実行は低コストのLunaを標準にし、記事投稿と共有する残高を保護する。
+        model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-luna"),
         request_timeout_seconds=70.0,
     )
     sources.extend(
@@ -1059,7 +1059,7 @@ def research_rescue_candidates(
         schema_name="inu_live_candidate_rescue_set",
         schema=CANDIDATE_SET_SCHEMA,
         max_output_tokens=5200,
-        model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-terra"),
+        model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-luna"),
         request_timeout_seconds=60.0,
     )
     candidates = [
