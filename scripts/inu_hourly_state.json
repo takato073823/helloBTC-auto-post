@@ -1456,6 +1456,16 @@
       "generated_editorial_visual": false,
       "market_key": "crypto:LINK-USD",
       "reserved_at": "2026-08-15T12:53:00.665152+00:00"
+    },
+    {
+      "slot": "2026-08-17-18",
+      "post_id": "inu_overseas_kol_2089249619020837067",
+      "source_url": "https://x.com/cryptorover/status/2089249619020837067",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-17T09:17:01.784619+00:00"
     }
   ],
   "history": [
@@ -2735,8 +2745,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-17T08:54:08.038694+00:00",
-      "count": 78594,
+      "checked_at": "2026-08-17T09:17:01.784619+00:00",
+      "count": 78609,
       "fastest_fee": 2
     }
   }
