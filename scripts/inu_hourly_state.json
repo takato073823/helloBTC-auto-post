@@ -2700,7 +2700,20 @@
       "checked_at": "2026-08-06T01:01:51.595149+00:00",
       "kind": "fallback",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-17-13-a",
+      "checked_at": "2026-08-17T04:37:01.581854+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
-  "research_queue": []
+  "research_queue": [],
+  "direct_source_metrics": {
+    "mempool": {
+      "checked_at": "2026-08-17T04:37:01.581854+00:00",
+      "count": 73619,
+      "fastest_fee": 2
+    }
+  }
 }
