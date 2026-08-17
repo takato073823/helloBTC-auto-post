@@ -101,6 +101,8 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("no Japanese, Chinese or other CJK characters", prompt)
         self.assertIn("no pseudo-text", prompt)
         self.assertIn("no garbled or unreadable character clusters", prompt)
+        self.assertIn("Every physical surface must be plain and completely unmarked", prompt)
+        self.assertIn("device displays powered off and fully black", prompt)
 
     def test_generated_image_review_rejects_any_writing_like_marks(self):
         prompt = _image_text_review_prompt(None)
