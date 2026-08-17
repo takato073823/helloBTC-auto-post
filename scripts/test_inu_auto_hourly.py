@@ -638,7 +638,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             "skip_reason": "",
         }
         with patch.object(inu_auto_hourly, "collect_overseas_kol_visual_posts", return_value=[source]), patch.object(
-            inu_auto_hourly, "generate_x_json", return_value=(payload, [])
+            inu_auto_hourly, "generate_json", return_value=payload
         ):
             result = inu_auto_hourly._build_overseas_kol_quote_item(NOW, {"history": [], "reservations": []})
         self.assertIsNotNone(result)
@@ -1103,6 +1103,60 @@ class INUAutoHourlyTests(unittest.TestCase):
             inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"):
             self.assertEqual(0, inu_auto_hourly.prepare(args))
         research.assert_not_called()
+
+    def test_economy_primary_uses_fresh_kol_native_media_before_web_research(self):
+        """定期枠を価格だけにせず、検証済みKOLの新着メディアを先に使う。"""
+        args = SimpleNamespace(
+            state="/tmp/unused-state.json",
+            slot="",
+            priority_url="",
+            priority_hint="",
+            promote_signals=False,
+            topic="",
+            dry_run=True,
+            no_market_fallback=False,
+        )
+        kol_item = {
+            "id": "inu_kol_native_quote",
+            "topic_type": "x_reaction",
+            "visual_route": "x_native_video",
+            "delivery_mode": "x_native_video_reference",
+            "source_tweet_id": "2086000000000000001",
+            "text": "📊 ETFフローの変化を確認\n\n動画内の数値を日本語で整理します。\n\n#ビットコイン",
+        }
+        kol_candidate = candidate(
+            topic_type="x_reaction",
+            source_url="https://x.com/globalmacro/status/2086000000000000001",
+            published_at=NOW.isoformat(),
+        )
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS": "1",
+                "INU_KOL_NATIVE_QUOTE_ENABLED": "true",
+                "INU_SCHEDULE_RUN_KIND": "primary",
+            },
+            clear=False,
+        ), patch.object(
+            inu_auto_hourly,
+            "load_state",
+            return_value={"history": [], "reservations": [], "posted_slots": []},
+        ), patch.object(
+            inu_auto_hourly, "collect_direct_source_candidates", return_value=([], [])
+        ), patch.object(
+            inu_auto_hourly, "_build_overseas_kol_quote_item", return_value=(kol_item, kol_candidate)
+        ) as build_kol, patch.object(
+            inu_auto_hourly, "research_candidates_with_grok"
+        ) as web_research, patch.object(
+            inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"
+        ) as prepared_path:
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
+            prepared = json.loads(prepared_path.read_text(encoding="utf-8"))
+
+        build_kol.assert_called_once()
+        web_research.assert_not_called()
+        self.assertEqual("x_native_video_reference", prepared["item"]["delivery_mode"])
 
     def test_primary_and_watchdog_share_one_hourly_slot(self):
         now = dt.datetime(2026, 8, 4, 12, 47, tzinfo=dt.timezone.utc)

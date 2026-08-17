@@ -916,16 +916,20 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
     posts = collect_overseas_kol_visual_posts(now, limit=16)
     if not posts:
         return None
-    payload, _ = generate_x_json(
-        _kol_quote_prompt(now, state, posts),
-        schema_name="inu_overseas_kol_native_quote",
-        schema=KOL_QUOTE_SCHEMA,
-        from_date=now.astimezone(JST).date() - dt.timedelta(days=1),
-        to_date=now.astimezone(JST).date(),
-        max_output_tokens=2600,
-        model=os.environ.get("XAI_RESEARCH_MODEL", "grok-4.3"),
-        request_timeout_seconds=55.0,
-    )
+    # 元投稿はX APIで取得済みの、海外KOLリストに限定した新着メディアだけ。
+    # この段階で再度X Searchへ課金する必要はないため、OpenAIのテキスト整形だけで
+    # 日本語の引用文を作る。元投稿の数値・事実以外は追加できないスキーマに戻す。
+    try:
+        payload = generate_json(
+            _kol_quote_prompt(now, state, posts),
+            schema_name="inu_overseas_kol_native_quote",
+            schema=KOL_QUOTE_SCHEMA,
+            max_output_tokens=1200,
+            model=os.environ.get("INU_RESEARCH_MODEL", "gpt-5.6-luna"),
+        )
+    except Exception as exc:
+        logger.info("海外KOL引用文を作れないため見送り: %s", exc)
+        return None
     by_id = {str(row.get("post_id", "")): row for row in posts}
     used_ids = {
         str(row.get("source_tweet_id", ""))
@@ -998,6 +1002,13 @@ def _prefer_overseas_kol_turn(state: dict) -> bool:
         if isinstance(row, dict)
     ]
     return "x_reaction" not in recent
+
+
+def _kol_native_quote_enabled() -> bool:
+    """厳選済み海外KOLのネイティブ引用を、定期投稿の柱として使うか。"""
+    return os.environ.get("INU_KOL_NATIVE_QUOTE_ENABLED", "false").strip().lower() in {
+        "1", "true", "yes",
+    }
 
 
 def build_rescue_research_prompt(
@@ -2467,12 +2478,16 @@ def prepare(args: argparse.Namespace) -> int:
     if not priority_url and not promote_signals and not candidates:
         # Xで伸びている新着の動画・画像は、ニュース探索の失敗時だけではなく
         # 定期的に優先する。速報URLがある場合は上の分岐で一次資料を最優先する。
-        if not target_topic and not _economy_mode_enabled() and _prefer_overseas_kol_turn(state):
+        if (
+            not target_topic
+            and _kol_native_quote_enabled()
+            and _prefer_overseas_kol_turn(state)
+        ):
             try:
                 overseas_quote = _build_overseas_kol_quote_item(now, state)
                 if overseas_quote:
                     item, candidate = overseas_quote
-                    logger.info("海外KOLのネイティブ引用候補を優先採用: %s", candidate["source_tweet_id"])
+                    logger.info("海外KOLのネイティブ引用候補を優先採用: %s", item["source_tweet_id"])
             except Exception as exc:
                 failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
                 logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
@@ -2640,12 +2655,17 @@ def prepare(args: argparse.Namespace) -> int:
     # 一次資料の候補がこの時点で成立しない場合、海外KOLリストで実測済みの
     # 新着動画・画像をネイティブ引用として検討する。元投稿のメディアと投稿者を
     # そのまま表示し、データのない生成画像や転載画像には置き換えない。
-    if item is None and not priority_url and not target_topic and not _economy_mode_enabled():
+    if (
+        item is None
+        and not priority_url
+        and not target_topic
+        and _kol_native_quote_enabled()
+    ):
         try:
             overseas_quote = _build_overseas_kol_quote_item(now, state)
             if overseas_quote:
                 item, candidate = overseas_quote
-                logger.info("海外KOLのネイティブ引用候補を採用: %s", candidate["source_tweet_id"])
+                logger.info("海外KOLのネイティブ引用候補を採用: %s", item["source_tweet_id"])
         except Exception as exc:
             failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
             logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)

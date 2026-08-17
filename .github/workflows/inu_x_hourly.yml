@@ -59,6 +59,10 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           # 定期調査はLunaで実行し、記事投稿と共有するAPI残高を保護する。
           INU_RESEARCH_MODEL: gpt-5.6-luna
           INU_ECONOMY_MODE: true
@@ -66,6 +70,9 @@ jobs:
           # 候補キューは復旧時と、品質ゲートでの再選定用に残す。
           INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 1
           INU_GROK_EDITORIAL_ENABLED: false
+          # 厳選済み海外KOLの新着動画・画像を、Xネイティブ引用の候補として使う。
+          # 元投稿はX APIで取得し、本文はOpenAIで事実を日本語化するだけに限定する。
+          INU_KOL_NATIVE_QUOTE_ENABLED: true
           INU_ECONOMY_GENERATED_VISUALS: true
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
           INU_IMAGE_PROVIDER: openai
@@ -78,11 +85,16 @@ jobs:
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           # 定期調査はLunaで実行し、記事投稿と共有するAPI残高を保護する。
           INU_RESEARCH_MODEL: gpt-5.6-luna
           INU_ECONOMY_MODE: true
           INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 1
           INU_GROK_EDITORIAL_ENABLED: false
+          INU_KOL_NATIVE_QUOTE_ENABLED: true
           INU_ECONOMY_GENERATED_VISUALS: true
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
           INU_IMAGE_PROVIDER: openai
