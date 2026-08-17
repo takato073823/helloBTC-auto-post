@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T16:00:17+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T16:00:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T17:04:43+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1894,6 +1894,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T17:04:43+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -1948,84 +1954,6 @@
       "why_trending": "表示42・投稿後33分・反応率8.6%・公式候補リンクあり"
     },
     {
-      "author_followers": 92809,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sho54639108",
-      "has_video": false,
-      "headline": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、ナスダックどうなる。仮想通貨BTC https://t.co/IH8Uc445Bb",
-      "impression_count": 5149,
-      "like_count": 21,
-      "linked_urls": [
-        "https://youtu.be/yThu54EEj3M"
-      ],
-      "media_types": [],
-      "post_id": "2089304298928906637",
-      "post_url": "https://x.com/Sho54639108/status/2089304298928906637",
-      "posted_at": "2026-08-17T10:52:16+00:00",
-      "quote_count": 0,
-      "reply_count": 4,
-      "repost_count": 0,
-      "score": 63.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "日本株動くぞ‼AI半導体株急騰再開か⁉キオクシア爆上げヤバイ‼日経平均500円高→金利上昇でバリュー株に過熱の修正。ドル円158円推移。米国株、ナスダックどうなる。仮想通貨BTC https://t.co/IH8Uc445Bb",
-      "topic": "japanese_market",
-      "why_trending": "表示5,149・投稿後11分・反応率0.5%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 138,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sugizoai",
-      "has_video": false,
-      "headline": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 経済・金融｜米利下げ観測定着＆今週末ジャクソンホール会合へ ・FRB利下げシナリオ盤石：CPI・PPIの下振れを受けて米長期金利が落ち着き、市場の関心はパウエル議長のジャクソンホール講演へ完全集中。 https://t.co/hPySiQrAyz",
-      "impression_count": 89,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/Sugizoai/status/2089306562053693511/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089306562053693511",
-      "post_url": "https://x.com/Sugizoai/status/2089306562053693511",
-      "posted_at": "2026-08-17T11:01:16+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 54.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "1/5 🧵 🌍世界の最新ニュース＆政治・経済 【世界ニュースまとめ】 ◆ 経済・金融｜米利下げ観測定着＆今週末ジャクソンホール会合へ ・FRB利下げシナリオ盤石：CPI・PPIの下振れを受けて米長期金利が落ち着き、市場の関心はパウエル議長のジャクソンホール講演へ完全集中。 https://t.co/hPySiQrAyz",
-      "topic": "japanese_market",
-      "why_trending": "表示89・投稿後2分・反応率1.1%"
-    },
-    {
-      "author_followers": 122,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "bitco_note",
-      "has_video": false,
-      "headline": "【仮想通貨ニュース】 オーストラリア連邦裁判所は、BPSファイナンシャルに計1,400万豪ドルの罰金を命じた。 無許可でQoinウォレットを運用し、流動性や規制上の地位について虚偽の説明をしたと認定。 暗号資産事業者と金融サービス業者の境界が曖昧な国での規制リスクが改めて意識されるとみられる。",
-      "impression_count": 29,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089298690599211196",
-      "post_url": "https://x.com/bitco_note/status/2089298690599211196",
-      "posted_at": "2026-08-17T10:29:59+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 52.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【仮想通貨ニュース】 オーストラリア連邦裁判所は、BPSファイナンシャルに計1,400万豪ドルの罰金を命じた。 無許可でQoinウォレットを運用し、流動性や規制上の地位について虚偽の説明をしたと認定。 暗号資産事業者と金融サービス業者の境界が曖昧な国での規制リスクが改めて意識されるとみられる。",
-      "topic": "japanese_market",
-      "why_trending": "表示29・投稿後33分・反応率9.0%"
-    },
-    {
       "author_followers": 3,
       "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
@@ -2052,35 +1980,6 @@
       "summary": "加入KTX交易所，享受实时策略分析，跟着老师吃肉，主流币，美股……更有精美周边 https://t.co/oqQ3xgtkRQ",
       "topic": "chinese_market",
       "why_trending": "表示8・投稿後27分・反応率20.0%"
-    },
-    {
-      "author_followers": 24245,
-      "discovered_at": "2026-08-17T11:03:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinmatomeNews",
-      "has_video": false,
-      "headline": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️クラリティ法案の交渉難航、SECの暗号資産規制にも影響か＝CoinDesk(NADA NEWS)⭐️ 詳細URL👇 https://t.co/XmR5sm91nu https://t.co/0Mi0Rbez3G",
-      "impression_count": 87,
-      "like_count": 0,
-      "linked_urls": [
-        "https://ift.tt/Pn2O4zg",
-        "https://x.com/CoinmatomeNews/status/2089302392068063594/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089302392068063594",
-      "post_url": "https://x.com/CoinmatomeNews/status/2089302392068063594",
-      "posted_at": "2026-08-17T10:44:42+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 50.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【 #仮想通貨 #ビットコイン 最新ニュース】 ⭐️クラリティ法案の交渉難航、SECの暗号資産規制にも影響か＝CoinDesk(NADA NEWS)⭐️ 詳細URL👇 https://t.co/XmR5sm91nu https://t.co/0Mi0Rbez3G",
-      "topic": "japanese_market",
-      "why_trending": "表示87・投稿後19分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 21,
