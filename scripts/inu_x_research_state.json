@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T11:03:48+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T11:03:48+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T12:00:48+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1856,6 +1856,12 @@
       "result_count": 9,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T12:00:48+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2294,58 +2300,6 @@
       "summary": "🚨 The SEC just hit pause on crypto regulation. And that could matter more than the next Bitcoin headline. The SEC cancelled its August 14 meeting that was expected to include new crypto regulatory proposals with no new date announced. Here's what most people are missing 👇 https://t.co/cRcgwsJa3W",
       "topic": "regulation",
       "why_trending": "表示20・投稿後95分・反応率18.0%"
-    },
-    {
-      "author_followers": 4965,
-      "discovered_at": "2026-08-17T05:22:06+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "dxbcrypto121",
-      "has_video": false,
-      "headline": "🚨 BIG WEEK AHEAD FOR CRYPTO &amp; STOCKS Markets are heading into a major decision week. 🔥 FOMC Minutes 🔥 Jobless Claims 🔥 Flash PMIs 🔥 US inflation and growth data 🔥 US-Iran tensi",
-      "impression_count": 46,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/dxbcrypto121/status/2089219272472166487/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089219272472166487",
-      "post_url": "https://x.com/dxbcrypto121/status/2089219272472166487",
-      "posted_at": "2026-08-17T05:14:25+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 39.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 BIG WEEK AHEAD FOR CRYPTO &amp; STOCKS Markets are heading into a major decision week. 🔥 FOMC Minutes 🔥 Jobless Claims 🔥 Flash PMIs 🔥 US inflation and growth data 🔥 US-Iran tensions 🔥 Strait of Hormuz risk 🔥 Oil volatility The setup is simple: Cooling US data = bullish https://t.co/vXqdQVZB8A",
-      "topic": "macro_rates",
-      "why_trending": "表示46・投稿後7分・反応率0.0%"
-    },
-    {
-      "author_followers": 52,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "space2402",
-      "has_video": false,
-      "headline": "Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is now at the TOP of the U.S. agenda. This industry is massive",
-      "impression_count": 6,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089226483982356943",
-      "post_url": "https://x.com/space2402/status/2089226483982356943",
-      "posted_at": "2026-08-17T05:43:04+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is now at the TOP of the U.S. agenda. This industry is massively mispriced.",
-      "topic": "regulation",
-      "why_trending": "表示6・投稿後116分・反応率16.7%"
     },
     {
       "author_followers": 24245,
