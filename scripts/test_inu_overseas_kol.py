@@ -204,6 +204,10 @@ class OverseasKolTests(unittest.TestCase):
         self.assertEqual("marketalpha", rows[0]["handle"])
         self.assertTrue(rows[0]["has_video"])
         self.assertEqual("2086000000000000099", rows[0]["post_id"])
+        self.assertEqual(
+            "https://x.com/marketalpha/status/2086000000000000099",
+            rows[0]["post_url"],
+        )
 
 
 if __name__ == "__main__":

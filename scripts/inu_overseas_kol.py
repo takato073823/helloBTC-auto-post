@@ -551,6 +551,9 @@ def live_visual_posts(now: dt.datetime, client: Any | None = None, state_path: P
         rows.append({
             **row,
             "handle": str(member["handle"]),
+            # 毎時投稿側はこのIDをXネイティブ引用として公開する。URLをここで
+            # 確定して渡さないと、本文は生成できても候補の検証で落ちてしまう。
+            "post_url": f"https://x.com/{member['handle']}/status/{row['post_id']}",
             "followers": int(member.get("followers", 0) or 0),
             "last10_average_impressions": float(member.get("last10_average_impressions", 0) or 0),
         })
