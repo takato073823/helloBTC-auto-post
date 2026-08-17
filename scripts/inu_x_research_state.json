@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T07:39:42+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T07:39:42+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T08:25:18+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1818,6 +1818,12 @@
       "result_count": 8,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T08:25:18+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2042,34 +2048,6 @@
       "why_trending": "表示1・投稿後45分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 8901,
-      "discovered_at": "2026-08-17T02:09:30+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoHamsterIO",
-      "has_video": false,
-      "headline": "HyperAICharts daily newsletter — August 16, 2026 Bitcoin enters the new week near $63,000 with a market increasingly divided between weak near-term demand and accelerating infrastr",
-      "impression_count": 148,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CryptoHamsterIO/status/2089169201093349820/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089169201093349820",
-      "post_url": "https://x.com/CryptoHamsterIO/status/2089169201093349820",
-      "posted_at": "2026-08-17T01:55:27+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "HyperAICharts daily newsletter — August 16, 2026 Bitcoin enters the new week near $63,000 with a market increasingly divided between weak near-term demand and accelerating infrastructure development. ETF flows remain negative, ETH is still below $1,900, and XRP continues to https://t.co/fp6C8vpR5J",
-      "topic": "crypto_market",
-      "why_trending": "表示148・投稿後14分・反応率0.0%"
-    },
-    {
       "author_followers": 359,
       "discovered_at": "2026-08-17T07:39:42+00:00",
       "discovery_type": "official_x_api",
@@ -2150,34 +2128,6 @@
       "why_trending": "表示6・投稿後116分・反応率16.7%"
     },
     {
-      "author_followers": 300130,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "thedefiedge",
-      "has_video": false,
-      "headline": "Normal, everyday people spent $759M using crypto cards in July. I'm not talking about trading volume or onchain transfers. 9 million purchases at ~$86 each means it's more likely p",
-      "impression_count": 3809,
-      "like_count": 12,
-      "linked_urls": [
-        "https://x.com/thedefiedge/status/2089170589605118455/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089170589605118455",
-      "post_url": "https://x.com/thedefiedge/status/2089170589605118455",
-      "posted_at": "2026-08-17T02:00:58+00:00",
-      "quote_count": 0,
-      "reply_count": 6,
-      "repost_count": 0,
-      "score": 36.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Normal, everyday people spent $759M using crypto cards in July. I'm not talking about trading volume or onchain transfers. 9 million purchases at ~$86 each means it's more likely people buying groceries than whale activity. You should pay attention because a year ago that https://t.co/FJe8ZnIpd4",
-      "topic": "onchain_exchange",
-      "why_trending": "表示3,809・投稿後93分・反応率0.6%"
-    },
-    {
       "author_followers": 12381,
       "discovered_at": "2026-08-17T03:34:14+00:00",
       "discovery_type": "official_x_api",
@@ -2202,110 +2152,6 @@
       "summary": "🔴 BREAKING: Data Breach Hits 39,798 Safepal Customers After Order Plugin Flaw https://t.co/01Nu5Psjp0 #Bitcoin #Crypto #GovernmentPolicy #CryptoNews #Web3 #Blockchain #DeFi #Ethereum #Altcoins #CryptoRegulation",
       "topic": "onchain_exchange",
       "why_trending": "表示20・投稿後68分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 3,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "sentinelbtccom",
-      "has_video": false,
-      "headline": "A whale just moved 2,472 $BTC ($155.8M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://sentinelbtc.com/e/ux_16e1vfx"
-      ],
-      "media_types": [],
-      "post_id": "2089176093181805004",
-      "post_url": "https://x.com/sentinelbtccom/status/2089176093181805004",
-      "posted_at": "2026-08-17T02:22:50+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A whale just moved 2,472 $BTC ($155.8M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/nPQXyc3xVH #Bitcoin #Whale #OnChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後71分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 3,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "sentinelbtccom",
-      "has_video": false,
-      "headline": "A whale just moved 2,472 $BTC ($155.7M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://sentinelbtc.com/e/ux_1wgh4i"
-      ],
-      "media_types": [],
-      "post_id": "2089172887403921527",
-      "post_url": "https://x.com/sentinelbtccom/status/2089172887403921527",
-      "posted_at": "2026-08-17T02:10:05+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A whale just moved 2,472 $BTC ($155.7M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/vOm8IP7lTu #Bitcoin #Whale #OnChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後84分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 3,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "sentinelbtccom",
-      "has_video": false,
-      "headline": "A whale just moved 2,472 $BTC ($155.9M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://sentinelbtc.com/e/ux_15ptzsh"
-      ],
-      "media_types": [],
-      "post_id": "2089169672625164586",
-      "post_url": "https://x.com/sentinelbtccom/status/2089169672625164586",
-      "posted_at": "2026-08-17T01:57:19+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A whale just moved 2,472 $BTC ($155.9M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/bJcQoBOXtl #Bitcoin #Whale #OnChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後96分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 3,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "sentinelbtccom",
-      "has_video": false,
-      "headline": "A whale just moved 2,472 $BTC ($156.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://sentinelbtc.com/e/ux_plvn16"
-      ],
-      "media_types": [],
-      "post_id": "2089166463068217373",
-      "post_url": "https://x.com/sentinelbtccom/status/2089166463068217373",
-      "posted_at": "2026-08-17T01:44:34+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A whale just moved 2,472 $BTC ($156.1M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/tLQyJqNf2V #Bitcoin #Whale #OnChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後109分・反応率0.0%・公式候補リンクあり"
     }
   ],
   "trends": [],
