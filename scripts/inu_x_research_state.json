@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T18:04:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T19:16:37+00:00",
+  "last_deep_scan_at": "2026-08-17T20:00:50+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T20:00:50+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1919,33 +1919,22 @@
       "checked_at": "2026-08-17T19:16:37+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T20:00:50+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T20:00:50+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4690625,
-      "discovered_at": "2026-08-17T14:06:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 Treasury Secretary Bessent says the US Treasury is \"moving quickly\" to implement the crypto stablecoin Genius Act framework.",
-      "impression_count": 63319,
-      "like_count": 401,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089351482675966342",
-      "post_url": "https://x.com/WatcherGuru/status/2089351482675966342",
-      "posted_at": "2026-08-17T13:59:46+00:00",
-      "quote_count": 11,
-      "reply_count": 48,
-      "repost_count": 56,
-      "score": 77.8,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 Treasury Secretary Bessent says the US Treasury is \"moving quickly\" to implement the crypto stablecoin Genius Act framework.",
-      "topic": "watcher_guru",
-      "why_trending": "表示63,319・投稿後6分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 77759,
       "discovered_at": "2026-08-17T18:04:45+00:00",
@@ -1974,6 +1963,60 @@
       "summary": "Bitcoin just lost the $63,000 support that was holding the whole range together Price tried to reclaim $64K several times and sellers slammed it back down every time The rejection at $65.7K was the warning, and now Bitcoin is hunting for the next real demand zone The levels https://t.co/ZCDbeGgf7O https://t.co/SuLizXzNJi",
       "topic": "crypto_market",
       "why_trending": "表示1,574・投稿後40分・反応率0.7%・公式候補リンクあり・動画あり"
+    },
+    {
+      "author_followers": 4767,
+      "discovered_at": "2026-08-17T20:00:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Mrrrzach",
+      "has_video": false,
+      "headline": "My top 1? @ZIGChain What they’re doing exceptionally well is turning the chain into a real DeFi and RWA ecosystem.... 🔹 Onchain RWA access through tokenized stocks, ETFs &amp; priv",
+      "impression_count": 246,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/AgencyLaser/status/2089420935937827168"
+      ],
+      "media_types": [],
+      "post_id": "2089432670291853786",
+      "post_url": "https://x.com/Mrrrzach/status/2089432670291853786",
+      "posted_at": "2026-08-17T19:22:23+00:00",
+      "quote_count": 2,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 57.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "My top 1? @ZIGChain What they’re doing exceptionally well is turning the chain into a real DeFi and RWA ecosystem.... 🔹 Onchain RWA access through tokenized stocks, ETFs &amp; private credit 🔹 Growing stablecoin liquidity and real yield opportunities 🔹 Revenue from ZIG https://t.co/OUofktsiD9",
+      "topic": "onchain_exchange",
+      "why_trending": "表示246・投稿後38分・反応率2.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 11534,
+      "discovered_at": "2026-08-17T20:00:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ethereuminsti",
+      "has_video": false,
+      "headline": "All-time stablecoin transfer volume on Ethereum passes $70 trillion. Ethereum is the home of onchain finance. https://t.co/ZcXMpt4Kkf",
+      "impression_count": 1972,
+      "like_count": 81,
+      "linked_urls": [
+        "https://x.com/ethereuminsti/status/2089423683508896109/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089423683508896109",
+      "post_url": "https://x.com/ethereuminsti/status/2089423683508896109",
+      "posted_at": "2026-08-17T18:46:40+00:00",
+      "quote_count": 0,
+      "reply_count": 7,
+      "repost_count": 11,
+      "score": 54.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "All-time stablecoin transfer volume on Ethereum passes $70 trillion. Ethereum is the home of onchain finance. https://t.co/ZcXMpt4Kkf",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1,972・投稿後74分・反応率5.8%"
     },
     {
       "author_followers": 63162,
@@ -2084,28 +2127,88 @@
       "why_trending": "表示719・投稿後95分・反応率8.8%"
     },
     {
-      "author_followers": 18001,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
+      "author_followers": 619,
+      "discovered_at": "2026-08-17T20:00:50+00:00",
       "discovery_type": "official_x_api",
-      "handle": "btc8888eth8888",
+      "handle": "CryptomegaNews",
       "has_video": false,
-      "headline": "上周数据有利于放缓加息步伐，基本上黄金，美股等资产都上涨了一些，但比特币（$BTC）在这场资金大轮动中成为了最尴尬的局外人，核心原因在于其「定位的模糊性」与「流动性断层」。与美股AI",
-      "impression_count": 49,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089342335561986299",
-      "post_url": "https://x.com/btc8888eth8888/status/2089342335561986299",
-      "posted_at": "2026-08-17T13:23:25+00:00",
+      "headline": "Crypto's pulse check reveals major regulatory pushes, core tech upgrades, and critical user security warnings. * Ethereum developers target privacy changes in the next major upgrad",
+      "impression_count": 59,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/CryptomegaNews/status/2089419569727143996/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089419569727143996",
+      "post_url": "https://x.com/CryptomegaNews/status/2089419569727143996",
+      "posted_at": "2026-08-17T18:30:19+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 1,
       "repost_count": 0,
-      "score": 36.9,
+      "score": 43.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "上周数据有利于放缓加息步伐，基本上黄金，美股等资产都上涨了一些，但比特币（$BTC）在这场资金大轮动中成为了最尴尬的局外人，核心原因在于其「定位的模糊性」与「流动性断层」。与美股AI",
-      "topic": "chinese_market",
-      "why_trending": "表示49・投稿後3分・反応率0.0%"
+      "summary": "Crypto's pulse check reveals major regulatory pushes, core tech upgrades, and critical user security warnings. * Ethereum developers target privacy changes in the next major upgrade. * Investors cash out fast of $BTC ETFs, yet Bitcoin price remains stable. * Bitcoin https://t.co/iaMAeh6wOQ",
+      "topic": "onchain_exchange",
+      "why_trending": "表示59・投稿後90分・反応率6.1%"
+    },
+    {
+      "author_followers": 279465,
+      "discovered_at": "2026-08-17T20:00:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoDiffer",
+      "has_video": false,
+      "headline": "Treasuries &amp; #ETFs Board. Crypto Accumulation &amp; Capital Flows #Bitcoin ETFs reversed the previous week's $850M+ inflows with roughly $390M in net #outflows, while Ethereum ",
+      "impression_count": 2483,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/CryptoDiffer/status/2089430334383276133/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089430334383276133",
+      "post_url": "https://x.com/CryptoDiffer/status/2089430334383276133",
+      "posted_at": "2026-08-17T19:13:06+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 41.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Treasuries &amp; #ETFs Board. Crypto Accumulation &amp; Capital Flows #Bitcoin ETFs reversed the previous week's $850M+ inflows with roughly $390M in net #outflows, while Ethereum ETFs were essentially flat, posting a marginal ~$3M outflow that ended their five-week inflow streak. https://t.co/16SoqzeTJj",
+      "topic": "onchain_exchange",
+      "why_trending": "表示2,483・投稿後47分・反応率0.3%"
+    },
+    {
+      "author_followers": 20217,
+      "discovered_at": "2026-08-17T20:00:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "0xzxcom",
+      "has_video": false,
+      "headline": "🪙 CRYPTO NEWS ROUNDUP 📅 August 17, 2026 · Past 6 Hours 📊 BITCOIN: BTC cleared $64K as gold gained, while options implied volatility sat near a seasonal floor. Strategy raised $333.",
+      "impression_count": 77,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/0xzxcom/status/2089412214444740743/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089412214444740743",
+      "post_url": "https://x.com/0xzxcom/status/2089412214444740743",
+      "posted_at": "2026-08-17T18:01:05+00:00",
+      "quote_count": 0,
+      "reply_count": 3,
+      "repost_count": 0,
+      "score": 40.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🪙 CRYPTO NEWS ROUNDUP 📅 August 17, 2026 · Past 6 Hours 📊 BITCOIN: BTC cleared $64K as gold gained, while options implied volatility sat near a seasonal floor. Strategy raised $333.7M but reported no new BTC buys. 📊 ETHEREUM: Bitmine bought 9,926 ETH last week and now holds https://t.co/hrwmAR1oKS",
+      "topic": "onchain_exchange",
+      "why_trending": "表示77・投稿後119分・反応率7.5%"
     }
   ],
   "trends": [],
