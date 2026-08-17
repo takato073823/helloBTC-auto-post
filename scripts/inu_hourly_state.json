@@ -1524,6 +1524,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-17T16:22:36.438126+00:00"
+    },
+    {
+      "slot": "2026-08-18-05-a",
+      "post_id": "inu_market_2026_08_18_05_a_crypto-vvv-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-VVVUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:VVV-USD",
+      "reserved_at": "2026-08-17T20:21:19.141377+00:00"
     }
   ],
   "history": [
@@ -2820,9 +2830,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-17T18:33:32.753077+00:00",
-      "count": 75251,
-      "fastest_fee": 1
+      "checked_at": "2026-08-17T20:21:19.141377+00:00",
+      "count": 75949,
+      "fastest_fee": 2
     }
   }
 }
