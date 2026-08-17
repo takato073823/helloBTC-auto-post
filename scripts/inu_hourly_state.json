@@ -1476,6 +1476,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-17T10:27:42.417324+00:00"
+    },
+    {
+      "slot": "2026-08-17-21-a",
+      "post_id": "inu_overseas_kol_2089320508948963368",
+      "source_url": "https://x.com/barchart/status/2089320508948963368",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-17T12:35:26.451909+00:00"
     }
   ],
   "history": [
@@ -2755,9 +2765,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-17T10:27:42.417324+00:00",
-      "count": 80486,
-      "fastest_fee": 3
+      "checked_at": "2026-08-17T12:35:26.451909+00:00",
+      "count": 75212,
+      "fastest_fee": 2
     }
   }
 }
