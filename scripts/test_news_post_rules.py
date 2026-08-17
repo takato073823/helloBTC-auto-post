@@ -106,6 +106,14 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("unreadable character clusters", prompt)
         self.assertNotIn("Absolutely no writing", prompt)
 
+    def test_explicit_text_free_brief_keeps_every_surface_blank(self):
+        prompt = _build_imagen_prompt("regulatory desk, no writing or symbols", None, None)
+        self.assertIn("explicitly requires a text-free image", prompt)
+        self.assertIn("Absolutely no writing or writing-like marks", prompt)
+        self.assertIn("Keep every visible surface fully blank", prompt)
+        self.assertIn("Do not add documents, labels, screens", prompt)
+        self.assertNotIn("Natural writing on an article-specific physical item is allowed", prompt)
+
     def test_generated_image_review_accepts_readable_text_and_rejects_garbling(self):
         prompt = _image_text_review_prompt(None, 'SEC document headed "SEC"')
         self.assertIn('SEC document headed "SEC"', prompt)

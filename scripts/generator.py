@@ -443,6 +443,9 @@ def _build_imagen_prompt(
 ) -> str:
     """記事内容を確認したうえで、報道写真と許可済みロゴの条件を組み立てる。"""
     trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
+    strict_text_free = bool(
+        re.search(r"\b(?:no text|no writing|no print|text-free)\b", base_prompt, re.IGNORECASE)
+    )
     if trusted_brand:
         logo_instruction = (
             f"The official {trusted_brand} brand mark must be clearly recognizable and visible as an integrated "
@@ -460,14 +463,30 @@ def _build_imagen_prompt(
             "object. Short accurate contextual copy is governed by the text-quality rule below and is not a logo. "
             "Any coin must be completely unbranded. "
         )
-    text_instruction = (
-        "Natural writing on an article-specific physical item is allowed only when essential to the scene. "
-        "Keep visible copy to one to three short, fully legible Japanese or English terms, initials, dates, or "
-        "numbers explicitly supported by the opening visual brief. Spell every word correctly and render every "
-        "character completely. Never invent paragraph body copy, fake words, pseudo-text, malformed CJK, mixed-script "
-        "gibberish, duplicated fragments, garbled text, corrupted characters, or unreadable character clusters. "
-        "Do not add Chinese or another language unless the opening visual brief explicitly requires it. "
-    )
+    if strict_text_free:
+        text_instruction = (
+            "The opening visual brief explicitly requires a text-free image. Absolutely no writing or writing-like "
+            "marks may appear: no letters, words, numbers, labels, signs, UI copy, paragraph lines, pseudo-text, "
+            "invented glyphs, malformed CJK, or garbled characters. Keep every visible surface fully blank. "
+        )
+        object_text_instruction = (
+            "Do not add documents, labels, screens, nameplates, printed cards, or control panels. "
+        )
+    else:
+        text_instruction = (
+            "Natural writing on an article-specific physical item is allowed only when essential to the scene. "
+            "Keep visible copy to one to three short, fully legible Japanese or English terms, initials, dates, or "
+            "numbers explicitly supported by the opening visual brief. Spell every word correctly and render every "
+            "character completely. Never invent paragraph body copy, fake words, pseudo-text, malformed CJK, mixed-script "
+            "gibberish, duplicated fragments, garbled text, corrupted characters, or unreadable character clusters. "
+            "Do not add Chinese or another language unless the opening visual brief explicitly requires it. "
+        )
+        object_text_instruction = (
+            "Physical documents, screens, and signs may appear only when explicitly relevant to the opening visual "
+            "brief; they must remain photographed objects rather than a page layout. Keep unrelated surfaces plain and "
+            "unmarked. Avoid dense paragraph copy, generic paperwork, packaging text, serial plates, and crowded control "
+            "layouts. "
+        )
 
     return (
         f"{base_prompt}. "
@@ -484,10 +503,8 @@ def _build_imagen_prompt(
         "Sharp focus on subject, news magazine quality, high resolution. "
         "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, report-page "
         "layout, presentation, infographic, poster, headline layout, caption bar, white text panel, or floating text "
-        "area. Physical documents, screens, and signs may appear only when explicitly relevant to the opening visual "
-        "brief; they must remain photographed objects rather than a page layout. Keep unrelated surfaces plain and "
-        "unmarked. Avoid dense paragraph copy, generic paperwork, packaging text, serial plates, and crowded control "
-        "layouts. "
+        "area. "
+        f"{object_text_instruction}"
         f"{text_instruction}"
         f"{SAFE_COMPOSITION_PROMPT}"
         f"{logo_instruction}"
