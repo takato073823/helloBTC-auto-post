@@ -1,0 +1,49 @@
+name: 既存アイキャッチ画像へ復元（手動）
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_slug:
+        description: WordPress記事のスラッグ
+        required: true
+        type: string
+      media_id:
+        description: 復元するWordPressメディアID
+        required: true
+        type: string
+      media_url:
+        description: 復元するWordPressメディアURL
+        required: true
+        type: string
+
+jobs:
+  restore-featured-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 復元ルールテスト
+        working-directory: scripts
+        run: python -m unittest test_restore_featured_image.py
+
+      - name: 既存画像へ復元
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          POST_SLUG: ${{ inputs.post_slug }}
+          MEDIA_ID: ${{ inputs.media_id }}
+          MEDIA_URL: ${{ inputs.media_url }}
+        working-directory: scripts
+        run: python restore_featured_image.py

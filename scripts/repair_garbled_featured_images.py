@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""監査で不合格になった旧式アイキャッチを安全な構図で一括差し替えする。"""
+"""文字化けしたアイキャッチを写真報道風のまま差し替える。"""
 
 from __future__ import annotations
 
@@ -19,34 +19,40 @@ from wp_poster import WordPressAPI
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-TEXT_FREE_SUFFIX = (
-    "no text, print, letters, numbers, labels, logos, watermarks, screens, documents, coins, "
-    "currency marks, buildings, or symbols"
+PHOTO_REPAIR_SUFFIX = (
+    "photorealistic Reuters-style editorial news photography with realistic materials, natural depth of field, "
+    "and an article-specific real-world scene; no headline overlays, captions, watermarks, publisher marks, or "
+    "unrelated logos; visible writing on a relevant physical item is allowed only when it is short, accurate, "
+    "fully legible Japanese or English; never use pseudo-text, malformed characters, or invented paragraph copy"
+)
+REPAIRED_FEATURED_RE = re.compile(
+    r"/featured-repaired-.+-\d+\.(?:jpe?g|png)$", re.IGNORECASE
 )
 
 
 def normalize_repair_prompt(raw_prompt: str) -> str:
-    """LLM出力を1行へ整え、文字なしの安全条件を必ず付ける。"""
+    """LLM出力を1行へ整え、写真報道風と文字品質条件を必ず付ける。"""
     clean = re.sub(r"\s+", " ", (raw_prompt or "")).strip()
     clean = re.sub(r"^(?:prompt|image prompt)\s*:\s*", "", clean, flags=re.IGNORECASE)
     clean = clean.strip('"` ').rstrip(". ,;:").strip('"` ')
     if not clean:
-        clean = "Minimalist studio arrangement of smooth unmarked geometric objects on a dark background"
-    return f"{clean}, {TEXT_FREE_SUFFIX}"
+        clean = "A realistic editorial still life showing the article's central event through relevant objects"
+    return f"{clean}, {PHOTO_REPAIR_SUFFIX}"
 
 
 def build_repair_prompt(title: str) -> str:
-    """記事タイトルから、文字を誘発しない記事固有の英語構図を作る。"""
+    """記事タイトルから、元の写真報道スタイルを維持した英語構図を作る。"""
     raw_prompt = generate_text(
         f"""
 Create one concise English image-generation prompt for a Japanese crypto-news featured image.
 Article title: {title}
 
-Return only the prompt, with no explanation. Depict the article's central event through a minimalist studio
-still life made from smooth unmarked geometric objects, light, color, spacing, and motion. Keep the main subject
-fully visible and article-specific. Do not request people, faces, text, letters, numbers, documents, papers,
-screens, charts, interfaces, keyboards, server labels, nameplates, signs, flags, government buildings, corporate
-logos, publisher logos, crypto logos, literal coins, currency symbols, or branded products. Use at most 28 words.
+Return only the prompt, with no explanation. Depict the article's central event as a realistic photojournalistic
+news photograph using concrete, article-relevant locations and physical objects. Preserve believable scale,
+materials, lighting, perspective, and depth of field. Do not turn the scene into abstract geometry, a symbolic
+illustration, a 3D infographic, or a minimalist shape composition. Do not request people or faces. Avoid dense
+writing; when a relevant document, screen, or sign is essential, request at most one to three exact short Japanese
+or English terms and keep all other copy out of readable focus. Never request publisher branding. Use at most 45 words.
 """.strip(),
         max_output_tokens=120,
     )
@@ -59,6 +65,14 @@ def select_shard(items: list, shard_index: int, shard_count: int) -> list:
     return [item for index, item in enumerate(items) if index % shard_count == shard_index]
 
 
+def is_repair_candidate(image_url: str, *, include_repaired: bool) -> bool:
+    """通常は旧画像、やり直し時だけ本日の抽象化された修復画像を選ぶ。"""
+    clean_url = (image_url or "").split("?", 1)[0]
+    return is_legacy_generated_image(clean_url) or (
+        include_repaired and bool(REPAIRED_FEATURED_RE.search(clean_url))
+    )
+
+
 def main() -> None:
     base_url = os.getenv("WP_URL", "https://hellobtc.jp")
     since = os.getenv("REPAIR_SINCE", "2026-08-01")
@@ -67,13 +81,18 @@ def main() -> None:
         for slug in os.getenv("AUDIT_PASS_SLUGS", "").split(",")
         if slug.strip()
     }
+    include_repaired = os.getenv("REPAIR_INCLUDE_REPAIRED", "false").lower() in {
+        "1",
+        "true",
+        "yes",
+    }
     shard_index = int(os.getenv("REPAIR_SHARD_INDEX", "0"))
     shard_count = int(os.getenv("REPAIR_SHARD_COUNT", "1"))
 
     targets = []
     for post in fetch_posts(base_url, since):
         image_url = featured_image_url(post)
-        if is_legacy_generated_image(image_url) and post.get("slug") not in passed_slugs:
+        if is_repair_candidate(image_url, include_repaired=include_repaired) and post.get("slug") not in passed_slugs:
             targets.append(post)
     targets = select_shard(targets, shard_index, shard_count)
 
@@ -104,7 +123,7 @@ def main() -> None:
             )
             media_id, image_url = wp.upload_media(
                 image_data,
-                filename=f"featured-repaired-{slug}-{int(time.time())}.jpg",
+                filename=f"featured-replaced-{slug}-{int(time.time())}.jpg",
             )
             content = update_schema_image(post.get("content", {}).get("raw", ""), image_url)
             wp.update_post(post["id"], featured_media=media_id, content=content)

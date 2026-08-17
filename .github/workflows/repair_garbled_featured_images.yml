@@ -9,10 +9,15 @@ on:
         default: "2026-08-01"
         type: string
       audit_pass_slugs:
-        description: 監査合格済みスラッグ（カンマ区切り）
+        description: 合格・承認済みのため変更しないスラッグ（カンマ区切り）
         required: false
-        default: "clarity-act-senate-delay,xrpl-confidential-transfers-rwa,mica-crypto-regulation-impact"
+        default: "clarity-act-senate-delay,xrpl-confidential-transfers-rwa,mica-crypto-regulation-impact,sec-regulation-crypto-proposal,trump-media-bitcoin-losses,bitmine-eth-buyback-shift"
         type: string
+      include_repaired:
+        description: 抽象化された修復画像を写真風でやり直す
+        required: true
+        default: false
+        type: boolean
       shard_index:
         description: シャード番号（0始まり）
         required: true
@@ -55,6 +60,7 @@ jobs:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           REPAIR_SINCE: ${{ inputs.since }}
           AUDIT_PASS_SLUGS: ${{ inputs.audit_pass_slugs }}
+          REPAIR_INCLUDE_REPAIRED: ${{ inputs.include_repaired }}
           REPAIR_SHARD_INDEX: ${{ inputs.shard_index }}
           REPAIR_SHARD_COUNT: ${{ inputs.shard_count }}
         working-directory: scripts
