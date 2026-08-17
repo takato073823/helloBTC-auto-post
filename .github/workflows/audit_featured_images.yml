@@ -1,0 +1,40 @@
+name: 既存アイキャッチ文字品質監査（手動）
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 監査開始日（YYYY-MM-DD）
+        required: true
+        default: "2026-08-01"
+        type: string
+
+jobs:
+  audit-featured-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 監査対象判定テスト
+        working-directory: scripts
+        run: python -m unittest test_audit_featured_images.py
+
+      - name: 公開画像を文字品質監査
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          AUDIT_SINCE: ${{ inputs.since }}
+        working-directory: scripts
+        run: python audit_featured_images.py
