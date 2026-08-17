@@ -1,0 +1,40 @@
+name: 抽象化されたアイキャッチを変更前写真へ復元（手動）
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 復元対象の開始日（YYYY-MM-DD）
+        required: true
+        default: "2026-08-01"
+        type: string
+
+jobs:
+  restore-abstract-repairs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 復元データテスト
+        working-directory: scripts
+        run: python -m unittest test_restore_abstract_repairs.py
+
+      - name: 抽象化された画像だけを変更前へ戻す
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          RESTORE_SINCE: ${{ inputs.since }}
+        working-directory: scripts
+        run: python restore_abstract_repairs.py
