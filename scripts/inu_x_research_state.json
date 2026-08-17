@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-17T22:00:59+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T22:00:59+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T23:01:07+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1951,9 +1951,43 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T23:01:07+00:00",
+      "result_count": 1,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4693713,
+      "discovered_at": "2026-08-17T23:01:07+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Anti-crypto Peter Schiff says \"I'm not sure why Bitcoin didn't sell off today.\" https://t.co/WndBVyiIZx",
+      "impression_count": 166925,
+      "like_count": 847,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2089466026903679209/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089466026903679209",
+      "post_url": "https://x.com/WatcherGuru/status/2089466026903679209",
+      "posted_at": "2026-08-17T21:34:55+00:00",
+      "quote_count": 30,
+      "reply_count": 202,
+      "repost_count": 71,
+      "score": 69.1,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Anti-crypto Peter Schiff says \"I'm not sure why Bitcoin didn't sell off today.\" https://t.co/WndBVyiIZx",
+      "topic": "watcher_guru",
+      "why_trending": "表示166,925・投稿後86分・反応率0.8%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 77759,
       "discovered_at": "2026-08-17T18:04:45+00:00",
@@ -2036,114 +2070,6 @@
       "summary": "All-time stablecoin transfer volume on Ethereum passes $70 trillion. Ethereum is the home of onchain finance. https://t.co/ZcXMpt4Kkf",
       "topic": "onchain_exchange",
       "why_trending": "表示1,972・投稿後74分・反応率5.8%"
-    },
-    {
-      "author_followers": 63162,
-      "discovered_at": "2026-08-17T18:04:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "ShimizuMei_",
-      "has_video": false,
-      "headline": "Hyperliquid is doing something right. But there’s a part of the story people aren’t talking about enough. HIP-3 just hit a record $4.3B in open interest. That’s not small. What I l",
-      "impression_count": 30,
-      "like_count": 1,
-      "linked_urls": [
-        "https://twitter.com/hyperliquidx/status/2084192309185278286"
-      ],
-      "media_types": [],
-      "post_id": "2089390294445764637",
-      "post_url": "https://x.com/ShimizuMei_/status/2089390294445764637",
-      "posted_at": "2026-08-17T16:33:59+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Hyperliquid is doing something right. But there’s a part of the story people aren’t talking about enough. HIP-3 just hit a record $4.3B in open interest. That’s not small. What I like about Hyperliquid is that it’s slowly proving that onchain trading doesn’t have to stop at https://t.co/EPmBAC956W",
-      "topic": "crypto_market",
-      "why_trending": "表示30・投稿後90分・反応率3.3%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 6170,
-      "discovered_at": "2026-08-17T18:04:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "FINANCIERNEWS",
-      "has_video": false,
-      "headline": "Fidelity Leads $389.7M Bitcoin ETF Weekly Outflow With $153M Exit U.S. spot bitcoin ETFs saw $389.7 million in net outflows for the week of August 10-14, reversing the prior week’s",
-      "impression_count": 18,
-      "like_count": 0,
-      "linked_urls": [
-        "https://financier.news?p=72728"
-      ],
-      "media_types": [],
-      "post_id": "2089396770270752873",
-      "post_url": "https://x.com/FINANCIERNEWS/status/2089396770270752873",
-      "posted_at": "2026-08-17T16:59:43+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 48.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Fidelity Leads $389.7M Bitcoin ETF Weekly Outflow With $153M Exit U.S. spot bitcoin ETFs saw $389.7 million in net outflows for the week of August 10-14, reversing the prior week’s inflow streak. Fidelity’s FBTC led. $BTC #Bitcoin #ETFs https://t.co/8jrJkMEY2l",
-      "topic": "crypto_market",
-      "why_trending": "表示18・投稿後65分・反応率8.9%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 18,
-      "discovered_at": "2026-08-17T18:04:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "YaRui33539",
-      "has_video": true,
-      "headline": "A crowded trade can look strong until everyone wants out at the same time. That’s why liquidity matters just as much as price. When Bitcoin futures get packed, what do you watch fi",
-      "impression_count": 10,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/YaRui33539/status/2089393576870572062/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2089393576870572062",
-      "post_url": "https://x.com/YaRui33539/status/2089393576870572062",
-      "posted_at": "2026-08-17T16:47:02+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 47.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A crowded trade can look strong until everyone wants out at the same time. That’s why liquidity matters just as much as price. When Bitcoin futures get packed, what do you watch first: price, open interest, or liquidity? #Bitcoin #BTC #Crypto https://t.co/J0aLFdhtB6",
-      "topic": "crypto_market",
-      "why_trending": "表示10・投稿後77分・反応率20.0%・動画あり"
-    },
-    {
-      "author_followers": 37419,
-      "discovered_at": "2026-08-17T18:04:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "0xRetardio",
-      "has_video": false,
-      "headline": "Monday Playbook || Week 8 A bullish trap seems to have formed on Bitcoin weekly chart. The bulls need to close this weekly candle above $66k level to regain control. Here’s what I’",
-      "impression_count": 719,
-      "like_count": 22,
-      "linked_urls": [
-        "https://x.com/0xRetardio/status/2089388985764163827/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089388985764163827",
-      "post_url": "https://x.com/0xRetardio/status/2089388985764163827",
-      "posted_at": "2026-08-17T16:28:47+00:00",
-      "quote_count": 0,
-      "reply_count": 26,
-      "repost_count": 0,
-      "score": 45.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Monday Playbook || Week 8 A bullish trap seems to have formed on Bitcoin weekly chart. The bulls need to close this weekly candle above $66k level to regain control. Here’s what I’m watching this week: ➬ Funding Rate &amp; Open Interest The open interest is rising against its https://t.co/xhQ7ek6Gxd",
-      "topic": "crypto_market",
-      "why_trending": "表示719・投稿後95分・反応率8.8%"
     },
     {
       "author_followers": 619,
