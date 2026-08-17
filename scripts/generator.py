@@ -464,6 +464,10 @@ def _build_imagen_prompt(
             "Any coin must be completely unbranded. "
         )
     if strict_text_free:
+        style_instruction = (
+            "Minimalist studio product photography on a seamless background. Show only the objects explicitly named "
+            "in the opening brief. Do not infer or add contextual props, furniture, paperwork, signage, or scenery. "
+        )
         text_instruction = (
             "The opening visual brief explicitly requires a text-free image. Absolutely no writing or writing-like "
             "marks may appear: no letters, words, numbers, labels, signs, UI copy, paragraph lines, pseudo-text, "
@@ -473,6 +477,11 @@ def _build_imagen_prompt(
             "Do not add documents, labels, screens, nameplates, printed cards, or control panels. "
         )
     else:
+        style_instruction = (
+            "Photojournalism, Reuters news photography style. Shot on 85mm lens, f/2.0 aperture, shallow depth of "
+            "field with soft bokeh background. Professional studio lighting or natural window light, realistic "
+            "textures and materials. "
+        )
         text_instruction = (
             "Natural writing on an article-specific physical item is allowed only when essential to the scene. "
             "Keep visible copy to one to three short, fully legible Japanese or English terms, initials, dates, or "
@@ -496,9 +505,7 @@ def _build_imagen_prompt(
         "parliament, White House, landmark, monument, flag, skyline, data center, trading monitor, coin, or chart "
         "unless it is explicitly named in the opening brief. The image must be visually specific to this article, "
         "not a reusable generic news scene. "
-        "Photojournalism, Reuters news photography style. "
-        "Shot on 85mm lens, f/2.0 aperture, shallow depth of field with soft bokeh background. "
-        "Professional studio lighting or natural window light, realistic textures and materials. "
+        f"{style_instruction}"
         "Muted color grading, slightly desaturated, cool tones. "
         "Sharp focus on subject, news magazine quality, high resolution. "
         "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, report-page "
