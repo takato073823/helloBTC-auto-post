@@ -1149,7 +1149,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         ) as build_kol, patch.object(
             inu_auto_hourly, "research_candidates_with_grok"
         ) as web_research, patch.object(
-            inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"
+            inu_auto_hourly, "PREPARED_PATH", Path(directory) / "new-artifacts" / "prepared.json"
         ) as prepared_path:
             self.assertEqual(0, inu_auto_hourly.prepare(args))
             prepared = json.loads(prepared_path.read_text(encoding="utf-8"))

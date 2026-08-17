@@ -2721,6 +2721,10 @@ def prepare(args: argparse.Namespace) -> int:
         "candidate": candidate,
         "why_now": candidate["why_now"],
     }
+    # ネイティブ引用は画像ファイルを生成しないため、この実行で初めて
+    # artifacts/inu-auto を使うケースがある。投稿候補を見つけた後に
+    # ディレクトリ不足で止めない。
+    PREPARED_PATH.parent.mkdir(parents=True, exist_ok=True)
     PREPARED_PATH.write_text(
         json.dumps(prepared, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
