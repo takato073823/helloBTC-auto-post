@@ -1135,6 +1135,23 @@
       "posted_at": "2026-08-16T22:17:26.667701+00:00",
       "hook": "📈 $CAP、24時間で+5.71％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-18-03-a",
+      "post_id": "inu_overseas_kol_2089388275870146971",
+      "tweet_id": "2089420445233889526",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/stocksavvyshay/status/2089388275870146971",
+      "published_at": "2026-08-17T16:25:58+00:00",
+      "posted_at": "2026-08-17T18:33:48.534312+00:00",
+      "hook": "⚡ AI計算資源の逼迫",
+      "follow_value": "動画内の価格上昇と容量販売の説明を、元投稿者の表示付きで確認できる。",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2089388275870146971",
+      "source_handle": "stocksavvyshay"
     }
   ],
   "posted_ids": [
@@ -1226,7 +1243,8 @@
     "inu_market_2026_08_16_23_a_crypto-chip-usd",
     "inu_market_2026_08_17_01_a_crypto-ethfi-usd",
     "inu_market_2026_08_17_05_a_crypto-chip-usd",
-    "inu_market_2026_08_17_07_a_crypto-cap-usd"
+    "inu_market_2026_08_17_07_a_crypto-cap-usd",
+    "inu_overseas_kol_2089388275870146971"
   ],
   "reservations": [
     {
@@ -1506,16 +1524,6 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-17T16:22:36.438126+00:00"
-    },
-    {
-      "slot": "2026-08-18-03-a",
-      "post_id": "inu_overseas_kol_2089388275870146971",
-      "source_url": "https://x.com/stocksavvyshay/status/2089388275870146971",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T18:33:32.753077+00:00"
     }
   ],
   "history": [
@@ -2710,6 +2718,23 @@
       "posted_at": "2026-08-16T22:17:26.667701+00:00",
       "hook": "📈 $CAP、24時間で+5.71％",
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。"
+    },
+    {
+      "slot": "2026-08-18-03-a",
+      "post_id": "inu_overseas_kol_2089388275870146971",
+      "tweet_id": "2089420445233889526",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/stocksavvyshay/status/2089388275870146971",
+      "published_at": "2026-08-17T16:25:58+00:00",
+      "posted_at": "2026-08-17T18:33:48.534312+00:00",
+      "hook": "⚡ AI計算資源の逼迫",
+      "follow_value": "動画内の価格上昇と容量販売の説明を、元投稿者の表示付きで確認できる。",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2089388275870146971",
+      "source_handle": "stocksavvyshay"
     }
   ],
   "scheduled_checks": [
