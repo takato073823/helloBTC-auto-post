@@ -646,7 +646,19 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual("x_native_video_reference", item["delivery_mode"])
         self.assertEqual(source["post_id"], item["source_tweet_id"])
         self.assertNotIn("https://", item["text"])
+        self.assertNotIn("#", item["text"])
+        self.assertLessEqual(item["text"].count("$"), 1)
         self.assertEqual(source["post_url"], selected["source_url"])
+
+    def test_native_video_reference_removes_extra_cashtags_and_tag_line(self):
+        text = inu_auto_hourly._native_video_reference_text(
+            "📉$BTC、長期線を下回る\n\n$ETHを含む比較を表示\n\n#BTC #仮想通貨"
+        )
+        self.assertTrue(text.startswith("📉 $BTC"))
+        self.assertIn("ETHを含む", text)
+        self.assertNotIn("$ETH", text)
+        self.assertNotIn("#", text)
+        self.assertEqual(1, text.count("$"))
 
     def test_long_generated_copy_is_compacted_without_another_api_call(self):
         item = candidate(

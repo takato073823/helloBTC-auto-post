@@ -911,6 +911,29 @@ why_now、reader_interest、follow_value は内部判定用で、抽象語だけ
 """.strip()
 
 
+def _native_video_reference_text(text: str) -> str:
+    """動画参照投稿をXのカスタグ上限内に正規化する。
+
+    Xは動画参照URLを含む投稿でカスタグを一つまでに制限することがある。元動画の
+    文脈を守るため本文中の最初の ``$SYMBOL`` は残し、二つ目以降と末尾のタグ行は
+    外す。ハッシュタグを添えるために公開自体が失敗する状態を避ける。
+    """
+    lines = text.splitlines()
+    while lines and lines[-1].lstrip().startswith("#"):
+        lines.pop()
+    normalized = "\n".join(lines).rstrip()
+    cashtag_count = 0
+
+    def keep_one(match: re.Match[str]) -> str:
+        nonlocal cashtag_count
+        cashtag_count += 1
+        return match.group(0) if cashtag_count == 1 else match.group(1)
+
+    normalized = re.sub(r"\$([A-Za-z]{2,10})(?![A-Za-z0-9_])", keep_one, normalized)
+    # 絵文字で始める見出しは、読みやすさのためカスタグとの間を空ける。
+    return re.sub(r"^(\S)(?=\$)", r"\1 ", normalized, count=1)
+
+
 def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict, dict] | None:
     """海外KOLのネイティブ動画・画像を、通常の一次資料候補の次に検討する。"""
     posts = collect_overseas_kol_visual_posts(now, limit=16)
@@ -955,6 +978,8 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
             opinion="",
             tags=[str(value).lstrip("#＃") for value in raw.get("tags", [])][:1],
         )
+        if expected_mode == "x_native_video_reference":
+            text = _native_video_reference_text(text)
         if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
             continue
         try:
