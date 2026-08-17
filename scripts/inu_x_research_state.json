@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T07:39:42+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T08:25:18+00:00",
+  "last_deep_scan_at": "2026-08-17T09:24:19+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T09:24:19+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1824,6 +1824,19 @@
       "checked_at": "2026-08-17T08:25:18+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T09:24:19+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T09:24:19+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
@@ -1994,6 +2007,34 @@
       "why_trending": "表示1,075・投稿後56分・反応率1.1%"
     },
     {
+      "author_followers": 4077,
+      "discovered_at": "2026-08-17T09:24:19+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Chiondefi",
+      "has_video": false,
+      "headline": "MARKET UPDATE | August 17, 2026 The market isn't falling apart. It's becoming more selective. Bitcoin is hovering around $63K. Gold is back above $4,400. Oil remains elevated. And ",
+      "impression_count": 92,
+      "like_count": 6,
+      "linked_urls": [
+        "https://x.com/Chiondefi/status/2089262769166016627/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089262769166016627",
+      "post_url": "https://x.com/Chiondefi/status/2089262769166016627",
+      "posted_at": "2026-08-17T08:07:15+00:00",
+      "quote_count": 0,
+      "reply_count": 4,
+      "repost_count": 1,
+      "score": 42.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "MARKET UPDATE | August 17, 2026 The market isn't falling apart. It's becoming more selective. Bitcoin is hovering around $63K. Gold is back above $4,400. Oil remains elevated. And beneath the surface, earnings are doing something important. Here's what matters today 👇 https://t.co/SwoyIwDnb4",
+      "topic": "equities_ai",
+      "why_trending": "表示92・投稿後77分・反応率15.7%"
+    },
+    {
       "author_followers": 42461,
       "discovered_at": "2026-08-17T07:39:42+00:00",
       "discovery_type": "official_x_api",
@@ -2020,32 +2061,6 @@
       "summary": "🚨 BIG WEEK FOR CRYPTO Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is no longer just a financial niche. It’s now at the TOP of the U.S. agenda. 🇺🇸🚀 https://t.co/EPCadmr0dL",
       "topic": "regulation",
       "why_trending": "表示416・投稿後69分・反応率2.3%"
-    },
-    {
-      "author_followers": 3,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "sentinelbtccom",
-      "has_video": false,
-      "headline": "A whale just moved 2,472 $BTC ($156.2M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
-      "impression_count": 1,
-      "like_count": 0,
-      "linked_urls": [
-        "https://sentinelbtc.com/e/ux_ya4cel"
-      ],
-      "media_types": [],
-      "post_id": "2089182525734158671",
-      "post_url": "https://x.com/sentinelbtccom/status/2089182525734158671",
-      "posted_at": "2026-08-17T02:48:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 41.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A whale just moved 2,472 $BTC ($156.2M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/z9LaxjIMhL #Bitcoin #Whale #OnChain",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1・投稿後45分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 359,
@@ -2126,32 +2141,6 @@
       "summary": "Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is now at the TOP of the U.S. agenda. This industry is massively mispriced.",
       "topic": "regulation",
       "why_trending": "表示6・投稿後116分・反応率16.7%"
-    },
-    {
-      "author_followers": 12381,
-      "discovered_at": "2026-08-17T03:34:14+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "NewsLayerApp",
-      "has_video": false,
-      "headline": "🔴 BREAKING: Data Breach Hits 39,798 Safepal Customers After Order Plugin Flaw https://t.co/01Nu5Psjp0 #Bitcoin #Crypto #GovernmentPolicy #CryptoNews #Web3 #Blockchain #DeFi #Ethere",
-      "impression_count": 20,
-      "like_count": 0,
-      "linked_urls": [
-        "https://newslayer.com/api/v1/s/data-breach-hits-39-798-safepal-customers-after-order-plugin-flaw-79aa7d"
-      ],
-      "media_types": [],
-      "post_id": "2089176735560475002",
-      "post_url": "https://x.com/NewsLayerApp/status/2089176735560475002",
-      "posted_at": "2026-08-17T02:25:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🔴 BREAKING: Data Breach Hits 39,798 Safepal Customers After Order Plugin Flaw https://t.co/01Nu5Psjp0 #Bitcoin #Crypto #GovernmentPolicy #CryptoNews #Web3 #Blockchain #DeFi #Ethereum #Altcoins #CryptoRegulation",
-      "topic": "onchain_exchange",
-      "why_trending": "表示20・投稿後68分・反応率0.0%・公式候補リンクあり"
     }
   ],
   "trends": [],
