@@ -86,6 +86,18 @@ class INUAutoHourlyTests(unittest.TestCase):
             )
         )
 
+    def test_research_timestamp_without_offset_is_normalized_as_jst(self):
+        researched = inu_auto_hourly._normalize_researched_candidate(
+            candidate(published_at="2026-08-04T17:30:00")
+        )
+        self.assertEqual("2026-08-04T17:30:00+09:00", researched["published_at"])
+
+    def test_research_date_without_time_is_not_invented(self):
+        researched = inu_auto_hourly._normalize_researched_candidate(
+            candidate(published_at="2026-08-04")
+        )
+        self.assertEqual("2026-08-04", researched["published_at"])
+
     def test_category_rotation_tries_another_primary_category_first(self):
         repeated = candidate(topic_type="etf_flow")
         alternative = candidate(topic_type="onchain")
@@ -1256,6 +1268,42 @@ class INUAutoHourlyTests(unittest.TestCase):
         # 復旧枠では必ず一次資料の再探索を行う。実行環境で高反応シグナルが
         # 見つかった場合は、そのシグナルを起点に追加探索するため回数は固定しない。
         self.assertGreaterEqual(research.call_count, 1)
+        fallback.assert_called_once()
+
+    def test_blocked_market_fallback_completes_cleanly_for_later_non_market_retry(self):
+        args = SimpleNamespace(
+            state="/tmp/unused-state.json",
+            slot="2026-08-04-21",
+            priority_url="",
+            priority_hint="",
+            promote_signals=False,
+            topic="",
+            dry_run=True,
+            no_market_fallback=False,
+        )
+        state = {"history": [{"topic_type": "crypto_market"}], "reservations": [], "posted_slots": []}
+        with patch.dict(
+            "os.environ",
+            {
+                "INU_ECONOMY_MODE": "true",
+                "INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS": "1",
+                "INU_SCHEDULE_RUN_KIND": "primary",
+            },
+            clear=False,
+        ), patch.object(
+            inu_auto_hourly, "load_state", return_value=state
+        ), patch.object(
+            inu_auto_hourly, "collect_direct_source_candidates", return_value=([], [])
+        ), patch.object(
+            inu_auto_hourly, "research_candidates_with_grok", return_value=([], [], [])
+        ), patch.object(
+            inu_auto_hourly, "research_rescue_candidates", return_value=([], [])
+        ), patch.object(
+            inu_auto_hourly,
+            "build_market_data_fallback",
+            side_effect=RuntimeError("直近の定期投稿が価格速報のため、非価格カテゴリーの一次資料を優先します"),
+        ) as fallback:
+            self.assertEqual(0, inu_auto_hourly.prepare(args))
         fallback.assert_called_once()
 
     def test_prepare_repairs_copy_before_discarding_a_verified_candidate(self):

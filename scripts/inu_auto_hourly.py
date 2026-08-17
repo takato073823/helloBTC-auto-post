@@ -391,6 +391,28 @@ def _parse_timestamp(value: str) -> dt.datetime:
     return parsed.astimezone(dt.timezone.utc)
 
 
+def _normalize_research_published_at(value: object) -> str:
+    """Webリサーチ結果の時刻を、検証可能なISO形式へそろえる。
+
+    検索プロンプトの基準時は常にJSTで渡している。一部の候補だけが、同じ一次資料の
+    時刻を ``2026-08-17T13:20:00`` のようにオフセットなしで返すため、その場合に限り
+    JSTとして明示する。日付だけ・時刻のない値は鮮度を確認できないので補完しない。
+    """
+    raw = str(value or "").strip()
+    if not raw:
+        return raw
+    try:
+        parsed = dt.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return raw
+    if parsed.tzinfo is not None:
+        return parsed.isoformat()
+    # 日付だけではなく、発表時刻まで返った候補だけを対象にする。
+    if "T" not in raw or ":" not in raw:
+        return raw
+    return parsed.replace(tzinfo=JST).isoformat()
+
+
 def _host_is_secondary(host: str) -> bool:
     host = host.lower().removeprefix("www.")
     return any(host == blocked or host.endswith(f".{blocked}") for blocked in SECONDARY_HOSTS)
@@ -670,6 +692,9 @@ topic_typeが異なる候補を優先してください。
 - 固定探索先の一覧は発見と確認の起点であり、Reuters・Nikkei・暗号資産メディアは
   最終出典にせず、必ず発表主体の同一ドメインにある一次資料へ戻る。
 - 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
+- published_atは一次資料で確認した発表・更新時刻を、必ずタイムゾーン付きISO 8601
+  形式で返す（例: JSTなら `2026-08-17T13:20:00+09:00`、UTCなら末尾`Z`）。日付だけや
+  タイムゾーンなしの時刻は返さない。
 - evidence_anchorは、一次資料ページにそのまま表示される4文字以上の原文を抜き出す。日本語訳
   しない。ページ見出し・表のセル・本文から、改行や句読点を除いても連続して確認できる短い原文
   だけを使う。検索スニペットや要約文、ページにない数値を根拠にしてはいけない。
@@ -730,6 +755,9 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
     # 投稿本文に個人見解を混ぜない。モデルの内部出力に値があっても、公開候補では
     # 常に空へ正規化し、見出しと検証済み事実だけを使う。
     normalized["opinion"] = ""
+    normalized["published_at"] = _normalize_research_published_at(
+        normalized.get("published_at", "")
+    )
     normalized.setdefault("focus_signal_url", "")
     normalized.setdefault("evidence_as_primary", False)
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
@@ -1015,6 +1043,8 @@ def build_rescue_research_prompt(
   ETF日次データ、オンチェーン・取引所の公式データ、規制当局、企業IR、金融政策、
   AI企業の更新を横断して追加検索する。
 - 発表から原則12時間以内。速報は2時間以内、マクロは4時間以内に限る。
+- published_atは一次資料で確認した発表・更新時刻を、必ずタイムゾーン付きISO 8601形式で
+  返す。日付だけやタイムゾーンなしの時刻は返さない。
 - has_candidate=trueを最低3件返す。候補なしで終えず、同じ話題の言い換えではなく
   発表主体とtopic_typeを分散させる。
 - hookは事実を短く示す1行で、性質に合う絵文字を先頭に一つ使う。
@@ -2645,14 +2675,18 @@ def prepare(args: argparse.Namespace) -> int:
             try:
                 item, candidate = build_market_data_fallback(now, state, slot)
             except Exception as exc:
-                # 出典の捏造や文字だけの穴埋めはせず、workflowを失敗させて次の
-                # 予備実行で再試行できるようにする。
+                # 直近が価格投稿なら、同じ種類で穴埋めしない。これは実行失敗ではなく
+                # 「非価格の一次資料を再探索すべき」状態なので、定刻実行を失敗扱いに
+                # しない。予備枠は scheduled_checks があっても引き続き再探索する。
                 logger.error(
-                    "毎時投稿の全リカバリー経路が失敗: %s / 理由: %s",
+                    "毎時投稿の価格フォールバックを見送り: %s / 理由: %s",
                     exc,
                     " | ".join(failure_reasons[-6:]),
                 )
-                raise RuntimeError("毎時投稿のリカバリーに失敗しました") from exc
+                if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
+                    save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
+                _emit_output("ready", "false")
+                return 0
         else:
             logger.info("このJST時間はすでに投稿済みのため、追加の低品質候補は公開しません")
             if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
