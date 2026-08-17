@@ -389,20 +389,33 @@ def _image_review_passed(review_text: str) -> bool:
     return review_text.strip().upper() == "PASS"
 
 
+class ImageReviewUnavailableError(RuntimeError):
+    """画像の公開前検査を実行できない場合に、生成を安全側で停止する。"""
+
+
 def _review_generated_image(client, raw_bytes: bytes, trusted_brand: str | None) -> tuple[bool, str]:
     """Gemini Visionで文字・疑似文字を検出し、公開前に拒否する。"""
     from google.genai import types
 
     mime_type = "image/png" if raw_bytes.startswith(b"\x89PNG") else "image/jpeg"
-    response = client.models.generate_content(
-        model=os.environ.get("GOOGLE_IMAGE_REVIEW_MODEL", "gemini-2.5-flash"),
-        contents=[
-            types.Part.from_bytes(data=raw_bytes, mime_type=mime_type),
-            _image_text_review_prompt(trusted_brand),
-        ],
-    )
-    review = (response.text or "").strip()
-    return _image_review_passed(review), review or "画像検査の応答が空でした"
+    configured_model = os.environ.get("GOOGLE_IMAGE_REVIEW_MODEL", "").strip()
+    review_models = [configured_model] if configured_model else ["gemini-3.6-flash", "gemini-3.5-flash"]
+    errors = []
+    for model_name in review_models:
+        try:
+            response = client.models.generate_content(
+                model=model_name,
+                contents=[
+                    types.Part.from_bytes(data=raw_bytes, mime_type=mime_type),
+                    _image_text_review_prompt(trusted_brand),
+                ],
+            )
+            review = (response.text or "").strip()
+            return _image_review_passed(review), review or "画像検査の応答が空でした"
+        except Exception as exc:
+            errors.append(f"{model_name}: {exc}")
+            logger.warning("画像検査モデル%sを利用できません: %s", model_name, exc)
+    raise ImageReviewUnavailableError(" / ".join(errors))
 
 
 def _build_imagen_prompt(
@@ -537,6 +550,8 @@ def generate_featured_image(
                     " A previous attempt was rejected for visible writing. Use only unmarked physical surfaces "
                     "and purely visual objects with no character-like strokes or printed details."
                 )
+            except ImageReviewUnavailableError:
+                raise
             except Exception as e:
                 logger.warning("%s 失敗: %s", model_name, e)
                 break
