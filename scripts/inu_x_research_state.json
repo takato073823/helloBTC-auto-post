@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T11:03:48+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T12:00:48+00:00",
+  "last_deep_scan_at": "2026-08-17T13:27:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T13:27:24+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1862,9 +1862,48 @@
       "checked_at": "2026-08-17T12:00:48+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T13:27:24+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T13:27:24+00:00",
+      "result_count": 8,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
+    {
+      "author_followers": 186,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Red_OneRb",
+      "has_video": false,
+      "headline": "第一次用 WEEX TradFi 做现货，真的超级简单！ 新手也能 5 分钟上手美股代币交易今天分享一下我亲自参与的完整流程，从注册到完成一笔现货交易，全程截图说明，照着做就行。1. 注册 &amp; 登录打开 WEEX App 或官网，用邮箱/手机号注册。 新用户直接领新人礼包（链接在文末）。2. 充值 https://t.co/rKwgp1ZzY8",
+      "impression_count": 42,
+      "like_count": 0,
+      "linked_urls": [
+        "https://twitter.com/WeexCn/status/2086701055526506858"
+      ],
+      "media_types": [],
+      "post_id": "2089334882040213720",
+      "post_url": "https://x.com/Red_OneRb/status/2089334882040213720",
+      "posted_at": "2026-08-17T12:53:48+00:00",
+      "quote_count": 1,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 65.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "第一次用 WEEX TradFi 做现货，真的超级简单！ 新手也能 5 分钟上手美股代币交易今天分享一下我亲自参与的完整流程，从注册到完成一笔现货交易，全程截图说明，照着做就行。1. 注册 &amp; 登录打开 WEEX App 或官网，用邮箱/手机号注册。 新用户直接领新人礼包（链接在文末）。2. 充值 https://t.co/rKwgp1ZzY8",
+      "topic": "chinese_market",
+      "why_trending": "表示42・投稿後33分・反応率8.6%・公式候補リンクあり"
+    },
     {
       "author_followers": 92809,
       "discovered_at": "2026-08-17T11:03:48+00:00",
@@ -1970,33 +2009,32 @@
       "why_trending": "表示29・投稿後33分・反応率9.0%"
     },
     {
-      "author_followers": 9425,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "author_followers": 3,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
-      "handle": "TT_BTCs",
+      "handle": "ejs3n",
       "has_video": false,
-      "headline": "It’s been a brutal week for crypto. 📉 • $85B wiped from the total crypto market cap • BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, the largest",
-      "impression_count": 41,
-      "like_count": 5,
+      "headline": "加入KTX交易所，享受实时策略分析，跟着老师吃肉，主流币，美股……更有精美周边 https://t.co/oqQ3xgtkRQ",
+      "impression_count": 8,
+      "like_count": 0,
       "linked_urls": [
-        "https://x.com/TT_BTCs/status/2089236003890368854/photo/1",
-        "https://twitter.com/TT_BTCs/status/2089198174846304278"
+        "https://x.com/ejs3n/status/2089336456703791510/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2089236003890368854",
-      "post_url": "https://x.com/TT_BTCs/status/2089236003890368854",
-      "posted_at": "2026-08-17T06:20:54+00:00",
+      "post_id": "2089336456703791510",
+      "post_url": "https://x.com/ejs3n/status/2089336456703791510",
+      "posted_at": "2026-08-17T13:00:03+00:00",
       "quote_count": 0,
-      "reply_count": 5,
+      "reply_count": 1,
       "repost_count": 0,
-      "score": 51.7,
+      "score": 52.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "It’s been a brutal week for crypto. 📉 • $85B wiped from the total crypto market cap • BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, the largest in 6 weeks • Strategy sold another $108M worth of BTC • Altcoin market cap posted its lowest https://t.co/h7G7ie9Pj3 https://t.co/BQWQMcfAr3",
-      "topic": "regulation",
-      "why_trending": "表示41・投稿後78分・反応率31.7%・公式候補リンクあり"
+      "summary": "加入KTX交易所，享受实时策略分析，跟着老师吃肉，主流币，美股……更有精美周边 https://t.co/oqQ3xgtkRQ",
+      "topic": "chinese_market",
+      "why_trending": "表示8・投稿後27分・反応率20.0%"
     },
     {
       "author_followers": 6261,
@@ -2086,56 +2124,32 @@
       "why_trending": "表示87・投稿後19分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 88,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "author_followers": 21,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
-      "handle": "jasonsmith49944",
-      "has_video": false,
-      "headline": "Crypto regulation is hitting another pause: the SEC delayed its crypto rules vote while the CLARITY Act remains stalled. The industry still needs clear rules, not more uncertainty.",
-      "impression_count": 772,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089250857573662926",
-      "post_url": "https://x.com/jasonsmith49944/status/2089250857573662926",
-      "posted_at": "2026-08-17T07:19:55+00:00",
+      "handle": "xiaochengsleep",
+      "has_video": true,
+      "headline": "1989年，一对夫妻在成为加密货币首富之前的农村“结婚”珍贵视频，视频内人物包含了如今的各个加密机构，以及交易所的创始人 ＃加密货币 #CZ ＃何一 ＃币圈 ＃比特币 ＃牛来 ＃币安 ＃交易所 ＃投资 #Bian https://t.co/zgvGmK7iyi",
+      "impression_count": 33,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/xiaochengsleep/status/2089318049304420727/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2089318049304420727",
+      "post_url": "https://x.com/xiaochengsleep/status/2089318049304420727",
+      "posted_at": "2026-08-17T11:46:55+00:00",
       "quote_count": 0,
-      "reply_count": 0,
+      "reply_count": 1,
       "repost_count": 0,
       "score": 49.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Crypto regulation is hitting another pause: the SEC delayed its crypto rules vote while the CLARITY Act remains stalled. The industry still needs clear rules, not more uncertainty. @AlphaWireHQ",
-      "topic": "regulation",
-      "why_trending": "表示772・投稿後19分・反応率0.1%"
-    },
-    {
-      "author_followers": 7035,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Kebbi_kingjr",
-      "has_video": false,
-      "headline": "IT HAS BEEN A BRUTAL WEEK FOR CRYPTO The market just took another serious hit. • $85B wiped from total crypto market cap • $BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs r",
-      "impression_count": 98,
-      "like_count": 26,
-      "linked_urls": [
-        "https://x.com/Kebbi_kingjr/status/2089247087657418939/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089247087657418939",
-      "post_url": "https://x.com/Kebbi_kingjr/status/2089247087657418939",
-      "posted_at": "2026-08-17T07:04:56+00:00",
-      "quote_count": 0,
-      "reply_count": 5,
-      "repost_count": 17,
-      "score": 49.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "IT HAS BEEN A BRUTAL WEEK FOR CRYPTO The market just took another serious hit. • $85B wiped from total crypto market cap • $BTC dropped to a 31-day low of $62,500 • Spot BTC ETFs recorded $389M in outflows, their largest weekly outflow in 6 weeks • Strategy reportedly sold https://t.co/3P3JPshI2M",
-      "topic": "regulation",
-      "why_trending": "表示98・投稿後34分・反応率69.4%"
+      "summary": "1989年，一对夫妻在成为加密货币首富之前的农村“结婚”珍贵视频，视频内人物包含了如今的各个加密机构，以及交易所的创始人 ＃加密货币 #CZ ＃何一 ＃币圈 ＃比特币 ＃牛来 ＃币安 ＃交易所 ＃投资 #Bian https://t.co/zgvGmK7iyi",
+      "topic": "chinese_market",
+      "why_trending": "表示33・投稿後100分・反応率4.8%・動画あり"
     },
     {
       "author_followers": 30,
@@ -2190,32 +2204,54 @@
       "why_trending": "表示291・投稿後108分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 213633,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "author_followers": 24,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CryptoThro",
+      "handle": "lionhyena",
       "has_video": false,
-      "headline": "🏛️ U.S. CRYPTO REGULATION FACE ANOTHER SETBACK The SEC unexpectedly canceled a meeting that was scheduled to consider new crypto-related rules, including proposed exemptions that c",
-      "impression_count": 1075,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/CryptoThro/status/2089241523833459011/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089241523833459011",
-      "post_url": "https://x.com/CryptoThro/status/2089241523833459011",
-      "posted_at": "2026-08-17T06:42:50+00:00",
-      "quote_count": 1,
-      "reply_count": 3,
-      "repost_count": 1,
-      "score": 43.5,
+      "headline": "根据最新信息，美股计划从2026年12月6日起，在主要交易所（如纳斯达克）试点每周5天、每天交易23小时的新制度。具体交易时段安排如下：夜间交易时段：美东时间21:00至次日4:00日间交易时段：美东时间4:00至20:00每日休市：仅在美东时间20:00至21:00之间暂停交易1小时，用于系统维护和清算。",
+      "impression_count": 15,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089328213537259971",
+      "post_url": "https://x.com/lionhyena/status/2089328213537259971",
+      "posted_at": "2026-08-17T12:27:18+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 44.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🏛️ U.S. CRYPTO REGULATION FACE ANOTHER SETBACK The SEC unexpectedly canceled a meeting that was scheduled to consider new crypto-related rules, including proposed exemptions that could make it easier for crypto startups to raise capital. The cancellation follows the Senate's https://t.co/tq4TVTCIba",
-      "topic": "regulation",
-      "why_trending": "表示1,075・投稿後56分・反応率1.1%"
+      "summary": "根据最新信息，美股计划从2026年12月6日起，在主要交易所（如纳斯达克）试点每周5天、每天交易23小时的新制度。具体交易时段安排如下：夜间交易时段：美东时间21:00至次日4:00日间交易时段：美东时间4:00至20:00每日休市：仅在美东时间20:00至21:00之间暂停交易1小时，用于系统维护和清算。",
+      "topic": "chinese_market",
+      "why_trending": "表示15・投稿後60分・反応率17.3%"
+    },
+    {
+      "author_followers": 1,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "VIVI630786",
+      "has_video": false,
+      "headline": "🚀 想买比特币？第一步：注册币安 Binance！ 币安是全球交易量最大的交易所 🔥 ✅ 500+ 币种 ✅ 现货 / 合约 / 理财 ✅ 新手友好 用我的邀请码注册，立享 40% 手续费返佣 💰 📌 邀请码：BTC9149 🔗 https://t.co/dEnxyZpTEN #比特币 #加密货币 #币安 #Web3 #投资",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://www.bsmkweb.cc/join"
+      ],
+      "media_types": [],
+      "post_id": "2089333728158093339",
+      "post_url": "https://x.com/VIVI630786/status/2089333728158093339",
+      "posted_at": "2026-08-17T12:49:13+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 42.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚀 想买比特币？第一步：注册币安 Binance！ 币安是全球交易量最大的交易所 🔥 ✅ 500+ 币种 ✅ 现货 / 合约 / 理财 ✅ 新手友好 用我的邀请码注册，立享 40% 手续费返佣 💰 📌 邀请码：BTC9149 🔗 https://t.co/dEnxyZpTEN #比特币 #加密货币 #币安 #Web3 #投资",
+      "topic": "chinese_market",
+      "why_trending": "表示1・投稿後38分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 4077,
@@ -2246,60 +2282,52 @@
       "why_trending": "表示92・投稿後77分・反応率15.7%"
     },
     {
-      "author_followers": 42461,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "author_followers": 18001,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
-      "handle": "MarzellCrypto",
+      "handle": "btc8888eth8888",
       "has_video": false,
-      "headline": "🚨 BIG WEEK FOR CRYPTO Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is no longer just a financial niche. It’",
-      "impression_count": 416,
-      "like_count": 4,
-      "linked_urls": [
-        "https://x.com/MarzellCrypto/status/2089238295184396761/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089238295184396761",
-      "post_url": "https://x.com/MarzellCrypto/status/2089238295184396761",
-      "posted_at": "2026-08-17T06:30:00+00:00",
+      "headline": "上周数据有利于放缓加息步伐，基本上黄金，美股等资产都上涨了一些，但比特币（$BTC）在这场资金大轮动中成为了最尴尬的局外人，核心原因在于其「定位的模糊性」与「流动性断层」。与美股AI",
+      "impression_count": 49,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089342335561986299",
+      "post_url": "https://x.com/btc8888eth8888/status/2089342335561986299",
+      "posted_at": "2026-08-17T13:23:25+00:00",
       "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 2,
-      "score": 41.8,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 BIG WEEK FOR CRYPTO Wednesday: The White House meets with crypto industry leaders. Thursday: The CFTC discusses crypto regulation. Crypto is no longer just a financial niche. It’s now at the TOP of the U.S. agenda. 🇺🇸🚀 https://t.co/EPCadmr0dL",
-      "topic": "regulation",
-      "why_trending": "表示416・投稿後69分・反応率2.3%"
+      "summary": "上周数据有利于放缓加息步伐，基本上黄金，美股等资产都上涨了一些，但比特币（$BTC）在这场资金大轮动中成为了最尴尬的局外人，核心原因在于其「定位的模糊性」与「流动性断层」。与美股AI",
+      "topic": "chinese_market",
+      "why_trending": "表示49・投稿後3分・反応率0.0%"
     },
     {
-      "author_followers": 359,
-      "discovered_at": "2026-08-17T07:39:42+00:00",
+      "author_followers": 1528,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WEBSULAIMAN",
+      "handle": "senperson",
       "has_video": false,
-      "headline": "🚨 The SEC just hit pause on crypto regulation. And that could matter more than the next Bitcoin headline. The SEC cancelled its August 14 meeting that was expected to include new c",
-      "impression_count": 20,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/WEBSULAIMAN/status/2089231682817716731/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089231682817716731",
-      "post_url": "https://x.com/WEBSULAIMAN/status/2089231682817716731",
-      "posted_at": "2026-08-17T06:03:43+00:00",
+      "headline": "比特币熊市后期信号浮现：波动率与流动性压缩至多年低位，宏观环境已率先转暖 8 月 17 日，Bitfinex 发布最新市场报告，比特币继续在窄幅区间内运行，波动性、交易活动与流动性同步压缩至与熊市后期相符的水平。BTC 现价接近中位实现价格 63,200 美元，67,176",
+      "impression_count": 1202,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089321371167776846",
+      "post_url": "https://x.com/senperson/status/2089321371167776846",
+      "posted_at": "2026-08-17T12:00:07+00:00",
       "quote_count": 0,
-      "reply_count": 1,
+      "reply_count": 0,
       "repost_count": 0,
-      "score": 39.6,
+      "score": 36.6,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 The SEC just hit pause on crypto regulation. And that could matter more than the next Bitcoin headline. The SEC cancelled its August 14 meeting that was expected to include new crypto regulatory proposals with no new date announced. Here's what most people are missing 👇 https://t.co/cRcgwsJa3W",
-      "topic": "regulation",
-      "why_trending": "表示20・投稿後95分・反応率18.0%"
+      "summary": "比特币熊市后期信号浮现：波动率与流动性压缩至多年低位，宏观环境已率先转暖 8 月 17 日，Bitfinex 发布最新市场报告，比特币继续在窄幅区间内运行，波动性、交易活动与流动性同步压缩至与熊市后期相符的水平。BTC 现价接近中位实现价格 63,200 美元，67,176",
+      "topic": "chinese_market",
+      "why_trending": "表示1,202・投稿後87分・反応率0.0%"
     },
     {
       "author_followers": 24245,
@@ -2326,6 +2354,30 @@
       "summary": "【 #仮想通貨 #暗号資産 最新ニュース】 ⭐️ クラリティ法案の交渉難航、SECの暗号資産規制にも影響か＝CoinDesk ⭐️ 米暗号資産メディアCoinDeskは8月16日、米証券取引委員会（SEC）が予定していた暗号資産規 ... Delivered by PolitePaul service https://t.co/q10vnYKqV5",
       "topic": "japanese_market",
       "why_trending": "表示122・投稿後85分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 3955,
+      "discovered_at": "2026-08-17T13:27:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "USAstockMarkets",
+      "has_video": false,
+      "headline": "美股世界： 2026年12月6日，纳斯达克计划启动每天23小时、每周五天的股票交易。SEC已批准纳斯达克23/5交易规则变更，但正式上线仍取决于SIP等行情基础设施准备及配套规则落地。",
+      "impression_count": 30,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089340541276131396",
+      "post_url": "https://x.com/USAstockMarkets/status/2089340541276131396",
+      "posted_at": "2026-08-17T13:16:17+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "美股世界： 2026年12月6日，纳斯达克计划启动每天23小时、每周五天的股票交易。SEC已批准纳斯达克23/5交易规则变更，但正式上线仍取决于SIP等行情基础设施准备及配套规则落地。",
+      "topic": "chinese_market",
+      "why_trending": "表示30・投稿後11分・反応率0.0%"
     }
   ],
   "trends": [],
