@@ -2,7 +2,8 @@
 import unittest
 
 from generator import (
-    _build_imagen_prompt, _image_article_context, append_source_attribution, is_duplicate_seo_topic,
+    _build_imagen_prompt, _image_article_context, _image_review_passed,
+    _image_text_review_prompt, append_source_attribution, is_duplicate_seo_topic,
     normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
 )
 
@@ -79,20 +80,39 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("unless it is explicitly named in the opening brief", prompt)
         self.assertIn("not a reusable generic news scene", prompt)
 
-    def test_featured_image_receives_verified_title_and_content(self):
+    def test_featured_image_does_not_send_japanese_article_copy_to_imagen(self):
         context = _image_article_context(
             "Robinhoodが英国で仮想通貨取引開始",
             "<p>英国で50銘柄超の取引を手数料無料で提供し、AI分析にも対応する。</p>",
         )
-        self.assertIn("Robinhoodが英国で仮想通貨取引開始", context)
-        self.assertIn("50銘柄超の取引を手数料無料", context)
-        self.assertNotIn("<p>", context)
+        self.assertNotIn("Robinhoodが英国で仮想通貨取引開始", context)
+        self.assertNotIn("50銘柄超の取引を手数料無料", context)
+        self.assertIn("Never recreate, quote, typeset, translate, or imitate", context)
         prompt = _build_imagen_prompt(
             "mobile crypto trading app", "Robinhood", "robinhood.com",
             "Robinhoodが英国で仮想通貨取引開始", "<p>英国向けの手数料無料取引。</p>",
         )
-        self.assertIn("Verified article title: Robinhoodが英国で仮想通貨取引開始", prompt)
-        self.assertIn("Before generating, check this title and content", prompt)
+        self.assertNotIn("Robinhoodが英国で仮想通貨取引開始", prompt)
+        self.assertNotIn("英国向けの手数料無料取引", prompt)
+
+    def test_featured_image_forbids_page_layouts_and_all_pseudo_text(self):
+        prompt = _build_imagen_prompt("hardware wallet on a desk", None, None)
+        self.assertIn("Never create a webpage, news article screenshot, document", prompt)
+        self.assertIn("no Japanese, Chinese or other CJK characters", prompt)
+        self.assertIn("no pseudo-text", prompt)
+        self.assertIn("no garbled or unreadable character clusters", prompt)
+
+    def test_generated_image_review_rejects_any_writing_like_marks(self):
+        prompt = _image_text_review_prompt(None)
+        self.assertIn("pseudo-text", prompt)
+        self.assertIn("garbled characters", prompt)
+        self.assertTrue(_image_review_passed("PASS"))
+        self.assertFalse(_image_review_passed("REJECT: fake Chinese text"))
+
+    def test_approved_logo_is_the_only_text_exception_for_review(self):
+        prompt = _image_text_review_prompt("Bitget")
+        self.assertIn("single authentic Bitget brand mark", prompt)
+        self.assertIn("no other writing is allowed", prompt)
 
     def test_closes_an_incomplete_swell_box(self):
         broken = '<div class="swell-block-capbox"><div class="cap_box_content"><p>要点'

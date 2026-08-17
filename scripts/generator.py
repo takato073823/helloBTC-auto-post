@@ -2,6 +2,7 @@
 import json
 import logging
 import io
+import os
 import re
 from difflib import SequenceMatcher
 from html import escape, unescape
@@ -329,7 +330,7 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
-  "image_prompt": "Describe one specific photorealistic news photograph scene that directly depicts the verified central subject of this article. Do not add generic crypto decoration or an unrelated landmark, government building, flag, skyline, monitor, coin, or chart. NO people, NO brand names, NO text. Max 15 words.",
+  "image_prompt": "Describe one full-bleed photorealistic scene that directly depicts the verified central subject. Never request a webpage, document, report, headline, caption, sign, screen text, letter, number, symbol, or pseudo-text. Do not add generic crypto decoration or unrelated objects. NO people, NO brand names, NO text. Max 15 words.",
   "logo_brand": "ニュースを発表した当事者プロジェクト名。出典メディアは禁止。該当しなければ空文字",
   "logo_domain": "当事者プロジェクトの公式サイトドメイン。出典メディアは禁止。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
@@ -355,18 +356,53 @@ def _trusted_project_logo(logo_brand: str | None, logo_domain: str | None) -> st
 
 
 def _image_article_context(article_title: str | None, article_content: str | None) -> str:
-    """画像AIに渡す、検証済みの記事タイトル・本文コンテキストを作る。"""
-    title = re.sub(r"\s+", " ", unescape(article_title or "")).strip()
-    body = unescape(re.sub(r"<[^>]+>", " ", article_content or ""))
-    body = re.sub(r"\s+", " ", body).strip()
-    if not title and not body:
+    """記事本文を画像モデルへ渡さず、文字の描画を誘発しない。"""
+    if not (article_title or article_content):
         return ""
-    # アイキャッチの判断に必要な範囲を渡し、長文記事で画像プロンプトを圧迫しない。
+    # 日本語の見出し・本文をImagenへ渡すと、ニュースページ風の文字列として
+    # 画像内に模写される。記事内容から抽出済みの英語image_promptだけを視覚指示に使う。
     return (
-        "Verified article title: " + title + ". "
-        "Verified article content: " + body[:1600] + ". "
-        "Before generating, check this title and content. The scene must depict their shared central subject only. "
+        "The opening visual brief was derived from a verified Japanese article. Treat it only as semantic "
+        "scene guidance. Never recreate, quote, typeset, translate, or imitate the article title or body. "
     )
+
+
+def _image_text_review_prompt(trusted_brand: str | None) -> str:
+    allowed = (
+        f"The single authentic {trusted_brand} brand mark is allowed only as an integrated environmental logo. "
+        "Its native wordmark may appear, but no other writing is allowed."
+        if trusted_brand
+        else "No logo or wordmark is allowed."
+    )
+    return f"""
+Inspect this proposed Japanese news-site featured image at full resolution.
+Reject it if any visible writing-like element appears anywhere, including Japanese, Chinese or other CJK
+characters, Latin letters, numbers, words, captions, headlines, labels, signs, UI text, documents, paragraphs,
+ticker symbols, watermarks, pseudo-text, invented glyphs, garbled characters, or unreadable character clusters.
+Text printed on screens, cards, coins, devices, walls, paper, labels, and background objects also counts.
+{allowed}
+Return exactly one line: PASS if the image satisfies the rule, otherwise REJECT followed by a short reason.
+""".strip()
+
+
+def _image_review_passed(review_text: str) -> bool:
+    return review_text.strip().upper() == "PASS"
+
+
+def _review_generated_image(client, raw_bytes: bytes, trusted_brand: str | None) -> tuple[bool, str]:
+    """Gemini Visionで文字・疑似文字を検出し、公開前に拒否する。"""
+    from google.genai import types
+
+    mime_type = "image/png" if raw_bytes.startswith(b"\x89PNG") else "image/jpeg"
+    response = client.models.generate_content(
+        model=os.environ.get("GOOGLE_IMAGE_REVIEW_MODEL", "gemini-2.5-flash"),
+        contents=[
+            types.Part.from_bytes(data=raw_bytes, mime_type=mime_type),
+            _image_text_review_prompt(trusted_brand),
+        ],
+    )
+    review = (response.text or "").strip()
+    return _image_review_passed(review), review or "画像検査の応答が空でした"
 
 
 def _build_imagen_prompt(
@@ -394,6 +430,17 @@ def _build_imagen_prompt(
             "No logos, media branding, watermarks, publisher marks, trademarks, emblems, lettering, or symbols "
             "on coins, screens, buildings, or any other object. Any coin must be completely unbranded. "
         )
+    text_instruction = (
+        f"Except for the single authentic {trusted_brand} brand mark required below, absolutely no other writing "
+        "or writing-like marks: no Japanese, Chinese or other CJK characters, no unrelated Latin letters, no "
+        "numbers, no words, no labels, no signs, no UI text, no ticker symbols, no pseudo-text, no invented "
+        "glyphs, and no garbled or unreadable character clusters anywhere in the frame. "
+        if trusted_brand
+        else
+        "Absolutely no writing or writing-like marks: no Japanese, Chinese or other CJK characters, no Latin "
+        "letters, no numbers, no words, no labels, no signs, no UI text, no ticker symbols, no pseudo-text, no "
+        "invented glyphs, and no garbled or unreadable character clusters anywhere in the frame. "
+    )
 
     return (
         f"{base_prompt}. "
@@ -408,9 +455,12 @@ def _build_imagen_prompt(
         "Professional studio lighting or natural window light, realistic textures and materials. "
         "Muted color grading, slightly desaturated, cool tones. "
         "Sharp focus on subject, news magazine quality, high resolution. "
+        "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, document, "
+        "report, presentation, infographic, poster, headline layout, caption bar, white text panel, or text area. "
+        f"{text_instruction}"
         f"{SAFE_COMPOSITION_PROMPT}"
         f"{logo_instruction}"
-        "No text, no people, no faces."
+        "No people and no faces."
     )
 
 
@@ -442,34 +492,60 @@ def generate_featured_image(
     ]
 
     raw_bytes = None
+    trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
+    text_rejections = 0
+    max_text_rejections = 3
     for model_name, model_type in image_models:
-        try:
-            logger.info("アイキャッチ画像を生成中（%s）...", model_name)
-            if model_type == "imagen":
-                response = client.models.generate_images(
-                    model=model_name,
-                    prompt=full_prompt,
-                    config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
+        while text_rejections < max_text_rejections:
+            candidate_bytes = None
+            try:
+                logger.info("アイキャッチ画像を生成中（%s）...", model_name)
+                if model_type == "imagen":
+                    response = client.models.generate_images(
+                        model=model_name,
+                        prompt=full_prompt,
+                        config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
+                    )
+                    candidate_bytes = response.generated_images[0].image.image_bytes
+                else:
+                    response = client.models.generate_content(
+                        model=model_name,
+                        contents=full_prompt,
+                        config=types.GenerateContentConfig(
+                            response_modalities=["IMAGE"],
+                            image_config=types.ImageConfig(aspect_ratio="16:9"),
+                        ),
+                    )
+                    for part in response.candidates[0].content.parts:
+                        if part.inline_data is not None:
+                            candidate_bytes = part.inline_data.data
+                if not candidate_bytes:
+                    raise ValueError("画像データが返りませんでした")
+                passed, review = _review_generated_image(client, candidate_bytes, trusted_brand)
+                if passed:
+                    logger.info("画像内文字検査に合格（文字・疑似文字なし）")
+                    raw_bytes = candidate_bytes
+                    break
+                text_rejections += 1
+                logger.warning(
+                    "画像内に禁止文字を検出したため再生成（%d/%d）: %s",
+                    text_rejections,
+                    max_text_rejections,
+                    review,
                 )
-                raw_bytes = response.generated_images[0].image.image_bytes
-            else:
-                response = client.models.generate_content(
-                    model=model_name,
-                    contents=full_prompt,
-                    config=types.GenerateContentConfig(
-                        response_modalities=["IMAGE"],
-                        image_config=types.ImageConfig(aspect_ratio="16:9"),
-                    ),
+                full_prompt += (
+                    " A previous attempt was rejected for visible writing. Use only unmarked physical surfaces "
+                    "and purely visual objects with no character-like strokes or printed details."
                 )
-                for part in response.candidates[0].content.parts:
-                    if part.inline_data is not None:
-                        raw_bytes = part.inline_data.data
-            if raw_bytes:
+            except Exception as e:
+                logger.warning("%s 失敗: %s", model_name, e)
                 break
-        except Exception as e:
-            logger.warning("%s 失敗: %s", model_name, e)
+        if raw_bytes or text_rejections >= max_text_rejections:
+            break
 
     if not raw_bytes:
+        if text_rejections >= max_text_rejections:
+            raise ValueError("文字・疑似文字のないアイキャッチを生成できませんでした")
         raise ValueError("利用可能な画像生成モデルが見つかりません")
 
     image_data = fit_image_to_jpeg(raw_bytes, width=1200, height=630, quality=92)
