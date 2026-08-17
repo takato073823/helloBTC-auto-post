@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T16:00:17+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T17:04:43+00:00",
+  "last_deep_scan_at": "2026-08-17T18:04:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-17T18:04:45+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1900,6 +1900,19 @@
       "checked_at": "2026-08-17T17:04:43+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-17T18:04:45+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-17T18:04:45+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -1954,6 +1967,35 @@
       "why_trending": "表示42・投稿後33分・反応率8.6%・公式候補リンクあり"
     },
     {
+      "author_followers": 77759,
+      "discovered_at": "2026-08-17T18:04:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "crptAtlas",
+      "has_video": true,
+      "headline": "Bitcoin just lost the $63,000 support that was holding the whole range together Price tried to reclaim $64K several times and sellers slammed it back down every time The rejection ",
+      "impression_count": 1574,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/crptAtlas/status/2089402841043480809/video/1",
+        "https://twitter.com/crptAtlas/status/2089295200426332555"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2089402841043480809",
+      "post_url": "https://x.com/crptAtlas/status/2089402841043480809",
+      "posted_at": "2026-08-17T17:23:51+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 3,
+      "score": 58.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Bitcoin just lost the $63,000 support that was holding the whole range together Price tried to reclaim $64K several times and sellers slammed it back down every time The rejection at $65.7K was the warning, and now Bitcoin is hunting for the next real demand zone The levels https://t.co/ZCDbeGgf7O https://t.co/SuLizXzNJi",
+      "topic": "crypto_market",
+      "why_trending": "表示1,574・投稿後40分・反応率0.7%・公式候補リンクあり・動画あり"
+    },
+    {
       "author_followers": 3,
       "discovered_at": "2026-08-17T13:27:24+00:00",
       "discovery_type": "official_x_api",
@@ -1982,32 +2024,112 @@
       "why_trending": "表示8・投稿後27分・反応率20.0%"
     },
     {
-      "author_followers": 21,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
+      "author_followers": 63162,
+      "discovered_at": "2026-08-17T18:04:45+00:00",
       "discovery_type": "official_x_api",
-      "handle": "xiaochengsleep",
-      "has_video": true,
-      "headline": "1989年，一对夫妻在成为加密货币首富之前的农村“结婚”珍贵视频，视频内人物包含了如今的各个加密机构，以及交易所的创始人 ＃加密货币 #CZ ＃何一 ＃币圈 ＃比特币 ＃牛来 ＃币安 ＃交易所 ＃投资 #Bian https://t.co/zgvGmK7iyi",
-      "impression_count": 33,
+      "handle": "ShimizuMei_",
+      "has_video": false,
+      "headline": "Hyperliquid is doing something right. But there’s a part of the story people aren’t talking about enough. HIP-3 just hit a record $4.3B in open interest. That’s not small. What I l",
+      "impression_count": 30,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/hyperliquidx/status/2084192309185278286"
+      ],
+      "media_types": [],
+      "post_id": "2089390294445764637",
+      "post_url": "https://x.com/ShimizuMei_/status/2089390294445764637",
+      "posted_at": "2026-08-17T16:33:59+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 48.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Hyperliquid is doing something right. But there’s a part of the story people aren’t talking about enough. HIP-3 just hit a record $4.3B in open interest. That’s not small. What I like about Hyperliquid is that it’s slowly proving that onchain trading doesn’t have to stop at https://t.co/EPmBAC956W",
+      "topic": "crypto_market",
+      "why_trending": "表示30・投稿後90分・反応率3.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 6170,
+      "discovered_at": "2026-08-17T18:04:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "FINANCIERNEWS",
+      "has_video": false,
+      "headline": "Fidelity Leads $389.7M Bitcoin ETF Weekly Outflow With $153M Exit U.S. spot bitcoin ETFs saw $389.7 million in net outflows for the week of August 10-14, reversing the prior week’s",
+      "impression_count": 18,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/xiaochengsleep/status/2089318049304420727/video/1"
+        "https://financier.news?p=72728"
+      ],
+      "media_types": [],
+      "post_id": "2089396770270752873",
+      "post_url": "https://x.com/FINANCIERNEWS/status/2089396770270752873",
+      "posted_at": "2026-08-17T16:59:43+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 48.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Fidelity Leads $389.7M Bitcoin ETF Weekly Outflow With $153M Exit U.S. spot bitcoin ETFs saw $389.7 million in net outflows for the week of August 10-14, reversing the prior week’s inflow streak. Fidelity’s FBTC led. $BTC #Bitcoin #ETFs https://t.co/8jrJkMEY2l",
+      "topic": "crypto_market",
+      "why_trending": "表示18・投稿後65分・反応率8.9%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 18,
+      "discovered_at": "2026-08-17T18:04:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "YaRui33539",
+      "has_video": true,
+      "headline": "A crowded trade can look strong until everyone wants out at the same time. That’s why liquidity matters just as much as price. When Bitcoin futures get packed, what do you watch fi",
+      "impression_count": 10,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/YaRui33539/status/2089393576870572062/video/1"
       ],
       "media_types": [
         "video"
       ],
-      "post_id": "2089318049304420727",
-      "post_url": "https://x.com/xiaochengsleep/status/2089318049304420727",
-      "posted_at": "2026-08-17T11:46:55+00:00",
+      "post_id": "2089393576870572062",
+      "post_url": "https://x.com/YaRui33539/status/2089393576870572062",
+      "posted_at": "2026-08-17T16:47:02+00:00",
       "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 49.6,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 47.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "1989年，一对夫妻在成为加密货币首富之前的农村“结婚”珍贵视频，视频内人物包含了如今的各个加密机构，以及交易所的创始人 ＃加密货币 #CZ ＃何一 ＃币圈 ＃比特币 ＃牛来 ＃币安 ＃交易所 ＃投资 #Bian https://t.co/zgvGmK7iyi",
-      "topic": "chinese_market",
-      "why_trending": "表示33・投稿後100分・反応率4.8%・動画あり"
+      "summary": "A crowded trade can look strong until everyone wants out at the same time. That’s why liquidity matters just as much as price. When Bitcoin futures get packed, what do you watch first: price, open interest, or liquidity? #Bitcoin #BTC #Crypto https://t.co/J0aLFdhtB6",
+      "topic": "crypto_market",
+      "why_trending": "表示10・投稿後77分・反応率20.0%・動画あり"
+    },
+    {
+      "author_followers": 37419,
+      "discovered_at": "2026-08-17T18:04:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "0xRetardio",
+      "has_video": false,
+      "headline": "Monday Playbook || Week 8 A bullish trap seems to have formed on Bitcoin weekly chart. The bulls need to close this weekly candle above $66k level to regain control. Here’s what I’",
+      "impression_count": 719,
+      "like_count": 22,
+      "linked_urls": [
+        "https://x.com/0xRetardio/status/2089388985764163827/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089388985764163827",
+      "post_url": "https://x.com/0xRetardio/status/2089388985764163827",
+      "posted_at": "2026-08-17T16:28:47+00:00",
+      "quote_count": 0,
+      "reply_count": 26,
+      "repost_count": 0,
+      "score": 45.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Monday Playbook || Week 8 A bullish trap seems to have formed on Bitcoin weekly chart. The bulls need to close this weekly candle above $66k level to regain control. Here’s what I’m watching this week: ➬ Funding Rate &amp; Open Interest The open interest is rising against its https://t.co/xhQ7ek6Gxd",
+      "topic": "crypto_market",
+      "why_trending": "表示719・投稿後95分・反応率8.8%"
     },
     {
       "author_followers": 24,
@@ -2082,30 +2204,6 @@
       "summary": "上周数据有利于放缓加息步伐，基本上黄金，美股等资产都上涨了一些，但比特币（$BTC）在这场资金大轮动中成为了最尴尬的局外人，核心原因在于其「定位的模糊性」与「流动性断层」。与美股AI",
       "topic": "chinese_market",
       "why_trending": "表示49・投稿後3分・反応率0.0%"
-    },
-    {
-      "author_followers": 1528,
-      "discovered_at": "2026-08-17T13:27:24+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "senperson",
-      "has_video": false,
-      "headline": "比特币熊市后期信号浮现：波动率与流动性压缩至多年低位，宏观环境已率先转暖 8 月 17 日，Bitfinex 发布最新市场报告，比特币继续在窄幅区间内运行，波动性、交易活动与流动性同步压缩至与熊市后期相符的水平。BTC 现价接近中位实现价格 63,200 美元，67,176",
-      "impression_count": 1202,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089321371167776846",
-      "post_url": "https://x.com/senperson/status/2089321371167776846",
-      "posted_at": "2026-08-17T12:00:07+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "比特币熊市后期信号浮现：波动率与流动性压缩至多年低位，宏观环境已率先转暖 8 月 17 日，Bitfinex 发布最新市场报告，比特币继续在窄幅区间内运行，波动性、交易活动与流动性同步压缩至与熊市后期相符的水平。BTC 现价接近中位实现价格 63,200 美元，67,176",
-      "topic": "chinese_market",
-      "why_trending": "表示1,202・投稿後87分・反応率0.0%"
     },
     {
       "author_followers": 3955,
