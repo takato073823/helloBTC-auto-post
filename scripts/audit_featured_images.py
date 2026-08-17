@@ -10,7 +10,7 @@ import re
 
 import requests
 
-from generator import _review_generated_image
+from generator import _review_generated_image, resolve_logo_brand
 
 
 LEGACY_FEATURED_RE = re.compile(r"/featured-\d+\.(?:jpe?g|png)$", re.IGNORECASE)
@@ -76,10 +76,11 @@ def main() -> None:
         image_response = requests.get(image_url, timeout=60)
         image_response.raise_for_status()
         title = html.unescape(post.get("title", {}).get("rendered", ""))
+        trusted_brand, _ = resolve_logo_brand(title)
         passed, reason = _review_generated_image(
             client,
             image_response.content,
-            trusted_brand=None,
+            trusted_brand=trusted_brand,
             visual_brief=title,
         )
         status = "PASS" if passed else "REJECT"
