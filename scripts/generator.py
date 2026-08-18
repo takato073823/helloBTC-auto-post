@@ -600,19 +600,17 @@ def generate_featured_image(
     )
 
     client = genai.Client(api_key=api_key)
+    # 廃止済みImagenを先に呼ぶと、最新モデルへ到達する前に時間を失う。
+    # 文字品質検査で不合格になった場合も、別モデルで再試行する。
     image_models = [
-        ("imagen-4.0-fast-generate-001", "imagen"),
-        ("imagen-4.0-generate-001", "imagen"),
-        ("gemini-2.5-flash-image", "gemini"),
         ("gemini-3.1-flash-image", "gemini"),
+        ("gemini-2.5-flash-image", "gemini"),
     ]
 
     raw_bytes = None
     trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
-    text_rejections = 0
-    max_text_rejections = 3
     for model_name, model_type in image_models:
-        while text_rejections < max_text_rejections:
+        for attempt in range(1, 4):
             candidate_bytes = None
             try:
                 logger.info("アイキャッチ画像を生成中（%s）...", model_name)
@@ -644,11 +642,10 @@ def generate_featured_image(
                     logger.info("画像内文字品質検査に合格（文字化け・疑似文字なし）")
                     raw_bytes = candidate_bytes
                     break
-                text_rejections += 1
                 logger.warning(
-                    "画像内に文字化け・不正文字を検出したため再生成（%d/%d）: %s",
-                    text_rejections,
-                    max_text_rejections,
+                    "画像内に文字化け・不正文字を検出したため再生成（%d/3、%s）: %s",
+                    attempt,
+                    model_name,
                     review,
                 )
                 full_prompt += (
@@ -661,13 +658,18 @@ def generate_featured_image(
             except Exception as e:
                 logger.warning("%s 失敗: %s", model_name, e)
                 break
-        if raw_bytes or text_rejections >= max_text_rejections:
+        if raw_bytes:
             break
 
     if not raw_bytes:
-        if text_rejections >= max_text_rejections:
-            raise ValueError("文字化け・疑似文字のないアイキャッチを生成できませんでした")
-        raise ValueError("利用可能な画像生成モデルが見つかりません")
+        # 品質検査を通過できない場合でも、記事を画像なしで公開しない。
+        # 文字を描かない決定論的な代替画像なら、壊れた文字や無関係なロゴを出さずに
+        # アイキャッチとOGPを維持できる。
+        from local_images import create_editorial_image
+
+        fallback_seed = " ".join(filter(None, [article_title, base_prompt, article_content]))
+        logger.warning("生成画像が品質検査を通過しなかったため、文字なしの代替アイキャッチを使用します")
+        return create_editorial_image(fallback_seed)
 
     image_data = fit_image_to_jpeg(raw_bytes, width=1200, height=630, quality=92)
     logger.info("縦横比を維持して1200×630に中央トリミング完了")

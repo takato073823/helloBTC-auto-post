@@ -115,25 +115,13 @@ def create_editorial_image(
     else:
         _draw_network(draw, width, height, rng)
 
-    # Editorial framing and a small, consistent site mark.
+    # Editorial framing only. テキストを置かないため、画像品質検査の代替としても使える。
     draw.rounded_rectangle(
         (int(width * 0.035), int(height * 0.055), int(width * 0.965), int(height * 0.945)),
         radius=28,
         outline=(255, 255, 255, 50),
         width=2,
     )
-    label_font = _font(max(24, height // 20))
-    label = "helloBTC"
-    bbox = draw.textbbox((0, 0), label, font=label_font)
-    x = int(width * 0.06)
-    y = int(height * 0.08)
-    draw.rounded_rectangle(
-        (x - 16, y - 10, x + (bbox[2] - bbox[0]) + 16, y + (bbox[3] - bbox[1]) + 12),
-        radius=12,
-        fill=(5, 10, 22, 155),
-    )
-    draw.text((x, y), label, font=label_font, fill=(255, 255, 255, 235))
-
     image.alpha_composite(overlay)
     output = io.BytesIO()
     image.convert("RGB").save(output, format="JPEG", quality=88, optimize=True)
