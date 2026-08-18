@@ -280,6 +280,12 @@ def record_old_slug(
 ) -> None:
     """WordPress標準の旧スラッグ記録を使い、旧URLを現URLへ301転送する。"""
     changed = wp.update_post(post_id, slug=legacy_slug)
+    logger.info(
+        "旧スラッグ記録 post=%s requested=%s stored=%s",
+        post_id,
+        legacy_slug,
+        changed.get("slug", ""),
+    )
     # 検証に失敗しても、公開URLが一時スラッグのまま残らないよう先に戻す。
     restored = wp.update_post(post_id, slug=canonical_slug)
     if not _same_slug(restored.get("slug", ""), canonical_slug):
