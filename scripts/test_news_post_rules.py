@@ -1,14 +1,59 @@
 """ニュース投稿の恒常ルールに対する軽量テスト。"""
 import unittest
+from unittest.mock import patch
 
 from generator import (
-    FEATURED_PHOTO_QUALITY_PROFILE, _build_imagen_prompt, _image_article_context, _image_review_passed,
+    AI_SEARCH_CONTENT_RULES, FEATURED_PHOTO_QUALITY_PROFILE, NEWS_ARTICLE_SCHEMA,
+    _build_imagen_prompt, _generate_kiso_article, _generate_rich_article,
+    _image_article_context, _image_review_passed,
     _image_text_review_prompt, append_source_attribution, is_duplicate_seo_topic,
-    normalize_swell_html, prepend_lead_heading, resolve_logo_brand,
+    normalize_swell_html, prepend_direct_answer, prepend_lead_heading, resolve_logo_brand,
 )
 
 
 class NewsPostRuleTests(unittest.TestCase):
+    def test_news_schema_requires_a_direct_answer(self):
+        self.assertIn("direct_answer", NEWS_ARTICLE_SCHEMA["required"])
+
+    def test_ai_search_rules_require_answer_first_and_source_separation(self):
+        self.assertIn("冒頭200文字以内", AI_SEARCH_CONTENT_RULES)
+        self.assertIn("hellobtc-direct-answer", AI_SEARCH_CONTENT_RULES)
+        self.assertIn("各H2・H3見出しの直後", AI_SEARCH_CONTENT_RULES)
+        self.assertIn("一次情報", AI_SEARCH_CONTENT_RULES)
+        self.assertIn("helloBTC編集部の整理", AI_SEARCH_CONTENT_RULES)
+
+    def test_direct_answer_is_inserted_after_the_news_lead_heading(self):
+        content = "<h2>ニュースの要点</h2><h3>確認できた事実</h3><p>本文</p>"
+        actual = prepend_direct_answer(content, "日本の読者に重要なニュースの結論です。")
+        self.assertLess(actual.index("<h2>"), actual.index("hellobtc-direct-answer"))
+        self.assertLess(actual.index("hellobtc-direct-answer"), actual.index("<h3>"))
+        self.assertIn("<strong>結論：</strong>日本の読者に重要なニュースの結論です。", actual)
+
+    def test_direct_answer_is_safe_and_never_duplicated(self):
+        actual = prepend_direct_answer("<p>本文</p>", "<b>結論</b> & 影響")
+        self.assertIn("結論 &amp; 影響", actual)
+        self.assertNotIn("<b>", actual)
+        self.assertEqual(actual, prepend_direct_answer(actual, "別の回答"))
+        self.assertEqual(1, actual.count('class="hellobtc-direct-answer"'))
+
+    @patch("generator._generate_meta_json")
+    @patch("generator._call_llm")
+    def test_rich_seo_article_falls_back_to_answer_first(self, call_llm, generate_meta):
+        call_llm.return_value = "<!-- wp:paragraph --><p>従来の導入文</p><!-- /wp:paragraph -->"
+        generate_meta.return_value = {"excerpt": "記事の中心的な疑問に答える要約です。"}
+        actual = _generate_rich_article("コラム")["content"]
+        self.assertTrue(actual.startswith('<!-- wp:paragraph {"className":"hellobtc-direct-answer"} -->'))
+        self.assertEqual(1, actual.count('class="hellobtc-direct-answer"'))
+
+    @patch("generator._generate_meta_json")
+    @patch("generator._call_llm")
+    def test_basic_seo_article_falls_back_to_answer_first(self, call_llm, generate_meta):
+        call_llm.return_value = "<!-- wp:paragraph --><p>従来の導入文</p><!-- /wp:paragraph -->"
+        generate_meta.return_value = {"excerpt": "コインの特徴と注意点を先に答える要約です。"}
+        actual = _generate_kiso_article()["content"]
+        self.assertTrue(actual.startswith('<!-- wp:paragraph {"className":"hellobtc-direct-answer"} -->'))
+        self.assertEqual(1, actual.count('class="hellobtc-direct-answer"'))
+
     def test_prepends_a_reworded_h2(self):
         title = "BitMart、取引所事業を段階的に終了へ　8月26日に全取引停止"
         content = "<p>リード文</p>"

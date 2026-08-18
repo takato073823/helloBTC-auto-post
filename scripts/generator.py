@@ -85,11 +85,28 @@ FEATURED_PHOTO_QUALITY_PROFILE = (
     "paragraph copy, charts, and decorative numbers"
 )
 
+AI_SEARCH_CONTENT_RULES = """
+【AI検索・要約エンジン向けの構成ルール】
+・本文の最初は「この記事でわかること」や問題提起ではなく、読者の主要な疑問への直接回答から始める
+・冒頭200文字以内で「結論」「対象」「重要な根拠」「読者への影響」が理解できるようにする
+・直接回答は次のGutenberg段落とし、記事本文の先頭に必ず1つだけ置く
+  <!-- wp:paragraph {"className":"hellobtc-direct-answer"} -->
+  <p class="hellobtc-direct-answer"><strong>結論：</strong>…</p>
+  <!-- /wp:paragraph -->
+・「この記事でわかること」ボックスは直接回答の後に置く
+・各H2・H3見出しの直後は、前置きではなくその問いへの1文結論から始める
+・確認できる事実、用語の定義、解釈・考察を混同させず、解釈は「helloBTC編集部の整理」とわかる表現にする
+・数値、仕様、発言は公式情報や一次情報で確認できる場合だけ書き、根拠がない情報を補完しない
+・短い段落、意味の明確な見出し、箇条書き、定義リストを使い、文脈の一部を切り出しても意味が通るように書く
+・同じ結論の言い換えを繰り返さず、その記事だけの比較、判断基準、注意点のいずれかを含める
+""".strip()
+
 NEWS_ARTICLE_SCHEMA = {
     "type": "object",
     "properties": {
         "title": {"type": "string"},
         "lead_heading": {"type": "string"},
+        "direct_answer": {"type": "string"},
         "content": {"type": "string"},
         "excerpt": {"type": "string"},
         "meta_description": {"type": "string"},
@@ -101,7 +118,7 @@ NEWS_ARTICLE_SCHEMA = {
         "tweet_bullets": {"type": "array", "items": {"type": "string"}},
     },
     "required": [
-        "title", "lead_heading", "content", "excerpt", "meta_description",
+        "title", "lead_heading", "direct_answer", "content", "excerpt", "meta_description",
         "tags", "slug", "image_prompt", "logo_brand", "logo_domain",
         "tweet_bullets",
     ],
@@ -226,6 +243,28 @@ def prepend_lead_heading(content: str, article_title: str, lead_heading: str | N
                   ) else heading + content
 
 
+def prepend_direct_answer(content: str, direct_answer: str | None) -> str:
+    """AI検索と読者向けの直接回答を、先頭H2の直後に1度だけ置く。"""
+    if 'class="hellobtc-direct-answer"' in content:
+        return content
+
+    answer = re.sub(r"<[^>]+>", "", direct_answer or "")
+    answer = re.sub(r"\s+", " ", unescape(answer)).strip()
+    if not answer:
+        return content
+
+    block = (
+        '<!-- wp:paragraph {"className":"hellobtc-direct-answer"} -->\n'
+        f'<p class="hellobtc-direct-answer"><strong>結論：</strong>{escape(answer)}</p>\n'
+        '<!-- /wp:paragraph -->\n'
+    )
+    leading_h2 = re.match(r"^\s*<h2\b[^>]*>.*?</h2>\s*", content,
+                          flags=re.IGNORECASE | re.DOTALL)
+    if leading_h2:
+        return content[:leading_h2.end()] + block + content[leading_h2.end():]
+    return block + content
+
+
 def append_source_attribution(content: str, source_name: str, source_url: str) -> str:
     """ニュース本文の末尾に、読者が確認できる出典リンクを追加する。"""
     clean_url = (source_url or "").strip()
@@ -319,24 +358,26 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 - ターゲット読者: 仮想通貨に興味がある日本人（初心者〜中級者）
 
 【記事作成ルール】
-1. 元記事の事実関係と意味を正確に保ち、確認できない数値・発言・背景を追加しない
-2. 日本の読者向けにわかりやすい言葉で書く（専門用語には簡単な説明を添える）
-3. 重要なキーワードを自然に含める
-4. H3見出しは3つ設ける。全ての見出しは記事の内容を具体的に表すタイトルにする（「まとめ」「概要」などの汎用的な言葉は使わない）
-5. 元記事の要約だけで終わらせず、元記事内で確認できる事実を使って、日本の投資家への影響や用語の解説などの独自価値を加える
-6. 読者が事実と解説を区別できる独立した構成で書く。出典リンクは投稿時にシステムが本文末尾へ追加するため、本文中に偽の出典やURLを作らない
-7. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
-8. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
-9. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
-10. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
-11. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない
+1. direct_answer は90〜160文字で、誰が・何を・いつ・どうしたかと、日本の読者にとっての重要性を1〜2文で直接回答する。HTMLタグ、「結論：」の接頭辞、出典URLは含めない
+2. 元記事の事実関係と意味を正確に保ち、確認できない数値・発言・背景を追加しない
+3. 日本の読者向けにわかりやすい言葉で書き、専門用語には簡単な説明を添える
+4. H3見出しは「確認できた事実」「日本の読者への影響」「helloBTC編集部の整理と今後の注目点」に相当する3つを設ける。汎用的な「まとめ」「概要」は使わない
+5. 各H3見出しの直後は前置きではなく、その見出しの問いへの結論1文から始める
+6. 元記事の要約だけで終わらせず、元記事内で確認できる事実を使って、日本の投資家への影響や用語の解説などの独自価値を加える
+7. 読者が事実と解説を区別できる独立した構成で書く。出典リンクは投稿時にシステムが本文末尾へ追加するため、本文中に偽の出典やURLを作らない
+8. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
+9. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
+10. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
+11. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
+12. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
-  "title": "SEO最適化された日本語タイトル（30〜60文字、数字や具体的な情報を含む）",
+  "title": "検索意図が明確な日本語タイトル（30〜60文字。数字は元記事で確認でき、内容理解に必要な場合だけ含める）",
   "lead_heading": "投稿タイトルとは少し表現を変えた、本文冒頭用の日本語h2見出し",
-  "content": "<h3>具体的な見出し1</h3><p>本文...</p><h3>具体的な見出し2</h3><p>本文...</p><h3>具体的な見出し3</h3><p>本文...</p>",
-  "excerpt": "記事の要約（100〜150文字）",
+  "direct_answer": "ニュースの結論・主体・時期・日本の読者への重要性をまとめた直接回答（90〜160文字、HTMLなし）",
+  "content": "<h3>確認できた事実を表す具体的な見出し</h3><p>結論1文...</p><p>根拠と詳細...</p><h3>日本の読者への影響を表す具体的な見出し</h3><p>結論1文...</p><p>解説...</p><h3>helloBTC編集部の整理と今後の注目点を表す見出し</h3><p>結論1文...</p><p>考察と注意点...</p>",
+  "excerpt": "中心的な疑問へ先に答える記事要約（100〜150文字）",
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
@@ -669,9 +710,9 @@ def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -
 
 必ず以下のJSONのみ出力してください（前後にテキスト不要）:
 {{
-  "title": "SEO最適化された日本語タイトル（35〜65文字、具体的な数字・年を含む）",
+  "title": "検索意図が明確な日本語タイトル（35〜65文字。数字・年は記事内で確認でき、検索意図に必要な場合だけ含める）",
   "primary_topic": "この記事が答える中心テーマ（例: Solana、暗号資産の税金）",
-  "excerpt": "記事の要約（100〜150文字）",
+  "excerpt": "読者の中心的な疑問へ先に答える要約（120〜160文字。対象・結論・重要な根拠・読者への影響を含める。『結論：』という接頭辞は付けない）",
   "slug": "article-topic-keyword（英語・ハイフン区切り・3〜5単語）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
   "tweet_bullets": ["要点1（25文字以内）", "要点2（25文字以内）", "要点3（25文字以内）"],
@@ -726,6 +767,8 @@ def _generate_rich_article(article_type: str) -> dict:
 
 【テーマ】{cfg['theme']}
 参考トピック: {cfg['topics']}
+
+{AI_SEARCH_CONTENT_RULES}
 
 【品質目標：エックスサーバービジネスの記事レベル】
 ・各H2セクションは「読者の疑問1つ」に完全に答えて完結する
@@ -832,18 +875,16 @@ def _generate_rich_article(article_type: str) -> dict:
 ━━━━━━━━━━━━━━━━━━━━━━
 
 【冒頭】
-① 「この記事でわかること」cap-block（is-style-onborder_ttl + リスト3〜4項目、各項目は「太字キーワード：説明」形式）
-② リード文（段落 × 2〜3）
-   ・1段落目：読者の悩み・疑問を具体的に提示
-   ・2段落目：この記事を読むと何が解決するかを明示
-   ・3段落目（任意）：記事の信頼性・根拠への言及
-③ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
+① 直接回答のGutenberg段落（hellobtc-direct-answer、120〜180文字）
+② 「この記事でわかること」cap-block（is-style-onborder_ttl + リスト3〜4項目、各項目は「太字キーワード：説明」形式）
+③ 必要な場合のみ、根拠と記事の範囲を示す1段落。読者の悩みを繰り返す長いリード文は書かない
+④ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
 
 【本文：H2セクション × 4〜5個】
 各セクションのルール：
   A. [separator + H2]（見出しは「〇〇とは？」「〇〇の方法」「〇〇を比較」など疑問・行動形式）
-  B. 導入段落 × 1（そのH2が答える問いを1文で示す）
-  C. 本文段落 × 1〜2（具体的な説明・データ・事例）
+  B. 直接回答段落 × 1（そのH2への結論を1〜2文で言い切る）
+  C. 根拠段落 × 1〜2（確認できる事実・定義・比較基準）
   D. 視覚要素 × 1（以下から1種類だけ選ぶ）：
      ・テーブル（数値データ・比較がある場合）
      ・ステップブロック（手順がある場合）
@@ -900,7 +941,8 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
     # ── Pass 2: メタデータJSON生成（小さいのでパース安定）────────────────
     logger.info(f"  Pass2: メタデータJSON生成中...")
     meta = _generate_meta_json(html_content, article_type, cfg["chart_hint"])
-    meta["content"] = normalize_swell_html(html_content)
+    normalized_content = normalize_swell_html(html_content)
+    meta["content"] = prepend_direct_answer(normalized_content, meta.get("excerpt"))
     return meta
 
 
@@ -908,8 +950,11 @@ def _generate_kiso_article() -> dict:
     """アルトコイン基礎知識記事を2パスで生成（Pass1=SWELLブロック本文、Pass2=メタデータJSON）。"""
 
     # ── Pass 1: SWELLブロック本文のみ生成 ────────────────────────────────
-    html_prompt = """あなたは仮想通貨専門の上級ライターです。helloBTC（WordPress SWELLテーマ）向けにアルトコイン基礎知識記事を書いてください。
+    html_prompt = (
+        """あなたは仮想通貨専門の上級ライターです。helloBTC（WordPress SWELLテーマ）向けにアルトコイン基礎知識記事を書いてください。
 出力はWordPress Gutenbergブロック記法のみ。JSONもコードブロック（```）も不要。
+
+""" + AI_SEARCH_CONTENT_RULES + """
 
 【テーマ選定】2026年時点でSEO需要が高いコインを1つ選ぶ:
 Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon・TON・SUI・NEAR・Aptos・Arbitrum・Optimism・Cosmos・Filecoin・Render・Injective・Celestia・Starknet
@@ -917,7 +962,7 @@ Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon�
 【品質目標：エックスサーバービジネスの記事レベル】
 ・各H2セクションは「読者の疑問1つ」に完全に答えて完結する
 ・専門用語は初出時に必ず（）内で説明する
-・具体的な数値・データを必ず含める（「高速」→「○○TPS」など）
+・具体的な数値・データは公式情報で確認できる場合だけ含め、確認できない場合は定性的な説明にとどめる
 ・段落は3〜5文・100〜150文字を目安にする
 
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -1022,17 +1067,16 @@ Ethereum・Solana・XRP・Cardano・Avalanche・Polkadot・Chainlink・Polygon�
 ━━━━━━━━━━━━━━━━━━━━━━
 
 【冒頭】
-① 「この記事でわかること」cap-block（is-style-onborder_ttl + リスト3〜4項目、各「太字キーワード：説明」形式）
-② リード文（段落 × 2〜3）
-   ・1段落目：このコインへの関心・疑問を読者目線で提示
-   ・2段落目：この記事で解決できることを明示
-③ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
+① 直接回答のGutenberg段落（hellobtc-direct-answer、120〜180文字）
+② 「この記事でわかること」cap-block（is-style-onborder_ttl + リスト3〜4項目、各「太字キーワード：説明」形式）
+③ 必要な場合のみ、根拠と記事の範囲を示す1段落。読者の悩みを繰り返す長いリード文は書かない
+④ テーマが自動表示する目次を使うため、手作業の目次ボックスは作らない
 
 【本文：H2セクション × 5個（各セクションのルールを必ず守る）】
 セクションルール：
   A. separator + H2（疑問・行動形の見出し）
-  B. 導入段落 × 1（問いへの前置き）
-  C. 本文段落 × 1〜2（説明・データ・事例）
+  B. 直接回答段落 × 1（そのH2への結論を1〜2文で言い切る）
+  C. 根拠段落 × 1〜2（確認できる事実・定義・比較基準）
   D. 視覚要素 × 1（テーブル or ステップ or DLリスト or big_icon × 複数）
   E. big_icon_point × 1（セクションの結論1文）
 
@@ -1084,6 +1128,7 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
 ・赤・オレンジ系の注意cap-block（is-style-onborder_ttl2）は、実際の安全上・投資上の注意が必要な箇所で最大1個だけ使用する。目次や通常説明には使わない
 ・cap-blockは記事全体で最大3個まで。各cap-blockの最後に必ず </div></div> と <!-- /wp:loos/cap-block --> を記述する
 ・JSONなし。Gutenbergブロック記法のみ出力。"""
+    )
 
     logger.info("  Pass1: 基礎知識 SWELLブロック本文生成中...")
     html_content = _call_llm(html_prompt, max_tokens=8192)
@@ -1091,7 +1136,8 @@ cap-block（is-style-onborder_ttl、タイトル「📌 本記事のまとめ」
     # ── Pass 2: メタデータJSON生成 ────────────────────────────────────────
     logger.info("  Pass2: メタデータJSON生成中...")
     meta = _generate_meta_json(html_content, "基礎知識", "主要コインのTPS・時価総額・TVL比較")
-    meta["content"] = normalize_swell_html(html_content)
+    normalized_content = normalize_swell_html(html_content)
+    meta["content"] = prepend_direct_answer(normalized_content, meta.get("excerpt"))
     return meta
 
 

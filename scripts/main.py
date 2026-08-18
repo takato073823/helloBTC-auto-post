@@ -15,7 +15,7 @@ from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
     append_source_attribution, is_duplicate_seo_topic, normalize_swell_html,
-    prepend_lead_heading, resolve_logo_brand,
+    prepend_direct_answer, prepend_lead_heading, resolve_logo_brand,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -113,6 +113,9 @@ def main():
             # 投稿タイトルのコピーではない h2 を、本文の最上部に必ず置く。
             generated["content"] = prepend_lead_heading(
                 article_content, generated["title"], generated.get("lead_heading")
+            )
+            generated["content"] = prepend_direct_answer(
+                generated["content"], generated.get("direct_answer") or generated.get("excerpt")
             )
             generated["content"] = append_source_attribution(
                 generated["content"], article.get("source", ""), url
