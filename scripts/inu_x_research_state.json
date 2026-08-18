@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-18T07:25:12+00:00",
-  "last_watcher_guru_scan_at": "2026-08-18T07:25:12+00:00",
+  "last_watcher_guru_scan_at": "2026-08-18T08:16:11+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -2008,6 +2008,12 @@
       "result_count": 8,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-18T08:16:11+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2250,34 +2256,6 @@
       "summary": "BREAKING NEWS THE SEC IS MOVING FORWARD ON CRYPTO RULEMAKING. 🇺🇸 As Congress continues debating the CLARITY Act, the SEC is taking steps toward clearer rules for digital assets. Crypto regulation is moving. one way or another. 👀 #Crypto #SEC #CLARITYAct #XRP https://t.co/InOEgSeQp2",
       "topic": "regulation",
       "why_trending": "表示4・投稿後58分・反応率75.0%・動画あり"
-    },
-    {
-      "author_followers": 6498,
-      "discovered_at": "2026-08-18T03:28:17+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "MS_Capitall",
-      "has_video": false,
-      "headline": "🇺🇸 Trump to Meet Crypto Leaders at the White House President Trump is expected to meet executives from major crypto and prediction-market companies at the White House on Wednesday,",
-      "impression_count": 6536,
-      "like_count": 14,
-      "linked_urls": [
-        "https://x.com/MS_Capitall/status/2089526815610298530/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089526815610298530",
-      "post_url": "https://x.com/MS_Capitall/status/2089526815610298530",
-      "posted_at": "2026-08-18T01:36:29+00:00",
-      "quote_count": 0,
-      "reply_count": 12,
-      "repost_count": 0,
-      "score": 44.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🇺🇸 Trump to Meet Crypto Leaders at the White House President Trump is expected to meet executives from major crypto and prediction-market companies at the White House on Wednesday, including Coinbase, Ripple, Gemini, Robinhood, Polymarket and Kalshi. SEC Chairman Paul Atkins https://t.co/EUA5WeftcX",
-      "topic": "regulation",
-      "why_trending": "表示6,536・投稿後111分・反応率0.5%"
     },
     {
       "author_followers": 101,
