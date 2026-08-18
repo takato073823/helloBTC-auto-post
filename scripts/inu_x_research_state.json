@@ -2076,66 +2076,21 @@
       "checked_at": "2026-08-18T14:17:42+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "crypto_market"
-    }
-  ],
-  "signals": [
-    {
-      "author_followers": 31025,
-      "discovered_at": "2026-08-18T09:15:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "xiaoheshang2025",
-      "has_video": false,
-      "headline": "美股波动远超比特币，以闪迪为例，十几分钟就可以涨跌百分之10以上， 这就导致我们玩美股节奏会非常快，经常秒开单、秒平仓， 在这种情况下，流动性就显得尤为重要，只有足够多的订单簿，才能保证以最优价格成交，不然每单的利润可能会被滑点吃掉。 https://t.co/HSN2xCu6jX",
-      "impression_count": 910,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/xiaoheshang2025/status/2089633626434711611/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089633626434711611",
-      "post_url": "https://x.com/xiaoheshang2025/status/2089633626434711611",
-      "posted_at": "2026-08-18T08:40:54+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "美股波动远超比特币，以闪迪为例，十几分钟就可以涨跌百分之10以上， 这就导致我们玩美股节奏会非常快，经常秒开单、秒平仓， 在这种情况下，流动性就显得尤为重要，只有足够多的订单簿，才能保证以最优价格成交，不然每单的利润可能会被滑点吃掉。 https://t.co/HSN2xCu6jX",
-      "topic": "chinese_market",
-      "why_trending": "表示910・投稿後34分・反応率0.3%"
     },
     {
-      "author_followers": 11,
-      "discovered_at": "2026-08-18T09:15:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Seven_KingA10",
-      "has_video": false,
-      "headline": "📚 **Crypto新手学习笔记 #03｜Bybit** 今天继续研究头部 Crypto 交易所：**Bybit**。 前两篇研究 Binance 和 Coinbase 后，我开始发现： **交易所之间真正的差距，已经不只是“谁可以买更多币”。** 今天研究 Bybit，我以前对它的印象其实很简单： **一个以合约交易出名的交易所。** https://t.",
-      "impression_count": 2,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Seven_KingA10/status/2089641081873019239/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089641081873019239",
-      "post_url": "https://x.com/Seven_KingA10/status/2089641081873019239",
-      "posted_at": "2026-08-18T09:10:32+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 38.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📚 **Crypto新手学习笔记 #03｜Bybit** 今天继续研究头部 Crypto 交易所：**Bybit**。 前两篇研究 Binance 和 Coinbase 后，我开始发现： **交易所之间真正的差距，已经不只是“谁可以买更多币”。** 今天研究 Bybit，我以前对它的印象其实很简单： **一个以合约交易出名的交易所。** https://t.co/YSj8kQxIHd",
-      "topic": "chinese_market",
-      "why_trending": "表示2・投稿後5分・反応率0.0%"
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-18T15:13:28+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-18T15:13:28+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "crypto_market"
     }
   ],
+  "signals": [],
   "trends": [],
   "version": 1
 }
