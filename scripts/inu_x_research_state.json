@@ -2064,38 +2064,21 @@
       "checked_at": "2026-08-18T13:30:49+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-18T14:17:42+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-18T14:17:42+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "crypto_market"
     }
   ],
   "signals": [
-    {
-      "author_followers": 21769,
-      "discovered_at": "2026-08-18T09:15:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "feixiaohaocom",
-      "has_video": false,
-      "headline": "美股，也要开始“卷全天候”了。 纳斯达克 计划从 12月6日 起新增夜盘交易时段： 🕘 美东 21:00—次日04:00 🇨🇳 北京时间约次日10:00—17:00 叠加原有的4:00—20:00交易时段，意味着美股将实现： 每周5天、每天23小时交易。 每天只剩 20:00—21:00 这一小时暂停。 纳斯达克自己在提交给SEC的文件里写着： https:",
-      "impression_count": 399,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/feixiaohaocom/status/2089618915915710964/photo/1",
-        "https://twitter.com/BullTheoryio/status/2089456885434834989"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089618915915710964",
-      "post_url": "https://x.com/feixiaohaocom/status/2089618915915710964",
-      "posted_at": "2026-08-18T07:42:27+00:00",
-      "quote_count": 1,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 47.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "美股，也要开始“卷全天候”了。 纳斯达克 计划从 12月6日 起新增夜盘交易时段： 🕘 美东 21:00—次日04:00 🇨🇳 北京时间约次日10:00—17:00 叠加原有的4:00—20:00交易时段，意味着美股将实现： 每周5天、每天23小时交易。 每天只剩 20:00—21:00 这一小时暂停。 纳斯达克自己在提交给SEC的文件里写着： https://t.co/1AcCVyXASM https://t.co/xAdJydzo3b",
-      "topic": "chinese_market",
-      "why_trending": "表示399・投稿後93分・反応率1.2%・公式候補リンクあり"
-    },
     {
       "author_followers": 31025,
       "discovered_at": "2026-08-18T09:15:52+00:00",
@@ -2151,30 +2134,6 @@
       "summary": "📚 **Crypto新手学习笔记 #03｜Bybit** 今天继续研究头部 Crypto 交易所：**Bybit**。 前两篇研究 Binance 和 Coinbase 后，我开始发现： **交易所之间真正的差距，已经不只是“谁可以买更多币”。** 今天研究 Bybit，我以前对它的印象其实很简单： **一个以合约交易出名的交易所。** https://t.co/YSj8kQxIHd",
       "topic": "chinese_market",
       "why_trending": "表示2・投稿後5分・反応率0.0%"
-    },
-    {
-      "author_followers": 162,
-      "discovered_at": "2026-08-18T09:15:52+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "huawei52592570",
-      "has_video": false,
-      "headline": "存储超级周期与地缘风险共振：市场在AI狂热与利率逆风间寻找平衡 美光、闪迪等存储股迭创新高，Anthropic估值传闻破2万亿美元；但30年期美债收益率升至5.29%的19年高位，欧洲央行警告AI回调。加密市场在6.3万美元横盘等待白宫会议，市场同时交易AI资本开支的确定性溢价与宏观利率的重新定价。",
-      "impression_count": 309,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089624398164853182",
-      "post_url": "https://x.com/huawei52592570/status/2089624398164853182",
-      "posted_at": "2026-08-18T08:04:14+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "存储超级周期与地缘风险共振：市场在AI狂热与利率逆风间寻找平衡 美光、闪迪等存储股迭创新高，Anthropic估值传闻破2万亿美元；但30年期美债收益率升至5.29%的19年高位，欧洲央行警告AI回调。加密市场在6.3万美元横盘等待白宫会议，市场同时交易AI资本开支的确定性溢价与宏观利率的重新定价。",
-      "topic": "chinese_market",
-      "why_trending": "表示309・投稿後71分・反応率0.0%"
     }
   ],
   "trends": [],
