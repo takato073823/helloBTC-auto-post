@@ -2052,168 +2052,21 @@
       "checked_at": "2026-08-18T12:02:28+00:00",
       "result_count": 0,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-18T13:30:49+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-18T13:30:49+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "crypto_market"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "AnnaBeckerfexr",
-      "has_video": false,
-      "headline": "こんなに根拠が明確な人初めて見ました 迷わずフォローしておくべきアカウントです ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 メタプラ イーサリアム 原油 先物取引 CPI 介入 仮想通貨 ナスダック 米金利 https://t.co/KiNRqm9ULV",
-      "impression_count": 355,
-      "like_count": 0,
-      "linked_urls": [
-        "https://twitter.com/miyabi_fx_1997/status/2089597481164407185"
-      ],
-      "media_types": [],
-      "post_id": "2089610748456825343",
-      "post_url": "https://x.com/AnnaBeckerfexr/status/2089610748456825343",
-      "posted_at": "2026-08-18T07:10:00+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 59.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "こんなに根拠が明確な人初めて見ました 迷わずフォローしておくべきアカウントです ゴールド USDJPY ドル円 BTC 米国株 日経平均 雇用統計 キオクシア 日経先物 日米協調介入 ビットコイン ホルムズ海峡 メタプラ イーサリアム 原油 先物取引 CPI 介入 仮想通貨 ナスダック 米金利 https://t.co/KiNRqm9ULV",
-      "topic": "japanese_market",
-      "why_trending": "表示355・投稿後15分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 42773,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Moshin_glw",
-      "has_video": false,
-      "headline": "ビットコイン、毎年10月から上がる。 …というより、たぶん「秋になると、それまで市場が待っていた答えが出る」が正しいです。 2023年、2024年、2025年を並べると結構わかりやすい。 ーーーーー 2023年 春〜夏は、SECの規制強化とETF期待がぶつかって、BTCはなかなか方向感が出ませんでした。",
-      "impression_count": 1214,
-      "like_count": 16,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089610739703255089",
-      "post_url": "https://x.com/Moshin_glw/status/2089610739703255089",
-      "posted_at": "2026-08-18T07:09:58+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 3,
-      "score": 55.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ビットコイン、毎年10月から上がる。 …というより、たぶん「秋になると、それまで市場が待っていた答えが出る」が正しいです。 2023年、2024年、2025年を並べると結構わかりやすい。 ーーーーー 2023年 春〜夏は、SECの規制強化とETF期待がぶつかって、BTCはなかなか方向感が出ませんでした。",
-      "topic": "japanese_market",
-      "why_trending": "表示1,214・投稿後15分・反応率2.2%"
-    },
-    {
-      "author_followers": 3480,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "RICO190312",
-      "has_video": false,
-      "headline": "本日は微減でした 後場から急落 #日本株 #米国株 #TradeNote https://t.co/JqvjnOiaiV",
-      "impression_count": 308,
-      "like_count": 76,
-      "linked_urls": [
-        "https://x.com/RICO190312/status/2089602019837571076/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089602019837571076",
-      "post_url": "https://x.com/RICO190312/status/2089602019837571076",
-      "posted_at": "2026-08-18T06:35:19+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 53.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "本日は微減でした 後場から急落 #日本株 #米国株 #TradeNote https://t.co/JqvjnOiaiV",
-      "topic": "japanese_market",
-      "why_trending": "表示308・投稿後49分・反応率25.2%"
-    },
-    {
-      "author_followers": 13828,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CoinPartner_",
-      "has_video": false,
-      "headline": "【ビットコイン・イーサリアム・リップル反発｜株高連動で仮想通貨は持ち直し、リップルは出遅れ】 BTCは6万4000ドル台を回復し、ETHも1900ドル台へ反発。一方、XRPは一時1ドルを回復したものの維持できず、0.99ドル台と出遅れています。 https://t.co/HFfyhQDa2b https://t.co/qunH8CfCEp",
-      "impression_count": 589,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CoinPartner_/status/2089601399252509030/photo/1",
-        "https://twitter.com/CoinPartner_/status/2089205026376089703"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089601399252509030",
-      "post_url": "https://x.com/CoinPartner_/status/2089601399252509030",
-      "posted_at": "2026-08-18T06:32:51+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 51.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【ビットコイン・イーサリアム・リップル反発｜株高連動で仮想通貨は持ち直し、リップルは出遅れ】 BTCは6万4000ドル台を回復し、ETHも1900ドル台へ反発。一方、XRPは一時1ドルを回復したものの維持できず、0.99ドル台と出遅れています。 https://t.co/HFfyhQDa2b https://t.co/qunH8CfCEp",
-      "topic": "japanese_market",
-      "why_trending": "表示589・投稿後52分・反応率0.3%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 1498,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "k_koga555",
-      "has_video": false,
-      "headline": "https://t.co/AzQyydVOd3 60日停戦失効でリスクオフも、ビットコインは小反発 楽天ウォレット #AI要約 ビットコイン反発と6.2万ドルの重要サポート 🔳ビットコインは6.2万ドル台から反発",
-      "impression_count": 706,
-      "like_count": 1,
-      "linked_urls": [
-        "https://www.youtube.com/watch?v=D2PCMHRvREw"
-      ],
-      "media_types": [],
-      "post_id": "2089595046173811036",
-      "post_url": "https://x.com/k_koga555/status/2089595046173811036",
-      "posted_at": "2026-08-18T06:07:36+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 48.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "https://t.co/AzQyydVOd3 60日停戦失効でリスクオフも、ビットコインは小反発 楽天ウォレット #AI要約 ビットコイン反発と6.2万ドルの重要サポート 🔳ビットコインは6.2万ドル台から反発",
-      "topic": "japanese_market",
-      "why_trending": "表示706・投稿後77分・反応率0.1%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 46,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "hellobtc_jp",
-      "has_video": false,
-      "headline": "【ニュース】ビットコイン5万7,000ドルでレバレッジ清算拡大の恐れ、強気相場は続くのか ・57,000ドルが清算警戒ライン ・薄い流動性で急落が増幅 ・反発なら76,000ドルも視野 ▶ https://t.co/wTI6sPhfDJ #ビットコイン #仮想通貨 #レバレッジ取引",
-      "impression_count": 26,
-      "like_count": 0,
-      "linked_urls": [
-        "https://hellobtc.jp/bitcoin-57000-liquidation-risk"
-      ],
-      "media_types": [],
-      "post_id": "2089603676914503878",
-      "post_url": "https://x.com/hellobtc_jp/status/2089603676914503878",
-      "posted_at": "2026-08-18T06:41:54+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 47.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【ニュース】ビットコイン5万7,000ドルでレバレッジ清算拡大の恐れ、強気相場は続くのか ・57,000ドルが清算警戒ライン ・薄い流動性で急落が増幅 ・反発なら76,000ドルも視野 ▶ https://t.co/wTI6sPhfDJ #ビットコイン #仮想通貨 #レバレッジ取引",
-      "topic": "japanese_market",
-      "why_trending": "表示26・投稿後43分・反応率0.0%・公式候補リンクあり"
-    },
     {
       "author_followers": 21769,
       "discovered_at": "2026-08-18T09:15:52+00:00",
@@ -2270,32 +2123,6 @@
       "summary": "美股波动远超比特币，以闪迪为例，十几分钟就可以涨跌百分之10以上， 这就导致我们玩美股节奏会非常快，经常秒开单、秒平仓， 在这种情况下，流动性就显得尤为重要，只有足够多的订单簿，才能保证以最优价格成交，不然每单的利润可能会被滑点吃掉。 https://t.co/HSN2xCu6jX",
       "topic": "chinese_market",
       "why_trending": "表示910・投稿後34分・反応率0.3%"
-    },
-    {
-      "author_followers": 101,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "AItoMarketing",
-      "has_video": false,
-      "headline": "毎週火曜更新｜AI｜クリプトニュース＋Xトレンドまとめ｜【2026年8月第2週】BTC5週連続レンジ・Goldman SachsがBTC ETF参入・Solana Agave v4.2有効化・Strategy再開示唆 - AI to Marketing https://t.co/vQwpC1tgeS #はてなブログ #暗号資産 #仮想通貨ニュース #クリプト",
-      "impression_count": 28,
-      "like_count": 0,
-      "linked_urls": [
-        "https://aitomarketing.hatenablog.com/entry/w33/2026/08/18"
-      ],
-      "media_types": [],
-      "post_id": "2089594521076322600",
-      "post_url": "https://x.com/AItoMarketing/status/2089594521076322600",
-      "posted_at": "2026-08-18T06:05:31+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 40.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "毎週火曜更新｜AI｜クリプトニュース＋Xトレンドまとめ｜【2026年8月第2週】BTC5週連続レンジ・Goldman SachsがBTC ETF参入・Solana Agave v4.2有効化・Strategy再開示唆 - AI to Marketing https://t.co/vQwpC1tgeS #はてなブログ #暗号資産 #仮想通貨ニュース #クリプト #ステーブルコイン #資産運用",
-      "topic": "japanese_market",
-      "why_trending": "表示28・投稿後79分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 11,
