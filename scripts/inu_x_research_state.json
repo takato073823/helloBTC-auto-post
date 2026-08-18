@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-17T22:00:59+00:00",
-  "last_watcher_guru_scan_at": "2026-08-17T23:01:07+00:00",
+  "last_deep_scan_at": "2026-08-18T03:28:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-18T03:28:17+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1957,6 +1957,19 @@
       "checked_at": "2026-08-17T23:01:07+00:00",
       "result_count": 1,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-18T03:28:17+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-18T03:28:17+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -1989,171 +2002,142 @@
       "why_trending": "表示166,925・投稿後86分・反応率0.8%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 77759,
-      "discovered_at": "2026-08-17T18:04:45+00:00",
+      "author_followers": 3673,
+      "discovered_at": "2026-08-18T03:28:17+00:00",
       "discovery_type": "official_x_api",
-      "handle": "crptAtlas",
-      "has_video": true,
-      "headline": "Bitcoin just lost the $63,000 support that was holding the whole range together Price tried to reclaim $64K several times and sellers slammed it back down every time The rejection ",
-      "impression_count": 1574,
-      "like_count": 4,
+      "handle": "ANCrypto_",
+      "has_video": false,
+      "headline": "📊 CRYPTO MARKET — AUG 18 with ANCRYPTO Crypto is seeing a mild recovery, but the market remains cautious. BTC is back above $64K while altcoins remain highly selective. ✅MARKET SNA",
+      "impression_count": 99,
+      "like_count": 2,
       "linked_urls": [
-        "https://x.com/crptAtlas/status/2089402841043480809/video/1",
-        "https://twitter.com/crptAtlas/status/2089295200426332555"
+        "https://x.com/ANCrypto_/status/2089537638969888915/photo/1",
+        "https://twitter.com/ANCrypto_/status/2089174517956677811"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089537638969888915",
+      "post_url": "https://x.com/ANCrypto_/status/2089537638969888915",
+      "posted_at": "2026-08-18T02:19:29+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 54.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📊 CRYPTO MARKET — AUG 18 with ANCRYPTO Crypto is seeing a mild recovery, but the market remains cautious. BTC is back above $64K while altcoins remain highly selective. ✅MARKET SNAPSHOT • $BTC — $64,150 🟢 +1.8% • $ETH — $1,899 🟢 +0.8% • $SOL — $75.49 🟢 +1.0% • $HYPE — https://t.co/JuQC4lD9d3 https://t.co/f2CJkt3j4i",
+      "topic": "regulation",
+      "why_trending": "表示99・投稿後68分・反応率5.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 1393,
+      "discovered_at": "2026-08-18T03:28:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "HIMOTHY0X",
+      "has_video": false,
+      "headline": "every new crypto regulation is written by lobbyists from the banks that lost the most to decentralized technology.",
+      "impression_count": 31,
+      "like_count": 5,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2089547125260456388",
+      "post_url": "https://x.com/HIMOTHY0X/status/2089547125260456388",
+      "posted_at": "2026-08-18T02:57:11+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 45.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "every new crypto regulation is written by lobbyists from the banks that lost the most to decentralized technology.",
+      "topic": "regulation",
+      "why_trending": "表示31・投稿後31分・反応率16.1%"
+    },
+    {
+      "author_followers": 1040,
+      "discovered_at": "2026-08-18T03:28:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "ZachRectorfw",
+      "has_video": true,
+      "headline": "BREAKING NEWS THE SEC IS MOVING FORWARD ON CRYPTO RULEMAKING. 🇺🇸 As Congress continues debating the CLARITY Act, the SEC is taking steps toward clearer rules for digital assets. Cr",
+      "impression_count": 4,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/ZachRectorfw/status/2089540154402689245/video/1"
       ],
       "media_types": [
         "video"
       ],
-      "post_id": "2089402841043480809",
-      "post_url": "https://x.com/crptAtlas/status/2089402841043480809",
-      "posted_at": "2026-08-17T17:23:51+00:00",
+      "post_id": "2089540154402689245",
+      "post_url": "https://x.com/ZachRectorfw/status/2089540154402689245",
+      "posted_at": "2026-08-18T02:29:29+00:00",
       "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 3,
-      "score": 58.6,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 44.7,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Bitcoin just lost the $63,000 support that was holding the whole range together Price tried to reclaim $64K several times and sellers slammed it back down every time The rejection at $65.7K was the warning, and now Bitcoin is hunting for the next real demand zone The levels https://t.co/ZCDbeGgf7O https://t.co/SuLizXzNJi",
-      "topic": "crypto_market",
-      "why_trending": "表示1,574・投稿後40分・反応率0.7%・公式候補リンクあり・動画あり"
+      "summary": "BREAKING NEWS THE SEC IS MOVING FORWARD ON CRYPTO RULEMAKING. 🇺🇸 As Congress continues debating the CLARITY Act, the SEC is taking steps toward clearer rules for digital assets. Crypto regulation is moving. one way or another. 👀 #Crypto #SEC #CLARITYAct #XRP https://t.co/InOEgSeQp2",
+      "topic": "regulation",
+      "why_trending": "表示4・投稿後58分・反応率75.0%・動画あり"
     },
     {
-      "author_followers": 4767,
-      "discovered_at": "2026-08-17T20:00:50+00:00",
+      "author_followers": 6498,
+      "discovered_at": "2026-08-18T03:28:17+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Mrrrzach",
+      "handle": "MS_Capitall",
       "has_video": false,
-      "headline": "My top 1? @ZIGChain What they’re doing exceptionally well is turning the chain into a real DeFi and RWA ecosystem.... 🔹 Onchain RWA access through tokenized stocks, ETFs &amp; priv",
-      "impression_count": 246,
-      "like_count": 1,
+      "headline": "🇺🇸 Trump to Meet Crypto Leaders at the White House President Trump is expected to meet executives from major crypto and prediction-market companies at the White House on Wednesday,",
+      "impression_count": 6536,
+      "like_count": 14,
       "linked_urls": [
-        "https://twitter.com/AgencyLaser/status/2089420935937827168"
+        "https://x.com/MS_Capitall/status/2089526815610298530/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2089432670291853786",
-      "post_url": "https://x.com/Mrrrzach/status/2089432670291853786",
-      "posted_at": "2026-08-17T19:22:23+00:00",
-      "quote_count": 2,
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089526815610298530",
+      "post_url": "https://x.com/MS_Capitall/status/2089526815610298530",
+      "posted_at": "2026-08-18T01:36:29+00:00",
+      "quote_count": 0,
+      "reply_count": 12,
+      "repost_count": 0,
+      "score": 44.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🇺🇸 Trump to Meet Crypto Leaders at the White House President Trump is expected to meet executives from major crypto and prediction-market companies at the White House on Wednesday, including Coinbase, Ripple, Gemini, Robinhood, Polymarket and Kalshi. SEC Chairman Paul Atkins https://t.co/EUA5WeftcX",
+      "topic": "regulation",
+      "why_trending": "表示6,536・投稿後111分・反応率0.5%"
+    },
+    {
+      "author_followers": 1090,
+      "discovered_at": "2026-08-18T03:28:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "tdsviral",
+      "has_video": false,
+      "headline": "📃Trump family crypto firm World Liberty Financial gets conditional OCC approval for a national trust bank. Here’s what it means for USD1, crypto regulation and ethics 👉https://t.co",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://tdsvirals.in/world-liberty-financial-regulatory-approval-trump",
+        "https://x.com/tdsviral/status/2089543100196589867/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089543100196589867",
+      "post_url": "https://x.com/tdsviral/status/2089543100196589867",
+      "posted_at": "2026-08-18T02:41:11+00:00",
+      "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 57.9,
+      "score": 35.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "My top 1? @ZIGChain What they’re doing exceptionally well is turning the chain into a real DeFi and RWA ecosystem.... 🔹 Onchain RWA access through tokenized stocks, ETFs &amp; private credit 🔹 Growing stablecoin liquidity and real yield opportunities 🔹 Revenue from ZIG https://t.co/OUofktsiD9",
-      "topic": "onchain_exchange",
-      "why_trending": "表示246・投稿後38分・反応率2.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 11534,
-      "discovered_at": "2026-08-17T20:00:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "ethereuminsti",
-      "has_video": false,
-      "headline": "All-time stablecoin transfer volume on Ethereum passes $70 trillion. Ethereum is the home of onchain finance. https://t.co/ZcXMpt4Kkf",
-      "impression_count": 1972,
-      "like_count": 81,
-      "linked_urls": [
-        "https://x.com/ethereuminsti/status/2089423683508896109/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089423683508896109",
-      "post_url": "https://x.com/ethereuminsti/status/2089423683508896109",
-      "posted_at": "2026-08-17T18:46:40+00:00",
-      "quote_count": 0,
-      "reply_count": 7,
-      "repost_count": 11,
-      "score": 54.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "All-time stablecoin transfer volume on Ethereum passes $70 trillion. Ethereum is the home of onchain finance. https://t.co/ZcXMpt4Kkf",
-      "topic": "onchain_exchange",
-      "why_trending": "表示1,972・投稿後74分・反応率5.8%"
-    },
-    {
-      "author_followers": 619,
-      "discovered_at": "2026-08-17T20:00:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptomegaNews",
-      "has_video": false,
-      "headline": "Crypto's pulse check reveals major regulatory pushes, core tech upgrades, and critical user security warnings. * Ethereum developers target privacy changes in the next major upgrad",
-      "impression_count": 59,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/CryptomegaNews/status/2089419569727143996/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089419569727143996",
-      "post_url": "https://x.com/CryptomegaNews/status/2089419569727143996",
-      "posted_at": "2026-08-17T18:30:19+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 43.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Crypto's pulse check reveals major regulatory pushes, core tech upgrades, and critical user security warnings. * Ethereum developers target privacy changes in the next major upgrade. * Investors cash out fast of $BTC ETFs, yet Bitcoin price remains stable. * Bitcoin https://t.co/iaMAeh6wOQ",
-      "topic": "onchain_exchange",
-      "why_trending": "表示59・投稿後90分・反応率6.1%"
-    },
-    {
-      "author_followers": 279465,
-      "discovered_at": "2026-08-17T20:00:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoDiffer",
-      "has_video": false,
-      "headline": "Treasuries &amp; #ETFs Board. Crypto Accumulation &amp; Capital Flows #Bitcoin ETFs reversed the previous week's $850M+ inflows with roughly $390M in net #outflows, while Ethereum ",
-      "impression_count": 2483,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/CryptoDiffer/status/2089430334383276133/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089430334383276133",
-      "post_url": "https://x.com/CryptoDiffer/status/2089430334383276133",
-      "posted_at": "2026-08-17T19:13:06+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 41.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Treasuries &amp; #ETFs Board. Crypto Accumulation &amp; Capital Flows #Bitcoin ETFs reversed the previous week's $850M+ inflows with roughly $390M in net #outflows, while Ethereum ETFs were essentially flat, posting a marginal ~$3M outflow that ended their five-week inflow streak. https://t.co/16SoqzeTJj",
-      "topic": "onchain_exchange",
-      "why_trending": "表示2,483・投稿後47分・反応率0.3%"
-    },
-    {
-      "author_followers": 20217,
-      "discovered_at": "2026-08-17T20:00:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "0xzxcom",
-      "has_video": false,
-      "headline": "🪙 CRYPTO NEWS ROUNDUP 📅 August 17, 2026 · Past 6 Hours 📊 BITCOIN: BTC cleared $64K as gold gained, while options implied volatility sat near a seasonal floor. Strategy raised $333.",
-      "impression_count": 77,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/0xzxcom/status/2089412214444740743/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089412214444740743",
-      "post_url": "https://x.com/0xzxcom/status/2089412214444740743",
-      "posted_at": "2026-08-17T18:01:05+00:00",
-      "quote_count": 0,
-      "reply_count": 3,
-      "repost_count": 0,
-      "score": 40.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🪙 CRYPTO NEWS ROUNDUP 📅 August 17, 2026 · Past 6 Hours 📊 BITCOIN: BTC cleared $64K as gold gained, while options implied volatility sat near a seasonal floor. Strategy raised $333.7M but reported no new BTC buys. 📊 ETHEREUM: Bitmine bought 9,926 ETH last week and now holds https://t.co/hrwmAR1oKS",
-      "topic": "onchain_exchange",
-      "why_trending": "表示77・投稿後119分・反応率7.5%"
+      "summary": "📃Trump family crypto firm World Liberty Financial gets conditional OCC approval for a national trust bank. Here’s what it means for USD1, crypto regulation and ethics 👉https://t.co/NsYAP1Ii4o #TrumpCryptoBank #WorldLibertyFinancial #USD1Stablecoin #TrumpFamilyCrypto #OCCBank https://t.co/rXQVVhSMqa",
+      "topic": "regulation",
+      "why_trending": "表示1・投稿後47分・反応率0.0%・公式候補リンクあり"
     }
   ],
   "trends": [],
