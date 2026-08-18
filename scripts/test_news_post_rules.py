@@ -8,6 +8,7 @@ from generator import (
     _build_imagen_prompt, _generate_kiso_article, _generate_rich_article,
     _image_article_context, _image_review_passed,
     _image_text_review_prompt, append_source_attribution, is_duplicate_news_topic,
+    is_publishable_news,
     is_duplicate_seo_topic, normalize_swell_html, prepend_direct_answer,
     prepend_lead_heading, resolve_logo_brand,
 )
@@ -17,6 +18,23 @@ from scraper import get_latest_articles, source_name_from_url
 class NewsPostRuleTests(unittest.TestCase):
     def test_news_schema_requires_a_direct_answer(self):
         self.assertIn("direct_answer", NEWS_ARTICLE_SCHEMA["required"])
+
+    def test_news_schema_requires_editorial_value_gate(self):
+        for key in ("publish_decision", "primary_evidence", "unique_value", "topic_cluster"):
+            self.assertIn(key, NEWS_ARTICLE_SCHEMA["required"])
+
+    def test_news_requires_verifiable_evidence_and_unique_value(self):
+        valid = {
+            "publish_decision": True,
+            "topic_cluster": "規制・税制",
+            "primary_evidence": "韓国の規制当局が公表した遮断対象一覧と実施日を元記事内で確認できる。",
+            "unique_value": "日本の利用者が同様のアクセス制限に備えて確認すべき規約と資金管理上の注意点を整理する。",
+        }
+        self.assertTrue(is_publishable_news(valid))
+        self.assertFalse(is_publishable_news({**valid, "publish_decision": False}))
+        self.assertFalse(is_publishable_news({**valid, "primary_evidence": "価格が動いた。"}))
+        self.assertFalse(is_publishable_news({**valid, "unique_value": "要約する。"}))
+        self.assertFalse(is_publishable_news({**valid, "topic_cluster": "芸能"}))
 
     def test_ai_search_rules_require_answer_first_and_source_separation(self):
         self.assertIn("冒頭200文字以内", AI_SEARCH_CONTENT_RULES)
@@ -246,11 +264,12 @@ class NewsPostRuleTests(unittest.TestCase):
         )
         scrape_newsnow.assert_not_called()
 
-    def test_auto_post_runs_three_quality_focused_slots_per_day(self):
+    def test_auto_post_runs_one_quality_review_per_day(self):
         workflow = (
             Path(__file__).parents[1] / ".github" / "workflows" / "auto_post.yml"
         ).read_text(encoding="utf-8")
-        self.assertEqual(3, workflow.count('- cron:'))
+        self.assertEqual(1, workflow.count('- cron:'))
+        self.assertIn('cron: "0 22 * * *"', workflow)
 
     def test_appends_a_safe_visible_source_link(self):
         actual = append_source_attribution(

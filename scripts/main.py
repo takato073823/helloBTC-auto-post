@@ -15,7 +15,7 @@ from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
     append_source_attribution, is_duplicate_seo_topic, normalize_swell_html,
-    is_duplicate_news_topic, prepend_direct_answer, prepend_lead_heading,
+    is_duplicate_news_topic, is_publishable_news, prepend_direct_answer, prepend_lead_heading,
     resolve_logo_brand,
 )
 from wp_poster import WordPressAPI
@@ -101,6 +101,15 @@ def main():
                 source_name=article.get("source", ""),
                 tweet_urls=tweet_urls,
             )
+
+            if not is_publishable_news(generated):
+                logger.warning(
+                    "独自価値または一次根拠が不足しているため公開を見送ります: %s",
+                    generated.get("unique_value", "未記載"),
+                )
+                posted_urls.add(url)
+                save_posted_urls(posted_urls)
+                continue
 
             if is_duplicate_news_topic(generated["title"], recent_news_titles):
                 logger.warning("Google Newsでの重複評価を避けるため公開を見送ります")

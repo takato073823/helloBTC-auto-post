@@ -99,7 +99,18 @@ AI_SEARCH_CONTENT_RULES = """
 ・数値、仕様、発言は公式情報や一次情報で確認できる場合だけ書き、根拠がない情報を補完しない
 ・短い段落、意味の明確な見出し、箇条書き、定義リストを使い、文脈の一部を切り出しても意味が通るように書く
 ・同じ結論の言い換えを繰り返さず、その記事だけの比較、判断基準、注意点のいずれかを含める
+・検索語の言い換えごとに別記事を作らず、同じ検索意図は1つのページで十分に解決する
+・一般論の要約ではなく、一次情報、検証可能なデータ、実体験、独自比較、専門的な判断のいずれかを中心価値にする
+・AIや検索エンジン向けの文章を水増しせず、読者が読み終えた時に具体的な判断または行動ができる内容だけを書く
 """.strip()
+
+NEWS_TOPIC_CLUSTERS = {
+    "ビットコイン市場",
+    "規制・税制",
+    "取引所・保管",
+    "ブロックチェーン技術",
+    "機関投資・ETF",
+}
 
 NEWS_ARTICLE_SCHEMA = {
     "type": "object",
@@ -116,11 +127,16 @@ NEWS_ARTICLE_SCHEMA = {
         "logo_brand": {"type": "string"},
         "logo_domain": {"type": "string"},
         "tweet_bullets": {"type": "array", "items": {"type": "string"}},
+        "publish_decision": {"type": "boolean"},
+        "primary_evidence": {"type": "string"},
+        "unique_value": {"type": "string"},
+        "topic_cluster": {"type": "string", "enum": sorted(NEWS_TOPIC_CLUSTERS)},
     },
     "required": [
         "title", "lead_heading", "direct_answer", "content", "excerpt", "meta_description",
         "tags", "slug", "image_prompt", "logo_brand", "logo_domain",
-        "tweet_bullets",
+        "tweet_bullets", "publish_decision", "primary_evidence", "unique_value",
+        "topic_cluster",
     ],
     "additionalProperties": False,
 }
@@ -363,6 +379,17 @@ def is_duplicate_news_topic(title: str, existing_titles: list[str]) -> bool:
     return False
 
 
+def is_publishable_news(article: dict) -> bool:
+    """量産要約を止め、検証可能な根拠とhelloBTC固有の価値がある記事だけを通す。"""
+    if article.get("publish_decision") is not True:
+        return False
+    if article.get("topic_cluster") not in NEWS_TOPIC_CLUSTERS:
+        return False
+    primary_evidence = str(article.get("primary_evidence", "")).strip()
+    unique_value = str(article.get("unique_value", "")).strip()
+    return len(primary_evidence) >= 30 and len(unique_value) >= 40
+
+
 def generate_article(title, content, source_url, source_name, tweet_urls=None):
     """英語ニュースから SEO 最適化された日本語記事を生成"""
 
@@ -394,6 +421,16 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 - テーマ: 仮想通貨・ビットコイン情報
 - ターゲット読者: 仮想通貨に興味がある日本人（初心者〜中級者）
 
+【公開可否の審査】
+最初に、このニュースをhelloBTCが公開する価値があるかを厳しく判定する。
+publish_decision を true にできるのは、次の条件をすべて満たす場合だけである。
+- 元記事内に、公式発表、提出書類、当事者発言、オンチェーンデータ、具体的な検証結果など、30文字以上で説明できる検証可能な根拠がある
+- 過去記事の言い換えや出来事の小さな続報ではなく、読者の判断を変える新しい事実がある
+- 日本の暗号資産読者に向けて、影響、比較、判断基準、注意点のいずれかを40文字以上の独自価値として提供できる
+- ビットコイン市場、規制・税制、取引所・保管、ブロックチェーン技術、機関投資・ETFのいずれかに明確に属する
+単なる海外記事の要約、価格実況、根拠の薄い予測、同じ出来事の反復、トレンド便乗なら false にする。
+一次情報が元記事から確認できない場合、推測で補わず false にする。
+
 【記事作成ルール】
 1. direct_answer は90〜160文字で、誰が・何を・いつ・どうしたかと、日本の読者にとっての重要性を1〜2文で直接回答する。HTMLタグ、「結論：」の接頭辞、出典URLは含めない
 2. 元記事の事実関係と意味を正確に保ち、確認できない数値・発言・背景を追加しない
@@ -421,7 +458,11 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
   "image_prompt": "Describe one full-bleed photorealistic scene that directly depicts the verified central subject. A physical document, screen, or sign is allowed only when central to the verified event. If visible copy is essential, include at most three exact short English terms, initials, dates, or numbers in quotation marks; never request paragraph copy, fake words, pseudo-text, garbled text, or a webpage/headline layout. Do not add generic crypto decoration or unrelated objects. NO people. Max 25 words.",
   "logo_brand": "ニュースを発表した当事者プロジェクト名。出典メディアは禁止。該当しなければ空文字",
   "logo_domain": "当事者プロジェクトの公式サイトドメイン。出典メディアは禁止。確信できなければ空文字。https://やパスは含めない",
-  "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"]
+  "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"],
+  "publish_decision": true,
+  "primary_evidence": "元記事内で確認できる一次情報・提出書類・当事者発言・データを具体的に説明（30〜180文字）",
+  "unique_value": "海外記事の要約を超えてhelloBTCが日本の読者へ提供する固有の判断材料（40〜180文字）",
+  "topic_cluster": "ビットコイン市場 | 規制・税制 | 取引所・保管 | ブロックチェーン技術 | 機関投資・ETF のいずれか1つ"
 }}"""
 
     return generate_json(
