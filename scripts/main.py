@@ -16,7 +16,7 @@ from generator import (
     generate_seo_article, generate_chart_image, get_seo_article_type,
     append_source_attribution, is_duplicate_seo_topic, normalize_swell_html,
     is_duplicate_news_topic, is_publishable_news, prepend_direct_answer, prepend_lead_heading,
-    resolve_logo_brand,
+    resolve_logo_brand, append_topic_hub_links,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -28,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 POSTED_URLS_FILE = Path(__file__).parent / "posted_urls.json"
-ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（1日3回 × 1本 = 最大3本/日）
+ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（現在は1日1回）
 MIN_CONTENT_LENGTH = 200  # 最低限必要な記事本文の長さ
 
 
@@ -133,6 +133,9 @@ def main():
             )
             generated["content"] = prepend_direct_answer(
                 generated["content"], generated.get("direct_answer") or generated.get("excerpt")
+            )
+            generated["content"] = append_topic_hub_links(
+                generated["content"], generated["topic_cluster"]
             )
             generated["content"] = append_source_attribution(
                 generated["content"], article.get("source", ""), url

@@ -1597,12 +1597,12 @@ async def main():
     # すべてのBingX記事で広告・PRと日本居住者向けの確認事項を明記
     content = insert_required_notice(content)
 
-    # FAQ（可視セクション + FAQPage構造化データ）を挿入
+    # FAQは読者向けの可視セクションとして挿入する。通常メディアのFAQPageは
+    # Googleのリッチリザルト対象外のため、不要な構造化データは追加しない。
     faq = article.get("faq") or []
     if faq:
         faq_section = build_faq_section_html(faq)
-        faq_schema = build_faq_schema_html(faq)
-        # 可視FAQは免責文の直前へ、schemaは先頭へ
+        # 可視FAQは免責文の直前へ
         disclaimer = re.search(r'<p style="font-size:0\.85em', content)
         if faq_section:
             if disclaimer:
@@ -1610,7 +1610,6 @@ async def main():
                 content = content[:idx] + faq_section + content[idx:]
             else:
                 content = content + faq_section
-        content = faq_schema + content
         logger.info(f"  ✓ FAQ {len(faq)}件を挿入")
 
     # 出典リンクボックスを免責文の直前に挿入。Bitget関連テーマは公式告知を使う。

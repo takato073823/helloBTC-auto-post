@@ -1,0 +1,41 @@
+name: 最前線SEO修復（重要記事・重複統合）
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: SEO修復テスト
+        working-directory: scripts
+        run: python -m unittest test_repair_frontier_seo.py test_news_post_rules.py
+
+      - name: WordPressの重要記事を改稿・統合
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        working-directory: scripts
+        run: python repair_frontier_seo.py --backup /tmp/frontier-seo-backup.json
+
+      - name: 変更前バックアップを保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontier-seo-wordpress-backup
+          path: /tmp/frontier-seo-backup.json
+          if-no-files-found: warn
+          retention-days: 30
