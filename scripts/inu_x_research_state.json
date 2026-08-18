@@ -2100,6 +2100,18 @@
       "checked_at": "2026-08-18T16:03:25+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search_error",
+      "checked_at": "2026-08-18T17:05:23+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search_error",
+      "checked_at": "2026-08-18T17:05:23+00:00",
+      "error": "402 Payment Required\ncredits depleted",
+      "topic": "crypto_market"
     }
   ],
   "signals": [],
