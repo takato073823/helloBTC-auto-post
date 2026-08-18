@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-18T11:04:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-18T11:04:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-18T12:02:28+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -2046,6 +2046,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-18T12:02:28+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2290,34 +2296,6 @@
       "summary": "毎週火曜更新｜AI｜クリプトニュース＋Xトレンドまとめ｜【2026年8月第2週】BTC5週連続レンジ・Goldman SachsがBTC ETF参入・Solana Agave v4.2有効化・Strategy再開示唆 - AI to Marketing https://t.co/vQwpC1tgeS #はてなブログ #暗号資産 #仮想通貨ニュース #クリプト #ステーブルコイン #資産運用",
       "topic": "japanese_market",
       "why_trending": "表示28・投稿後79分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 499,
-      "discovered_at": "2026-08-18T07:25:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoAssety",
-      "has_video": false,
-      "headline": "【超重要】トランプ氏、ホワイトハウスで暗号資産幹部と緊急会合へ！ 8月19日（水）、トランプ大統領がCoinbaseやRippleなどの業界幹部、さらにSECのポール・アトキンス委員長やCFTCのマイケル・セリグ委員長らをホワイトハウスに集め、注目の会合を開催します。 立法（CLARITY https://t.co/CVPYtQ6xfH",
-      "impression_count": 27,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CryptoAssety/status/2089591307031433661/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089591307031433661",
-      "post_url": "https://x.com/CryptoAssety/status/2089591307031433661",
-      "posted_at": "2026-08-18T05:52:44+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 40.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【超重要】トランプ氏、ホワイトハウスで暗号資産幹部と緊急会合へ！ 8月19日（水）、トランプ大統領がCoinbaseやRippleなどの業界幹部、さらにSECのポール・アトキンス委員長やCFTCのマイケル・セリグ委員長らをホワイトハウスに集め、注目の会合を開催します。 立法（CLARITY https://t.co/CVPYtQ6xfH",
-      "topic": "japanese_market",
-      "why_trending": "表示27・投稿後92分・反応率9.6%"
     },
     {
       "author_followers": 11,
