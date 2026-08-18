@@ -1599,6 +1599,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-18T08:31:46.670708+00:00"
+    },
+    {
+      "slot": "2026-08-18-19-a",
+      "post_id": "inu_overseas_kol_2089627646338691359",
+      "source_url": "https://x.com/ashcrypto/status/2089627646338691359",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-18T10:24:07.878336+00:00"
     }
   ],
   "history": [
@@ -2909,9 +2919,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-18T08:31:46.670708+00:00",
-      "count": 79792,
-      "fastest_fee": 3
+      "checked_at": "2026-08-18T10:24:07.878336+00:00",
+      "count": 76933,
+      "fastest_fee": 1
     }
   }
 }
