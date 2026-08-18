@@ -1609,6 +1609,16 @@
       "generated_editorial_visual": false,
       "market_key": "",
       "reserved_at": "2026-08-18T10:24:07.878336+00:00"
+    },
+    {
+      "slot": "2026-08-18-21-a",
+      "post_id": "inu_overseas_kol_2089668716006941015",
+      "source_url": "https://x.com/coinmarketcap/status/2089668716006941015",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-18T12:37:21.034518+00:00"
     }
   ],
   "history": [
@@ -2919,8 +2929,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-18T10:24:07.878336+00:00",
-      "count": 76933,
+      "checked_at": "2026-08-18T12:37:21.034518+00:00",
+      "count": 82800,
       "fastest_fee": 1
     }
   }
