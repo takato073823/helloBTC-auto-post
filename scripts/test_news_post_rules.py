@@ -1,5 +1,6 @@
 """ニュース投稿の恒常ルールに対する軽量テスト。"""
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from generator import (
@@ -185,6 +186,15 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("unexpected Chinese", prompt)
         self.assertTrue(_image_review_passed("PASS"))
         self.assertFalse(_image_review_passed("REJECT: fake Chinese text"))
+
+    def test_current_image_model_is_used_before_legacy_fallback(self):
+        source = Path(__file__).with_name("generator.py").read_text(encoding="utf-8")
+        self.assertLess(
+            source.index('("gemini-3.1-flash-image", "gemini")'),
+            source.index('("gemini-2.5-flash-image", "gemini")'),
+        )
+        self.assertNotIn('("imagen-4.0-fast-generate-001", "imagen")', source)
+        self.assertIn("文字なしの代替アイキャッチを使用します", source)
 
     def test_approved_logo_does_not_allow_other_media_branding(self):
         prompt = _image_text_review_prompt("Bitget")

@@ -25,6 +25,11 @@ class LocalImageTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertNotEqual(first, different)
 
+    def test_fallback_image_contains_no_site_text(self):
+        raw = create_editorial_image("bitcoin market chart", width=1200, height=630)
+        # 代替画像は画像生成の文字品質検査を回避するため、文字列を埋め込まない。
+        self.assertNotIn(b"helloBTC", raw)
+
 
 if __name__ == "__main__":
     unittest.main()
