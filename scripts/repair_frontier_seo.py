@@ -310,7 +310,7 @@ def repair(wp: WordPressAPI, backup_path: Path) -> dict:
             continue
         if post.get("status") == "publish" and not _same_slug(post.get("slug", ""), expected_slug):
             raise RuntimeError(f"投稿ID {post_id} のスラッグが想定外です: {post.get('slug')}")
-        wp.update_post(post_id, status="trash")
+        wp.trash_post(post_id)
         trashed.append(post_id)
 
     # 重要ページを、確認可能な一次資料と内部リンクを持つ内容へ全面更新する。

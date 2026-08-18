@@ -83,6 +83,10 @@ class FakeWordPress:
         self.calls.append((post_id, fields))
         return {"slug": fields["slug"]}
 
+    def trash_post(self, post_id):
+        self.calls.append((post_id, {"status": "trash"}))
+        return {"id": post_id, "status": "trash"}
+
 
 class RedirectTests(unittest.TestCase):
     def test_old_slug_rotation_returns_to_canonical(self):
@@ -92,6 +96,12 @@ class RedirectTests(unittest.TestCase):
             [(7, {"slug": "旧スラッグ"}), (7, {"slug": "canonical"})],
             wp.calls,
         )
+
+    def test_wordpress_api_uses_recoverable_delete_for_trash(self):
+        source = Path(__file__).with_name("wp_poster.py").read_text(encoding="utf-8")
+        method = source[source.index("def trash_post"):source.index("def get_published_titles")]
+        self.assertIn('self._request("DELETE", f"posts/{post_id}")', method)
+        self.assertNotIn("force", method)
 
 
 if __name__ == "__main__":
