@@ -2924,14 +2924,20 @@
       "checked_at": "2026-08-17T08:54:08.038694+00:00",
       "kind": "watchdog",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-18-23-a",
+      "checked_at": "2026-08-18T14:28:58.868149+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-18T12:37:21.034518+00:00",
-      "count": 82800,
-      "fastest_fee": 1
+      "checked_at": "2026-08-18T14:28:58.868149+00:00",
+      "count": 77355,
+      "fastest_fee": 3
     }
   }
 }
