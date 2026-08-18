@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-18T05:14:26+00:00",
-  "last_watcher_guru_scan_at": "2026-08-18T05:14:26+00:00",
+  "last_watcher_guru_scan_at": "2026-08-18T06:03:12+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -1989,6 +1989,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-18T06:03:12+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
