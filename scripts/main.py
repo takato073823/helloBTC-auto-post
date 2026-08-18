@@ -15,7 +15,8 @@ from generator import (
     generate_article, generate_featured_image,
     generate_seo_article, generate_chart_image, get_seo_article_type,
     append_source_attribution, is_duplicate_seo_topic, normalize_swell_html,
-    prepend_direct_answer, prepend_lead_heading, resolve_logo_brand,
+    is_duplicate_news_topic, prepend_direct_answer, prepend_lead_heading,
+    resolve_logo_brand,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -27,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 POSTED_URLS_FILE = Path(__file__).parent / "posted_urls.json"
-ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（1日6回 × 1本 = 6本/日）
+ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（1日3回 × 1本 = 最大3本/日）
 MIN_CONTENT_LENGTH = 200  # 最低限必要な記事本文の長さ
 
 
@@ -55,6 +56,7 @@ def main():
 
     wp = WordPressAPI(wp_url, wp_username, wp_app_password)
     posted_urls = load_posted_urls()
+    recent_news_titles = wp.get_recent_published_titles(days=30)
 
     # 「ニュース」カテゴリの ID を取得（なければ自動作成）
     news_category_id = wp.get_or_create_category("ニュース")
@@ -99,6 +101,12 @@ def main():
                 source_name=article.get("source", ""),
                 tweet_urls=tweet_urls,
             )
+
+            if is_duplicate_news_topic(generated["title"], recent_news_titles):
+                logger.warning("Google Newsでの重複評価を避けるため公開を見送ります")
+                posted_urls.add(url)
+                save_posted_urls(posted_urls)
+                continue
 
             # ツイートプレースホルダーを埋め込みカードHTMLに置換
             article_content = generated["content"]
@@ -173,6 +181,7 @@ def main():
 
             posted_urls.add(url)
             save_posted_urls(posted_urls)
+            recent_news_titles.insert(0, generated["title"])
             posted_count += 1
             logger.info(f"投稿完了 ({posted_count}/{ARTICLES_PER_RUN}): {generated['title']}")
 

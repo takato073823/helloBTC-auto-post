@@ -4,6 +4,7 @@ WordPress REST API を使って記事を投稿する
 import requests
 import base64
 import logging
+from datetime import datetime, timedelta, timezone
 
 from price_formatting import format_usd_prices
 
@@ -115,6 +116,58 @@ class WordPressAPI:
                 break
             page += 1
         return [p.get("title", {}).get("rendered", "") for p in posts]
+
+    def get_recent_published_titles(self, days=30, per_page=100):
+        """類似ニュース抑止用に、直近の公開タイトルだけを取得する。"""
+        after = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+        posts = []
+        page = 1
+        page_size = max(1, min(per_page, 100))
+        while True:
+            try:
+                batch = self._request(
+                    "GET", "posts",
+                    params={
+                        "after": after,
+                        "per_page": page_size,
+                        "page": page,
+                        "status": "publish",
+                        "orderby": "date",
+                        "order": "desc",
+                        "_fields": "title",
+                    },
+                )
+            except Exception as e:
+                if page == 1:
+                    logger.warning(f"直近の公開タイトル取得に失敗: {e}")
+                break
+            posts.extend(batch)
+            if len(batch) < page_size:
+                break
+            page += 1
+        return [post.get("title", {}).get("rendered", "") for post in posts]
+
+    def upsert_page(self, slug, title, content, excerpt=""):
+        """固定ページをスラッグで作成または更新する。"""
+        pages = self._request(
+            "GET", "pages",
+            params={"slug": slug, "context": "edit", "_fields": "id,slug,link"},
+        )
+        payload = {
+            "slug": slug,
+            "title": title,
+            "content": content,
+            "excerpt": excerpt,
+            "status": "publish",
+        }
+        if pages:
+            return self._request("POST", f"pages/{pages[0]['id']}", json=payload)
+        return self._request("POST", "pages", json=payload)
+
+    def update_current_user_profile(self, **fields):
+        """投稿者情報をGoogle Newsの透明性要件に合わせて更新する。"""
+        user = self._request("GET", "users/me", params={"context": "edit"})
+        return self._request("POST", f"users/{user['id']}", json=fields)
 
     def get_published_posts_with_content(self):
         """公開済み記事をraw本文付きで全件取得する（保守作業専用）。"""

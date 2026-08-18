@@ -69,6 +69,39 @@ class WordPressPosterSEOTests(unittest.TestCase):
         self.assertEqual(len(titles), 101)
         self.assertEqual(titles[-1], "記事100")
 
+    def test_fetches_recent_titles_for_news_deduplication(self):
+        wp = RecordingWordPressAPI()
+
+        def request(method, endpoint, **kwargs):
+            self.assertEqual("GET", method)
+            self.assertEqual("posts", endpoint)
+            self.assertEqual("publish", kwargs["params"]["status"])
+            self.assertEqual("desc", kwargs["params"]["order"])
+            self.assertIn("after", kwargs["params"])
+            return [{"title": {"rendered": "直近ニュース"}}]
+
+        wp._request = request
+        self.assertEqual(["直近ニュース"], wp.get_recent_published_titles(days=30))
+
+    def test_upserts_an_existing_editorial_policy_page(self):
+        wp = RecordingWordPressAPI()
+        responses = [
+            [{"id": 900, "slug": "about-hellobtc-editorial-policy"}],
+            {"id": 900, "link": "https://hellobtc.jp/about-hellobtc-editorial-policy/"},
+        ]
+
+        def request(method, endpoint, **kwargs):
+            wp.calls.append((method, endpoint, kwargs))
+            return responses.pop(0)
+
+        wp._request = request
+        result = wp.upsert_page(
+            "about-hellobtc-editorial-policy", "編集方針", "<p>本文</p>", "要約"
+        )
+        self.assertEqual("pages/900", wp.calls[-1][1])
+        self.assertEqual("publish", wp.calls[-1][2]["json"]["status"])
+        self.assertEqual(900, result["id"])
+
 
 if __name__ == "__main__":
     unittest.main()

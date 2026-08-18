@@ -281,7 +281,14 @@ def append_source_attribution(content: str, source_name: str, source_url: str) -
         f'rel="noopener noreferrer">{escape(label)}</a></p>\n'
         '<!-- /wp:paragraph -->'
     )
-    return content.rstrip() + "\n" + source_block
+    policy_block = (
+        '<!-- wp:paragraph {"className":"hellobtc-editorial-policy"} -->\n'
+        '<p class="hellobtc-editorial-policy">執筆・検証方法は'
+        '<a href="https://hellobtc.jp/about-hellobtc-editorial-policy/">'
+        'helloBTCの編集方針</a>をご確認ください。</p>\n'
+        '<!-- /wp:paragraph -->'
+    )
+    return content.rstrip() + "\n" + source_block + "\n" + policy_block
 
 
 def _valid_logo_domain(domain: str | None) -> str | None:
@@ -322,6 +329,36 @@ def is_duplicate_seo_topic(primary_topic: str, title: str, existing_titles: list
         same_topic = len(topic) >= 3 and topic in existing.lower()
         if similar >= 0.62 or (same_topic and similar >= 0.42):
             logger.warning("類似SEO記事を検出: %s", unescape(existing))
+            return True
+    return False
+
+
+def is_duplicate_news_topic(title: str, existing_titles: list[str]) -> bool:
+    """直近記事と同じ出来事・検索意図のニュースを公開しない。"""
+    def normalise(value: str) -> str:
+        plain = unescape(re.sub(r"<[^>]+>", "", value)).lower()
+        return re.sub(r"[\s　｜|・】【。】『』「」（）()!?！？，、:：\-ー]", "", plain)
+
+    def trigrams(value: str) -> set[str]:
+        return {value[index:index + 3] for index in range(max(0, len(value) - 2))}
+
+    normalized_title = normalise(title)
+    if len(normalized_title) < 8:
+        return False
+
+    title_grams = trigrams(normalized_title)
+    for existing in existing_titles:
+        normalized_existing = normalise(existing)
+        if len(normalized_existing) < 8:
+            continue
+        similar = SequenceMatcher(None, normalized_title, normalized_existing).ratio()
+        existing_grams = trigrams(normalized_existing)
+        overlap = (
+            len(title_grams & existing_grams) / min(len(title_grams), len(existing_grams))
+            if title_grams and existing_grams else 0
+        )
+        if similar >= 0.58 or overlap >= 0.72:
+            logger.warning("類似ニュースを検出: %s", unescape(existing))
             return True
     return False
 

@@ -7,9 +7,11 @@ from generator import (
     AI_SEARCH_CONTENT_RULES, FEATURED_PHOTO_QUALITY_PROFILE, NEWS_ARTICLE_SCHEMA,
     _build_imagen_prompt, _generate_kiso_article, _generate_rich_article,
     _image_article_context, _image_review_passed,
-    _image_text_review_prompt, append_source_attribution, is_duplicate_seo_topic,
-    normalize_swell_html, prepend_direct_answer, prepend_lead_heading, resolve_logo_brand,
+    _image_text_review_prompt, append_source_attribution, is_duplicate_news_topic,
+    is_duplicate_seo_topic, normalize_swell_html, prepend_direct_answer,
+    prepend_lead_heading, resolve_logo_brand,
 )
+from scraper import get_latest_articles, source_name_from_url
 
 
 class NewsPostRuleTests(unittest.TestCase):
@@ -215,6 +217,41 @@ class NewsPostRuleTests(unittest.TestCase):
             ["Solana（SOL）とは？2024年最新版・ブロックチェーン技術から購入方法まで完全ガイド"],
         ))
 
+    def test_blocks_a_near_duplicate_news_topic(self):
+        existing = ["ビットコイン6万4,000ドル付近で推移、中東情勢が市場に影響"]
+        self.assertTrue(is_duplicate_news_topic(
+            "ビットコイン6万4,000ドルを維持、中東情勢で不安定な値動き",
+            existing,
+        ))
+        self.assertFalse(is_duplicate_news_topic(
+            "韓国がPolymarketへのアクセスを制限、規制対象を拡大",
+            existing,
+        ))
+
+    def test_newsnow_records_the_real_publisher_name(self):
+        self.assertEqual("CoinDesk", source_name_from_url("https://www.coindesk.com/markets/story"))
+        self.assertEqual("Example News", source_name_from_url("https://example-news.com/story"))
+
+    @patch("scraper.scrape_newsnow")
+    @patch("scraper.fetch_from_rss")
+    def test_latest_articles_prioritize_fresh_rss_sources(self, fetch_rss, scrape_newsnow):
+        fetch_rss.return_value = [
+            {"url": "https://source.example/older", "published_timestamp": 100},
+            {"url": "https://source.example/newer", "published_timestamp": 200},
+        ]
+        actual = get_latest_articles(count=2)
+        self.assertEqual(
+            ["https://source.example/newer", "https://source.example/older"],
+            [article["url"] for article in actual],
+        )
+        scrape_newsnow.assert_not_called()
+
+    def test_auto_post_runs_three_quality_focused_slots_per_day(self):
+        workflow = (
+            Path(__file__).parents[1] / ".github" / "workflows" / "auto_post.yml"
+        ).read_text(encoding="utf-8")
+        self.assertEqual(3, workflow.count('- cron:'))
+
     def test_appends_a_safe_visible_source_link(self):
         actual = append_source_attribution(
             "<p>本文</p>", "CoinDesk & News", "https://example.com/news?id=1&lang=en"
@@ -223,6 +260,8 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn('href="https://example.com/news?id=1&amp;lang=en"', actual)
         self.assertIn("CoinDesk &amp; News", actual)
         self.assertIn('rel="noopener noreferrer"', actual)
+        self.assertIn("helloBTCの編集方針", actual)
+        self.assertIn("about-hellobtc-editorial-policy", actual)
 
     def test_does_not_append_an_invalid_source_url(self):
         self.assertEqual(

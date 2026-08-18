@@ -4,8 +4,10 @@ NewsNow + RSS feeds から最新の仮想通貨ニュースを取得するスク
 import requests
 from bs4 import BeautifulSoup
 import feedparser
+import calendar
 import logging
 import time
+from urllib.parse import urlparse
 
 logger = logging.getLogger(__name__)
 
@@ -26,6 +28,25 @@ RSS_FEEDS = [
     {"url": "https://www.theblock.co/rss.xml", "name": "The Block"},
     {"url": "https://bitcoinmagazine.com/.rss/full/", "name": "Bitcoin Magazine"},
 ]
+
+SOURCE_DOMAIN_NAMES = {
+    "coindesk.com": "CoinDesk",
+    "cointelegraph.com": "Cointelegraph",
+    "decrypt.co": "Decrypt",
+    "theblock.co": "The Block",
+    "bitcoinmagazine.com": "Bitcoin Magazine",
+}
+
+
+def source_name_from_url(url: str) -> str:
+    """NewsNow経由でも、実際の記事配信元を出典名として返す。"""
+    hostname = (urlparse(url).hostname or "").lower().removeprefix("www.")
+    for domain, name in SOURCE_DOMAIN_NAMES.items():
+        if hostname == domain or hostname.endswith("." + domain):
+            return name
+    if not hostname:
+        return "配信元"
+    return hostname.split(".")[0].replace("-", " ").title()
 
 
 def scrape_newsnow(max_articles=20):
@@ -53,8 +74,9 @@ def scrape_newsnow(max_articles=20):
                 articles.append({
                     "title": text,
                     "url": href,
-                    "source": "NewsNow",
+                    "source": source_name_from_url(href),
                     "description": "",
+                    "published_timestamp": 0,
                 })
 
             if len(articles) >= max_articles:
@@ -86,6 +108,10 @@ def fetch_from_rss(max_per_feed=5):
                         "description": entry.get("summary", "")[:500],
                         "source": feed_info["name"],
                         "published": entry.get("published", ""),
+                        "published_timestamp": (
+                            calendar.timegm(entry.published_parsed)
+                            if entry.get("published_parsed") else 0
+                        ),
                     })
                     count += 1
             logger.info(f"{feed_info['name']} から {count} 件取得")
@@ -192,19 +218,19 @@ def fetch_tweet_embed_html(tweet_url: str) -> str:
 
 
 def get_latest_articles(count=20):
-    """NewsNow + RSS から最新記事を取得（NewsNow 優先）"""
-    # NewsNow からトレンド記事を取得
-    articles = scrape_newsnow(max_articles=count)
+    """信頼できる配信元RSSを優先し、NewsNowは不足分だけ補完する。"""
+    per_feed = max(4, (count // max(len(RSS_FEEDS), 1)) + 2)
+    articles = fetch_from_rss(max_per_feed=per_feed)
+    articles.sort(key=lambda article: article.get("published_timestamp", 0), reverse=True)
 
-    # NewsNow で取得できなかった場合は RSS を使用
-    if len(articles) < count // 2:
-        logger.info("RSS フィードにフォールバック")
-        rss_articles = fetch_from_rss(max_per_feed=4)
-        # 重複除外してマージ
-        existing_urls = {a["url"] for a in articles}
-        for a in rss_articles:
-            if a["url"] not in existing_urls:
-                articles.append(a)
-                existing_urls.add(a["url"])
+    existing_urls = {article["url"] for article in articles}
+    if len(articles) < count:
+        logger.info("RSSの不足分をNewsNowで補完")
+        for article in scrape_newsnow(max_articles=count):
+            if article["url"] not in existing_urls:
+                articles.append(article)
+                existing_urls.add(article["url"])
+            if len(articles) >= count:
+                break
 
     return articles[:count]
