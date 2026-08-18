@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-18T09:15:52+00:00",
-  "last_watcher_guru_scan_at": "2026-08-18T09:15:52+00:00",
+  "last_watcher_guru_scan_at": "2026-08-18T10:04:59+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -2027,6 +2027,12 @@
       "result_count": 4,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-18T10:04:59+00:00",
+      "result_count": 0,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
