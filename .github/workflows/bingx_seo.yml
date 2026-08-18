@@ -1,9 +1,10 @@
-name: BingX SEO記事 自動生成（1日2記事）
+name: BingX SEO記事 自動生成（週2記事）
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # JST 09:00（既存スケジュールの隙間）
-    - cron: "0 12 * * *"  # JST 21:00（夜の閲覧ピーク・既存枠と非衝突）
+    # Search Consoleで需要が確認できているクラスターだけを、品質確認可能な頻度で公開。
+    - cron: "0 0 * * 2"   # 火曜 JST 09:00
+    - cron: "0 0 * * 5"   # 金曜 JST 09:00
   workflow_dispatch:       # 手動実行ボタン
 
 jobs:

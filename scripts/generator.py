@@ -112,6 +112,37 @@ NEWS_TOPIC_CLUSTERS = {
     "機関投資・ETF",
 }
 
+TOPIC_HUB_LINKS = {
+    "ビットコイン市場": [
+        ("ビットコインの仕組み", "/bitcoin-how-it-works/"),
+        ("仮想通貨とは", "/what-is-cryptocurrency/"),
+        ("仮想通貨で利益を狙う方法とリスク", "/how-to-earn-crypto-beginners/"),
+    ],
+    "規制・税制": [
+        ("仮想通貨の税金", "/crypto-tax-guide/"),
+        ("仮想通貨とは", "/what-is-cryptocurrency/"),
+        ("暗号資産取引所の選び方", "/crypto-exchange-selection-guide-2026/"),
+    ],
+    "取引所・保管": [
+        ("暗号資産取引所の選び方", "/crypto-exchange-selection-guide-2026/"),
+        ("仮想通貨とは", "/what-is-cryptocurrency/"),
+        ("仮想通貨の税金", "/crypto-tax-guide/"),
+    ],
+    "ブロックチェーン技術": [
+        ("Solana（SOL）の仕組みとリスク", "/solana-sol-blockchain-investment-guide/"),
+        ("イーサリアムとは", "/what-is-ethereum/"),
+        ("仮想通貨とは", "/what-is-cryptocurrency/"),
+    ],
+    "機関投資・ETF": [
+        ("ビットコインの仕組み", "/bitcoin-how-it-works/"),
+        ("仮想通貨とは", "/what-is-cryptocurrency/"),
+        ("仮想通貨の税金", "/crypto-tax-guide/"),
+    ],
+}
+
+TOPIC_HUB_START = "<!--HELLOBTC_TOPIC_HUB_START-->"
+TOPIC_HUB_END = "<!--HELLOBTC_TOPIC_HUB_END-->"
+
 NEWS_ARTICLE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -305,6 +336,30 @@ def append_source_attribution(content: str, source_name: str, source_url: str) -
         '<!-- /wp:paragraph -->'
     )
     return content.rstrip() + "\n" + source_block + "\n" + policy_block
+
+
+def append_topic_hub_links(content: str, topic_cluster: str) -> str:
+    """ニュースを検索意図に合う恒久ガイドへ接続する（冪等）。"""
+    if TOPIC_HUB_START in content:
+        return content
+    links = TOPIC_HUB_LINKS.get(topic_cluster)
+    if not links:
+        logger.warning("内部リンクを追加できないトピッククラスター: %s", topic_cluster)
+        return content
+    items = "".join(
+        f'<li><a href="https://hellobtc.jp{escape(path, quote=True)}">{escape(label)}</a></li>'
+        for label, path in links
+    )
+    block = (
+        f"{TOPIC_HUB_START}\n"
+        '<!-- wp:group {"className":"hellobtc-related-guides"} -->\n'
+        '<div class="wp-block-group hellobtc-related-guides">'
+        '<h2>背景を理解するための関連ガイド</h2>'
+        f"<ul>{items}</ul></div>\n"
+        '<!-- /wp:group -->\n'
+        f"{TOPIC_HUB_END}"
+    )
+    return content.rstrip() + "\n" + block
 
 
 def _valid_logo_domain(domain: str | None) -> str | None:

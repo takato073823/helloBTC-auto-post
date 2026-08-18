@@ -1,11 +1,9 @@
 name: helloBTC SEO特集記事（下書き）
 
 on:
-  schedule:
-    # 1日2回 SEO記事を下書き保存 (日本時間: 10:00・20:00)
-    - cron: "0 1 * * *"   # JST 10:00
-    - cron: "0 11 * * *"  # JST 20:00
-  workflow_dispatch:  # 手動実行ボタン
+  # 同じ検索意図の記事を量産しない。Search Consoleの需要と一次情報を
+  # 人が確認できたテーマだけを手動で作成する。
+  workflow_dispatch:
 
 jobs:
   post-seo-article:

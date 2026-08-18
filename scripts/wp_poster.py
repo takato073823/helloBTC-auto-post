@@ -91,6 +91,10 @@ class WordPressAPI:
         旧URL → 新URL の301リダイレクトを自動で行う。"""
         return self._request("POST", f"posts/{post_id}", json=fields)
 
+    def trash_post(self, post_id):
+        """記事を完全削除せずWordPressのゴミ箱へ移す。"""
+        return self._request("DELETE", f"posts/{post_id}")
+
     def get_published_titles(self, per_page=100):
         """公開済み記事のタイトルを取得する（類似テーマの重複投稿防止用）。"""
         posts = []
