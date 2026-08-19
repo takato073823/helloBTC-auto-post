@@ -1648,6 +1648,7 @@ def validate_candidate(
     now: dt.datetime,
     *,
     required_topic: str | None = None,
+    include_editorial: bool = True,
 ) -> None:
     if not candidate.get("has_candidate"):
         raise LookupError(candidate.get("skip_reason") or "適切な一次情報がありません")
@@ -1698,9 +1699,10 @@ def validate_candidate(
     if any(is_low_value_single_source_roundup(value) for value in roundup_evidence):
         raise ValueError("単一ソースの総括記事は自動投稿できません")
 
-    _validate_reader_interest(candidate)
-    _validate_follow_value(candidate)
-    validate_auto_post_quality(candidate)
+    if include_editorial:
+        _validate_reader_interest(candidate)
+        _validate_follow_value(candidate)
+        validate_auto_post_quality(candidate)
 
     used_urls = {
         normalize_url(row.get("source_url", ""))
@@ -2353,7 +2355,14 @@ def _build_item_from_candidate(
             }
         )
         logger.info("引用一覧外の一次資料を実ページ検証で確認: %s", verified_url)
-    validate_candidate(selected, sources, state, now, required_topic=required_topic)
+    validate_candidate(
+        selected,
+        sources,
+        state,
+        now,
+        required_topic=required_topic,
+        include_editorial=False,
+    )
     # 事実・出典・鮮度を確定してからGrokに編集だけを依頼する。Grok案も同じ
     # 品質ゲートへ戻すため、もっともらしい創作やURL差し替えは公開へ進まない。
     selected = _select_grok_editorial_copy(
@@ -2363,6 +2372,8 @@ def _build_item_from_candidate(
         now,
         required_topic=required_topic,
     )
+    # Grok案または元候補の最終文章欄を、一次情報の検証とは別に必ず審査する。
+    validate_candidate(selected, sources, state, now, required_topic=required_topic)
     if verified_url is None:
         verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url
