@@ -2924,5 +2924,17 @@
       "stage": "reservation",
       "reason": "reservation_lease_expired"
     }
-  ]
+  ],
+  "api_usage": {
+    "jst_date": "2026-08-19",
+    "counts": {
+      "grok_editorial": 1
+    },
+    "claims": [
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-19T05:52:05.977444+00:00"
+      }
+    ]
+  }
 }

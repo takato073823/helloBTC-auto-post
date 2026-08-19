@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T04:47:48.946583+00:00",
-  "slot": "2026-08-19-13-a",
+  "generated_at": "2026-08-19T05:52:05.977444+00:00",
+  "slot": "2026-08-19-14-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T04:47:48.946583+00:00",
-    "to": "2026-08-19T04:47:48.946583+00:00"
+    "from": "2026-08-18T05:52:05.977444+00:00",
+    "to": "2026-08-19T05:52:05.977444+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,7 +34,7 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 1,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,8 +45,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 1,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -54,18 +54,27 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 0,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
           "used": 0,
           "limit": 8
         }
-      }
+      },
+      "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
+    "candidate_shortlist": [
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "📜 SEC proposes Regulation Crypto Assets",
+        "published_at": "2026-08-18T00:00:00+09:00",
+        "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
+        "why_now": "Follows March 2026 interpretation on crypto assets."
+      }
+    ],
     "rejected_reasons": [
-      "海外KOL引用探索失敗: 402 Payment Required\ncredits depleted"
+      "一次探索1: この系統の鮮度上限を超えています"
     ]
   }
 }
