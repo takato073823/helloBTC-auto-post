@@ -117,11 +117,14 @@ jobs:
         run: python inu_company_orchestrator.py --prepare
 
       - name: ドライラン画像を保存
-        if: steps.dry_prepare.outputs.ready == 'true'
+        if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: inu-hourly-dry-run
-          path: scripts/artifacts/inu-auto/
+          path: |
+            scripts/artifacts/inu-auto/
+            scripts/inu_research_review.json
+            scripts/inu_company_state.json
           retention-days: 3
 
       - name: スケジュール実行状態を先に保存

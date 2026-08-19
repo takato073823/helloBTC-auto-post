@@ -341,6 +341,8 @@ X_SIGNAL_SET_SCHEMA = {
                     "summary": {"type": "string"},
                     "why_trending": {"type": "string"},
                     "topic": {"type": "string"},
+                    "primary_source_url": {"type": "string"},
+                    "primary_evidence": {"type": "string"},
                 },
                 "required": [
                     "post_url",
@@ -350,6 +352,8 @@ X_SIGNAL_SET_SCHEMA = {
                     "summary",
                     "why_trending",
                     "topic",
+                    "primary_source_url",
+                    "primary_evidence",
                 ],
             },
             "minItems": 1,
@@ -597,6 +601,10 @@ def build_grok_prompt(now: dt.datetime, state: dict) -> str:
 - インフルエンサー投稿は発見の手掛かりとして採用できるが、噂・煽り・価格予想・広告・キャンペーンは除外する。厳選情報源であっても、公式リンク、トランザクション、企業・取引所・政府の発表、実測データのいずれにも到達できない内容はsignalsに入れない。
 - headlineは何が起きたか、why_trendingはなぜ今すぐ調べる価値があるかを具体的に書く。
 - post_urlはX Searchで実際に確認したstatus URLだけを使う。
+- primary_source_urlには、そのX投稿から確認できる発表主体の公式ページ、当局資料、
+  企業IR、ETF発行体、取引所ステータス、公式データのHTTPS URLを入れる。第三者メディア、
+  X、検索結果、短縮URLは禁止。公式URLへ到達できない話題はsignalsへ入れない。
+- primary_evidenceには一次資料で照合すべき固有名詞・数値・決定を短く入れる。
 - posted_atは必ずタイムゾーンを含むISO 8601形式（例: 2026-08-05T03:15:00Z）で返す。
 - 同じ出来事の転載は1件にまとめ、古い話題で件数を埋めない。
 - 出力は日本語。ただしアカウント名、固有名詞、数値は原文を維持する。
@@ -648,6 +656,15 @@ def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[s
             continue
         seen.add(url)
         handle = str(row.get("handle", "")).strip().lstrip("@")
+        primary_url = normalize_url(str(row.get("primary_source_url", "")))
+        primary_host = (urlsplit(primary_url).hostname or "").lower().removeprefix("www.")
+        if (
+            not primary_url.startswith("https://")
+            or is_x_url(primary_url)
+            or any(primary_host == host or primary_host.endswith(f".{host}") for host in SECONDARY_HOSTS)
+        ):
+            invalid_urls += 1
+            continue
         signals.append(
             {
                 "title": str(row.get("headline", ""))[:180],
@@ -655,8 +672,10 @@ def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[s
                 "published": posted_at.isoformat(),
                 "url": url[:500],
                 "summary": (
-                    f"{row.get('summary', '')} / 注目理由: {row.get('why_trending', '')}"
+                    f"{row.get('summary', '')} / 注目理由: {row.get('why_trending', '')} / "
+                    f"一次資料候補: {primary_url} / 照合点: {row.get('primary_evidence', '')}"
                 )[:700],
+                "primary_source_url": primary_url[:500],
                 "discovery_type": "grok_x_search",
             }
         )
