@@ -3002,13 +3002,19 @@
       "checked_at": "2026-08-19T00:59:39.619299+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-19-11-a",
+      "checked_at": "2026-08-19T02:53:51.409389+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-19T00:59:39.619299+00:00",
-      "count": 77568,
+      "checked_at": "2026-08-19T02:53:51.409389+00:00",
+      "count": 75494,
       "fastest_fee": 3
     }
   }
