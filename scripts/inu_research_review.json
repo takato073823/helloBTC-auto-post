@@ -1,20 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T08:03:40.748006+00:00",
-  "slot": "2026-08-19-17-a",
+  "generated_at": "2026-08-19T10:03:51.996063+00:00",
+  "slot": "2026-08-19-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T08:03:40.748006+00:00",
-    "to": "2026-08-19T08:03:40.748006+00:00"
+    "from": "2026-08-18T10:03:51.996063+00:00",
+    "to": "2026-08-19T10:03:51.996063+00:00"
   },
   "status": "ready",
   "draft": {
-    "format": "thread",
+    "format": "single",
     "posts": [
-      "⚠️ MayaChainで資産流出\n\nMAYAChainの公式文書は、攻撃時に取引停止などの緊急手順を定めている。\n第三者報道で報じられた今回の流出額・停止時刻は、公式一次資料で独立確認できず採用しない。",
-      "市場への影響と次の確認\n\n影響: 流出額と停止範囲は公式続報で確認が必要。\n注意: 公開情報の整理であり、個別の売買を勧めるものではありません。\n次の確認: 次はMAYAChain公式告知と停止解除を確認。"
+      "💳 暗号資産カード決済、月間7.59億ドル\n\n決済利用の拡大は、暗号資産が投資対象から実需へ広がるかを測る材料になる。"
     ],
-    "public_compact_post": "⚠️ MayaChainで資産流出\n\nMAYAChainの公式文書は、攻撃時に取引停止などの緊急手順を定めている。\n影響: 流出額と停止範囲は公式続報で確認が必要。\n注意: 投資助言ではありません。\n次の確認: 次はMAYAChain公式告知と停止解除を確認。"
+    "public_compact_post": "💳 暗号資産カード決済、月間7.59億ドル\n\n2026年7月の暗号資産決済カード利用額は7.59億ドル\n前年同月比で約2.5倍、計測開始時の2023年10月は100万ドル未満\n\n決済利用の拡大は、暗号資産が投資対象から実需へ広がるかを測る材料になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,22 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "onchain",
-    "selected_hook": "⚠️ MayaChainで資産流出",
-    "verified_facts": [
-      "MAYAChainの公式文書は、攻撃時に取引停止などの緊急手順を定めている。",
-      "第三者報道で報じられた今回の流出額・停止時刻は、公式一次資料で独立確認できず採用しない。"
-    ],
-    "market_or_user_impact": "流出額と停止範囲は公式続報で確認が必要。",
+    "selected_topic": "x_reaction",
+    "selected_hook": "💳 暗号資産カード決済、月間7.59億ドル",
+    "verified_facts": [],
+    "market_or_user_impact": "投機以外の暗号資産需要を、決済額の推移で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "次はMAYAChain公式告知と停止解除を確認。",
+    "next_watch": "決済利用が一時的な増加か、継続的な成長かを追える。",
     "primary_source": {
-      "name": "MAYAChain公式ドキュメント",
-      "url": "https://docs.mayaprotocol.com/node-docs/mayanodes/emergency-procedures",
-      "verified": true
+      "name": "",
+      "url": "https://x.com/coinmarketcap/status/2089981990523003048",
+      "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 27,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -51,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 27,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -70,50 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "onchain",
-        "hook": "⚠️ MayaChainで資産流出",
-        "published_at": "2026-08-19T06:36:11+00:00",
-        "source_url": "https://docs.mayaprotocol.com/node-docs/mayanodes/emergency-procedures",
-        "why_now": "主要資産を扱うクロスチェーン基盤の安全手順と、流出報道の公式確認可否が焦点。"
-      },
-      {
-        "topic_type": "etf_flow",
-        "hook": "🏦 IBITの保有BTCを更新",
-        "published_at": "2026-08-07T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
-        "why_now": "約74.6万BTCの保有残高は、$BTC現物需給を測る具体的な基準になる。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "💵 USDC流通量は733億ドル",
-        "published_at": "2026-08-05T00:00:00+00:00",
-        "source_url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
-        "why_now": "ステーブルコイン流通量と決済量の増加は、暗号資産市場の決済流動性を測る具体値。"
-      },
-      {
-        "topic_type": "whale_treasury",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      },
-      {
-        "topic_type": "earnings",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      }
-    ],
+    "candidate_shortlist": [],
     "rejected_reasons": []
   }
 }
