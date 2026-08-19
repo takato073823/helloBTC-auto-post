@@ -6,6 +6,8 @@
 
 from __future__ import annotations
 
+import asyncio
+import html
 import json
 import unicodedata
 from dataclasses import asdict, dataclass
@@ -14,6 +16,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from PIL import Image, ImageChops
+import requests
 
 
 EVIDENCE_TYPES = {"official_text_crop", "official_data_crop", "reported_text_crop"}
@@ -74,6 +77,56 @@ def validate_capture_spec(spec: SourceCaptureSpec) -> None:
     selector = spec.selector.strip()
     if not selector or selector.lower() in BROAD_SELECTORS:
         raise ValueError("ページ全体ではなく、重要部分を示す限定的なselectorが必要です")
+
+
+async def _mark_normalized_evidence(page, normalized_anchor: str) -> str:
+    """表記だけ正規化し、根拠全文を含む最小のDOM要素へ印を付ける。"""
+    return await page.locator("body *").evaluate_all(
+        r"""
+        (nodes, target) => {
+          const normalise = (value) => (value || "")
+            .normalize("NFKC")
+            .toLocaleLowerCase()
+            .replace(/[\p{P}\p{S}\p{Z}\s_]/gu, "");
+          const matches = (element) => normalise(element.innerText).includes(target);
+          const element = nodes.find((node) =>
+            matches(node) &&
+            !Array.from(node.children).some((child) => matches(child))
+          );
+          if (!element) return "";
+          const id = "inu-evidence-" + Math.random().toString(36).slice(2);
+          element.setAttribute("data-inu-evidence-target", id);
+          return id;
+        }
+        """,
+        normalized_anchor,
+    )
+
+
+def _official_html_with_base(source_url: str) -> str:
+    """公式URLから同じHTMLを取得し、相対CSSを解決できるbaseだけを補う。"""
+    host = (urlparse(source_url).hostname or "").lower()
+    response = requests.get(
+        source_url,
+        timeout=30,
+        headers={
+            "User-Agent": SEC_USER_AGENT
+            if host == "sec.gov" or host.endswith(".sec.gov")
+            else "helloBTC research https://hellobtc.jp/",
+            "Accept-Encoding": "gzip, deflate",
+        },
+    )
+    response.raise_for_status()
+    if "html" not in response.headers.get("content-type", "").lower():
+        raise ValueError("公式ページのHTMLを取得できません")
+    base = f'<base href="{html.escape(source_url, quote=True)}">'
+    body = response.text
+    lower = body.lower()
+    if "<head" in lower:
+        start = lower.find(">", lower.find("<head"))
+        if start >= 0:
+            return body[: start + 1] + base + body[start + 1 :]
+    return base + body
 
 
 async def capture_official_element(
@@ -164,26 +217,21 @@ async def capture_official_evidence(
                 # テキストを同じ保守的な正規化で照合し、最小の可視要素だけを
                 # 撮る。本文全体や近い別の文を撮るフォールバックではない。
                 normalized_anchor = normalize_evidence_text(anchor)
-                target_id = await page.locator("body *").evaluate_all(
-                    """
-                    (nodes, target) => {
-                      const normalise = (value) => (value || "")
-                        .normalize("NFKC")
-                        .toLocaleLowerCase()
-                        .replace(/[\\p{P}\\p{S}\\p{Z}\\s_]/gu, "");
-                      const matches = (element) => normalise(element.innerText).includes(target);
-                      const element = nodes.find((node) =>
-                        matches(node) &&
-                        !Array.from(node.children).some((child) => matches(child))
-                      );
-                      if (!element) return "";
-                      const id = "inu-evidence-" + Math.random().toString(36).slice(2);
-                      element.setAttribute("data-inu-evidence-target", id);
-                      return id;
-                    }
-                    """,
-                    normalized_anchor,
-                )
+                target_id = await _mark_normalized_evidence(page, normalized_anchor)
+                if not target_id:
+                    # 一部の官公庁サイトは自動ブラウザだけに制限画面を返す。
+                    # 通常HTTPで取得でき、前段で原文照合済みの同一公式HTMLを
+                    # そのままレンダリングして再探索する。文章や画像は生成しない。
+                    official_html = await asyncio.to_thread(
+                        _official_html_with_base, spec.source_url
+                    )
+                    await page.set_content(
+                        official_html,
+                        wait_until="domcontentloaded",
+                        timeout=timeout_ms,
+                    )
+                    await page.wait_for_timeout(800)
+                    target_id = await _mark_normalized_evidence(page, normalized_anchor)
                 if not target_id:
                     raise ValueError("一次資料内に指定された根拠文字列が見つかりません")
                 locator = page.locator(f'[data-inu-evidence-target="{target_id}"]')

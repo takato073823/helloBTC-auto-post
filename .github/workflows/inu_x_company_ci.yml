@@ -40,5 +40,6 @@ jobs:
           test_inu_hermes_research.py
           test_inu_company_orchestrator.py
           test_inu_hourly_guard.py
+          test_inu_source_capture.py
           test_inu_auto_hourly.py
           test_inu_live_post.py
