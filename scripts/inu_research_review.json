@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T06:03:44.267573+00:00",
+  "generated_at": "2026-08-19T06:10:03.735358+00:00",
   "slot": "2026-08-19-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T06:03:44.267573+00:00",
-    "to": "2026-08-19T06:03:44.267573+00:00"
+    "from": "2026-08-18T06:10:03.735358+00:00",
+    "to": "2026-08-19T06:10:03.735358+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,7 +34,7 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 1,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,7 +45,7 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
+        "signal_count": 1,
         "status": "used"
       },
       "paid_api_usage": {
@@ -54,7 +54,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 3,
+          "used": 4,
           "limit": 12
         },
         "openai_web_search": {
@@ -64,13 +64,17 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
+    "candidate_shortlist": [
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
+        "published_at": "2026-08-18T00:00:00-04:00",
+        "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
+        "why_now": "前回の解釈指針に続き包括的枠組みが提示された。"
+      }
+    ],
     "rejected_reasons": [
-      "再探索1: この系統の鮮度上限を超えています",
-      "再探索2: この系統の鮮度上限を超えています",
-      "再探索3: この系統の鮮度上限を超えています",
-      "再探索4: 今回の検索結果では、2026年8月19日15:03 JSTから24時間以内に発表された、固定探索先の政府・規制当局・企業IR・公式データによる別主体のHTML一次資料を3件以上確認できなかった。Circleの更新は確認できたが、同一発表主体に偏るため追加候補として採用しなかった。",
-      "海外KOL引用探索失敗: 402 Payment Required\ncredits depleted"
+      "一次探索1: 一次資料内に指定された根拠文字列が見つかりません"
     ]
   }
 }
