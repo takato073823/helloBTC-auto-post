@@ -1,21 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-19T11:03:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T12:01:40+00:00",
+  "last_deep_scan_at": "2026-08-19T13:31:43+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T13:31:43+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-05T22:00:47+00:00",
-      "result_count": 4,
-      "spike": false,
-      "topic": "onchain_exchange"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-06T00:50:02+00:00",
-      "result_count": 0,
-      "spike": false,
-      "topic": "macro_rates"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-06T03:56:03+00:00",
@@ -2276,6 +2262,19 @@
       "checked_at": "2026-08-19T12:01:40+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T13:31:43+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-19T13:31:43+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2612,34 +2611,6 @@
       "summary": "Crypto navigates exploits, regulatory shifts, and shifting market dynamics. Here's the latest: * MAYAChain halted its network after an estimated $1.7M exploit. * US accounting board FASB proposes conditions for stablecoins as cash equivalents. * Exchange stablecoin https://t.co/trATn5RqIJ",
       "topic": "onchain_exchange",
       "why_trending": "表示28・投稿後166分・反応率9.3%"
-    },
-    {
-      "author_followers": 222,
-      "discovered_at": "2026-08-19T07:25:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoCaneCorso",
-      "has_video": false,
-      "headline": "💥 BTC Liquidation Report | Aug 18, 2026 💰 Price: $64,275 📦 Open Interest: 105,999 BTC 💸 Funding: 0.0080% ⚖️ Long/Short: 60% / 40% #BTC #Crypto https://t.co/M1SSCXmPXr",
-      "impression_count": 132,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/CryptoCaneCorso/status/2089691301998469435/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089691301998469435",
-      "post_url": "https://x.com/CryptoCaneCorso/status/2089691301998469435",
-      "posted_at": "2026-08-18T12:30:05+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 36.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "💥 BTC Liquidation Report | Aug 18, 2026 💰 Price: $64,275 📦 Open Interest: 105,999 BTC 💸 Funding: 0.0080% ⚖️ Long/Short: 60% / 40% #BTC #Crypto https://t.co/M1SSCXmPXr",
-      "topic": "crypto_market",
-      "why_trending": "表示132・投稿後1135分・反応率3.9%"
     },
     {
       "author_followers": 8903,
