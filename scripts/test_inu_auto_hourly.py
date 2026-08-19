@@ -337,6 +337,39 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertTrue(selected["generated_editorial_visual"])
         generated.assert_called_once()
 
+    def test_regulatory_rule_change_uses_one_official_evidence_image(self):
+        item = candidate(
+            topic_type="regulatory_rule_change",
+            visual_route="official_text_crop",
+            published_at="2026-08-04T11:00:00Z",
+        )
+        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
+            artifact_dir = Path(directory) / "inu-auto"
+            with patch.object(
+                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+            ), patch.object(
+                inu_auto_hourly, "ARTIFACT_DIR", artifact_dir
+            ), patch.object(
+                inu_auto_hourly, "capture_official_evidence"
+            ), patch.object(
+                inu_auto_hourly, "capture_source_hero_image"
+            ) as hero, patch.object(
+                inu_auto_hourly, "generate_editorial_news_visual"
+            ) as generated, patch.object(
+                inu_auto_hourly, "validate_test_item"
+            ):
+                built, selected = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    [{"url": item["source_url"], "title": "official"}],
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertTrue(built["media_path"].endswith("-evidence.png"))
+        self.assertTrue(selected["evidence_as_primary"])
+        hero.assert_not_called()
+        generated.assert_not_called()
+
     def test_economy_image_limit_is_configurable_and_capped(self):
         with patch.dict(
             "os.environ",
@@ -537,6 +570,35 @@ class INUAutoHourlyTests(unittest.TestCase):
                 [{"url": item["source_url"], "title": "official"}],
                 {"posted_slots": [], "posted_ids": [], "history": []},
                 NOW,
+            )
+
+    def test_date_only_official_release_gets_limited_precision_grace(self):
+        now = dt.datetime(2026, 8, 19, 5, 30, tzinfo=dt.timezone.utc)
+        item = candidate(
+            topic_type="regulatory_rule_change",
+            visual_route="official_text_crop",
+            published_at="2026-08-18T00:00:00-04:00",
+        )
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "official"}],
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            now,
+        )
+
+    def test_date_only_official_release_grace_never_exceeds_36_hours(self):
+        now = dt.datetime(2026, 8, 19, 17, 1, tzinfo=dt.timezone.utc)
+        item = candidate(
+            topic_type="regulatory_rule_change",
+            visual_route="official_text_crop",
+            published_at="2026-08-18T00:00:00-04:00",
+        )
+        with self.assertRaisesRegex(ValueError, "鮮度上限"):
+            inu_auto_hourly.validate_candidate(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                now,
             )
 
     def test_verified_macro_candidate_within_24_hours_is_accepted(self):

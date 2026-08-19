@@ -136,6 +136,11 @@ MAX_AGE_HOURS = {
     # 速報と誤認させず、過去24時間の市場背景として扱う場合だけ採用する。
     "macro_event": 24,
 }
+# 規制当局などの公式発表には、公開日だけが表示され、時刻を取得できないページが
+# ある。モデルはその日付を現地時間00:00として返すため、実際には24時間以内でも
+# 数時間だけ古く見える。時刻が厳密に00:00で、一次資料かつ通常の24時間系統に
+# 限り12時間の精度猶予を認める。速報系（2〜6時間）には適用しない。
+DATE_ONLY_PUBLICATION_GRACE_HOURS = 12
 SECONDARY_HOSTS = {
     "bloomberg.com",
     "coindesk.com",
@@ -1712,11 +1717,26 @@ def validate_candidate(
     if selected in used_urls:
         raise ValueError("同じ一次資料は投稿済みまたは予約済みです")
 
-    published = _parse_timestamp(candidate.get("published_at", ""))
+    raw_published_at = str(candidate.get("published_at", ""))
+    published = _parse_timestamp(raw_published_at)
     age = now.astimezone(dt.timezone.utc) - published
     if age < dt.timedelta(minutes=-15):
         raise ValueError("公開日時が未来です")
-    if age > dt.timedelta(hours=MAX_AGE_HOURS[topic_type]):
+    maximum_age = dt.timedelta(hours=MAX_AGE_HOURS[topic_type])
+    try:
+        source_precision = dt.datetime.fromisoformat(
+            raw_published_at.replace("Z", "+00:00")
+        ).timetz().replace(tzinfo=None)
+    except (TypeError, ValueError):
+        source_precision = None
+    date_only_official_release = (
+        bool(candidate.get("is_primary_source"))
+        and MAX_AGE_HOURS[topic_type] >= 24
+        and source_precision == dt.time(0, 0)
+        and age
+        <= maximum_age + dt.timedelta(hours=DATE_ONLY_PUBLICATION_GRACE_HOURS)
+    )
+    if age > maximum_age and not date_only_official_release:
         raise ValueError("この系統の鮮度上限を超えています")
 
     recent_topics = [row.get("topic_type") for row in _recent_history(state)[-2:]]
@@ -2396,7 +2416,13 @@ def _build_item_from_candidate(
             evidence_anchor=selected["evidence_anchor"],
         )
     )
-    if selected.get("evidence_as_primary"):
+    # 規制変更は、装飾画像より発表本文そのものが最も意味のある根拠になる。
+    # 公式本文の該当箇所を1枚だけ添付し、不要なAI画像を重ねない。
+    if selected.get("evidence_as_primary") or (
+        selected["topic_type"] == "regulatory_rule_change"
+        and selected["visual_route"] == "official_text_crop"
+    ):
+        selected["evidence_as_primary"] = True
         item = {
             "id": _candidate_id(selected),
             "topic_type": selected["topic_type"],
