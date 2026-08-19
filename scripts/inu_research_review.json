@@ -1,17 +1,20 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T06:20:32.017157+00:00",
+  "generated_at": "2026-08-19T06:25:34.961668+00:00",
   "slot": "2026-08-19-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T06:20:32.017157+00:00",
-    "to": "2026-08-19T06:20:32.017157+00:00"
+    "from": "2026-08-18T06:25:34.961668+00:00",
+    "to": "2026-08-19T06:25:34.961668+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
-    "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "format": "thread",
+    "posts": [
+      "📜 SEC、新規則「Regulation Crypto Assets」を提案\n\nSECが最大5百万ドルと7500万ドルの免除を提案した。\n投資家保護を保ちつつ資本調達の明確化を図る。",
+      "市場への影響と次の確認\n\n影響: 発行体と投資家に新たな遵守経路を提供する\n注意: 公開情報の整理であり、個別の売買を勧めるものではありません。\n次の確認: 60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
+    ],
+    "public_compact_post": "📜 SEC、新規則「Regulation Crypto Assets」を提案\n\nSECが最大5百万ドルと7500万ドルの免除を提案した。\n影響: 発行体と投資家に新たな遵守経路を提供する\n注意: 投資助言ではありません。\n次の確認: 60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,16 +25,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
-    "verified_facts": [],
-    "market_or_user_impact": "",
+    "selected_topic": "regulatory_rule_change",
+    "selected_hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
+    "verified_facts": [
+      "SECが最大5百万ドルと7500万ドルの免除を提案した。",
+      "投資家保護を保ちつつ資本調達の明確化を図る。"
+    ],
+    "market_or_user_impact": "発行体と投資家に新たな遵守経路を提供する",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。",
     "primary_source": {
-      "name": "",
-      "url": "",
-      "verified": false
+      "name": "SEC",
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
+      "verified": true
     },
     "corroborating_sources": [],
     "x_discovery_signal_count": 1,
@@ -54,7 +60,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 6,
+          "used": 7,
           "limit": 12
         },
         "openai_web_search": {
@@ -70,11 +76,9 @@
         "hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
         "published_at": "2026-08-18T00:00:00-04:00",
         "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
-        "why_now": "3月の解釈に続き包括的な枠組みを構築するため"
+        "why_now": "3月の解釈に続き包括的な枠組みを提示するため"
       }
     ],
-    "rejected_reasons": [
-      "一次探索1: 一次資料内に指定された根拠文字列が見つかりません"
-    ]
+    "rejected_reasons": []
   }
 }

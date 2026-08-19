@@ -143,6 +143,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "32223314149",
+      "started_at": "2026-08-19T06:25:34.961613+00:00",
+      "completed_at": "2026-08-19T06:25:51.846801+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-19-15-a",
+      "post_id": "inu_auto_40393a03d287a6",
+      "topic_type": "regulatory_rule_change",
+      "content_fingerprint": "0a806181f7cb64374045f6bf677af0ad818baba3a77ee31fcf1855c7eac0735c",
+      "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
     }
   ]
 }
