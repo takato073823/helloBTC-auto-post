@@ -1632,13 +1632,20 @@ def compose_candidate_text(candidate: dict) -> str:
         else "公開情報の整理であり、個別の売買を勧めるものではありません。"
     )
 
-    def build(hook: str, facts: list[str], impact_text: str, next_text: str) -> str:
+    def build(
+        hook: str,
+        facts: list[str],
+        impact_text: str,
+        next_text: str,
+        *,
+        risk_text: str = disclaimer,
+    ) -> str:
         return compose_post(
             hook=hook,
             facts=[
                 *facts,
                 f"影響: {impact_text}",
-                f"注意: {disclaimer}",
+                f"注意: {risk_text}",
                 f"次の確認: {next_text}",
             ],
             opinion="",
@@ -1650,19 +1657,19 @@ def compose_candidate_text(candidate: dict) -> str:
     if weighted_length(text) <= MAX_WEIGHTED_LENGTH:
         return text
 
-    def clip(value: str, limit: int) -> str:
-        clean = " ".join(value.split()).strip()
-        return clean if len(clean) <= limit else clean[: max(1, limit - 1)].rstrip("、。 ") + "…"
-
-    # 長い説明はレビュー用スレッドへ残し、定時公開の1投稿は同じ論理構造のまま短くする。
+    # 2つ目の補足事実はレビュー用スレッドへ残し、公開文は最重要事実1文へ絞る。
+    # 省略記号や文の途中切れは信用を落とすため、文字列の機械切断は行わない。
     compact = build(
-        clip(candidate["hook"], 24),
-        [clip(candidate["facts"][0], 30)],
-        clip(impact, 18),
-        clip(next_watch, 18),
+        candidate["hook"],
+        [candidate["facts"][0]],
+        impact,
+        next_watch,
+        risk_text="投資助言ではありません。",
     )
     if weighted_length(compact) > MAX_WEIGHTED_LENGTH:
-        raise ValueError("投稿文を安全に280文字以内へ短縮できません")
+        raise ValueError("文を途中で切らずに280文字以内へ短縮できません")
+    if "…" in compact:
+        raise ValueError("省略記号で切れた投稿文は公開できません")
     return compact
 
 
@@ -1825,6 +1832,14 @@ def _write_research_review(
                     "status": "used" if official_x_signals else "no_accepted_signal",
                 },
                 "paid_api_usage": usage_snapshot(state or {}, now),
+                "xai_signal_shortlist": [
+                    {
+                        "title": str(row.get("title", ""))[:180],
+                        "url": normalize_url(str(row.get("url", ""))),
+                        "published": str(row.get("published", ""))[:80],
+                    }
+                    for row in xai_signals[:6]
+                ],
             },
             "candidate_shortlist": shortlist,
             "rejected_reasons": failure_reasons[-12:],

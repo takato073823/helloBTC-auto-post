@@ -104,6 +104,10 @@ _RULE_CHANGE_RE = re.compile(
 _REGULATORY_IMPACT_RE = re.compile(
     r"(?:投資家|個人|事業者|取引所|発行体|金融機関|ETF|開示|審査|保護|取引|申請|資産)"
 )
+_ROUTINE_DISCLOSURE_RE = re.compile(
+    r"(?:毎日|週次|毎週|月次|毎月|定期的|継続的|常時).{0,30}(?:公開|開示|更新|掲載)|"
+    r"(?:公開|開示|更新|掲載).{0,30}(?:毎日|週次|毎週|月次|毎月|定期的|継続的|常時)"
+)
 
 
 def compact_text(value: object) -> str:
@@ -168,3 +172,10 @@ def validate_auto_post_quality(candidate: dict) -> None:
             raise ValueError("規制当局名・新ルール名・具体的な変更が不足しています")
         if len(facts) != 2 or not _REGULATORY_IMPACT_RE.search(facts[-1]):
             raise ValueError("規制変更の背景と投資家・事業者への影響が不足しています")
+    elif topic_type == "supply_event":
+        if not _MATERIAL_NUMBER_RE.search(combined):
+            raise ValueError("需給イベントの数量・金額・比率が不足しています")
+        if _ROUTINE_DISCLOSURE_RE.search(combined) and not re.search(
+            r"(?:前回比|前年比|増加|減少|純流入|純流出|新規|今回|当日)", combined
+        ):
+            raise ValueError("常設の定期開示ページだけでは新しい需給イベントになりません")

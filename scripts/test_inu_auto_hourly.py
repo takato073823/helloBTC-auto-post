@@ -858,18 +858,41 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn("#", text)
         self.assertEqual(1, text.count("$"))
 
-    def test_long_generated_copy_is_compacted_without_another_api_call(self):
+    def test_long_generated_copy_is_rejected_instead_of_cut_mid_sentence(self):
         item = candidate(
             hook="重要な市場ニュースです" * 12,
             facts=["公式発表で重要な数値が更新されました。" * 12],
             opinion="",
             source_name="Example Official Investor Relations Department" * 4,
         )
+        with self.assertRaisesRegex(ValueError, "途中で切らず"):
+            inu_auto_hourly.compose_candidate_text(item)
+
+    def test_compact_copy_keeps_complete_sentences_without_ellipsis(self):
+        item = candidate(
+            facts=[
+                "公式発表で当日の純流入額が更新され、前日からの需給変化を確認できます。",
+                "補足の長い説明はレビュー用スレッドに保持し、公開文では最重要事実を優先します。",
+            ],
+            reader_interest="当日の資金流入が現物市場の需給に与える影響を確認できます。",
+            follow_value="次回公表される純流入額と現物価格の反応を確認します。",
+        )
         text = inu_auto_hourly.compose_candidate_text(item)
         inu_auto_hourly.validate_post(text)
-        self.assertNotIn("僕としては", text)
-        self.assertNotIn("僕", text)
-        self.assertNotIn("出典", text)
+        self.assertNotIn("…", text)
+        self.assertIn(item["facts"][0], text)
+        self.assertNotIn(item["facts"][1], text)
+
+    def test_static_weekly_supply_disclosure_is_not_a_fresh_event(self):
+        item = candidate(
+            topic_type="supply_event",
+            hook="📊 $USDC準備資産の週次開示にフロー追加",
+            facts=["Circleは$USDC準備資産と発行・焼却フローを週次で開示している。"],
+            evidence_anchor="USDC reserve holdings are fully disclosed on a weekly basis",
+            why_now="Circleが発行・焼却フローを週次で併せて公開したためです。",
+        )
+        with self.assertRaisesRegex(ValueError, "数量・金額・比率"):
+            inu_auto_hourly.validate_auto_post_quality(item)
 
     def test_trusted_media_is_discovery_only(self):
         signals = [
