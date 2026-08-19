@@ -112,6 +112,13 @@ def capture_source_hero_image(
 
 def _editorial_prompt(*, hook: str, facts: list[str], topic_type: str) -> str:
     facts_text = "\n".join(f"- {fact}" for fact in facts[:2])
+    regulatory_direction = (
+        "For a regulation or government-policy event, show a photorealistic U.S. financial-regulation scene: "
+        "an official federal building or hearing-room atmosphere, a close-up of formal policy documents, "
+        "and subtle digital-asset technology cues. Do not fabricate an SEC logo or readable legal text."
+        if topic_type == "regulatory_rule_change"
+        else ""
+    )
     return f"""
 Use case: ads-marketing
 Asset type: primary image for a timely Japanese X news post, portrait 4:5
@@ -121,11 +128,12 @@ Verified context (for visual direction only, do not render words or numbers):
 {facts_text}
 Topic type: {topic_type}
 Scene/backdrop: a specific, contemporary business or technology scene that communicates the event at a glance.
-Style/medium: premium financial-news editorial photography or cinematic illustration, sophisticated and credible at phone size.
+Style/medium: photorealistic premium financial-news editorial photography, natural material detail, sophisticated and credible at phone size. No illustration or 3D-rendered look.
 Composition/framing: portrait 4:5, one decisive focal point, strong depth and contrast, generous clean negative space. It must feel like a news image, not a web card or infographic.
+Topic-specific direction: {regulatory_direction}
 Text: no text at all.
 Constraints: do not generate letters, words, numbers, charts, interface screens, company logos, trademarks, watermarks, signatures, or a likeness of a real person. Do not invent a claim beyond the verified context. This image is an attention visual; the source evidence will be attached separately.
-Avoid: generic stock-photo office scenes, HTML dashboards, black breaking-news template, cryptocurrency coins unless directly essential, mascots, copied influencer layouts, and imitation of any reference image or a recognizable publisher illustration style (including Cointelegraph-style crypto editorial art).
+Avoid: generic stock-photo office scenes, HTML dashboards, black breaking-news template, cryptocurrency coins unless directly essential, mascots, illustration, CGI, copied influencer layouts, and imitation of any reference image or a recognizable publisher illustration style (including Cointelegraph-style crypto editorial art).
 """.strip()
 
 

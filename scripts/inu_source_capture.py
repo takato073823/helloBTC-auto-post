@@ -24,9 +24,9 @@ BROAD_SELECTORS = {"*", "html", "body", "main", "article"}
 SEC_USER_AGENT = "helloBTC research https://hellobtc.jp/"
 
 
-def _browser_page_options(source_url: str, *, height: int) -> dict:
+def _browser_page_options(source_url: str, *, height: int, width: int = 1440) -> dict:
     options = {
-        "viewport": {"width": 1440, "height": height},
+        "viewport": {"width": width, "height": height},
         "device_scale_factor": 1,
         "locale": "ja-JP",
     }
@@ -189,9 +189,19 @@ async def capture_official_evidence(
     output.parent.mkdir(parents=True, exist_ok=True)
     from playwright.async_api import async_playwright
 
+    is_data = spec.evidence_type == "official_data_crop"
+    capture_width = 1440 if is_data else 1200
+    capture_height = 1120 if is_data else 1500
+
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
-        page = await browser.new_page(**_browser_page_options(spec.source_url, height=1200))
+        page = await browser.new_page(
+            **_browser_page_options(
+                spec.source_url,
+                height=capture_height,
+                width=capture_width,
+            )
+        )
         try:
             await page.goto(spec.source_url, wait_until="domcontentloaded", timeout=timeout_ms)
             await page.wait_for_timeout(1200)
@@ -246,20 +256,24 @@ async def capture_official_evidence(
             document_height = await page.evaluate(
                 "Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)"
             )
-            is_data = spec.evidence_type == "official_data_crop"
             top = max(0, float(box["y"]) - (260 if is_data else 80))
-            height = min(1120.0 if is_data else 300.0, float(document_height) - top)
+            height = min(float(capture_height), float(document_height) - top)
             if height < 180:
                 raise ValueError("根拠箇所を読める範囲で切り抜けません")
             await page.screenshot(
                 path=str(output),
-                clip={"x": 0, "y": top, "width": 1440, "height": height},
+                clip={"x": 0, "y": top, "width": capture_width, "height": height},
                 timeout=timeout_ms,
             )
         finally:
             await browser.close()
 
-    _trim_flat_outer_margin(output)
+    if is_data:
+        _trim_flat_outer_margin(output)
+    else:
+        # 公式テキストは細い横長画像にせず、Xの2枚表示でも読みやすい4:5へ統一する。
+        # ページのピクセルは加工せず、不足する下端だけを公式ページと同じ白で補う。
+        _pad_capture_to_portrait(output, width=1200, height=1500)
     _verify_capture(output)
     write_source_manifest(spec, output)
     return output
@@ -319,6 +333,18 @@ def _trim_flat_outer_margin(path: Path, *, tolerance: int = 10) -> None:
             min(image.height, bottom + pad),
         )
         image.crop(crop).save(path, format="PNG", optimize=True)
+
+
+def _pad_capture_to_portrait(path: Path, *, width: int, height: int) -> None:
+    """公式スクリーンショットを切らずに、X向け4:5キャンバスへ揃える。"""
+    with Image.open(path) as original:
+        image = original.convert("RGB")
+        if image.width > width or image.height > height:
+            image.thumbnail((width, height), Image.Resampling.LANCZOS)
+        canvas = Image.new("RGB", (width, height), "white")
+        left = (width - image.width) // 2
+        canvas.paste(image, (left, 0))
+        canvas.save(path, format="PNG", optimize=True)
 
 
 def write_source_manifest(spec: SourceCaptureSpec, image_path: str | Path) -> Path:

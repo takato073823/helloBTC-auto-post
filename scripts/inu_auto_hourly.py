@@ -2752,12 +2752,48 @@ def _build_item_from_candidate(
             evidence_anchor=selected["evidence_anchor"],
         )
     )
-    # 規制変更は、装飾画像より発表本文そのものが最も意味のある根拠になる。
-    # 公式本文の該当箇所を1枚だけ添付し、不要なAI画像を重ねない。
-    if selected.get("evidence_as_primary") or (
+    # 規制ニュースは、1枚目で注目を集め、2枚目で一次資料を確認できる構成にする。
+    # AI画像は事実の根拠には使わず、公式スクリーンショットを必ず併記する。
+    if (
         selected["topic_type"] == "regulatory_rule_change"
         and selected["visual_route"] == "official_text_crop"
     ):
+        if _economy_mode_enabled() and not _economy_generated_visuals_enabled():
+            raise ValueError("規制ニュースの写真風アイキャッチ生成が無効です")
+        if _generated_editorial_visual_count(state, now) >= _generated_editorial_visual_limit():
+            raise ValueError("規制ニュースの写真風アイキャッチ生成が日次上限に達しています")
+        primary_path = ARTIFACT_DIR / f"{slot}-main.png"
+        generate_editorial_news_visual(
+            hook=selected["hook"],
+            facts=selected["facts"],
+            topic_type=selected["topic_type"],
+            source_url=verified_url,
+            source_name=selected["source_name"],
+            published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+            output_path=primary_path,
+            is_primary_source=bool(selected["is_primary_source"]),
+        )
+        selected["generated_editorial_visual"] = True
+        selected["evidence_as_primary"] = False
+        item = {
+            "id": _candidate_id(selected),
+            "topic_type": selected["topic_type"],
+            "visual_route": selected["visual_route"],
+            "text": compose_candidate_text(selected),
+            "media_path": _repo_relative(primary_path),
+            "source_manifest": _repo_relative(primary_path.with_suffix(".source.json")),
+            "additional_media": [
+                {
+                    "media_path": _repo_relative(evidence_path),
+                    "source_manifest": _repo_relative(evidence_path.with_suffix(".source.json")),
+                }
+            ],
+        }
+        validate_test_item(item)
+        return item, selected
+
+    # 一次資料そのものを主画像に指定した候補は、公式根拠画像1枚で公開する。
+    if selected.get("evidence_as_primary"):
         selected["evidence_as_primary"] = True
         item = {
             "id": _candidate_id(selected),

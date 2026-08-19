@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import unittest
+import tempfile
+from pathlib import Path
 from unittest.mock import Mock, patch
 
 import inu_source_capture
+from PIL import Image
 
 
 class INUSourceCaptureTests(unittest.TestCase):
@@ -39,6 +42,20 @@ class INUSourceCaptureTests(unittest.TestCase):
                 inu_source_capture._official_html_with_base(
                     "https://www.sec.gov/file.pdf"
                 )
+
+    def test_official_text_capture_is_padded_to_x_portrait_ratio_without_cropping(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "evidence.png"
+            Image.new("RGB", (1200, 620), "#f4f4f4").save(output)
+            inu_source_capture._pad_capture_to_portrait(
+                output,
+                width=1200,
+                height=1500,
+            )
+            with Image.open(output) as image:
+                self.assertEqual((1200, 1500), image.size)
+                self.assertEqual((244, 244, 244), image.getpixel((0, 0)))
+                self.assertEqual((255, 255, 255), image.getpixel((0, 1499)))
 
 
 if __name__ == "__main__":

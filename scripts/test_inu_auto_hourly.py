@@ -371,7 +371,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertTrue(selected["generated_editorial_visual"])
         generated.assert_called_once()
 
-    def test_regulatory_rule_change_uses_one_official_evidence_image(self):
+    def test_regulatory_rule_change_uses_photo_visual_plus_official_evidence(self):
         item = candidate(
             topic_type="regulatory_rule_change",
             visual_route="official_text_crop",
@@ -407,10 +407,13 @@ class INUAutoHourlyTests(unittest.TestCase):
                     NOW,
                     "2026-08-04-21",
                 )
-        self.assertTrue(built["media_path"].endswith("-evidence.png"))
-        self.assertTrue(selected["evidence_as_primary"])
+        self.assertTrue(built["media_path"].endswith("-main.png"))
+        self.assertEqual(1, len(built["additional_media"]))
+        self.assertTrue(built["additional_media"][0]["media_path"].endswith("-evidence.png"))
+        self.assertFalse(selected["evidence_as_primary"])
+        self.assertTrue(selected["generated_editorial_visual"])
         hero.assert_not_called()
-        generated.assert_not_called()
+        generated.assert_called_once()
 
     def test_economy_image_limit_is_configurable_and_capped(self):
         with patch.dict(
