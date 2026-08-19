@@ -1261,366 +1261,7 @@
     "inu_overseas_kol_2089388275870146971",
     "inu_market_2026_08_18_05_a_crypto-vvv-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-05-18",
-      "post_id": "inu_auto_dce17dfd132501",
-      "source_url": "https://cointelegraph.com/news/forgd-market-maker-leaderboard-defillama",
-      "topic_type": "reported_breaking_news",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-05T09:24:35.618953+00:00"
-    },
-    {
-      "slot": "2026-08-06-17-a",
-      "post_id": "inu_market_2026_08_06_17_a_ada-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-ADAUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "reserved_at": "2026-08-06T08:08:30.312740+00:00"
-    },
-    {
-      "slot": "2026-08-07-14-a",
-      "post_id": "inu_auto_8bea24cc6858c8",
-      "source_url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000022/mara-20260630.htm",
-      "topic_type": "institutional_flow",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T05:15:15.620180+00:00"
-    },
-    {
-      "slot": "2026-08-07-18-a",
-      "post_id": "inu_auto_ef3d37aa78f463",
-      "source_url": "https://www.circle.com/usdc",
-      "topic_type": "supply_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T09:08:20.160689+00:00"
-    },
-    {
-      "slot": "2026-08-07-19-a",
-      "post_id": "inu_market_2026_08_07_19_a_crypto-plume-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PLUMEUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PLUME-USD",
-      "reserved_at": "2026-08-07T10:17:39.815386+00:00"
-    },
-    {
-      "slot": "2026-08-07-20-a",
-      "post_id": "inu_auto_98f23d1416a3f3",
-      "source_url": "https://tether.to/en/transparency",
-      "topic_type": "supply_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": true,
-      "market_key": "",
-      "reserved_at": "2026-08-07T11:14:09.149214+00:00"
-    },
-    {
-      "slot": "2026-08-08-04-a",
-      "post_id": "inu_market_2026_08_08_04_a_crypto-hnt-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-HNTUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:HNT-USD",
-      "reserved_at": "2026-08-07T19:11:52.269231+00:00"
-    },
-    {
-      "slot": "2026-08-08-05-a",
-      "post_id": "inu_auto_ba558ab9312946",
-      "source_url": "https://www.federalreserve.gov/releases/g19/current",
-      "topic_type": "policy_household",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T20:02:12.905841+00:00"
-    },
-    {
-      "slot": "2026-08-08-06-a",
-      "post_id": "inu_auto_842ec32658753e",
-      "source_url": "https://home.treasury.gov/news/press-releases/sb0519",
-      "topic_type": "policy_household",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-07T21:48:03.825597+00:00"
-    },
-    {
-      "slot": "2026-08-08-07-a",
-      "post_id": "inu_market_2026_08_08_07_a_crypto-cro-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-CROUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:CRO-USD",
-      "reserved_at": "2026-08-07T22:07:53.802722+00:00"
-    },
-    {
-      "slot": "2026-08-08-08-a",
-      "post_id": "inu_market_2026_08_08_08_a_crypto-plume-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PLUMEUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PLUME-USD",
-      "reserved_at": "2026-08-07T23:07:35.568512+00:00"
-    },
-    {
-      "slot": "2026-08-08-09-a",
-      "post_id": "inu_market_2026_08_08_09_a_crypto-pump-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PUMPUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PUMP-USD",
-      "reserved_at": "2026-08-08T00:04:35.983301+00:00"
-    },
-    {
-      "slot": "2026-08-08-11-a",
-      "post_id": "inu_auto_c40f1f347df0ac",
-      "source_url": "https://metaplanet.jp/en/topix",
-      "topic_type": "institutional_flow",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-08T02:06:46.522275+00:00"
-    },
-    {
-      "slot": "2026-08-08-12-a",
-      "post_id": "inu_market_2026_08_08_12_a_crypto-bico-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BICOUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BICO-USD",
-      "reserved_at": "2026-08-08T03:57:02.136696+00:00"
-    },
-    {
-      "slot": "2026-08-08-14-a",
-      "post_id": "inu_market_2026_08_08_14_a_crypto-bonk-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BONKUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BONK-USD",
-      "reserved_at": "2026-08-08T05:30:54.475645+00:00"
-    },
-    {
-      "slot": "2026-08-08-16-a",
-      "post_id": "inu_auto_842e2b8205f4ab",
-      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
-      "topic_type": "macro_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-08T07:12:01.263458+00:00"
-    },
-    {
-      "slot": "2026-08-08-17-a",
-      "post_id": "inu_auto_552bce8b607dcc",
-      "source_url": "https://corporate.visa.com/en/sites/visa-perspectives/newsroom/ai-financial-assistant-sdk.html",
-      "topic_type": "adoption_kpi",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-08T08:04:06.789787+00:00"
-    },
-    {
-      "slot": "2026-08-08-18-a",
-      "post_id": "inu_market_2026_08_08_18_a_crypto-cro-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-CROUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:CRO-USD",
-      "reserved_at": "2026-08-08T09:35:02.631187+00:00"
-    },
-    {
-      "slot": "2026-08-08-20-a",
-      "post_id": "inu_auto_dac7d34c7b3258",
-      "source_url": "https://www.circle.com/transparency",
-      "topic_type": "supply_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-08T11:35:29.119154+00:00"
-    },
-    {
-      "slot": "2026-08-08-21-a",
-      "post_id": "inu_market_2026_08_08_21_a_crypto-bico-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BICOUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BICO-USD",
-      "reserved_at": "2026-08-08T12:01:10.005805+00:00"
-    },
-    {
-      "slot": "2026-08-10-13-a",
-      "post_id": "inu_auto_8c9229815a5a75",
-      "source_url": "https://www.federalreserve.gov/monetarypolicy.htm",
-      "topic_type": "policy_household",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-10T04:45:58.159145+00:00"
-    },
-    {
-      "slot": "2026-08-11-16-a",
-      "post_id": "inu_auto_b4a3bc4e72ea8e",
-      "source_url": "https://ir.mara.com/news-events/press-releases/detail/1418/mara-holdings-inc-announces-1-0-billion-repurchase-of-0-00-convertible-senior-notes-due-2030-and-2031-and-sale-of-15133-bitcoin",
-      "topic_type": "institutional_flow",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-11T07:00:00.745589+00:00"
-    },
-    {
-      "slot": "2026-08-15-21-a",
-      "post_id": "inu_market_2026_08_15_21_a_crypto-link-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-LINKUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:LINK-USD",
-      "reserved_at": "2026-08-15T12:53:00.665152+00:00"
-    },
-    {
-      "slot": "2026-08-17-18",
-      "post_id": "inu_overseas_kol_2089249619020837067",
-      "source_url": "https://x.com/cryptorover/status/2089249619020837067",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T09:17:01.784619+00:00"
-    },
-    {
-      "slot": "2026-08-17-19-a",
-      "post_id": "inu_overseas_kol_2089255200918007854",
-      "source_url": "https://x.com/macropaperr/status/2089255200918007854",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T10:27:42.417324+00:00"
-    },
-    {
-      "slot": "2026-08-17-21-a",
-      "post_id": "inu_overseas_kol_2089320508948963368",
-      "source_url": "https://x.com/barchart/status/2089320508948963368",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T12:35:26.451909+00:00"
-    },
-    {
-      "slot": "2026-08-17-23-a",
-      "post_id": "inu_overseas_kol_2089343079279206502",
-      "source_url": "https://x.com/mr_derivatives/status/2089343079279206502",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T14:23:18.851836+00:00"
-    },
-    {
-      "slot": "2026-08-18-01-a",
-      "post_id": "inu_overseas_kol_2089343079279206502",
-      "source_url": "https://x.com/mr_derivatives/status/2089343079279206502",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T16:22:36.438126+00:00"
-    },
-    {
-      "slot": "2026-08-18-07-a",
-      "post_id": "inu_overseas_kol_2089441941390016845",
-      "source_url": "https://x.com/wallstengine/status/2089441941390016845",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-17T22:19:50.336002+00:00"
-    },
-    {
-      "slot": "2026-08-18-09-a",
-      "post_id": "inu_overseas_kol_2089511036420309364",
-      "source_url": "https://x.com/barchart/status/2089511036420309364",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T00:58:59.066972+00:00"
-    },
-    {
-      "slot": "2026-08-18-11-a",
-      "post_id": "inu_overseas_kol_2089511036420309364",
-      "source_url": "https://x.com/barchart/status/2089511036420309364",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T02:51:57.206136+00:00"
-    },
-    {
-      "slot": "2026-08-18-13-a",
-      "post_id": "inu_overseas_kol_2089556445029163394",
-      "source_url": "https://x.com/cryptorover/status/2089556445029163394",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T04:31:16.307644+00:00"
-    },
-    {
-      "slot": "2026-08-18-15-a",
-      "post_id": "inu_overseas_kol_2089593609192714483",
-      "source_url": "https://x.com/bankxrp/status/2089593609192714483",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T06:36:21.413060+00:00"
-    },
-    {
-      "slot": "2026-08-18-17-a",
-      "post_id": "inu_overseas_kol_2089606176421929255",
-      "source_url": "https://x.com/ashcrypto/status/2089606176421929255",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T08:31:46.670708+00:00"
-    },
-    {
-      "slot": "2026-08-18-19-a",
-      "post_id": "inu_overseas_kol_2089627646338691359",
-      "source_url": "https://x.com/ashcrypto/status/2089627646338691359",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T10:24:07.878336+00:00"
-    },
-    {
-      "slot": "2026-08-18-21-a",
-      "post_id": "inu_overseas_kol_2089668716006941015",
-      "source_url": "https://x.com/coinmarketcap/status/2089668716006941015",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-18T12:37:21.034518+00:00"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3008,14 +2649,274 @@
       "checked_at": "2026-08-19T02:53:51.409389+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-19-13-a",
+      "checked_at": "2026-08-19T04:33:09.357008+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-19T02:53:51.409389+00:00",
-      "count": 75494,
-      "fastest_fee": 3
+      "checked_at": "2026-08-19T04:33:09.357008+00:00",
+      "count": 69152,
+      "fastest_fee": 1
     }
-  }
+  },
+  "delivery_failures": [
+    {
+      "slot": "2026-08-05-18",
+      "post_id": "inu_auto_dce17dfd132501",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-06-17-a",
+      "post_id": "inu_market_2026_08_06_17_a_ada-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-07-14-a",
+      "post_id": "inu_auto_8bea24cc6858c8",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-07-18-a",
+      "post_id": "inu_auto_ef3d37aa78f463",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-07-19-a",
+      "post_id": "inu_market_2026_08_07_19_a_crypto-plume-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-07-20-a",
+      "post_id": "inu_auto_98f23d1416a3f3",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-04-a",
+      "post_id": "inu_market_2026_08_08_04_a_crypto-hnt-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-05-a",
+      "post_id": "inu_auto_ba558ab9312946",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-06-a",
+      "post_id": "inu_auto_842ec32658753e",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-07-a",
+      "post_id": "inu_market_2026_08_08_07_a_crypto-cro-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-08-a",
+      "post_id": "inu_market_2026_08_08_08_a_crypto-plume-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-09-a",
+      "post_id": "inu_market_2026_08_08_09_a_crypto-pump-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-11-a",
+      "post_id": "inu_auto_c40f1f347df0ac",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-12-a",
+      "post_id": "inu_market_2026_08_08_12_a_crypto-bico-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-14-a",
+      "post_id": "inu_market_2026_08_08_14_a_crypto-bonk-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-16-a",
+      "post_id": "inu_auto_842e2b8205f4ab",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-17-a",
+      "post_id": "inu_auto_552bce8b607dcc",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-18-a",
+      "post_id": "inu_market_2026_08_08_18_a_crypto-cro-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-20-a",
+      "post_id": "inu_auto_dac7d34c7b3258",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-08-21-a",
+      "post_id": "inu_market_2026_08_08_21_a_crypto-bico-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-10-13-a",
+      "post_id": "inu_auto_8c9229815a5a75",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-11-16-a",
+      "post_id": "inu_auto_b4a3bc4e72ea8e",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-15-21-a",
+      "post_id": "inu_market_2026_08_15_21_a_crypto-link-usd",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-17-18",
+      "post_id": "inu_overseas_kol_2089249619020837067",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-17-19-a",
+      "post_id": "inu_overseas_kol_2089255200918007854",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-17-21-a",
+      "post_id": "inu_overseas_kol_2089320508948963368",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-17-23-a",
+      "post_id": "inu_overseas_kol_2089343079279206502",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-01-a",
+      "post_id": "inu_overseas_kol_2089343079279206502",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-07-a",
+      "post_id": "inu_overseas_kol_2089441941390016845",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-09-a",
+      "post_id": "inu_overseas_kol_2089511036420309364",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-11-a",
+      "post_id": "inu_overseas_kol_2089511036420309364",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-13-a",
+      "post_id": "inu_overseas_kol_2089556445029163394",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-15-a",
+      "post_id": "inu_overseas_kol_2089593609192714483",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-17-a",
+      "post_id": "inu_overseas_kol_2089606176421929255",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-19-a",
+      "post_id": "inu_overseas_kol_2089627646338691359",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    },
+    {
+      "slot": "2026-08-18-21-a",
+      "post_id": "inu_overseas_kol_2089668716006941015",
+      "failed_at": "2026-08-19T04:33:09.357008+00:00",
+      "stage": "reservation",
+      "reason": "reservation_lease_expired"
+    }
+  ]
 }
