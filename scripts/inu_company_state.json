@@ -283,6 +283,27 @@
       "status": "blocked_external",
       "reason": "X_API_CREDITS_DEPLETED",
       "completed_at": "2026-08-19T07:02:09.193103+00:00"
+    },
+    {
+      "run_id": "32226421927",
+      "started_at": "2026-08-19T07:08:34.657414+00:00",
+      "completed_at": "2026-08-19T07:08:50.641010+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-19-16-a",
+      "post_id": "inu_auto_40393a03d287a6",
+      "topic_type": "regulatory_rule_change",
+      "content_fingerprint": "73c7d8cc4ec760cf40e563cb49a62ef2d2fb0b443cdd233f66f141caeb8ed3a5",
+      "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
     }
   ]
 }

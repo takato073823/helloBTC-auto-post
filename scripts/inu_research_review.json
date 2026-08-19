@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T07:01:46.970125+00:00",
+  "generated_at": "2026-08-19T07:08:34.658980+00:00",
   "slot": "2026-08-19-16-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T07:01:46.970125+00:00",
-    "to": "2026-08-19T07:01:46.970125+00:00"
+    "from": "2026-08-18T07:08:34.658980+00:00",
+    "to": "2026-08-19T07:08:34.658980+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "thread",
     "posts": [
-      "📜 SEC、新規則「Regulation Crypto Assets」を提案\n\nSECが最大5百万ドルと7500万ドルの免除を新設した。\n発行者は原則開示と財務諸表提出が義務付けられる。",
-      "市場への影響と次の確認\n\n影響: この提案は米国の暗号資産発行者に新たな資本調達の道を開く。\n注意: 公開情報の整理であり、個別の売買を勧めるものではありません。\n次の確認: 60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
+      "📜 SEC、新規則「Regulation Crypto Assets」を提案\n\n最大7500万ドルの資金調達免除を12ヶ月ごとに可能とする。\n投資家保護を維持しつつ州法登録要件を一部免除する。",
+      "市場への影響と次の確認\n\n影響: 国内での適法な資金調達経路が明確になる可能性がある\n注意: 公開情報の整理であり、個別の売買を勧めるものではありません。\n次の確認: 60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
     ],
-    "public_compact_post": "📜 SEC、新規則「Regulation Crypto Assets」を提案\n\nSECが最大5百万ドルと7500万ドルの免除を新設した。\n影響: この提案は米国の暗号資産発行者に新たな資本調達の道を開く。\n注意: 投資助言ではありません。\n次の確認: 60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
+    "public_compact_post": "📜 SEC、新規則「Regulation Crypto Assets」を提案\n\n最大7500万ドルの資金調達免除を12ヶ月ごとに可能とする。\n影響: 国内での適法な資金調達経路が明確になる可能性がある\n注意: 投資助言ではありません。\n次の確認: 60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -28,14 +28,14 @@
     "selected_topic": "regulatory_rule_change",
     "selected_hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
     "verified_facts": [
-      "SECが最大5百万ドルと7500万ドルの免除を新設した。",
-      "発行者は原則開示と財務諸表提出が義務付けられる。"
+      "最大7500万ドルの資金調達免除を12ヶ月ごとに可能とする。",
+      "投資家保護を維持しつつ州法登録要件を一部免除する。"
     ],
-    "market_or_user_impact": "この提案は米国の暗号資産発行者に新たな資本調達の道を開く。",
+    "market_or_user_impact": "国内での適法な資金調達経路が明確になる可能性がある",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
     "next_watch": "60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。",
     "primary_source": {
-      "name": "Securities and Exchange Commission",
+      "name": "SEC",
       "url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
       "verified": true
     },
@@ -60,7 +60,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 11,
+          "used": 12,
           "limit": 12
         },
         "openai_web_search": {
@@ -76,7 +76,7 @@
         "hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
         "published_at": "2026-08-18T00:00:00-04:00",
         "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
-        "why_now": "暗号資産市場の明確化と国内イノベーション促進のため"
+        "why_now": "前月の解釈指針に続き具体的な免除ルールが提示されたため"
       }
     ],
     "rejected_reasons": []
