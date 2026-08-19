@@ -1151,6 +1151,19 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn(anchor, page)
         self.assertIn("proposed new rules", anchor)
 
+    def test_source_verification_reuses_verified_html_without_second_request(self):
+        url = "https://www.sec.gov/newsroom/press-releases/example"
+        official_text = "The SEC proposed Regulation Crypto Assets for crypto assets."
+        item = candidate(
+            source_url=url,
+            evidence_anchor=official_text,
+        )
+        with patch.dict(inu_auto_hourly.SOURCE_TEXT_CACHE, {url: official_text}, clear=True), patch.object(
+            inu_auto_hourly.requests, "get"
+        ) as get:
+            self.assertEqual(url, inu_auto_hourly.fetch_and_verify_source(item))
+        get.assert_not_called()
+
     def test_date_only_us_regulator_release_uses_source_local_timezone(self):
         self.assertEqual(
             "2026-08-18T00:00:00-04:00",

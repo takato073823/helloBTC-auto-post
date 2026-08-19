@@ -80,6 +80,9 @@ ARTIFACT_DIR = SCRIPT_DIR / "artifacts" / "inu-auto"
 PREPARED_PATH = ARTIFACT_DIR / "prepared.json"
 RESEARCH_REVIEW_PATH = SCRIPT_DIR / "inu_research_review.json"
 CURATED_X_SOURCES_PATH = SCRIPT_DIR / "inu_curated_x_sources.json"
+# 1回の準備処理内で検証済み公式本文を共有し、同一URLへの再取得と配信元の
+# レート制限による本文差分を避ける。プロセス終了時に破棄され、状態JSONには保存しない。
+SOURCE_TEXT_CACHE: dict[str, str] = {}
 MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
 MAX_SCHEDULED_CHECKS = 168
@@ -1652,6 +1655,7 @@ def _research_verified_priority_page(
     visible_text = " ".join(root.get_text(" ", strip=True).split())
     if len(visible_text) < 120:
         return [], [], []
+    SOURCE_TEXT_CACHE[url] = visible_text
     title = " ".join((soup.title.get_text(" ", strip=True) if soup.title else host).split())
     if not claim_api_call(state, "grok_editorial", now):
         raise RuntimeError("INU_API_BUDGET_EXHAUSTED: grok_editorial")
@@ -1906,22 +1910,25 @@ def fetch_and_verify_source(candidate: dict) -> str:
     host = (parts.hostname or "").lower().removeprefix("www.")
     if _host_is_secondary(host):
         raise ValueError("報道・まとめサイトは最終一次資料にできません")
-    response = requests.get(
-        url,
-        timeout=SOURCE_VERIFY_TIMEOUT_SECONDS,
-        headers={
-            "User-Agent": SEC_USER_AGENT if host == "sec.gov" or host.endswith(".sec.gov") else USER_AGENT,
-            "Accept-Encoding": "gzip, deflate",
-        },
-    )
-    response.raise_for_status()
-    content_type = response.headers.get("content-type", "").lower()
-    if "html" not in content_type:
-        raise ValueError("自動切り抜き可能な公式HTMLではありません")
-    soup = BeautifulSoup(response.text, "lxml")
-    for element in soup(["script", "style", "noscript"]):
-        element.decompose()
-    visible_text = " ".join(soup.get_text(" ", strip=True).split())
+    visible_text = SOURCE_TEXT_CACHE.get(url, "")
+    if not visible_text:
+        response = requests.get(
+            url,
+            timeout=SOURCE_VERIFY_TIMEOUT_SECONDS,
+            headers={
+                "User-Agent": SEC_USER_AGENT if host == "sec.gov" or host.endswith(".sec.gov") else USER_AGENT,
+                "Accept-Encoding": "gzip, deflate",
+            },
+        )
+        response.raise_for_status()
+        content_type = response.headers.get("content-type", "").lower()
+        if "html" not in content_type:
+            raise ValueError("自動切り抜き可能な公式HTMLではありません")
+        soup = BeautifulSoup(response.text, "lxml")
+        for element in soup(["script", "style", "noscript"]):
+            element.decompose()
+        visible_text = " ".join(soup.get_text(" ", strip=True).split())
+        SOURCE_TEXT_CACHE[url] = visible_text
     anchor = " ".join(candidate["evidence_anchor"].split()).strip()
     if not _evidence_anchor_present(visible_text, anchor):
         raise ValueError("根拠原文が一次資料ページ内に確認できません")
