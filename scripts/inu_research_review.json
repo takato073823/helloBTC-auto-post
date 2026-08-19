@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T05:56:59.205371+00:00",
-  "slot": "2026-08-19-14-a",
+  "generated_at": "2026-08-19T06:00:53.203162+00:00",
+  "slot": "2026-08-19-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T05:56:59.205371+00:00",
-    "to": "2026-08-19T05:56:59.205371+00:00"
+    "from": "2026-08-18T06:00:53.203162+00:00",
+    "to": "2026-08-19T06:00:53.203162+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -54,7 +54,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 2,
+          "used": 3,
           "limit": 12
         },
         "openai_web_search": {
@@ -67,14 +67,14 @@
     "candidate_shortlist": [
       {
         "topic_type": "regulatory_rule_change",
-        "hook": "📋 SECが暗号資産新規則を提案",
+        "hook": "📜 SECが暗号資産新規制を提案",
         "published_at": "2026-08-18T00:00:00-04:00",
         "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
-        "why_now": "60日間の意見募集が開始された直後である。"
+        "why_now": "3月の解釈指針に続き包括的な枠組みが示された。"
       }
     ],
     "rejected_reasons": [
-      "一次探索1: 一次資料内に指定された根拠文字列が見つかりません"
+      "一次探索1: 規制当局名・新ルール名・具体的な変更が不足しています"
     ]
   }
 }
