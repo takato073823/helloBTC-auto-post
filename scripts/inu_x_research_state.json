@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-19T22:02:03+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T22:02:03+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T23:01:59+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-07T08:41:33+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-07T09:44:18+00:00",
@@ -2270,6 +2264,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T23:01:59+00:00",
+      "result_count": 5,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2408,6 +2408,34 @@
       "summary": "JUST IN: $2,000 $ETH https://t.co/uMPTR7VYSz",
       "topic": "watcher_guru",
       "why_trending": "表示151,297・投稿後51分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4708753,
+      "discovered_at": "2026-08-19T23:01:59+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "BREAKING: Bitcoin hits $70,000 https://t.co/drbpj9fFU6",
+      "impression_count": 144983,
+      "like_count": 2802,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090194618126094820/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090194618126094820",
+      "post_url": "https://x.com/WatcherGuru/status/2090194618126094820",
+      "posted_at": "2026-08-19T21:50:05+00:00",
+      "quote_count": 65,
+      "reply_count": 186,
+      "repost_count": 311,
+      "score": 79.1,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "BREAKING: Bitcoin hits $70,000 https://t.co/drbpj9fFU6",
+      "topic": "watcher_guru",
+      "why_trending": "表示144,983・投稿後71分・反応率2.7%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4705705,
@@ -2559,30 +2587,6 @@
       "summary": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
       "topic": "watcher_guru",
       "why_trending": "表示164,224・投稿後100分・反応率2.2%"
-    },
-    {
-      "author_followers": 4705705,
-      "discovered_at": "2026-08-19T16:04:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Robinhood CEO Vlad Tenev says we are at the beginning of a \"tokenization supercycle\" that will \"eat the entire financial system.\"",
-      "impression_count": 1001622,
-      "like_count": 12245,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089836529061392746",
-      "post_url": "https://x.com/WatcherGuru/status/2089836529061392746",
-      "posted_at": "2026-08-18T22:07:10+00:00",
-      "quote_count": 362,
-      "reply_count": 590,
-      "repost_count": 1610,
-      "score": 50.6,
-      "seen_count": 2,
-      "source_priority": "",
-      "summary": "JUST IN: Robinhood CEO Vlad Tenev says we are at the beginning of a \"tokenization supercycle\" that will \"eat the entire financial system.\"",
-      "topic": "watcher_guru",
-      "why_trending": "表示1,001,622・投稿後1077分・反応率1.7%"
     },
     {
       "author_followers": 2602,
