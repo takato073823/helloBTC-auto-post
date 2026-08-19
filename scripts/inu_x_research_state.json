@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-18T11:04:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-18T12:02:28+00:00",
+  "last_deep_scan_at": "2026-08-19T07:25:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T07:25:45+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -2232,9 +2232,109 @@
       "checked_at": "2026-08-19T05:15:32+00:00",
       "error": "402 Payment Required\ncredits depleted",
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T07:25:45+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-19T07:25:45+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
-  "signals": [],
+  "signals": [
+    {
+      "author_followers": 27,
+      "discovered_at": "2026-08-19T07:25:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "bitsurgex",
+      "has_video": false,
+      "headline": "#Bitcoin is rising while equities weaken and bond yields climb. ETF inflows are back, but open interest and funding are falling—evidence that spot demand, not leverage, may be driv",
+      "impression_count": 37,
+      "like_count": 1,
+      "linked_urls": [
+        "https://bitsurgex.substack.com/p/bitcoin-is-rising-against-the-macro?r=8gfg0j",
+        "https://x.com/bitsurgex/status/2089735700623016075/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089735700623016075",
+      "post_url": "https://x.com/bitsurgex/status/2089735700623016075",
+      "posted_at": "2026-08-18T15:26:31+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 46.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "#Bitcoin is rising while equities weaken and bond yields climb. ETF inflows are back, but open interest and funding are falling—evidence that spot demand, not leverage, may be driving the move. Full article 👇 https://t.co/rAIrZbbbjo #CRYPTONewsTalk #CryptoTrader #crypto #BTC https://t.co/hcOP74gYDS",
+      "topic": "crypto_market",
+      "why_trending": "表示37・投稿後959分・反応率7.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 259,
+      "discovered_at": "2026-08-19T07:25:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Rina_BingX",
+      "has_video": false,
+      "headline": "📈 Crypto Market Overview (Aug.18) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC at ~64,130 USDT, +1.22% on the day. Overnight it dipped to ~63,270 before bouncing back, but has been",
+      "impression_count": 272,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/Rina_BingX/status/2089647830839533673/photo/1",
+        "https://twitter.com/Rina_BingX/status/2033093750428451054"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089647830839533673",
+      "post_url": "https://x.com/Rina_BingX/status/2089647830839533673",
+      "posted_at": "2026-08-18T09:37:21+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 42.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📈 Crypto Market Overview (Aug.18) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC at ~64,130 USDT, +1.22% on the day. Overnight it dipped to ~63,270 before bouncing back, but has been grinding lower since the Asian session peak near 64,500. 🟢 ETH at ~1,895 USDT, basically https://t.co/Fn7rLqJxOA https://t.co/xzuEXM7aNN",
+      "topic": "crypto_market",
+      "why_trending": "表示272・投稿後1308分・反応率1.7%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 222,
+      "discovered_at": "2026-08-19T07:25:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoCaneCorso",
+      "has_video": false,
+      "headline": "💥 BTC Liquidation Report | Aug 18, 2026 💰 Price: $64,275 📦 Open Interest: 105,999 BTC 💸 Funding: 0.0080% ⚖️ Long/Short: 60% / 40% #BTC #Crypto https://t.co/M1SSCXmPXr",
+      "impression_count": 132,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/CryptoCaneCorso/status/2089691301998469435/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089691301998469435",
+      "post_url": "https://x.com/CryptoCaneCorso/status/2089691301998469435",
+      "posted_at": "2026-08-18T12:30:05+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 36.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "💥 BTC Liquidation Report | Aug 18, 2026 💰 Price: $64,275 📦 Open Interest: 105,999 BTC 💸 Funding: 0.0080% ⚖️ Long/Short: 60% / 40% #BTC #Crypto https://t.co/M1SSCXmPXr",
+      "topic": "crypto_market",
+      "why_trending": "表示132・投稿後1135分・反応率3.9%"
+    }
+  ],
   "trends": [],
   "version": 1
 }
