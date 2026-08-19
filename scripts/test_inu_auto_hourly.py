@@ -342,6 +342,14 @@ class INUAutoHourlyTests(unittest.TestCase):
             topic_type="regulatory_rule_change",
             visual_route="official_text_crop",
             published_at="2026-08-04T11:00:00Z",
+            hook="⚖️ SEC、新暗号資産開示ルールを提案",
+            facts=[
+                "これまで個別判断だった開示基準を統一する規則案です。",
+                "発行体の申請要件が明確になり、投資家が案件を比較しやすくなります。",
+            ],
+            why_now="SECが新ルール案を正式発表した直後であるためです。",
+            reader_interest="暗号資産事業者の開示内容と審査手続きがどう変わるか分かるためです。",
+            follow_value="施行日までに示される対象範囲と実務指針を継続して追えるためです。",
         )
         with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
             artifact_dir = Path(directory) / "inu-auto"
@@ -584,6 +592,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             [{"url": item["source_url"], "title": "official"}],
             {"posted_slots": [], "posted_ids": [], "history": []},
             now,
+            include_editorial=False,
         )
 
     def test_date_only_official_release_grace_never_exceeds_36_hours(self):
@@ -599,6 +608,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 [{"url": item["source_url"], "title": "official"}],
                 {"posted_slots": [], "posted_ids": [], "history": []},
                 now,
+                include_editorial=False,
             )
 
     def test_verified_macro_candidate_within_24_hours_is_accepted(self):
