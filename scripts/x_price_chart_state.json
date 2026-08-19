@@ -20,6 +20,13 @@
       "posted_at": "2026-08-04T09:12:09.021627+00:00",
       "closed_candle_at": "2026-08-04T09:00:00+00:00",
       "product": "BTC-USD"
+    },
+    {
+      "key": "inu_manual_btc_66000_reclaim_20260819_150904",
+      "tweet_id": "2090093886513246392",
+      "posted_at": "2026-08-19T15:09:49.603551+00:00",
+      "closed_candle_at": "2026-08-19T15:00:00+00:00",
+      "product": "BTC-USD"
     }
   ]
 }
