@@ -1,13 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-19T09:16:50+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T10:04:40+00:00",
+  "last_deep_scan_at": "2026-08-19T11:03:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T11:03:00+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-05T17:42:14+00:00",
-      "error": "400 Bad Request\nInvalid 'end_time':'2026-08-05T17:42Z'. 'end_time' must be a minimum of 10 seconds prior to the request time.",
-      "topic": "crypto_market"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-05T20:18:41+00:00",
@@ -2270,6 +2264,19 @@
       "checked_at": "2026-08-19T10:04:40+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T11:03:00+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-19T11:03:00+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
