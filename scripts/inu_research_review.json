@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T22:20:08.180003+00:00",
+  "generated_at": "2026-08-19T22:33:08.737536+00:00",
   "slot": "2026-08-20-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T22:20:08.180003+00:00",
-    "to": "2026-08-19T22:20:08.180003+00:00"
+    "from": "2026-08-18T22:33:08.737536+00:00",
+    "to": "2026-08-19T22:33:08.737536+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 $ETH急騰の中身、ショートの巻き戻し\n\n僕は新規の現物買いだけでなく、レバレッジ解消が主因かを見極めたい。"
+      "📊 Webull、予想超えのQ2\n\n取引関連収益への依存度と、好調な利益成長が続くかが次の焦点になる。"
     ],
-    "public_compact_post": "📊 $ETH急騰の中身、ショートの巻き戻し\n\n$ETHの急騰局面でOIが急減した\n$ETH無期限先物のCVDが、現物より相対的に大きく上昇した\n\n僕は新規の現物買いだけでなく、レバレッジ解消が主因かを見極めたい。"
+    "public_compact_post": "📊 Webull、予想超えのQ2\n\n売上高は1億9,880万ドルで、予想1億8,100万ドルを上回った\n調整後EPSは0.12ドルで、予想0.03ドルを上回り、前年同期比140%増だった\n\n取引関連収益への依存度と、好調な利益成長が続くかが次の焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 ETH急騰の中身、ショートの巻き戻し",
+    "selected_hook": "📊 Webull、予想超えのQ2",
     "verified_facts": [],
-    "market_or_user_impact": "OIと先物・現物CVDの差から、上昇の持続性を考えられる。",
+    "market_or_user_impact": "証券プラットフォームの収益が取引活況にどれだけ連動するかを、予想差と利益率から確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格だけでなく、ポジション構造とフローを組み合わせて暗号資産市場を追える。",
+    "next_watch": "米国ネット証券の決算数値と暗号資産関連の取引環境を継続的に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/crediblecrypto/status/2090168885375074338",
+      "url": "https://x.com/wallstengine/status/2090172539507212405",
       "verified": false
     },
     "corroborating_sources": [],
