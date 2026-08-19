@@ -14,6 +14,7 @@ import re
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
@@ -141,6 +142,11 @@ MAX_AGE_HOURS = {
 # 数時間だけ古く見える。時刻が厳密に00:00で、一次資料かつ通常の24時間系統に
 # 限り12時間の精度猶予を認める。速報系（2〜6時間）には適用しない。
 DATE_ONLY_PUBLICATION_GRACE_HOURS = 12
+DATE_ONLY_SOURCE_TIMEZONES = {
+    "sec.gov": "America/New_York",
+    "federalreserve.gov": "America/New_York",
+    "treasury.gov": "America/New_York",
+}
 SECONDARY_HOSTS = {
     "bloomberg.com",
     "coindesk.com",
@@ -458,6 +464,31 @@ def _normalize_research_published_at(value: object) -> str:
     if "T" not in raw or ":" not in raw:
         return raw
     return parsed.replace(tzinfo=JST).isoformat()
+
+
+def _normalize_date_only_source_timezone(value: str, host: str) -> str:
+    """日付のみの米当局発表を、モデルの実行地域ではなく発表主体の現地0時へ直す。"""
+    timezone_name = next(
+        (
+            name
+            for domain, name in DATE_ONLY_SOURCE_TIMEZONES.items()
+            if host == domain or host.endswith(f".{domain}")
+        ),
+        "",
+    )
+    if not timezone_name:
+        return value
+    try:
+        parsed = dt.datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return value
+    if parsed.timetz().replace(tzinfo=None) != dt.time(0, 0):
+        return value
+    return dt.datetime.combine(
+        parsed.date(),
+        dt.time(0, 0),
+        tzinfo=ZoneInfo(timezone_name),
+    ).isoformat()
 
 
 def _host_is_secondary(host: str) -> bool:
@@ -1613,6 +1644,7 @@ def _research_verified_priority_page(
 - 公開時刻が本文になく当日または前日の公式公開日だけがある場合、発表主体の現地時間00:00をISO 8601で返す。
 - hookは機関名と具体的な変更を30文字以内で示し、先頭に内容に合う絵文字を1個使う。
 - factsは検証済みの変更内容・背景と、投資家または事業者への影響を各45文字以内の2文にする。
+- hook、facts、why_now、reader_interest、follow_value、tagsは、固有名詞を除いてすべて自然な日本語で書く。
 - reader_interestとfollow_valueは別内容の完結文。予測、売買助言、URL、ハッシュタグ、一人称は禁止。
 - topic_typeとvisual_routeは内容に合う自動投稿対象を選ぶ。規制変更ならregulatory_rule_change / official_text_crop。
 """.strip()
@@ -1628,6 +1660,10 @@ def _research_verified_priority_page(
         if not isinstance(row, dict):
             continue
         candidate = _normalize_researched_candidate(row)
+        candidate["published_at"] = _normalize_date_only_source_timezone(
+            str(candidate.get("published_at", "")),
+            host,
+        )
         if (
             candidate.get("has_candidate")
             and normalize_url(str(candidate.get("source_url", ""))) == url
