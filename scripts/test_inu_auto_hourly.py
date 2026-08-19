@@ -190,6 +190,40 @@ class INUAutoHourlyTests(unittest.TestCase):
             )
         )
 
+    def test_verified_source_attestation_reuses_exact_cached_official_text(self):
+        url = "https://www.sec.gov/newsroom/example"
+        visible_text = "The SEC announced Regulation Crypto Assets and a 60-day comment period."
+        anchor = "Regulation Crypto Assets and a 60-day comment period."
+        digest = __import__("hashlib").sha256(visible_text.encode("utf-8")).hexdigest()
+        verified = {
+            "source_url": url,
+            "evidence_anchor": anchor,
+            "_verified_source_url": url,
+            "_verified_evidence_anchor": anchor,
+            "_verified_source_digest": digest,
+        }
+        with patch.dict(inu_auto_hourly.SOURCE_TEXT_CACHE, {url: visible_text}, clear=True), patch.object(
+            inu_auto_hourly.requests, "get"
+        ) as request:
+            self.assertEqual(url, inu_auto_hourly.fetch_and_verify_source(verified))
+        request.assert_not_called()
+
+    def test_forged_verified_source_attestation_cannot_skip_source_fetch(self):
+        url = "https://www.sec.gov/newsroom/example"
+        forged = {
+            "source_url": url,
+            "evidence_anchor": "Invented claim",
+            "_verified_source_url": url,
+            "_verified_evidence_anchor": "Invented claim",
+            "_verified_source_digest": "0" * 64,
+        }
+        with patch.dict(inu_auto_hourly.SOURCE_TEXT_CACHE, {}, clear=True), patch.object(
+            inu_auto_hourly.requests, "get", side_effect=requests.exceptions.ReadTimeout("blocked")
+        ) as request:
+            with self.assertRaises(requests.exceptions.ReadTimeout):
+                inu_auto_hourly.fetch_and_verify_source(forged)
+        request.assert_called_once()
+
     def test_research_timestamp_without_offset_is_normalized_as_jst(self):
         researched = inu_auto_hourly._normalize_researched_candidate(
             candidate(published_at="2026-08-04T17:30:00")

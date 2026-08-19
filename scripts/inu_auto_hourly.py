@@ -1709,6 +1709,23 @@ def _research_verified_priority_page(
             str(candidate.get("published_at", "")),
             host,
         )
+        # ここから先の再検証で同じ公式ページを取り直さずに済むよう、調査部が
+        # 実際に照合したURL・根拠原文・本文ハッシュを一組の証明として渡す。
+        # これらはモデル出力を正規化した後にローカルコードだけが上書きする。
+        for key in (
+            "_verified_source_url",
+            "_verified_evidence_anchor",
+            "_verified_source_digest",
+        ):
+            candidate.pop(key, None)
+        anchor = str(candidate.get("evidence_anchor", ""))
+        if _evidence_anchor_present(visible_text, anchor):
+            candidate["_verified_source_url"] = url
+            candidate["_verified_evidence_anchor"] = anchor
+            candidate["_verified_source_digest"] = hashlib.sha256(
+                visible_text.encode("utf-8")
+            ).hexdigest()
+            logger.info("一次資料の根拠原文を確定: %s", anchor[:180])
         if (
             candidate.get("has_candidate")
             and normalize_url(str(candidate.get("source_url", ""))) == url
@@ -1910,6 +1927,25 @@ def fetch_and_verify_source(candidate: dict) -> str:
     host = (parts.hostname or "").lower().removeprefix("www.")
     if _host_is_secondary(host):
         raise ValueError("報道・まとめサイトは最終一次資料にできません")
+    # 調査部が同じプロセス内で公式HTMLを取得し、根拠原文まで文字どおり照合した
+    # 候補は、その検証証明を後段で再利用する。URL・根拠・64桁の本文ハッシュが
+    # すべて一致しない限り通常の取得・照合へ戻るため、AIが付けたフラグだけでは
+    # 検証を迂回できない。
+    attested_url = normalize_url(str(candidate.get("_verified_source_url", "")))
+    attested_anchor = " ".join(
+        str(candidate.get("_verified_evidence_anchor", "")).split()
+    ).strip()
+    requested_anchor = " ".join(str(candidate.get("evidence_anchor", "")).split()).strip()
+    attested_digest = str(candidate.get("_verified_source_digest", ""))
+    if (
+        attested_url == url
+        and attested_anchor == requested_anchor
+        and re.fullmatch(r"[0-9a-f]{64}", attested_digest)
+        and (cached_text := SOURCE_TEXT_CACHE.get(url, ""))
+        and hashlib.sha256(cached_text.encode("utf-8")).hexdigest() == attested_digest
+        and _evidence_anchor_present(cached_text, requested_anchor)
+    ):
+        return url
     visible_text = SOURCE_TEXT_CACHE.get(url, "")
     if not visible_text:
         response = requests.get(
@@ -1929,7 +1965,7 @@ def fetch_and_verify_source(candidate: dict) -> str:
             element.decompose()
         visible_text = " ".join(soup.get_text(" ", strip=True).split())
         SOURCE_TEXT_CACHE[url] = visible_text
-    anchor = " ".join(candidate["evidence_anchor"].split()).strip()
+    anchor = requested_anchor
     if not _evidence_anchor_present(visible_text, anchor):
         raise ValueError("根拠原文が一次資料ページ内に確認できません")
     return url
