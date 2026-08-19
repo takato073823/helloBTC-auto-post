@@ -11,7 +11,7 @@ import tempfile
 from pathlib import Path
 
 import inu_auto_hourly
-from inu_editorial_policy import validate_auto_post_quality
+from inu_editorial_policy import allows_editorial_analysis, validate_auto_post_quality
 from inu_hermes_research import refresh_packet
 from inu_hourly_dispatcher import load_state, save_state
 from inu_live_post import validate_test_item
@@ -79,7 +79,10 @@ def _quality_handoff(prepared: dict) -> dict:
     # 検証済みなので、ここでは投稿文を再審査する。通常投稿は画像manifestまで再審査する。
     delivery_mode = str(item.get("delivery_mode", ""))
     if delivery_mode in {"x_native_video_reference", "x_native_quote"}:
-        validate_post(str(item.get("text", "")))
+        validate_post(
+            str(item.get("text", "")),
+            allow_editorial_analysis=allows_editorial_analysis(item.get("topic_type")),
+        )
         if not str(item.get("source_tweet_id", "")).isdigit():
             raise ValueError("Xネイティブ引用の投稿IDが不正です")
     else:

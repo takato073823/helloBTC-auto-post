@@ -11,7 +11,9 @@ from urllib.parse import urlparse
 EDITORIAL_CONSTITUTION = """
 INUは、今この瞬間に投資家が知る意味のある一次情報だけを扱う。
 一つの投稿では、一つの変化を伝える。見出しで変化を明示し、事実では数字・条件・決定を示し、
-事実の中で、その変化が投資家に関係する理由を具体的に示す。個人見解・予測・注視点は加えない。
+事実のあとに、その変化が市場・利用者へ与える意味を短く分析する。事実と分析は段落を分け、
+分析には一次情報から導けない断定、価格予測、売買判断、曖昧な「注視したい」を加えない。
+価格チャート投稿だけは個人見解を加えず、実測値で完結させる。
 毎時の定期枠では、新しい事実、読者への具体的な影響、その事実を一目で確認できる画像または動画が
 そろうまで、X話題・公式発表・実測データ・企業IRの順に探索範囲を広げる。候補不足を理由に定期投稿を止めない。
 暗号資産のシンボルを本文で使う場合は、BTCではなく必ず$BTCの形式に統一する。
@@ -59,6 +61,51 @@ AUTO_SELECTABLE_TOPIC_TYPES = (
     "policy_household",
     "macro_event",
 )
+
+# 一次資料で事実を固定した後に、編集上の分析を加えられるニュース系統。
+# 価格チャートは別経路で生成されるため、この集合には含めない。
+EDITORIAL_ANALYSIS_TOPIC_TYPES = frozenset(
+    (*AUTO_SELECTABLE_TOPIC_TYPES, "x_reaction", "public_figure_statement")
+)
+_FORBIDDEN_ANALYSIS_RE = re.compile(
+    r"(?:必ず|確実|間違いなく|価格目標|買うべき|売るべき|今すぐ買|今すぐ売|"
+    r"上がるはず|下がるはず|爆上げ|爆下げ)"
+)
+_VAGUE_ANALYSIS_RE = re.compile(
+    r"(?:注視したい|追いたい|見ていきたい|確認したい|ポイントです|節目だと見ています)[。！!]*$"
+)
+
+
+def allows_editorial_analysis(topic_type: object) -> bool:
+    return str(topic_type or "") in EDITORIAL_ANALYSIS_TOPIC_TYPES
+
+
+def validate_editorial_analysis(candidate: dict, *, required: bool = True) -> None:
+    """ニュースの分析を事実から分離し、予測や定型の感想を公開前に止める。"""
+    topic_type = str(candidate.get("topic_type", ""))
+    opinion = " ".join(str(candidate.get("opinion", "")).split())
+    if not allows_editorial_analysis(topic_type):
+        if opinion:
+            raise ValueError("価格・データ投稿に個人見解を追加できません")
+        return
+    if not opinion:
+        if required:
+            raise ValueError("ニュースの意味を示す分析がありません")
+        return
+    if not 18 <= len(opinion) <= 95:
+        raise ValueError("ニュース分析は18〜95文字の1文にしてください")
+    if "\n" in str(candidate.get("opinion", "")) or len(re.findall(r"[。！？!?]", opinion)) > 1:
+        raise ValueError("ニュース分析は独立した短い1文にしてください")
+    if re.search(r"https?://|www\.|#[^\s#]+", opinion, flags=re.IGNORECASE):
+        raise ValueError("ニュース分析にURL・ハッシュタグを入れられません")
+    if _FORBIDDEN_ANALYSIS_RE.search(opinion):
+        raise ValueError("ニュース分析に予測・売買判断・誇大表現があります")
+    if _VAGUE_ANALYSIS_RE.search(opinion):
+        raise ValueError("ニュース分析が曖昧な注視宣言で終わっています")
+    facts = compact_text(" ".join(str(value) for value in candidate.get("facts", [])))
+    compact_opinion = compact_text(opinion)
+    if compact_opinion and compact_opinion in facts:
+        raise ValueError("ニュース分析が検証済み事実の繰り返しです")
 
 _MATERIAL_CHANGE_RE = re.compile(
     r"(?:承認|却下|可決|否決|開始|終了|停止|禁止|解禁|導入|撤回|引き上げ|引き下げ|"
@@ -126,6 +173,7 @@ def validate_auto_post_quality(candidate: dict) -> None:
     why_now = " ".join(str(candidate.get("why_now", "")).split())
     reader_interest = " ".join(str(candidate.get("reader_interest", "")).split())
     follow_value = " ".join(str(candidate.get("follow_value", "")).split())
+    validate_editorial_analysis(candidate)
 
     if len(hook) < 12:
         raise ValueError("見出しが短すぎて、何が変化したか伝わりません")

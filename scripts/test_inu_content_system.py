@@ -200,17 +200,37 @@ class INUContentSystemTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 apply_risk_alert_overlay(source, output, headline="長" * 43)
 
-    def test_post_uses_natural_paragraphs_without_personal_opinion(self):
+    def test_news_post_separates_verified_facts_and_editorial_analysis(self):
         text = compose_post(
             hook="⚡️ 米国市場で半導体株に資金が集中",
             facts=["複数のETFで過去最大級の流入が確認されました。"],
-            opinion="僕の見方では、次は資金流入が他の分野へ広がるかを確認したいです。",
+            opinion="僕は、指数全体より半導体へ資金が偏っている点が今回の重要な変化だと考えます。",
             tags=["米国株"],
         )
-        validate_post(text)
+        validate_post(text, allow_editorial_analysis=True)
         self.assertNotIn("・", text)
         self.assertIn("\n\n複数のETF", text)
-        self.assertNotIn("僕の見方では", text)
+        self.assertIn("\n\n僕は、指数全体より", text)
+
+    def test_price_post_still_rejects_personal_opinion(self):
+        text = compose_post(
+            hook="📈 $BTC、24時間で3.2％上昇",
+            facts=["確定1時間足は直近高値付近です。"],
+            opinion="僕は、上昇が続くと考えます。",
+            tags=[],
+        )
+        with self.assertRaisesRegex(ValueError, "個人の見解・一人称"):
+            validate_post(text)
+
+    def test_news_first_person_is_boku_not_watashi(self):
+        text = compose_post(
+            hook="🏦 規制当局が新制度を公表",
+            facts=["適用対象と施行条件が新たに示されました。"],
+            opinion="私は、適用範囲が実務への影響を左右すると考えます。",
+            tags=[],
+        )
+        with self.assertRaisesRegex(ValueError, "一人称は『僕』"):
+            validate_post(text, allow_editorial_analysis=True)
 
     def test_hourly_medium_images_stay_under_budget_estimate(self):
         self.assertLessEqual(estimate_monthly_cost_yen(24), 10000)

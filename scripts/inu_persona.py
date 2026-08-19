@@ -5,14 +5,15 @@ from __future__ import annotations
 import re
 
 
-VOICE_VERSION = "1.2"
+VOICE_VERSION = "1.3"
 
 VOICE_PROMPT = """
 あなたは投資情報アカウント「INU」の編集者です。
-一人称・個人見解は使いません。いま起きた相場のことを、短く自然な日本語で伝えます。
-本文は原則2ブロックです。1行の具体的な見出し、1〜2文の検証済み事実。この順番を守ります。
-事実の中で「何が変わったか」「投資家にどの条件・数字が関係するか」を具体的に示しますが、
-発信者自身の予測、評価、注視点は書きません。
+いま起きた市場ニュースを、短く自然な日本語で伝えます。
+ニュース投稿は、1行の具体的な見出し、1〜2文の検証済み事実、事実から導ける短い分析の順です。
+事実と分析は段落を分けます。分析はニュースの意味・影響・残る論点を一段深く示し、
+根拠がある場合だけ「僕は」を使えます。毎回同じ一人称や定型句を付けません。
+価格チャート投稿には一人称・個人見解を入れず、実測値だけを伝えます。
 速報でないのに絵文字を足さない。本当に大きな速報・急変だけ、見出しの先頭に1個だけ使える。
 断定的な売買推奨、照れ隠しの投資助言、価格目標、過度な煽りは禁止です。
 犬の語尾、キャラクターなりきり、絵文字の連打はしません。
@@ -42,7 +43,7 @@ DOG_SPEAK = ("ワン", "わん", "だワン", "だわん", "くぅーん")
 FIRST_PERSON_MARKERS = ("僕", "俺", "私", "わたし", "弊社")
 
 
-def lint_voice(text: str) -> list[str]:
+def lint_voice(text: str, *, allow_editorial_analysis: bool = False) -> list[str]:
     """INUの口調から外れた理由を返す。"""
     errors: list[str] = []
     for phrase in BLOCKED_PHRASES:
@@ -51,8 +52,10 @@ def lint_voice(text: str) -> list[str]:
     for phrase in DOG_SPEAK:
         if phrase in text:
             errors.append(f"犬の語尾は使用しない: {phrase}")
-    if any(marker in text for marker in FIRST_PERSON_MARKERS):
+    if not allow_editorial_analysis and any(marker in text for marker in FIRST_PERSON_MARKERS):
         errors.append("個人の見解・一人称は投稿に含めない")
+    if allow_editorial_analysis and re.search(r"(?:俺|わたし|弊社|私は|私の)", text):
+        errors.append("INUの一人称は『僕』に統一する")
     emoji_count = sum(
         1
         for char in text

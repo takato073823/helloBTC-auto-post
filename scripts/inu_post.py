@@ -34,14 +34,17 @@ def compose_post(
     # 事実を一つのブロックにまとめる。1文ごとに改行を空けると、
     # 公式資料を機械的に抜き出しただけの印象になりやすいため。
     body = clean_hook if not paragraphs else f"{clean_hook}\n\n" + "\n".join(paragraphs)
+    clean_opinion = _neutralize_service_domains(opinion.strip())
+    if clean_opinion:
+        body += f"\n\n{clean_opinion}"
     hashtags = _build_hashtags((tags or [])[:2]) if include_hashtags else ""
     if hashtags:
         body += f"\n\n{hashtags}"
     return format_crypto_tickers(body)
 
 
-def validate_post(text: str) -> None:
-    errors = lint_voice(text)
+def validate_post(text: str, *, allow_editorial_analysis: bool = False) -> None:
+    errors = lint_voice(text, allow_editorial_analysis=allow_editorial_analysis)
     if weighted_length(text) > MAX_WEIGHTED_LENGTH:
         errors.append(f"Xの文字数上限を超える: {weighted_length(text)}")
     if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):

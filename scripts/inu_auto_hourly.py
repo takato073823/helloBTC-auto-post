@@ -27,6 +27,7 @@ from inu_editorial_policy import (
     EDUCATIONAL_NEWS_PLAYBOOK,
     EDITORIAL_CONSTITUTION,
     validate_auto_post_quality,
+    validate_editorial_analysis,
 )
 from inu_growth_insights import load_insight_guidance
 from inu_hourly_dispatcher import JST, load_state, save_state, slot_key
@@ -1006,7 +1007,9 @@ has_candidate=true の候補は focus_signal_url に上記の url を完全一�
 - 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
 - follow_valueへ「この出来事を起点に次に確認すべき数値・決定・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。公開文では「次の確認」として簡潔に使う。
 - hook・factsにも、reader_interestの根拠となる具体的な変更点を必ず入れる。「〜を公表へ」「公式ページでは〜」だけの投稿は禁止。
-- opinionは必ず空文字にする。本文は見出しと検証済み事実だけで完結させ、個人見解・一人称・予測・注視点は書かない。
+- opinionは、factsと重複しない「このニュースが市場・利用者にとって何を意味するか」の分析を
+  18〜65文字の自然な1文で書く。事実と分析を混ぜない。根拠がある見解型では「僕は」を使ってよいが、
+  毎回同じ一人称や「節目だと見ています」を付けない。価格予測、売買判断、曖昧な注視宣言は禁止。
 - 採用する投稿では、内容を示す絵文字をhookの先頭に1個使う（例：🚨重要速報、📈最高値・上昇、📉急落、⚠️安全性・制度リスク、🏦金融機関・政策）。装飾ではなく、読者がスクロール中に出来事の性質を瞬時に把握するために使う。本文中には使わず、事実と合わない絵文字は使わない。
 - 投稿全体は日本語の全角換算を考慮して180〜220以内を目標にし、非常に簡潔にする。
 - 本文にURLは書かない。原則ハッシュタグは使わず、改行で論理構造を見せる。
@@ -1051,9 +1054,9 @@ visual_routeは数字・表・チャートが根拠ならofficial_data_crop、�
 
 def _normalize_researched_candidate(candidate: dict) -> dict:
     normalized = dict(candidate)
-    # 投稿本文に個人見解を混ぜない。モデルの内部出力に値があっても、公開候補では
-    # 常に空へ正規化し、見出しと検証済み事実だけを使う。
-    normalized["opinion"] = ""
+    # ニュース分析は検証済み事実とは別欄で保持する。公開前に予測・売買判断・
+    # 定型的な注視宣言を独立ゲートで落とし、価格経路には渡さない。
+    normalized["opinion"] = " ".join(str(normalized.get("opinion", "")).split())
     normalized["published_at"] = _normalize_research_published_at(
         normalized.get("published_at", "")
     )
@@ -1215,8 +1218,10 @@ def _kol_quote_prompt(now: dt.datetime, state: dict, posts: list[dict]) -> str:
 x_native_quote にする。どちらも元投稿のネイティブメディアと投稿者表示を保つので、
 画像・動画ファイルの再アップロードや本文へのURL直書きは禁止する。
 
-投稿文はINUの口調で、絵文字1つで始める短い見出しと1〜2個の具体的な事実だけで構成する。
-「出典：」「この投稿によると」「海外で話題」などの説明、個人見解・一人称・予測は書かない。
+投稿文はINUの口調で、絵文字1つで始める短い見出し、1〜2個の具体的な事実、
+事実から導ける短い分析で構成する。opinionは元投稿で確認できる事実と重複させず、
+市場への意味・影響・残る論点を18〜65文字の1文で書く。根拠がある見解型では「僕は」を使ってよい。
+「出典：」「この投稿によると」「海外で話題」などの説明、価格予測、売買判断は書かない。
 why_now、reader_interest、follow_value は内部判定用で、抽象語だけにしない。
 
 すでに引用済みまたは予約済みの元投稿ID: {json.dumps(sorted(used), ensure_ascii=False)}
@@ -1286,10 +1291,22 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
         expected_mode = "x_native_video_reference" if source.get("has_video") else "x_native_quote"
         if str(raw.get("delivery_mode")) != expected_mode:
             continue
+        quote_facts = [str(value) for value in raw.get("facts", [])]
+        quote_opinion = str(raw.get("opinion", ""))
+        try:
+            validate_editorial_analysis(
+                {
+                    "topic_type": "x_reaction",
+                    "facts": quote_facts,
+                    "opinion": quote_opinion,
+                }
+            )
+        except ValueError:
+            continue
         text = compose_post(
             hook=str(raw.get("hook", "")),
-            facts=[str(value) for value in raw.get("facts", [])],
-            opinion="",
+            facts=quote_facts,
+            opinion=quote_opinion,
             tags=[],
             include_hashtags=False,
         )
@@ -1298,7 +1315,7 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
         if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
             continue
         try:
-            validate_post(text)
+            validate_post(text, allow_editorial_analysis=True)
         except ValueError:
             continue
         if expected_mode == "x_native_video_reference" and weighted_length(text) > MAX_WEIGHTED_LENGTH - 24:
@@ -1313,6 +1330,7 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
             "reader_interest": str(raw.get("reader_interest", "")),
             "follow_value": str(raw.get("follow_value", "")),
             "hook": str(raw.get("hook", "")),
+            "opinion": str(raw.get("opinion", "")),
             "delivery_mode": expected_mode,
         }
         if min(len(candidate["why_now"].strip()), len(candidate["reader_interest"].strip()), len(candidate["follow_value"].strip())) < 18:
@@ -1399,7 +1417,8 @@ def build_rescue_research_prompt(
 - has_candidate=trueを最低3件返す。候補なしで終えず、同じ話題の言い換えではなく
   発表主体とtopic_typeを分散させる。
 - hookは事実を短く示す1行で、性質に合う絵文字を先頭に一つ使う。
-- opinionは必ず空文字にする。本文には個人見解・一人称・予測を含めない。
+- opinionは検証済みfactsから導ける市場への意味を18〜65文字の1文で書く。
+  見解型では「僕は」を使ってよいが、価格予測・売買判断・曖昧な注視宣言は禁止。
 - reader_interestは今見る理由、follow_valueは今後追う別の続報対象にして、互いの言い換えにしない。
 - 噂は除外し、複数の独立情報源で照合するか、発表主体・規制当局・取引所データなど
   一次情報で裏付ける。本文はフック→事実→影響→注意点→次の確認対象に変換できる内容にする。
@@ -1473,6 +1492,7 @@ EDITORIAL_REPAIR_ERROR_MARKERS = (
     "継続フォロー価値",
     "投稿文を安全に",
     "文を途中で切らずに",
+    "ニュース分析",
 )
 
 
@@ -1496,7 +1516,8 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
 
 書き直すのはhook、opinion、why_now、reader_interest、follow_value、tagsだけです。
 - hookは先頭に出来事に合う絵文字を一つ、続けて何が変わったかを短く書く。
-- opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
+- opinionはfactsを繰り返さず、このニュースの意味・影響・残る論点を18〜65文字の1文で書く。
+  見解型では「僕は」を使ってよいが、毎回同じ型にしない。価格予測・売買判断・注視宣言は禁止。
 - why_nowは更新時点または新しい数値、reader_interestは今の判断に関わる理由、
   follow_valueは別の続報テーマにする。三つを言い換えにしない。
 - hookは30文字以内、reader_interestとfollow_valueは各20文字以内で、文を途中で切らずに完結させる。
@@ -1513,7 +1534,7 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
     )
     updated = dict(candidate)
     updated.update(repaired)
-    updated["opinion"] = ""
+    updated["opinion"] = " ".join(str(updated.get("opinion", "")).split())
     return updated
 
 
@@ -1535,7 +1556,9 @@ def _grok_editorial_copy_prompt(candidate: dict) -> str:
 - URL、出典名、媒体名、未確認の数値・固有名詞・推測は一切追加しない。
 - factsと根拠原文以外の事実は書かない。売買推奨、価格予想、煽り、定型句は禁止。
 - hookは出来事に合う絵文字1つで始め、短く「何が変わったか」を示す。
-- opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
+- opinionはfactsと重複しないニュース分析を18〜65文字の1文で書く。市場への意味、影響、
+  または残る論点を示す。見解型では「僕は」を使ってよいが、毎回同じ型にしない。
+  価格予測、売買判断、「注視したい」「追いたい」だけの感想は禁止。
 - why_now、reader_interest、follow_valueは内部判定用。抽象語・同じ内容の言い換えにしない。
 - hookは30文字以内、reader_interestとfollow_valueは各20文字以内。省略記号を使わず文を完結させる。
 - tagsは1〜2個。本文に「出典：」「速報」「海外で話題」は入れない。
@@ -1569,8 +1592,8 @@ def _grok_editorial_copy_options(candidate: dict) -> list[dict]:
             key: raw.get(key)
             for key in ("hook", "opinion", "why_now", "reader_interest", "follow_value", "tags")
         }
-        option["opinion"] = ""
-        if all(option.get(key) not in {None, ""} for key in option if key not in {"tags", "opinion"}) and option.get("tags"):
+        option["opinion"] = " ".join(str(option.get("opinion", "")).split())
+        if all(option.get(key) not in {None, ""} for key in option if key != "tags") and option.get("tags"):
             options.append(option)
     return options
 
@@ -1687,13 +1710,14 @@ def _research_verified_priority_page(
 
 この1件だけを候補配列へ返してください。重要な新規事実がなければ空配列にしてください。
 - source_urlは固定URLと完全一致、focus_signal_urlも固定URLと完全一致。
-- source_nameは発表主体の名称、is_primary_sourceはtrue、opinionは空文字。
+- source_nameは発表主体の名称、is_primary_sourceはtrue。opinionは検証済みfactsから導ける
+  市場への意味・影響・残る論点を18〜65文字の自然な1文で書く。
 - evidence_anchorは上の本文に文字どおり存在する短い原文。日本語訳や要約は禁止。
 - 公開時刻が本文になく当日または前日の公式公開日だけがある場合、発表主体の現地時間00:00をISO 8601で返す。
 - hookは機関名と具体的な変更を30文字以内で示し、先頭に内容に合う絵文字を1個使う。
 - factsは検証済みの変更内容・背景と、投資家または事業者への影響を各45文字以内の2文にする。
 - hook、facts、why_now、reader_interest、follow_value、tagsは、固有名詞を除いてすべて自然な日本語で書く。
-- reader_interestとfollow_valueは別内容の完結文。予測、売買助言、URL、ハッシュタグ、一人称は禁止。
+- reader_interestとfollow_valueは別内容の完結文。予測、売買助言、URL、ハッシュタグは禁止。
 - topic_typeとvisual_routeは内容に合う自動投稿対象を選ぶ。規制変更ならregulatory_rule_change / official_text_crop。
 """.strip()
     payload = generate_editorial_json(
@@ -2047,6 +2071,7 @@ def validate_candidate(
     if include_editorial:
         _validate_reader_interest(candidate)
         _validate_follow_value(candidate)
+        validate_editorial_analysis(candidate)
         validate_auto_post_quality(candidate)
 
     used_urls = {
@@ -2141,36 +2166,30 @@ def _validate_follow_value(candidate: dict) -> None:
 
 
 def compose_candidate_text(candidate: dict) -> str:
-    impact = " ".join(str(candidate.get("reader_interest", "")).split()).strip()
-    next_watch = " ".join(str(candidate.get("follow_value", "")).split()).strip()
-    disclaimer = (
+    analysis = " ".join(str(candidate.get("opinion", "")).split()).strip()
+    validate_editorial_analysis(candidate)
+    prediction_caveat = (
         "予測市場の確率は確定情報ではなく、価格を保証しません。"
         if candidate.get("topic_type") == "prediction_market_shift"
-        else "公開情報の整理であり、個別の売買を勧めるものではありません。"
+        else ""
     )
 
     def build(
         hook: str,
         facts: list[str],
-        impact_text: str,
-        next_text: str,
-        *,
-        risk_text: str = disclaimer,
     ) -> str:
+        publish_facts = [*facts]
+        if prediction_caveat and not any("確定情報では" in fact for fact in publish_facts):
+            publish_facts.append(prediction_caveat)
         return compose_post(
             hook=hook,
-            facts=[
-                *facts,
-                f"影響: {impact_text}",
-                f"注意: {risk_text}",
-                f"次の確認: {next_text}",
-            ],
-            opinion="",
+            facts=publish_facts,
+            opinion=analysis,
             tags=[],
             include_hashtags=False,
         )
 
-    text = build(candidate["hook"], candidate["facts"], impact, next_watch)
+    text = build(candidate["hook"], candidate["facts"])
     if weighted_length(text) <= MAX_WEIGHTED_LENGTH:
         return text
 
@@ -2179,9 +2198,6 @@ def compose_candidate_text(candidate: dict) -> str:
     compact = build(
         candidate["hook"],
         [candidate["facts"][0]],
-        impact,
-        next_watch,
-        risk_text="投資助言ではありません。",
     )
     if weighted_length(compact) > MAX_WEIGHTED_LENGTH:
         raise ValueError("文を途中で切らずに280文字以内へ短縮できません")
@@ -2192,17 +2208,17 @@ def compose_candidate_text(candidate: dict) -> str:
 
 def _review_draft_posts(candidate: dict) -> list[str]:
     """情報量が多い候補は、完全版をレビュー用スレッドとして保持する。"""
-    disclaimer = (
-        "注意: 予測市場の確率は確定情報ではなく、価格を保証しません。"
-        if candidate.get("topic_type") == "prediction_market_shift"
-        else "注意: 公開情報の整理であり、個別の売買を勧めるものではありません。"
-    )
-    impact = f"影響: {' '.join(str(candidate.get('reader_interest', '')).split())}"
-    next_watch = f"次の確認: {' '.join(str(candidate.get('follow_value', '')).split())}"
+    analysis = " ".join(str(candidate.get("opinion", "")).split())
+    validate_editorial_analysis(candidate)
+    facts = list(candidate.get("facts", []))
+    if candidate.get("topic_type") == "prediction_market_shift" and not any(
+        "確定情報では" in str(fact) for fact in facts
+    ):
+        facts.append("予測市場の確率は確定情報ではなく、価格を保証しません。")
     full = compose_post(
         hook=str(candidate.get("hook", "")),
-        facts=[*candidate.get("facts", []), impact, disclaimer, next_watch],
-        opinion="",
+        facts=facts,
+        opinion=analysis,
         tags=[],
         include_hashtags=False,
     )
@@ -2210,39 +2226,13 @@ def _review_draft_posts(candidate: dict) -> list[str]:
         return [full]
     first = compose_post(
         hook=str(candidate.get("hook", "")),
-        facts=[*candidate.get("facts", [])],
-        opinion="",
+        facts=facts,
+        opinion=analysis,
         tags=[],
         include_hashtags=False,
     )
-    second = compose_post(
-        hook="市場への影響と次の確認",
-        facts=[impact, disclaimer, next_watch],
-        opinion="",
-        tags=[],
-        include_hashtags=False,
-    )
-    if weighted_length(first) <= MAX_WEIGHTED_LENGTH and weighted_length(second) <= MAX_WEIGHTED_LENGTH:
-        return [first, second]
-    second = compose_post(
-        hook="市場への影響と注意点",
-        facts=[impact, disclaimer],
-        opinion="",
-        tags=[],
-        include_hashtags=False,
-    )
-    third = compose_post(
-        hook="次の確認",
-        facts=[next_watch],
-        opinion="",
-        tags=[],
-        include_hashtags=False,
-    )
-    if all(
-        weighted_length(post) <= MAX_WEIGHTED_LENGTH
-        for post in (first, second, third)
-    ):
-        return [first, second, third]
+    if weighted_length(first) <= MAX_WEIGHTED_LENGTH:
+        return [first]
     return [compose_candidate_text(candidate)]
 
 

@@ -29,7 +29,7 @@ def candidate(**overrides) -> dict:
         "topic_type": "etf_flow",
         "hook": "米国のビットコインETF資金が反転",
         "facts": ["公式集計で1億ドルの純流入を確認しました。"],
-        "opinion": "",
+        "opinion": "僕は、資金の反転が一日限りか継続するかで、機関需要の強さが見えると考えます。",
         "source_name": "Example ETF公式",
         "source_url": "https://example.com/official/flow?utm_source=test",
         "published_at": "2026-08-04T08:00:00Z",
@@ -74,6 +74,23 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("カストディとは何か", prompt)
         self.assertIn("regulatory_rule_change", prompt)
         self.assertIn("1文目=変更内容と背景", prompt)
+        self.assertIn("factsと重複しない", prompt)
+        self.assertIn("市場・利用者にとって何を意味するか", prompt)
+
+    def test_news_analysis_is_required_and_vague_watch_comment_is_rejected(self):
+        validate_auto_post_quality(candidate())
+        with self.assertRaisesRegex(ValueError, "ニュースの意味を示す分析"):
+            validate_auto_post_quality(candidate(opinion=""))
+        with self.assertRaisesRegex(ValueError, "曖昧な注視宣言"):
+            validate_auto_post_quality(
+                candidate(opinion="僕は、今後のETF資金フローを引き続き注視したい。")
+            )
+
+    def test_news_analysis_rejects_price_prediction_and_buy_sell_language(self):
+        with self.assertRaisesRegex(ValueError, "予測・売買判断"):
+            validate_auto_post_quality(
+                candidate(opinion="僕は、この純流入でビットコインは必ず上がると考えます。")
+            )
 
     def test_prediction_market_requires_probability_change_and_caveat(self):
         item = candidate(
@@ -269,7 +286,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         grok_copy = {
             "candidates": [{
                 "hook": "⚡️ 米国ビットコインETFの資金が反転",
-                "opinion": "",
+                "opinion": "僕は、単日の流入額より、数日続くかが機関需要を見極める材料になると考えます。",
                 "why_now": "公式集計で当日の純流入額が更新されたためです。",
                 "reader_interest": "資金流入の継続性を、次の需給判断へつなげられるためです。",
                 "follow_value": "ETFフローと機関資金の変化を継続して確認できるためです。",
@@ -287,7 +304,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(item["source_url"], selected["source_url"])
         self.assertEqual(item["evidence_anchor"], selected["evidence_anchor"])
         self.assertEqual("⚡️ 米国ビットコインETFの資金が反転", selected["hook"])
-        self.assertEqual("", selected["opinion"])
+        self.assertIn("機関需要", selected["opinion"])
 
     def test_economy_mode_skips_grok_editorial_rewrite(self):
         item = candidate()
@@ -906,13 +923,12 @@ class INUAutoHourlyTests(unittest.TestCase):
     def test_media_and_text_are_always_required_by_prepared_item(self):
         text = inu_auto_hourly.compose_candidate_text(candidate())
         self.assertNotIn("僕の見方では", text)
-        self.assertNotIn("僕", text)
+        self.assertIn("僕は、資金の反転", text)
         self.assertNotIn("https://", text)
-        self.assertIn(f"影響: {candidate()['reader_interest']}", text)
-        self.assertIn("注意: 公開情報の整理であり、個別の売買を勧めるものではありません。", text)
-        self.assertIn(f"次の確認: {candidate()['follow_value']}", text)
+        self.assertNotIn("影響:", text)
+        self.assertNotIn("次の確認:", text)
         self.assertNotIn("#", text)
-        inu_auto_hourly.validate_post(text)
+        inu_auto_hourly.validate_post(text, allow_editorial_analysis=True)
 
     def test_long_review_copy_is_preserved_as_a_thread_without_hashtags(self):
         item = candidate(
@@ -926,12 +942,13 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "次回の公式更新で対象資産、利用地域、預かり残高、利用条件、提供開始日、"
                 "提携先、監査体制の追加開示を確認します。"
             ),
+            opinion="僕は、対象地域の拡大より、銀行経由の市場インフラが実利用へ進む点を重視します。",
         )
         posts = inu_auto_hourly._review_draft_posts(item)
-        self.assertGreaterEqual(len(posts), 2)
+        self.assertGreaterEqual(len(posts), 1)
         self.assertTrue(all(inu_auto_hourly.weighted_length(post) <= 280 for post in posts))
         self.assertTrue(all("#" not in post for post in posts))
-        self.assertIn("市場への影響", posts[1])
+        self.assertTrue(any("市場インフラ" in post for post in posts))
 
     def test_research_review_persists_draft_and_internal_summary(self):
         item = candidate(corroborating_source_urls=["https://data.example.net/flow"])
@@ -985,7 +1002,7 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "delivery_mode": "x_native_video_reference",
                 "hook": "📊 ETFフローの変化を確認",
                 "facts": ["動画では短時間の資金フロー変化を示しています。"],
-                "opinion": "",
+                "opinion": "僕は、瞬間的な変化より、同じ方向のフローが続くかが重要だと考えます。",
                 "tags": ["ビットコイン"],
                 "why_now": "直近3時間の高表示動画で、資金フローの変化を視覚的に確認できるためです。",
                 "reader_interest": "短期の資金フロー変化が価格と出来高に波及するかを判断する材料になるためです。",
@@ -1003,6 +1020,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(source["post_id"], item["source_tweet_id"])
         self.assertNotIn("https://", item["text"])
         self.assertNotIn("#", item["text"])
+        self.assertIn("僕は、瞬間的な変化より", item["text"])
         self.assertLessEqual(item["text"].count("$"), 1)
         self.assertEqual(source["post_url"], selected["source_url"])
 
@@ -1020,7 +1038,7 @@ class INUAutoHourlyTests(unittest.TestCase):
         item = candidate(
             hook="重要な市場ニュースです" * 12,
             facts=["公式発表で重要な数値が更新されました。" * 12],
-            opinion="",
+            opinion="僕は、更新された数値が従来の前提を変える点を重要だと考えます。",
             source_name="Example Official Investor Relations Department" * 4,
         )
         with self.assertRaisesRegex(ValueError, "途中で切らず"):
@@ -1036,10 +1054,11 @@ class INUAutoHourlyTests(unittest.TestCase):
             follow_value="次回公表される純流入額と現物価格の反応を確認します。",
         )
         text = inu_auto_hourly.compose_candidate_text(item)
-        inu_auto_hourly.validate_post(text)
+        inu_auto_hourly.validate_post(text, allow_editorial_analysis=True)
         self.assertNotIn("…", text)
         self.assertIn(item["facts"][0], text)
-        self.assertNotIn(item["facts"][1], text)
+        self.assertIn(item["facts"][1], text)
+        self.assertIn(item["opinion"], text)
 
     def test_static_weekly_supply_disclosure_is_not_a_fresh_event(self):
         item = candidate(
@@ -1291,12 +1310,12 @@ class INUAutoHourlyTests(unittest.TestCase):
     def test_verified_priority_candidate_is_reedited_only_when_public_copy_is_too_long(self):
         item = candidate(
             _grok_editorial_complete=True,
-            reader_interest="規則変更が市場参加者と利用者へ与える具体的な影響を今すぐ確認できます。" * 4,
-            follow_value="意見募集後の最終規則と施行時期、適用対象の更新を継続して確認します。" * 4,
+            hook="SECが暗号資産市場に関する新しい規則案を公表し適用対象を示しました" * 4,
+            opinion="僕は、提案の存在より、最終規則の適用対象が市場への影響を左右すると考えます。" * 2,
         )
         compact_copy = {
             "hook": "📜 SEC、暗号資産規則案を公表",
-            "opinion": "",
+            "opinion": "僕は、提案の存在より、最終規則の適用対象が市場への影響を左右すると考えます。",
             "why_now": "SECが新しい規則案を公表したためです。",
             "reader_interest": "利用条件と市場への影響を確認できます",
             "follow_value": "最終規則と施行時期の更新を確認できます",
