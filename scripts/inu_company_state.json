@@ -164,6 +164,23 @@
       "topic_type": "regulatory_rule_change",
       "content_fingerprint": "0a806181f7cb64374045f6bf677af0ad818baba3a77ee31fcf1855c7eac0735c",
       "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
+    },
+    {
+      "run_id": "32223314149",
+      "started_at": "2026-08-19T06:25:56.402301+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "failed_released"
+      },
+      "slot": "2026-08-19-15-a",
+      "post_id": "inu_auto_40393a03d287a6",
+      "topic_type": "regulatory_rule_change",
+      "content_fingerprint": "0a806181f7cb64374045f6bf677af0ad818baba3a77ee31fcf1855c7eac0735c",
+      "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336",
+      "status": "retryable_delivery_failure",
+      "reason": "X投稿に失敗しました。文字だけの代替投稿は行っていません",
+      "completed_at": "2026-08-19T06:25:56.878034+00:00"
     }
   ]
 }
