@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T06:10:03.735358+00:00",
+  "generated_at": "2026-08-19T06:12:58.205026+00:00",
   "slot": "2026-08-19-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T06:10:03.735358+00:00",
-    "to": "2026-08-19T06:10:03.735358+00:00"
+    "from": "2026-08-18T06:12:58.205026+00:00",
+    "to": "2026-08-19T06:12:58.205026+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -54,7 +54,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 4,
+          "used": 5,
           "limit": 12
         },
         "openai_web_search": {
@@ -70,7 +70,7 @@
         "hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
         "published_at": "2026-08-18T00:00:00-04:00",
         "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
-        "why_now": "前回の解釈指針に続き包括的枠組みが提示された。"
+        "why_now": "3月の解釈指針に続き包括的な枠組みを整備するため"
       }
     ],
     "rejected_reasons": [
