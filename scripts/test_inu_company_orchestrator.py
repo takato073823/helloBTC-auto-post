@@ -20,6 +20,7 @@ class INUCompanyOrchestratorTests(unittest.TestCase):
             args = argparse.Namespace(
                 prepared=str(prepared),
                 company_state=str(company_state),
+                state=str(root / "state.json"),
             )
 
             def fake_prepare(_args):
