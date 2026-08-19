@@ -415,6 +415,55 @@ class INUAutoHourlyTests(unittest.TestCase):
         hero.assert_not_called()
         generated.assert_called_once()
 
+    def test_public_figure_regulatory_news_uses_primary_source_photo_even_in_economy_mode(self):
+        item = candidate(
+            topic_type="regulatory_rule_change",
+            visual_route="official_text_crop",
+            published_at="2026-08-04T11:00:00Z",
+            hook="🇺🇸 トランプ大統領、SEC暗号資産規則の施行命令に署名",
+            facts=[
+                "ホワイトハウスの公式発表で、新しい暗号資産規則を施行する命令への署名を確認しました。",
+                "暗号資産事業者の申請手続きと、投資家向け開示の条件が変更されます。",
+            ],
+            why_now="2026年8月4日11時にホワイトハウスが大統領令への署名を公表したためです。",
+            reader_interest="暗号資産政策の変更内容が分かるためです。",
+            follow_value="今後の施行条件を継続して確認できるためです。",
+        )
+        with tempfile.TemporaryDirectory(dir=inu_auto_hourly.SCRIPT_DIR) as directory:
+            artifact_dir = Path(directory) / "inu-auto"
+            with patch.dict(
+                "os.environ",
+                {"INU_ECONOMY_MODE": "true", "INU_ECONOMY_GENERATED_VISUALS": "false"},
+                clear=False,
+            ), patch.object(
+                inu_auto_hourly, "fetch_and_verify_source", return_value=item["source_url"]
+            ), patch.object(
+                inu_auto_hourly, "ARTIFACT_DIR", artifact_dir
+            ), patch.object(
+                inu_auto_hourly, "capture_official_evidence"
+            ), patch.object(
+                inu_auto_hourly, "capture_source_hero_image"
+            ) as hero, patch.object(
+                inu_auto_hourly, "generate_editorial_news_visual"
+            ) as generated, patch.object(
+                inu_auto_hourly, "validate_test_item"
+            ):
+                built, selected = inu_auto_hourly._build_item_from_candidate(
+                    item,
+                    [{"url": item["source_url"], "title": "official"}],
+                    {"posted_slots": [], "posted_ids": [], "history": []},
+                    NOW,
+                    "2026-08-04-21",
+                )
+        self.assertTrue(built["media_path"].endswith("-main.png"))
+        self.assertFalse(selected["generated_editorial_visual"])
+        hero.assert_called_once()
+        self.assertEqual(
+            "verified_primary_source_photo",
+            hero.call_args.kwargs["visual_subject"]["identity_method"],
+        )
+        generated.assert_not_called()
+
     def test_economy_image_limit_is_configurable_and_capped(self):
         with patch.dict(
             "os.environ",

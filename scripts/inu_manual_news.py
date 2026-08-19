@@ -13,7 +13,11 @@ from pathlib import Path
 
 from inu_hourly_dispatcher import load_state, save_state
 from inu_live_post import publish_test_item, validate_test_item
-from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
+from inu_news_visual import (
+    capture_source_hero_image,
+    generate_editorial_news_visual,
+    identify_visual_subject,
+)
 from inu_post import compose_post
 from inu_source_capture import SourceCaptureSpec, capture_official_evidence
 
@@ -90,11 +94,18 @@ def _build_item(post: dict, state: dict) -> tuple[dict, bool]:
 
     primary_path = ARTIFACT_DIR / f"{post['id']}-main.png"
     generated = False
+    visual_subject = identify_visual_subject(
+        hook=post["hook"],
+        source_name=post["source_name"],
+    )
     try:
+        if visual_subject and visual_subject.get("kind") == "institution":
+            raise ValueError("機関ニュースは独自ビジュアルとプレーンテキストラベルを使います")
         capture_source_hero_image(
             source_url=post["source_url"], source_name=post["source_name"],
             published_at=post["published_at"], output_path=primary_path,
             is_primary_source=bool(post["is_primary_source"]),
+            visual_subject=visual_subject,
         )
     except Exception as source_image_error:
         if _today_generated_count(state) >= MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY:
@@ -105,6 +116,7 @@ def _build_item(post: dict, state: dict) -> tuple[dict, bool]:
             source_url=post["source_url"], source_name=post["source_name"],
             published_at=post["published_at"], output_path=primary_path,
             is_primary_source=bool(post["is_primary_source"]),
+            visual_subject=visual_subject,
         )
         generated = True
 

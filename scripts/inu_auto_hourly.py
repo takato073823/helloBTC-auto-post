@@ -40,7 +40,11 @@ from inu_market_universe import (
     prioritize_crypto_assets,
     prioritize_stock_assets,
 )
-from inu_news_visual import capture_source_hero_image, generate_editorial_news_visual
+from inu_news_visual import (
+    capture_source_hero_image,
+    generate_editorial_news_visual,
+    identify_visual_subject,
+)
 from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
@@ -2752,28 +2756,44 @@ def _build_item_from_candidate(
             evidence_anchor=selected["evidence_anchor"],
         )
     )
+    visual_subject = identify_visual_subject(
+        hook=selected["hook"],
+        source_name=selected["source_name"],
+    )
     # 規制ニュースは、1枚目で注目を集め、2枚目で一次資料を確認できる構成にする。
     # AI画像は事実の根拠には使わず、公式スクリーンショットを必ず併記する。
     if (
         selected["topic_type"] == "regulatory_rule_change"
         and selected["visual_route"] == "official_text_crop"
     ):
-        if _economy_mode_enabled() and not _economy_generated_visuals_enabled():
-            raise ValueError("規制ニュースの写真風アイキャッチ生成が無効です")
-        if _generated_editorial_visual_count(state, now) >= _generated_editorial_visual_limit():
-            raise ValueError("規制ニュースの写真風アイキャッチ生成が日次上限に達しています")
         primary_path = ARTIFACT_DIR / f"{slot}-main.png"
-        generate_editorial_news_visual(
-            hook=selected["hook"],
-            facts=selected["facts"],
-            topic_type=selected["topic_type"],
-            source_url=verified_url,
-            source_name=selected["source_name"],
-            published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
-            output_path=primary_path,
-            is_primary_source=bool(selected["is_primary_source"]),
-        )
-        selected["generated_editorial_visual"] = True
+        if visual_subject and visual_subject.get("kind") == "public_figure":
+            capture_source_hero_image(
+                source_url=verified_url,
+                source_name=selected["source_name"],
+                published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+                output_path=primary_path,
+                is_primary_source=bool(selected["is_primary_source"]),
+                visual_subject=visual_subject,
+            )
+            selected["generated_editorial_visual"] = False
+        else:
+            if _economy_mode_enabled() and not _economy_generated_visuals_enabled():
+                raise ValueError("規制ニュースの写真風アイキャッチ生成が無効です")
+            if _generated_editorial_visual_count(state, now) >= _generated_editorial_visual_limit():
+                raise ValueError("規制ニュースの写真風アイキャッチ生成が日次上限に達しています")
+            generate_editorial_news_visual(
+                hook=selected["hook"],
+                facts=selected["facts"],
+                topic_type=selected["topic_type"],
+                source_url=verified_url,
+                source_name=selected["source_name"],
+                published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+                output_path=primary_path,
+                is_primary_source=bool(selected["is_primary_source"]),
+                visual_subject=visual_subject,
+            )
+            selected["generated_editorial_visual"] = True
         selected["evidence_as_primary"] = False
         item = {
             "id": _candidate_id(selected),
@@ -2822,12 +2842,16 @@ def _build_item_from_candidate(
     primary_path = ARTIFACT_DIR / f"{slot}-main.png"
     generated_primary = False
     try:
+        # 機関ニュースはロゴ転載や媒体固有画像を避け、INU独自画像＋大きな機関名で識別する。
+        if visual_subject and visual_subject.get("kind") == "institution":
+            raise ValueError("機関ニュースは独自ビジュアルとプレーンテキストラベルを使います")
         capture_source_hero_image(
             source_url=verified_url,
             source_name=selected["source_name"],
             published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
             output_path=primary_path,
             is_primary_source=bool(selected["is_primary_source"]),
+            visual_subject=visual_subject,
         )
     except Exception as source_image_error:
         if _economy_mode_enabled() and not _economy_generated_visuals_enabled():
@@ -2857,6 +2881,7 @@ def _build_item_from_candidate(
             published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
             output_path=primary_path,
             is_primary_source=bool(selected["is_primary_source"]),
+            visual_subject=visual_subject,
         )
         generated_primary = True
     item = {

@@ -161,6 +161,15 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
         if manifest.get("evidence_type") == "source_news_image":
             if manifest.get("capture_type") != "source_hero_image" or not str(manifest.get("source_image_url", "")).startswith("https://"):
                 raise ValueError("出典主画像の記録が不正です")
+        if manifest.get("entity_identity_required"):
+            subject = manifest.get("visual_subject")
+            if not manifest.get("subject_identifiable") or not isinstance(subject, dict):
+                raise ValueError("ニュース主体を画像から識別できません")
+            if subject.get("kind") == "public_figure":
+                if manifest.get("generated_image") or subject.get("identity_method") != "verified_primary_source_photo":
+                    raise ValueError("実在人物は一次ソースの実写写真で確認できません")
+            if subject.get("kind") == "institution" and manifest.get("official_logo_used"):
+                raise ValueError("機関の公式ロゴをアイキャッチへ転載できません")
     else:
         _validate_evidence_manifest(manifest, visual_route, policy)
 
