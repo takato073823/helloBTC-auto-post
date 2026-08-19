@@ -32,6 +32,14 @@ jobs:
         working-directory: scripts
         run: python -m unittest test_inu_x_research_agent.py test_inu_auto_hourly.py
 
+      - name: テストが触れた実行時ファイルを復元
+        run: >-
+          git restore --worktree --
+          scripts/inu_hourly_state.json
+          scripts/inu_research_review.json
+          scripts/inu_company_state.json
+          scripts/inu_hermes_research_packet.json
+
       - name: Xの実測データから発見候補を更新
         working-directory: scripts
         env:

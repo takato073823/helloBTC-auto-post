@@ -35,6 +35,34 @@
     },
     "corroborating_sources": [],
     "x_discovery_signal_count": 24,
+    "research_engine_evidence": {
+      "xai_x_search": {
+        "signal_count": 0,
+        "status": "not_enabled_for_run"
+      },
+      "hermes_packet": {
+        "signal_count": 0,
+        "status": "not_used"
+      },
+      "official_x_api": {
+        "signal_count": 0,
+        "status": "legacy_run_unattributed"
+      },
+      "paid_api_usage": {
+        "grok_x_search": {
+          "used": 0,
+          "limit": 6
+        },
+        "grok_editorial": {
+          "used": 0,
+          "limit": 12
+        },
+        "openai_web_search": {
+          "used": 0,
+          "limit": 8
+        }
+      }
+    },
     "candidate_shortlist": [
       {
         "topic_type": "regulatory_rule_change",

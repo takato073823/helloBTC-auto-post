@@ -257,7 +257,11 @@ class INUAutoHourlyTests(unittest.TestCase):
 
     def test_economy_mode_skips_grok_editorial_rewrite(self):
         item = candidate()
-        with patch.dict("os.environ", {"INU_ECONOMY_MODE": "true"}, clear=False), patch.object(
+        with patch.dict(
+            "os.environ",
+            {"INU_ECONOMY_MODE": "true", "INU_GROK_EDITORIAL_ENABLED": "false"},
+            clear=False,
+        ), patch.object(
             inu_auto_hourly, "generate_editorial_json"
         ) as grok:
             selected = inu_auto_hourly._select_grok_editorial_copy(
@@ -1214,6 +1218,33 @@ class INUAutoHourlyTests(unittest.TestCase):
             {"XAI_API_KEY": "configured", "GITHUB_EVENT_PATH": "/tmp/event.json"},
             clear=False,
         ), patch.object(Path, "read_text", return_value=event):
+            self.assertFalse(inu_auto_hourly._is_primary_grok_run())
+
+    def test_primary_two_hour_schedule_uses_xai_search_in_economy_mode(self):
+        event = json.dumps({"schedule": "3 0-22/2 * * *"})
+        with patch.dict(
+            "os.environ",
+            {
+                "XAI_API_KEY": "configured",
+                "INU_GROK_X_SEARCH_ENABLED": "true",
+                "INU_ECONOMY_MODE": "true",
+                "INU_SCHEDULE_RUN_KIND": "primary",
+                "GITHUB_EVENT_PATH": "/tmp/event.json",
+            },
+            clear=False,
+        ), patch.object(Path, "read_text", return_value=event):
+            self.assertTrue(inu_auto_hourly._is_primary_grok_run())
+
+    def test_watchdog_kind_never_uses_xai_search(self):
+        with patch.dict(
+            "os.environ",
+            {
+                "XAI_API_KEY": "configured",
+                "INU_GROK_X_SEARCH_ENABLED": "true",
+                "INU_SCHEDULE_RUN_KIND": "watchdog",
+            },
+            clear=False,
+        ):
             self.assertFalse(inu_auto_hourly._is_primary_grok_run())
 
     def test_economy_watchdog_uses_market_fallback_without_research_api(self):

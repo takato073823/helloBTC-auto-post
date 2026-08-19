@@ -19,6 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from inu_content_types import get_content_policy
+from inu_cost_control import claim_api_call, usage_snapshot
 from inu_editorial_policy import (
     AUTO_SELECTABLE_TOPIC_TYPES,
     AUTO_POST_PLAYBOOK,
@@ -519,7 +520,10 @@ def collect_discovery_signals() -> list[dict[str, str]]:
 
 def _is_primary_grok_run() -> bool:
     """主探索だけでGrokの広域検索を行い、復旧確認のコストを抑える。"""
-    if _economy_mode_enabled() or not os.environ.get("XAI_API_KEY", "").strip():
+    enabled = os.environ.get("INU_GROK_X_SEARCH_ENABLED", "false").strip().lower()
+    if enabled not in {"1", "true", "yes"} or not os.environ.get("XAI_API_KEY", "").strip():
+        return False
+    if _scheduled_run_kind() in {"fallback", "watchdog"}:
         return False
     event_path = os.environ.get("GITHUB_EVENT_PATH", "").strip()
     if not event_path:
@@ -529,9 +533,9 @@ def _is_primary_grok_run() -> bool:
     except (OSError, ValueError):
         logger.warning("GitHubイベントを判定できないため、Grok検索を通常実行します")
         return True
-    # 毎時03分だけが広域X探索の主枠。13/23/33/43/53分の確認は、既存の
-    # 公式X探索結果・高反応シグナル・一次資料Web探索を使って同じ時間枠を補完する。
-    return event.get("schedule") == "3 * * * *"
+    # GitHub定刻実行とMacのlaunchdから起動するworkflow_dispatchだけを主枠にする。
+    # 予備実行は上のINU_SCHEDULE_RUN_KINDで除外済み。
+    return event.get("schedule") in {"3 * * * *", "3 0-22/2 * * *"} or not event.get("schedule")
 
 
 def load_curated_x_sources(path: Path = CURATED_X_SOURCES_PATH) -> list[dict[str, str]]:
@@ -604,12 +608,12 @@ def build_grok_prompt(now: dt.datetime, state: dict) -> str:
 
 
 def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[str, str]]:
-    if _economy_mode_enabled():
-        logger.info("節約モードではGrokのX探索を実行しません")
-        return []
     if not _is_primary_grok_run():
         if os.environ.get("XAI_API_KEY", "").strip():
-            logger.info("47分の再確認枠ではGrok検索を省略し、月間予算を守ります")
+            logger.info("この枠ではGrok検索を省略し、日次予算を守ります")
+        return []
+    if not claim_api_call(state, "grok_x_search", now):
+        logger.info("Grok X Searchは日次上限に達したため、公式X API・RSSで継続します")
         return []
     local_date = now.astimezone(JST).date()
     payload, _ = generate_x_json(
@@ -856,6 +860,8 @@ def research_candidates(
     # 余地をなくし、検証対象とその一次資料を一対一に固定する。
     signals = [focus_signal] if focus_signal else list(extra_signals or []) + collect_discovery_signals()
     signals = signals[:42]
+    if not claim_api_call(state, "openai_web_search", now):
+        raise RuntimeError("INU_API_BUDGET_EXHAUSTED: openai_web_search")
     payload, sources = generate_web_json(
         build_research_prompt(
             now,
@@ -1183,6 +1189,9 @@ def research_rescue_candidates(
     target_topic: str | None = None,
 ) -> tuple[list[dict], list[dict[str, str]]]:
     """候補を捨てずに、別の一次情報の組み合わせで一度だけ再探索する。"""
+    if not claim_api_call(state, "openai_web_search", now):
+        logger.info("OpenAI Web Searchは日次上限に達したため、二回目の探索を省略します")
+        return [], []
     payload, sources = generate_web_json(
         build_rescue_research_prompt(
             now,
@@ -1323,9 +1332,10 @@ def _select_grok_editorial_copy(
     required_topic: str | None = None,
 ) -> dict:
     """複数案を既存品質ゲートで選別し、最初に通ったものだけを採用する。"""
-    if _economy_mode_enabled():
-        # 検証済みの見出し・事実はテンプレートでそのまま投稿できるため、
-        # 毎時の再編集APIを使わない。
+    if os.environ.get("INU_GROK_EDITORIAL_ENABLED", "true").strip().lower() not in {"1", "true", "yes"}:
+        return candidate
+    if not claim_api_call(state, "grok_editorial", now):
+        logger.info("Grok編集は日次上限に達したため、検証済み候補の文章で継続します")
         return candidate
     try:
         options = _grok_editorial_copy_options(candidate)
@@ -1722,6 +1732,7 @@ def _write_research_review(
     sources: list[dict[str, str]],
     signals: list[dict[str, str]],
     failure_reasons: list[str],
+    state: dict | None = None,
 ) -> None:
     """公開可否とは別に、24時間リサーチの下書きと内部根拠を永続化する。"""
     corroborating: list[dict[str, str]] = []
@@ -1751,6 +1762,18 @@ def _write_research_review(
         )
 
     draft_posts = _review_draft_posts(candidate) if candidate and item else []
+    xai_signals = [
+        row for row in signals if str(row.get("discovery_type", "")) == "grok_x_search"
+    ]
+    hermes_signals = [
+        row for row in signals if str(row.get("discovery_type", "")) == "hermes_x_search"
+    ]
+    official_x_signals = [
+        row
+        for row in signals
+        if str(row.get("discovery_type", ""))
+        not in {"grok_x_search", "hermes_x_search"}
+    ]
     payload = {
         "version": 1,
         "generated_at": now.isoformat(),
@@ -1788,6 +1811,21 @@ def _write_research_review(
             },
             "corroborating_sources": corroborating,
             "x_discovery_signal_count": len(signals),
+            "research_engine_evidence": {
+                "xai_x_search": {
+                    "signal_count": len(xai_signals),
+                    "status": "used" if xai_signals else "no_accepted_signal",
+                },
+                "hermes_packet": {
+                    "signal_count": len(hermes_signals),
+                    "status": "used" if hermes_signals else "not_used",
+                },
+                "official_x_api": {
+                    "signal_count": len(official_x_signals),
+                    "status": "used" if official_x_signals else "no_accepted_signal",
+                },
+                "paid_api_usage": usage_snapshot(state or {}, now),
+            },
             "candidate_shortlist": shortlist,
             "rejected_reasons": failure_reasons[-12:],
         },
@@ -1909,7 +1947,11 @@ def _should_run_paid_web_research(
         return True
     if priority_url or promote_signals or target_topic:
         return True
-    return now.astimezone(JST).hour % _economy_web_research_interval_hours() == 0
+    # 定時枠はJST奇数時03分。偶数間隔は1時を起点に測り、4時間なら
+    # 1・5・9・13・17・21時に実行する。既存の3時間設定は従来どおり維持する。
+    interval = _economy_web_research_interval_hours()
+    hour = now.astimezone(JST).hour
+    return (hour - 1) % interval == 0 if interval % 2 == 0 else hour % interval == 0
 
 
 def _is_paid_research_quota_error(exc: Exception) -> bool:
@@ -2705,6 +2747,7 @@ def prepare(args: argparse.Namespace) -> int:
                 sources=[*direct_sources, *sources],
                 signals=signals,
                 failure_reasons=failure_reasons,
+                state=state,
             )
         except Exception as exc:
             # レビュー記録の保存失敗だけで、検証済み投稿の公開は止めない。

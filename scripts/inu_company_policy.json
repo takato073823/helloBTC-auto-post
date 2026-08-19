@@ -15,10 +15,21 @@
     "reliability": "予約lease、欠落、障害、費用、回路遮断を監視し、落ちた段階だけを再開する"
   },
   "hermes": {
-    "role": "読み取り専用X探索と継続改善。X書き込みには使用しない",
+    "role": "Profiles・Kanban・部門監査を担い、X書き込みには使用しない",
     "required_search_evidence": ["citations", "status_url", "published_at"],
     "reject_when": ["degraded", "zero_citations", "older_than_24h", "oauth_or_credit_blocked"],
     "codex_mcp_server": "codex",
-    "browser_posting": false
+    "browser_posting": false,
+    "x_research_runtime": "GitHub ActionsではxAI公式API、ローカルではdegraded=falseのHermes packetも併用"
+  },
+  "cost_control": {
+    "timezone": "Asia/Tokyo",
+    "hard_daily_limits": {
+      "xai_x_search": 6,
+      "xai_editorial": 12,
+      "openai_web_search": 8,
+      "openai_generated_visuals": 6
+    },
+    "principle": "無料の公式API・RSS・市場データを常時確認し、有料探索は4時間ごと、文章編集は採用候補だけに限定する"
   }
 }

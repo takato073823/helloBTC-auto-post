@@ -96,6 +96,13 @@ def prepare(args: argparse.Namespace) -> int:
     hermes_status = "disabled"
     if os.environ.get("INU_HERMES_RESEARCH_ENABLED", "false").strip().lower() in {"1", "true", "yes"}:
         hermes_status = str(refresh_packet().get("status", "failed"))
+    xai_status = (
+        "enabled"
+        if os.environ.get("INU_GROK_X_SEARCH_ENABLED", "false").strip().lower()
+        in {"1", "true", "yes"}
+        and bool(os.environ.get("XAI_API_KEY", "").strip())
+        else "disabled"
+    )
     prepared_path = Path(args.prepared)
     before_mtime = prepared_path.stat().st_mtime_ns if prepared_path.exists() else None
     exit_code = inu_auto_hourly.prepare(args)
@@ -109,6 +116,7 @@ def prepare(args: argparse.Namespace) -> int:
         "departments": {
             "research": "completed",
             "hermes_x_discovery": hermes_status,
+            "xai_x_search": xai_status,
             "editorial": "not_started",
             "quality": "not_started",
             "distribution": "not_started",

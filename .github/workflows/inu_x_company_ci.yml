@@ -36,6 +36,7 @@ jobs:
         run: >-
           python -m unittest
           test_inu_pipeline_contracts.py
+          test_inu_cost_control.py
           test_inu_hermes_research.py
           test_inu_company_orchestrator.py
           test_inu_hourly_guard.py
