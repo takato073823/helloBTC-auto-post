@@ -181,6 +181,22 @@
       "status": "retryable_delivery_failure",
       "reason": "X投稿に失敗しました。文字だけの代替投稿は行っていません",
       "completed_at": "2026-08-19T06:25:56.878034+00:00"
+    },
+    {
+      "run_id": "32224137926",
+      "started_at": "2026-08-19T06:37:16.482757+00:00",
+      "completed_at": "2026-08-19T06:37:16.484093+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "paused_cost_guard",
+        "editorial": "not_started",
+        "quality": "not_started",
+        "distribution": "blocked_external",
+        "reliability": "observed"
+      },
+      "status": "blocked_external",
+      "reason": "X_API_CREDITS_DEPLETED",
+      "retry_after": "2026-08-19T12:25:56.871505+00:00"
     }
   ]
 }
