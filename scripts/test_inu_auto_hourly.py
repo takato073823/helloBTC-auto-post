@@ -41,6 +41,7 @@ def candidate(**overrides) -> dict:
         "reader_interest": "資金流入が継続するかで、ビットコインETFへの需要の強さを確認できるため",
         "follow_value": "ETFフローと機関投資家の資金移動を継続して追えるため",
         "is_primary_source": True,
+        "corroborating_source_urls": [],
     }
     value.update(overrides)
     return value
@@ -63,6 +64,10 @@ class INUAutoHourlyTests(unittest.TestCase):
 
     def test_research_prompt_contains_three_educational_news_formats(self):
         prompt = inu_auto_hourly.build_research_prompt(NOW, {"history": []})
+        self.assertIn("過去24時間", prompt)
+        self.assertIn("市場・利用者への影響", prompt)
+        self.assertIn("原則ハッシュタグは使わず", prompt)
+        self.assertIn("複数の独立情報源", prompt)
         self.assertIn("prediction_market_shift", prompt)
         self.assertIn("変更前→変更後", prompt)
         self.assertIn("institutional_custody", prompt)
@@ -164,6 +169,9 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("レンジ内56％", text)
         self.assertNotIn("※比較:", text)
         self.assertNotIn("画像: TradingView", text)
+        self.assertNotIn("#", text)
+        self.assertIn("注意:", text)
+        self.assertIn("次の確認:", text)
 
     def test_evidence_anchor_accepts_only_formatting_differences(self):
         self.assertTrue(
@@ -417,6 +425,30 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
+    def test_corroborating_source_must_be_an_independent_cited_url(self):
+        item = candidate(
+            corroborating_source_urls=["https://data.example.net/flow"]
+        )
+        sources = [
+            {"url": item["source_url"], "title": "official"},
+            {"url": "https://data.example.net/flow", "title": "independent"},
+        ]
+        inu_auto_hourly.validate_candidate(
+            item,
+            sources,
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            NOW,
+        )
+        with self.assertRaisesRegex(ValueError, "参照元一覧"):
+            inu_auto_hourly.validate_candidate(
+                candidate(
+                    corroborating_source_urls=["https://uncited.example.org/flow"]
+                ),
+                sources[:1],
+                {"posted_slots": [], "posted_ids": [], "history": []},
+                NOW,
+            )
+
     def test_category_review_rejects_a_different_topic(self):
         item = candidate(topic_type="onchain")
         with self.assertRaisesRegex(ValueError, "確認対象と異なる投稿系統"):
@@ -493,8 +525,8 @@ class INUAutoHourlyTests(unittest.TestCase):
                 )
         self.assertEqual(1, len(sources))
 
-    def test_stale_candidate_is_rejected(self):
-        item = candidate(published_at="2026-08-03T12:00:00Z")
+    def test_candidate_older_than_24_hours_is_rejected(self):
+        item = candidate(published_at="2026-08-03T11:59:00Z")
         with self.assertRaisesRegex(ValueError, "鮮度上限"):
             inu_auto_hourly.validate_candidate(
                 item,
@@ -503,18 +535,29 @@ class INUAutoHourlyTests(unittest.TestCase):
                 NOW,
             )
 
-    def test_scheduled_macro_candidate_older_than_four_hours_is_rejected(self):
+    def test_verified_macro_candidate_within_24_hours_is_accepted(self):
         item = candidate(
             topic_type="macro_event",
             published_at="2026-08-04T07:30:00Z",
         )
-        with self.assertRaisesRegex(ValueError, "鮮度上限"):
-            inu_auto_hourly.validate_candidate(
-                item,
-                [{"url": item["source_url"], "title": "official"}],
-                {"posted_slots": [], "posted_ids": [], "history": []},
-                NOW,
-            )
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "official"}],
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            NOW,
+        )
+
+    def test_verified_onchain_candidate_from_previous_session_remains_eligible(self):
+        item = candidate(
+            topic_type="onchain",
+            published_at="2026-08-03T18:00:00Z",
+        )
+        inu_auto_hourly.validate_candidate(
+            item,
+            [{"url": item["source_url"], "title": "official"}],
+            {"posted_slots": [], "posted_ids": [], "history": []},
+            NOW,
+        )
 
     def test_candidate_without_material_change_is_rejected(self):
         item = candidate(
@@ -703,9 +746,64 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertNotIn("僕の見方では", text)
         self.assertNotIn("僕", text)
         self.assertNotIn("https://", text)
-        self.assertNotIn(candidate()["reader_interest"], text)
-        self.assertNotIn(candidate()["follow_value"], text)
+        self.assertIn(f"影響: {candidate()['reader_interest']}", text)
+        self.assertIn("注意: 公開情報の整理であり、個別の売買を勧めるものではありません。", text)
+        self.assertIn(f"次の確認: {candidate()['follow_value']}", text)
+        self.assertNotIn("#", text)
         inu_auto_hourly.validate_post(text)
+
+    def test_long_review_copy_is_preserved_as_a_thread_without_hashtags(self):
+        item = candidate(
+            hook="🏦 大手金融機関が暗号資産カストディの対象地域を拡大",
+            facts=[
+                "公式発表では複数地域の機関投資家が新たに保管サービスを利用できると説明しています。",
+                "カストディとは、顧客の暗号資産を分別して安全に保管・管理する業務です。",
+            ],
+            reader_interest="銀行経由で暗号資産を扱う市場インフラがどの地域まで広がったかを確認できます。",
+            follow_value=(
+                "次回の公式更新で対象資産、利用地域、預かり残高、利用条件、提供開始日、"
+                "提携先、監査体制の追加開示を確認します。"
+            ),
+        )
+        posts = inu_auto_hourly._review_draft_posts(item)
+        self.assertGreaterEqual(len(posts), 2)
+        self.assertTrue(all(inu_auto_hourly.weighted_length(post) <= 280 for post in posts))
+        self.assertTrue(all("#" not in post for post in posts))
+        self.assertIn("市場への影響", posts[1])
+
+    def test_research_review_persists_draft_and_internal_summary(self):
+        item = candidate(corroborating_source_urls=["https://data.example.net/flow"])
+        prepared = {"text": inu_auto_hourly.compose_candidate_text(item)}
+        sources = [
+            {"title": "Official", "url": item["source_url"]},
+            {"title": "Independent confirmation", "url": "https://data.example.net/flow"},
+            {"title": "X discovery", "url": "https://x.com/example/status/1"},
+        ]
+        with tempfile.TemporaryDirectory() as directory, patch.object(
+            inu_auto_hourly,
+            "RESEARCH_REVIEW_PATH",
+            Path(directory) / "review.json",
+        ):
+            inu_auto_hourly._write_research_review(
+                now=NOW,
+                slot="2026-08-04-21-a",
+                item=prepared,
+                candidate=item,
+                candidates=[item],
+                sources=sources,
+                signals=[{"url": "https://x.com/example/status/1"}],
+                failure_reasons=["別候補は一次資料を確認できませんでした"],
+            )
+            review = json.loads(inu_auto_hourly.RESEARCH_REVIEW_PATH.read_text(encoding="utf-8"))
+        self.assertEqual(24, review["research_window"]["hours"])
+        self.assertEqual("ready", review["status"])
+        self.assertEqual(
+            inu_auto_hourly.normalize_url(item["source_url"]),
+            review["internal_research_summary"]["primary_source"]["url"],
+        )
+        self.assertEqual(1, len(review["internal_research_summary"]["corroborating_sources"]))
+        self.assertTrue(review["draft"]["posts"])
+        self.assertTrue(all("#" not in post for post in review["draft"]["posts"]))
 
     def test_overseas_kol_video_is_prepared_as_native_video_reference(self):
         source = {

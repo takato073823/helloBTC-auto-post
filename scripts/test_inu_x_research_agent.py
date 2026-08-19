@@ -225,6 +225,25 @@ class ResearchAgentTests(unittest.TestCase):
         research._search_recent(client, "crypto_market", "Bitcoin", NOW, set())
         self.assertLess(client.kwargs["end_time"], NOW)
         self.assertEqual(dt.timedelta(seconds=15), NOW - client.kwargs["end_time"])
+        self.assertEqual(dt.timedelta(hours=24), client.kwargs["end_time"] - client.kwargs["start_time"])
+
+    def test_discovery_signals_are_retained_for_the_full_24_hour_research_window(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "state.json"
+            row = {
+                "post_id": "2086000000000000010",
+                "post_url": "https://x.com/issuer/status/2086000000000000010",
+                "handle": "issuer",
+                "posted_at": (NOW - dt.timedelta(hours=23, minutes=59)).isoformat(),
+                "headline": "Bitcoin ETF official flow update",
+                "summary": "Bitcoin ETF official flow update",
+                "why_trending": "表示18,000",
+                "discovery_type": "official_x_api",
+                "score": 50.0,
+            }
+            research.save_state(research.default_state() | {"signals": [row]}, state_path)
+            signals = research.discovery_signals(NOW, state_path)
+        self.assertEqual(1, len(signals))
 
     @patch("inu_x_research_agent._get_client")
     def test_without_bearer_token_agent_still_runs_direct_search_on_schedule(self, get_client):

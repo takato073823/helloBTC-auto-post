@@ -69,6 +69,7 @@ REPO_ROOT = SCRIPT_DIR.parent
 STATE_PATH = SCRIPT_DIR / "inu_hourly_state.json"
 ARTIFACT_DIR = SCRIPT_DIR / "artifacts" / "inu-auto"
 PREPARED_PATH = ARTIFACT_DIR / "prepared.json"
+RESEARCH_REVIEW_PATH = SCRIPT_DIR / "inu_research_review.json"
 CURATED_X_SOURCES_PATH = SCRIPT_DIR / "inu_curated_x_sources.json"
 MAX_HISTORY = 1000
 MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 18
@@ -112,21 +113,20 @@ INDEX_MOVE_PERCENT = 2.0
 MAX_AGE_HOURS = {
     "breaking_news": 2,
     "developing_story": 6,
-    "market_microstructure": 8,
-    "etf_flow": 12,
+    "market_microstructure": 24,
+    "etf_flow": 24,
     "prediction_market_shift": 4,
-    "institutional_custody": 12,
-    "regulatory_rule_change": 12,
-    "institutional_flow": 12,
-    "onchain": 8,
-    "whale_treasury": 8,
-    "earnings": 12,
-    "supply_event": 12,
-    "adoption_kpi": 12,
-    "policy_household": 12,
-    # 毎時投稿では、発表から時間が経ったマクロ情報を「速報」として出さない。
-    # 後追いの解説は個別の編集投稿で扱い、定期枠では4時間以内に限定する。
-    "macro_event": 4,
+    "institutional_custody": 24,
+    "regulatory_rule_change": 24,
+    "institutional_flow": 24,
+    "onchain": 24,
+    "whale_treasury": 24,
+    "earnings": 24,
+    "supply_event": 24,
+    "adoption_kpi": 24,
+    "policy_household": 24,
+    # 速報と誤認させず、過去24時間の市場背景として扱う場合だけ採用する。
+    "macro_event": 24,
 }
 SECONDARY_HOSTS = {
     "bloomberg.com",
@@ -233,6 +233,12 @@ CANDIDATE_SCHEMA = {
         "reader_interest": {"type": "string"},
         "follow_value": {"type": "string"},
         "is_primary_source": {"type": "boolean"},
+        "corroborating_source_urls": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 0,
+            "maxItems": 3,
+        },
         # 発見シグナルを個別検証する場合だけ、そのX URLをそのまま返す。一般探索では空文字。
         "focus_signal_url": {"type": "string"},
     },
@@ -254,6 +260,7 @@ CANDIDATE_SCHEMA = {
         "reader_interest",
         "follow_value",
         "is_primary_source",
+        "corroborating_source_urls",
         "focus_signal_url",
     ],
 }
@@ -599,7 +606,7 @@ def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[s
             continue
         age = now.astimezone(dt.timezone.utc) - posted_at
         url = normalize_url(str(row.get("post_url", "")))
-        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=12):
+        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=24):
             stale += 1
             continue
         if not is_x_url(url) or url in seen:
@@ -680,8 +687,9 @@ has_candidate=true の候補は focus_signal_url に上記の url を完全一�
     )
     return f"""
 あなたは投資情報アカウントINUの一次情報リサーチ担当です。現在時刻は
-{local.isoformat()}（日本時間）です。必ずWeb検索を実行し、この時刻から見て新しい
-暗号資産・ビットコイン・米国株・日本株・AI・金融政策・地政学の重要情報を
+{local.isoformat()}（日本時間）です。必ずWeb検索を実行し、過去24時間の$BTC・Bitcoin・
+ビットコイン・主要暗号資産を中心に、価格変動要因、ETF・機関投資家フロー、規制、
+マクロ経済、主要プロトコル更新、取引所・セキュリティリスクを横断して
 重要度順に最大6件選んでください。1件目が検証で落ちても次を使えるよう、発信元と
 topic_typeが異なる候補を優先してください。
 
@@ -699,7 +707,8 @@ topic_typeが異なる候補を優先してください。
 - focus_signal_urlは必須項目。個別シグナルを指定していない通常探索では必ず空文字にする。
 - 固定探索先の一覧は発見と確認の起点であり、Reuters・Nikkei・暗号資産メディアは
   最終出典にせず、必ず発表主体の同一ドメインにある一次資料へ戻る。
-- 公開日時が確認でき、原則12時間以内。速報は2時間以内、続報は6時間以内。
+- 公開日時が確認でき、過去24時間以内。2時間を超えた情報は「速報」と呼ばず、
+  過去24時間の市場動向として、今も影響が続く具体的な理由がある場合だけ選ぶ。
 - published_atは一次資料で確認した発表・更新時刻を、必ずタイムゾーン付きISO 8601
   形式で返す（例: JSTなら `2026-08-17T13:20:00+09:00`、UTCなら末尾`Z`）。日付だけや
   タイムゾーンなしの時刻は返さない。
@@ -711,17 +720,25 @@ topic_typeが異なる候補を優先してください。
 - 噂、匿名情報、価格予想、売買推奨、広告、キャンペーン、基礎知識、数日前の話題の言い換えは除外。
 - 「What happened today」「今日のまとめ」「市場総括」「daily roundup」など、複数ニュースを束ねただけの単一記事は除外。総括投稿には独立した3件以上の出典と専用図解が必要なため、この自動経路では選ばない。
 - まず一次資料を優先する。公式発表、ETF・オンチェーン、企業IR、規制・金融政策、AI、価格・市場構造の順に横断し、同じ分野だけで候補を埋めない。
-- 毎時の定期枠は必ず投稿まで到達させる。候補配列にはhas_candidate=trueの項目を最低3件返す。大きな速報がない時間は、直近12時間以内に更新された一次資料から、ETF・オンチェーン・取引所の安全性・金融政策・企業IR・AI・市場構造のいずれかで「今の市場で何が変わっているか」を具体的な数値や決定で示す候補を選ぶ。予定、基礎知識、古いニュース、同じ話題の言い換えは禁止。
+- 毎時の定期枠は必ず投稿まで到達させる。候補配列にはhas_candidate=trueの項目を最低3件返す。大きな速報がない時間は、過去24時間以内に更新された一次資料から、ETF・オンチェーン・取引所の安全性・金融政策・企業IR・AI・市場構造のいずれかで「今の市場で何が変わっているか」を具体的な数値や決定で示す候補を選ぶ。予定、基礎知識、24時間を超えるニュース、同じ話題の言い換えは禁止。
 - 候補なしを通常の結論にしない。速報性が低い題材で穴埋めするのではなく、Web検索を追加して、最新のX話題を起点に公式発表・実測データ・企業IRへ遡り、画像で意味が伝わる一次資料を伴う候補を作る。
 - 単なる企業IRの更新、発表予定、一般的な事業紹介、公開資料の存在だけでは選ばない。候補を比較したうえで、今この時刻に読む必然性が最も強いものだけを上位に置く。X上の話題性は必須ではないが、話題性がない場合でも、数値・制度・需給・安全性・価格に実際の変化があることを示せない候補は除外する。
 - 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
+- 候補は、フック→検証済み事実→市場・利用者への影響→注意点→次の確認対象の順で
+  X本文へ変換できる情報量を持たせる。reader_interestは市場・利用者への影響、
+  follow_valueは次の具体的な確認対象として書く。
+- 噂・検証不能情報は除外する。複数の独立情報源が同じ事実を示す場合は相互照合し、少なくとも
+  発表主体の公式発表、規制当局、取引所・オンチェーン公式データのいずれか一つで裏付ける。
+- corroborating_source_urlsには、同じ事実を独立に確認でき、今回のWeb検索結果に実際に
+  含まれる別ドメインのURLだけを最大3件入れる。公式一次資料だけで確定でき、独立確認先が
+  ない場合は空配列にする。無関係な検索結果やX URLを水増ししてはいけない。
 - 候補ごとにreader_interestへ「読者が今これを見る具体的な理由」を一文で書く。単に公式ページ・資料・発表を紹介する文は不可。投資家が見るべき金額、増減、決定、規制変更、需給、価格反応、または次に確認すべき具体的な事項を示せない候補は選ばない。
-- follow_valueへ「この出来事を起点に、INUを継続してフォローすると追える投資テーマ・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。この値は内部の編集判定・振り返り用で、投稿本文には書かない。
+- follow_valueへ「この出来事を起点に次に確認すべき数値・決定・続報」を一文で書く。reader_interestの言い換え、フォロー要求、公式発表の紹介だけは禁止。公開文では「次の確認」として簡潔に使う。
 - hook・factsにも、reader_interestの根拠となる具体的な変更点を必ず入れる。「〜を公表へ」「公式ページでは〜」だけの投稿は禁止。
 - opinionは必ず空文字にする。本文は見出しと検証済み事実だけで完結させ、個人見解・一人称・予測・注視点は書かない。
 - 採用する投稿では、内容を示す絵文字をhookの先頭に1個使う（例：🚨重要速報、📈最高値・上昇、📉急落、⚠️安全性・制度リスク、🏦金融機関・政策）。装飾ではなく、読者がスクロール中に出来事の性質を瞬時に把握するために使う。本文中には使わず、事実と合わない絵文字は使わない。
 - 投稿全体は日本語の全角換算を考慮して180〜220以内を目標にし、非常に簡潔にする。
-- 出典名とハッシュタグを含めても、本文にURLは書かない。
+- 本文にURLは書かない。原則ハッシュタグは使わず、改行で論理構造を見せる。
 
 口調の基準:
 {VOICE_PROMPT}
@@ -771,6 +788,7 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
     )
     normalized.setdefault("focus_signal_url", "")
     normalized.setdefault("evidence_as_primary", False)
+    normalized.setdefault("corroborating_source_urls", [])
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
         policy = get_content_policy(normalized["topic_type"])
         normalized["visual_route"] = policy.visual_route
@@ -987,7 +1005,8 @@ def _build_overseas_kol_quote_item(now: dt.datetime, state: dict) -> tuple[dict,
             hook=str(raw.get("hook", "")),
             facts=[str(value) for value in raw.get("facts", [])],
             opinion="",
-            tags=[str(value).lstrip("#＃") for value in raw.get("tags", [])][:1],
+            tags=[],
+            include_hashtags=False,
         )
         if expected_mode == "x_native_video_reference":
             text = _native_video_reference_text(text)
@@ -1089,7 +1108,7 @@ def build_rescue_research_prompt(
 - まず、Xで話題のシグナルから公式資料へ戻る。そこに使えるものがなければ、
   ETF日次データ、オンチェーン・取引所の公式データ、規制当局、企業IR、金融政策、
   AI企業の更新を横断して追加検索する。
-- 発表から原則12時間以内。速報は2時間以内、マクロは4時間以内に限る。
+- 発表から24時間以内。2時間を超える情報は速報と呼ばず、現在も影響が続く理由を明示する。
 - published_atは一次資料で確認した発表・更新時刻を、必ずタイムゾーン付きISO 8601形式で
   返す。日付だけやタイムゾーンなしの時刻は返さない。
 - has_candidate=trueを最低3件返す。候補なしで終えず、同じ話題の言い換えではなく
@@ -1097,6 +1116,11 @@ def build_rescue_research_prompt(
 - hookは事実を短く示す1行で、性質に合う絵文字を先頭に一つ使う。
 - opinionは必ず空文字にする。本文には個人見解・一人称・予測を含めない。
 - reader_interestは今見る理由、follow_valueは今後追う別の続報対象にして、互いの言い換えにしない。
+- 噂は除外し、複数の独立情報源で照合するか、発表主体・規制当局・取引所データなど
+  一次情報で裏付ける。本文はフック→事実→影響→注意点→次の確認対象に変換できる内容にする。
+- corroborating_source_urlsには、同じ事実を確認できる別ドメインの検索結果だけを入れ、
+  独立確認先がない場合は空配列にする。X URLや無関係な記事を入れてはいけない。
+- 本文用の候補にはハッシュタグを前提にせず、視認性の高い改行で読める情報を返す。
 
 口調の基準:
 {VOICE_PROMPT}
@@ -1450,6 +1474,22 @@ def validate_candidate(
     cited = {normalize_url(row.get("url", "")) for row in sources if row.get("url")}
     if selected not in cited:
         raise ValueError("選定URLがWeb検索の参照元一覧にありません")
+    selected_host = (urlsplit(selected).hostname or "").lower().removeprefix("www.")
+    corroborating_hosts: set[str] = set()
+    for raw_url in candidate.get("corroborating_source_urls", []):
+        corroborating_url = normalize_url(str(raw_url))
+        corroborating_host = (
+            urlsplit(corroborating_url).hostname or ""
+        ).lower().removeprefix("www.")
+        if is_x_url(corroborating_url):
+            raise ValueError("X投稿は独立した裏付けURLとして扱えません")
+        if corroborating_url not in cited:
+            raise ValueError("独立した裏付けURLがWeb検索の参照元一覧にありません")
+        if not corroborating_host or corroborating_host == selected_host:
+            raise ValueError("独立した裏付けは一次資料と別ドメインである必要があります")
+        if corroborating_host in corroborating_hosts:
+            raise ValueError("同じドメインの裏付けURLが重複しています")
+        corroborating_hosts.add(corroborating_host)
     selected_titles = [
         str(row.get("title", ""))
         for row in sources
@@ -1544,41 +1584,188 @@ def _validate_follow_value(candidate: dict) -> None:
 
 
 def compose_candidate_text(candidate: dict) -> str:
-    tags = [str(tag).lstrip("#＃") for tag in candidate["tags"] if str(tag).strip()]
-    text = compose_post(
-        hook=candidate["hook"],
-        facts=candidate["facts"],
-        opinion="",
-        # 共通タグ処理が #仮想通貨 を補うため、固有タグは1件に限定する。
-        tags=tags[:1],
+    impact = " ".join(str(candidate.get("reader_interest", "")).split()).strip()
+    next_watch = " ".join(str(candidate.get("follow_value", "")).split()).strip()
+    disclaimer = (
+        "予測市場の確率は確定情報ではなく、価格を保証しません。"
+        if candidate.get("topic_type") == "prediction_market_shift"
+        else "公開情報の整理であり、個別の売買を勧めるものではありません。"
     )
+
+    def build(hook: str, facts: list[str], impact_text: str, next_text: str) -> str:
+        return compose_post(
+            hook=hook,
+            facts=[
+                *facts,
+                f"影響: {impact_text}",
+                f"注意: {disclaimer}",
+                f"次の確認: {next_text}",
+            ],
+            opinion="",
+            tags=[],
+            include_hashtags=False,
+        )
+
+    text = build(candidate["hook"], candidate["facts"], impact, next_watch)
     if weighted_length(text) <= MAX_WEIGHTED_LENGTH:
         return text
-
-    # まず補足事実と固有タグだけを外し、文章自体は自然な一文のまま残す。
-    compact = compose_post(
-        hook=candidate["hook"],
-        facts=[candidate["facts"][0]],
-        opinion="",
-        tags=[],
-    )
-    if weighted_length(compact) <= MAX_WEIGHTED_LENGTH:
-        return compact
 
     def clip(value: str, limit: int) -> str:
         clean = " ".join(value.split()).strip()
         return clean if len(clean) <= limit else clean[: max(1, limit - 1)].rstrip("、。 ") + "…"
 
-    # APIを再呼び出しせず、見出しと検証済み事実だけで確実に収める。
-    compact = compose_post(
-        hook=clip(candidate["hook"], 26),
-        facts=[clip(candidate["facts"][0], 34)],
-        opinion="",
-        tags=[],
+    # 長い説明はレビュー用スレッドへ残し、定時公開の1投稿は同じ論理構造のまま短くする。
+    compact = build(
+        clip(candidate["hook"], 24),
+        [clip(candidate["facts"][0], 30)],
+        clip(impact, 18),
+        clip(next_watch, 18),
     )
     if weighted_length(compact) > MAX_WEIGHTED_LENGTH:
         raise ValueError("投稿文を安全に280文字以内へ短縮できません")
     return compact
+
+
+def _review_draft_posts(candidate: dict) -> list[str]:
+    """情報量が多い候補は、完全版をレビュー用スレッドとして保持する。"""
+    disclaimer = (
+        "注意: 予測市場の確率は確定情報ではなく、価格を保証しません。"
+        if candidate.get("topic_type") == "prediction_market_shift"
+        else "注意: 公開情報の整理であり、個別の売買を勧めるものではありません。"
+    )
+    impact = f"影響: {' '.join(str(candidate.get('reader_interest', '')).split())}"
+    next_watch = f"次の確認: {' '.join(str(candidate.get('follow_value', '')).split())}"
+    full = compose_post(
+        hook=str(candidate.get("hook", "")),
+        facts=[*candidate.get("facts", []), impact, disclaimer, next_watch],
+        opinion="",
+        tags=[],
+        include_hashtags=False,
+    )
+    if weighted_length(full) <= MAX_WEIGHTED_LENGTH:
+        return [full]
+    first = compose_post(
+        hook=str(candidate.get("hook", "")),
+        facts=[*candidate.get("facts", [])],
+        opinion="",
+        tags=[],
+        include_hashtags=False,
+    )
+    second = compose_post(
+        hook="市場への影響と次の確認",
+        facts=[impact, disclaimer, next_watch],
+        opinion="",
+        tags=[],
+        include_hashtags=False,
+    )
+    if weighted_length(first) <= MAX_WEIGHTED_LENGTH and weighted_length(second) <= MAX_WEIGHTED_LENGTH:
+        return [first, second]
+    second = compose_post(
+        hook="市場への影響と注意点",
+        facts=[impact, disclaimer],
+        opinion="",
+        tags=[],
+        include_hashtags=False,
+    )
+    third = compose_post(
+        hook="次の確認",
+        facts=[next_watch],
+        opinion="",
+        tags=[],
+        include_hashtags=False,
+    )
+    if all(
+        weighted_length(post) <= MAX_WEIGHTED_LENGTH
+        for post in (first, second, third)
+    ):
+        return [first, second, third]
+    return [compose_candidate_text(candidate)]
+
+
+def _write_research_review(
+    *,
+    now: dt.datetime,
+    slot: str,
+    item: dict | None,
+    candidate: dict | None,
+    candidates: list[dict],
+    sources: list[dict[str, str]],
+    signals: list[dict[str, str]],
+    failure_reasons: list[str],
+) -> None:
+    """公開可否とは別に、24時間リサーチの下書きと内部根拠を永続化する。"""
+    corroborating: list[dict[str, str]] = []
+    selected_url = normalize_url(str((candidate or {}).get("source_url", "")))
+    source_titles = {
+        normalize_url(str(source.get("url", ""))): str(source.get("title", ""))[:160]
+        for source in sources
+        if source.get("url")
+    }
+    for raw_url in (candidate or {}).get("corroborating_source_urls", []):
+        url = normalize_url(str(raw_url))
+        if url and url in source_titles:
+            corroborating.append({"title": source_titles[url], "url": url})
+
+    shortlist = []
+    for row in candidates[:6]:
+        if not isinstance(row, dict):
+            continue
+        shortlist.append(
+            {
+                "topic_type": str(row.get("topic_type", "")),
+                "hook": str(row.get("hook", "")),
+                "published_at": str(row.get("published_at", "")),
+                "source_url": normalize_url(str(row.get("source_url", ""))),
+                "why_now": str(row.get("why_now", "")),
+            }
+        )
+
+    draft_posts = _review_draft_posts(candidate) if candidate and item else []
+    payload = {
+        "version": 1,
+        "generated_at": now.isoformat(),
+        "slot": slot,
+        "research_window": {
+            "hours": 24,
+            "from": (now - dt.timedelta(hours=24)).isoformat(),
+            "to": now.isoformat(),
+        },
+        "status": "ready" if item and candidate else "no_publishable_candidate",
+        "draft": {
+            "format": "thread" if len(draft_posts) > 1 else "single",
+            "posts": draft_posts,
+            "public_compact_post": str((item or {}).get("text", "")),
+        },
+        "internal_research_summary": {
+            "scope": [
+                "$BTC・主要暗号資産の市場動向",
+                "ETF・機関投資家フロー",
+                "規制・マクロ経済",
+                "主要プロトコル更新",
+                "取引所・セキュリティリスク",
+                "X検索・トレンド・公開投稿",
+            ],
+            "selected_topic": str((candidate or {}).get("topic_type", "")),
+            "selected_hook": str((candidate or {}).get("hook", "")),
+            "verified_facts": list((candidate or {}).get("facts", [])),
+            "market_or_user_impact": str((candidate or {}).get("reader_interest", "")),
+            "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
+            "next_watch": str((candidate or {}).get("follow_value", "")),
+            "primary_source": {
+                "name": str((candidate or {}).get("source_name", "")),
+                "url": selected_url,
+                "verified": bool((candidate or {}).get("is_primary_source")),
+            },
+            "corroborating_sources": corroborating,
+            "x_discovery_signal_count": len(signals),
+            "candidate_shortlist": shortlist,
+            "rejected_reasons": failure_reasons[-12:],
+        },
+    }
+    RESEARCH_REVIEW_PATH.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _candidate_id(candidate: dict) -> str:
@@ -2050,7 +2237,6 @@ def _market_fallback_text(
     emoji = "📈" if change >= 0 else "📉"
     range_position = float(metrics["position"]) * 100
     market_label = "時価総額上位30銘柄と話題通貨" if market_kind == "crypto" else "主要・話題銘柄"
-    tag = "#仮想通貨" if market_kind == "crypto" else "#株式"
     display_label = (
         format_crypto_tickers(label, additional_symbols=[label])
         if market_kind == "crypto"
@@ -2060,8 +2246,9 @@ def _market_fallback_text(
         f"{emoji} {display_label}、24時間で{change:+.2f}％\n\n"
         f"{market_label}で変動が大きい銘柄です。\n"
         f"{source_label}確定1時間足: {price:,.{decimals}f}。24時間で{change:+.2f}％の{direction}。\n"
-        f"3日高値{high:,.{decimals}f}、安値{low:,.{decimals}f}。レンジ内{range_position:.0f}％。\n\n"
-        f"{tag}"
+        f"3日高値{high:,.{decimals}f}、安値{low:,.{decimals}f}。レンジ内{range_position:.0f}％。\n"
+        "注意: 価格変動だけで売買を判断しないでください。\n"
+        "次の確認: 出来高と直近高値・安値の更新。"
     )
     if "僕" in text or "私" in text:
         raise ValueError("価格チャート投稿に個人の意見は含めません")
@@ -2458,6 +2645,22 @@ def prepare(args: argparse.Namespace) -> int:
     selected_signal: dict[str, str] | None = None
     promotion_results: list[tuple[dict[str, str], str, str, str]] = []
 
+    def persist_review() -> None:
+        try:
+            _write_research_review(
+                now=now,
+                slot=slot,
+                item=item,
+                candidate=candidate,
+                candidates=[*direct_candidates, *candidates],
+                sources=[*direct_sources, *sources],
+                signals=signals,
+                failure_reasons=failure_reasons,
+            )
+        except Exception as exc:
+            # レビュー記録の保存失敗だけで、検証済み投稿の公開は止めない。
+            logger.warning("24時間リサーチレビューを保存できません: %s", exc)
+
     def persist_promotion_results() -> None:
         for signal, status, reason, post_id in promotion_results:
             try:
@@ -2491,6 +2694,8 @@ def prepare(args: argparse.Namespace) -> int:
             )
         except (LookupError, ValueError, requests.RequestException) as exc:
             logger.info("検知済み速報を採用できないため見送り: %s", exc)
+            failure_reasons.append(f"速報検証失敗: {exc}"[:260])
+            persist_review()
             _emit_output("ready", "false")
             return 0
     elif not promote_signals:
@@ -2632,6 +2837,7 @@ def prepare(args: argparse.Namespace) -> int:
         if item is None:
             persist_promotion_results()
             logger.info("即時昇格条件の高反応シグナルは、投稿可能な一次資料に到達しませんでした")
+            persist_review()
             _emit_output("ready", "false")
             return 0
 
@@ -2718,6 +2924,7 @@ def prepare(args: argparse.Namespace) -> int:
             logger.error("OpenAI Webリサーチのクレジット残高不足のため、価格チャートへの代替投稿を停止します")
             if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
                 save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
+            persist_review()
             _emit_output("ready", "false")
             return 0
         if target_topic or priority_url or promote_signals or bool(getattr(args, "no_market_fallback", False)):
@@ -2725,6 +2932,7 @@ def prepare(args: argparse.Namespace) -> int:
                 "固定探索先から%sの投稿候補は確認できませんでした。別カテゴリーや価格投稿では代用しません。",
                 target_topic or "一次情報",
             )
+            persist_review()
             _emit_output("ready", "false")
             return 0
         # 二段階の一次情報探索まで不発でも、毎時枠を空けない。Coinbaseの確定済み
@@ -2744,15 +2952,18 @@ def prepare(args: argparse.Namespace) -> int:
                 )
                 if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
                     save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
+                persist_review()
                 _emit_output("ready", "false")
                 return 0
         else:
             logger.info("このJST時間はすでに投稿済みのため、追加の低品質候補は公開しません")
             if scheduled_kind in {"primary", "fallback", "watchdog"} and not args.dry_run:
                 save_state(state_path, _record_scheduled_check(state, slot, now, scheduled_kind))
+            persist_review()
             _emit_output("ready", "false")
             return 0
 
+    persist_review()
     prepared = {
         "slot": slot,
         "prepared_at": now.isoformat(),

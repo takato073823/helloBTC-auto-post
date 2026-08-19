@@ -49,7 +49,7 @@ MAX_WATCHER_GURU_SEARCHES_PER_DAY = 72
 MAX_TREND_REQUESTS_PER_DAY = 6
 DEEP_SCAN_INTERVAL = dt.timedelta(minutes=80)
 WATCHER_GURU_SCAN_INTERVAL = dt.timedelta(minutes=20)
-SIGNAL_MAX_AGE = dt.timedelta(hours=6)
+SIGNAL_MAX_AGE = dt.timedelta(hours=24)
 # 高反応の発見を「記録だけ」で終わらせないための、投稿候補へ昇格させる上限。
 # 速報経路はこの中から一次資料を確認し、確認できないものは投稿しない。
 PROMOTION_SIGNAL_MAX_AGE = dt.timedelta(hours=2)
@@ -529,7 +529,7 @@ def _search_recent(
     end_time = now - dt.timedelta(seconds=15)
     response = client.search_recent_tweets(
         query=query,
-        start_time=end_time - dt.timedelta(hours=2),
+        start_time=end_time - dt.timedelta(hours=24),
         end_time=end_time,
         max_results=10,
         sort_order=sort_order,

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "generated_at": "",
+  "slot": "",
+  "research_window": {
+    "hours": 24,
+    "from": "",
+    "to": ""
+  },
+  "status": "not_run",
+  "draft": {
+    "format": "single",
+    "posts": [],
+    "public_compact_post": ""
+  },
+  "internal_research_summary": {
+    "scope": [],
+    "selected_topic": "",
+    "selected_hook": "",
+    "verified_facts": [],
+    "market_or_user_impact": "",
+    "risk_note": "",
+    "next_watch": "",
+    "primary_source": {
+      "name": "",
+      "url": "",
+      "verified": false
+    },
+    "corroborating_sources": [],
+    "x_discovery_signal_count": 0,
+    "candidate_shortlist": [],
+    "rejected_reasons": []
+  }
+}
