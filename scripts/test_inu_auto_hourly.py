@@ -1086,6 +1086,22 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual("SEC approves a new spot crypto ETF", focus_signal["title"])
         self.assertEqual("https://www.coindesk.com/policy/selected", focus_signal["url"])
 
+    def test_priority_signal_prompt_requests_one_event_instead_of_regular_candidate_batch(self):
+        focus = {
+            "title": "SECの規制提案を一次資料で確認",
+            "url": "https://www.sec.gov/newsroom/press-releases/example",
+            "summary": "Regulation Crypto Assetsの提案内容を確認する",
+        }
+        prompt = inu_auto_hourly.build_research_prompt(
+            NOW,
+            {"history": []},
+            [focus],
+            focus_signal=focus,
+        )
+        self.assertIn("候補配列はその出来事に対する1件だけ", prompt)
+        self.assertNotIn("has_candidate=trueの項目を最低3件", prompt)
+        self.assertIn("別ニュースや価格で穴埋めしない", prompt)
+
     def test_signal_promotion_never_falls_back_to_a_chart(self):
         args = SimpleNamespace(
             state="/tmp/unused-state.json",
