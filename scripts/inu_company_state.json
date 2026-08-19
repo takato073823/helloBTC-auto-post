@@ -850,6 +850,22 @@
       "topic_type": "macro_event",
       "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
       "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470"
+    },
+    {
+      "run_id": "32285146801",
+      "started_at": "2026-08-19T18:07:10.342831+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-08-20-03-a",
+      "post_id": "inu_auto_8535a0fd96dd3a",
+      "topic_type": "macro_event",
+      "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
+      "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470",
+      "status": "published",
+      "completed_at": "2026-08-19T18:07:11.199710+00:00"
     }
   ]
 }

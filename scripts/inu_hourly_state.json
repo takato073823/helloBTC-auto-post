@@ -1198,6 +1198,22 @@
       "follow_value": "次はMAYAChain公式告知と停止解除を確認。",
       "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
       "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
+    },
+    {
+      "slot": "2026-08-20-03-a",
+      "post_id": "inu_auto_8535a0fd96dd3a",
+      "tweet_id": "2090138520748773568",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://home.treasury.gov/news/press-releases/sb0607",
+      "published_at": "2026-08-19T00:00:00-04:00",
+      "posted_at": "2026-08-19T18:07:11.194362+00:00",
+      "hook": "🏛️ 米財務省、長期国債買い戻し上限を20億→40億ドル超へ",
+      "follow_value": "9月9日の初回増額オペレーションと、11月4日の次回四半期リファンディング方針を確認する。",
+      "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
+      "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470"
     }
   ],
   "posted_ids": [
@@ -1293,23 +1309,10 @@
     "inu_overseas_kol_2089388275870146971",
     "inu_market_2026_08_18_05_a_crypto-vvv-usd",
     "inu_auto_40393a03d287a6",
-    "inu_auto_00150f16261fb6"
+    "inu_auto_00150f16261fb6",
+    "inu_auto_8535a0fd96dd3a"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-20-03-a",
-      "post_id": "inu_auto_8535a0fd96dd3a",
-      "source_url": "https://home.treasury.gov/news/press-releases/sb0607",
-      "topic_type": "macro_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-19T18:03:43.364747+00:00",
-      "lease_expires_at": "2026-08-19T18:33:43.364747+00:00",
-      "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
-      "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2565,6 +2568,22 @@
       "follow_value": "次はMAYAChain公式告知と停止解除を確認。",
       "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
       "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
+    },
+    {
+      "slot": "2026-08-20-03-a",
+      "post_id": "inu_auto_8535a0fd96dd3a",
+      "tweet_id": "2090138520748773568",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://home.treasury.gov/news/press-releases/sb0607",
+      "published_at": "2026-08-19T00:00:00-04:00",
+      "posted_at": "2026-08-19T18:07:11.194362+00:00",
+      "hook": "🏛️ 米財務省、長期国債買い戻し上限を20億→40億ドル超へ",
+      "follow_value": "9月9日の初回増額オペレーションと、11月4日の次回四半期リファンディング方針を確認する。",
+      "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
+      "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470"
     }
   ],
   "scheduled_checks": [
