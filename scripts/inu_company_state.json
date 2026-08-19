@@ -320,6 +320,27 @@
       "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336",
       "status": "published",
       "completed_at": "2026-08-19T07:08:56.774315+00:00"
+    },
+    {
+      "run_id": "32230710683",
+      "started_at": "2026-08-19T08:03:40.746396+00:00",
+      "completed_at": "2026-08-19T08:04:54.765322+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-19-17-a",
+      "post_id": "inu_auto_00150f16261fb6",
+      "topic_type": "onchain",
+      "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
+      "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
     }
   ]
 }
