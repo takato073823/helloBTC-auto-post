@@ -1688,6 +1688,49 @@ class INUAutoHourlyTests(unittest.TestCase):
             self.assertEqual(0, inu_auto_hourly.prepare(args))
         self.assertEqual(1, build.call_count)
 
+    def test_xai_visual_signal_becomes_quote_only_after_primary_text_check(self):
+        signal = {
+            "discovery_type": "grok_x_search",
+            "url": "https://x.com/example/status/2089934378935726402",
+            "published": NOW.isoformat(),
+            "title": "IBITの日次資金フローが更新",
+            "primary_source_url": "https://issuer.example/ibit",
+            "primary_evidence": "Net assets of fund",
+            "verified_fact": "公式ページで運用資産と保有量が更新されました。",
+            "reader_interest": "機関投資家の現物需要を同じ基準で確認できます。",
+            "follow_value": "次営業日の保有量と発行口数の変化を確認します。",
+            "risk_note": "資金流入額は運用会社自身の購入額とは限りません。",
+            "has_visual": True,
+            "visual_is_original_or_official": True,
+            "summary": "公式データ更新を扱う視覚投稿です。",
+        }
+        with patch.object(inu_auto_hourly, "fetch_and_verify_source") as verify:
+            result = inu_auto_hourly._build_xai_verified_quote_item(
+                NOW, {"history": [], "reservations": []}, [signal]
+            )
+        self.assertIsNotNone(result)
+        item, selected = result
+        self.assertEqual("x_native_quote", item["delivery_mode"])
+        self.assertEqual("2089934378935726402", item["source_tweet_id"])
+        self.assertNotIn("http", item["text"])
+        self.assertNotIn("僕", item["text"])
+        self.assertEqual("https://issuer.example/ibit", selected["source_url"])
+        verify.assert_called_once()
+
+    def test_xai_visual_signal_without_verified_visual_is_rejected(self):
+        signal = {
+            "discovery_type": "grok_x_search",
+            "url": "https://x.com/example/status/2089934378935726402",
+            "published": NOW.isoformat(),
+            "has_visual": True,
+            "visual_is_original_or_official": False,
+        }
+        self.assertIsNone(
+            inu_auto_hourly._build_xai_verified_quote_item(
+                NOW, {"history": [], "reservations": []}, [signal]
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

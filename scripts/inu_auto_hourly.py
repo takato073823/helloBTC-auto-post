@@ -343,6 +343,12 @@ X_SIGNAL_SET_SCHEMA = {
                     "topic": {"type": "string"},
                     "primary_source_url": {"type": "string"},
                     "primary_evidence": {"type": "string"},
+                    "verified_fact": {"type": "string"},
+                    "reader_interest": {"type": "string"},
+                    "follow_value": {"type": "string"},
+                    "risk_note": {"type": "string"},
+                    "has_visual": {"type": "boolean"},
+                    "visual_is_original_or_official": {"type": "boolean"},
                 },
                 "required": [
                     "post_url",
@@ -354,6 +360,12 @@ X_SIGNAL_SET_SCHEMA = {
                     "topic",
                     "primary_source_url",
                     "primary_evidence",
+                    "verified_fact",
+                    "reader_interest",
+                    "follow_value",
+                    "risk_note",
+                    "has_visual",
+                    "visual_is_original_or_official",
                 ],
             },
             "minItems": 1,
@@ -605,6 +617,12 @@ def build_grok_prompt(now: dt.datetime, state: dict) -> str:
   企業IR、ETF発行体、取引所ステータス、公式データのHTTPS URLを入れる。第三者メディア、
   X、検索結果、短縮URLは禁止。公式URLへ到達できない話題はsignalsへ入れない。
 - primary_evidenceには一次資料で照合すべき固有名詞・数値・決定を短く入れる。
+- verified_factは一次資料とX投稿の両方で確認できる事実を、日本語45文字以内の完結文にする。
+- reader_interest、follow_value、risk_noteは各18〜28文字の完結文にする。重要性、次に
+  確認する数値、誤読を防ぐ注意点をそれぞれ別内容で書く。
+- 画像または動画がある投稿だけhas_visual=trueにする。visual_is_original_or_officialは、
+  投稿者自身のチャート・動画または発表主体の資料の場合だけtrue。Cointelegraph等の媒体固有
+  イラスト、転載画像、出所不明画像はfalseにし、この探索候補から除外する。
 - posted_atは必ずタイムゾーンを含むISO 8601形式（例: 2026-08-05T03:15:00Z）で返す。
 - 同じ出来事の転載は1件にまとめ、古い話題で件数を埋めない。
 - 出力は日本語。ただしアカウント名、固有名詞、数値は原文を維持する。
@@ -676,6 +694,13 @@ def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[s
                     f"一次資料候補: {primary_url} / 照合点: {row.get('primary_evidence', '')}"
                 )[:700],
                 "primary_source_url": primary_url[:500],
+                "primary_evidence": str(row.get("primary_evidence", ""))[:240],
+                "verified_fact": str(row.get("verified_fact", ""))[:120],
+                "reader_interest": str(row.get("reader_interest", ""))[:80],
+                "follow_value": str(row.get("follow_value", ""))[:80],
+                "risk_note": str(row.get("risk_note", ""))[:80],
+                "has_visual": bool(row.get("has_visual")),
+                "visual_is_original_or_official": bool(row.get("visual_is_original_or_official")),
                 "discovery_type": "grok_x_search",
             }
         )
@@ -688,6 +713,94 @@ def collect_grok_discovery_signals(now: dt.datetime, state: dict) -> list[dict[s
         invalid_urls,
     )
     return signals
+
+
+def _x_status_id(url: str) -> str:
+    match = re.search(r"/(?:status|statuses)/(\d{15,22})(?:[/?#]|$)", str(url))
+    return match.group(1) if match else ""
+
+
+def _build_xai_verified_quote_item(
+    now: dt.datetime,
+    state: dict,
+    signals: list[dict[str, str]],
+) -> tuple[dict, dict] | None:
+    """xAIが発見した視覚投稿を、一次原文照合後だけネイティブ引用へ昇格する。"""
+    used_ids = {
+        str(row.get("source_tweet_id", ""))
+        for row in list(state.get("history", [])) + list(state.get("reservations", []))
+    }
+    for signal in signals:
+        if str(signal.get("discovery_type", "")) != "grok_x_search":
+            continue
+        source_id = _x_status_id(str(signal.get("url", "")))
+        if not source_id or source_id in used_ids:
+            continue
+        if not signal.get("has_visual") or not signal.get("visual_is_original_or_official"):
+            continue
+        try:
+            posted_at = _parse_timestamp(str(signal.get("published", "")))
+        except (TypeError, ValueError):
+            continue
+        age = now.astimezone(dt.timezone.utc) - posted_at
+        if age < dt.timedelta(minutes=-15) or age > dt.timedelta(hours=6):
+            continue
+        evidence = " ".join(str(signal.get("primary_evidence", "")).split()).strip()
+        primary_url = normalize_url(str(signal.get("primary_source_url", "")))
+        if len(evidence) < 4 or not primary_url:
+            continue
+        try:
+            fetch_and_verify_source(
+                {"source_url": primary_url, "evidence_anchor": evidence}
+            )
+        except Exception as exc:
+            logger.info("xAI視覚候補の一次原文を確認できず除外: %s", exc)
+            continue
+
+        hook = " ".join(str(signal.get("title", "")).split()).strip()
+        if not re.match(r"^[^\w\s]", hook):
+            hook = f"📊{hook}"
+        fact = " ".join(str(signal.get("verified_fact", "")).split()).strip()
+        interest = " ".join(str(signal.get("reader_interest", "")).split()).strip()
+        follow = " ".join(str(signal.get("follow_value", "")).split()).strip()
+        risk = " ".join(str(signal.get("risk_note", "")).split()).strip()
+        if not fact or min(len(interest), len(follow), len(risk)) < 18:
+            continue
+        text = compose_post(
+            hook=hook[:42],
+            facts=[fact, f"重要性: {interest}", f"注意: {risk}", f"次の確認: {follow}"],
+            opinion="",
+            tags=[],
+            include_hashtags=False,
+        )
+        if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
+            continue
+        try:
+            validate_post(text)
+        except ValueError:
+            continue
+        candidate = {
+            "topic_type": "x_reaction",
+            "source_url": primary_url,
+            "discovery_url": str(signal.get("url", "")),
+            "source_tweet_id": source_id,
+            "published_at": posted_at.isoformat(),
+            "hook": hook[:42],
+            "why_now": str(signal.get("summary", ""))[:240],
+            "reader_interest": interest,
+            "follow_value": follow,
+            "delivery_mode": "x_native_quote",
+        }
+        item = {
+            "id": f"inu_xai_quote_{source_id}",
+            "topic_type": "x_reaction",
+            "visual_route": "x_native_quote",
+            "delivery_mode": "x_native_quote",
+            "source_tweet_id": source_id,
+            "text": text,
+        }
+        return item, candidate
+    return None
 
 
 def build_research_prompt(
@@ -2979,6 +3092,15 @@ def prepare(args: argparse.Namespace) -> int:
 
     if item is None:
         try_candidates(candidates, sources, phase="一次探索")
+
+    # 広域Web検索が同じX話題の一次資料を候補化できなかった場合でも、xAIが
+    # 公式URL・根拠原文・視覚素材を揃えたシグナルは捨てない。一次ページ本文を
+    # ローカルで再照合したうえで、元投稿の画像・動画を保持する引用へ昇格する。
+    if item is None and not priority_url and not target_topic and signals:
+        xai_quote = _build_xai_verified_quote_item(now, state, signals)
+        if xai_quote:
+            item, candidate = xai_quote
+            logger.info("xAI一次照合済み視覚投稿を採用: %s", item["source_tweet_id"])
 
     if (
         item is not None
