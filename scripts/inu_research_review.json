@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T22:03:37.032223+00:00",
+  "generated_at": "2026-08-19T22:20:08.180003+00:00",
   "slot": "2026-08-20-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T22:03:37.032223+00:00",
-    "to": "2026-08-19T22:03:37.032223+00:00"
+    "from": "2026-08-18T22:20:08.180003+00:00",
+    "to": "2026-08-19T22:20:08.180003+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 米国スポット$BTC ETFに1.89億ドル流入\n\n機関投資家の買い需要が続く一方、月末まで流入が維持されるかが焦点です。"
+      "📊 $ETH急騰の中身、ショートの巻き戻し\n\n僕は新規の現物買いだけでなく、レバレッジ解消が主因かを見極めたい。"
     ],
-    "public_compact_post": "📈 米国スポット$BTC ETFに1.89億ドル流入\n\n8月18日の純流入は1.89億ドル\n8月の累計純流入は9.51億ドル、BlackRock IBITが1.436億ドル\n\n機関投資家の買い需要が続く一方、月末まで流入が維持されるかが焦点です。"
+    "public_compact_post": "📊 $ETH急騰の中身、ショートの巻き戻し\n\n$ETHの急騰局面でOIが急減した\n$ETH無期限先物のCVDが、現物より相対的に大きく上昇した\n\n僕は新規の現物買いだけでなく、レバレッジ解消が主因かを見極めたい。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈 米国スポットBTC ETFに1.89億ドル流入",
+    "selected_hook": "📊 ETH急騰の中身、ショートの巻き戻し",
     "verified_facts": [],
-    "market_or_user_impact": "ETF全体とIBITへの資金集中を同時に把握でき、市場の買い主体を考える材料になる。",
+    "market_or_user_impact": "OIと先物・現物CVDの差から、上昇の持続性を考えられる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "日次流入が継続するか、BlackRockへの集中度が変化するかを追える。",
+    "next_watch": "価格だけでなく、ポジション構造とフローを組み合わせて暗号資産市場を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2090160671992258603",
+      "url": "https://x.com/crediblecrypto/status/2090168885375074338",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 40,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 40,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -66,45 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "🏛️ OCC、ステーブルコイン規則を前進",
-        "published_at": "2026-06-11T00:00:00+00:00",
-        "source_url": "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-24.html",
-        "why_now": "米国のステーブルコイン制度実装を確認する公式資料として重要だが、発表は24時間以内ではないため本来は採用対象外。"
-      },
-      {
-        "topic_type": "etf_flow",
-        "hook": "🏦 $BTC ETF、最新残高を更新",
-        "published_at": "2026-08-05T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/ch/professionelle-anleger/de/produkte/333011/ishares-bitcoin-trust-etf?switchLocale=Y",
-        "why_now": "過去24時間以内の更新ではないため速報候補には不適格だが、検索で確認できた最新の公式残高。"
-      },
-      {
-        "topic_type": "earnings",
-        "hook": "📊 Metaplanet、Q2資料を更新",
-        "published_at": "2026-08-13T00:00:00+00:00",
-        "source_url": "https://metaplanet.jp/en/media",
-        "why_now": "過去24時間以内ではなく、決算数値の検証も不十分なため本来は除外すべき候補。"
-      },
-      {
-        "topic_type": "breaking_news",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: 2026年8月19日から20日の過去24時間以内に、ログイン不要のHTML一次資料で発表時刻と具体的な市場変化を確認できる候補を最低3件確定できなかった。White Houseの暗号資産サミット、米財務省の買い戻し拡大、SEC・OCCの新規動向は、検索結果上で同期間の発表主体ページを確認できず、Xや第三者メディアの情報だけでは採用不可。取引所ステータスにも同期間の新規障害を確認できなかった。",
-      "再探索1: この系統の鮮度上限を超えています",
-      "再探索2: この系統の鮮度上限を超えています",
-      "再探索3: 403 Client Error: Forbidden for url: https://www.bls.gov/schedule/2026/home.htm",
-      "再探索4: 2026年8月19日から20日07:03（日本時間）までの24時間内に、発表時刻と具体的な市場変化を同時に確認できる、条件を満たす新規のHTML一次資料を3件以上確定できませんでした。上記3件のうちBLSは予定のみで、公開済み数値ではありません。CircleとIBITも最新更新が8月6日・8月18日で、厳密な24時間条件を満たさないため、公開候補としては不採用が妥当です。"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
