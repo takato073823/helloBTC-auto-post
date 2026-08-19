@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T12:03:40.718598+00:00",
+  "generated_at": "2026-08-19T12:37:41.605149+00:00",
   "slot": "2026-08-19-21-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T12:03:40.718598+00:00",
-    "to": "2026-08-19T12:03:40.718598+00:00"
+    "from": "2026-08-18T12:37:41.605149+00:00",
+    "to": "2026-08-19T12:37:41.605149+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🧠 SK hynix、29Bドル規模の自社株買い\n\nAI向けメモリー需要が設備投資と株主還元を同時に押し上げる構図が焦点になる。"
+      "🇺🇸米財務省、8月の自国債買い戻しは80億ドルに\n\n買い戻しの継続は、国債市場の流動性と需給を読む材料になる。"
     ],
-    "public_compact_post": "🧠 SK hynix、29Bドル規模の自社株買い\n\nSK hynixは約290億ドルの自社株買いと消却を発表した。\n株主還元方針をFCFの「最大50%」から「少なくとも50%」へ変更した。\n\nAI向けメモリー需要が設備投資と株主還元を同時に押し上げる構図が焦点になる。"
+    "public_compact_post": "🇺🇸米財務省、8月の自国債買い戻しは80億ドルに\n\n今回の買い戻し額は20億ドル\n8月累計の買い戻し額は80億ドル\n\n買い戻しの継続は、国債市場の流動性と需給を読む材料になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🧠 SK hynix、29Bドル規模の自社株買い",
+    "selected_hook": "🇺🇸米財務省、8月の自国債買い戻しは80億ドルに",
     "verified_facts": [],
-    "market_or_user_impact": "HBM需要を背景に、企業がキャッシュフローをどう株主へ配分するか分かる。",
+    "market_or_user_impact": "政府が自国債を買い戻す規模を、20億ドルと80億ドルで把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "買い戻しの実行、利益成長、メモリー需要が還元を支え続けるかを追える。",
+    "next_watch": "国債買い戻しの累計額と市場流動性への影響を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/stocksavvyshay/status/2090022553352036497",
+      "url": "https://x.com/ashcrypto/status/2090021897727619472",
       "verified": false
     },
     "corroborating_sources": [],
