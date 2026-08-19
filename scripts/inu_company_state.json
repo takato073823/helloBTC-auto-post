@@ -266,6 +266,23 @@
       "topic_type": "regulatory_rule_change",
       "content_fingerprint": "e38119472a4d7c712bafbafed1260fa28582cba6e1bbd740d3835496477395fa",
       "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
+    },
+    {
+      "run_id": "32225893264",
+      "started_at": "2026-08-19T07:02:08.654479+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "blocked_external"
+      },
+      "slot": "2026-08-19-16-a",
+      "post_id": "inu_auto_40393a03d287a6",
+      "topic_type": "regulatory_rule_change",
+      "content_fingerprint": "e38119472a4d7c712bafbafed1260fa28582cba6e1bbd740d3835496477395fa",
+      "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336",
+      "status": "blocked_external",
+      "reason": "X_API_CREDITS_DEPLETED",
+      "completed_at": "2026-08-19T07:02:09.193103+00:00"
     }
   ]
 }
