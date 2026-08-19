@@ -1214,6 +1214,25 @@
       "follow_value": "9月9日の初回増額オペレーションと、11月4日の次回四半期リファンディング方針を確認する。",
       "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
       "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470"
+    },
+    {
+      "slot": "2026-08-20-05-a",
+      "post_id": "inu_overseas_kol_2090126807806746729",
+      "tweet_id": "2090167934928777297",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/whalefactor/status/2090126807806746729",
+      "published_at": "2026-08-19T17:20:38+00:00",
+      "posted_at": "2026-08-19T20:04:03.950731+00:00",
+      "hook": "🐋 取引所の買いが集中",
+      "follow_value": "オンチェーン需給の見方を提供できる。",
+      "content_fingerprint": "081d7c4c3166cebaf06f4b47472dc6ea1a0d87e5a7ab2441ea22f8ee2d42e548",
+      "event_fingerprint": "1c67ffbc6d750816b9362aca6dbc1f5e64ff3a26dd2ef4601bb7097515b58031",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090126807806746729",
+      "source_handle": "whalefactor"
     }
   ],
   "posted_ids": [
@@ -1310,23 +1329,10 @@
     "inu_market_2026_08_18_05_a_crypto-vvv-usd",
     "inu_auto_40393a03d287a6",
     "inu_auto_00150f16261fb6",
-    "inu_auto_8535a0fd96dd3a"
+    "inu_auto_8535a0fd96dd3a",
+    "inu_overseas_kol_2090126807806746729"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-20-05-a",
-      "post_id": "inu_overseas_kol_2090126807806746729",
-      "source_url": "https://x.com/whalefactor/status/2090126807806746729",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-19T20:03:52.217880+00:00",
-      "lease_expires_at": "2026-08-19T20:33:52.217880+00:00",
-      "content_fingerprint": "081d7c4c3166cebaf06f4b47472dc6ea1a0d87e5a7ab2441ea22f8ee2d42e548",
-      "event_fingerprint": "1c67ffbc6d750816b9362aca6dbc1f5e64ff3a26dd2ef4601bb7097515b58031"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2598,6 +2604,25 @@
       "follow_value": "9月9日の初回増額オペレーションと、11月4日の次回四半期リファンディング方針を確認する。",
       "content_fingerprint": "204ce962a7080a6c8d25dc40254f226ceb2712ffebcfffea8a2b0759b80d8ebb",
       "event_fingerprint": "f844f1dd5fc163bc9f417431891e6a5d8d16807c40e3844154451c723ad22470"
+    },
+    {
+      "slot": "2026-08-20-05-a",
+      "post_id": "inu_overseas_kol_2090126807806746729",
+      "tweet_id": "2090167934928777297",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/whalefactor/status/2090126807806746729",
+      "published_at": "2026-08-19T17:20:38+00:00",
+      "posted_at": "2026-08-19T20:04:03.950731+00:00",
+      "hook": "🐋 取引所の買いが集中",
+      "follow_value": "オンチェーン需給の見方を提供できる。",
+      "content_fingerprint": "081d7c4c3166cebaf06f4b47472dc6ea1a0d87e5a7ab2441ea22f8ee2d42e548",
+      "event_fingerprint": "1c67ffbc6d750816b9362aca6dbc1f5e64ff3a26dd2ef4601bb7097515b58031",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090126807806746729",
+      "source_handle": "whalefactor"
     }
   ],
   "scheduled_checks": [
