@@ -2673,13 +2673,19 @@
       "checked_at": "2026-08-19T06:51:39.359883+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-19-15-a",
+      "checked_at": "2026-08-19T06:57:53.024332+00:00",
+      "kind": "watchdog",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-19T06:51:39.359883+00:00",
-      "count": 78026,
+      "checked_at": "2026-08-19T06:57:53.024332+00:00",
+      "count": 78508,
       "fastest_fee": 1
     }
   },

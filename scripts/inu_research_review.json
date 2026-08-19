@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T06:55:06.020795+00:00",
+  "generated_at": "2026-08-19T06:57:53.024332+00:00",
   "slot": "2026-08-19-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T06:55:06.020795+00:00",
-    "to": "2026-08-19T06:55:06.020795+00:00"
+    "from": "2026-08-18T06:57:53.024332+00:00",
+    "to": "2026-08-19T06:57:53.024332+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,7 +34,7 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 1,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,8 +45,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 1,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -64,17 +64,9 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "📜 SEC、新規則「Regulation Crypto Assets」を提案",
-        "published_at": "2026-08-18T00:00:00-04:00",
-        "source_url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
-        "why_now": "3月の解釈指針に続き具体的な免除制度を提示したため。"
-      }
-    ],
+    "candidate_shortlist": [],
     "rejected_reasons": [
-      "一次探索1: 文を途中で切らずに280文字以内へ短縮できません"
+      "海外KOL引用探索失敗: 402 Payment Required\ncredits depleted"
     ]
   }
 }
