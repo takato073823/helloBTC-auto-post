@@ -15,6 +15,22 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "32216847489",
+      "started_at": "2026-08-19T04:47:48.946535+00:00",
+      "completed_at": "2026-08-19T04:47:49.952159+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "not_started",
+        "quality": "not_started",
+        "distribution": "not_started",
+        "reliability": "observed"
+      },
+      "status": "no_publishable_candidate"
     }
   ]
 }
