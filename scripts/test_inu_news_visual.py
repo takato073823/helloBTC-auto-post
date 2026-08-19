@@ -59,6 +59,22 @@ class FakeLogoSession:
         return FakeResponse(content=self.logo)
 
 
+class FakeDynamicLogoSession(FakeLogoSession):
+    def get(self, url, **_kwargs):
+        if url.endswith("/search"):
+            return FakeResponse(payload={"coins": [
+                {"id": "test-token-copy", "symbol": "TST", "name": "Copy", "market_cap_rank": None},
+                {"id": "test-token", "symbol": "TST", "name": "Test Token", "market_cap_rank": 42},
+            ]})
+        if "/coins/test-token" in url:
+            return FakeResponse(payload={
+                "id": "test-token",
+                "links": {"homepage": ["https://testtoken.example/"]},
+                "image": {"large": "https://coin-images.coingecko.com/coins/images/42/large/tst.png"},
+            })
+        return FakeResponse(content=self.logo)
+
+
 class INUNewsVisualTests(unittest.TestCase):
     def test_regulatory_visual_prompt_requires_physical_sec_seal_not_text_label(self):
         prompt = _editorial_prompt(
@@ -96,6 +112,12 @@ class INUNewsVisualTests(unittest.TestCase):
             "LINK",
             identify_visual_subject(hook="$LINK、ステーキング仕様を更新")["symbol"],
         )
+
+    def test_unknown_dollar_ticker_is_sent_to_dynamic_verified_lookup(self):
+        subject = identify_visual_subject(hook="$TST、メインネット更新を発表")
+        self.assertEqual("crypto_project", subject["kind"])
+        self.assertTrue(subject["dynamic_registry_lookup"])
+        self.assertEqual("TST", subject["symbol"])
 
     def test_uses_the_source_pages_og_image_not_an_unrelated_search_result(self):
         buffer = io.BytesIO()
@@ -255,6 +277,31 @@ class INUNewsVisualTests(unittest.TestCase):
             self.assertTrue(manifest["official_logo_used"])
             self.assertTrue(manifest["logo_verified_against_official_domain"])
             self.assertIn("coin-images.coingecko.com", manifest["logo_source_url"])
+
+    def test_dynamic_trending_project_resolves_symbol_rank_domain_and_logo(self):
+        logo_buffer = io.BytesIO()
+        Image.new("RGBA", (512, 512), (20, 184, 166, 255)).save(logo_buffer, format="PNG")
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "tst.png"
+            with patch(
+                "inu_news_visual.generate_image",
+                side_effect=lambda _prompt, destination: Image.new("RGB", (1024, 1280), "#111827").save(destination),
+            ):
+                generate_editorial_news_visual(
+                    hook="$TST、メインネット更新を発表",
+                    facts=["公式発表を確認しました。"],
+                    topic_type="protocol_update",
+                    source_url="https://testtoken.example/news",
+                    source_name="Test Token Foundation",
+                    published_at="2026-08-19",
+                    output_path=output,
+                    is_primary_source=True,
+                    session=FakeDynamicLogoSession(logo_buffer.getvalue()),
+                )
+            manifest = json.loads(output.with_suffix(".source.json").read_text(encoding="utf-8"))
+            self.assertEqual("test-token", manifest["logo_registry_coin_id"])
+            self.assertEqual("testtoken.example", manifest["logo_official_domain"])
+            self.assertEqual("Test Token", manifest["visual_subject"]["label"])
 
 
 if __name__ == "__main__":

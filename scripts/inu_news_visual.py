@@ -128,7 +128,12 @@ CRYPTO_PROJECT_SUBJECTS = (
 )
 
 COINGECKO_COIN_URL = "https://api.coingecko.com/api/v3/coins/{coin_id}"
+COINGECKO_SEARCH_URL = "https://api.coingecko.com/api/v3/search"
 COINGECKO_IMAGE_HOSTS = {"coin-images.coingecko.com", "assets.coingecko.com"}
+BLOCKED_PROJECT_HOMEPAGE_HOSTS = {
+    "coingecko.com", "twitter.com", "x.com", "discord.com", "discord.gg",
+    "t.me", "medium.com", "github.com",
+}
 
 
 def _mentions_alias(text: str, alias: str, *, ticker_alias: bool = False) -> bool:
@@ -181,6 +186,21 @@ def identify_visual_subject(*, hook: str, source_name: str = "") -> dict | None:
                 "official_domain": official_domain,
                 "identity_method": "verified_project_logo_asset",
             }
+    # 固定リスト外のトレンド通貨は、投稿ルールどおり$SYMBOLが明記された場合だけ
+    # 動的照合へ送る。通常語や企業略称を勝手に暗号資産と推測しない。
+    dynamic_symbol = re.search(r"(?<![A-Za-z0-9])\$([A-Z0-9]{2,15})(?![A-Za-z0-9])", combined_raw)
+    if dynamic_symbol:
+        symbol = dynamic_symbol.group(1)
+        return {
+            "kind": "crypto_project",
+            "key": f"dynamic_{symbol.lower()}",
+            "label": symbol,
+            "symbol": symbol,
+            "coingecko_id": "",
+            "official_domain": "",
+            "identity_method": "verified_project_logo_asset",
+            "dynamic_registry_lookup": True,
+        }
     return None
 
 
@@ -245,9 +265,32 @@ def _verified_project_logo(subject: dict, session: requests.Session | None = Non
     requester = session or requests.Session()
     coin_id = str(subject.get("coingecko_id", "")).strip()
     expected_domain = str(subject.get("official_domain", "")).lower().strip()
-    if not coin_id or not expected_domain:
-        raise ValueError("プロジェクトロゴの検証情報がありません")
     headers = {"User-Agent": USER_AGENT, "Accept": "application/json"}
+    if not coin_id:
+        symbol = str(subject.get("symbol", "")).upper().strip()
+        if not symbol or not subject.get("dynamic_registry_lookup"):
+            raise ValueError("プロジェクトロゴの検証情報がありません")
+        search_response = requester.get(
+            COINGECKO_SEARCH_URL,
+            params={"query": symbol},
+            headers=headers,
+            timeout=25,
+        )
+        search_response.raise_for_status()
+        search_payload = search_response.json()
+        exact = [
+            row for row in search_payload.get("coins", [])
+            if isinstance(row, dict) and str(row.get("symbol", "")).upper() == symbol
+        ] if isinstance(search_payload, dict) else []
+        if not exact:
+            raise ValueError("$SYMBOLと一致するCoinGecko銘柄がありません")
+        exact.sort(key=lambda row: (row.get("market_cap_rank") is None, row.get("market_cap_rank") or 10**9))
+        selected = exact[0]
+        coin_id = str(selected.get("id", "")).strip()
+        if not coin_id:
+            raise ValueError("CoinGecko銘柄IDを確定できません")
+        subject["coingecko_id"] = coin_id
+        subject["label"] = str(selected.get("name") or symbol)
     response = requester.get(
         COINGECKO_COIN_URL.format(coin_id=coin_id),
         params={
@@ -263,6 +306,20 @@ def _verified_project_logo(subject: dict, session: requests.Session | None = Non
     # IDはAPI応答、公式ドメインはレビュー済みローカル許可リストで別々に固定する。
     if not isinstance(payload, dict) or str(payload.get("id", "")) != coin_id:
         raise ValueError("CoinGecko銘柄IDを照合できません")
+    if not expected_domain:
+        homepages = payload.get("links", {}).get("homepage", [])
+        for homepage in homepages if isinstance(homepages, list) else []:
+            parsed = urlparse(str(homepage))
+            host = parsed.netloc.lower().removeprefix("www.")
+            if (
+                parsed.scheme == "https" and host
+                and not any(host == blocked or host.endswith(f".{blocked}") for blocked in BLOCKED_PROJECT_HOMEPAGE_HOSTS)
+            ):
+                expected_domain = host
+                subject["official_domain"] = host
+                break
+        if not expected_domain:
+            raise ValueError("トレンド通貨の公式サイトを照合できません")
     image_url = str(payload.get("image", {}).get("large", ""))
     image_host = urlparse(image_url).netloc.lower()
     if not image_url.startswith("https://") or image_host not in COINGECKO_IMAGE_HOSTS:
