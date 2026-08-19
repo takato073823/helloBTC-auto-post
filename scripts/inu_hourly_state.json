@@ -2661,13 +2661,19 @@
       "checked_at": "2026-08-19T04:47:48.946583+00:00",
       "kind": "watchdog",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-08-19-15-a",
+      "checked_at": "2026-08-19T06:03:44.267573+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-19T04:47:48.946583+00:00",
-      "count": 72753,
+      "checked_at": "2026-08-19T06:03:44.267573+00:00",
+      "count": 77641,
       "fastest_fee": 1
     }
   },
@@ -2928,7 +2934,9 @@
   "api_usage": {
     "jst_date": "2026-08-19",
     "counts": {
-      "grok_editorial": 3
+      "grok_editorial": 3,
+      "grok_x_search": 1,
+      "openai_web_search": 2
     },
     "claims": [
       {
@@ -2942,6 +2950,18 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-08-19T06:00:53.203162+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-08-19T06:03:44.267573+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-19T06:03:44.267573+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-19T06:03:44.267573+00:00"
       }
     ]
   }
