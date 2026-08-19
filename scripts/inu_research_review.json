@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T16:26:35.148272+00:00",
+  "generated_at": "2026-08-19T16:40:07.208869+00:00",
   "slot": "2026-08-20-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T16:26:35.148272+00:00",
-    "to": "2026-08-19T16:26:35.148272+00:00"
+    "from": "2026-08-18T16:40:07.208869+00:00",
+    "to": "2026-08-19T16:40:07.208869+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📉 AVGO急落、AI半導体の勢力図に変化\n\nAI半導体の成長期待が、単一企業への集中から競争構造の再評価へ移る局面だ。"
+      "🧩 AI半導体の勢力図が変化\n\nAI半導体の成長期待が、個別企業の提携拡大で再評価される局面だ。"
     ],
-    "public_compact_post": "📉 AVGO急落、AI半導体の勢力図に変化\n\nAVGOは約5%下落\nMRVLはGOOGLとのカスタムチップ提携をTPU関連のAIアクセラレーター、ネットワーク、ストレージ、メモリーへ拡大\n\nAI半導体の成長期待が、単一企業への集中から競争構造の再評価へ移る局面だ。"
+    "public_compact_post": "🧩 AI半導体の勢力図が変化\n\nMRVLがGOOGLとのカスタムチップ提携をTPU関連AIアクセラレーター、ネットワーク、ストレージ、メモリーへ拡大\nAVGO株は約5%下落\n\nAI半導体の成長期待が、個別企業の提携拡大で再評価される局面だ。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,11 +25,11 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📉 AVGO急落、AI半導体の勢力図に変化",
+    "selected_hook": "🧩 AI半導体の勢力図が変化",
     "verified_facts": [],
-    "market_or_user_impact": "AI投資の恩恵がどの半導体企業に配分されるかを考える材料になる。",
+    "market_or_user_impact": "AI向け半導体の受注先と競争関係を考える材料になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AI半導体の提携と株価反応を継続的に追える。",
+    "next_watch": "暗号資産以外のAI・半導体テーマも継続的に追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/stocksavvyshay/status/2090075565747581091",
