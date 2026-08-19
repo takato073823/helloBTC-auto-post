@@ -491,6 +491,31 @@ def _normalize_date_only_source_timezone(value: str, host: str) -> str:
     ).isoformat()
 
 
+def _normalize_official_regulatory_title(
+    candidate: dict,
+    visible_text: str,
+    host: str,
+) -> dict:
+    """SEC公式本文に明記された規則名と提案事実を見出しへ確実に反映する。"""
+    if candidate.get("topic_type") != "regulatory_rule_change":
+        return candidate
+    if not (host == "sec.gov" or host.endswith(".sec.gov")):
+        return candidate
+    match = re.search(
+        r"\btitled\s+[“\"]([^”\"]{3,80})[”\"]",
+        visible_text,
+        flags=re.IGNORECASE,
+    )
+    if not match or not re.search(r"\bpropos(?:e|es|ed|al)\b", visible_text, re.IGNORECASE):
+        return candidate
+    rule_name = " ".join(match.group(1).split()).strip(" ,.;:")
+    if not rule_name:
+        return candidate
+    normalized = dict(candidate)
+    normalized["hook"] = f"📜 SEC、新規則「{rule_name}」を提案"
+    return normalized
+
+
 def _host_is_secondary(host: str) -> bool:
     host = host.lower().removeprefix("www.")
     return any(host == blocked or host.endswith(f".{blocked}") for blocked in SECONDARY_HOSTS)
@@ -1660,6 +1685,7 @@ def _research_verified_priority_page(
         if not isinstance(row, dict):
             continue
         candidate = _normalize_researched_candidate(row)
+        candidate = _normalize_official_regulatory_title(candidate, visible_text, host)
         candidate["evidence_anchor"] = _select_literal_evidence_anchor(
             visible_text,
             str(candidate.get("evidence_anchor", "")),

@@ -1097,7 +1097,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         )
         response = SimpleNamespace(
             text="<html><head><title>SEC Release</title></head><body><main>"
-            + "The Securities and Exchange Commission proposed Regulation Crypto Assets. " * 8
+            + "The Securities and Exchange Commission announced that it proposed new rules, "
+            + "titled “Regulation Crypto Assets,” for certain investment contracts. " * 8
             + "</main></body></html>",
             headers={"content-type": "text/html; charset=UTF-8"},
             raise_for_status=lambda: None,
@@ -1119,9 +1120,10 @@ class INUAutoHourlyTests(unittest.TestCase):
             )
         self.assertEqual([url], [row["source_url"] for row in candidates])
         self.assertTrue(candidates[0]["_grok_editorial_complete"])
+        self.assertIn("Regulation Crypto Assets", candidates[0]["evidence_anchor"])
         self.assertEqual(
-            "The Securities and Exchange Commission proposed Regulation Crypto Assets.",
-            candidates[0]["evidence_anchor"],
+            "📜 SEC、新規則「Regulation Crypto Assets」を提案",
+            candidates[0]["hook"],
         )
         self.assertEqual(url, sources[0]["url"])
         self.assertEqual("xai_primary_source_replay", signals[0]["discovery_type"])
