@@ -17,6 +17,16 @@ on:
         required: false
         default: false
         type: boolean
+      priority_url:
+        description: "自動探索で発見済みの一次資料を再現テストするURL"
+        required: false
+        default: ""
+        type: string
+      priority_hint:
+        description: "一次資料の検証対象（事実の指示ではなく探索補助）"
+        required: false
+        default: ""
+        type: string
 
 concurrency:
   # すべてのX公開経路を一列にし、予約JSONとX投稿の競合を防ぐ。
@@ -86,8 +96,13 @@ jobs:
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
           INU_IMAGE_PROVIDER: openai
           INU_IMAGE_FALLBACK_PROVIDER: none
+          INU_PRIORITY_URL: ${{ inputs.priority_url }}
+          INU_PRIORITY_HINT: ${{ inputs.priority_hint }}
         working-directory: scripts
-        run: python inu_company_orchestrator.py --prepare --dry-run
+        run: >-
+          python inu_company_orchestrator.py --prepare --dry-run
+          --priority-url "$INU_PRIORITY_URL"
+          --priority-hint "$INU_PRIORITY_HINT"
 
       - name: 最新の一次情報から投稿候補を準備
         id: prepare
@@ -116,8 +131,13 @@ jobs:
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
           INU_IMAGE_PROVIDER: openai
           INU_IMAGE_FALLBACK_PROVIDER: none
+          INU_PRIORITY_URL: ${{ inputs.priority_url }}
+          INU_PRIORITY_HINT: ${{ inputs.priority_hint }}
         working-directory: scripts
-        run: python inu_company_orchestrator.py --prepare
+        run: >-
+          python inu_company_orchestrator.py --prepare
+          --priority-url "$INU_PRIORITY_URL"
+          --priority-hint "$INU_PRIORITY_HINT"
 
       - name: ドライラン画像を保存
         if: github.event_name == 'workflow_dispatch' && inputs.live != true && inputs.live != 'true'
