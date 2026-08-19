@@ -69,6 +69,8 @@ jobs:
           # 2時間ごとの定期枠では、毎回新しい一次情報を探索する。
           # 候補キューは復旧時と、品質ゲートでの再選定用に残す。
           INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 4
+          # 手動テストは時刻に左右されず、実際の探索品質を確認する。
+          INU_FORCE_PAID_RESEARCH: true
           INU_GROK_X_SEARCH_ENABLED: true
           INU_GROK_EDITORIAL_ENABLED: true
           XAI_RESEARCH_MODEL: grok-4.3
@@ -101,6 +103,7 @@ jobs:
           INU_RESEARCH_MODEL: gpt-5.6-luna
           INU_ECONOMY_MODE: true
           INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 4
+          INU_FORCE_PAID_RESEARCH: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
           INU_GROK_X_SEARCH_ENABLED: true
           INU_GROK_EDITORIAL_ENABLED: true
           XAI_RESEARCH_MODEL: grok-4.3

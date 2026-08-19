@@ -1982,6 +1982,8 @@ def _should_run_paid_web_research(
     target_topic: str | None = None,
 ) -> bool:
     """通常枠のWeb検索を間引き、緊急・個別指定は常に優先する。"""
+    if os.environ.get("INU_FORCE_PAID_RESEARCH", "false").strip().lower() in {"1", "true", "yes"}:
+        return True
     if not _economy_mode_enabled():
         return True
     if priority_url or promote_signals or target_topic:
