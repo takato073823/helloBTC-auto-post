@@ -1101,6 +1101,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertIn("候補配列はその出来事に対する1件だけ", prompt)
         self.assertNotIn("has_candidate=trueの項目を最低3件", prompt)
         self.assertIn("別ニュースや価格で穴埋めしない", prompt)
+        self.assertIn("現地時間00:00", prompt)
+        self.assertIn("後段で36時間を超える候補は拒否", prompt)
 
     def test_signal_promotion_never_falls_back_to_a_chart(self):
         args = SimpleNamespace(
