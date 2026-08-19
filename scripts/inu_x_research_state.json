@@ -1,14 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-19T20:00:22+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T20:00:22+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T21:04:09+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-07T05:56:45+00:00",
-      "result_count": 6,
-      "spike": false,
-      "topic": "onchain_exchange"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-07T07:38:32+00:00",
@@ -2271,6 +2264,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T21:04:09+00:00",
+      "result_count": 4,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2301,6 +2300,34 @@
       "summary": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
       "topic": "watcher_guru",
       "why_trending": "表示198,802・投稿後33分・反応率2.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4707875,
+      "discovered_at": "2026-08-19T21:04:09+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "BREAKING: 🇺🇸 President Trump says the US is considering buying \"sizable\" amounts of Bitcoin and other cryptocurrencies. https://t.co/LO2cZ3sAws",
+      "impression_count": 393911,
+      "like_count": 7715,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090161396294291539/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090161396294291539",
+      "post_url": "https://x.com/WatcherGuru/status/2090161396294291539",
+      "posted_at": "2026-08-19T19:38:04+00:00",
+      "quote_count": 221,
+      "reply_count": 422,
+      "repost_count": 749,
+      "score": 81.4,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "BREAKING: 🇺🇸 President Trump says the US is considering buying \"sizable\" amounts of Bitcoin and other cryptocurrencies. https://t.co/LO2cZ3sAws",
+      "topic": "watcher_guru",
+      "why_trending": "表示393,911・投稿後86分・反応率2.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4705705,
@@ -2411,6 +2438,54 @@
       "why_trending": "表示198,372・投稿後62分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
+      "author_followers": 4707875,
+      "discovered_at": "2026-08-19T21:04:09+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 President Trump calls for Congress to pass the Crypto Clarity Act.",
+      "impression_count": 175364,
+      "like_count": 3465,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090162871598542898",
+      "post_url": "https://x.com/WatcherGuru/status/2090162871598542898",
+      "posted_at": "2026-08-19T19:43:56+00:00",
+      "quote_count": 37,
+      "reply_count": 137,
+      "repost_count": 354,
+      "score": 76.9,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 President Trump calls for Congress to pass the Crypto Clarity Act.",
+      "topic": "watcher_guru",
+      "why_trending": "表示175,364・投稿後80分・反応率2.5%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4707875,
+      "discovered_at": "2026-08-19T21:04:09+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "🇺🇸 White House Crypto Summit recap: • President Trump says US considers buying \"sizable\" amounts of Bitcoin &amp; other crypto. • Trump calls on Congress to pass Crypto Clarity Act",
+      "impression_count": 258541,
+      "like_count": 3674,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090167176229720467",
+      "post_url": "https://x.com/WatcherGuru/status/2090167176229720467",
+      "posted_at": "2026-08-19T20:01:02+00:00",
+      "quote_count": 76,
+      "reply_count": 208,
+      "repost_count": 584,
+      "score": 75.3,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "🇺🇸 White House Crypto Summit recap: • President Trump says US considers buying \"sizable\" amounts of Bitcoin &amp; other crypto. • Trump calls on Congress to pass Crypto Clarity Act. • Trump says US is ensuring it remains the \"undisputed leader\" in $BTC &amp; crypto. •",
+      "topic": "watcher_guru",
+      "why_trending": "表示258,541・投稿後63分・反応率2.1%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
       "author_followers": 1023,
       "discovered_at": "2026-08-19T09:16:50+00:00",
       "discovery_type": "official_x_api",
@@ -2460,6 +2535,30 @@
       "summary": "JUST IN: 🇺🇸 US federal banking regulator OCC says it will establish \"regulatory framework\" for crypto stablecoin issuers.",
       "topic": "watcher_guru",
       "why_trending": "表示244,673・投稿後138分・反応率2.1%"
+    },
+    {
+      "author_followers": 4707875,
+      "discovered_at": "2026-08-19T21:04:09+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
+      "impression_count": 164224,
+      "like_count": 2774,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090157827667177593",
+      "post_url": "https://x.com/WatcherGuru/status/2090157827667177593",
+      "posted_at": "2026-08-19T19:23:54+00:00",
+      "quote_count": 20,
+      "reply_count": 141,
+      "repost_count": 248,
+      "score": 56.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
+      "topic": "watcher_guru",
+      "why_trending": "表示164,224・投稿後100分・反応率2.2%"
     },
     {
       "author_followers": 4705705,
@@ -2566,34 +2665,6 @@
       "summary": "看完 CryptoRank 这份 7 月交易所报告，我反而觉得，Gate 是一个挺值得单独拿出来看的案例。 7 月 Gate 现货交易量大约 1350 亿美元，排名全球第二。 但如果只看现货排名，其实没什么特别的。 真正让我觉得有意思的，是另外一个数据： Gate 在 CEX RWA 永续未平仓量中的占比，已经达到约 49.6%。 https://t.co/hZeVCXXdT8",
       "topic": "chinese_market",
       "why_trending": "表示4,694・投稿後691分・反応率2.3%"
-    },
-    {
-      "author_followers": 2536,
-      "discovered_at": "2026-08-19T09:16:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "KentonC137",
-      "has_video": true,
-      "headline": "One of Trezor’s shipping providers experienced a data breach that exposed sensitive order data affecting new customers in the US, UK, Sweden, Colombia, Brazil, Italy, and Portugal.",
-      "impression_count": 452,
-      "like_count": 11,
-      "linked_urls": [
-        "https://x.com/KentonC137/status/2089813838925332679/video/1"
-      ],
-      "media_types": [
-        "video"
-      ],
-      "post_id": "2089813838925332679",
-      "post_url": "https://x.com/KentonC137/status/2089813838925332679",
-      "posted_at": "2026-08-18T20:37:00+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 41.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "One of Trezor’s shipping providers experienced a data breach that exposed sensitive order data affecting new customers in the US, UK, Sweden, Colombia, Brazil, Italy, and Portugal. Crypto wallet provider SafePal discloses a data breach exposing personal &amp; purchase information https://t.co/ddtvoYjRpd",
-      "topic": "onchain_exchange",
-      "why_trending": "表示452・投稿後759分・反応率3.1%・動画あり"
     },
     {
       "author_followers": 622,
