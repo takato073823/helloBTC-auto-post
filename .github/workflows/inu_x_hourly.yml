@@ -49,6 +49,11 @@ jobs:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
 
+      - name: 待機中に更新された配信状態を同期
+        # workflow_dispatch は起動時のSHAを保持する。共通ロックの待機中に直前の
+        # 配信が状態JSONを更新した場合でも、古い予約を基に準備しないよう最新mainへ進める。
+        run: git pull --ff-only origin main
+
       - name: Pythonをセットアップ
         uses: actions/setup-python@v5
         with:

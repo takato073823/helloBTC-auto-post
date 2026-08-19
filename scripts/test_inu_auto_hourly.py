@@ -1099,6 +1099,7 @@ class INUAutoHourlyTests(unittest.TestCase):
             text="<html><head><title>SEC Release</title></head><body><main>"
             + "The Securities and Exchange Commission announced that it proposed new rules, "
             + "titled “Regulation Crypto Assets,” for certain investment contracts. " * 8
+            + "The public comment period will remain open for 60 days."
             + "</main></body></html>",
             headers={"content-type": "text/html; charset=UTF-8"},
             raise_for_status=lambda: None,
@@ -1124,6 +1125,10 @@ class INUAutoHourlyTests(unittest.TestCase):
         self.assertEqual(
             "📜 SEC、新規則「Regulation Crypto Assets」を提案",
             candidates[0]["hook"],
+        )
+        self.assertEqual(
+            "60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。",
+            candidates[0]["follow_value"],
         )
         self.assertEqual(url, sources[0]["url"])
         self.assertEqual("xai_primary_source_replay", signals[0]["discovery_type"])

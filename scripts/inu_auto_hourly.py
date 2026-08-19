@@ -513,6 +513,10 @@ def _normalize_official_regulatory_title(
         return candidate
     normalized = dict(candidate)
     normalized["hook"] = f"📜 SEC、新規則「{rule_name}」を提案"
+    if re.search(r"public comment period.{0,80}\b60 days\b", visible_text, re.IGNORECASE):
+        normalized["follow_value"] = (
+            "60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。"
+        )
     return normalized
 
 

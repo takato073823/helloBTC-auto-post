@@ -36,6 +36,7 @@ class INUHourlyDispatcherTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
         self.assertIn('- cron: "3 0-22/2 * * *"', workflow)
         self.assertIn("INU_AUTOMATION_ENABLED", workflow)
+        self.assertIn("git pull --ff-only origin main", workflow)
 
     def test_highest_priority_valid_item_wins(self):
         posts = [
