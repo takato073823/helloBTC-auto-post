@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from urllib.parse import urlparse
 
 
 # リサーチ、本文作成、公開のすべてが同じ判断軸を使うための最小の憲法。
@@ -20,9 +21,23 @@ AUTO_POST_PLAYBOOK = """
 公開前に必ず次を満たす。
 1. Why now: 今投稿する根拠が、公式発表時刻・価格節目・制度変更・新しい数値のどれかで明確。
 2. What changed: 見出しと事実に、数字・条件・決定・需給・価格反応の少なくとも一つがある。
-3. Reader value: 読者が次に確認すべき対象を一つだけ具体的に示せる。
+3. Reader value: 初心者にも分かる言葉で「なぜ重要か」を説明し、読者が次に確認すべき対象を一つだけ具体的に示せる。
 4. Visual proof: 画像は本文の根拠を補強する公式資料、データ、相場画面、または出来事を直感的に伝える独自ビジュアル。
 5. Follow-through: 続報として追う対象が明確で、単なる「フォローしてください」ではない。
+6. Lead: 冒頭に具体的な数値・機関名・規制当局名・結論のいずれかを置き、最初の数行で要点が分かる。
+""".strip()
+
+EDUCATIONAL_NEWS_PLAYBOOK = """
+次の3系統は、例示された固有ニュースを固定投稿せず、現在時刻から見て新しい一次情報だけを使う。
+- prediction_market_shift: Polymarket公式市場で予測確率が短時間に大きく変化した場合。冒頭に対象と
+  「変更前→変更後」を置き、変化幅と計測時間を示す。予測市場の参加者が付けた確率であり、確定情報・
+  公式予測・価格保証ではないことも初心者向けに一文で明記する。
+- institutional_custody: Citiなど金融機関自身の発表で、暗号資産カストディの開始・提供・提携・承認・
+  具体的な計画が新しく確認できた場合。冒頭に金融機関名と結論を置き、「カストディとは何か」と、
+  利用者や市場インフラにとっての意味をQ&Aまたは「つまり」の一文で説明する。
+- regulatory_rule_change: SECなど規制当局自身の発表で、新ルール名と採択・施行・提案・撤回・改正などの
+  具体的な変更が確認できた場合。見出し=事実、1文目=変更内容と背景、2文目=投資家・事業者への影響の
+  順にし、難しい制度用語を平易に翻訳する。
 """.strip()
 
 # 毎時の自動経路で実際に選べる投稿系統。過去のテスト投稿・手動投稿の
@@ -32,6 +47,9 @@ AUTO_SELECTABLE_TOPIC_TYPES = (
     "developing_story",
     "market_microstructure",
     "etf_flow",
+    "prediction_market_shift",
+    "institutional_custody",
+    "regulatory_rule_change",
     "institutional_flow",
     "onchain",
     "whale_treasury",
@@ -45,7 +63,8 @@ AUTO_SELECTABLE_TOPIC_TYPES = (
 _MATERIAL_CHANGE_RE = re.compile(
     r"(?:承認|却下|可決|否決|開始|終了|停止|禁止|解禁|導入|撤回|引き上げ|引き下げ|"
     r"増額|減額|上方修正|下方修正|流入|流出|買い戻し|売却|購入|発行|償還|最高値|最安値|"
-    r"急騰|急落|反転|金利|利回り|入札|ETF|決算|売上|利益|供給|需要|ハッキング|流出|清算|提携)"
+    r"急騰|急落|反転|金利|利回り|入札|ETF|決算|売上|利益|供給|需要|ハッキング|流出|清算|提携|"
+    r"採択|施行|発効|提案|改正|公布)"
 )
 _MATERIAL_NUMBER_RE = re.compile(
     r"(?:[$¥€£]\s?\d|\d[\d,.]*\s?(?:%|％|ドル|円|億|万|兆|BTC|ETH|株|bp|ベーシス))",
@@ -54,6 +73,36 @@ _MATERIAL_NUMBER_RE = re.compile(
 _GENERIC_WHY_NOW_RE = re.compile(
     r"^(?:公式(?:ページ|サイト|資料)?(?:が|を)?(?:更新|公表|発表|公開)(?:された|した|したため)?|"
     r"新しい(?:情報|資料)(?:が|を)?(?:出た|公開された)|重要(?:な)?(?:情報|ニュース)(?:のため)?)。?$"
+)
+_PREDICTION_PAIR_RE = re.compile(
+    r"(\d+(?:\.\d+)?)\s?(?:%|％).{0,24}?(?:→|から|to).{0,12}?(\d+(?:\.\d+)?)\s?(?:%|％)",
+    re.IGNORECASE,
+)
+_PREDICTION_WINDOW_RE = re.compile(r"(?:直近)?\d{1,2}時間|24時間|当日|本日")
+_PREDICTION_CAVEAT_RE = re.compile(
+    r"(?:予測市場|参加者).{0,40}(?:確定(?:情報)?ではない|保証ではない|公式予測ではない|結果ではない)"
+)
+_CUSTODY_ACTION_RE = re.compile(
+    r"(?:カストディ|custody).{0,45}(?:開始|提供|参入|提携|承認|拡大|計画|構築)|"
+    r"(?:開始|提供|参入|提携|承認|拡大|計画|構築).{0,45}(?:カストディ|custody)",
+    re.IGNORECASE,
+)
+_CUSTODY_EXPLAINER_RE = re.compile(
+    r"(?:カストディとは|カストディ[＝=]|カストディは、|つまり).{0,55}(?:保管|管理|預か)"
+)
+_INSTITUTION_LEAD_RE = re.compile(
+    r"(?:[A-Z][A-Za-z0-9.&-]{1,}|[\w一-龥ァ-ヶー]{2,}(?:銀行|証券|信託|フィナンシャル))"
+)
+_REGULATOR_RE = re.compile(
+    r"(?:SEC|米証券取引委員会|CFTC|金融庁|FSA|欧州委員会|ESMA|規制当局)",
+    re.IGNORECASE,
+)
+_RULE_CHANGE_RE = re.compile(
+    r"(?:規則|ルール|制度|ガイダンス|命令|法案|基準).{0,45}(?:採択|施行|発効|提案|撤回|改正|承認|公布)|"
+    r"(?:採択|施行|発効|提案|撤回|改正|承認|公布).{0,45}(?:規則|ルール|制度|ガイダンス|命令|法案|基準)"
+)
+_REGULATORY_IMPACT_RE = re.compile(
+    r"(?:投資家|個人|事業者|取引所|発行体|金融機関|ETF|開示|審査|保護|取引|申請|資産)"
 )
 
 
@@ -94,3 +143,28 @@ def validate_auto_post_quality(candidate: dict) -> None:
         compact_follow in compact_interest or compact_interest in compact_follow
     ):
         raise ValueError("継続フォロー価値が読者価値の言い換えです")
+
+    topic_type = str(candidate.get("topic_type", ""))
+    combined = " ".join([hook, *facts, why_now, reader_interest])
+    if topic_type == "prediction_market_shift":
+        host = (urlparse(str(candidate.get("source_url", ""))).hostname or "").lower()
+        if not (host == "polymarket.com" or host.endswith(".polymarket.com")):
+            raise ValueError("Polymarket公式市場ページが一次情報になっていません")
+        probability_pair = _PREDICTION_PAIR_RE.search(hook)
+        if "polymarket" not in hook.lower() or not probability_pair:
+            raise ValueError("Polymarketの変更前後の確率と変化幅がありません")
+        before, after = (float(value) for value in probability_pair.groups())
+        if abs(after - before) < 15 or not _PREDICTION_WINDOW_RE.search(why_now):
+            raise ValueError("Polymarketの急変条件（15ポイント以上・計測時間）を満たしません")
+        if not _PREDICTION_CAVEAT_RE.search(" ".join(facts)):
+            raise ValueError("予測市場の確率が確定情報ではない説明がありません")
+    elif topic_type == "institutional_custody":
+        if not _INSTITUTION_LEAD_RE.search(hook) or not _CUSTODY_ACTION_RE.search(hook):
+            raise ValueError("金融機関のカストディに関する具体的な決定がありません")
+        if not _CUSTODY_EXPLAINER_RE.search(" ".join(facts)):
+            raise ValueError("初心者向けのカストディ説明がありません")
+    elif topic_type == "regulatory_rule_change":
+        if not _REGULATOR_RE.search(hook) or not _RULE_CHANGE_RE.search(combined):
+            raise ValueError("規制当局名・新ルール名・具体的な変更が不足しています")
+        if len(facts) != 2 or not _REGULATORY_IMPACT_RE.search(facts[-1]):
+            raise ValueError("規制変更の背景と投資家・事業者への影響が不足しています")

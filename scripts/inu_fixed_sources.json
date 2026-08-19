@@ -12,6 +12,7 @@
     ],
     "x_accounts": [
       {"handle": "WatcherGuru", "focus": "海外の速報・市場話題の発見"},
+      {"handle": "Polymarket", "focus": "予測市場の確率急変を公式市場へ遡るための発見"},
       {"handle": "ArkhamIntel", "focus": "オンチェーンの実測データ・アドレス追跡"},
       {"handle": "SECGov", "focus": "米国証券規制の公式発表"},
       {"handle": "CFTC", "focus": "米国商品先物規制の公式発表"},
@@ -42,6 +43,20 @@
       {"name": "Bitwise Bitcoin ETF", "url": "https://bitbetf.com/", "kind": "issuer_fund_data"},
       {"name": "Grayscale Bitcoin Trust", "url": "https://etfs.grayscale.com/gbtc", "kind": "issuer_fund_data"},
       {"name": "SEC EDGAR", "url": "https://www.sec.gov/edgar/search/", "kind": "regulatory_filing"}
+    ],
+    "prediction_market_shift": [
+      {"name": "Polymarket Markets", "url": "https://polymarket.com/", "kind": "official_prediction_market_data"}
+    ],
+    "institutional_custody": [
+      {"name": "Citi News", "url": "https://www.citigroup.com/global/news", "kind": "financial_institution_release"},
+      {"name": "BNY Newsroom", "url": "https://www.bny.com/corporate/global/en/about-us/newsroom.html", "kind": "financial_institution_release"},
+      {"name": "JPMorganChase News", "url": "https://www.jpmorganchase.com/newsroom", "kind": "financial_institution_release"}
+    ],
+    "regulatory_rule_change": [
+      {"name": "SEC Rules and Regulations", "url": "https://www.sec.gov/rules-regulations", "kind": "regulator_rulemaking"},
+      {"name": "SEC Newsroom", "url": "https://www.sec.gov/newsroom/press-releases", "kind": "regulator_release"},
+      {"name": "CFTC Rulemaking", "url": "https://www.cftc.gov/LawRegulation/FederalRegister/index.htm", "kind": "regulator_rulemaking"},
+      {"name": "金融庁ニュース", "url": "https://www.fsa.go.jp/en/news/index.html", "kind": "regulator_release"}
     ],
     "institutional_flow": [
       {"name": "SEC EDGAR", "url": "https://www.sec.gov/edgar/search/", "kind": "regulatory_filing"},

@@ -22,6 +22,7 @@ from inu_content_types import get_content_policy
 from inu_editorial_policy import (
     AUTO_SELECTABLE_TOPIC_TYPES,
     AUTO_POST_PLAYBOOK,
+    EDUCATIONAL_NEWS_PLAYBOOK,
     EDITORIAL_CONSTITUTION,
     validate_auto_post_quality,
 )
@@ -77,6 +78,9 @@ ECONOMY_MAX_GENERATED_EDITORIAL_VISUALS_PER_DAY = 6
 ECONOMY_WEB_RESEARCH_INTERVAL_HOURS = 3
 MAX_RESEARCH_QUEUE = 18
 GROWTH_TOPIC_ROTATION = (
+    "prediction_market_shift",
+    "institutional_custody",
+    "regulatory_rule_change",
     "etf_flow",
     "onchain",
     "market_microstructure",
@@ -110,6 +114,9 @@ MAX_AGE_HOURS = {
     "developing_story": 6,
     "market_microstructure": 8,
     "etf_flow": 12,
+    "prediction_market_shift": 4,
+    "institutional_custody": 12,
+    "regulatory_rule_change": 12,
     "institutional_flow": 12,
     "onchain": 8,
     "whale_treasury": 8,
@@ -163,7 +170,8 @@ GENERIC_PUBLICATION_PATTERN = re.compile(r"(?:公表|発表|公開|掲載)(?:へ
 MATERIAL_CHANGE_PATTERN = re.compile(
     r"(?:承認|却下|可決|否決|開始|終了|停止|禁止|解禁|導入|撤回|引き上げ|引き下げ|増額|減額|"
     r"上方修正|下方修正|流入|流出|買い戻し|売却|購入|発行|償還|最高値|最安値|急騰|急落|"
-    r"金利|利回り|入札|ETF|決算|売上|利益|供給|需要|ハッキング|流出|清算|提携)"
+    r"金利|利回り|入札|ETF|決算|売上|利益|供給|需要|ハッキング|流出|清算|提携|"
+    r"採択|施行|発効|提案|改正|公布)"
 )
 MATERIAL_NUMBER_PATTERN = re.compile(
     r"(?:[$¥€£]\s?\d|\d[\d,.]*\s?(?:%|％|ドル|円|億|万|兆|BTC|ETH|株|bp|ベーシス))",
@@ -732,6 +740,9 @@ INUの編集憲法:
 自動投稿の品質ゲート:
 {AUTO_POST_PLAYBOOK}
 
+数値・機関・規制を初心者へ翻訳する3系統の型:
+{EDUCATIONAL_NEWS_PLAYBOOK}
+
 直近の自アカウント実績からの選定補助（実績不足なら空。鮮度・一次情報・読者価値が同等の候補だけで使い、
 投稿本数を埋める理由にしてはいけない）:
 {json.dumps(insight_guidance, ensure_ascii=False)}
@@ -1098,6 +1109,9 @@ def build_rescue_research_prompt(
 
 自動投稿の品質ゲート:
 {AUTO_POST_PLAYBOOK}
+
+数値・機関・規制を初心者へ翻訳する3系統の型:
+{EDUCATIONAL_NEWS_PLAYBOOK}
 
 再利用禁止の出典URL: {json.dumps(recent_urls, ensure_ascii=False)}
 近似テーマ禁止の直近見出し: {json.dumps(recent_hooks, ensure_ascii=False)}

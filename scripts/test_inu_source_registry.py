@@ -23,6 +23,15 @@ class INUSourceRegistryTests(unittest.TestCase):
         self.assertIn("BLS Release Calendar", context)
         self.assertNotIn("Coinbase Status", context)
 
+    def test_new_educational_topics_use_primary_discovery_sources(self):
+        prediction = topic_source_context("prediction_market_shift")
+        custody = topic_source_context("institutional_custody")
+        regulation = topic_source_context("regulatory_rule_change")
+        self.assertIn("Polymarket Markets", prediction)
+        self.assertIn("Citi News", custody)
+        self.assertIn("SEC Rules and Regulations", regulation)
+        self.assertIn("Polymarket", discovery_x_handles())
+
 
 if __name__ == "__main__":
     unittest.main()

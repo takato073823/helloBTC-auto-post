@@ -15,6 +15,8 @@ import requests
 import inu_auto_hourly
 import inu_manual_news
 import inu_quote_post
+from inu_content_types import get_content_policy
+from inu_editorial_policy import validate_auto_post_quality
 
 
 NOW = dt.datetime(2026, 8, 4, 12, 0, tzinfo=dt.timezone.utc)
@@ -45,6 +47,100 @@ def candidate(**overrides) -> dict:
 
 
 class INUAutoHourlyTests(unittest.TestCase):
+    def test_new_educational_categories_have_dedicated_visual_routes(self):
+        self.assertEqual(
+            "official_data_crop",
+            get_content_policy("prediction_market_shift").visual_route,
+        )
+        self.assertEqual(
+            "official_text_crop",
+            get_content_policy("institutional_custody").visual_route,
+        )
+        self.assertEqual(
+            "official_text_crop",
+            get_content_policy("regulatory_rule_change").visual_route,
+        )
+
+    def test_research_prompt_contains_three_educational_news_formats(self):
+        prompt = inu_auto_hourly.build_research_prompt(NOW, {"history": []})
+        self.assertIn("prediction_market_shift", prompt)
+        self.assertIn("変更前→変更後", prompt)
+        self.assertIn("institutional_custody", prompt)
+        self.assertIn("カストディとは何か", prompt)
+        self.assertIn("regulatory_rule_change", prompt)
+        self.assertIn("1文目=変更内容と背景", prompt)
+
+    def test_prediction_market_requires_probability_change_and_caveat(self):
+        item = candidate(
+            topic_type="prediction_market_shift",
+            hook="📊 Polymarket、利下げ確率が55％→81％",
+            facts=[
+                "6時間で26ポイント上昇しました。",
+                "予測市場の参加者が付けた確率で、確定情報ではない点に注意が必要です。",
+            ],
+            source_url="https://polymarket.com/event/example",
+            why_now="直近6時間で市場確率が26ポイント上昇したためです。",
+            reader_interest="政策に対する市場参加者の見方の急変を数値で把握できるためです。",
+            follow_value="今後の経済指標に伴う確率変化を継続して追えるためです。",
+        )
+        validate_auto_post_quality(item)
+        with self.assertRaisesRegex(ValueError, "確定情報ではない説明"):
+            validate_auto_post_quality(
+                {**item, "facts": ["6時間で26ポイント上昇しました。"]}
+            )
+        with self.assertRaisesRegex(ValueError, "急変条件"):
+            validate_auto_post_quality(
+                {**item, "hook": "📊 Polymarket、利下げ確率が75％→81％"}
+            )
+
+    def test_prediction_market_requires_polymarket_primary_page(self):
+        item = candidate(
+            topic_type="prediction_market_shift",
+            hook="📊 Polymarket、利下げ確率が55％→81％",
+            facts=[
+                "6時間で26ポイント上昇しました。",
+                "予測市場の参加者が付けた確率で、確定情報ではない点に注意が必要です。",
+            ],
+            source_url="https://example.com/polymarket-summary",
+            why_now="直近6時間で市場確率が26ポイント上昇したためです。",
+            reader_interest="政策に対する市場参加者の見方の急変を数値で把握できるためです。",
+            follow_value="今後の経済指標に伴う確率変化を継続して追えるためです。",
+        )
+        with self.assertRaisesRegex(ValueError, "Polymarket公式市場ページ"):
+            validate_auto_post_quality(item)
+
+    def test_institutional_custody_requires_beginner_explainer(self):
+        item = candidate(
+            topic_type="institutional_custody",
+            hook="🏦 Citi、$BTCカストディ提供を開始",
+            facts=[
+                "同行は機関顧客向けの暗号資産カストディ提供を開始しました。",
+                "カストディとは、顧客の暗号資産を安全に保管・管理する業務です。",
+            ],
+            why_now="金融機関が提供開始を正式発表した直後であるためです。",
+            reader_interest="銀行経由で暗号資産を扱うための市場インフラ拡大を理解できるためです。",
+            follow_value="対象資産と利用可能地域の拡大を継続して追えるためです。",
+        )
+        validate_auto_post_quality(item)
+        with self.assertRaisesRegex(ValueError, "初心者向けのカストディ説明"):
+            validate_auto_post_quality({**item, "facts": item["facts"][:1]})
+
+    def test_regulatory_change_requires_fact_background_and_impact(self):
+        item = candidate(
+            topic_type="regulatory_rule_change",
+            hook="⚖️ SEC、新暗号資産開示ルールを採択",
+            facts=[
+                "これまで個別判断だった開示基準を統一する規則です。",
+                "発行体の申請要件が明確になり、投資家が案件を比較しやすくなります。",
+            ],
+            why_now="SECが新ルールの採択を正式発表した直後であるためです。",
+            reader_interest="暗号資産事業者の開示内容と審査手続きがどう変わるか分かるためです。",
+            follow_value="施行日までに示される対象範囲と実務指針を継続して追えるためです。",
+        )
+        validate_auto_post_quality(item)
+        with self.assertRaisesRegex(ValueError, "背景と投資家・事業者への影響"):
+            validate_auto_post_quality({**item, "facts": item["facts"][:1]})
+
     def test_individual_posts_use_state_files_separate_from_scheduled_posts(self):
         self.assertNotEqual(inu_auto_hourly.STATE_PATH, inu_manual_news.STATE_PATH)
         self.assertNotEqual(inu_auto_hourly.STATE_PATH, inu_quote_post.STATE_PATH)
@@ -765,11 +861,14 @@ class INUAutoHourlyTests(unittest.TestCase):
             ]
         }
         topics = inu_auto_hourly._underrepresented_growth_topics(state, NOW)
-        self.assertIn("onchain", topics)
+        self.assertEqual(
+            ["prediction_market_shift", "institutional_custody", "regulatory_rule_change"],
+            topics,
+        )
         self.assertNotIn("etf_flow", topics)
         prompt = inu_auto_hourly.build_research_prompt(NOW, state)
         self.assertIn("直近7日間で手薄な投稿系統", prompt)
-        self.assertIn("onchain", prompt)
+        self.assertIn("prediction_market_shift", prompt)
         self.assertNotIn("必ずこの系統", prompt)
         self.assertIn("決算発表予定、IRカレンダー、説明会予定", prompt)
         self.assertIn("毎時の定期枠は必ず投稿まで到達させる", prompt)
