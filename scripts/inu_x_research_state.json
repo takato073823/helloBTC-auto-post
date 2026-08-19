@@ -1,14 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-19T13:31:43+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T13:31:43+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T14:18:03+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-06T03:56:03+00:00",
-      "result_count": 7,
-      "spike": false,
-      "topic": "regulation"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-06T06:41:58+00:00",
@@ -2275,6 +2268,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T14:18:03+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
