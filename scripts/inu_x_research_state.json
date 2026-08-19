@@ -1,14 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-19T15:13:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T15:13:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T16:04:42+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-06T11:53:01+00:00",
-      "result_count": 10,
-      "spike": false,
-      "topic": "japanese_market"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-06T14:33:40+00:00",
@@ -2273,9 +2266,151 @@
       "result_count": 3,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T16:04:42+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4705705,
+      "discovered_at": "2026-08-19T16:04:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
+      "impression_count": 198802,
+      "like_count": 3331,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090099350315954437/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090099350315954437",
+      "post_url": "https://x.com/WatcherGuru/status/2090099350315954437",
+      "posted_at": "2026-08-19T15:31:31+00:00",
+      "quote_count": 140,
+      "reply_count": 230,
+      "repost_count": 377,
+      "score": 84.6,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
+      "topic": "watcher_guru",
+      "why_trending": "表示198,802・投稿後33分・反応率2.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4705705,
+      "discovered_at": "2026-08-19T16:04:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $67,000 Bitcoin https://t.co/1Sw2dh9dkN",
+      "impression_count": 164294,
+      "like_count": 2175,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090097898134679642/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090097898134679642",
+      "post_url": "https://x.com/WatcherGuru/status/2090097898134679642",
+      "posted_at": "2026-08-19T15:25:45+00:00",
+      "quote_count": 45,
+      "reply_count": 162,
+      "repost_count": 170,
+      "score": 80.8,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $67,000 Bitcoin https://t.co/1Sw2dh9dkN",
+      "topic": "watcher_guru",
+      "why_trending": "表示164,294・投稿後38分・反応率1.7%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4705705,
+      "discovered_at": "2026-08-19T16:04:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Ripple, Coinbase, Kraken and Chainlink executives to attend White House crypto summit today.",
+      "impression_count": 243625,
+      "like_count": 5577,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090088824844034142",
+      "post_url": "https://x.com/WatcherGuru/status/2090088824844034142",
+      "posted_at": "2026-08-19T14:49:42+00:00",
+      "quote_count": 68,
+      "reply_count": 203,
+      "repost_count": 614,
+      "score": 79.8,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Ripple, Coinbase, Kraken and Chainlink executives to attend White House crypto summit today.",
+      "topic": "watcher_guru",
+      "why_trending": "表示243,625・投稿後75分・反応率3.0%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4705705,
+      "discovered_at": "2026-08-19T16:04:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $2,000 $ETH https://t.co/uMPTR7VYSz",
+      "impression_count": 151297,
+      "like_count": 1656,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090094714305511814/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090094714305511814",
+      "post_url": "https://x.com/WatcherGuru/status/2090094714305511814",
+      "posted_at": "2026-08-19T15:13:06+00:00",
+      "quote_count": 39,
+      "reply_count": 123,
+      "repost_count": 163,
+      "score": 79.3,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $2,000 $ETH https://t.co/uMPTR7VYSz",
+      "topic": "watcher_guru",
+      "why_trending": "表示151,297・投稿後51分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4705705,
+      "discovered_at": "2026-08-19T16:04:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $66,000 Bitcoin https://t.co/OLtErb2QVl",
+      "impression_count": 198372,
+      "like_count": 3208,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090091875923624389/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090091875923624389",
+      "post_url": "https://x.com/WatcherGuru/status/2090091875923624389",
+      "posted_at": "2026-08-19T15:01:49+00:00",
+      "quote_count": 48,
+      "reply_count": 212,
+      "repost_count": 317,
+      "score": 77.3,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $66,000 Bitcoin https://t.co/OLtErb2QVl",
+      "topic": "watcher_guru",
+      "why_trending": "表示198,372・投稿後62分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 1023,
       "discovered_at": "2026-08-19T09:16:50+00:00",
@@ -2328,28 +2463,28 @@
       "why_trending": "表示550,706・投稿後936分・反応率2.6%"
     },
     {
-      "author_followers": 4702814,
-      "discovered_at": "2026-08-19T08:16:51+00:00",
+      "author_followers": 4705705,
+      "discovered_at": "2026-08-19T16:04:42+00:00",
       "discovery_type": "official_x_api",
       "handle": "WatcherGuru",
       "has_video": false,
       "headline": "JUST IN: Robinhood CEO Vlad Tenev says we are at the beginning of a \"tokenization supercycle\" that will \"eat the entire financial system.\"",
-      "impression_count": 760805,
-      "like_count": 10425,
+      "impression_count": 1001622,
+      "like_count": 12245,
       "linked_urls": [],
       "media_types": [],
       "post_id": "2089836529061392746",
       "post_url": "https://x.com/WatcherGuru/status/2089836529061392746",
       "posted_at": "2026-08-18T22:07:10+00:00",
-      "quote_count": 300,
-      "reply_count": 509,
-      "repost_count": 1365,
+      "quote_count": 362,
+      "reply_count": 590,
+      "repost_count": 1610,
       "score": 50.6,
-      "seen_count": 1,
+      "seen_count": 2,
       "source_priority": "",
       "summary": "JUST IN: Robinhood CEO Vlad Tenev says we are at the beginning of a \"tokenization supercycle\" that will \"eat the entire financial system.\"",
       "topic": "watcher_guru",
-      "why_trending": "表示760,805・投稿後609分・反応率1.9%"
+      "why_trending": "表示1,001,622・投稿後1077分・反応率1.7%"
     },
     {
       "author_followers": 2602,
@@ -2400,63 +2535,6 @@
       "summary": "JUST IN: 🇺🇸 SEC officially proposes new rules to create clear regulatory framework for crypto.",
       "topic": "watcher_guru",
       "why_trending": "表示432,292・投稿後814分・反応率2.0%"
-    },
-    {
-      "author_followers": 27,
-      "discovered_at": "2026-08-19T07:25:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "bitsurgex",
-      "has_video": false,
-      "headline": "#Bitcoin is rising while equities weaken and bond yields climb. ETF inflows are back, but open interest and funding are falling—evidence that spot demand, not leverage, may be driv",
-      "impression_count": 37,
-      "like_count": 1,
-      "linked_urls": [
-        "https://bitsurgex.substack.com/p/bitcoin-is-rising-against-the-macro?r=8gfg0j",
-        "https://x.com/bitsurgex/status/2089735700623016075/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089735700623016075",
-      "post_url": "https://x.com/bitsurgex/status/2089735700623016075",
-      "posted_at": "2026-08-18T15:26:31+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 46.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "#Bitcoin is rising while equities weaken and bond yields climb. ETF inflows are back, but open interest and funding are falling—evidence that spot demand, not leverage, may be driving the move. Full article 👇 https://t.co/rAIrZbbbjo #CRYPTONewsTalk #CryptoTrader #crypto #BTC https://t.co/hcOP74gYDS",
-      "topic": "crypto_market",
-      "why_trending": "表示37・投稿後959分・反応率7.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 4702814,
-      "discovered_at": "2026-08-19T08:16:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: BlackRock says Bitcoin's ~50% pullback is a \"positioning correction\" and its long-term investment case remains unchanged. https://t.co/E1zJHpCdvs",
-      "impression_count": 282459,
-      "like_count": 3782,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2089741506298937495/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089741506298937495",
-      "post_url": "https://x.com/WatcherGuru/status/2089741506298937495",
-      "posted_at": "2026-08-18T15:49:35+00:00",
-      "quote_count": 38,
-      "reply_count": 201,
-      "repost_count": 300,
-      "score": 44.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: BlackRock says Bitcoin's ~50% pullback is a \"positioning correction\" and its long-term investment case remains unchanged. https://t.co/E1zJHpCdvs",
-      "topic": "watcher_guru",
-      "why_trending": "表示282,459・投稿後987分・反応率1.7%"
     },
     {
       "author_followers": 4702814,
