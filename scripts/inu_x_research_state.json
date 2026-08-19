@@ -1,6 +1,6 @@
 {
-  "last_deep_scan_at": "2026-08-19T07:25:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T08:16:51+00:00",
+  "last_deep_scan_at": "2026-08-19T09:16:50+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T09:16:50+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -2251,9 +2251,49 @@
       "checked_at": "2026-08-19T08:16:51+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T09:16:50+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-19T09:16:50+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
+    {
+      "author_followers": 1023,
+      "discovered_at": "2026-08-19T09:16:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "solsmint",
+      "has_video": false,
+      "headline": "Is regulatory approval the future of stablecoins? 🤔 https://t.co/NoYseDXgAU just added USDU - a CBUAE-registered dollar stablecoin - to its wallet. No, it's not replacing USDT or U",
+      "impression_count": 38,
+      "like_count": 4,
+      "linked_urls": [
+        "https://bitcoin.com",
+        "https://x.com/i/article/2089989928507842560"
+      ],
+      "media_types": [],
+      "post_id": "2089992610752712987",
+      "post_url": "https://x.com/solsmint/status/2089992610752712987",
+      "posted_at": "2026-08-19T08:27:23+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 3,
+      "score": 57.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Is regulatory approval the future of stablecoins? 🤔 https://t.co/NoYseDXgAU just added USDU - a CBUAE-registered dollar stablecoin - to its wallet. No, it's not replacing USDT or USDC. It's expanding options for 7M+ users. Full breakdown 👇 https://t.co/16gyruWs3y",
+      "topic": "onchain_exchange",
+      "why_trending": "表示38・投稿後49分・反応率26.3%・公式候補リンクあり"
+    },
     {
       "author_followers": 4702814,
       "discovered_at": "2026-08-19T08:16:51+00:00",
@@ -2301,6 +2341,32 @@
       "summary": "JUST IN: Robinhood CEO Vlad Tenev says we are at the beginning of a \"tokenization supercycle\" that will \"eat the entire financial system.\"",
       "topic": "watcher_guru",
       "why_trending": "表示760,805・投稿後609分・反応率1.9%"
+    },
+    {
+      "author_followers": 2602,
+      "discovered_at": "2026-08-19T09:16:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Neome_com",
+      "has_video": false,
+      "headline": "\" CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Solana eyes $100 recovery as price tests $80 resistance after RSI breakout. • Ripple Prime Lands $275M as Institutional Back",
+      "impression_count": 46,
+      "like_count": 1,
+      "linked_urls": [
+        "https://bitcoin.com"
+      ],
+      "media_types": [],
+      "post_id": "2089978295739617733",
+      "post_url": "https://x.com/Neome_com/status/2089978295739617733",
+      "posted_at": "2026-08-19T07:30:30+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 49.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "\" CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Solana eyes $100 recovery as price tests $80 resistance after RSI breakout. • Ripple Prime Lands $275M as Institutional Backing Accelerates. • https://t.co/gzC8VgNWpm integrates UAE-regulated USDU stablecoin into its",
+      "topic": "onchain_exchange",
+      "why_trending": "表示46・投稿後106分・反応率5.7%・公式候補リンクあり"
     },
     {
       "author_followers": 4702814,
@@ -2437,6 +2503,34 @@
       "why_trending": "表示272・投稿後1308分・反応率1.7%・公式候補リンクあり"
     },
     {
+      "author_followers": 2536,
+      "discovered_at": "2026-08-19T09:16:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "KentonC137",
+      "has_video": true,
+      "headline": "One of Trezor’s shipping providers experienced a data breach that exposed sensitive order data affecting new customers in the US, UK, Sweden, Colombia, Brazil, Italy, and Portugal.",
+      "impression_count": 452,
+      "like_count": 11,
+      "linked_urls": [
+        "https://x.com/KentonC137/status/2089813838925332679/video/1"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2089813838925332679",
+      "post_url": "https://x.com/KentonC137/status/2089813838925332679",
+      "posted_at": "2026-08-18T20:37:00+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 41.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "One of Trezor’s shipping providers experienced a data breach that exposed sensitive order data affecting new customers in the US, UK, Sweden, Colombia, Brazil, Italy, and Portugal. Crypto wallet provider SafePal discloses a data breach exposing personal &amp; purchase information https://t.co/ddtvoYjRpd",
+      "topic": "onchain_exchange",
+      "why_trending": "表示452・投稿後759分・反応率3.1%・動画あり"
+    },
+    {
       "author_followers": 4702814,
       "discovered_at": "2026-08-19T08:16:51+00:00",
       "discovery_type": "official_x_api",
@@ -2509,6 +2603,34 @@
       "why_trending": "表示296,647・投稿後901分・反応率1.0%"
     },
     {
+      "author_followers": 622,
+      "discovered_at": "2026-08-19T09:16:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptomegaNews",
+      "has_video": false,
+      "headline": "Crypto navigates exploits, regulatory shifts, and shifting market dynamics. Here's the latest: * MAYAChain halted its network after an estimated $1.7M exploit. * US accounting boar",
+      "impression_count": 28,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/CryptomegaNews/status/2089963157934555168/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089963157934555168",
+      "post_url": "https://x.com/CryptomegaNews/status/2089963157934555168",
+      "posted_at": "2026-08-19T06:30:21+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 38.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Crypto navigates exploits, regulatory shifts, and shifting market dynamics. Here's the latest: * MAYAChain halted its network after an estimated $1.7M exploit. * US accounting board FASB proposes conditions for stablecoins as cash equivalents. * Exchange stablecoin https://t.co/trATn5RqIJ",
+      "topic": "onchain_exchange",
+      "why_trending": "表示28・投稿後166分・反応率9.3%"
+    },
+    {
       "author_followers": 222,
       "discovered_at": "2026-08-19T07:25:45+00:00",
       "discovery_type": "official_x_api",
@@ -2535,6 +2657,34 @@
       "summary": "💥 BTC Liquidation Report | Aug 18, 2026 💰 Price: $64,275 📦 Open Interest: 105,999 BTC 💸 Funding: 0.0080% ⚖️ Long/Short: 60% / 40% #BTC #Crypto https://t.co/M1SSCXmPXr",
       "topic": "crypto_market",
       "why_trending": "表示132・投稿後1135分・反応率3.9%"
+    },
+    {
+      "author_followers": 8903,
+      "discovered_at": "2026-08-19T09:16:50+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoHamsterIO",
+      "has_video": false,
+      "headline": "Crypto Daily – August 18, 2026 Regulatory deadlines and institutional adoption advance, but liquidity and leverage risks persist. Market Overview #Bitcoin held near $64,200 after U",
+      "impression_count": 156,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/CryptoHamsterIO/status/2089997491441975773/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2089997491441975773",
+      "post_url": "https://x.com/CryptoHamsterIO/status/2089997491441975773",
+      "posted_at": "2026-08-19T08:46:46+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 35.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Crypto Daily – August 18, 2026 Regulatory deadlines and institutional adoption advance, but liquidity and leverage risks persist. Market Overview #Bitcoin held near $64,200 after U.S. spot Bitcoin ETFs recorded a $137 million inflow, ending a five-day outflow streak that had https://t.co/41gMSgcJIm",
+      "topic": "onchain_exchange",
+      "why_trending": "表示156・投稿後30分・反応率0.0%"
     }
   ],
   "trends": [],
