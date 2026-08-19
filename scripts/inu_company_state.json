@@ -197,6 +197,22 @@
       "status": "blocked_external",
       "reason": "X_API_CREDITS_DEPLETED",
       "retry_after": "2026-08-19T12:25:56.871505+00:00"
+    },
+    {
+      "run_id": "32225161417",
+      "started_at": "2026-08-19T06:51:39.358026+00:00",
+      "completed_at": "2026-08-19T06:53:45.777793+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "not_started",
+        "quality": "not_started",
+        "distribution": "not_started",
+        "reliability": "observed"
+      },
+      "status": "no_publishable_candidate"
     }
   ]
 }
