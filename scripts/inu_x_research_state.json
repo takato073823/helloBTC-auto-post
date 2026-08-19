@@ -1,21 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-19T13:31:43+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T14:18:03+00:00",
+  "last_deep_scan_at": "2026-08-19T15:13:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T15:13:45+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-06T06:41:58+00:00",
-      "result_count": 4,
-      "spike": false,
-      "topic": "regulation"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-06T09:32:54+00:00",
-      "result_count": 0,
-      "spike": false,
-      "topic": "equities_ai"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-06T11:53:01+00:00",
@@ -2274,6 +2260,19 @@
       "checked_at": "2026-08-19T14:18:03+00:00",
       "result_count": 7,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T15:13:45+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-19T15:13:45+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -2612,6 +2611,34 @@
       "why_trending": "表示28・投稿後166分・反応率9.3%"
     },
     {
+      "author_followers": 222,
+      "discovered_at": "2026-08-19T15:13:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoCaneCorso",
+      "has_video": false,
+      "headline": "💥 BTC Liquidation Report | Aug 19, 2026 💰 Price: $64,458 📦 Open Interest: 104,684 BTC 💸 Funding: 0.0037% ⚖️ Long/Short: 61% / 39% #BTC #Crypto https://t.co/KlXSO9uHRJ",
+      "impression_count": 12,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/CryptoCaneCorso/status/2090053687699714060/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090053687699714060",
+      "post_url": "https://x.com/CryptoCaneCorso/status/2090053687699714060",
+      "posted_at": "2026-08-19T12:30:05+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 37.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "💥 BTC Liquidation Report | Aug 19, 2026 💰 Price: $64,458 📦 Open Interest: 104,684 BTC 💸 Funding: 0.0037% ⚖️ Long/Short: 61% / 39% #BTC #Crypto https://t.co/KlXSO9uHRJ",
+      "topic": "crypto_market",
+      "why_trending": "表示12・投稿後163分・反応率13.3%"
+    },
+    {
       "author_followers": 8903,
       "discovered_at": "2026-08-19T09:16:50+00:00",
       "discovery_type": "official_x_api",
@@ -2638,6 +2665,34 @@
       "summary": "Crypto Daily – August 18, 2026 Regulatory deadlines and institutional adoption advance, but liquidity and leverage risks persist. Market Overview #Bitcoin held near $64,200 after U.S. spot Bitcoin ETFs recorded a $137 million inflow, ending a five-day outflow streak that had https://t.co/41gMSgcJIm",
       "topic": "onchain_exchange",
       "why_trending": "表示156・投稿後30分・反応率0.0%"
+    },
+    {
+      "author_followers": 204,
+      "discovered_at": "2026-08-19T15:13:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "CryptoPulsarAI",
+      "has_video": false,
+      "headline": "Thin bid, not brave 🧐 Day - 19.08.2026 • ₿ BTC $65,042 🟢 +0.8% • Ξ ETH $1,936.09 🟢 +1.8% • 🥇 Gold $4,462.70 🟢 +0.26% | 💵 USD/PLN 3.7310 0.0% • 📊 Dominance: BTC 56.55%, ETH 10.14% •",
+      "impression_count": 44,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/CryptoPulsarAI/status/2090071756715262363/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090071756715262363",
+      "post_url": "https://x.com/CryptoPulsarAI/status/2090071756715262363",
+      "posted_at": "2026-08-19T13:41:53+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Thin bid, not brave 🧐 Day - 19.08.2026 • ₿ BTC $65,042 🟢 +0.8% • Ξ ETH $1,936.09 🟢 +1.8% • 🥇 Gold $4,462.70 🟢 +0.26% | 💵 USD/PLN 3.7310 0.0% • 📊 Dominance: BTC 56.55%, ETH 10.14% • 🌍 Market cap $2.303T 🟢 +1.05% | 24h volume $47.9B 🔴 -0.65% • 📈 Open Interest https://t.co/bxU7z0eDdo",
+      "topic": "crypto_market",
+      "why_trending": "表示44・投稿後91分・反応率0.0%"
     }
   ],
   "trends": [],
