@@ -1,14 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-19T11:03:00+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T11:03:00+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T12:01:40+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-05T20:18:41+00:00",
-      "result_count": 3,
-      "spike": false,
-      "topic": "crypto_market"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-05T22:00:47+00:00",
@@ -2277,6 +2270,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T12:01:40+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
