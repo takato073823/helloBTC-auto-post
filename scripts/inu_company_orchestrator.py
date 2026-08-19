@@ -21,11 +21,13 @@ from inu_pipeline_contracts import (
     event_fingerprint,
     release_reservation,
 )
+from x_poster import XCreditsDepletedError
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 COMPANY_STATE_PATH = SCRIPT_DIR / "inu_company_state.json"
 MAX_AUDIT_ROWS = 300
+X_CREDIT_RETRY_HOURS = 6
 
 
 def _load(path: Path) -> dict:
@@ -93,6 +95,42 @@ def _quality_handoff(prepared: dict) -> dict:
 
 def prepare(args: argparse.Namespace) -> int:
     started = dt.datetime.now(dt.timezone.utc)
+    hourly_state = load_state(Path(args.state))
+    x_block = hourly_state.get("external_blocks", {}).get("x_api", {})
+    try:
+        retry_after = dt.datetime.fromisoformat(
+            str(x_block.get("retry_after", "")).replace("Z", "+00:00")
+        )
+    except ValueError:
+        retry_after = None
+    if (
+        retry_after is not None
+        and retry_after.tzinfo is not None
+        and started < retry_after.astimezone(dt.timezone.utc)
+        and os.environ.get("INU_FORCE_X_DELIVERY_PROBE", "false").strip().lower()
+        not in {"1", "true", "yes"}
+    ):
+        inu_auto_hourly._emit_output("ready", "false")
+        _append_audit(
+            Path(args.company_state),
+            {
+                "run_id": os.environ.get("GITHUB_RUN_ID", "local"),
+                "started_at": started.isoformat(),
+                "completed_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+                "mode": "prepare",
+                "departments": {
+                    "research": "paused_cost_guard",
+                    "editorial": "not_started",
+                    "quality": "not_started",
+                    "distribution": "blocked_external",
+                    "reliability": "observed",
+                },
+                "status": "blocked_external",
+                "reason": "X_API_CREDITS_DEPLETED",
+                "retry_after": retry_after.isoformat(),
+            },
+        )
+        return 0
     hermes_status = "disabled"
     if os.environ.get("INU_HERMES_RESEARCH_ENABLED", "false").strip().lower() in {"1", "true", "yes"}:
         hermes_status = str(refresh_packet().get("status", "failed"))
@@ -151,6 +189,7 @@ def publish(args: argparse.Namespace) -> int:
     try:
         exit_code = inu_auto_hourly.publish(args)
     except Exception as exc:
+        failed_at = dt.datetime.now(dt.timezone.utc)
         state_path = Path(args.state)
         state = load_state(state_path)
         state = release_reservation(
@@ -161,14 +200,32 @@ def publish(args: argparse.Namespace) -> int:
             reason=str(exc),
         )
         save_state(state_path, state)
-        audit["departments"]["distribution"] = "failed_released"
-        audit["status"] = "retryable_delivery_failure"
+        if isinstance(exc, XCreditsDepletedError):
+            state = load_state(state_path)
+            state.setdefault("external_blocks", {})["x_api"] = {
+                "reason": "X_API_CREDITS_DEPLETED",
+                "blocked_at": failed_at.isoformat(),
+                "retry_after": (
+                    failed_at + dt.timedelta(hours=X_CREDIT_RETRY_HOURS)
+                ).isoformat(),
+            }
+            save_state(state_path, state)
+            audit["departments"]["distribution"] = "blocked_external"
+            audit["status"] = "blocked_external"
+        else:
+            audit["departments"]["distribution"] = "failed_released"
+            audit["status"] = "retryable_delivery_failure"
         audit["reason"] = str(exc)[:300]
         audit["completed_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
         _append_audit(Path(args.company_state), audit)
         raise
     audit["departments"]["distribution"] = "published"
     audit["status"] = "published"
+    state_path = Path(args.state)
+    state = load_state(state_path)
+    if "x_api" in state.get("external_blocks", {}):
+        state["external_blocks"].pop("x_api", None)
+        save_state(state_path, state)
     audit["completed_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
     _append_audit(Path(args.company_state), audit)
     return exit_code

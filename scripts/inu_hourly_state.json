@@ -2938,6 +2938,13 @@
       "reason": "X投稿に失敗しました。文字だけの代替投稿は行っていません"
     }
   ],
+  "external_blocks": {
+    "x_api": {
+      "reason": "X_API_CREDITS_DEPLETED",
+      "blocked_at": "2026-08-19T06:25:56.871505+00:00",
+      "retry_after": "2026-08-19T12:25:56.871505+00:00"
+    }
+  },
   "api_usage": {
     "jst_date": "2026-08-19",
     "counts": {

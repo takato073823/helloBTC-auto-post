@@ -236,6 +236,10 @@ class XPostResult:
     related_reply_posted: bool | None = None
 
 
+class XCreditsDepletedError(RuntimeError):
+    """X APIの利用枠不足。自動再送せず、有料調査を一時遮断するために使う。"""
+
+
 def _x_status_code(error: Exception) -> int | None:
     """Tweepy/requests例外からHTTPステータスを安全に取得する。"""
     response = getattr(error, "response", None)
@@ -380,6 +384,8 @@ def post_info_tweet(text: str, media_path: str | Path | Sequence[str | Path]) ->
         return tweet_id
     except Exception as e:
         logger.warning("X情報投稿失敗（既存の記事投稿には影響しません）: %s", e)
+        if _x_status_code(e) == 402 or "credits depleted" in str(e).lower():
+            raise XCreditsDepletedError("X_API_CREDITS_DEPLETED") from e
         return None
 
 

@@ -43,3 +43,4 @@ jobs:
           test_inu_source_capture.py
           test_inu_auto_hourly.py
           test_inu_live_post.py
+          test_x_info_poster.py

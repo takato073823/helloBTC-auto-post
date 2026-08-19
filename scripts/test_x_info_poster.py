@@ -182,6 +182,27 @@ class XInfoPosterTests(unittest.TestCase):
         self.assertIsNone(result)
         self.assertFalse(hasattr(client, "kwargs"))
 
+    def test_x_credit_depletion_is_propagated_to_cost_guard(self):
+        error = RuntimeError("credits depleted")
+        error.response = types.SimpleNamespace(status_code=402)
+        failing_api = types.SimpleNamespace(
+            media_upload=lambda **_kwargs: (_ for _ in ()).throw(error)
+        )
+        secrets = {
+            "X_API_KEY": "test",
+            "X_API_KEY_SECRET": "test",
+            "X_ACCESS_TOKEN": "test",
+            "X_ACCESS_TOKEN_SECRET": "test",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            image = Path(tmp) / "card.png"
+            image.write_bytes(b"png")
+            with patch.dict(os.environ, secrets), patch.object(
+                x_poster, "_get_oauth1_api", return_value=failing_api
+            ):
+                with self.assertRaises(x_poster.XCreditsDepletedError):
+                    x_poster.post_info_tweet("テスト", image)
+
     def test_link_card_keeps_article_url_unchanged_and_uploads_no_media(self):
         client = FakeClient()
         secrets = {
