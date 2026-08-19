@@ -2767,17 +2767,21 @@ def _build_item_from_candidate(
         and selected["visual_route"] == "official_text_crop"
     ):
         primary_path = ARTIFACT_DIR / f"{slot}-main.png"
+        source_photo_used = False
         if visual_subject and visual_subject.get("kind") == "public_figure":
-            capture_source_hero_image(
-                source_url=verified_url,
-                source_name=selected["source_name"],
-                published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
-                output_path=primary_path,
-                is_primary_source=bool(selected["is_primary_source"]),
-                visual_subject=visual_subject,
-            )
-            selected["generated_editorial_visual"] = False
-        else:
+            try:
+                capture_source_hero_image(
+                    source_url=verified_url,
+                    source_name=selected["source_name"],
+                    published_at=_parse_timestamp(selected["published_at"]).date().isoformat(),
+                    output_path=primary_path,
+                    is_primary_source=bool(selected["is_primary_source"]),
+                    visual_subject=visual_subject,
+                )
+                source_photo_used = True
+            except Exception as source_photo_error:
+                logger.info("一次ソース人物写真を取得できないため中立的な写真風肖像へ切替: %s", source_photo_error)
+        if not source_photo_used:
             if _economy_mode_enabled() and not _economy_generated_visuals_enabled():
                 raise ValueError("規制ニュースの写真風アイキャッチ生成が無効です")
             if _generated_editorial_visual_count(state, now) >= _generated_editorial_visual_limit():
@@ -2794,6 +2798,8 @@ def _build_item_from_candidate(
                 visual_subject=visual_subject,
             )
             selected["generated_editorial_visual"] = True
+        else:
+            selected["generated_editorial_visual"] = False
         selected["evidence_as_primary"] = False
         item = {
             "id": _candidate_id(selected),
@@ -2842,9 +2848,10 @@ def _build_item_from_candidate(
     primary_path = ARTIFACT_DIR / f"{slot}-main.png"
     generated_primary = False
     try:
-        # 機関ニュースはロゴ転載や媒体固有画像を避け、INU独自画像＋大きな機関名で識別する。
-        if visual_subject and visual_subject.get("kind") == "institution":
-            raise ValueError("機関ニュースは独自ビジュアルとプレーンテキストラベルを使います")
+        # 機関は実物紋章・看板、通貨・プロジェクトは検証済みロゴを必須にするため、
+        # 出典OG画像をそのまま採用せず専用ビジュアル経路へ送る。
+        if visual_subject and visual_subject.get("kind") in {"institution", "crypto_project"}:
+            raise ValueError("固有主体を識別できる専用ビジュアルを使います")
         capture_source_hero_image(
             source_url=verified_url,
             source_name=selected["source_name"],

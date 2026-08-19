@@ -166,10 +166,39 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
             if not manifest.get("subject_identifiable") or not isinstance(subject, dict):
                 raise ValueError("ニュース主体を画像から識別できません")
             if subject.get("kind") == "public_figure":
-                if manifest.get("generated_image") or subject.get("identity_method") != "verified_primary_source_photo":
-                    raise ValueError("実在人物は一次ソースの実写写真で確認できません")
-            if subject.get("kind") == "institution" and manifest.get("official_logo_used"):
-                raise ValueError("機関の公式ロゴをアイキャッチへ転載できません")
+                identity_used = manifest.get("identity_method_used")
+                source_photo = (
+                    not manifest.get("generated_image")
+                    and identity_used == "verified_primary_source_photo"
+                    and manifest.get("is_primary_source")
+                )
+                generated_portrait = (
+                    manifest.get("generated_image")
+                    and identity_used == "generated_editorial_portrait"
+                    and manifest.get("generated_public_figure_portrait")
+                    and manifest.get("not_event_evidence")
+                )
+                if not (source_photo or generated_portrait):
+                    raise ValueError("実在人物を確認できる実写または中立的な写真風肖像ではありません")
+            if subject.get("kind") == "institution":
+                if manifest.get("official_logo_used"):
+                    raise ValueError("機関ロゴを平面素材として貼り付けた画像は使えません")
+                if (
+                    subject.get("identity_method") != "generated_photorealistic_physical_mark"
+                    or manifest.get("mark_depiction_mode") != "photorealistic_physical_object"
+                    or not manifest.get("official_mark_depicted")
+                ):
+                    raise ValueError("機関の実物紋章・看板が写る報道写真形式ではありません")
+            if subject.get("kind") == "crypto_project":
+                if (
+                    subject.get("identity_method") != "verified_project_logo_asset"
+                    or not manifest.get("official_logo_used")
+                    or not manifest.get("logo_verified_against_official_domain")
+                    or manifest.get("logo_official_domain") != subject.get("official_domain")
+                    or manifest.get("logo_registry_coin_id") != subject.get("coingecko_id")
+                    or not str(manifest.get("logo_source_url", "")).startswith("https://")
+                ):
+                    raise ValueError("通貨・プロジェクトの検証済みロゴが主画像にありません")
     else:
         _validate_evidence_manifest(manifest, visual_route, policy)
 

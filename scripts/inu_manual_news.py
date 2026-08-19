@@ -99,8 +99,8 @@ def _build_item(post: dict, state: dict) -> tuple[dict, bool]:
         source_name=post["source_name"],
     )
     try:
-        if visual_subject and visual_subject.get("kind") == "institution":
-            raise ValueError("機関ニュースは独自ビジュアルとプレーンテキストラベルを使います")
+        if visual_subject and visual_subject.get("kind") in {"institution", "crypto_project"}:
+            raise ValueError("固有主体を識別できる専用ビジュアルを使います")
         capture_source_hero_image(
             source_url=post["source_url"], source_name=post["source_name"],
             published_at=post["published_at"], output_path=primary_path,
