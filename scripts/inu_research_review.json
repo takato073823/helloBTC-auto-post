@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T14:42:13.371917+00:00",
-  "slot": "2026-08-19-23-a",
+  "generated_at": "2026-08-19T16:03:46.020294+00:00",
+  "slot": "2026-08-20-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T14:42:13.371917+00:00",
-    "to": "2026-08-19T14:42:13.371917+00:00"
+    "from": "2026-08-18T16:03:46.020294+00:00",
+    "to": "2026-08-19T16:03:46.020294+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🪙 米長期債の買い戻し、9月から倍増へ\n\n長期債の需給と流動性に影響するため、金利市場の反応が焦点になる。"
+      "🧩 AI半導体の契約が株価を動かす\n\n大型顧客との長期契約は、AI半導体企業の収益見通しと株主価値を同時に左右する。"
     ],
-    "public_compact_post": "🪙 米長期債の買い戻し、9月から倍増へ\n\n9月9日から、米財務省の10〜20年債・20〜30年債の買い戻し額は1回あたり20億ドルから少なくとも40億ドルに増える\n財務省は市場で最も圧力を受けている部分の流動性を支える動きとしている\n\n長期債の需給と流動性に影響するため、金利市場の反応が焦点になる。"
+    "public_compact_post": "🧩 AI半導体の契約が株価を動かす\n\nMarvell（MRVL）はGoogle向けカスタムAIチップ収入に連動し、2033年まで最大7%の自社株取得権（ワラント）を発行した\n投稿ではMRVL株が13%以上上昇したと示されている\n\n大型顧客との長期契約は、AI半導体企業の収益見通しと株主価値を同時に左右する。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🪙 米長期債の買い戻し、9月から倍増へ",
+    "selected_hook": "🧩 AI半導体の契約が株価を動かす",
     "verified_facts": [],
-    "market_or_user_impact": "買い戻し対象の年限と金額が明示され、米長期債市場への影響を追いやすい。",
+    "market_or_user_impact": "売上拡大だけでなく、ワラントによる将来の株式希薄化まで判断材料になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "財務省の買い戻し実施後、長期債の流動性と需給変化を継続して確認できる。",
+    "next_watch": "AI半導体各社の顧客契約と資本政策を追うきっかけになる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/stocksavvyshay/status/2090059729531965824",
+      "url": "https://x.com/stocksavvyshay/status/2090064939012775973",
       "verified": false
     },
     "corroborating_sources": [],
@@ -52,15 +52,15 @@
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 3,
+          "used": 0,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 12,
+          "used": 0,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 5,
+          "used": 0,
           "limit": 8
         }
       },
