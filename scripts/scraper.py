@@ -7,7 +7,7 @@ import feedparser
 import calendar
 import logging
 import time
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse, urlunparse
 
 logger = logging.getLogger(__name__)
 
@@ -151,8 +151,42 @@ def _extract_tweet_urls(soup) -> list:
     return tweet_urls[:3]
 
 
+def _extract_primary_source_candidates(container, page_url: str, limit: int = 40) -> list[dict]:
+    """報道記事本文の外部リンクを、一次資料候補としてラベル付きで返す。"""
+    if container is None:
+        return []
+
+    publisher_host = (urlparse(page_url).hostname or "").lower().removeprefix("www.")
+    excluded_hosts = {
+        "facebook.com", "www.facebook.com", "linkedin.com", "www.linkedin.com",
+        "reddit.com", "www.reddit.com", "t.me", "telegram.me",
+    }
+    candidates = []
+    seen = set()
+    for anchor in container.find_all("a", href=True):
+        absolute = urljoin(page_url, anchor.get("href", "").strip())
+        parsed = urlparse(absolute)
+        host = (parsed.hostname or "").lower().removeprefix("www.")
+        if parsed.scheme not in {"http", "https"} or not host:
+            continue
+        if host == publisher_host or host.endswith("." + publisher_host):
+            continue
+        if host in excluded_hosts:
+            continue
+
+        clean_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, "", parsed.query, ""))
+        if clean_url in seen:
+            continue
+        seen.add(clean_url)
+        label = " ".join(anchor.get_text(" ", strip=True).split()) or host
+        candidates.append({"url": clean_url, "label": label[:180], "domain": host})
+        if len(candidates) >= limit:
+            break
+    return candidates
+
+
 def fetch_article_content(url, max_length=4000):
-    """元記事の本文とツイートURLを取得して dict で返す"""
+    """元記事の本文、ツイートURL、本文内の一次資料候補を返す。"""
     try:
         response = requests.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
@@ -174,12 +208,14 @@ def fetch_article_content(url, max_length=4000):
             "main",
         ]
         text = ""
+        source_links = []
         for selector in selectors:
             el = soup.select_one(selector)
             if el:
                 candidate = el.get_text(separator="\n", strip=True)
                 if len(candidate) > 300:
                     text = candidate[:max_length]
+                    source_links = _extract_primary_source_candidates(el, url)
                     break
 
         if not text:
@@ -190,11 +226,13 @@ def fetch_article_content(url, max_length=4000):
         if tweet_urls:
             logger.info(f"ツイートURL {len(tweet_urls)} 件を抽出: {tweet_urls}")
 
-        return {"text": text, "tweet_urls": tweet_urls}
+        if source_links:
+            logger.info("一次資料候補URL %s 件を抽出", len(source_links))
+        return {"text": text, "tweet_urls": tweet_urls, "source_links": source_links}
 
     except Exception as e:
         logger.error(f"記事取得失敗 ({url}): {e}")
-        return {"text": "", "tweet_urls": []}
+        return {"text": "", "tweet_urls": [], "source_links": []}
 
 
 def fetch_tweet_embed_html(tweet_url: str) -> str:

@@ -1,0 +1,48 @@
+name: SEC記事の一次資料・冒頭表示を修復
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 修復テスト
+        working-directory: scripts
+        run: python -m unittest test_repair_news_primary_source.py test_news_post_rules.py
+
+      - name: WordPress記事を修復
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        working-directory: scripts
+        run: >-
+          python repair_news_primary_source.py
+          --slug sec-crypto-rules-clarity-act
+          --primary-name "米国証券取引委員会（SEC）｜SEC Proposes New Regulation Crypto Assets"
+          --primary-url "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets"
+          --reference-name "CoinTelegraph"
+          --reference-url "https://cointelegraph.com/news/us-sec-crypto-rules-clarity-act?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+          --backup /tmp/sec-primary-source-backup.json
+
+      - name: 変更前バックアップを保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sec-crypto-rules-primary-source-backup
+          path: /tmp/sec-primary-source-backup.json
+          if-no-files-found: warn
+          retention-days: 30

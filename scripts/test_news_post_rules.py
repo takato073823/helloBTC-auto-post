@@ -10,9 +10,12 @@ from generator import (
     _image_text_review_prompt, append_source_attribution, is_duplicate_news_topic,
     is_publishable_news,
     is_duplicate_seo_topic, normalize_swell_html, prepend_direct_answer,
-    prepend_lead_heading, resolve_logo_brand,
+    prepend_lead_heading, resolve_logo_brand, select_verified_primary_source,
 )
-from scraper import get_latest_articles, source_name_from_url
+from bs4 import BeautifulSoup
+from scraper import (
+    _extract_primary_source_candidates, get_latest_articles, source_name_from_url,
+)
 
 
 class NewsPostRuleTests(unittest.TestCase):
@@ -20,7 +23,10 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn("direct_answer", NEWS_ARTICLE_SCHEMA["required"])
 
     def test_news_schema_requires_editorial_value_gate(self):
-        for key in ("publish_decision", "primary_evidence", "unique_value", "topic_cluster"):
+        for key in (
+            "publish_decision", "primary_evidence", "primary_source_url",
+            "primary_source_name", "unique_value", "topic_cluster",
+        ):
             self.assertIn(key, NEWS_ARTICLE_SCHEMA["required"])
 
     def test_news_requires_verifiable_evidence_and_unique_value(self):
@@ -28,6 +34,8 @@ class NewsPostRuleTests(unittest.TestCase):
             "publish_decision": True,
             "topic_cluster": "規制・税制",
             "primary_evidence": "韓国の規制当局が公表した遮断対象一覧と実施日を元記事内で確認できる。",
+            "primary_source_url": "https://www.sec.gov/newsroom/press-releases/example",
+            "primary_source_name": "U.S. Securities and Exchange Commission",
             "unique_value": "日本の利用者が同様のアクセス制限に備えて確認すべき規約と資金管理上の注意点を整理する。",
         }
         self.assertTrue(is_publishable_news(valid))
@@ -35,6 +43,12 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertFalse(is_publishable_news({**valid, "primary_evidence": "価格が動いた。"}))
         self.assertFalse(is_publishable_news({**valid, "unique_value": "要約する。"}))
         self.assertFalse(is_publishable_news({**valid, "topic_cluster": "芸能"}))
+        self.assertFalse(is_publishable_news({**valid, "primary_source_url": ""}))
+        self.assertFalse(is_publishable_news({
+            **valid,
+            "primary_source_url": "https://cointelegraph.com/news/example",
+            "primary_source_name": "CoinTelegraph",
+        }))
 
     def test_ai_search_rules_require_answer_first_and_source_separation(self):
         self.assertIn("冒頭200文字以内", AI_SEARCH_CONTENT_RULES)
@@ -48,7 +62,8 @@ class NewsPostRuleTests(unittest.TestCase):
         actual = prepend_direct_answer(content, "日本の読者に重要なニュースの結論です。")
         self.assertLess(actual.index("<h2>"), actual.index("hellobtc-direct-answer"))
         self.assertLess(actual.index("hellobtc-direct-answer"), actual.index("<h3>"))
-        self.assertIn("<strong>結論：</strong>日本の読者に重要なニュースの結論です。", actual)
+        self.assertIn('<p class="hellobtc-direct-answer">日本の読者に重要なニュースの結論です。</p>', actual)
+        self.assertNotIn("<strong>結論：</strong>", actual)
 
     def test_direct_answer_is_safe_and_never_duplicated(self):
         actual = prepend_direct_answer("<p>本文</p>", "<b>結論</b> & 影響")
@@ -250,6 +265,45 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertEqual("CoinDesk", source_name_from_url("https://www.coindesk.com/markets/story"))
         self.assertEqual("Example News", source_name_from_url("https://example-news.com/story"))
 
+    def test_extracts_external_primary_source_candidates_from_article_body(self):
+        soup = BeautifulSoup(
+            '<article><a href="https://www.sec.gov/newsroom/release">SEC発表</a>'
+            '<a href="/markets/related">関連記事</a>'
+            '<a href="https://www.sec.gov/newsroom/release#details">重複</a></article>',
+            "html.parser",
+        )
+        actual = _extract_primary_source_candidates(
+            soup.article, "https://cointelegraph.com/news/story"
+        )
+        self.assertEqual(1, len(actual))
+        self.assertEqual("https://www.sec.gov/newsroom/release", actual[0]["url"])
+        self.assertEqual("SEC発表", actual[0]["label"])
+
+    def test_primary_source_must_match_an_extracted_link_exactly(self):
+        article = {
+            "primary_source_url": "https://www.sec.gov/newsroom/release",
+            "primary_source_name": "U.S. Securities and Exchange Commission",
+        }
+        links = [{
+            "url": "https://www.sec.gov/newsroom/release",
+            "label": "SEC release",
+        }]
+        self.assertEqual(
+            ("U.S. Securities and Exchange Commission", "https://www.sec.gov/newsroom/release"),
+            select_verified_primary_source(article, links),
+        )
+        self.assertIsNone(select_verified_primary_source(
+            {**article, "primary_source_url": "https://sec.example/fabricated"}, links
+        ))
+
+    def test_secondary_media_cannot_be_selected_as_primary_source(self):
+        article = {
+            "primary_source_url": "https://cointelegraph.com/news/story",
+            "primary_source_name": "CoinTelegraph",
+        }
+        links = [{"url": article["primary_source_url"], "label": "CoinTelegraph"}]
+        self.assertIsNone(select_verified_primary_source(article, links))
+
     @patch("scraper.scrape_newsnow")
     @patch("scraper.fetch_from_rss")
     def test_latest_articles_prioritize_fresh_rss_sources(self, fetch_rss, scrape_newsnow):
@@ -278,6 +332,7 @@ class NewsPostRuleTests(unittest.TestCase):
         self.assertIn('class="hellobtc-source"', actual)
         self.assertIn('href="https://example.com/news?id=1&amp;lang=en"', actual)
         self.assertIn("CoinDesk &amp; News", actual)
+        self.assertIn("一次資料：", actual)
         self.assertIn('rel="noopener noreferrer"', actual)
         self.assertIn("helloBTCの編集方針", actual)
         self.assertIn("about-hellobtc-editorial-policy", actual)

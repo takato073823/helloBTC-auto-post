@@ -89,9 +89,9 @@ AI_SEARCH_CONTENT_RULES = """
 【AI検索・要約エンジン向けの構成ルール】
 ・本文の最初は「この記事でわかること」や問題提起ではなく、読者の主要な疑問への直接回答から始める
 ・冒頭200文字以内で「結論」「対象」「重要な根拠」「読者への影響」が理解できるようにする
-・直接回答は次のGutenberg段落とし、記事本文の先頭に必ず1つだけ置く
+・直接回答は次のGutenberg段落とし、記事本文の先頭に必ず1つだけ置く。固定ラベルは表示しない
   <!-- wp:paragraph {"className":"hellobtc-direct-answer"} -->
-  <p class="hellobtc-direct-answer"><strong>結論：</strong>…</p>
+  <p class="hellobtc-direct-answer">…</p>
   <!-- /wp:paragraph -->
 ・「この記事でわかること」ボックスは直接回答の後に置く
 ・各H2・H3見出しの直後は、前置きではなくその問いへの1文結論から始める
@@ -110,6 +110,13 @@ NEWS_TOPIC_CLUSTERS = {
     "取引所・保管",
     "ブロックチェーン技術",
     "機関投資・ETF",
+}
+
+SECONDARY_NEWS_DOMAINS = {
+    "coindesk.com", "cointelegraph.com", "decrypt.co", "theblock.co",
+    "bitcoinmagazine.com", "blockworks.co", "cryptoslate.com", "beincrypto.com",
+    "reuters.com", "bloomberg.com", "cnbc.com", "forbes.com", "yahoo.com",
+    "dlnews.com", "newsnow.co.uk",
 }
 
 TOPIC_HUB_LINKS = {
@@ -160,13 +167,16 @@ NEWS_ARTICLE_SCHEMA = {
         "tweet_bullets": {"type": "array", "items": {"type": "string"}},
         "publish_decision": {"type": "boolean"},
         "primary_evidence": {"type": "string"},
+        "primary_source_url": {"type": "string"},
+        "primary_source_name": {"type": "string"},
         "unique_value": {"type": "string"},
         "topic_cluster": {"type": "string", "enum": sorted(NEWS_TOPIC_CLUSTERS)},
     },
     "required": [
         "title", "lead_heading", "direct_answer", "content", "excerpt", "meta_description",
         "tags", "slug", "image_prompt", "logo_brand", "logo_domain",
-        "tweet_bullets", "publish_decision", "primary_evidence", "unique_value",
+        "tweet_bullets", "publish_decision", "primary_evidence",
+        "primary_source_url", "primary_source_name", "unique_value",
         "topic_cluster",
     ],
     "additionalProperties": False,
@@ -291,7 +301,7 @@ def prepend_lead_heading(content: str, article_title: str, lead_heading: str | N
 
 
 def prepend_direct_answer(content: str, direct_answer: str | None) -> str:
-    """AI検索と読者向けの直接回答を、先頭H2の直後に1度だけ置く。"""
+    """AI検索と読者向けの直接回答を、固定ラベルなしで先頭H2後に置く。"""
     if 'class="hellobtc-direct-answer"' in content:
         return content
 
@@ -302,7 +312,7 @@ def prepend_direct_answer(content: str, direct_answer: str | None) -> str:
 
     block = (
         '<!-- wp:paragraph {"className":"hellobtc-direct-answer"} -->\n'
-        f'<p class="hellobtc-direct-answer"><strong>結論：</strong>{escape(answer)}</p>\n'
+        f'<p class="hellobtc-direct-answer">{escape(answer)}</p>\n'
         '<!-- /wp:paragraph -->\n'
     )
     leading_h2 = re.match(r"^\s*<h2\b[^>]*>.*?</h2>\s*", content,
@@ -313,7 +323,7 @@ def prepend_direct_answer(content: str, direct_answer: str | None) -> str:
 
 
 def append_source_attribution(content: str, source_name: str, source_url: str) -> str:
-    """ニュース本文の末尾に、読者が確認できる出典リンクを追加する。"""
+    """ニュース本文の末尾に、検証済みの一次資料リンクを追加する。"""
     clean_url = (source_url or "").strip()
     parsed = urlparse(clean_url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
@@ -323,7 +333,7 @@ def append_source_attribution(content: str, source_name: str, source_url: str) -
     label = re.sub(r"\s+", " ", unescape(source_name or "")).strip() or parsed.netloc
     source_block = (
         '<!-- wp:paragraph {"className":"hellobtc-source"} -->\n'
-        '<p class="hellobtc-source">出典：'
+        '<p class="hellobtc-source">一次資料：'
         f'<a href="{escape(clean_url, quote=True)}" target="_blank" '
         f'rel="noopener noreferrer">{escape(label)}</a></p>\n'
         '<!-- /wp:paragraph -->'
@@ -441,11 +451,58 @@ def is_publishable_news(article: dict) -> bool:
     if article.get("topic_cluster") not in NEWS_TOPIC_CLUSTERS:
         return False
     primary_evidence = str(article.get("primary_evidence", "")).strip()
+    primary_source_url = str(article.get("primary_source_url", "")).strip()
+    primary_source_name = str(article.get("primary_source_name", "")).strip()
     unique_value = str(article.get("unique_value", "")).strip()
+    parsed = urlparse(primary_source_url)
+    host = (parsed.hostname or "").lower().removeprefix("www.")
+    if parsed.scheme not in {"http", "https"} or not host or len(primary_source_name) < 2:
+        return False
+    if any(host == domain or host.endswith("." + domain) for domain in SECONDARY_NEWS_DOMAINS):
+        return False
     return len(primary_evidence) >= 30 and len(unique_value) >= 40
 
 
-def generate_article(title, content, source_url, source_name, tweet_urls=None):
+def select_verified_primary_source(
+    article: dict,
+    source_links: list[dict] | None,
+    tweet_urls: list[str] | None = None,
+) -> tuple[str, str] | None:
+    """LLMが選んだ一次資料が、実際に元記事から抽出済みかを照合する。"""
+    requested = str(article.get("primary_source_url", "")).strip()
+    if not requested:
+        return None
+
+    candidates: dict[str, str] = {}
+    for item in source_links or []:
+        url = str(item.get("url", "")).strip()
+        if url:
+            candidates[url.rstrip("/")] = str(item.get("label", "")).strip()
+    for url in tweet_urls or []:
+        clean = str(url).strip()
+        if clean:
+            candidates[clean.rstrip("/")] = "公式X投稿"
+
+    matched_label = candidates.get(requested.rstrip("/"))
+    if matched_label is None:
+        logger.warning("一次資料URLが元記事のリンク候補と一致しません: %s", requested)
+        return None
+
+    parsed = urlparse(requested)
+    host = (parsed.hostname or "").lower().removeprefix("www.")
+    if parsed.scheme not in {"http", "https"} or not host:
+        return None
+    if any(host == domain or host.endswith("." + domain) for domain in SECONDARY_NEWS_DOMAINS):
+        logger.warning("報道媒体URLは一次資料として採用しません: %s", requested)
+        return None
+
+    requested_name = str(article.get("primary_source_name", "")).strip()
+    return requested_name or matched_label or host, requested
+
+
+def generate_article(
+    title, content, source_url, source_name, tweet_urls=None, source_links=None
+):
     """英語ニュースから SEO 最適化された日本語記事を生成"""
 
     # ツイートURLがある場合の追加指示
@@ -463,6 +520,18 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
     else:
         tweet_instruction = ""
 
+    all_primary_candidates = [
+        {"label": str(item.get("label", "")), "url": str(item.get("url", ""))}
+        for item in (source_links or [])
+        if item.get("url")
+    ]
+    all_primary_candidates.extend(
+        {"label": "公式X投稿", "url": url} for url in (tweet_urls or [])
+    )
+    candidate_block = "\n".join(
+        f"- {item['label']}: {item['url']}" for item in all_primary_candidates
+    ) or "（一次資料候補なし）"
+
     prompt = f"""以下の英語の仮想通貨ニュースを基に、SEO最適化された日本語のブログ記事を作成してください。
 
 【元記事】
@@ -471,6 +540,8 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 内容:
 {content}
 {tweet_instruction}
+【元記事本文から抽出した一次資料候補】
+{candidate_block}
 【サイト情報】
 - サイト名: helloBTC
 - テーマ: 仮想通貨・ビットコイン情報
@@ -479,21 +550,21 @@ def generate_article(title, content, source_url, source_name, tweet_urls=None):
 【公開可否の審査】
 最初に、このニュースをhelloBTCが公開する価値があるかを厳しく判定する。
 publish_decision を true にできるのは、次の条件をすべて満たす場合だけである。
-- 元記事内に、公式発表、提出書類、当事者発言、オンチェーンデータ、具体的な検証結果など、30文字以上で説明できる検証可能な根拠がある
+- 元記事内に、公式発表、提出書類、当事者発言、オンチェーンデータなどの一次資料URLがあり、候補一覧から1件を指定できる
 - 過去記事の言い換えや出来事の小さな続報ではなく、読者の判断を変える新しい事実がある
 - 日本の暗号資産読者に向けて、影響、比較、判断基準、注意点のいずれかを40文字以上の独自価値として提供できる
 - ビットコイン市場、規制・税制、取引所・保管、ブロックチェーン技術、機関投資・ETFのいずれかに明確に属する
 単なる海外記事の要約、価格実況、根拠の薄い予測、同じ出来事の反復、トレンド便乗なら false にする。
-一次情報が元記事から確認できない場合、推測で補わず false にする。
+一次資料候補がない場合、または報道媒体のURLしかない場合、推測で補わず false にする。
 
 【記事作成ルール】
-1. direct_answer は90〜160文字で、誰が・何を・いつ・どうしたかと、日本の読者にとっての重要性を1〜2文で直接回答する。HTMLタグ、「結論：」の接頭辞、出典URLは含めない
+1. direct_answer は90〜160文字で、誰が・何を・いつ・どうしたかと、日本の読者にとっての重要性を1〜2文で直接回答する。HTMLタグ、固定の「結論：」ラベル、出典URLは含めない
 2. 元記事の事実関係と意味を正確に保ち、確認できない数値・発言・背景を追加しない
 3. 日本の読者向けにわかりやすい言葉で書き、専門用語には簡単な説明を添える
 4. H3見出しは「確認できた事実」「日本の読者への影響」「helloBTC編集部の整理と今後の注目点」に相当する3つを設ける。汎用的な「まとめ」「概要」は使わない
 5. 各H3見出しの直後は前置きではなく、その見出しの問いへの結論1文から始める
 6. 元記事の要約だけで終わらせず、元記事内で確認できる事実を使って、日本の投資家への影響や用語の解説などの独自価値を加える
-7. 読者が事実と解説を区別できる独立した構成で書く。出典リンクは投稿時にシステムが本文末尾へ追加するため、本文中に偽の出典やURLを作らない
+7. 読者が事実と解説を区別できる独立した構成で書く。一次資料リンクは投稿時にシステムが本文末尾へ追加するため、本文中にURLを作らない
 8. 文体は「〜した」「〜だ」「〜である」の言い切り調で統一する（「〜しました」「〜です」などの丁寧語は使わない）
 9. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 10. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
@@ -516,6 +587,8 @@ publish_decision を true にできるのは、次の条件をすべて満たす
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"],
   "publish_decision": true,
   "primary_evidence": "元記事内で確認できる一次情報・提出書類・当事者発言・データを具体的に説明（30〜180文字）",
+  "primary_source_url": "一次資料候補から完全一致で選んだ公式URL。報道媒体URLは禁止。候補がなければ空文字",
+  "primary_source_name": "一次資料を公表した規制当局・企業・財団・当事者の正式名称。報道媒体名は禁止",
   "unique_value": "海外記事の要約を超えてhelloBTCが日本の読者へ提供する固有の判断材料（40〜180文字）",
   "topic_cluster": "ビットコイン市場 | 規制・税制 | 取引所・保管 | ブロックチェーン技術 | 機関投資・ETF のいずれか1つ"
 }}"""

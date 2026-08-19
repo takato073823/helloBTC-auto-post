@@ -16,7 +16,7 @@ from generator import (
     generate_seo_article, generate_chart_image, get_seo_article_type,
     append_source_attribution, is_duplicate_seo_topic, normalize_swell_html,
     is_duplicate_news_topic, is_publishable_news, prepend_direct_answer, prepend_lead_heading,
-    resolve_logo_brand, append_topic_hub_links,
+    resolve_logo_brand, append_topic_hub_links, select_verified_primary_source,
 )
 from wp_poster import WordPressAPI
 from x_poster import post_tweet
@@ -86,6 +86,7 @@ def main():
             article_data = fetch_article_content(url)
             content = article_data["text"]
             tweet_urls = article_data["tweet_urls"]
+            source_links = article_data.get("source_links", [])
 
             if len(content) < MIN_CONTENT_LENGTH:
                 logger.warning(f"本文が短すぎるためスキップ: {url}")
@@ -100,7 +101,18 @@ def main():
                 source_url=url,
                 source_name=article.get("source", ""),
                 tweet_urls=tweet_urls,
+                source_links=source_links,
             )
+
+            primary_source = select_verified_primary_source(
+                generated, source_links, tweet_urls
+            )
+            if primary_source is None:
+                logger.warning("検証可能な一次資料URLがないため公開を見送ります")
+                posted_urls.add(url)
+                save_posted_urls(posted_urls)
+                continue
+            generated["primary_source_name"], generated["primary_source_url"] = primary_source
 
             if not is_publishable_news(generated):
                 logger.warning(
@@ -138,7 +150,9 @@ def main():
                 generated["content"], generated["topic_cluster"]
             )
             generated["content"] = append_source_attribution(
-                generated["content"], article.get("source", ""), url
+                generated["content"],
+                generated["primary_source_name"],
+                generated["primary_source_url"],
             )
 
             logo_brand, logo_domain = resolve_logo_brand(
