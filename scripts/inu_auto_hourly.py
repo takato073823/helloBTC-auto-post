@@ -42,6 +42,13 @@ from inu_news_visual import capture_source_hero_image, generate_editorial_news_v
 from inu_overseas_kol import live_visual_posts as collect_overseas_kol_visual_posts
 from inu_persona import VOICE_PROMPT
 from inu_post import MAX_WEIGHTED_LENGTH, compose_post, validate_post, weighted_length
+from inu_pipeline_contracts import (
+    content_fingerprint,
+    event_fingerprint,
+    is_semantic_event_duplicate,
+    prune_stale_reservations,
+    reservation_expiry,
+)
 from inu_tickers import format_crypto_tickers
 from inu_source_registry import topic_source_context
 from inu_source_capture import (
@@ -484,6 +491,29 @@ def collect_discovery_signals() -> list[dict[str, str]]:
             )
     except Exception as exc:
         logger.warning("ニュース発見フィードを取得できません: %s", exc)
+    # Hermesは読み取り専用の発見レイヤー。引用付き・非degraded・24時間以内の
+    # シグナルだけを取り込み、最終出典は後段で必ず一次資料へ戻して検証する。
+    hermes_path = SCRIPT_DIR / "inu_hermes_research_packet.json"
+    try:
+        packet = json.loads(hermes_path.read_text(encoding="utf-8"))
+        generated_at = _parse_timestamp(str(packet.get("generated_at", "")))
+        packet_age = dt.datetime.now(dt.timezone.utc) - generated_at
+        if packet.get("status") == "ready" and packet.get("degraded") is False and packet_age <= dt.timedelta(hours=2):
+            for row in packet.get("signals", []):
+                if not isinstance(row, dict) or not row.get("citations"):
+                    continue
+                signals.append(
+                    {
+                        "title": str(row.get("headline", ""))[:180],
+                        "source": f"Hermes X @{str(row.get('handle', '')).lstrip('@')}"[:60],
+                        "published": str(row.get("posted_at", ""))[:80],
+                        "url": str(row.get("post_url", ""))[:500],
+                        "summary": f"{row.get('summary', '')} / 注目理由: {row.get('why_trending', '')}"[:700],
+                        "discovery_type": "hermes_x_search",
+                    }
+                )
+    except (OSError, ValueError, json.JSONDecodeError):
+        pass
     return signals[:30]
 
 
@@ -1796,6 +1826,15 @@ def _reserve(
     priority: str = "scheduled",
 ) -> dict:
     updated = dict(state)
+    item_fingerprint = content_fingerprint(item.get("text", ""))
+    candidate_fingerprint = event_fingerprint(candidate)
+    for row in list(state.get("reservations", [])) + list(state.get("history", [])):
+        if row.get("content_fingerprint") == item_fingerprint:
+            raise ValueError("同じ本文の投稿が予約済みまたは公開済みです")
+        if row.get("event_fingerprint") == candidate_fingerprint:
+            raise ValueError("同じ出来事の投稿が予約済みまたは公開済みです")
+        if is_semantic_event_duplicate(candidate, row):
+            raise ValueError("URLや表現が異なっても同じ出来事のため重複投稿しません")
     reservations = [
         row for row in state.get("reservations", []) if row.get("slot") != slot
     ]
@@ -1809,6 +1848,9 @@ def _reserve(
             "generated_editorial_visual": bool(candidate.get("generated_editorial_visual")),
             "market_key": str(candidate.get("market_key", "")),
             "reserved_at": now.isoformat(),
+            "lease_expires_at": reservation_expiry(now),
+            "content_fingerprint": item_fingerprint,
+            "event_fingerprint": candidate_fingerprint,
         }
     )
     updated["reservations"] = reservations[-72:]
@@ -2601,6 +2643,13 @@ def prepare(args: argparse.Namespace) -> int:
     target_topic = str(getattr(args, "topic", "") or "").strip() or None
     state_path = Path(args.state)
     state = load_state(state_path)
+    state, expired_reservations = prune_stale_reservations(state, now)
+    if expired_reservations and not args.dry_run:
+        save_state(state_path, state)
+        logger.warning(
+            "期限切れの投稿予約を%d件解放しました。失敗予約は定時復旧を妨げません。",
+            len(expired_reservations),
+        )
     occupied = list(state.get("posted_slots", [])) + list(state.get("reservations", []))
     if any(row.get("slot") == slot for row in occupied):
         logger.info("この時間は投稿済みまたは予約済みです: %s", slot)
@@ -3039,6 +3088,8 @@ def publish(args: argparse.Namespace) -> int:
         "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "hook": candidate["hook"],
         "follow_value": candidate["follow_value"],
+        "content_fingerprint": content_fingerprint(item.get("text", "")),
+        "event_fingerprint": event_fingerprint(candidate),
     }
     if delivery_mode:
         posted_row.update(

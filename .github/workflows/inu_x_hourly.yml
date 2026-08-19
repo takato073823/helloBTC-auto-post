@@ -19,9 +19,8 @@ on:
         type: boolean
 
 concurrency:
-  # 速報探索や個別投稿が長引いても、毎時の定期枠を待たせない。
-  # 重複防止は prepare が永続状態の予約で行う。
-  group: inu-x-hourly-publish
+  # すべてのX公開経路を一列にし、予約JSONとX投稿の競合を防ぐ。
+  group: inu-x-publish
   cancel-in-progress: false
 
 permissions:
@@ -79,7 +78,7 @@ jobs:
           INU_IMAGE_PROVIDER: openai
           INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
-        run: python inu_auto_hourly.py --prepare --dry-run
+        run: python inu_company_orchestrator.py --prepare --dry-run
 
       - name: 最新の一次情報から投稿候補を準備
         id: prepare
@@ -101,7 +100,7 @@ jobs:
           INU_IMAGE_PROVIDER: openai
           INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
-        run: python inu_auto_hourly.py --prepare
+        run: python inu_company_orchestrator.py --prepare
 
       - name: ドライラン画像を保存
         if: steps.dry_prepare.outputs.ready == 'true'
@@ -118,6 +117,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
           git add scripts/inu_research_review.json
+          git add scripts/inu_company_state.json
           if [ -f scripts/inu_x_signal_promotion_state.json ]; then
             git add scripts/inu_x_signal_promotion_state.json
           fi
@@ -136,6 +136,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
           git add scripts/inu_research_review.json
+          git add scripts/inu_company_state.json
           if [ -f scripts/inu_x_signal_promotion_state.json ]; then
             git add scripts/inu_x_signal_promotion_state.json
           fi
@@ -156,7 +157,7 @@ jobs:
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         working-directory: scripts
-        run: python inu_auto_hourly.py --publish
+        run: python inu_company_orchestrator.py --publish
 
       - name: 毎時投稿履歴を保存
         if: steps.publish.outcome == 'success'
@@ -165,10 +166,25 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
           git add scripts/inu_research_review.json
+          git add scripts/inu_company_state.json
           if [ -f scripts/inu_x_signal_promotion_state.json ]; then
             git add scripts/inu_x_signal_promotion_state.json
           fi
           git diff --staged --quiet || git commit -m "chore: record INU hourly post [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1
+
+      - name: 配信失敗の予約解放を保存
+        if: failure() && steps.publish.outcome == 'failure'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json scripts/inu_company_state.json
+          git diff --staged --quiet || git commit -m "chore: release failed INU delivery lease [skip ci]"
           for attempt in 1 2 3; do
             git pull --rebase && git push && exit 0
             git rebase --abort || true

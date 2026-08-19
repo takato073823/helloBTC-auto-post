@@ -8,9 +8,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # Xシグナル探索が長引いても、毎時投稿の実行枠は塞がない。
-  # 公開時の重複は prepare の永続予約で防ぐ。
-  group: inu-x-signal-promotion
+  # 速報も定時投稿と同じ配信列を通し、同時公開を防ぐ。
+  group: inu-x-publish
   cancel-in-progress: false
 
 permissions:
@@ -53,7 +52,7 @@ jobs:
           INU_IMAGE_FALLBACK_PROVIDER: none
         working-directory: scripts
         run: >-
-          python inu_auto_hourly.py --prepare --promote-signals --no-market-fallback
+          python inu_company_orchestrator.py --prepare --promote-signals --no-market-fallback
           --slot "signal-${{ github.run_id }}"
 
       - name: 速報予約または検証結果を保存
@@ -61,6 +60,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
+          git add scripts/inu_company_state.json
           if [ -f scripts/inu_x_signal_promotion_state.json ]; then
             git add scripts/inu_x_signal_promotion_state.json
           fi
@@ -81,7 +81,7 @@ jobs:
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         working-directory: scripts
-        run: python inu_auto_hourly.py --publish
+        run: python inu_company_orchestrator.py --publish
 
       - name: 速報履歴を保存
         if: steps.publish.outcome == 'success'
@@ -89,9 +89,20 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json
+          git add scripts/inu_company_state.json
           if [ -f scripts/inu_x_signal_promotion_state.json ]; then
             git add scripts/inu_x_signal_promotion_state.json
           fi
           git diff --staged --quiet || git commit -m "chore: record INU signal post [skip ci]"
+          git pull --rebase
+          git push
+
+      - name: 配信失敗の予約解放を保存
+        if: failure() && steps.publish.outcome == 'failure'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add scripts/inu_hourly_state.json scripts/inu_company_state.json
+          git diff --staged --quiet || git commit -m "chore: release failed INU signal lease [skip ci]"
           git pull --rebase
           git push

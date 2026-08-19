@@ -42,9 +42,29 @@ class INUHourlyGuardTests(unittest.TestCase):
         state = {"history": [{"slot": "2026-08-07-12-a"}]}
         self.assertTrue(guard.has_hourly_activity(state, "2026-08-07-12-a"))
 
-    def test_reservation_prevents_recovery(self):
-        state = {"reservations": [{"slot": "2026-08-07-12-a"}]}
-        self.assertTrue(guard.has_hourly_activity(state, "2026-08-07-12-a"))
+    def test_active_reservation_prevents_recovery(self):
+        now = dt.datetime(2026, 8, 7, 3, 10, tzinfo=dt.timezone.utc)
+        state = {
+            "reservations": [
+                {
+                    "slot": "2026-08-07-12-a",
+                    "lease_expires_at": "2026-08-07T03:30:00+00:00",
+                }
+            ]
+        }
+        self.assertTrue(guard.has_hourly_activity(state, "2026-08-07-12-a", now))
+
+    def test_stale_reservation_does_not_prevent_recovery(self):
+        now = dt.datetime(2026, 8, 7, 3, 40, tzinfo=dt.timezone.utc)
+        state = {
+            "reservations": [
+                {
+                    "slot": "2026-08-07-12-a",
+                    "lease_expires_at": "2026-08-07T03:30:00+00:00",
+                }
+            ]
+        }
+        self.assertFalse(guard.has_hourly_activity(state, "2026-08-07-12-a", now))
 
     def test_breaking_post_in_same_hour_prevents_recovery(self):
         state = {

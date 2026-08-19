@@ -9,6 +9,8 @@ import os
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from inu_pipeline_contracts import is_active_reservation
+
 
 JST = ZoneInfo("Asia/Tokyo")
 DEFAULT_STATE_PATH = Path(__file__).with_name("inu_hourly_state.json")
@@ -55,12 +57,24 @@ def load_state(path: Path = DEFAULT_STATE_PATH) -> dict:
     return value if isinstance(value, dict) else {}
 
 
-def has_hourly_activity(state: dict, slot: str) -> bool:
-    """公開済みまたは予約済みなら、この時間に復旧実行を重ねない。"""
-    for key in ("history", "posted_slots", "reservations"):
+def has_hourly_activity(
+    state: dict,
+    slot: str,
+    now: dt.datetime | None = None,
+) -> bool:
+    """公開済みまたは有効な予約leaseだけを、この時間の活動として扱う。"""
+    moment = now or dt.datetime.now(dt.timezone.utc)
+    for key in ("history", "posted_slots"):
         for row in state.get(key, []):
             if isinstance(row, dict) and row.get("slot") == slot:
                 return True
+    for row in state.get("reservations", []):
+        if (
+            isinstance(row, dict)
+            and row.get("slot") == slot
+            and is_active_reservation(row, moment)
+        ):
+            return True
 
     # 重要ニュース・相場速報が同じJST時間に公開済みなら、その投稿を
     # 定時枠の代わりとして扱う。重要情報の直後に低優先度の定時投稿を
@@ -91,7 +105,7 @@ def main() -> int:
     now = dt.datetime.now(dt.timezone.utc)
     slot = current_slot(now)
     scheduled = is_scheduled_post_hour(now)
-    active = has_hourly_activity(load_state(), slot)
+    active = has_hourly_activity(load_state(), slot, now)
     emit_output("slot", slot)
     emit_output("scheduled_slot", "true" if scheduled else "false")
     emit_output("needs_recovery", "true" if scheduled and not active else "false")

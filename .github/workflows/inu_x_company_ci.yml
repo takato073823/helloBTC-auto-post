@@ -1,0 +1,43 @@
+name: INU 会社パイプラインCI
+
+on:
+  pull_request:
+    paths:
+      - "scripts/inu_*.py"
+      - "scripts/test_inu_*.py"
+      - ".github/workflows/inu_x_*.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/inu_*.py"
+      - "scripts/test_inu_*.py"
+      - ".github/workflows/inu_x_*.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inu-x-company-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install --timeout 120 -r requirements.txt
+      - name: INUの調査・審査・配信・復旧を検証
+        working-directory: scripts
+        run: >-
+          python -m unittest
+          test_inu_pipeline_contracts.py
+          test_inu_hermes_research.py
+          test_inu_company_orchestrator.py
+          test_inu_hourly_guard.py
+          test_inu_auto_hourly.py
+          test_inu_live_post.py

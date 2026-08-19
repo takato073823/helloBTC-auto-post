@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "service_level": {
+    "scheduled_post_interval_hours": 2,
+    "candidate_inventory_target": 6,
+    "reservation_lease_minutes": 30,
+    "publisher_write_owners": ["distribution"]
+  },
+  "departments": {
+    "executive": "依存関係、2時間SLA、停止・差戻しを統括し、投稿権限を持たない",
+    "research": "X、公式発表、オンチェーン、市場データからcitation付き候補を納品する",
+    "editorial": "検証済み事実から投稿文と画像・動画briefを作り、事実を書き換えない",
+    "quality": "鮮度、一次情報、意味重複、画像一致、禁止表現、表記を独立審査する",
+    "distribution": "承認済みOutboxだけを既存の公式X APIで一度だけ公開する",
+    "reliability": "予約lease、欠落、障害、費用、回路遮断を監視し、落ちた段階だけを再開する"
+  },
+  "hermes": {
+    "role": "読み取り専用X探索と継続改善。X書き込みには使用しない",
+    "required_search_evidence": ["citations", "status_url", "published_at"],
+    "reject_when": ["degraded", "zero_citations", "older_than_24h", "oauth_or_credit_blocked"],
+    "codex_mcp_server": "codex",
+    "browser_posting": false
+  }
+}
