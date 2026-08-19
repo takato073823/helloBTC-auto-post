@@ -161,6 +161,9 @@ USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
 )
+# SECは一般ブラウザ風UAを自動取得として拒否することがある。Fair Accessに沿って
+# 運営主体と公開サイトを明示し、SEC公式ページだけに使用する。
+SEC_USER_AGENT = "helloBTC research https://hellobtc.jp/"
 SOURCE_VERIFY_TIMEOUT_SECONDS = 12
 LOW_VALUE_ROUNDUP_PATTERNS = (
     r"\bwhat happened\b.*\b(today|this week)\b",
@@ -957,6 +960,18 @@ def _normalize_researched_candidate(candidate: dict) -> dict:
     normalized.setdefault("focus_signal_url", "")
     normalized.setdefault("evidence_as_primary", False)
     normalized.setdefault("corroborating_source_urls", [])
+    # モデルが一次資料の別ページを「独立確認」として重ねることがある。同一ドメインや
+    # X URLは裏付けにならないため、候補全体を捨てず任意欄から除外する。別ドメインの
+    # URLは後段でWeb検索の引用一覧に実在するか従来どおり厳格に検査する。
+    selected_host = (
+        urlsplit(normalize_url(str(normalized.get("source_url", "")))).hostname or ""
+    ).lower().removeprefix("www.")
+    normalized["corroborating_source_urls"] = [
+        raw_url
+        for raw_url in normalized.get("corroborating_source_urls", [])
+        if not is_x_url(str(raw_url))
+        and (urlsplit(str(raw_url)).hostname or "").lower().removeprefix("www.") != selected_host
+    ]
     if normalized.get("has_candidate") and normalized.get("topic_type") in AUTO_TOPIC_TYPES:
         policy = get_content_policy(normalized["topic_type"])
         normalized["visual_route"] = policy.visual_route
@@ -1607,7 +1622,10 @@ def fetch_and_verify_source(candidate: dict) -> str:
     response = requests.get(
         url,
         timeout=SOURCE_VERIFY_TIMEOUT_SECONDS,
-        headers={"User-Agent": USER_AGENT},
+        headers={
+            "User-Agent": SEC_USER_AGENT if host == "sec.gov" or host.endswith(".sec.gov") else USER_AGENT,
+            "Accept-Encoding": "gzip, deflate",
+        },
     )
     response.raise_for_status()
     content_type = response.headers.get("content-type", "").lower()

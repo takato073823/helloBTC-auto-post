@@ -18,6 +18,19 @@ from PIL import Image, ImageChops
 
 EVIDENCE_TYPES = {"official_text_crop", "official_data_crop", "reported_text_crop"}
 BROAD_SELECTORS = {"*", "html", "body", "main", "article"}
+SEC_USER_AGENT = "helloBTC research https://hellobtc.jp/"
+
+
+def _browser_page_options(source_url: str, *, height: int) -> dict:
+    options = {
+        "viewport": {"width": 1440, "height": height},
+        "device_scale_factor": 1,
+        "locale": "ja-JP",
+    }
+    host = (urlparse(source_url).hostname or "").lower()
+    if host == "sec.gov" or host.endswith(".sec.gov"):
+        options["user_agent"] = SEC_USER_AGENT
+    return options
 
 
 def normalize_evidence_text(value: str) -> str:
@@ -81,11 +94,7 @@ async def capture_official_element(
 
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
-        page = await browser.new_page(
-            viewport={"width": 1440, "height": 1600},
-            device_scale_factor=1,
-            locale="ja-JP",
-        )
+        page = await browser.new_page(**_browser_page_options(spec.source_url, height=1600))
         try:
             await page.goto(
                 spec.source_url,
@@ -129,11 +138,7 @@ async def capture_official_evidence(
 
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
-        page = await browser.new_page(
-            viewport={"width": 1440, "height": 1200},
-            device_scale_factor=1,
-            locale="ja-JP",
-        )
+        page = await browser.new_page(**_browser_page_options(spec.source_url, height=1200))
         try:
             await page.goto(spec.source_url, wait_until="domcontentloaded", timeout=timeout_ms)
             await page.wait_for_timeout(1200)
