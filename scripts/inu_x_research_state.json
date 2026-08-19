@@ -1,6 +1,6 @@
 {
   "last_deep_scan_at": "2026-08-19T09:16:50+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T09:16:50+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T10:04:40+00:00",
   "scans": [
     {
       "action": "search_error",
@@ -2264,6 +2264,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T10:04:40+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2472,35 +2478,6 @@
       "summary": "JUST IN: Bitcoin whales are \"buying again\" with over $2,900,000,000 $BTC accumulated in the past 60 days, Bloomberg reports.",
       "topic": "watcher_guru",
       "why_trending": "表示316,596・投稿後922分・反応率1.7%"
-    },
-    {
-      "author_followers": 259,
-      "discovered_at": "2026-08-19T07:25:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Rina_BingX",
-      "has_video": false,
-      "headline": "📈 Crypto Market Overview (Aug.18) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC at ~64,130 USDT, +1.22% on the day. Overnight it dipped to ~63,270 before bouncing back, but has been",
-      "impression_count": 272,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Rina_BingX/status/2089647830839533673/photo/1",
-        "https://twitter.com/Rina_BingX/status/2033093750428451054"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089647830839533673",
-      "post_url": "https://x.com/Rina_BingX/status/2089647830839533673",
-      "posted_at": "2026-08-18T09:37:21+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 42.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "📈 Crypto Market Overview (Aug.18) ■ Bitcoin, Ethereum, Altcoin Sentiment 🟠 BTC at ~64,130 USDT, +1.22% on the day. Overnight it dipped to ~63,270 before bouncing back, but has been grinding lower since the Asian session peak near 64,500. 🟢 ETH at ~1,895 USDT, basically https://t.co/Fn7rLqJxOA https://t.co/xzuEXM7aNN",
-      "topic": "crypto_market",
-      "why_trending": "表示272・投稿後1308分・反応率1.7%・公式候補リンクあり"
     },
     {
       "author_followers": 2536,
