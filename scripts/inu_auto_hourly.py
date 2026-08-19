@@ -758,6 +758,8 @@ topic_typeが異なる候補を優先してください。
 - 候補なしを通常の結論にしない。速報性が低い題材で穴埋めするのではなく、Web検索を追加して、最新のX話題を起点に公式発表・実測データ・企業IRへ遡り、画像で意味が伝わる一次資料を伴う候補を作る。
 - 単なる企業IRの更新、発表予定、一般的な事業紹介、公開資料の存在だけでは選ばない。候補を比較したうえで、今この時刻に読む必然性が最も強いものだけを上位に置く。X上の話題性は必須ではないが、話題性がない場合でも、数値・制度・需給・安全性・価格に実際の変化があることを示せない候補は除外する。
 - 投稿文は日本語。hookは短く具体的な1行。factsは重要な数字・変更点を1〜2文に絞る。
+- Xの文字数内で文を途中切断しないため、hookは30文字以内、factsは1文45文字以内、
+  reader_interestとfollow_valueは各24文字以内を目安に、主語と結論が完結する日本語にする。
 - 候補は、フック→検証済み事実→市場・利用者への影響→注意点→次の確認対象の順で
   X本文へ変換できる情報量を持たせる。reader_interestは市場・利用者への影響、
   follow_valueは次の具体的な確認対象として書く。
@@ -1223,6 +1225,7 @@ EDITORIAL_REPAIR_ERROR_MARKERS = (
     "今投稿する理由と読者価値",
     "継続フォロー価値",
     "投稿文を安全に",
+    "文を途中で切らずに",
 )
 
 
@@ -1249,6 +1252,7 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
 - opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
 - why_nowは更新時点または新しい数値、reader_interestは今の判断に関わる理由、
   follow_valueは別の続報テーマにする。三つを言い換えにしない。
+- hookは30文字以内、reader_interestとfollow_valueは各24文字以内で、文を途中で切らずに完結させる。
 - INUの自然な日本語。定型の「節目だと見ています」「ポイントです」は使わない。
 
 口調: {VOICE_PROMPT}
@@ -1286,6 +1290,7 @@ def _grok_editorial_copy_prompt(candidate: dict) -> str:
 - hookは出来事に合う絵文字1つで始め、短く「何が変わったか」を示す。
 - opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
 - why_now、reader_interest、follow_valueは内部判定用。抽象語・同じ内容の言い換えにしない。
+- hookは30文字以内、reader_interestとfollow_valueは各24文字以内。省略記号を使わず文を完結させる。
 - tagsは1〜2個。本文に「出典：」「速報」「海外で話題」は入れない。
 
 topic_type: {candidate.get('topic_type', '')}
@@ -1569,8 +1574,8 @@ def validate_candidate(
     ):
         raise ValueError("同じ投稿系統が3件連続します")
 
-    text = compose_candidate_text(candidate)
-    validate_post(text)
+    # 公開文字数は、このあとGrokが編集欄を短く整えた最終候補で検査する。
+    # ここでは一次情報・鮮度・重複・内容品質だけを確定する。
 
 
 def _validate_reader_interest(candidate: dict) -> None:
