@@ -2957,13 +2957,7 @@
       "reason": "X_API_CREDITS_DEPLETED"
     }
   ],
-  "external_blocks": {
-    "x_api": {
-      "reason": "X_API_CREDITS_DEPLETED",
-      "blocked_at": "2026-08-19T07:02:09.183846+00:00",
-      "retry_after": "2026-08-19T13:02:09.183846+00:00"
-    }
-  },
+  "external_blocks": {},
   "api_usage": {
     "jst_date": "2026-08-19",
     "counts": {
