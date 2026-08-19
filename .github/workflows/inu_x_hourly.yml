@@ -169,8 +169,10 @@ jobs:
           done
           exit 1
 
-      - name: 手動実行の投稿予約を先に保存
-        if: github.event_name == 'workflow_dispatch' && steps.prepare.outputs.ready == 'true'
+      - name: 手動探索の費用台帳と投稿予約を先に保存
+        # 候補なしでもAPI使用回数を保存し、手動テストの繰り返しで日次上限を
+        # すり抜けない。候補ありの場合は同じコミットに予約も含める。
+        if: github.event_name == 'workflow_dispatch'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
