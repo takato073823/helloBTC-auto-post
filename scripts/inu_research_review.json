@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T18:03:43.364747+00:00",
-  "slot": "2026-08-20-03-a",
+  "generated_at": "2026-08-19T20:03:52.217880+00:00",
+  "slot": "2026-08-20-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T18:03:43.364747+00:00",
-    "to": "2026-08-19T18:03:43.364747+00:00"
+    "from": "2026-08-18T20:03:52.217880+00:00",
+    "to": "2026-08-19T20:03:52.217880+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏛️ 米財務省、長期国債買い戻し上限を20億→40億ドル超へ\n\n米財務省は2026年8月19日、10〜20年および20〜30年の長期名目クーポン債の流動性支援買い戻しを増額すると発表した。\n\n長期国債の需給改善策が、金利と広範なリスク資産の流動性に影響し得る。"
+      "🐋 取引所の買いが集中\n\n大口買いが複数取引所にまたがる一方、取引主体と期間の検証は残ります。"
     ],
-    "public_compact_post": "🏛️ 米財務省、長期国債買い戻し上限を20億→40億ドル超へ\n\n米財務省は2026年8月19日、10〜20年および20〜30年の長期名目クーポン債の流動性支援買い戻しを増額すると発表した。\n\n長期国債の需給改善策が、金利と広範なリスク資産の流動性に影響し得る。"
+    "public_compact_post": "🐋 取引所の買いが集中\n\nCoinbaseは6139BTCを購入\nBinanceは4061BTC、Krakenは3329BTCを購入\n\n大口買いが複数取引所にまたがる一方、取引主体と期間の検証は残ります。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,22 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "macro_event",
-    "selected_hook": "🏛️ 米財務省、長期国債買い戻し上限を20億→40億ドル超へ",
-    "verified_facts": [
-      "米財務省は2026年8月19日、10〜20年および20〜30年の長期名目クーポン債の流動性支援買い戻しを増額すると発表した。",
-      "1回あたりの上限は現在の20億ドルから少なくとも40億ドルへ引き上げられ、2026年9月9日から11月4日まで適用される。"
-    ],
-    "market_or_user_impact": "暗号資産の値動きだけでなく、米長期金利とドル流動性の変化を考える材料になる。",
+    "selected_topic": "x_reaction",
+    "selected_hook": "🐋 取引所の買いが集中",
+    "verified_facts": [],
+    "market_or_user_impact": "急速な上昇局面で誰が買ったかを把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "9月9日の初回増額オペレーションと、11月4日の次回四半期リファンディング方針を確認する。",
+    "next_watch": "オンチェーン需給の見方を提供できる。",
     "primary_source": {
-      "name": "U.S. Department of the Treasury",
-      "url": "https://home.treasury.gov/news/press-releases/sb0607",
-      "verified": true
+      "name": "",
+      "url": "https://x.com/whalefactor/status/2090126807806746729",
+      "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 25,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -50,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 25,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -70,9 +67,6 @@
       "xai_signal_shortlist": []
     },
     "candidate_shortlist": [],
-    "rejected_reasons": [
-      "再探索1: 継続フォロー価値が公式発表の紹介だけになっています",
-      "再探索2: 規制当局名・新ルール名・具体的な変更が不足しています"
-    ]
+    "rejected_reasons": []
   }
 }
