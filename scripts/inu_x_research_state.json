@@ -1,14 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-19T18:00:29+00:00",
-  "last_watcher_guru_scan_at": "2026-08-19T18:00:29+00:00",
+  "last_watcher_guru_scan_at": "2026-08-19T19:11:39+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-07T03:25:49+00:00",
-      "result_count": 6,
-      "spike": false,
-      "topic": "crypto_market"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-07T04:24:09+00:00",
@@ -2271,6 +2264,12 @@
       "result_count": 3,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-19T19:11:39+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2438,6 +2437,30 @@
       "why_trending": "表示38・投稿後49分・反応率26.3%・公式候補リンクあり"
     },
     {
+      "author_followers": 4706987,
+      "discovered_at": "2026-08-19T19:11:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 US federal banking regulator OCC says it will establish \"regulatory framework\" for crypto stablecoin issuers.",
+      "impression_count": 244673,
+      "like_count": 3755,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090119825288822890",
+      "post_url": "https://x.com/WatcherGuru/status/2090119825288822890",
+      "posted_at": "2026-08-19T16:52:53+00:00",
+      "quote_count": 38,
+      "reply_count": 139,
+      "repost_count": 504,
+      "score": 56.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 US federal banking regulator OCC says it will establish \"regulatory framework\" for crypto stablecoin issuers.",
+      "topic": "watcher_guru",
+      "why_trending": "表示244,673・投稿後138分・反応率2.1%"
+    },
+    {
       "author_followers": 4705705,
       "discovered_at": "2026-08-19T16:04:42+00:00",
       "discovery_type": "official_x_api",
@@ -2488,28 +2511,32 @@
       "why_trending": "表示46・投稿後106分・反応率5.7%・公式候補リンクあり"
     },
     {
-      "author_followers": 4702814,
-      "discovered_at": "2026-08-19T08:16:51+00:00",
+      "author_followers": 4706987,
+      "discovered_at": "2026-08-19T19:11:39+00:00",
       "discovery_type": "official_x_api",
       "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "JUST IN: 🇺🇸 SEC officially proposes new rules to create clear regulatory framework for crypto.",
-      "impression_count": 432292,
-      "like_count": 6489,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089784961762996402",
-      "post_url": "https://x.com/WatcherGuru/status/2089784961762996402",
-      "posted_at": "2026-08-18T18:42:15+00:00",
-      "quote_count": 95,
-      "reply_count": 254,
-      "repost_count": 786,
-      "score": 46.7,
+      "headline": "JUST IN: Ethereum $ETH surges 10% to $2,100 https://t.co/k1wIcNdGbe",
+      "impression_count": 215959,
+      "like_count": 3139,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090108336863646056/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090108336863646056",
+      "post_url": "https://x.com/WatcherGuru/status/2090108336863646056",
+      "posted_at": "2026-08-19T16:07:14+00:00",
+      "quote_count": 64,
+      "reply_count": 174,
+      "repost_count": 294,
+      "score": 48.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 SEC officially proposes new rules to create clear regulatory framework for crypto.",
+      "summary": "JUST IN: Ethereum $ETH surges 10% to $2,100 https://t.co/k1wIcNdGbe",
       "topic": "watcher_guru",
-      "why_trending": "表示432,292・投稿後814分・反応率2.0%"
+      "why_trending": "表示215,959・投稿後184分・反応率1.9%"
     },
     {
       "author_followers": 10610,
@@ -2566,30 +2593,6 @@
       "summary": "One of Trezor’s shipping providers experienced a data breach that exposed sensitive order data affecting new customers in the US, UK, Sweden, Colombia, Brazil, Italy, and Portugal. Crypto wallet provider SafePal discloses a data breach exposing personal &amp; purchase information https://t.co/ddtvoYjRpd",
       "topic": "onchain_exchange",
       "why_trending": "表示452・投稿後759分・反応率3.1%・動画あり"
-    },
-    {
-      "author_followers": 4702814,
-      "discovered_at": "2026-08-19T08:16:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: VanEck says Bitcoin is currently in an accumulation phase.",
-      "impression_count": 214989,
-      "like_count": 2403,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2089784498712158671",
-      "post_url": "https://x.com/WatcherGuru/status/2089784498712158671",
-      "posted_at": "2026-08-18T18:40:25+00:00",
-      "quote_count": 15,
-      "reply_count": 142,
-      "repost_count": 149,
-      "score": 40.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: VanEck says Bitcoin is currently in an accumulation phase.",
-      "topic": "watcher_guru",
-      "why_trending": "表示214,989・投稿後816分・反応率1.4%"
     },
     {
       "author_followers": 622,
