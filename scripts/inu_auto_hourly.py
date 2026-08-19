@@ -1660,6 +1660,17 @@ def _research_verified_priority_page(
         if not isinstance(row, dict):
             continue
         candidate = _normalize_researched_candidate(row)
+        candidate["evidence_anchor"] = _select_literal_evidence_anchor(
+            visible_text,
+            str(candidate.get("evidence_anchor", "")),
+            " ".join(
+                [
+                    title,
+                    str(candidate.get("hook", "")),
+                    *[str(fact) for fact in candidate.get("facts", [])],
+                ]
+            ),
+        )
         candidate["published_at"] = _normalize_date_only_source_timezone(
             str(candidate.get("published_at", "")),
             host,
@@ -1782,6 +1793,79 @@ def _evidence_anchor_present(visible_text: str, evidence_anchor: str) -> bool:
     canonical_page = normalize_evidence_text(visible_text)
     canonical_anchor = normalize_evidence_text(evidence_anchor)
     return len(canonical_anchor) >= 4 and canonical_anchor in canonical_page
+
+
+def _select_literal_evidence_anchor(
+    visible_text: str,
+    requested_anchor: str,
+    context: str,
+) -> str:
+    """公式本文から、画像の切り抜き位置に使える原文を決定論的に選ぶ。
+
+    AIが引用符や語順を変えた場合でも曖昧一致で事実確認を通さず、実際のページに
+    連続して存在する一文へ置き換える。これにより、検証とスクリーンショットが常に
+    同じ根拠を参照する。
+    """
+    requested = " ".join(str(requested_anchor).split()).strip()
+    if _evidence_anchor_present(visible_text, requested):
+        return requested
+
+    context_tokens = {
+        token.lower()
+        for token in re.findall(r"[A-Za-z][A-Za-z0-9-]{2,}|\$?\d[\d,.%]*", context)
+        if token.lower()
+        not in {
+            "and",
+            "are",
+            "for",
+            "from",
+            "new",
+            "the",
+            "this",
+            "with",
+        }
+    }
+    sentences = re.split(r"(?<=[.!?。！？])\s+|(?<=—)\s+", visible_text)
+    ranked: list[tuple[int, int, str]] = []
+    for raw_sentence in sentences:
+        sentence = " ".join(raw_sentence.split()).strip()
+        if not 24 <= len(sentence) <= 420:
+            continue
+        lowered = sentence.lower()
+        if any(
+            noise in lowered
+            for noise in (
+                "cookie",
+                "privacy",
+                "skip to main",
+                "sign up for email",
+                "search sec.gov",
+            )
+        ):
+            continue
+        overlap = sum(1 for token in context_tokens if token in lowered)
+        material = sum(
+            1
+            for marker in (
+                "announced",
+                "approved",
+                "effective",
+                "proposed",
+                "rules",
+                "would",
+                "%",
+                "$",
+            )
+            if marker in lowered
+        )
+        ranked.append((overlap * 10 + material, -len(sentence), sentence))
+    if not ranked:
+        return ""
+    best = max(ranked)[2]
+    if len(best) <= 300:
+        return best
+    shortened = best[:300].rsplit(" ", 1)[0].rstrip(" ,;:")
+    return shortened if len(shortened) >= 24 else ""
 
 
 def fetch_and_verify_source(candidate: dict) -> str:
