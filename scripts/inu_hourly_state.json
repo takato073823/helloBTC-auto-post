@@ -1182,6 +1182,22 @@
       "follow_value": "60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。",
       "content_fingerprint": "73c7d8cc4ec760cf40e563cb49a62ef2d2fb0b443cdd233f66f141caeb8ed3a5",
       "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
+    },
+    {
+      "slot": "2026-08-19-17-a",
+      "post_id": "inu_auto_00150f16261fb6",
+      "tweet_id": "2089986975910502439",
+      "topic_type": "onchain",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://docs.mayaprotocol.com/node-docs/mayanodes/emergency-procedures",
+      "published_at": "2026-08-19T06:36:11+00:00",
+      "posted_at": "2026-08-19T08:05:00.049820+00:00",
+      "hook": "⚠️ MayaChainで資産流出",
+      "follow_value": "次はMAYAChain公式告知と停止解除を確認。",
+      "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
+      "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
     }
   ],
   "posted_ids": [
@@ -1276,23 +1292,10 @@
     "inu_market_2026_08_17_07_a_crypto-cap-usd",
     "inu_overseas_kol_2089388275870146971",
     "inu_market_2026_08_18_05_a_crypto-vvv-usd",
-    "inu_auto_40393a03d287a6"
+    "inu_auto_40393a03d287a6",
+    "inu_auto_00150f16261fb6"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-19-17-a",
-      "post_id": "inu_auto_00150f16261fb6",
-      "source_url": "https://docs.mayaprotocol.com/node-docs/mayanodes/emergency-procedures",
-      "topic_type": "onchain",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-19T08:03:40.748006+00:00",
-      "lease_expires_at": "2026-08-19T08:33:40.748006+00:00",
-      "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
-      "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2532,6 +2535,22 @@
       "follow_value": "60日間の意見募集後に、最終規則の条件と施行時期がどう確定するかを追えます。",
       "content_fingerprint": "73c7d8cc4ec760cf40e563cb49a62ef2d2fb0b443cdd233f66f141caeb8ed3a5",
       "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
+    },
+    {
+      "slot": "2026-08-19-17-a",
+      "post_id": "inu_auto_00150f16261fb6",
+      "tweet_id": "2089986975910502439",
+      "topic_type": "onchain",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://docs.mayaprotocol.com/node-docs/mayanodes/emergency-procedures",
+      "published_at": "2026-08-19T06:36:11+00:00",
+      "posted_at": "2026-08-19T08:05:00.049820+00:00",
+      "hook": "⚠️ MayaChainで資産流出",
+      "follow_value": "次はMAYAChain公式告知と停止解除を確認。",
+      "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
+      "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
     }
   ],
   "scheduled_checks": [

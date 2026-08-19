@@ -341,6 +341,22 @@
       "topic_type": "onchain",
       "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
       "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc"
+    },
+    {
+      "run_id": "32230710683",
+      "started_at": "2026-08-19T08:04:58.969171+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-08-19-17-a",
+      "post_id": "inu_auto_00150f16261fb6",
+      "topic_type": "onchain",
+      "content_fingerprint": "7715c4c67560d076e0b19015ef93878ea9c8a691dbb159d3cfa04f5783d07e48",
+      "event_fingerprint": "f737727075a59d2651caa4e38aba0e2871469bce2fa0b28b1b6227fec860aefc",
+      "status": "published",
+      "completed_at": "2026-08-19T08:05:00.054796+00:00"
     }
   ]
 }
