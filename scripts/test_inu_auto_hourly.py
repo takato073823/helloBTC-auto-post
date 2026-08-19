@@ -1236,6 +1236,36 @@ class INUAutoHourlyTests(unittest.TestCase):
         claim.assert_not_called()
         grok.assert_not_called()
 
+    def test_verified_priority_candidate_is_reedited_only_when_public_copy_is_too_long(self):
+        item = candidate(
+            _grok_editorial_complete=True,
+            reader_interest="規則変更が市場参加者と利用者へ与える具体的な影響を今すぐ確認できます。" * 4,
+            follow_value="意見募集後の最終規則と施行時期、適用対象の更新を継続して確認します。" * 4,
+        )
+        compact_copy = {
+            "hook": "📜 SEC、暗号資産規則案を公表",
+            "opinion": "",
+            "why_now": "SECが新しい規則案を公表したためです。",
+            "reader_interest": "利用条件と市場への影響を確認できます",
+            "follow_value": "最終規則と施行時期の更新を確認できます",
+            "tags": ["暗号資産"],
+        }
+        with patch.object(inu_auto_hourly, "claim_api_call", return_value=True) as claim, patch.object(
+            inu_auto_hourly, "_grok_editorial_copy_options", return_value=[compact_copy]
+        ):
+            selected = inu_auto_hourly._select_grok_editorial_copy(
+                item,
+                [{"url": item["source_url"], "title": "official"}],
+                {"posted_slots": [], "posted_ids": [], "history": [], "reservations": []},
+                NOW,
+            )
+        claim.assert_called_once()
+        self.assertEqual(compact_copy["hook"], selected["hook"])
+        self.assertLessEqual(
+            inu_auto_hourly.weighted_length(inu_auto_hourly.compose_candidate_text(selected)),
+            280,
+        )
+
     def test_priority_signal_prompt_requests_one_event_instead_of_regular_candidate_batch(self):
         focus = {
             "title": "SECの規制提案を一次資料で確認",

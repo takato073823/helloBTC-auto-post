@@ -307,11 +307,11 @@ EDITORIAL_REPAIR_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "properties": {
-        "hook": {"type": "string"},
+        "hook": {"type": "string", "maxLength": 30},
         "opinion": {"type": "string"},
-        "why_now": {"type": "string"},
-        "reader_interest": {"type": "string"},
-        "follow_value": {"type": "string"},
+        "why_now": {"type": "string", "maxLength": 48},
+        "reader_interest": {"type": "string", "maxLength": 20},
+        "follow_value": {"type": "string", "maxLength": 20},
         "tags": {
             "type": "array",
             "items": {"type": "string"},
@@ -1495,7 +1495,7 @@ URL・出典・媒体名・ハッシュタグの説明を本文へ入れない�
 - opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
 - why_nowは更新時点または新しい数値、reader_interestは今の判断に関わる理由、
   follow_valueは別の続報テーマにする。三つを言い換えにしない。
-- hookは30文字以内、reader_interestとfollow_valueは各24文字以内で、文を途中で切らずに完結させる。
+- hookは30文字以内、reader_interestとfollow_valueは各20文字以内で、文を途中で切らずに完結させる。
 - INUの自然な日本語。定型の「節目だと見ています」「ポイントです」は使わない。
 
 口調: {VOICE_PROMPT}
@@ -1533,7 +1533,7 @@ def _grok_editorial_copy_prompt(candidate: dict) -> str:
 - hookは出来事に合う絵文字1つで始め、短く「何が変わったか」を示す。
 - opinionは必ず空文字にする。個人見解・一人称・予測を本文へ入れない。
 - why_now、reader_interest、follow_valueは内部判定用。抽象語・同じ内容の言い換えにしない。
-- hookは30文字以内、reader_interestとfollow_valueは各24文字以内。省略記号を使わず文を完結させる。
+- hookは30文字以内、reader_interestとfollow_valueは各20文字以内。省略記号を使わず文を完結させる。
 - tagsは1〜2個。本文に「出典：」「速報」「海外で話題」は入れない。
 
 topic_type: {candidate.get('topic_type', '')}
@@ -1581,9 +1581,17 @@ def _select_grok_editorial_copy(
 ) -> dict:
     """複数案を既存品質ゲートで選別し、最初に通ったものだけを採用する。"""
     if candidate.get("_grok_editorial_complete") is True:
-        # 公式HTML本文をGrokがすでに投稿候補へ構造化した経路。もう一度同じモデルへ
-        # 書き直させず、API費用と文意変化を防ぐ。後段の品質ゲートは省略しない。
-        return candidate
+        # 公式HTML本文をGrokがすでに投稿候補へ構造化した経路は通常そのまま使う。
+        # ただしXの文字数へ収まらない場合だけ、検証済みfactsを固定したまま編集欄を
+        # 一度短くする。以前はここで常にreturnしていたため、良質な候補が公開直前に
+        # 文字数超過で失われていた。
+        try:
+            compose_candidate_text(candidate)
+            return candidate
+        except ValueError as exc:
+            if not _is_editorial_repairable_error(exc):
+                return candidate
+            logger.info("検証済み候補をX文字数へ収めるため編集部へ差し戻し: %s", exc)
     if os.environ.get("INU_GROK_EDITORIAL_ENABLED", "true").strip().lower() not in {"1", "true", "yes"}:
         return candidate
     if not claim_api_call(state, "grok_editorial", now):
@@ -1599,6 +1607,9 @@ def _select_grok_editorial_copy(
         option.update(copy)
         try:
             validate_candidate(option, sources, state, now, required_topic=required_topic)
+            # 候補単体の品質だけでなく、実際に公開する組版がXの上限へ収まることまで
+            # この段階で確認する。通らない案は次のGrok案へ進む。
+            compose_candidate_text(option)
             logger.info("Grok編集案%dを品質ゲート通過として採用", index)
             return option
         except Exception as exc:
