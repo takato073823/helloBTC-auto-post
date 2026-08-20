@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T11:04:51+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T12:03:15+00:00",
+  "last_deep_scan_at": "2026-08-20T13:34:02+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T13:34:02+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T20:24:09+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T20:24:09+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-07T21:11:17+00:00",
@@ -2272,6 +2260,19 @@
       "checked_at": "2026-08-20T12:03:15+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T13:34:02+00:00",
+      "result_count": 9,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T13:34:02+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -2862,6 +2863,34 @@
       "why_trending": "表示213,575・投稿後200分・反応率1.7%"
     },
     {
+      "author_followers": 5049,
+      "discovered_at": "2026-08-20T13:34:02+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "AidenSong_2025",
+      "has_video": false,
+      "headline": "加密对冲美债信用风险已经越来越成熟，这是目前唯一的避险属性 BTC大涨近10%，ETH大涨近20%，突然牛回，很多朋友措手不及。 1、核心原因还是长债收益率飙升，40万亿美债担忧再起 BTC走了对抗信用货币体系的根本逻辑，再次跟黄金，不跟美股。 https://t.co/ZkYkF7mNxv",
+      "impression_count": 195,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/AidenSong_2025/status/2090428322409054697/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090428322409054697",
+      "post_url": "https://x.com/AidenSong_2025/status/2090428322409054697",
+      "posted_at": "2026-08-20T13:18:44+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "加密对冲美债信用风险已经越来越成熟，这是目前唯一的避险属性 BTC大涨近10%，ETH大涨近20%，突然牛回，很多朋友措手不及。 1、核心原因还是长债收益率飙升，40万亿美债担忧再起 BTC走了对抗信用货币体系的根本逻辑，再次跟黄金，不跟美股。 https://t.co/ZkYkF7mNxv",
+      "topic": "chinese_market",
+      "why_trending": "表示195・投稿後15分・反応率0.5%"
+    },
+    {
       "author_followers": 98,
       "discovered_at": "2026-08-20T11:04:51+00:00",
       "discovery_type": "official_x_api",
@@ -2914,32 +2943,33 @@
       "why_trending": "表示40・投稿後145分・反応率2.5%"
     },
     {
-      "author_followers": 222,
-      "discovered_at": "2026-08-19T15:13:45+00:00",
+      "author_followers": 1796433,
+      "discovered_at": "2026-08-20T13:34:02+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CryptoCaneCorso",
+      "handle": "zaobaosg",
       "has_video": false,
-      "headline": "💥 BTC Liquidation Report | Aug 19, 2026 💰 Price: $64,458 📦 Open Interest: 104,684 BTC 💸 Funding: 0.0037% ⚖️ Long/Short: 61% / 39% #BTC #Crypto https://t.co/KlXSO9uHRJ",
-      "impression_count": 12,
-      "like_count": 0,
+      "headline": "加密货币交易所OKX已禁止驻香港或途经中国大陆的员工使用Anthropic人工智能模型Claude。此前，OKX的企业账户曾短暂遭到暂停。 https://t.co/bFQteGPB7C https://t.co/1myK2sqtLD",
+      "impression_count": 14229,
+      "like_count": 15,
       "linked_urls": [
-        "https://x.com/CryptoCaneCorso/status/2090053687699714060/photo/1"
+        "https://www.zaobao.com.sg/news/china/story20260820-9545350",
+        "https://x.com/zaobaosg/status/2090241599645114811/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2090053687699714060",
-      "post_url": "https://x.com/CryptoCaneCorso/status/2090053687699714060",
-      "posted_at": "2026-08-19T12:30:05+00:00",
+      "post_id": "2090241599645114811",
+      "post_url": "https://x.com/zaobaosg/status/2090241599645114811",
+      "posted_at": "2026-08-20T00:56:46+00:00",
       "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 37.6,
+      "reply_count": 5,
+      "repost_count": 1,
+      "score": 36.5,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "💥 BTC Liquidation Report | Aug 19, 2026 💰 Price: $64,458 📦 Open Interest: 104,684 BTC 💸 Funding: 0.0037% ⚖️ Long/Short: 61% / 39% #BTC #Crypto https://t.co/KlXSO9uHRJ",
-      "topic": "crypto_market",
-      "why_trending": "表示12・投稿後163分・反応率13.3%"
+      "summary": "加密货币交易所OKX已禁止驻香港或途经中国大陆的员工使用Anthropic人工智能模型Claude。此前，OKX的企业账户曾短暂遭到暂停。 https://t.co/bFQteGPB7C https://t.co/1myK2sqtLD",
+      "topic": "chinese_market",
+      "why_trending": "表示14,229・投稿後757分・反応率0.2%・公式候補リンクあり"
     },
     {
       "author_followers": 2320,
