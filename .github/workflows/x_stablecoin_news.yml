@@ -1,0 +1,48 @@
+name: Xステーブルコイン報酬検討ニュースを公開
+
+on:
+  workflow_dispatch:
+    inputs:
+      retry_x_only:
+        description: 記事公開後にX投稿だけ失敗した場合の再投稿
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: x-stablecoin-creator-payouts-2026
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 依存パッケージをインストール
+        run: pip install --timeout 120 -r requirements.txt
+
+      - name: 記事・画像・X投稿ルールを検証
+        working-directory: scripts
+        run: python -m unittest test_x_stablecoin_news.py test_news_post_rules.py test_wp_poster_seo.py test_x_poster_rules.py
+
+      - name: 記事とX投稿を公開
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          RETRY_X_ONLY: ${{ inputs.retry_x_only }}
+        working-directory: scripts
+        run: python x_stablecoin_news.py
