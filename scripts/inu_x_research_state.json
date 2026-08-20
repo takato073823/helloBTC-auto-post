@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-20T20:05:17+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T20:05:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T21:05:34+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T00:34:55+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T00:34:55+00:00",
@@ -2276,6 +2270,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T21:05:34+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2334,6 +2334,34 @@
       "summary": "JUST IN: $3,100,000,000 worth of crypto shorts liquidated in the past 24 hours. https://t.co/e7fKZfktnt",
       "topic": "watcher_guru",
       "why_trending": "表示137,691・投稿後47分・反応率2.0%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4716645,
+      "discovered_at": "2026-08-20T21:05:34+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $73,000 Bitcoin https://t.co/K11xZV74OU",
+      "impression_count": 86130,
+      "like_count": 1227,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090540028430799057/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090540028430799057",
+      "post_url": "https://x.com/WatcherGuru/status/2090540028430799057",
+      "posted_at": "2026-08-20T20:42:37+00:00",
+      "quote_count": 23,
+      "reply_count": 119,
+      "repost_count": 122,
+      "score": 81.5,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $73,000 Bitcoin https://t.co/K11xZV74OU",
+      "topic": "watcher_guru",
+      "why_trending": "表示86,130・投稿後22分・反応率2.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4711358,
@@ -2502,6 +2530,34 @@
       "summary": "Crypto last week vs Crypto this week https://t.co/mctJuJu8TE",
       "topic": "watcher_guru",
       "why_trending": "表示164,699・投稿後78分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4716645,
+      "discovered_at": "2026-08-20T21:05:34+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 Coinbase CEO Brian Armstrong says the crypto Clarity Act will prevent another FTX collapse. https://t.co/uCf2CEke64",
+      "impression_count": 129261,
+      "like_count": 1911,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090529074057748886/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090529074057748886",
+      "post_url": "https://x.com/WatcherGuru/status/2090529074057748886",
+      "posted_at": "2026-08-20T19:59:06+00:00",
+      "quote_count": 11,
+      "reply_count": 117,
+      "repost_count": 164,
+      "score": 74.7,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: 🇺🇸 Coinbase CEO Brian Armstrong says the crypto Clarity Act will prevent another FTX collapse. https://t.co/uCf2CEke64",
+      "topic": "watcher_guru",
+      "why_trending": "表示129,261・投稿後66分・反応率1.9%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4712880,
