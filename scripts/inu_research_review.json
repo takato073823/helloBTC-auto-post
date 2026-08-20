@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T02:52:58.910761+00:00",
-  "slot": "2026-08-20-11-a",
+  "generated_at": "2026-08-20T04:05:18.356336+00:00",
+  "slot": "2026-08-20-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T02:52:58.910761+00:00",
-    "to": "2026-08-20T02:52:58.910761+00:00"
+    "from": "2026-08-19T04:05:18.356336+00:00",
+    "to": "2026-08-20T04:05:18.356336+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 信用取引の伸び、ピークから減速\n\n信用膨張の勢いは鈍化しており、株高の過熱度を測る材料になる。"
+      "💥 空売りの巻き戻しが急加速\n\n急騰の背景にショートカバーが大きく含まれるなら、上昇の持続性は新規買いの強さと分けて見る必要がある。"
     ],
-    "public_compact_post": "📊 信用取引の伸び、ピークから減速\n\n株式市場のmargin debt（信用取引残高）の伸び率は減速し始めている\n直近ピークでは54%まで上昇したが、2000年・2007年・2021年の過熱局面を下回る\n\n信用膨張の勢いは鈍化しており、株高の過熱度を測る材料になる。"
+    "public_compact_post": "💥 空売りの巻き戻しが急加速\n\n過去24時間の暗号資産市場で29.75億ドルが清算された\n空売りの清算額は27億ドル超で、直近2年で最大の規模とされた\n\n急騰の背景にショートカバーが大きく含まれるなら、上昇の持続性は新規買いの強さと分けて見る必要がある。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 信用取引の伸び、ピークから減速",
+    "selected_hook": "💥 空売りの巻き戻しが急加速",
     "verified_facts": [],
-    "market_or_user_impact": "株価の水準だけでなく、レバレッジ拡大の勢いを過去の過熱局面と比較できる。",
+    "market_or_user_impact": "価格上昇を現物の買い需要だけでなく、レバレッジ解消の規模から評価できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "株式市場のセンチメントと信用サイクルを、継続的なデータで追える。",
+    "next_watch": "清算後に現物出来高や建玉がどう推移するかを追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/timmerfidelity/status/2090228066480230519",
+      "url": "https://x.com/bitwux/status/2090270058786549930",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 5,
+          "used": 6,
           "limit": 6
         },
         "grok_editorial": {
