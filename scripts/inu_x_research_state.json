@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T16:06:48+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T16:06:48+00:00",
+  "last_deep_scan_at": "2026-08-20T18:09:13+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T18:09:13+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T22:05:24+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T22:53:35+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-07T22:53:35+00:00",
@@ -2274,6 +2262,19 @@
       "result_count": 2,
       "spike": false,
       "topic": "fixed_primary_x"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T18:09:13+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T18:09:13+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -2634,30 +2635,6 @@
       "why_trending": "表示193,799・投稿後160分・反応率2.8%"
     },
     {
-      "author_followers": 4706987,
-      "discovered_at": "2026-08-19T19:11:39+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 US federal banking regulator OCC says it will establish \"regulatory framework\" for crypto stablecoin issuers.",
-      "impression_count": 244673,
-      "like_count": 3755,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090119825288822890",
-      "post_url": "https://x.com/WatcherGuru/status/2090119825288822890",
-      "posted_at": "2026-08-19T16:52:53+00:00",
-      "quote_count": 38,
-      "reply_count": 139,
-      "repost_count": 504,
-      "score": 56.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 US federal banking regulator OCC says it will establish \"regulatory framework\" for crypto stablecoin issuers.",
-      "topic": "watcher_guru",
-      "why_trending": "表示244,673・投稿後138分・反応率2.1%"
-    },
-    {
       "author_followers": 4707875,
       "discovered_at": "2026-08-19T21:04:09+00:00",
       "discovery_type": "official_x_api",
@@ -2786,32 +2763,88 @@
       "why_trending": "表示213,195・投稿後256分・反応率3.2%"
     },
     {
-      "author_followers": 4706987,
-      "discovered_at": "2026-08-19T19:11:39+00:00",
+      "author_followers": 224,
+      "discovered_at": "2026-08-20T18:09:13+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
+      "handle": "Alfred3o3",
       "has_video": false,
-      "headline": "JUST IN: Ethereum $ETH surges 10% to $2,100 https://t.co/k1wIcNdGbe",
-      "impression_count": 215959,
-      "like_count": 3139,
+      "headline": "#Bitcoin #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:27AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Bitcoin `BTC` is trading ar",
+      "impression_count": 95,
+      "like_count": 3,
       "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090108336863646056/photo/1"
+        "https://x.com/Alfred3o3/status/2090461709198897156/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2090108336863646056",
-      "post_url": "https://x.com/WatcherGuru/status/2090108336863646056",
-      "posted_at": "2026-08-19T16:07:14+00:00",
-      "quote_count": 64,
-      "reply_count": 174,
-      "repost_count": 294,
-      "score": 48.4,
+      "post_id": "2090461709198897156",
+      "post_url": "https://x.com/Alfred3o3/status/2090461709198897156",
+      "posted_at": "2026-08-20T15:31:25+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 1,
+      "score": 47.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "JUST IN: Ethereum $ETH surges 10% to $2,100 https://t.co/k1wIcNdGbe",
-      "topic": "watcher_guru",
-      "why_trending": "表示215,959・投稿後184分・反応率1.9%"
+      "summary": "#Bitcoin #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:27AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Bitcoin `BTC` is trading around **$72,082**, with 24h performance of **+5.2%**, 7d performance of **+13.6%**, and 30d https://t.co/EgmlAxACTm",
+      "topic": "crypto_market",
+      "why_trending": "表示95・投稿後157分・反応率8.6%"
+    },
+    {
+      "author_followers": 224,
+      "discovered_at": "2026-08-20T18:09:13+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Alfred3o3",
+      "has_video": false,
+      "headline": "#Solana #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 9:06AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Solana `SOL` is trading arou",
+      "impression_count": 62,
+      "like_count": 3,
+      "linked_urls": [
+        "https://x.com/Alfred3o3/status/2090471239727083768/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090471239727083768",
+      "post_url": "https://x.com/Alfred3o3/status/2090471239727083768",
+      "posted_at": "2026-08-20T16:09:17+00:00",
+      "quote_count": 0,
+      "reply_count": 2,
+      "repost_count": 0,
+      "score": 47.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "#Solana #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 9:06AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Solana `SOL` is trading around **$87.17**, with 24h performance of **+7.0%**, 7d performance of **+15.4%**, and 30d performance https://t.co/cZ7oyiesvT",
+      "topic": "crypto_market",
+      "why_trending": "表示62・投稿後119分・反応率10.0%"
+    },
+    {
+      "author_followers": 224,
+      "discovered_at": "2026-08-20T18:09:13+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Alfred3o3",
+      "has_video": false,
+      "headline": "#Ethereum #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:49AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Ethereum `ETH` is trading ",
+      "impression_count": 46,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/Alfred3o3/status/2090468923959619595/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090468923959619595",
+      "post_url": "https://x.com/Alfred3o3/status/2090468923959619595",
+      "posted_at": "2026-08-20T16:00:05+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 45.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "#Ethereum #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:49AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Ethereum `ETH` is trading around **$2,306**, with 24h performance of **+10.5%**, 7d performance of **+23.3%**, and 30d https://t.co/ViElpQUUX3",
+      "topic": "crypto_market",
+      "why_trending": "表示46・投稿後129分・反応率7.8%"
     },
     {
       "author_followers": 43,
@@ -3002,30 +3035,6 @@
       "why_trending": "表示12,560・投稿後384分・反応率0.2%・動画あり"
     },
     {
-      "author_followers": 1029,
-      "discovered_at": "2026-08-19T18:00:29+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoIntelPost",
-      "has_video": false,
-      "headline": "【加密圈观察】@binance @okx @bitget @Gate 近期都在疯狂迭代TradFi产品，说几个近期趋势： 一、交易所加速进军传统金融 1.头部CEX疯狂推出/迭代原生美股、美股代币、TradFi Perps等产品 2.传统金融永续合约（TradFi Perps）交易额增幅5倍 2026 年 1 月-交易额：520 亿美元 2026 年 6",
-      "impression_count": 23,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090134566204068177",
-      "post_url": "https://x.com/CryptoIntelPost/status/2090134566204068177",
-      "posted_at": "2026-08-19T17:51:28+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 35.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【加密圈观察】@binance @okx @bitget @Gate 近期都在疯狂迭代TradFi产品，说几个近期趋势： 一、交易所加速进军传统金融 1.头部CEX疯狂推出/迭代原生美股、美股代币、TradFi Perps等产品 2.传统金融永续合约（TradFi Perps）交易额增幅5倍 2026 年 1 月-交易额：520 亿美元 2026 年 6",
-      "topic": "chinese_market",
-      "why_trending": "表示23・投稿後9分・反応率0.0%"
-    },
-    {
       "author_followers": 333,
       "discovered_at": "2026-08-20T11:04:51+00:00",
       "discovery_type": "official_x_api",
@@ -3052,30 +3061,6 @@
       "summary": "🚀仮想通貨、なんでこんなに上がってるんだ？？ 今回の急騰は「ただの仮想通貨祭り」じゃない。 🇺🇸米財務省が長期国債の買い戻し規模を倍増 ↓ 長期金利が低下 ↓ リスク資産に追い風 さらに、 ・BTC ETFへの資金流入 ・トランプ政権の暗号資産政策への期待 ・大量のショートが強制決済 https://t.co/9LAaHFUokD",
       "topic": "japanese_market",
       "why_trending": "表示6・投稿後4分・反応率0.0%"
-    },
-    {
-      "author_followers": 1029,
-      "discovered_at": "2026-08-19T18:00:29+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoIntelPost",
-      "has_video": false,
-      "headline": "@binance @okx @bitget @Gate 近期都在疯狂迭代TradFi产品，说几个近期趋势： 一、交易所加速进军传统金融 1.头部CEX疯狂推出/迭代原生美股、美股代币、TradFi Perps等产品 2.传统金融永续合约（TradFi Perps）交易额增幅5倍 2026 年 1 月-交易额：520 亿美元 2026 年 6 月-交易额：2,",
-      "impression_count": 14,
-      "like_count": 0,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090134279229698242",
-      "post_url": "https://x.com/CryptoIntelPost/status/2090134279229698242",
-      "posted_at": "2026-08-19T17:50:19+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "@binance @okx @bitget @Gate 近期都在疯狂迭代TradFi产品，说几个近期趋势： 一、交易所加速进军传统金融 1.头部CEX疯狂推出/迭代原生美股、美股代币、TradFi Perps等产品 2.传统金融永续合约（TradFi Perps）交易额增幅5倍 2026 年 1 月-交易额：520 亿美元 2026 年 6 月-交易额：2,680 亿美元",
-      "topic": "chinese_market",
-      "why_trending": "表示14・投稿後10分・反応率0.0%"
     }
   ],
   "trends": [],
