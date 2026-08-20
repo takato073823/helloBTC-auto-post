@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T00:59:06.509489+00:00",
-  "slot": "2026-08-20-09-a",
+  "generated_at": "2026-08-20T02:03:47.752531+00:00",
+  "slot": "2026-08-20-11-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T00:59:06.509489+00:00",
-    "to": "2026-08-20T00:59:06.509489+00:00"
+    "from": "2026-08-19T02:03:47.752531+00:00",
+    "to": "2026-08-20T02:03:47.752531+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦 USDeの資金調達が変わる\n\n僕は、USDeの安定性を左右する要因が市場金利から信用供与先にも広がると見ます。"
+      "🏦 USDeの資金調達が変わる\n\n資金源の分散は、USDeの利回りと安定性を左右する新たな検証点になる。"
     ],
-    "public_compact_post": "🏦 USDeの資金調達が変わる\n\nEthenaはFalconXと10億ドルの担保付き融資枠を開始\nUSDeを暗号資産の資金調達率だけでなく、機関投資家信用でも支える\n\n僕は、USDeの安定性を左右する要因が市場金利から信用供与先にも広がると見ます。"
+    "public_compact_post": "🏦 USDeの資金調達が変わる\n\nEthenaはFalconXと10億ドルの担保付き融資枠を開始\nUSDeを支える資金を暗号資産の資金調達率だけに依存しない設計\n\n資金源の分散は、USDeの利回りと安定性を左右する新たな検証点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -27,16 +27,16 @@
     "selected_topic": "x_reaction",
     "selected_hook": "🏦 USDeの資金調達が変わる",
     "verified_facts": [],
-    "market_or_user_impact": "USDeの収益源とリスクが、無期限先物の資金調達率だけでは説明できなくなる。",
+    "market_or_user_impact": "暗号資産市場の調達環境が悪化した場合にも、機関投資家向け信用がどこまで機能するかを確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "ステーブルコインの担保・信用構造を継続的に追える。",
+    "next_watch": "ステーブルコインの利回り設計と機関投資家向け信用供給の変化を追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/coinmarketcap/status/2090218045478248533",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 40,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 40,
+        "signal_count": 24,
         "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 4,
+          "used": 5,
           "limit": 6
         },
         "grok_editorial": {
@@ -66,61 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "developing_story",
-        "hook": "⚠️ Krakenで入出金遅延",
-        "published_at": "2026-08-19T22:02:00+00:00",
-        "source_url": "https://status.kraken.com",
-        "why_now": "8月19日発生の障害が現在もMonitoring状態で残っています。"
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "🏦 OCC、ステーブル規則を整備",
-        "published_at": "2026-06-24T00:00:00+00:00",
-        "source_url": "https://www.occ.gov/topics/laws-and-regulations/occ-regulations/proposed-issuances/occ-proposed-issuances-2026.html",
-        "why_now": "顧客確認規則の意見募集期限が8月21日に迫っています。"
-      },
-      {
-        "topic_type": "onchain",
-        "hook": "📈 Solana、処理容量を66％増強",
-        "published_at": "2026-08-06T00:00:00+00:00",
-        "source_url": "https://solana.com/upgrades",
-        "why_now": "主要チェーンの容量と確定速度に直結する更新が継続しています。"
-      },
-      {
-        "topic_type": "whale_treasury",
-        "hook": "🐋 Metaplanet、BTC保有4.3万枚",
-        "published_at": "2026-08-14T00:00:00+00:00",
-        "source_url": "https://metaplanet.jp/en?lang=ja",
-        "why_now": "日本企業の保有規模を公式表示で確認できます。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "🏦 Strategy、保有84.4万BTC",
-        "published_at": "2026-07-06T00:00:00+00:00",
-        "source_url": "https://www.strategy.com/purchases",
-        "why_now": "企業保有の最新公式集計値として市場の需給観測に使えます。"
-      },
-      {
-        "topic_type": "etf_flow",
-        "hook": "📊 IBIT純資産480億ドル",
-        "published_at": "2026-07-23T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
-        "why_now": "公式ページで確認できるETF規模の最新値として需給分析に使えます。"
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: 同じ一次資料は投稿済みまたは予約済みです",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: この系統の鮮度上限を超えています",
-      "一次探索5: この系統の鮮度上限を超えています",
-      "一次探索6: この系統の鮮度上限を超えています",
-      "再探索1: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索2: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索3: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索4: この系統の鮮度上限を超えています"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
