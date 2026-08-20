@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T22:03:54.833594+00:00",
+  "generated_at": "2026-08-20T22:22:08.254456+00:00",
   "slot": "2026-08-21-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T22:03:54.833594+00:00",
-    "to": "2026-08-20T22:03:54.833594+00:00"
+    "from": "2026-08-19T22:22:08.254456+00:00",
+    "to": "2026-08-20T22:22:08.254456+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💳 BroadcomのAI案件、資金調達は最大1,000億ドル規模か\n\n単一AI案件への巨額レバレッジが、半導体投資の資金調達リスクを映す。"
+      "🏦AI投資に最大1000億ドル規模の債務\n\nAIインフラ投資の拡大が、社債市場の信用リスクと資金調達条件を左右し得る局面だ。"
     ],
-    "public_compact_post": "💳 BroadcomのAI案件、資金調達は最大1,000億ドル規模か\n\nシニア担保付き債務は600億〜700億ドル、劣後債務は約300億ドルとなる可能性\nApolloとBlackstoneが参加を協議中\n\n単一AI案件への巨額レバレッジが、半導体投資の資金調達リスクを映す。"
+    "public_compact_post": "🏦AI投資に最大1000億ドル規模の債務\n\nBroadcomのAI関連ファイナンスは約600億〜700億ドルのシニア担保付き債務と、約300億ドルのジュニア債務を含み得る\nApolloとBlackstoneが参加を協議中とされている\n\nAIインフラ投資の拡大が、社債市場の信用リスクと資金調達条件を左右し得る局面だ。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "💳 BroadcomのAI案件、資金調達は最大1,000億ドル規模か",
+    "selected_hook": "🏦AI投資に最大1000億ドル規模の債務",
     "verified_facts": [],
-    "market_or_user_impact": "AI投資の成長期待だけでなく、企業債務と信用市場への波及を確認できる。",
+    "market_or_user_impact": "AI関連企業の成長投資が、どの程度の債務で支えられるかを確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AIインフラ案件の資金調達条件と信用リスクを追える。",
+    "next_watch": "株式だけでなく、シニア債・ジュニア債の構造からAI投資を追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/wallstengine/status/2090533144042905944",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
