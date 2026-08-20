@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-20T11:04:51+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T11:04:51+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T12:03:15+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T19:28:03+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-07T20:24:09+00:00",
@@ -2272,6 +2266,12 @@
       "result_count": 5,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T12:03:15+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2302,6 +2302,34 @@
       "summary": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
       "topic": "watcher_guru",
       "why_trending": "表示198,802・投稿後33分・反応率2.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4712880,
+      "discovered_at": "2026-08-20T12:03:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $3,100,000,000 worth of crypto shorts liquidated in the past 24 hours. https://t.co/e7fKZfktnt",
+      "impression_count": 137691,
+      "like_count": 1960,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090397461345091610/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090397461345091610",
+      "post_url": "https://x.com/WatcherGuru/status/2090397461345091610",
+      "posted_at": "2026-08-20T11:16:07+00:00",
+      "quote_count": 48,
+      "reply_count": 191,
+      "repost_count": 187,
+      "score": 81.9,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $3,100,000,000 worth of crypto shorts liquidated in the past 24 hours. https://t.co/e7fKZfktnt",
+      "topic": "watcher_guru",
+      "why_trending": "表示137,691・投稿後47分・反応率2.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4707875,
@@ -2410,6 +2438,34 @@
       "summary": "JUST IN: Ripple, Coinbase, Kraken and Chainlink executives to attend White House crypto summit today.",
       "topic": "watcher_guru",
       "why_trending": "表示243,625・投稿後75分・反応率3.0%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4712880,
+      "discovered_at": "2026-08-20T12:03:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $2,300 $ETH https://t.co/b8uKVqo7yt",
+      "impression_count": 99878,
+      "like_count": 1147,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090401888663490829/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090401888663490829",
+      "post_url": "https://x.com/WatcherGuru/status/2090401888663490829",
+      "posted_at": "2026-08-20T11:33:42+00:00",
+      "quote_count": 22,
+      "reply_count": 125,
+      "repost_count": 116,
+      "score": 79.7,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $2,300 $ETH https://t.co/b8uKVqo7yt",
+      "topic": "watcher_guru",
+      "why_trending": "表示99,878・投稿後29分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4705705,
@@ -2542,6 +2598,62 @@
       "summary": "🇺🇸 White House Crypto Summit recap: • President Trump says US considers buying \"sizable\" amounts of Bitcoin &amp; other crypto. • Trump calls on Congress to pass Crypto Clarity Act. • Trump says US is ensuring it remains the \"undisputed leader\" in $BTC &amp; crypto. •",
       "topic": "watcher_guru",
       "why_trending": "表示258,541・投稿後63分・反応率2.1%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4712880,
+      "discovered_at": "2026-08-20T12:03:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $USDT issuer Tether CEO Paolo Ardoino says \"Bitcoin + Gold = hedge against doom.\" https://t.co/C7JiQiLC7X",
+      "impression_count": 125831,
+      "like_count": 1259,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090391382188081425/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090391382188081425",
+      "post_url": "https://x.com/WatcherGuru/status/2090391382188081425",
+      "posted_at": "2026-08-20T10:51:57+00:00",
+      "quote_count": 15,
+      "reply_count": 104,
+      "repost_count": 109,
+      "score": 71.4,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $USDT issuer Tether CEO Paolo Ardoino says \"Bitcoin + Gold = hedge against doom.\" https://t.co/C7JiQiLC7X",
+      "topic": "watcher_guru",
+      "why_trending": "表示125,831・投稿後71分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4712880,
+      "discovered_at": "2026-08-20T12:03:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $72,000 Bitcoin https://t.co/LslGvwTs70",
+      "impression_count": 193799,
+      "like_count": 4157,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090368968544641378/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090368968544641378",
+      "post_url": "https://x.com/WatcherGuru/status/2090368968544641378",
+      "posted_at": "2026-08-20T09:22:53+00:00",
+      "quote_count": 74,
+      "reply_count": 247,
+      "repost_count": 384,
+      "score": 61.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: $72,000 Bitcoin https://t.co/LslGvwTs70",
+      "topic": "watcher_guru",
+      "why_trending": "表示193,799・投稿後160分・反応率2.8%"
     },
     {
       "author_followers": 4706987,
@@ -2724,6 +2836,30 @@
       "summary": "ビットコインが突然7万ドルへ。 でも今回の急騰、 「仮想通貨に好材料が出たから」だけではありません。 米国債、金利、ドル、ETFへの資金流入。 世界のお金の流れを追うと、今回の上昇がかなり見えてきます。 #ビットコイン #仮想通貨 #暗号資産 #投資 https://t.co/Rwmsl8q0zI",
       "topic": "japanese_market",
       "why_trending": "表示314・投稿後122分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 4712880,
+      "discovered_at": "2026-08-20T12:03:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $250,000,000 worth of shorts liquidated from the crypto market in the past hour.",
+      "impression_count": 213575,
+      "like_count": 2714,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090358768227758447",
+      "post_url": "https://x.com/WatcherGuru/status/2090358768227758447",
+      "posted_at": "2026-08-20T08:42:21+00:00",
+      "quote_count": 41,
+      "reply_count": 197,
+      "repost_count": 209,
+      "score": 44.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: $250,000,000 worth of shorts liquidated from the crypto market in the past hour.",
+      "topic": "watcher_guru",
+      "why_trending": "表示213,575・投稿後200分・反応率1.7%"
     },
     {
       "author_followers": 98,
