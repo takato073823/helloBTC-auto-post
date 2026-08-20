@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T10:03:40.098998+00:00",
+  "generated_at": "2026-08-20T10:25:41.947882+00:00",
   "slot": "2026-08-20-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T10:03:40.098998+00:00",
-    "to": "2026-08-20T10:03:40.098998+00:00"
+    "from": "2026-08-19T10:25:41.947882+00:00",
+    "to": "2026-08-20T10:25:41.947882+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦 $BTCと$ETHに機関マネー\n\n$BTCだけでなく$ETHにも資金が向かい、機関投資家の需要配分が焦点になる。"
+      "🏦 $BTC・$ETHに合計約4.1億ドル\n\n大口資金の流入先が$BTCだけでなく$ETHにも広がるかが焦点です。"
     ],
-    "public_compact_post": "🏦 $BTCと$ETHに機関マネー\n\nBlackRockが$BTCを2億8470万ドル、$ETHを1億2210万ドル購入\n\n$BTCだけでなく$ETHにも資金が向かい、機関投資家の需要配分が焦点になる。"
+    "public_compact_post": "🏦 $BTC・$ETHに合計約4.1億ドル\n\nBlackRockが$BTCを2億8,470万ドル、$ETHを1億2,210万ドル購入\n\n大口資金の流入先が$BTCだけでなく$ETHにも広がるかが焦点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🏦 BTCとETHに機関マネー",
+    "selected_hook": "🏦 BTC・ETHに合計約4.1億ドル",
     "verified_facts": [],
-    "market_or_user_impact": "2銘柄への具体的な購入額から、機関需要の広がりを把握できる。",
+    "market_or_user_impact": "両資産への資金配分を比較でき、相場の流動性と需要構造を考える材料になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "BTC・ETHの資金流入を金額ベースで追う材料になる。",
+    "next_watch": "機関投資家の暗号資産配分を継続的に追うきっかけになる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/cryptorover/status/2090346789937283125",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
