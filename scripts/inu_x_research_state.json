@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T13:34:02+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T14:21:15+00:00",
+  "last_deep_scan_at": "2026-08-20T16:06:48+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T16:06:48+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T21:11:17+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T22:05:24+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-07T22:05:24+00:00",
@@ -2273,37 +2261,22 @@
       "checked_at": "2026-08-20T14:21:15+00:00",
       "result_count": 9,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T16:06:48+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T16:06:48+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4705705,
-      "discovered_at": "2026-08-19T16:04:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
-      "impression_count": 198802,
-      "like_count": 3331,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090099350315954437/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090099350315954437",
-      "post_url": "https://x.com/WatcherGuru/status/2090099350315954437",
-      "posted_at": "2026-08-19T15:31:31+00:00",
-      "quote_count": 140,
-      "reply_count": 230,
-      "repost_count": 377,
-      "score": 84.6,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
-      "topic": "watcher_guru",
-      "why_trending": "表示198,802・投稿後33分・反応率2.4%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4713831,
       "discovered_at": "2026-08-20T14:21:15+00:00",
@@ -2417,58 +2390,6 @@
       "why_trending": "表示55,549・投稿後6分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4705705,
-      "discovered_at": "2026-08-19T16:04:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $67,000 Bitcoin https://t.co/1Sw2dh9dkN",
-      "impression_count": 164294,
-      "like_count": 2175,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090097898134679642/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090097898134679642",
-      "post_url": "https://x.com/WatcherGuru/status/2090097898134679642",
-      "posted_at": "2026-08-19T15:25:45+00:00",
-      "quote_count": 45,
-      "reply_count": 162,
-      "repost_count": 170,
-      "score": 80.8,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: $67,000 Bitcoin https://t.co/1Sw2dh9dkN",
-      "topic": "watcher_guru",
-      "why_trending": "表示164,294・投稿後38分・反応率1.7%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4705705,
-      "discovered_at": "2026-08-19T16:04:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Ripple, Coinbase, Kraken and Chainlink executives to attend White House crypto summit today.",
-      "impression_count": 243625,
-      "like_count": 5577,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090088824844034142",
-      "post_url": "https://x.com/WatcherGuru/status/2090088824844034142",
-      "posted_at": "2026-08-19T14:49:42+00:00",
-      "quote_count": 68,
-      "reply_count": 203,
-      "repost_count": 614,
-      "score": 79.8,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Ripple, Coinbase, Kraken and Chainlink executives to attend White House crypto summit today.",
-      "topic": "watcher_guru",
-      "why_trending": "表示243,625・投稿後75分・反応率3.0%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
       "author_followers": 4712880,
       "discovered_at": "2026-08-20T12:03:15+00:00",
       "discovery_type": "official_x_api",
@@ -2497,32 +2418,32 @@
       "why_trending": "表示99,878・投稿後29分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4705705,
-      "discovered_at": "2026-08-19T16:04:42+00:00",
+      "author_followers": 4714672,
+      "discovered_at": "2026-08-20T16:06:48+00:00",
       "discovery_type": "official_x_api",
       "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "JUST IN: $2,000 $ETH https://t.co/uMPTR7VYSz",
-      "impression_count": 151297,
-      "like_count": 1656,
+      "headline": "JUST IN: Coinbase CEO Brain Armstrong predicts Bitcoin could reach $300,000-$400,000 by 2030. https://t.co/ckgsDSAX97",
+      "impression_count": 106193,
+      "like_count": 1175,
       "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090094714305511814/photo/1"
+        "https://x.com/WatcherGuru/status/2090464981242536279/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2090094714305511814",
-      "post_url": "https://x.com/WatcherGuru/status/2090094714305511814",
-      "posted_at": "2026-08-19T15:13:06+00:00",
-      "quote_count": 39,
-      "reply_count": 123,
-      "repost_count": 163,
-      "score": 79.3,
+      "post_id": "2090464981242536279",
+      "post_url": "https://x.com/WatcherGuru/status/2090464981242536279",
+      "posted_at": "2026-08-20T15:44:25+00:00",
+      "quote_count": 32,
+      "reply_count": 171,
+      "repost_count": 99,
+      "score": 79.6,
       "seen_count": 1,
       "source_priority": "watcherguru",
-      "summary": "JUST IN: $2,000 $ETH https://t.co/uMPTR7VYSz",
-      "topic": "watcher_guru",
-      "why_trending": "表示151,297・投稿後51分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
+      "summary": "JUST IN: Coinbase CEO Brain Armstrong predicts Bitcoin could reach $300,000-$400,000 by 2030. https://t.co/ckgsDSAX97",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示106,193・投稿後22分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4708753,
@@ -2579,34 +2500,6 @@
       "summary": "JUST IN: Peter Schiff says the Bitcoin rally is a \"fakeout\" and tells investors to sell $BTC for gold. https://t.co/oasoaUlniE",
       "topic": "watcher_guru",
       "why_trending": "表示168,383・投稿後57分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4705705,
-      "discovered_at": "2026-08-19T16:04:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $66,000 Bitcoin https://t.co/OLtErb2QVl",
-      "impression_count": 198372,
-      "like_count": 3208,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090091875923624389/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090091875923624389",
-      "post_url": "https://x.com/WatcherGuru/status/2090091875923624389",
-      "posted_at": "2026-08-19T15:01:49+00:00",
-      "quote_count": 48,
-      "reply_count": 212,
-      "repost_count": 317,
-      "score": 77.3,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: $66,000 Bitcoin https://t.co/OLtErb2QVl",
-      "topic": "watcher_guru",
-      "why_trending": "表示198,372・投稿後62分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4707875,
@@ -2787,6 +2680,30 @@
       "summary": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
       "topic": "watcher_guru",
       "why_trending": "表示164,224・投稿後100分・反応率2.2%"
+    },
+    {
+      "author_followers": 1887146,
+      "discovered_at": "2026-08-20T16:06:48+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Polymarket",
+      "has_video": false,
+      "headline": "BREAKING: Franklin Templeton receives U.S. regulatory clearance to bring tokenized assets into traditional investment funds.",
+      "impression_count": 36933,
+      "like_count": 632,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090452815680356365",
+      "post_url": "https://x.com/Polymarket/status/2090452815680356365",
+      "posted_at": "2026-08-20T14:56:04+00:00",
+      "quote_count": 12,
+      "reply_count": 22,
+      "repost_count": 97,
+      "score": 54.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BREAKING: Franklin Templeton receives U.S. regulatory clearance to bring tokenized assets into traditional investment funds.",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示36,933・投稿後70分・反応率2.4%"
     },
     {
       "author_followers": 93375,
