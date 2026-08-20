@@ -2112,6 +2112,27 @@
       "status": "retryable_delivery_failure",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
       "completed_at": "2026-08-20T20:10:24.214387+00:00"
+    },
+    {
+      "run_id": "32413784277",
+      "started_at": "2026-08-20T20:23:45.221904+00:00",
+      "completed_at": "2026-08-20T20:24:23.201331+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-21-05-a",
+      "post_id": "inu_overseas_kol_2090506199766888904",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "f0c79c9be47ee0063444e44a7b6e3bef368bf0c905228029764be06f262f8859",
+      "event_fingerprint": "07a857f6ba0e8b74e77591491b15bdbc35877d21dda78931df37b9c9f0503420"
     }
   ]
 }
