@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T02:07:18+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T02:07:18+00:00",
+  "last_deep_scan_at": "2026-08-20T03:30:36+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T03:30:36+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-07T11:34:26+00:00",
-      "result_count": 0,
-      "spike": false,
-      "topic": "equities_ai"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-07T12:30:56+00:00",
-      "result_count": 3,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-07T14:01:27+00:00",
@@ -2271,6 +2258,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T03:30:36+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T03:30:36+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -2644,6 +2644,56 @@
       "why_trending": "表示215,959・投稿後184分・反応率1.9%"
     },
     {
+      "author_followers": 93354,
+      "discovered_at": "2026-08-20T03:30:36+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Sho54639108",
+      "has_video": false,
+      "headline": "【緊急事態.日経平均2134円大暴落ヤバい‼】AI半導体株急落で日本株木端微塵‼２０１８年相場か⁉キオクシア12％暴落。ドル円１５９円。金利急騰で米国株、ハイテク株荒れるか。仮想通貨BTC上昇 https://t.co/IxJwjhctto",
+      "impression_count": 41307,
+      "like_count": 100,
+      "linked_urls": [
+        "https://youtu.be/fI17pOvnfw8"
+      ],
+      "media_types": [],
+      "post_id": "2090004639609745614",
+      "post_url": "https://x.com/Sho54639108/status/2090004639609745614",
+      "posted_at": "2026-08-19T09:15:11+00:00",
+      "quote_count": 0,
+      "reply_count": 16,
+      "repost_count": 6,
+      "score": 44.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【緊急事態.日経平均2134円大暴落ヤバい‼】AI半導体株急落で日本株木端微塵‼２０１８年相場か⁉キオクシア12％暴落。ドル円１５９円。金利急騰で米国株、ハイテク株荒れるか。仮想通貨BTC上昇 https://t.co/IxJwjhctto",
+      "topic": "japanese_market",
+      "why_trending": "表示41,307・投稿後1095分・反応率0.3%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 56,
+      "discovered_at": "2026-08-20T03:30:36+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "YDDGO11922960",
+      "has_video": false,
+      "headline": "仮想通貨上昇⤴️ 始まったかもしれない。 ・米国債買戻し拡大による金利低下 ・大規模ショート精算 ・米国の暗号資産規制緩和期待 ・ホワイトハウスの積極姿勢 ・BTCの重要価格帯突破 ・ETHの2000$回復 ・米国株リスク資産の反発 ・ドル安 まだ若干弱い気もするが上昇基調に 期待したい所です。",
+      "impression_count": 40,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090243769308483759",
+      "post_url": "https://x.com/YDDGO11922960/status/2090243769308483759",
+      "posted_at": "2026-08-20T01:05:24+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 42.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "仮想通貨上昇⤴️ 始まったかもしれない。 ・米国債買戻し拡大による金利低下 ・大規模ショート精算 ・米国の暗号資産規制緩和期待 ・ホワイトハウスの積極姿勢 ・BTCの重要価格帯突破 ・ETHの2000$回復 ・米国株リスク資産の反発 ・ドル安 まだ若干弱い気もするが上昇基調に 期待したい所です。",
+      "topic": "japanese_market",
+      "why_trending": "表示40・投稿後145分・反応率2.5%"
+    },
+    {
       "author_followers": 10610,
       "discovered_at": "2026-08-19T18:00:29+00:00",
       "discovery_type": "official_x_api",
@@ -2726,6 +2776,35 @@
       "summary": "💥 BTC Liquidation Report | Aug 19, 2026 💰 Price: $64,458 📦 Open Interest: 104,684 BTC 💸 Funding: 0.0037% ⚖️ Long/Short: 61% / 39% #BTC #Crypto https://t.co/KlXSO9uHRJ",
       "topic": "crypto_market",
       "why_trending": "表示12・投稿後163分・反応率13.3%"
+    },
+    {
+      "author_followers": 2320,
+      "discovered_at": "2026-08-20T03:30:36+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "investor__z",
+      "has_video": true,
+      "headline": "ビットコインは昨日比較で5.7％ほどの急騰で、1,091万円あたりで推移しています。 イーサリアムにいたっては14％ほどの上昇となっており、久々に元気な暗号資産の動きです。 規制緩和への期待と市場の買い戻しが上がっている理由です。 がっちりホールドです😊✨✨✨ #Bitcoin #BTC #暗号資産 https://t.co/Lw3ttHL5tY",
+      "impression_count": 12560,
+      "like_count": 20,
+      "linked_urls": [
+        "https://x.com/investor__z/status/2090183449458192646/video/1"
+      ],
+      "media_types": [
+        "video",
+        "photo"
+      ],
+      "post_id": "2090183449458192646",
+      "post_url": "https://x.com/investor__z/status/2090183449458192646",
+      "posted_at": "2026-08-19T21:05:42+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ビットコインは昨日比較で5.7％ほどの急騰で、1,091万円あたりで推移しています。 イーサリアムにいたっては14％ほどの上昇となっており、久々に元気な暗号資産の動きです。 規制緩和への期待と市場の買い戻しが上がっている理由です。 がっちりホールドです😊✨✨✨ #Bitcoin #BTC #暗号資産 https://t.co/Lw3ttHL5tY",
+      "topic": "japanese_market",
+      "why_trending": "表示12,560・投稿後384分・反応率0.2%・動画あり"
     },
     {
       "author_followers": 1029,
