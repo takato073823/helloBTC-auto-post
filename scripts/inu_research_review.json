@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T12:39:12.727535+00:00",
-  "slot": "2026-08-20-21-a",
+  "generated_at": "2026-08-20T14:03:48.885538+00:00",
+  "slot": "2026-08-20-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T12:39:12.727535+00:00",
-    "to": "2026-08-20T12:39:12.727535+00:00"
+    "from": "2026-08-19T14:03:48.885538+00:00",
+    "to": "2026-08-20T14:03:48.885538+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💥 仮想通貨市場で大規模なショート清算\n\n僕は、短時間の急変でレバレッジ解消が進んだ点に注目したいです。"
+      "🛒ウォルマート、売上・利益とも予想超え\n\n消費の底堅さとEC成長が、金利高下でも小売業績を支える構図だ。"
     ],
-    "public_compact_post": "💥 仮想通貨市場で大規模なショート清算\n\n直近24時間でショート約33.5億ドルが清算\n清算されたトレーダーは18万8000人\n\n僕は、短時間の急変でレバレッジ解消が進んだ点に注目したいです。"
+    "public_compact_post": "🛒ウォルマート、売上・利益とも予想超え\n\nQ2売上は1,879億ドルで前年比5.9%増\n調整後EPSは0.81ドル、予想0.74ドルを上回った\n\n消費の底堅さとEC成長が、金利高下でも小売業績を支える構図だ。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "💥 仮想通貨市場で大規模なショート清算",
+    "selected_hook": "🛒ウォルマート、売上・利益とも予想超え",
     "verified_facts": [],
-    "market_or_user_impact": "価格変動の裏側で、どれだけのショートポジションが強制決済されたか把握できる。",
+    "market_or_user_impact": "景気減速懸念の中で、実需企業の業績が予想を上回った点を判断材料にできる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "清算規模を軸に、暗号資産市場の過熱度やポジション偏りを追える。",
+    "next_watch": "小売決算から米消費と企業利益の変化を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/cryptorover/status/2090373874399449366",
+      "url": "https://x.com/wallstengine/status/2090394704471101707",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 25,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,7 +47,7 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 25,
+        "signal_count": 24,
         "status": "used"
       },
       "paid_api_usage": {
