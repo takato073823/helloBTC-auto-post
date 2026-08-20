@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T06:58:24.443473+00:00",
-  "slot": "2026-08-20-15-a",
+  "generated_at": "2026-08-20T08:03:39.306090+00:00",
+  "slot": "2026-08-20-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T06:58:24.443473+00:00",
-    "to": "2026-08-20T06:58:24.443473+00:00"
+    "from": "2026-08-19T08:03:39.306090+00:00",
+    "to": "2026-08-20T08:03:39.306090+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💰ビットコインETFに5.17億ドル流入\n\n短期の上昇局面でも機関投資家の需要が続くかが焦点です。"
+      "📈 $BTC ETFに3カ月ぶりの大規模流入\n\n大口ETF需要が急増した一方、短期上昇が継続するか流入の持続性が焦点になる。"
     ],
-    "public_compact_post": "💰ビットコインETFに5.17億ドル流入\n\nBlackRockなどのETFが合計5億1719万ドル相当のビットコインを購入\n3カ月超ぶりの最大流入とされる\n\n短期の上昇局面でも機関投資家の需要が続くかが焦点です。"
+    "public_compact_post": "📈 $BTC ETFに3カ月ぶりの大規模流入\n\nBlackRockなどのETFが$BTCを合計5億1719万ドル購入\n3カ月超ぶりの最大流入と投稿で示されている\n\n大口ETF需要が急増した一方、短期上昇が継続するか流入の持続性が焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "💰ビットコインETFに5.17億ドル流入",
+    "selected_hook": "📈 BTC ETFに3カ月ぶりの大規模流入",
     "verified_facts": [],
-    "market_or_user_impact": "ETF経由の機関投資家需要を、具体的な流入額と過去比較で把握できる。",
+    "market_or_user_impact": "ETF経由の需要規模を、価格変動とは別の資金フローとして把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "今後のETF純流入と価格反応を継続して追う価値がある。",
+    "next_watch": "BTC ETFへの資金流入が単発か継続かを追う起点になる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/ashcrypto/status/2090314360430403731",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
