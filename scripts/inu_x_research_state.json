@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-20T18:09:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T18:09:13+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T19:19:25+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T22:53:35+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-07T23:44:51+00:00",
@@ -2275,6 +2269,12 @@
       "result_count": 3,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T19:19:25+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2635,6 +2635,30 @@
       "why_trending": "表示193,799・投稿後160分・反応率2.8%"
     },
     {
+      "author_followers": 4715928,
+      "discovered_at": "2026-08-20T19:19:25+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
+      "impression_count": 166843,
+      "like_count": 2869,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090495865085415918",
+      "post_url": "https://x.com/WatcherGuru/status/2090495865085415918",
+      "posted_at": "2026-08-20T17:47:08+00:00",
+      "quote_count": 31,
+      "reply_count": 126,
+      "repost_count": 371,
+      "score": 57.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
+      "topic": "watcher_guru",
+      "why_trending": "表示166,843・投稿後92分・反応率2.3%"
+    },
+    {
       "author_followers": 4707875,
       "discovered_at": "2026-08-19T21:04:09+00:00",
       "discovery_type": "official_x_api",
@@ -2761,6 +2785,30 @@
       "summary": "JUST IN: $190,000,000,000 added to the crypto market cap in the past 24 hours. https://t.co/VWXibqrxHL",
       "topic": "watcher_guru",
       "why_trending": "表示213,195・投稿後256分・反応率3.2%"
+    },
+    {
+      "author_followers": 4715928,
+      "discovered_at": "2026-08-20T19:19:25+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
+      "impression_count": 153431,
+      "like_count": 1883,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090490052690514380",
+      "post_url": "https://x.com/WatcherGuru/status/2090490052690514380",
+      "posted_at": "2026-08-20T17:24:02+00:00",
+      "quote_count": 20,
+      "reply_count": 117,
+      "repost_count": 199,
+      "score": 52.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
+      "topic": "watcher_guru",
+      "why_trending": "表示153,431・投稿後115分・反応率1.6%"
     },
     {
       "author_followers": 224,
