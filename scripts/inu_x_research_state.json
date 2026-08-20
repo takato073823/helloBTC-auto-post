@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T05:15:49+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T06:04:54+00:00",
+  "last_deep_scan_at": "2026-08-20T07:28:13+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T07:28:13+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-07T16:08:25+00:00",
-      "result_count": 4,
-      "spike": false,
-      "topic": "chinese_market"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T17:22:03+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-07T18:10:26+00:00",
@@ -2271,6 +2258,19 @@
       "checked_at": "2026-08-20T06:04:54+00:00",
       "result_count": 6,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T07:28:13+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T07:28:13+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -2672,6 +2672,32 @@
       "why_trending": "表示215,959・投稿後184分・反応率1.9%"
     },
     {
+      "author_followers": 43,
+      "discovered_at": "2026-08-20T07:28:13+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "masato_zaizen",
+      "has_video": false,
+      "headline": "ビットコインが突然7万ドルへ。 でも今回の急騰、 「仮想通貨に好材料が出たから」だけではありません。 米国債、金利、ドル、ETFへの資金流入。 世界のお金の流れを追うと、今回の上昇がかなり見えてきます。 #ビットコイン #仮想通貨 #暗号資産 #投資 https://t.co/Rwmsl8q0zI",
+      "impression_count": 314,
+      "like_count": 0,
+      "linked_urls": [
+        "https://moneyplusultra.hatenablog.com/entry/2026/08/20/142413"
+      ],
+      "media_types": [],
+      "post_id": "2090309225193111614",
+      "post_url": "https://x.com/masato_zaizen/status/2090309225193111614",
+      "posted_at": "2026-08-20T05:25:30+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "ビットコインが突然7万ドルへ。 でも今回の急騰、 「仮想通貨に好材料が出たから」だけではありません。 米国債、金利、ドル、ETFへの資金流入。 世界のお金の流れを追うと、今回の上昇がかなり見えてきます。 #ビットコイン #仮想通貨 #暗号資産 #投資 https://t.co/Rwmsl8q0zI",
+      "topic": "japanese_market",
+      "why_trending": "表示314・投稿後122分・反応率0.0%・公式候補リンクあり"
+    },
+    {
       "author_followers": 93354,
       "discovered_at": "2026-08-20T03:30:36+00:00",
       "discovery_type": "official_x_api",
@@ -2720,62 +2746,6 @@
       "summary": "仮想通貨上昇⤴️ 始まったかもしれない。 ・米国債買戻し拡大による金利低下 ・大規模ショート精算 ・米国の暗号資産規制緩和期待 ・ホワイトハウスの積極姿勢 ・BTCの重要価格帯突破 ・ETHの2000$回復 ・米国株リスク資産の反発 ・ドル安 まだ若干弱い気もするが上昇基調に 期待したい所です。",
       "topic": "japanese_market",
       "why_trending": "表示40・投稿後145分・反応率2.5%"
-    },
-    {
-      "author_followers": 10610,
-      "discovered_at": "2026-08-19T18:00:29+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BubbleBing_666",
-      "has_video": false,
-      "headline": "看完 CryptoRank 这份 7 月交易所报告，我反而觉得，Gate 是一个挺值得单独拿出来看的案例。 7 月 Gate 现货交易量大约 1350 亿美元，排名全球第二。 但如果只看现货排名，其实没什么特别的。 真正让我觉得有意思的，是另外一个数据： Gate 在 CEX RWA 永续未平仓量中的占比，已经达到约 49.6%。 https://t.co/",
-      "impression_count": 4694,
-      "like_count": 31,
-      "linked_urls": [
-        "https://x.com/BubbleBing_666/status/2089962716610068518/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089962716610068518",
-      "post_url": "https://x.com/BubbleBing_666/status/2089962716610068518",
-      "posted_at": "2026-08-19T06:28:35+00:00",
-      "quote_count": 0,
-      "reply_count": 47,
-      "repost_count": 0,
-      "score": 41.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "看完 CryptoRank 这份 7 月交易所报告，我反而觉得，Gate 是一个挺值得单独拿出来看的案例。 7 月 Gate 现货交易量大约 1350 亿美元，排名全球第二。 但如果只看现货排名，其实没什么特别的。 真正让我觉得有意思的，是另外一个数据： Gate 在 CEX RWA 永续未平仓量中的占比，已经达到约 49.6%。 https://t.co/hZeVCXXdT8",
-      "topic": "chinese_market",
-      "why_trending": "表示4,694・投稿後691分・反応率2.3%"
-    },
-    {
-      "author_followers": 622,
-      "discovered_at": "2026-08-19T09:16:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptomegaNews",
-      "has_video": false,
-      "headline": "Crypto navigates exploits, regulatory shifts, and shifting market dynamics. Here's the latest: * MAYAChain halted its network after an estimated $1.7M exploit. * US accounting boar",
-      "impression_count": 28,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/CryptomegaNews/status/2089963157934555168/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2089963157934555168",
-      "post_url": "https://x.com/CryptomegaNews/status/2089963157934555168",
-      "posted_at": "2026-08-19T06:30:21+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 38.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Crypto navigates exploits, regulatory shifts, and shifting market dynamics. Here's the latest: * MAYAChain halted its network after an estimated $1.7M exploit. * US accounting board FASB proposes conditions for stablecoins as cash equivalents. * Exchange stablecoin https://t.co/trATn5RqIJ",
-      "topic": "onchain_exchange",
-      "why_trending": "表示28・投稿後166分・反応率9.3%"
     },
     {
       "author_followers": 222,
