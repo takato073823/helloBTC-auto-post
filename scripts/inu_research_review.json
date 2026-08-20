@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T04:33:07.775412+00:00",
+  "generated_at": "2026-08-20T04:46:05.049588+00:00",
   "slot": "2026-08-20-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T04:33:07.775412+00:00",
-    "to": "2026-08-20T04:33:07.775412+00:00"
+    "from": "2026-08-19T04:46:05.049588+00:00",
+    "to": "2026-08-20T04:46:05.049588+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 MRNA、S&P500で今世紀最大の上昇\n\n単一銘柄の急騰が指数全体の分散効果を上回る局面では、材料の持続性が焦点になる。"
+      "⚡ 1,900億ドルが暗号資産市場に流入\n\nショート清算主導の上昇なら、現物需要が続くかが次の焦点になる。"
     ],
-    "public_compact_post": "📈 MRNA、S&P500で今世紀最大の上昇\n\nModerna（MRNA）はこの日177%上昇した\nS&P500銘柄による今世紀最大の日次上昇となった\n\n単一銘柄の急騰が指数全体の分散効果を上回る局面では、材料の持続性が焦点になる。"
+    "public_compact_post": "⚡ 1,900億ドルが暗号資産市場に流入\n\n暗号資産市場に1,900億ドルが加わった\n過去最大のショート清算イベントが発生した\n\nショート清算主導の上昇なら、現物需要が続くかが次の焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈 MRNA、S&P500で今世紀最大の上昇",
+    "selected_hook": "⚡ 1,900億ドルが暗号資産市場に流入",
     "verified_facts": [],
-    "market_or_user_impact": "個別株の急騰が指数史上でどの規模に当たるか把握できる。",
+    "market_or_user_impact": "価格上昇だけでなく、清算による需給変化を把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大型株の異例な値動きを定量的に追える。",
+    "next_watch": "暗号資産のレバレッジ動向と市場構造を継続的に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/barchart/status/2090254878308196798",
+      "url": "https://x.com/cryptorover/status/2090298412776185901",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
