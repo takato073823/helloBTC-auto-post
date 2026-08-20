@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-20T07:28:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T07:28:13+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T08:19:00+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T18:10:26+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-07T18:10:26+00:00",
@@ -2271,6 +2265,12 @@
       "result_count": 3,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T08:19:00+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2329,6 +2329,34 @@
       "summary": "BREAKING: 🇺🇸 President Trump says the US is considering buying \"sizable\" amounts of Bitcoin and other cryptocurrencies. https://t.co/LO2cZ3sAws",
       "topic": "watcher_guru",
       "why_trending": "表示393,911・投稿後86分・反応率2.6%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4711358,
+      "discovered_at": "2026-08-20T08:19:00+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $71,000 Bitcoin https://t.co/0qODdCDoHj",
+      "impression_count": 55549,
+      "like_count": 423,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090351325653389658/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090351325653389658",
+      "post_url": "https://x.com/WatcherGuru/status/2090351325653389658",
+      "posted_at": "2026-08-20T08:12:47+00:00",
+      "quote_count": 16,
+      "reply_count": 76,
+      "repost_count": 52,
+      "score": 81.2,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $71,000 Bitcoin https://t.co/0qODdCDoHj",
+      "topic": "watcher_guru",
+      "why_trending": "表示55,549・投稿後6分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4705705,
@@ -2616,32 +2644,6 @@
       "summary": "JUST IN: $190,000,000,000 added to the crypto market cap in the past 24 hours. https://t.co/VWXibqrxHL",
       "topic": "watcher_guru",
       "why_trending": "表示213,195・投稿後256分・反応率3.2%"
-    },
-    {
-      "author_followers": 2602,
-      "discovered_at": "2026-08-19T09:16:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Neome_com",
-      "has_video": false,
-      "headline": "\" CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Solana eyes $100 recovery as price tests $80 resistance after RSI breakout. • Ripple Prime Lands $275M as Institutional Back",
-      "impression_count": 46,
-      "like_count": 1,
-      "linked_urls": [
-        "https://bitcoin.com"
-      ],
-      "media_types": [],
-      "post_id": "2089978295739617733",
-      "post_url": "https://x.com/Neome_com/status/2089978295739617733",
-      "posted_at": "2026-08-19T07:30:30+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 49.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "\" CRYPTO BREAKING NEWS: Only the latest. No repeats 💙 • Solana eyes $100 recovery as price tests $80 resistance after RSI breakout. • Ripple Prime Lands $275M as Institutional Backing Accelerates. • https://t.co/gzC8VgNWpm integrates UAE-regulated USDU stablecoin into its",
-      "topic": "onchain_exchange",
-      "why_trending": "表示46・投稿後106分・反応率5.7%・公式候補リンクあり"
     },
     {
       "author_followers": 4706987,
