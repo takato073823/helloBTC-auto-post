@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T16:29:45.583533+00:00",
+  "generated_at": "2026-08-20T16:43:36.711116+00:00",
   "slot": "2026-08-21-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T16:29:45.583533+00:00",
-    "to": "2026-08-20T16:29:45.583533+00:00"
+    "from": "2026-08-19T16:43:36.711116+00:00",
+    "to": "2026-08-20T16:43:36.711116+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 株から暗号資産へ？\n\n資金移動か評価変動かを切り分けるには、同期間の資金フロー確認が残る。"
+      "🟣 $ETHに7カ月ぶりの大型買い\n\n機関投資家の需要が一時的な資金流入か継続トレンドかが焦点になる。"
     ],
-    "public_compact_post": "📊 株から暗号資産へ？\n\n今週、暗号資産市場は2,910億ドル増加\n米国株式市場は1.4兆ドル減少\n\n資金移動か評価変動かを切り分けるには、同期間の資金フロー確認が残る。"
+    "public_compact_post": "🟣 $ETHに7カ月ぶりの大型買い\n\nBlackRockの顧客は$ETHを1億2200万ドル購入\n直前の最大購入は1月15日の1億4900万ドル\n\n機関投資家の需要が一時的な資金流入か継続トレンドかが焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 株から暗号資産へ？",
+    "selected_hook": "🟣 ETHに7カ月ぶりの大型買い",
     "verified_facts": [],
-    "market_or_user_impact": "暗号資産の上昇を株式からの資金移動とみなせるか、比較材料になる。",
+    "market_or_user_impact": "機関投資家の暗号資産需要を金額で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "暗号資産と株式の時価総額変化を継続比較する起点になる。",
+    "next_watch": "ETF・機関投資家フローの継続性を追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/ashcrypto/status/2090432251746038099",
+      "url": "https://x.com/arkham/status/2090436744667656212",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 25,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 25,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -67,11 +67,6 @@
       "xai_signal_shortlist": []
     },
     "candidate_shortlist": [],
-    "rejected_reasons": [
-      "再探索1: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索2: 根拠原文が一次資料ページ内に確認できません",
-      "再探索3: 根拠原文が一次資料ページ内に確認できません",
-      "再探索4: この系統の鮮度上限を超えています"
-    ]
+    "rejected_reasons": []
   }
 }

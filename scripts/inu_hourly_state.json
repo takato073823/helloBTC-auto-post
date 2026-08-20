@@ -1332,7 +1332,21 @@
     "inu_auto_8535a0fd96dd3a",
     "inu_overseas_kol_2090126807806746729"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-21-01-a",
+      "post_id": "inu_overseas_kol_2090436744667656212",
+      "source_url": "https://x.com/arkham/status/2090436744667656212",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-20T16:43:36.711116+00:00",
+      "lease_expires_at": "2026-08-20T17:13:36.711116+00:00",
+      "content_fingerprint": "4e8962b60fa2abd34130774fb69c4a376378309e0501b33bf4f04e25b3901663",
+      "event_fingerprint": "431a6afa69446c931df06facb98568f11d776603119096d4198a5bb5b4d65d27"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2822,8 +2836,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-20T16:29:45.583533+00:00",
-      "count": 79435,
+      "checked_at": "2026-08-20T16:43:36.711116+00:00",
+      "count": 79588,
       "fastest_fee": 3
     }
   },
