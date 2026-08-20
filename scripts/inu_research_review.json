@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T20:38:01.367844+00:00",
-  "slot": "2026-08-21-05-a",
+  "generated_at": "2026-08-20T22:03:54.833594+00:00",
+  "slot": "2026-08-21-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T20:38:01.367844+00:00",
-    "to": "2026-08-20T20:38:01.367844+00:00"
+    "from": "2026-08-19T22:03:54.833594+00:00",
+    "to": "2026-08-20T22:03:54.833594+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚖️ CFTCが暗号資産市場の独自ルール作りへ\n\n法案審議の行方にかかわらず、米国の市場構造整備が進む可能性を示す動きです。"
+      "💳 BroadcomのAI案件、資金調達は最大1,000億ドル規模か\n\n単一AI案件への巨額レバレッジが、半導体投資の資金調達リスクを映す。"
     ],
-    "public_compact_post": "⚖️ CFTCが暗号資産市場の独自ルール作りへ\n\nCLARITY Actが成立しない場合、CFTCのスタッフが暗号資産市場構造ルールの策定を検討するよう指示された\n\n法案審議の行方にかかわらず、米国の市場構造整備が進む可能性を示す動きです。"
+    "public_compact_post": "💳 BroadcomのAI案件、資金調達は最大1,000億ドル規模か\n\nシニア担保付き債務は600億〜700億ドル、劣後債務は約300億ドルとなる可能性\nApolloとBlackstoneが参加を協議中\n\n単一AI案件への巨額レバレッジが、半導体投資の資金調達リスクを映す。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚖️ CFTCが暗号資産市場の独自ルール作りへ",
+    "selected_hook": "💳 BroadcomのAI案件、資金調達は最大1,000億ドル規模か",
     "verified_facts": [],
-    "market_or_user_impact": "規制の空白を埋める主体が議会からCFTCへ移る可能性を把握できる。",
+    "market_or_user_impact": "AI投資の成長期待だけでなく、企業債務と信用市場への波及を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "暗号資産の市場構造規制と法案審議を継続的に追える。",
+    "next_watch": "AIインフラ案件の資金調達条件と信用リスクを追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinbureau/status/2090494526494568608",
+      "url": "https://x.com/wallstengine/status/2090533144042905944",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 5,
+          "used": 6,
           "limit": 6
         },
         "grok_editorial": {
