@@ -2322,6 +2322,22 @@
       "topic_type": "crypto_market",
       "content_fingerprint": "b60da8b5ae38eb678f30bf4d6643f4bbb86f94cd7f659e86a11e2844c6f6a729",
       "event_fingerprint": "3636e23d18ae53c767277d3f37be209a834d4a3f2327010bff59bb6ff3af2317"
+    },
+    {
+      "run_id": "32426652810",
+      "started_at": "2026-08-20T22:59:59.794784+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-08-21-07-a",
+      "post_id": "inu_market_2026_08_21_07_a_crypto-ena-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "b60da8b5ae38eb678f30bf4d6643f4bbb86f94cd7f659e86a11e2844c6f6a729",
+      "event_fingerprint": "3636e23d18ae53c767277d3f37be209a834d4a3f2327010bff59bb6ff3af2317",
+      "status": "published",
+      "completed_at": "2026-08-20T23:00:00.762950+00:00"
     }
   ]
 }
