@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T08:49:57.731543+00:00",
-  "slot": "2026-08-20-17-a",
+  "generated_at": "2026-08-20T10:03:40.098998+00:00",
+  "slot": "2026-08-20-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T08:49:57.731543+00:00",
-    "to": "2026-08-20T08:49:57.731543+00:00"
+    "from": "2026-08-19T10:03:40.098998+00:00",
+    "to": "2026-08-20T10:03:40.098998+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦 SWIFTの新台帳で初の銀行間取引\n\n銀行間決済の実運用が進めば、ブロックチェーンの採用論点は実験から接続性へ移る。"
+      "🏦 $BTCと$ETHに機関マネー\n\n$BTCだけでなく$ETHにも資金が向かい、機関投資家の需要配分が焦点になる。"
     ],
-    "public_compact_post": "🏦 SWIFTの新台帳で初の銀行間取引\n\nHSBCとStandard Charteredが、SWIFTのブロックチェーン基盤台帳で初のライブ銀行間取引を完了した。\n\n銀行間決済の実運用が進めば、ブロックチェーンの採用論点は実験から接続性へ移る。"
+    "public_compact_post": "🏦 $BTCと$ETHに機関マネー\n\nBlackRockが$BTCを2億8470万ドル、$ETHを1億2210万ドル購入\n\n$BTCだけでなく$ETHにも資金が向かい、機関投資家の需要配分が焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🏦 SWIFTの新台帳で初の銀行間取引",
+    "selected_hook": "🏦 BTCとETHに機関マネー",
     "verified_facts": [],
-    "market_or_user_impact": "暗号資産と既存金融をつなぐ決済インフラの採用状況を把握できる。",
+    "market_or_user_impact": "2銘柄への具体的な購入額から、機関需要の広がりを把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "金融機関のブロックチェーン利用を、実取引や接続性の進展で追える。",
+    "next_watch": "BTC・ETHの資金流入を金額ベースで追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2090316695504093498",
+      "url": "https://x.com/cryptorover/status/2090346789937283125",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
