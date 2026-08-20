@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T07:28:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T08:19:00+00:00",
+  "last_deep_scan_at": "2026-08-20T11:04:51+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T11:04:51+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T18:10:26+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T19:28:03+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-07T19:28:03+00:00",
@@ -2271,6 +2259,19 @@
       "checked_at": "2026-08-20T08:19:00+00:00",
       "result_count": 6,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T11:04:51+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T11:04:51+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -2543,33 +2544,6 @@
       "why_trending": "表示258,541・投稿後63分・反応率2.1%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 1023,
-      "discovered_at": "2026-08-19T09:16:50+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "solsmint",
-      "has_video": false,
-      "headline": "Is regulatory approval the future of stablecoins? 🤔 https://t.co/NoYseDXgAU just added USDU - a CBUAE-registered dollar stablecoin - to its wallet. No, it's not replacing USDT or U",
-      "impression_count": 38,
-      "like_count": 4,
-      "linked_urls": [
-        "https://bitcoin.com",
-        "https://x.com/i/article/2089989928507842560"
-      ],
-      "media_types": [],
-      "post_id": "2089992610752712987",
-      "post_url": "https://x.com/solsmint/status/2089992610752712987",
-      "posted_at": "2026-08-19T08:27:23+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 3,
-      "score": 57.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Is regulatory approval the future of stablecoins? 🤔 https://t.co/NoYseDXgAU just added USDU - a CBUAE-registered dollar stablecoin - to its wallet. No, it's not replacing USDT or USDC. It's expanding options for 7M+ users. Full breakdown 👇 https://t.co/16gyruWs3y",
-      "topic": "onchain_exchange",
-      "why_trending": "表示38・投稿後49分・反応率26.3%・公式候補リンクあり"
-    },
-    {
       "author_followers": 4706987,
       "discovered_at": "2026-08-19T19:11:39+00:00",
       "discovery_type": "official_x_api",
@@ -2616,6 +2590,58 @@
       "summary": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
       "topic": "watcher_guru",
       "why_trending": "表示164,224・投稿後100分・反応率2.2%"
+    },
+    {
+      "author_followers": 93375,
+      "discovered_at": "2026-08-20T11:04:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Sho54639108",
+      "has_video": false,
+      "headline": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275jGO",
+      "impression_count": 14549,
+      "like_count": 51,
+      "linked_urls": [
+        "https://youtu.be/fJXK-AKNaqA"
+      ],
+      "media_types": [],
+      "post_id": "2090367338709156164",
+      "post_url": "https://x.com/Sho54639108/status/2090367338709156164",
+      "posted_at": "2026-08-20T09:16:25+00:00",
+      "quote_count": 0,
+      "reply_count": 16,
+      "repost_count": 2,
+      "score": 54.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275jGO",
+      "topic": "japanese_market",
+      "why_trending": "表示14,549・投稿後108分・反応率0.6%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 93375,
+      "discovered_at": "2026-08-20T11:04:51+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Sho54639108",
+      "has_video": false,
+      "headline": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275Rwm",
+      "impression_count": 14746,
+      "like_count": 41,
+      "linked_urls": [
+        "https://youtu.be/fJXK-AKNaqA"
+      ],
+      "media_types": [],
+      "post_id": "2090367022333124930",
+      "post_url": "https://x.com/Sho54639108/status/2090367022333124930",
+      "posted_at": "2026-08-20T09:15:09+00:00",
+      "quote_count": 0,
+      "reply_count": 15,
+      "repost_count": 2,
+      "score": 53.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275Rwm",
+      "topic": "japanese_market",
+      "why_trending": "表示14,746・投稿後109分・反応率0.5%・公式候補リンクあり"
     },
     {
       "author_followers": 4710446,
@@ -2700,30 +2726,32 @@
       "why_trending": "表示314・投稿後122分・反応率0.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 93354,
-      "discovered_at": "2026-08-20T03:30:36+00:00",
+      "author_followers": 98,
+      "discovered_at": "2026-08-20T11:04:51+00:00",
       "discovery_type": "official_x_api",
-      "handle": "Sho54639108",
+      "handle": "jl03119",
       "has_video": false,
-      "headline": "【緊急事態.日経平均2134円大暴落ヤバい‼】AI半導体株急落で日本株木端微塵‼２０１８年相場か⁉キオクシア12％暴落。ドル円１５９円。金利急騰で米国株、ハイテク株荒れるか。仮想通貨BTC上昇 https://t.co/IxJwjhctto",
-      "impression_count": 41307,
-      "like_count": 100,
+      "headline": "ビットコインが急騰していますね。私も少し保有しています。今年2月の安値圏で買ったものですが、なかなか上がらなかったので、そのまま放置していました。 急騰の理由は直近 48 時間の 3 つの材料が重なったもののようです (約 64,000 → 70,000 ドル、円建てで 1,100 万円前後・24 時間 +7% 前後)。 https://t.co/dUsjU",
+      "impression_count": 311,
+      "like_count": 0,
       "linked_urls": [
-        "https://youtu.be/fI17pOvnfw8"
+        "https://x.com/jl03119/status/2090388090833789155/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2090004639609745614",
-      "post_url": "https://x.com/Sho54639108/status/2090004639609745614",
-      "posted_at": "2026-08-19T09:15:11+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090388090833789155",
+      "post_url": "https://x.com/jl03119/status/2090388090833789155",
+      "posted_at": "2026-08-20T10:38:53+00:00",
       "quote_count": 0,
-      "reply_count": 16,
-      "repost_count": 6,
-      "score": 44.6,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 44.3,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "【緊急事態.日経平均2134円大暴落ヤバい‼】AI半導体株急落で日本株木端微塵‼２０１８年相場か⁉キオクシア12％暴落。ドル円１５９円。金利急騰で米国株、ハイテク株荒れるか。仮想通貨BTC上昇 https://t.co/IxJwjhctto",
+      "summary": "ビットコインが急騰していますね。私も少し保有しています。今年2月の安値圏で買ったものですが、なかなか上がらなかったので、そのまま放置していました。 急騰の理由は直近 48 時間の 3 つの材料が重なったもののようです (約 64,000 → 70,000 ドル、円建てで 1,100 万円前後・24 時間 +7% 前後)。 https://t.co/dUsjUDbAWm",
       "topic": "japanese_market",
-      "why_trending": "表示41,307・投稿後1095分・反応率0.3%・公式候補リンクあり"
+      "why_trending": "表示311・投稿後25分・反応率0.0%"
     },
     {
       "author_followers": 56,
@@ -2831,32 +2859,32 @@
       "why_trending": "表示23・投稿後9分・反応率0.0%"
     },
     {
-      "author_followers": 8903,
-      "discovered_at": "2026-08-19T09:16:50+00:00",
+      "author_followers": 333,
+      "discovered_at": "2026-08-20T11:04:51+00:00",
       "discovery_type": "official_x_api",
-      "handle": "CryptoHamsterIO",
+      "handle": "mickyairu",
       "has_video": false,
-      "headline": "Crypto Daily – August 18, 2026 Regulatory deadlines and institutional adoption advance, but liquidity and leverage risks persist. Market Overview #Bitcoin held near $64,200 after U",
-      "impression_count": 156,
+      "headline": "🚀仮想通貨、なんでこんなに上がってるんだ？？ 今回の急騰は「ただの仮想通貨祭り」じゃない。 🇺🇸米財務省が長期国債の買い戻し規模を倍増 ↓ 長期金利が低下 ↓ リスク資産に追い風 さらに、 ・BTC ETFへの資金流入 ・トランプ政権の暗号資産政策への期待 ・大量のショートが強制決済 https://t.co/9LAaHFUokD",
+      "impression_count": 6,
       "like_count": 0,
       "linked_urls": [
-        "https://x.com/CryptoHamsterIO/status/2089997491441975773/photo/1"
+        "https://x.com/mickyairu/status/2090393393788866755/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2089997491441975773",
-      "post_url": "https://x.com/CryptoHamsterIO/status/2089997491441975773",
-      "posted_at": "2026-08-19T08:46:46+00:00",
+      "post_id": "2090393393788866755",
+      "post_url": "https://x.com/mickyairu/status/2090393393788866755",
+      "posted_at": "2026-08-20T10:59:57+00:00",
       "quote_count": 0,
       "reply_count": 0,
       "repost_count": 0,
-      "score": 35.1,
+      "score": 34.9,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "Crypto Daily – August 18, 2026 Regulatory deadlines and institutional adoption advance, but liquidity and leverage risks persist. Market Overview #Bitcoin held near $64,200 after U.S. spot Bitcoin ETFs recorded a $137 million inflow, ending a five-day outflow streak that had https://t.co/41gMSgcJIm",
-      "topic": "onchain_exchange",
-      "why_trending": "表示156・投稿後30分・反応率0.0%"
+      "summary": "🚀仮想通貨、なんでこんなに上がってるんだ？？ 今回の急騰は「ただの仮想通貨祭り」じゃない。 🇺🇸米財務省が長期国債の買い戻し規模を倍増 ↓ 長期金利が低下 ↓ リスク資産に追い風 さらに、 ・BTC ETFへの資金流入 ・トランプ政権の暗号資産政策への期待 ・大量のショートが強制決済 https://t.co/9LAaHFUokD",
+      "topic": "japanese_market",
+      "why_trending": "表示6・投稿後4分・反応率0.0%"
     },
     {
       "author_followers": 204,
