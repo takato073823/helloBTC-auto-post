@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T18:09:13+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T19:19:25+00:00",
+  "last_deep_scan_at": "2026-08-20T20:05:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T20:05:17+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T23:44:51+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-07T23:44:51+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T00:34:55+00:00",
@@ -2275,6 +2263,19 @@
       "checked_at": "2026-08-20T19:19:25+00:00",
       "result_count": 6,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T20:05:17+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T20:05:17+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -2333,34 +2334,6 @@
       "summary": "JUST IN: $3,100,000,000 worth of crypto shorts liquidated in the past 24 hours. https://t.co/e7fKZfktnt",
       "topic": "watcher_guru",
       "why_trending": "表示137,691・投稿後47分・反応率2.0%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4707875,
-      "discovered_at": "2026-08-19T21:04:09+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "BREAKING: 🇺🇸 President Trump says the US is considering buying \"sizable\" amounts of Bitcoin and other cryptocurrencies. https://t.co/LO2cZ3sAws",
-      "impression_count": 393911,
-      "like_count": 7715,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090161396294291539/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090161396294291539",
-      "post_url": "https://x.com/WatcherGuru/status/2090161396294291539",
-      "posted_at": "2026-08-19T19:38:04+00:00",
-      "quote_count": 221,
-      "reply_count": 422,
-      "repost_count": 749,
-      "score": 81.4,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "BREAKING: 🇺🇸 President Trump says the US is considering buying \"sizable\" amounts of Bitcoin and other cryptocurrencies. https://t.co/LO2cZ3sAws",
-      "topic": "watcher_guru",
-      "why_trending": "表示393,911・投稿後86分・反応率2.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4711358,
@@ -2503,30 +2476,6 @@
       "why_trending": "表示168,383・投稿後57分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4707875,
-      "discovered_at": "2026-08-19T21:04:09+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 President Trump calls for Congress to pass the Crypto Clarity Act.",
-      "impression_count": 175364,
-      "like_count": 3465,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090162871598542898",
-      "post_url": "https://x.com/WatcherGuru/status/2090162871598542898",
-      "posted_at": "2026-08-19T19:43:56+00:00",
-      "quote_count": 37,
-      "reply_count": 137,
-      "repost_count": 354,
-      "score": 76.9,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: 🇺🇸 President Trump calls for Congress to pass the Crypto Clarity Act.",
-      "topic": "watcher_guru",
-      "why_trending": "表示175,364・投稿後80分・反応率2.5%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
       "author_followers": 4713831,
       "discovered_at": "2026-08-20T14:21:15+00:00",
       "discovery_type": "official_x_api",
@@ -2553,30 +2502,6 @@
       "summary": "Crypto last week vs Crypto this week https://t.co/mctJuJu8TE",
       "topic": "watcher_guru",
       "why_trending": "表示164,699・投稿後78分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4707875,
-      "discovered_at": "2026-08-19T21:04:09+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "🇺🇸 White House Crypto Summit recap: • President Trump says US considers buying \"sizable\" amounts of Bitcoin &amp; other crypto. • Trump calls on Congress to pass Crypto Clarity Act",
-      "impression_count": 258541,
-      "like_count": 3674,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090167176229720467",
-      "post_url": "https://x.com/WatcherGuru/status/2090167176229720467",
-      "posted_at": "2026-08-19T20:01:02+00:00",
-      "quote_count": 76,
-      "reply_count": 208,
-      "repost_count": 584,
-      "score": 75.3,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "🇺🇸 White House Crypto Summit recap: • President Trump says US considers buying \"sizable\" amounts of Bitcoin &amp; other crypto. • Trump calls on Congress to pass Crypto Clarity Act. • Trump says US is ensuring it remains the \"undisputed leader\" in $BTC &amp; crypto. •",
-      "topic": "watcher_guru",
-      "why_trending": "表示258,541・投稿後63分・反応率2.1%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4712880,
@@ -2657,30 +2582,6 @@
       "summary": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
       "topic": "watcher_guru",
       "why_trending": "表示166,843・投稿後92分・反応率2.3%"
-    },
-    {
-      "author_followers": 4707875,
-      "discovered_at": "2026-08-19T21:04:09+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
-      "impression_count": 164224,
-      "like_count": 2774,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090157827667177593",
-      "post_url": "https://x.com/WatcherGuru/status/2090157827667177593",
-      "posted_at": "2026-08-19T19:23:54+00:00",
-      "quote_count": 20,
-      "reply_count": 141,
-      "repost_count": 248,
-      "score": 56.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 President Trump says the US is ensuring it remains the \"undisputed leader\" in Bitcoin and crypto.",
-      "topic": "watcher_guru",
-      "why_trending": "表示164,224・投稿後100分・反応率2.2%"
     },
     {
       "author_followers": 1887146,
@@ -3023,6 +2924,32 @@
       "summary": "仮想通貨上昇⤴️ 始まったかもしれない。 ・米国債買戻し拡大による金利低下 ・大規模ショート精算 ・米国の暗号資産規制緩和期待 ・ホワイトハウスの積極姿勢 ・BTCの重要価格帯突破 ・ETHの2000$回復 ・米国株リスク資産の反発 ・ドル安 まだ若干弱い気もするが上昇基調に 期待したい所です。",
       "topic": "japanese_market",
       "why_trending": "表示40・投稿後145分・反応率2.5%"
+    },
+    {
+      "author_followers": 131905,
+      "discovered_at": "2026-08-20T20:05:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "tehMoonwalkeR",
+      "has_video": false,
+      "headline": "A fully onchain BitMEX was impossible for a decade. On $Sui the pieces finally exist 🧵 📖 Why it was impossible → A perp exchange needs a real orderbook, instant matching, live liqu",
+      "impression_count": 3557,
+      "like_count": 36,
+      "linked_urls": [
+        "https://twitter.com/EmanAbio/status/2090232333693837803"
+      ],
+      "media_types": [],
+      "post_id": "2090376196366455194",
+      "post_url": "https://x.com/tehMoonwalkeR/status/2090376196366455194",
+      "posted_at": "2026-08-20T09:51:37+00:00",
+      "quote_count": 0,
+      "reply_count": 6,
+      "repost_count": 0,
+      "score": 38.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "A fully onchain BitMEX was impossible for a decade. On $Sui the pieces finally exist 🧵 📖 Why it was impossible → A perp exchange needs a real orderbook, instant matching, live liquidations, thousands of times per second → Ethereum: one order = one 12-second, $5 https://t.co/cHJjkBaQoE",
+      "topic": "onchain_exchange",
+      "why_trending": "表示3,557・投稿後613分・反応率1.3%・公式候補リンクあり"
     },
     {
       "author_followers": 1796433,
