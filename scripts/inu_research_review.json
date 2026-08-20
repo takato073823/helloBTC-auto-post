@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T06:03:41.325239+00:00",
+  "generated_at": "2026-08-20T06:39:07.780395+00:00",
   "slot": "2026-08-20-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T06:03:41.325239+00:00",
-    "to": "2026-08-20T06:03:41.325239+00:00"
+    "from": "2026-08-19T06:39:07.780395+00:00",
+    "to": "2026-08-20T06:39:07.780395+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡ 史上最大級のショート清算で市場構造が一変\n\n僕は、急激な資金流入よりもレバレッジ解消後の実需の強さが次の焦点だと見ます。"
+      "📈 ビットコインETFに5.17億ドル流入\n\n資金流入の規模は、機関投資家の需要回復を測る材料になる。"
     ],
-    "public_compact_post": "⚡ 史上最大級のショート清算で市場構造が一変\n\n暗号資産市場に1,900億ドルが加わった\n暗号資産史上最大のショート清算イベントが発生した\n\n僕は、急激な資金流入よりもレバレッジ解消後の実需の強さが次の焦点だと見ます。"
+    "public_compact_post": "📈 ビットコインETFに5.17億ドル流入\n\nBlackRockなどのETFがビットコインを5億1719万ドル購入\n3カ月超ぶりの最大流入\n\n資金流入の規模は、機関投資家の需要回復を測る材料になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚡ 史上最大級のショート清算で市場構造が一変",
+    "selected_hook": "📈 ビットコインETFに5.17億ドル流入",
     "verified_facts": [],
-    "market_or_user_impact": "上昇の中身が新規資金か強制清算かを見極める材料になる。",
+    "market_or_user_impact": "価格だけでなく、ETF経由の実需を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "レバレッジ解消後の資金フローを追う起点になる。",
+    "next_watch": "ETFフローと市場構造の変化を継続して追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/cryptorover/status/2090298412776185901",
+      "url": "https://x.com/ashcrypto/status/2090314360430403731",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
