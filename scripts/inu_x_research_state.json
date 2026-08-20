@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-20T13:34:02+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T13:34:02+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T14:21:15+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-07T21:11:17+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-07T21:11:17+00:00",
@@ -2273,6 +2267,12 @@
       "result_count": 2,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T14:21:15+00:00",
+      "result_count": 9,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2303,6 +2303,34 @@
       "summary": "JUST IN: Bitcoin surges to $69,000 as $1,100,000,000 in crypto shorts are liquidated in 60 minutes. https://t.co/QITm9rsbSC",
       "topic": "watcher_guru",
       "why_trending": "表示198,802・投稿後33分・反応率2.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4713831,
+      "discovered_at": "2026-08-20T14:21:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Standard Chartered Bank predicts Bitcoin will hit $100,000 by the end of this year. https://t.co/FNg5h8urDD",
+      "impression_count": 88927,
+      "like_count": 887,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090439623927550317/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090439623927550317",
+      "post_url": "https://x.com/WatcherGuru/status/2090439623927550317",
+      "posted_at": "2026-08-20T14:03:39+00:00",
+      "quote_count": 22,
+      "reply_count": 114,
+      "repost_count": 89,
+      "score": 82.6,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Standard Chartered Bank predicts Bitcoin will hit $100,000 by the end of this year. https://t.co/FNg5h8urDD",
+      "topic": "watcher_guru",
+      "why_trending": "表示88,927・投稿後17分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4712880,
@@ -2525,6 +2553,34 @@
       "why_trending": "表示144,983・投稿後71分・反応率2.7%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
+      "author_followers": 4713831,
+      "discovered_at": "2026-08-20T14:21:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Peter Schiff says the Bitcoin rally is a \"fakeout\" and tells investors to sell $BTC for gold. https://t.co/oasoaUlniE",
+      "impression_count": 168383,
+      "like_count": 1403,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090429491764191355/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090429491764191355",
+      "post_url": "https://x.com/WatcherGuru/status/2090429491764191355",
+      "posted_at": "2026-08-20T13:23:23+00:00",
+      "quote_count": 56,
+      "reply_count": 376,
+      "repost_count": 103,
+      "score": 78.8,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Peter Schiff says the Bitcoin rally is a \"fakeout\" and tells investors to sell $BTC for gold. https://t.co/oasoaUlniE",
+      "topic": "watcher_guru",
+      "why_trending": "表示168,383・投稿後57分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
       "author_followers": 4705705,
       "discovered_at": "2026-08-19T16:04:42+00:00",
       "discovery_type": "official_x_api",
@@ -2575,6 +2631,34 @@
       "summary": "JUST IN: 🇺🇸 President Trump calls for Congress to pass the Crypto Clarity Act.",
       "topic": "watcher_guru",
       "why_trending": "表示175,364・投稿後80分・反応率2.5%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4713831,
+      "discovered_at": "2026-08-20T14:21:15+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "Crypto last week vs Crypto this week https://t.co/mctJuJu8TE",
+      "impression_count": 164699,
+      "like_count": 2752,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090424395449946607/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090424395449946607",
+      "post_url": "https://x.com/WatcherGuru/status/2090424395449946607",
+      "posted_at": "2026-08-20T13:03:08+00:00",
+      "quote_count": 32,
+      "reply_count": 199,
+      "repost_count": 231,
+      "score": 76.7,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "Crypto last week vs Crypto this week https://t.co/mctJuJu8TE",
+      "topic": "watcher_guru",
+      "why_trending": "表示164,699・投稿後78分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4707875,
@@ -3051,34 +3135,6 @@
       "summary": "🚀仮想通貨、なんでこんなに上がってるんだ？？ 今回の急騰は「ただの仮想通貨祭り」じゃない。 🇺🇸米財務省が長期国債の買い戻し規模を倍増 ↓ 長期金利が低下 ↓ リスク資産に追い風 さらに、 ・BTC ETFへの資金流入 ・トランプ政権の暗号資産政策への期待 ・大量のショートが強制決済 https://t.co/9LAaHFUokD",
       "topic": "japanese_market",
       "why_trending": "表示6・投稿後4分・反応率0.0%"
-    },
-    {
-      "author_followers": 204,
-      "discovered_at": "2026-08-19T15:13:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "CryptoPulsarAI",
-      "has_video": false,
-      "headline": "Thin bid, not brave 🧐 Day - 19.08.2026 • ₿ BTC $65,042 🟢 +0.8% • Ξ ETH $1,936.09 🟢 +1.8% • 🥇 Gold $4,462.70 🟢 +0.26% | 💵 USD/PLN 3.7310 0.0% • 📊 Dominance: BTC 56.55%, ETH 10.14% •",
-      "impression_count": 44,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/CryptoPulsarAI/status/2090071756715262363/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090071756715262363",
-      "post_url": "https://x.com/CryptoPulsarAI/status/2090071756715262363",
-      "posted_at": "2026-08-19T13:41:53+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Thin bid, not brave 🧐 Day - 19.08.2026 • ₿ BTC $65,042 🟢 +0.8% • Ξ ETH $1,936.09 🟢 +1.8% • 🥇 Gold $4,462.70 🟢 +0.26% | 💵 USD/PLN 3.7310 0.0% • 📊 Dominance: BTC 56.55%, ETH 10.14% • 🌍 Market cap $2.303T 🟢 +1.05% | 24h volume $47.9B 🔴 -0.65% • 📈 Open Interest https://t.co/bxU7z0eDdo",
-      "topic": "crypto_market",
-      "why_trending": "表示44・投稿後91分・反応率0.0%"
     },
     {
       "author_followers": 1029,
