@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T00:03:43.495680+00:00",
+  "generated_at": "2026-08-20T00:59:06.509489+00:00",
   "slot": "2026-08-20-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T00:03:43.495680+00:00",
-    "to": "2026-08-20T00:03:43.495680+00:00"
+    "from": "2026-08-19T00:59:06.509489+00:00",
+    "to": "2026-08-20T00:59:06.509489+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦 USDeの資金調達が変わる\n\n僕は、USDeの安定性を左右する新たな信用リスクの開示が焦点になると見ます。"
+      "🏦 USDeの資金調達が変わる\n\n僕は、USDeの安定性を左右する要因が市場金利から信用供与先にも広がると見ます。"
     ],
-    "public_compact_post": "🏦 USDeの資金調達が変わる\n\nEthenaがFalconXと10億ドルの担保付き融資枠を開始\nUSDeを暗号資産の資金調達率だけでなく機関投資家の信用で支える仕組み\n\n僕は、USDeの安定性を左右する新たな信用リスクの開示が焦点になると見ます。"
+    "public_compact_post": "🏦 USDeの資金調達が変わる\n\nEthenaはFalconXと10億ドルの担保付き融資枠を開始\nUSDeを暗号資産の資金調達率だけでなく、機関投資家信用でも支える\n\n僕は、USDeの安定性を左右する要因が市場金利から信用供与先にも広がると見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -27,9 +27,9 @@
     "selected_topic": "x_reaction",
     "selected_hook": "🏦 USDeの資金調達が変わる",
     "verified_facts": [],
-    "market_or_user_impact": "USDeが暗号資産市場の資金調達率に依存する度合いを判断できます。",
+    "market_or_user_impact": "USDeの収益源とリスクが、無期限先物の資金調達率だけでは説明できなくなる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "ステーブルコインの担保・信用供与モデルを継続して追えます。",
+    "next_watch": "ステーブルコインの担保・信用構造を継続的に追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/coinmarketcap/status/2090218045478248533",
@@ -52,7 +52,7 @@
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 3,
+          "used": 4,
           "limit": 6
         },
         "grok_editorial": {
@@ -60,7 +60,7 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 6,
+          "used": 8,
           "limit": 8
         }
       },
@@ -68,56 +68,59 @@
     },
     "candidate_shortlist": [
       {
-        "topic_type": "etf_flow",
-        "hook": "📈 IBIT保有、75.1万BTCへ",
-        "published_at": "2026-08-19T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf/latest-holdings.csv",
-        "why_now": "8月18日時点のETF保有データが更新され、直近の急騰局面で機関需要を確認できます。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "🏦 Strategy、84万BTCを維持",
-        "published_at": "2026-08-10T00:00:00+00:00",
-        "source_url": "https://www.strategy.com/ledger",
-        "why_now": "過去24時間以内に公式台帳が取得でき、8月10日基準の最新保有変化を確認できます。"
-      },
-      {
-        "topic_type": "adoption_kpi",
-        "hook": "💵 Circle、USDC流通額733億ドル",
-        "published_at": "2026-08-05T00:00:00+00:00",
-        "source_url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
-        "why_now": "市場急騰後も、決済基盤の実利用が拡大しているかを確認できる最新の公式数値です。"
+        "topic_type": "developing_story",
+        "hook": "⚠️ Krakenで入出金遅延",
+        "published_at": "2026-08-19T22:02:00+00:00",
+        "source_url": "https://status.kraken.com",
+        "why_now": "8月19日発生の障害が現在もMonitoring状態で残っています。"
       },
       {
         "topic_type": "regulatory_rule_change",
-        "hook": "⚖️ OCC、GENIUS法の規則案を提示",
-        "published_at": "2026-02-25T00:00:00-05:00",
-        "source_url": "https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-9.html",
-        "why_now": "重要テーマですが、公式発表は2026年2月25日で過去24時間条件を満たさないため採用不可です。"
+        "hook": "🏦 OCC、ステーブル規則を整備",
+        "published_at": "2026-06-24T00:00:00+00:00",
+        "source_url": "https://www.occ.gov/topics/laws-and-regulations/occ-regulations/proposed-issuances/occ-proposed-issuances-2026.html",
+        "why_now": "顧客確認規則の意見募集期限が8月21日に迫っています。"
       },
       {
-        "topic_type": "supply_event",
-        "hook": "🔗 Solana、250msをテスト",
-        "published_at": "2026-08-13T00:00:00+00:00",
-        "source_url": "https://solana.com/news/solana-changelog-august-13-2026",
-        "why_now": "過去24時間外の更新であり、今回の採用条件を満たしません。"
+        "topic_type": "onchain",
+        "hook": "📈 Solana、処理容量を66％増強",
+        "published_at": "2026-08-06T00:00:00+00:00",
+        "source_url": "https://solana.com/upgrades",
+        "why_now": "主要チェーンの容量と確定速度に直結する更新が継続しています。"
       },
       {
-        "topic_type": "breaking_news",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
+        "topic_type": "whale_treasury",
+        "hook": "🐋 Metaplanet、BTC保有4.3万枚",
+        "published_at": "2026-08-14T00:00:00+00:00",
+        "source_url": "https://metaplanet.jp/en?lang=ja",
+        "why_now": "日本企業の保有規模を公式表示で確認できます。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦 Strategy、保有84.4万BTC",
+        "published_at": "2026-07-06T00:00:00+00:00",
+        "source_url": "https://www.strategy.com/purchases",
+        "why_now": "企業保有の最新公式集計値として市場の需給観測に使えます。"
+      },
+      {
+        "topic_type": "etf_flow",
+        "hook": "📊 IBIT純資産480億ドル",
+        "published_at": "2026-07-23T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
+        "why_now": "公式ページで確認できるETF規模の最新値として需給分析に使えます。"
       }
     ],
     "rejected_reasons": [
-      "一次探索1: 自動切り抜き可能な公式HTMLではありません",
+      "一次探索1: 同じ一次資料は投稿済みまたは予約済みです",
       "一次探索2: この系統の鮮度上限を超えています",
       "一次探索3: この系統の鮮度上限を超えています",
       "一次探索4: この系統の鮮度上限を超えています",
       "一次探索5: この系統の鮮度上限を超えています",
-      "一次探索6: 過去24時間以内に公開時刻を確認でき、かつHTML一次資料で独立検証できる新規の米国企業IR、日本企業IR、中央銀行発表、取引所障害、主要プロトコル更新は検索結果から確定できませんでした。X起点のホワイトハウス関連発言は、今回の検索で同時刻の公式HTML発表に到達できないため除外しました。",
-      "再探索1: 2026年8月20日09:03 JST時点で、過去24時間以内に公開・更新された、条件を満たす新規のHTML一次資料を3件以上確認できませんでした。検索で確認できた公式ページは、最終更新が2026年8月5〜11日、または予定表・過去データでした。したがって、発表時刻を一次HTMLで検証できる候補を無理に生成しません。"
+      "一次探索6: この系統の鮮度上限を超えています",
+      "再探索1: 同じ一次資料は投稿済みまたは予約済みです",
+      "再探索2: 同じ一次資料は投稿済みまたは予約済みです",
+      "再探索3: 同じ一次資料は投稿済みまたは予約済みです",
+      "再探索4: この系統の鮮度上限を超えています"
     ]
   }
 }
