@@ -2037,6 +2037,27 @@
       "status": "retryable_delivery_failure",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
       "completed_at": "2026-08-20T18:08:35.496413+00:00"
+    },
+    {
+      "run_id": "32403766833",
+      "started_at": "2026-08-20T18:33:18.143354+00:00",
+      "completed_at": "2026-08-20T18:33:49.622360+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-21-03-a",
+      "post_id": "inu_market_2026_08_21_03_a_crypto-btc-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "36a08f438836cbec73e652fa54a4a2cb5d198962dc13d4ad03810e23cdc62c1f",
+      "event_fingerprint": "27f9ff7b381a4e98e306167391802a1310a7cc49bb8e88a4e7ba98994f0ec9b0"
     }
   ]
 }

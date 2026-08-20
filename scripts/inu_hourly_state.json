@@ -1332,7 +1332,21 @@
     "inu_auto_8535a0fd96dd3a",
     "inu_overseas_kol_2090126807806746729"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-21-03-a",
+      "post_id": "inu_market_2026_08_21_03_a_crypto-btc-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BTCUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BTC-USD",
+      "reserved_at": "2026-08-20T18:33:18.145367+00:00",
+      "lease_expires_at": "2026-08-20T19:03:18.145367+00:00",
+      "content_fingerprint": "36a08f438836cbec73e652fa54a4a2cb5d198962dc13d4ad03810e23cdc62c1f",
+      "event_fingerprint": "27f9ff7b381a4e98e306167391802a1310a7cc49bb8e88a4e7ba98994f0ec9b0"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2822,9 +2836,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-20T18:04:00.020761+00:00",
-      "count": 87130,
-      "fastest_fee": 6
+      "checked_at": "2026-08-20T18:33:18.145367+00:00",
+      "count": 92776,
+      "fastest_fee": 9
     }
   },
   "delivery_failures": [
