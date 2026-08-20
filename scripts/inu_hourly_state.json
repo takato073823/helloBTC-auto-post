@@ -1332,7 +1332,21 @@
     "inu_auto_8535a0fd96dd3a",
     "inu_overseas_kol_2090126807806746729"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-21-03-a",
+      "post_id": "inu_overseas_kol_2090459186396319864",
+      "source_url": "https://x.com/stocksavvyshay/status/2090459186396319864",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-20T18:04:00.020761+00:00",
+      "lease_expires_at": "2026-08-20T18:34:00.020761+00:00",
+      "content_fingerprint": "389252ab49b6276920ab99d7f3000162418db7973a8eba301adeab863c0eca85",
+      "event_fingerprint": "3454a951c37ef5060112c0e264a558cc4082384d0af20eaed5cd76b93d221e5c"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2822,9 +2836,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-20T16:43:36.711116+00:00",
-      "count": 79588,
-      "fastest_fee": 3
+      "checked_at": "2026-08-20T18:04:00.020761+00:00",
+      "count": 87130,
+      "fastest_fee": 6
     }
   },
   "delivery_failures": [
@@ -3379,9 +3393,9 @@
   "api_usage": {
     "jst_date": "2026-08-21",
     "counts": {
-      "grok_x_search": 2,
-      "openai_web_search": 4,
-      "grok_editorial": 1
+      "grok_x_search": 3,
+      "openai_web_search": 6,
+      "grok_editorial": 2
     },
     "claims": [
       {
@@ -3411,6 +3425,22 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-08-20T16:29:45.583533+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
       }
     ]
   }

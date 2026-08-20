@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T16:43:36.711116+00:00",
-  "slot": "2026-08-21-01-a",
+  "generated_at": "2026-08-20T18:04:00.020761+00:00",
+  "slot": "2026-08-21-03-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T16:43:36.711116+00:00",
-    "to": "2026-08-20T16:43:36.711116+00:00"
+    "from": "2026-08-19T18:04:00.020761+00:00",
+    "to": "2026-08-20T18:04:00.020761+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🟣 $ETHに7カ月ぶりの大型買い\n\n機関投資家の需要が一時的な資金流入か継続トレンドかが焦点になる。"
+      "🏗️ AI投資、年1.6兆ドル規模へ\n\n僕はAI投資の拡大で、電力制約と収益化の進捗が市場の焦点になると見ます。"
     ],
-    "public_compact_post": "🟣 $ETHに7カ月ぶりの大型買い\n\nBlackRockの顧客は$ETHを1億2200万ドル購入\n直前の最大購入は1月15日の1億4900万ドル\n\n機関投資家の需要が一時的な資金流入か継続トレンドかが焦点になる。"
+    "public_compact_post": "🏗️ AI投資、年1.6兆ドル規模へ\n\nGoldman SachsはAI関連投資が2031年に年間約1.6兆ドルへ倍増超と試算\n2031年までの累計支出は約7.6兆ドル、電力支出は87%増の730億ドルとされる\n\n僕はAI投資の拡大で、電力制約と収益化の進捗が市場の焦点になると見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🟣 ETHに7カ月ぶりの大型買い",
+    "selected_hook": "🏗️ AI投資、年1.6兆ドル規模へ",
     "verified_facts": [],
-    "market_or_user_impact": "機関投資家の暗号資産需要を金額で確認できる。",
+    "market_or_user_impact": "AI関連支出が2031年までにどこまで拡大し、電力コストが収益性を左右するかを把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "ETF・機関投資家フローの継続性を追う材料になる。",
+    "next_watch": "AI投資の増額と電力需要の変化を、企業決算や設備投資計画と照合する起点になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/arkham/status/2090436744667656212",
+      "url": "https://x.com/stocksavvyshay/status/2090459186396319864",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 36,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +47,81 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 36,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 3,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 1,
+          "used": 2,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 4,
+          "used": 6,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "etf_flow",
+        "hook": "📈 IBIT純資産、19日で513億ドル",
+        "published_at": "2026-08-19T00:00:00-04:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
+        "why_now": "8月19日分のETF純資産とNAV変化が公式ページで更新されたため。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦 Metaplanet、米国へ2,100 $BTC投資",
+        "published_at": "2026-08-18T00:00:00+09:00",
+        "source_url": "https://metaplanet.jp/en/disclosures",
+        "why_now": "8月18日の公式開示が過去24時間の市場テーマとして継続しているため。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "⚖️ CFTC、新イノベーション委を始動",
+        "published_at": "2026-08-20T00:00:00-04:00",
+        "source_url": "https://www.cftc.gov/PressRoom/Events/opaeventiac082026",
+        "why_now": "8月20日に初会合が設定され、米国の規制議論が具体的に動くため。"
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "🤖 NVIDIA、AI計算資源に5000億ドル構想",
+        "published_at": "2026-08-10T00:00:00-07:00",
+        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx",
+        "why_now": "AI計算資源への大規模資本流入が、暗号資産マイナーの競争環境を変えるため。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "🪙 Coinbase、USDC保有が200億ドル",
+        "published_at": "2026-07-30T00:00:00-07:00",
+        "source_url": "https://investor.coinbase.com/news/news-details/2026/Coinbase-Q2-Earnings-Everything-Exchange-Drives-3rd-Consecutive-Quarter-of-Record-Crypto-Trading-Volume-Market-Share-Revenue-Diversification-and-Resilience/default.aspx",
+        "why_now": "主要取引所の決済・保管規模を示す公式KPIとして、現在の需給分析に使えるため。"
+      },
+      {
+        "topic_type": "onchain",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: この系統の鮮度上限を超えています",
+      "一次探索2: この系統の鮮度上限を超えています",
+      "一次探索3: 公表予定だけで具体的な変化がないため自動投稿できません",
+      "一次探索4: この系統の鮮度上限を超えています",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: 過去24時間以内の一次資料で、ETF・オンチェーン・日本企業IR・中央銀行・取引所安全性を示す新規かつ取得可能なHTML発表を追加確認できなかった。",
+      "再探索1: 403 Client Error: Forbidden for url: https://www.bls.gov/news.release/archives/youth_08202026.htm",
+      "再探索2: この系統の鮮度上限を超えています",
+      "再探索3: この系統の鮮度上限を超えています",
+      "再探索4: この系統の鮮度上限を超えています",
+      "再探索5: 24時間以内の一次資料という条件では、上記以外に発表主体と更新時刻を確認できる、分散したHTTPS HTML候補を3件以上追加確保できなかった。特にETFページは2026年8月11日、Strategyの最新掲載は2026年6月で鮮度上限を超えるため除外。"
+    ]
   }
 }
