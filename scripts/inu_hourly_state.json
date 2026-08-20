@@ -1349,7 +1349,21 @@
     "inu_overseas_kol_2090126807806746729",
     "inu_market_2026_08_21_03_a_crypto-btc-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-21-05-a",
+      "post_id": "inu_overseas_kol_2090494526494568608",
+      "source_url": "https://x.com/coinbureau/status/2090494526494568608",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-20T20:38:01.367844+00:00",
+      "lease_expires_at": "2026-08-20T21:08:01.367844+00:00",
+      "content_fingerprint": "17ab20804a0f7cfc83aca16501aaa59b58495f7303a41c12148af36a75596b0e",
+      "event_fingerprint": "03ebbe50340bc8a1e6b5bb397c9912060abe98eeec6e82e081f8194d2ffb12a6"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2855,9 +2869,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-20T20:23:45.223407+00:00",
-      "count": 92964,
-      "fastest_fee": 4
+      "checked_at": "2026-08-20T20:38:01.367844+00:00",
+      "count": 90534,
+      "fastest_fee": 3
     }
   },
   "delivery_failures": [
