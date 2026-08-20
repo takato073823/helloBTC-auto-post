@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-20T03:30:36+00:00",
-  "last_watcher_guru_scan_at": "2026-08-20T04:22:12+00:00",
+  "last_deep_scan_at": "2026-08-20T05:15:49+00:00",
+  "last_watcher_guru_scan_at": "2026-08-20T05:15:49+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-07T14:01:27+00:00",
-      "result_count": 7,
-      "spike": false,
-      "topic": "japanese_market"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-07T15:06:33+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-07T16:08:25+00:00",
@@ -2271,6 +2258,19 @@
       "checked_at": "2026-08-20T04:22:12+00:00",
       "result_count": 6,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-20T05:15:49+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-20T05:15:49+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
