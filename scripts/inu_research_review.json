@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-19T22:54:11.090169+00:00",
-  "slot": "2026-08-20-07-a",
+  "generated_at": "2026-08-20T00:03:43.495680+00:00",
+  "slot": "2026-08-20-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-18T22:54:11.090169+00:00",
-    "to": "2026-08-19T22:54:11.090169+00:00"
+    "from": "2026-08-19T00:03:43.495680+00:00",
+    "to": "2026-08-20T00:03:43.495680+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💰米国債務、40兆ドルを突破\n\n利払いが赤字規模に迫るなか、財政運営と金利水準の組み合わせが市場の焦点になる。"
+      "🏦 USDeの資金調達が変わる\n\n僕は、USDeの安定性を左右する新たな信用リスクの開示が焦点になると見ます。"
     ],
-    "public_compact_post": "💰米国債務、40兆ドルを突破\n\n米国の総国債残高は2017年の19.95兆ドルから現在40兆ドル超に増加\nFY2026の財政赤字は約1.8兆ドル、年間利払いは約1.2兆ドル\n\n利払いが赤字規模に迫るなか、財政運営と金利水準の組み合わせが市場の焦点になる。"
+    "public_compact_post": "🏦 USDeの資金調達が変わる\n\nEthenaがFalconXと10億ドルの担保付き融資枠を開始\nUSDeを暗号資産の資金調達率だけでなく機関投資家の信用で支える仕組み\n\n僕は、USDeの安定性を左右する新たな信用リスクの開示が焦点になると見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "💰米国債務、40兆ドルを突破",
+    "selected_hook": "🏦 USDeの資金調達が変わる",
     "verified_facts": [],
-    "market_or_user_impact": "債務残高だけでなく、年間利払い約1.2兆ドルが財政収支に与える重さを把握できる。",
+    "market_or_user_impact": "USDeが暗号資産市場の資金調達率に依存する度合いを判断できます。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "INUで米国財政と市場に波及する具体的な数字を追える。",
+    "next_watch": "ステーブルコインの担保・信用供与モデルを継続して追えます。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bearbulltraders/status/2090176625342398574",
+      "url": "https://x.com/coinmarketcap/status/2090218045478248533",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 40,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 40,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 3,
           "limit": 6
         },
         "grok_editorial": {
@@ -60,13 +60,64 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 4,
+          "used": 6,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "etf_flow",
+        "hook": "📈 IBIT保有、75.1万BTCへ",
+        "published_at": "2026-08-19T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf/latest-holdings.csv",
+        "why_now": "8月18日時点のETF保有データが更新され、直近の急騰局面で機関需要を確認できます。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦 Strategy、84万BTCを維持",
+        "published_at": "2026-08-10T00:00:00+00:00",
+        "source_url": "https://www.strategy.com/ledger",
+        "why_now": "過去24時間以内に公式台帳が取得でき、8月10日基準の最新保有変化を確認できます。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "💵 Circle、USDC流通額733億ドル",
+        "published_at": "2026-08-05T00:00:00+00:00",
+        "source_url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
+        "why_now": "市場急騰後も、決済基盤の実利用が拡大しているかを確認できる最新の公式数値です。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "⚖️ OCC、GENIUS法の規則案を提示",
+        "published_at": "2026-02-25T00:00:00-05:00",
+        "source_url": "https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-9.html",
+        "why_now": "重要テーマですが、公式発表は2026年2月25日で過去24時間条件を満たさないため採用不可です。"
+      },
+      {
+        "topic_type": "supply_event",
+        "hook": "🔗 Solana、250msをテスト",
+        "published_at": "2026-08-13T00:00:00+00:00",
+        "source_url": "https://solana.com/news/solana-changelog-august-13-2026",
+        "why_now": "過去24時間外の更新であり、今回の採用条件を満たしません。"
+      },
+      {
+        "topic_type": "breaking_news",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: 自動切り抜き可能な公式HTMLではありません",
+      "一次探索2: この系統の鮮度上限を超えています",
+      "一次探索3: この系統の鮮度上限を超えています",
+      "一次探索4: この系統の鮮度上限を超えています",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: 過去24時間以内に公開時刻を確認でき、かつHTML一次資料で独立検証できる新規の米国企業IR、日本企業IR、中央銀行発表、取引所障害、主要プロトコル更新は検索結果から確定できませんでした。X起点のホワイトハウス関連発言は、今回の検索で同時刻の公式HTML発表に到達できないため除外しました。",
+      "再探索1: 2026年8月20日09:03 JST時点で、過去24時間以内に公開・更新された、条件を満たす新規のHTML一次資料を3件以上確認できませんでした。検索で確認できた公式ページは、最終更新が2026年8月5〜11日、または予定表・過去データでした。したがって、発表時刻を一次HTMLで検証できる候補を無理に生成しません。"
+    ]
   }
 }
