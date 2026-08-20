@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-20T10:39:10.276625+00:00",
-  "slot": "2026-08-20-19-a",
+  "generated_at": "2026-08-20T12:03:59.182150+00:00",
+  "slot": "2026-08-20-21-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-19T10:39:10.276625+00:00",
-    "to": "2026-08-20T10:39:10.276625+00:00"
+    "from": "2026-08-19T12:03:59.182150+00:00",
+    "to": "2026-08-20T12:03:59.182150+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 $ETH現物ETFに1.89億ドル流入\n\n僕は、ETF経由の資金流入が一時的か継続するかを見極めたいです。"
+      "📊 ウォルマート、増収増益でECも加速\n\n消費の底堅さとデジタル投資の成果が同時に表れた決算です。"
     ],
-    "public_compact_post": "📈 $ETH現物ETFに1.89億ドル流入\n\n米国のEthereum現物ETFは前日に1億8,915万ドル相当の$ETHを購入\n単日買い越し額として過去10カ月で最大\n\n僕は、ETF経由の資金流入が一時的か継続するかを見極めたいです。"
+    "public_compact_post": "📊 ウォルマート、増収増益でECも加速\n\nQ2売上高は1879億ドルで前年同期比5.9%増、調整後EPSは0.81ドルで19%増\n世界のEC売上高は23%増、通期調整後EPS見通しは2.80〜2.87ドル\n\n消費の底堅さとデジタル投資の成果が同時に表れた決算です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈 ETH現物ETFに1.89億ドル流入",
+    "selected_hook": "📊 ウォルマート、増収増益でECも加速",
     "verified_facts": [],
-    "market_or_user_impact": "ETF資金が価格形成に与える影響を、具体的な流入額で追える。",
+    "market_or_user_impact": "景気減速局面でも消費とECがどの程度持続しているかを数値で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "今後のETFフローとETH価格の連動を継続観測できる。",
+    "next_watch": "大型小売企業の実績とガイダンスを簡潔に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/ashcrypto/status/2090358271689306228",
+      "url": "https://x.com/wallstengine/status/2090394704471101707",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
