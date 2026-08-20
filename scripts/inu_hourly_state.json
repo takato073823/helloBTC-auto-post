@@ -1249,6 +1249,25 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "36a08f438836cbec73e652fa54a4a2cb5d198962dc13d4ad03810e23cdc62c1f",
       "event_fingerprint": "27f9ff7b381a4e98e306167391802a1310a7cc49bb8e88a4e7ba98994f0ec9b0"
+    },
+    {
+      "slot": "2026-08-21-05-a",
+      "post_id": "inu_overseas_kol_2090494526494568608",
+      "tweet_id": "2090538927929311368",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2090494526494568608",
+      "published_at": "2026-08-20T17:41:49+00:00",
+      "posted_at": "2026-08-20T20:38:15.575374+00:00",
+      "hook": "⚖️ CFTCが暗号資産市場の独自ルール作りへ",
+      "follow_value": "暗号資産の市場構造規制と法案審議を継続的に追える。",
+      "content_fingerprint": "17ab20804a0f7cfc83aca16501aaa59b58495f7303a41c12148af36a75596b0e",
+      "event_fingerprint": "03ebbe50340bc8a1e6b5bb397c9912060abe98eeec6e82e081f8194d2ffb12a6",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090494526494568608",
+      "source_handle": "coinbureau"
     }
   ],
   "posted_ids": [
@@ -1347,23 +1366,10 @@
     "inu_auto_00150f16261fb6",
     "inu_auto_8535a0fd96dd3a",
     "inu_overseas_kol_2090126807806746729",
-    "inu_market_2026_08_21_03_a_crypto-btc-usd"
+    "inu_market_2026_08_21_03_a_crypto-btc-usd",
+    "inu_overseas_kol_2090494526494568608"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-21-05-a",
-      "post_id": "inu_overseas_kol_2090494526494568608",
-      "source_url": "https://x.com/coinbureau/status/2090494526494568608",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-20T20:38:01.367844+00:00",
-      "lease_expires_at": "2026-08-20T21:08:01.367844+00:00",
-      "content_fingerprint": "17ab20804a0f7cfc83aca16501aaa59b58495f7303a41c12148af36a75596b0e",
-      "event_fingerprint": "03ebbe50340bc8a1e6b5bb397c9912060abe98eeec6e82e081f8194d2ffb12a6"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2670,6 +2676,25 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "36a08f438836cbec73e652fa54a4a2cb5d198962dc13d4ad03810e23cdc62c1f",
       "event_fingerprint": "27f9ff7b381a4e98e306167391802a1310a7cc49bb8e88a4e7ba98994f0ec9b0"
+    },
+    {
+      "slot": "2026-08-21-05-a",
+      "post_id": "inu_overseas_kol_2090494526494568608",
+      "tweet_id": "2090538927929311368",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2090494526494568608",
+      "published_at": "2026-08-20T17:41:49+00:00",
+      "posted_at": "2026-08-20T20:38:15.575374+00:00",
+      "hook": "⚖️ CFTCが暗号資産市場の独自ルール作りへ",
+      "follow_value": "暗号資産の市場構造規制と法案審議を継続的に追える。",
+      "content_fingerprint": "17ab20804a0f7cfc83aca16501aaa59b58495f7303a41c12148af36a75596b0e",
+      "event_fingerprint": "03ebbe50340bc8a1e6b5bb397c9912060abe98eeec6e82e081f8194d2ffb12a6",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090494526494568608",
+      "source_handle": "coinbureau"
     }
   ],
   "scheduled_checks": [
