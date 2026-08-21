@@ -1322,6 +1322,25 @@
       "delivery_mode": "x_native_video_reference",
       "source_tweet_id": "2090580530563834327",
       "source_handle": "coinbureau"
+    },
+    {
+      "slot": "2026-08-21-21-a",
+      "post_id": "inu_overseas_kol_2090740191086686581",
+      "tweet_id": "2090771996355293607",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/cryptorover/status/2090740191086686581",
+      "published_at": "2026-08-21T09:58:00+00:00",
+      "posted_at": "2026-08-21T12:04:23.422744+00:00",
+      "hook": "📈ビットコイン、2024年以来最大の週足",
+      "follow_value": "価格だけでなく、週足と過去の支持抵抗帯を使って市場構造を追える。",
+      "content_fingerprint": "f28222952ee9b77b1f5a56b7008c9e128ee43bcfd2f5bc5e410c5763c26b68e2",
+      "event_fingerprint": "94e72251527a2d1e2e10b0ab24b1a1d9c1051257a7632d73d4bb1da493f72f72",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090740191086686581",
+      "source_handle": "cryptorover"
     }
   ],
   "posted_ids": [
@@ -1424,23 +1443,10 @@
     "inu_overseas_kol_2090494526494568608",
     "inu_market_2026_08_21_07_a_crypto-ena-usd",
     "inu_overseas_kol_2090551950739669316",
-    "inu_overseas_kol_2090580530563834327"
+    "inu_overseas_kol_2090580530563834327",
+    "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-21-21-a",
-      "post_id": "inu_overseas_kol_2090740191086686581",
-      "source_url": "https://x.com/cryptorover/status/2090740191086686581",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-21T12:04:01.521239+00:00",
-      "lease_expires_at": "2026-08-21T12:34:01.521239+00:00",
-      "content_fingerprint": "f28222952ee9b77b1f5a56b7008c9e128ee43bcfd2f5bc5e410c5763c26b68e2",
-      "event_fingerprint": "94e72251527a2d1e2e10b0ab24b1a1d9c1051257a7632d73d4bb1da493f72f72"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2820,6 +2826,25 @@
       "delivery_mode": "x_native_video_reference",
       "source_tweet_id": "2090580530563834327",
       "source_handle": "coinbureau"
+    },
+    {
+      "slot": "2026-08-21-21-a",
+      "post_id": "inu_overseas_kol_2090740191086686581",
+      "tweet_id": "2090771996355293607",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/cryptorover/status/2090740191086686581",
+      "published_at": "2026-08-21T09:58:00+00:00",
+      "posted_at": "2026-08-21T12:04:23.422744+00:00",
+      "hook": "📈ビットコイン、2024年以来最大の週足",
+      "follow_value": "価格だけでなく、週足と過去の支持抵抗帯を使って市場構造を追える。",
+      "content_fingerprint": "f28222952ee9b77b1f5a56b7008c9e128ee43bcfd2f5bc5e410c5763c26b68e2",
+      "event_fingerprint": "94e72251527a2d1e2e10b0ab24b1a1d9c1051257a7632d73d4bb1da493f72f72",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090740191086686581",
+      "source_handle": "cryptorover"
     }
   ],
   "scheduled_checks": [
