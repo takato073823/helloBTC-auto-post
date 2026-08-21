@@ -1446,21 +1446,7 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-21-23-a",
-      "post_id": "inu_overseas_kol_2090764870933238182",
-      "source_url": "https://x.com/ashcrypto/status/2090764870933238182",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-21T14:30:31.185933+00:00",
-      "lease_expires_at": "2026-08-21T15:00:31.185933+00:00",
-      "content_fingerprint": "fe315f5f12f03e505d939701f483cb213fb55df826fd03316967a9b95624a5cb",
-      "event_fingerprint": "f95eb736c9c480f5a87bf3b2ad56451d87b7264ed3dd389b20cc76a8f1c0d2f6"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3747,6 +3733,13 @@
       "slot": "2026-08-21-23-a",
       "post_id": "inu_overseas_kol_2090764870933238182",
       "failed_at": "2026-08-21T14:04:08.403159+00:00",
+      "stage": "publish",
+      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
+    },
+    {
+      "slot": "2026-08-21-23-a",
+      "post_id": "inu_overseas_kol_2090764870933238182",
+      "failed_at": "2026-08-21T14:30:45.505227+00:00",
       "stage": "publish",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
     }
