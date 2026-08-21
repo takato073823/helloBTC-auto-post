@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T04:47:57.938194+00:00",
-  "slot": "2026-08-21-13-a",
+  "generated_at": "2026-08-21T06:03:46.194852+00:00",
+  "slot": "2026-08-21-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T04:47:57.938194+00:00",
-    "to": "2026-08-21T04:47:57.938194+00:00"
+    "from": "2026-08-20T06:03:46.194852+00:00",
+    "to": "2026-08-21T06:03:46.194852+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📉 欧州株、5日連続安は4月以来の長さ\n\n欧州株の弱さが続くなら、暗号資産への資金流入が地域間のリスク選好を映す可能性がある。"
+      "⛏️ マイナーから取引所へ、2.3万$BTC\n\n僕は、上昇局面でのマイナー売却圧力を測る重要な局面だと見ます。"
     ],
-    "public_compact_post": "📉 欧州株、5日連続安は4月以来の長さ\n\n欧州株は5営業日連続で下落\n今回の連続下落は4月以来で最長\n\n欧州株の弱さが続くなら、暗号資産への資金流入が地域間のリスク選好を映す可能性がある。"
+    "public_compact_post": "⛏️ マイナーから取引所へ、2.3万$BTC\n\nマイナーからBinanceへのフローが23,260 $BTCに達した\n6月4日以来の高水準で、$BTCが7.4万ドルを上抜けた局面だった\n\n僕は、上昇局面でのマイナー売却圧力を測る重要な局面だと見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📉 欧州株、5日連続安は4月以来の長さ",
+    "selected_hook": "⛏️ マイナーから取引所へ、2.3万BTC",
     "verified_facts": [],
-    "market_or_user_impact": "欧州株の連続下落という具体的な地合いを、暗号資産の動きと並べて判断できる。",
+    "market_or_user_impact": "上昇相場における供給増加の規模を、具体的なBTCフローで把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "株式市場の地域別ストレスと暗号資産の相関変化を追う起点になる。",
+    "next_watch": "価格だけでなく、マイナーの取引所送金を追う視点を提供できる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/barchart/status/2090627317961752655",
+      "url": "https://x.com/einsteinbtc1/status/2090672610145382569",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
