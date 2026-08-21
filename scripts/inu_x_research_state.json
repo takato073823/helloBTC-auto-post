@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-21T03:36:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T03:36:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T04:24:17+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T05:07:43+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T06:05:06+00:00",
@@ -2279,6 +2273,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "equities_ai"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T04:24:17+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2563,6 +2563,34 @@
       "why_trending": "表示125,831・投稿後71分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
+      "author_followers": 4718889,
+      "discovered_at": "2026-08-21T04:24:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "BREAKING: $75,000 Bitcoin https://t.co/8wAlOSUaXK",
+      "impression_count": 176406,
+      "like_count": 4214,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090614160317165706/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090614160317165706",
+      "post_url": "https://x.com/WatcherGuru/status/2090614160317165706",
+      "posted_at": "2026-08-21T01:37:12+00:00",
+      "quote_count": 86,
+      "reply_count": 189,
+      "repost_count": 442,
+      "score": 61.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BREAKING: $75,000 Bitcoin https://t.co/8wAlOSUaXK",
+      "topic": "watcher_guru",
+      "why_trending": "表示176,406・投稿後167分・反応率3.2%"
+    },
+    {
       "author_followers": 4712880,
       "discovered_at": "2026-08-20T12:03:15+00:00",
       "discovery_type": "official_x_api",
@@ -2613,6 +2641,30 @@
       "summary": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
       "topic": "watcher_guru",
       "why_trending": "表示166,843・投稿後92分・反応率2.3%"
+    },
+    {
+      "author_followers": 4718889,
+      "discovered_at": "2026-08-21T04:24:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $222,000,000 shorts liquidated from the cryptocurrency market in the past 60 minutes.",
+      "impression_count": 188825,
+      "like_count": 2858,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090617429928165432",
+      "post_url": "https://x.com/WatcherGuru/status/2090617429928165432",
+      "posted_at": "2026-08-21T01:50:11+00:00",
+      "quote_count": 70,
+      "reply_count": 177,
+      "repost_count": 259,
+      "score": 54.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: $222,000,000 shorts liquidated from the cryptocurrency market in the past 60 minutes.",
+      "topic": "watcher_guru",
+      "why_trending": "表示188,825・投稿後154分・反応率2.0%"
     },
     {
       "author_followers": 1887146,
@@ -2713,6 +2765,34 @@
       "summary": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
       "topic": "watcher_guru",
       "why_trending": "表示153,431・投稿後115分・反応率1.6%"
+    },
+    {
+      "author_followers": 4718889,
+      "discovered_at": "2026-08-21T04:24:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $74,000 Bitcoin https://t.co/j5pp1VYg2J",
+      "impression_count": 169297,
+      "like_count": 2618,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090610055439933819/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090610055439933819",
+      "post_url": "https://x.com/WatcherGuru/status/2090610055439933819",
+      "posted_at": "2026-08-21T01:20:53+00:00",
+      "quote_count": 71,
+      "reply_count": 152,
+      "repost_count": 241,
+      "score": 48.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: $74,000 Bitcoin https://t.co/j5pp1VYg2J",
+      "topic": "watcher_guru",
+      "why_trending": "表示169,297・投稿後183分・反応率2.1%"
     },
     {
       "author_followers": 224,
@@ -2931,6 +3011,30 @@
       "summary": "ビットコインが急騰していますね。私も少し保有しています。今年2月の安値圏で買ったものですが、なかなか上がらなかったので、そのまま放置していました。 急騰の理由は直近 48 時間の 3 つの材料が重なったもののようです (約 64,000 → 70,000 ドル、円建てで 1,100 万円前後・24 時間 +7% 前後)。 https://t.co/dUsjUDbAWm",
       "topic": "japanese_market",
       "why_trending": "表示311・投稿後25分・反応率0.0%"
+    },
+    {
+      "author_followers": 4718889,
+      "discovered_at": "2026-08-21T04:24:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Spot Bitcoin ETF volume surpasses $5.3 billion today. • BlackRock: $4,438,272,142 • Fidelity: $438,039,722 • Grayscale: $208,761,824 • Bitwise: $106,828,983 • ARK Invest: ",
+      "impression_count": 247650,
+      "like_count": 2642,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090573348879176018",
+      "post_url": "https://x.com/WatcherGuru/status/2090573348879176018",
+      "posted_at": "2026-08-20T22:55:02+00:00",
+      "quote_count": 51,
+      "reply_count": 140,
+      "repost_count": 319,
+      "score": 43.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Spot Bitcoin ETF volume surpasses $5.3 billion today. • BlackRock: $4,438,272,142 • Fidelity: $438,039,722 • Grayscale: $208,761,824 • Bitwise: $106,828,983 • ARK Invest: $72,899,488 • VanEck: $32,844,242 • Morgan Stanley: $14,801,590 • Franklin: $11,174,730 •",
+      "topic": "watcher_guru",
+      "why_trending": "表示247,650・投稿後329分・反応率1.5%"
     },
     {
       "author_followers": 131905,
