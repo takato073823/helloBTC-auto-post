@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T02:03:45.130598+00:00",
+  "generated_at": "2026-08-21T02:58:32.847658+00:00",
   "slot": "2026-08-21-11-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T02:03:45.130598+00:00",
-    "to": "2026-08-21T02:03:45.130598+00:00"
+    "from": "2026-08-20T02:58:32.847658+00:00",
+    "to": "2026-08-21T02:58:32.847658+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🇯🇵 日本CPIが2.0%、BOJ利上げ観測が強まる\n\n円金利の上昇が続けば、世界の資金調達コストとリスク資産の流れが変わる余地がある。"
+      "📥 ビットコイン現物ETFに過去最大級の資金流入\n\n短期上昇だけでなく、機関投資家の継続的な需要が続くかが焦点になる。"
     ],
-    "public_compact_post": "🇯🇵 日本CPIが2.0%、BOJ利上げ観測が強まる\n\n日本のCPIは市場予想を上回る2.0%。\nBOJは9月17日の会合で政策金利を1.0%から1.25%へ引き上げる可能性がある。\n\n円金利の上昇が続けば、世界の資金調達コストとリスク資産の流れが変わる余地がある。"
+    "public_compact_post": "📥 ビットコイン現物ETFに過去最大級の資金流入\n\n1日で5億1700万ドルが流入し、5月以来最大の流入額となった\nIBITが2億8400万ドル、ARKが7700万ドル、Fidelityが6200万ドルを記録した\n\n短期上昇だけでなく、機関投資家の継続的な需要が続くかが焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🇯🇵 日本CPIが2.0%、BOJ利上げ観測が強まる",
+    "selected_hook": "📥 ビットコイン現物ETFに過去最大級の資金流入",
     "verified_facts": [],
-    "market_or_user_impact": "円金利の上昇が、株式・暗号資産・為替のポジション調整に波及する可能性を確認できる。",
+    "market_or_user_impact": "ETF全体の流入額だけでなく、IBITなど商品別の資金集中も把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "BOJの利上げ判断と、その後の円・国債・リスク資産の反応を追う材料になる。",
+    "next_watch": "価格ニュースに偏らず、機関投資家の実際の資金移動を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinbureau/status/2090606236521943513",
+      "url": "https://x.com/coinbureau/status/2090597250833744129",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
