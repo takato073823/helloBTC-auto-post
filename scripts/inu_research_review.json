@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T18:30:39.993456+00:00",
+  "generated_at": "2026-08-21T18:49:26.431404+00:00",
   "slot": "2026-08-22-03-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T18:30:39.993456+00:00",
-    "to": "2026-08-21T18:30:39.993456+00:00"
+    "from": "2026-08-20T18:49:26.431404+00:00",
+    "to": "2026-08-21T18:49:26.431404+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🐋 半年ぶりの大口買い\n\n機関投資家の需要回復が一時的か継続的か、資金フローの確認が焦点です。"
+      "🟠 半年ぶりの大口買い\n\n機関投資家の需要回復が続くか、資金流入の持続性が焦点です。"
     ],
-    "public_compact_post": "🐋 半年ぶりの大口買い\n\nBlackRockの顧客が$BTCを5億ドル超購入\n半年超ぶりで最大の買い\n\n機関投資家の需要回復が一時的か継続的か、資金フローの確認が焦点です。"
+    "public_compact_post": "🟠 半年ぶりの大口買い\n\nBlackRockの顧客が$BTCを5億ドル超購入\n半年超ぶりの最大規模の買い\n\n機関投資家の需要回復が続くか、資金流入の持続性が焦点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,11 +25,11 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🐋 半年ぶりの大口買い",
+    "selected_hook": "🟠 半年ぶりの大口買い",
     "verified_facts": [],
-    "market_or_user_impact": "価格上昇だけでなく、機関投資家の実需が伴っているか確認できる。",
+    "market_or_user_impact": "大口資金の規模と再流入のタイミングを把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "今後のETF・機関投資家フローと買いの継続性を追える。",
+    "next_watch": "ETFや機関資金のフローを継続的に追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/arkham/status/2090840546298237098",
