@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T14:43:49.670733+00:00",
-  "slot": "2026-08-21-23-a",
+  "generated_at": "2026-08-21T16:03:40.062503+00:00",
+  "slot": "2026-08-22-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T14:43:49.670733+00:00",
-    "to": "2026-08-21T14:43:49.670733+00:00"
+    "from": "2026-08-20T16:03:40.062503+00:00",
+    "to": "2026-08-21T16:03:40.062503+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 ビットコインETFに週16億ドル流入\n\n資金流入の急増が続くか、価格上昇への追随かを見極めたい局面です。"
+      "🏗️ AIインフラの収益化\n\n僕は、電力契約を実際のARRへ変換できるかが評価の核心だと見ます。"
     ],
-    "public_compact_post": "📊 ビットコインETFに週16億ドル流入\n\n木曜までにビットコインETFが16億ドルを購入\n週間流入額は10カ月ぶりの高水準\n\n資金流入の急増が続くか、価格上昇への追随かを見極めたい局面です。"
+    "public_compact_post": "🏗️ AIインフラの収益化\n\nWolfe Researchは、Nebiusが2030年末にARR（年間経常収益）410億ドル超へ到達する可能性を示している\nNebiusは契約済み電力5GWをAIインフラ基盤へ転換する計画で、長期契約は1MWあたり約2,500万ドル\n\n僕は、電力契約を実際のARRへ変換できるかが評価の核心だと見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 ビットコインETFに週16億ドル流入",
+    "selected_hook": "🏗️ AIインフラの収益化",
     "verified_facts": [],
-    "market_or_user_impact": "ETF経由の実需が短期間で16億ドルに達した点を確認できる。",
+    "market_or_user_impact": "AIインフラ株の成長期待を、電力容量と契約単価から検討できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "流入が一時的な急増か継続的な資金配分かを追跡できる。",
+    "next_watch": "半導体ではなく、電力・データセンター契約がAI投資の収益源になる構造を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bitcoinarchive/status/2090789168746013057",
+      "url": "https://x.com/stocksavvyshay/status/2090806011888361877",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 41,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +47,80 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 41,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 6,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 4,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 8,
+          "used": 2,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "institutional_custody",
+        "hook": "🏦Circle、米国信託銀行を承認",
+        "published_at": "2026-08-05T00:00:00-04:00",
+        "source_url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
+        "why_now": "米国信託銀行の承認で、USDC準備金とカストディの制度基盤が変わるためです。"
+      },
+      {
+        "topic_type": "supply_event",
+        "hook": "💵USDC流通量、週次更新",
+        "published_at": "2026-08-17T00:00:00-04:00",
+        "source_url": "https://www.circle.com/transparency",
+        "why_now": "市場上昇局面で、待機資金の裏付けと増減を公式データで確認できます。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️Coldcard事故、乱数生成が焦点",
+        "published_at": "2026-08-20T00:00:00+00:00",
+        "source_url": "https://www.ledger.com/blog-coldcard-incident",
+        "why_now": "ウォレット被害の規模と原因が公式技術解説で具体化したためです。"
+      },
+      {
+        "topic_type": "onchain",
+        "hook": "🪙Solana、slot timeを250msへ",
+        "published_at": "2026-08-13T00:00:00+00:00",
+        "source_url": "https://solana.com/changelog",
+        "why_now": "主要プロトコルの性能条件が350msから250msへ変わったためです。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏢Metaplanet、米国BTC事業を拡大",
+        "published_at": "2026-08-18T00:00:00+09:00",
+        "source_url": "https://metaplanet.jp/en/disclosures",
+        "why_now": "日本企業による具体的な2,100BTC規模の米国展開が確認できるためです。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "📊Coinbase、USDC保有が200億ドル",
+        "published_at": "2026-07-30T00:00:00-04:00",
+        "source_url": "https://investor.coinbase.com/news/news-details/2026/Coinbase-Q2-Earnings-Everything-Exchange-Drives-3rd-Consecutive-Quarter-of-Record-Crypto-Trading-Volume-Market-Share-Revenue-Diversification-and-Resilience/default.aspx",
+        "why_now": "USDC保有額と取引シェアの具体的な過去最高が確認できるためです。"
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: この系統の鮮度上限を超えています",
+      "一次探索2: この系統の鮮度上限を超えています",
+      "一次探索3: この系統の鮮度上限を超えています",
+      "一次探索4: 根拠原文が一次資料ページ内に確認できません",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: この系統の鮮度上限を超えています",
+      "再探索1: 403 Client Error: Forbidden for url: https://www.bls.gov/news.release/laus.toc.htm",
+      "再探索2: 同一時間枠でこの一次サイトへの接続失敗を確認済みです",
+      "再探索3: 公表予定だけで具体的な変化がないため自動投稿できません",
+      "再探索4: この系統の鮮度上限を超えています"
+    ]
   }
 }

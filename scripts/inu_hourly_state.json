@@ -1446,7 +1446,21 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-22-01-a",
+      "post_id": "inu_overseas_kol_2090806011888361877",
+      "source_url": "https://x.com/stocksavvyshay/status/2090806011888361877",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-21T16:03:40.062503+00:00",
+      "lease_expires_at": "2026-08-21T16:33:40.062503+00:00",
+      "content_fingerprint": "5ae745931e9ab3c5f01b8f2c3a0db963a4f9f00d827a41a48831bf7a948817cd",
+      "event_fingerprint": "24d94b9dbf6a894e97397e51cfd9e8bcc2e9395a724278c4b6c1ea80a1838c38"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3044,9 +3058,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-21T14:43:49.670733+00:00",
-      "count": 82947,
-      "fastest_fee": 1
+      "checked_at": "2026-08-21T16:03:40.062503+00:00",
+      "count": 84676,
+      "fastest_fee": 2
     }
   },
   "delivery_failures": [
@@ -3753,84 +3767,28 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-08-21",
+    "jst_date": "2026-08-22",
     "counts": {
-      "grok_x_search": 6,
-      "openai_web_search": 8,
-      "grok_editorial": 4
+      "grok_x_search": 1,
+      "openai_web_search": 2,
+      "grok_editorial": 1
     },
     "claims": [
       {
         "action": "grok_x_search",
-        "claimed_at": "2026-08-20T16:03:44.578900+00:00"
+        "claimed_at": "2026-08-21T16:03:40.062503+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-08-20T16:03:44.578900+00:00"
+        "claimed_at": "2026-08-21T16:03:40.062503+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-21T16:03:40.062503+00:00"
       },
       {
         "action": "grok_editorial",
-        "claimed_at": "2026-08-20T16:03:44.578900+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T16:03:44.578900+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-20T16:29:45.583533+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T16:29:45.583533+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T16:29:45.583533+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T18:04:00.020761+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-20T20:06:05.677210+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T20:06:05.677210+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-08-20T20:06:05.677210+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-20T20:06:05.677210+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-20T20:23:45.223407+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-20T22:03:54.833594+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-08-20T22:59:14.690409+00:00"
+        "claimed_at": "2026-08-21T16:03:40.062503+00:00"
       }
     ]
   }
