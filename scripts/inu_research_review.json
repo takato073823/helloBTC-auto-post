@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T06:59:35.783994+00:00",
-  "slot": "2026-08-21-15-a",
+  "generated_at": "2026-08-21T08:03:37.173686+00:00",
+  "slot": "2026-08-21-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T06:59:35.783994+00:00",
-    "to": "2026-08-21T06:59:35.783994+00:00"
+    "from": "2026-08-20T08:03:37.173686+00:00",
+    "to": "2026-08-21T08:03:37.173686+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⛏️ マイナーから取引所への送金が急増\n\n僕は、上昇局面でのマイナー送金増加は売り圧力を測る重要な論点だと見ます。"
+      "⛏️ マイナー送金が急増\n\n僕は、上昇局面でのマイナー売却圧力が続くかを確認したいです。"
     ],
-    "public_compact_post": "⛏️ マイナーから取引所への送金が急増\n\nマイナーからBinanceへのフローが23,260 $BTCに達し、6月4日以来の高水準\n$BTCが74,000ドルを上回ったタイミングで発生\n\n僕は、上昇局面でのマイナー送金増加は売り圧力を測る重要な論点だと見ます。"
+    "public_compact_post": "⛏️ マイナー送金が急増\n\n$BTCマイナーからBinanceへのフローが23,260BTCに達した\n6月4日以来の高水準で、$BTCが7.4万ドルを上回ったタイミングだった\n\n僕は、上昇局面でのマイナー売却圧力が続くかを確認したいです。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⛏️ マイナーから取引所への送金が急増",
+    "selected_hook": "⛏️ マイナー送金が急増",
     "verified_facts": [],
-    "market_or_user_impact": "上昇相場がマイナーの利益確定を吸収できるか、需給の確認材料になる。",
+    "market_or_user_impact": "上昇相場で供給側の売却圧力が強まっているかを、具体的な送金量で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格だけでなく、マイナー送金や取引所流入からBTC需給を追える。",
+    "next_watch": "価格だけでなく、マイナーの取引所フローを継続観測する材料になる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/einsteinbtc1/status/2090672610145382569",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
