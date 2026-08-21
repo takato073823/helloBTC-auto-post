@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T02:13:07+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T02:13:07+00:00",
+  "last_deep_scan_at": "2026-08-21T03:36:45+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T03:36:45+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T03:59:22+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T05:07:43+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T05:07:43+00:00",
@@ -2278,6 +2266,19 @@
       "result_count": 1,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T03:36:45+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T03:36:45+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "equities_ai"
     }
   ],
   "signals": [
