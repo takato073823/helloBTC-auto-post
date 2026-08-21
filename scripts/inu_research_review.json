@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T16:28:00.185837+00:00",
+  "generated_at": "2026-08-21T16:43:04.327114+00:00",
   "slot": "2026-08-22-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T16:28:00.185837+00:00",
-    "to": "2026-08-21T16:28:00.185837+00:00"
+    "from": "2026-08-20T16:43:04.327114+00:00",
+    "to": "2026-08-21T16:43:04.327114+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 アルト市場、1000日サポートから反発\n\n僕は、アルトの自律的な強さより$BTC連動が続くかを見極めたいです"
+      "📊 Strategyの含み益が回復\n\n保有企業の損益分岐点が意識され、下落局面の財務負担を測る材料になる。"
     ],
-    "public_compact_post": "📊 アルト市場、1000日サポートから反発\n\nアルト市場の時価総額は長期の1000日サポート帯から反発\n今週は15%上昇し、ビットコインが7.9万ドルに到達\n\n僕は、アルトの自律的な強さより$BTC連動が続くかを見極めたいです"
+    "public_compact_post": "📊 Strategyの含み益が回復\n\nStrategyは平均取得価格75,385ドルで840,447BTCを保有\nビットコインは投稿時点で約77,500ドル\n\n保有企業の損益分岐点が意識され、下落局面の財務負担を測る材料になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 アルト市場、1000日サポートから反発",
+    "selected_hook": "📊 Strategyの含み益が回復",
     "verified_facts": [],
-    "market_or_user_impact": "アルト全体の上昇が個別材料ではなくBTC主導かを判断する材料になる",
+    "market_or_user_impact": "840,447BTCの平均取得価格と市場価格の差から、Strategyのポジション損益を具体的に把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "時価総額のサポート帯とBTC連動が維持されるか追跡できる",
+    "next_watch": "企業のビットコイン保有量・平均取得価格・損益を継続的に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/ashcrypto/status/2090834647316099120",
+      "url": "https://x.com/coinmarketcap/status/2090828858635292896",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 41,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 41,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -66,62 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "etf_flow",
-        "hook": "🏦 IBITの保有BTC、74.8万枚",
-        "published_at": "2026-08-11T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
-        "why_now": "$BTC急伸局面で、現物ETFの保有規模を一次データで確認できます。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "🏢 Metaplanet、米国BTC事業へ",
-        "published_at": "2026-08-18T00:00:00+00:00",
-        "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "$BTC急騰後も企業保有戦略の拡大が確認できます。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏛️ 米銀のステーブル規則、意見締切",
-        "published_at": "2026-08-21T00:00:00+00:00",
-        "source_url": "https://www.federalreserve.gov/frrs/federal-reserve-regulatory-service.htm",
-        "why_now": "2026年8月21日が意見提出期限で、制度化の節目です。"
-      },
-      {
-        "topic_type": "developing_story",
-        "hook": "⚙️ Solana、200ms化を段階導入",
-        "published_at": "2026-08-17T00:00:00+00:00",
-        "source_url": "https://solana.com/fr/upgrades/agave-4-2-release-overview",
-        "why_now": "主要アルトのネットワーク性能を左右する機能有効化が進行中です。"
-      },
-      {
-        "topic_type": "institutional_custody",
-        "hook": "🏦 Metaplanet、米国BTC基盤を新設",
-        "published_at": "2026-08-18T00:00:00+00:00",
-        "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "企業保有の枠組みが日本国内から米国市場へ拡張されています。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "🛠️ Solana、取引容量を3.3倍へ",
-        "published_at": "2026-08-17T00:00:00+00:00",
-        "source_url": "https://solana.com/fr/upgrades/agave-4-2-release-overview",
-        "why_now": "主要プロトコルの実装条件が変わり、アプリ開発の前提に影響します。"
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: 継続フォロー価値が公式発表の紹介だけになっています",
-      "一次探索4: この系統の鮮度上限を超えています",
-      "一次探索5: この系統の鮮度上限を超えています",
-      "一次探索6: この系統の鮮度上限を超えています",
-      "再探索1: この系統の鮮度上限を超えています",
-      "再探索2: 403 Client Error: Forbidden for url: https://www.bls.gov/news.release/laus.htm",
-      "再探索3: この系統の鮮度上限を超えています",
-      "再探索4: この系統の鮮度上限を超えています",
-      "再探索5: この系統の鮮度上限を超えています"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
