@@ -2396,6 +2396,22 @@
       "topic_type": "x_reaction",
       "content_fingerprint": "484e32c51c91de7df4581f9c984bbe964ca94712d78af285bef24755aa09771b",
       "event_fingerprint": "c9d196b4be90c4b43d4fdc2462b04b2b25e2a54c17c3458a02e11b5dcb188ce6"
+    },
+    {
+      "run_id": "32434896048",
+      "started_at": "2026-08-21T01:03:39.530826+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-08-21-10-a",
+      "post_id": "inu_overseas_kol_2090580530563834327",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "484e32c51c91de7df4581f9c984bbe964ca94712d78af285bef24755aa09771b",
+      "event_fingerprint": "c9d196b4be90c4b43d4fdc2462b04b2b25e2a54c17c3458a02e11b5dcb188ce6",
+      "status": "published",
+      "completed_at": "2026-08-21T01:03:39.838670+00:00"
     }
   ]
 }

@@ -1303,6 +1303,25 @@
       "delivery_mode": "x_native_video_reference",
       "source_tweet_id": "2090551950739669316",
       "source_handle": "coinbureau"
+    },
+    {
+      "slot": "2026-08-21-10-a",
+      "post_id": "inu_overseas_kol_2090580530563834327",
+      "tweet_id": "2090605719015801070",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2090580530563834327",
+      "published_at": "2026-08-20T23:23:34+00:00",
+      "posted_at": "2026-08-21T01:03:39.832153+00:00",
+      "hook": "💵米国債の買い戻しに注文が集中",
+      "follow_value": "債券需給と金利変動を、買い戻しの応募額・実行額で追える。",
+      "content_fingerprint": "484e32c51c91de7df4581f9c984bbe964ca94712d78af285bef24755aa09771b",
+      "event_fingerprint": "c9d196b4be90c4b43d4fdc2462b04b2b25e2a54c17c3458a02e11b5dcb188ce6",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090580530563834327",
+      "source_handle": "coinbureau"
     }
   ],
   "posted_ids": [
@@ -1404,23 +1423,10 @@
     "inu_market_2026_08_21_03_a_crypto-btc-usd",
     "inu_overseas_kol_2090494526494568608",
     "inu_market_2026_08_21_07_a_crypto-ena-usd",
-    "inu_overseas_kol_2090551950739669316"
+    "inu_overseas_kol_2090551950739669316",
+    "inu_overseas_kol_2090580530563834327"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-21-10-a",
-      "post_id": "inu_overseas_kol_2090580530563834327",
-      "source_url": "https://x.com/coinbureau/status/2090580530563834327",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-21T01:03:23.525181+00:00",
-      "lease_expires_at": "2026-08-21T01:33:23.525181+00:00",
-      "content_fingerprint": "484e32c51c91de7df4581f9c984bbe964ca94712d78af285bef24755aa09771b",
-      "event_fingerprint": "c9d196b4be90c4b43d4fdc2462b04b2b25e2a54c17c3458a02e11b5dcb188ce6"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2780,6 +2786,25 @@
       "event_fingerprint": "48cd50ff479b38b79d55bfbd23ec500742c3f5e8a814dd213fb1605c3df77c35",
       "delivery_mode": "x_native_video_reference",
       "source_tweet_id": "2090551950739669316",
+      "source_handle": "coinbureau"
+    },
+    {
+      "slot": "2026-08-21-10-a",
+      "post_id": "inu_overseas_kol_2090580530563834327",
+      "tweet_id": "2090605719015801070",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2090580530563834327",
+      "published_at": "2026-08-20T23:23:34+00:00",
+      "posted_at": "2026-08-21T01:03:39.832153+00:00",
+      "hook": "💵米国債の買い戻しに注文が集中",
+      "follow_value": "債券需給と金利変動を、買い戻しの応募額・実行額で追える。",
+      "content_fingerprint": "484e32c51c91de7df4581f9c984bbe964ca94712d78af285bef24755aa09771b",
+      "event_fingerprint": "c9d196b4be90c4b43d4fdc2462b04b2b25e2a54c17c3458a02e11b5dcb188ce6",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2090580530563834327",
       "source_handle": "coinbureau"
     }
   ],
