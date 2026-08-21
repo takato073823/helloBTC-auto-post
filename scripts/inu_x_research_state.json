@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T03:36:45+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T04:24:17+00:00",
+  "last_deep_scan_at": "2026-08-21T05:17:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T05:17:17+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T06:05:06+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T06:05:06+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T07:11:49+00:00",
@@ -2279,6 +2267,19 @@
       "checked_at": "2026-08-21T04:24:17+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T05:17:17+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T05:17:17+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "japanese_market"
     }
   ],
   "signals": [
@@ -3035,6 +3036,32 @@
       "summary": "JUST IN: Spot Bitcoin ETF volume surpasses $5.3 billion today. • BlackRock: $4,438,272,142 • Fidelity: $438,039,722 • Grayscale: $208,761,824 • Bitwise: $106,828,983 • ARK Invest: $72,899,488 • VanEck: $32,844,242 • Morgan Stanley: $14,801,590 • Franklin: $11,174,730 •",
       "topic": "watcher_guru",
       "why_trending": "表示247,650・投稿後329分・反応率1.5%"
+    },
+    {
+      "author_followers": 1517,
+      "discovered_at": "2026-08-21T05:17:17+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "k_koga555",
+      "has_video": false,
+      "headline": "https://t.co/nb9Wmx5Ees 【新たな上昇要因】仮想通貨・ビットコインが止まらない！ 仮想通貨チャンネル - Joe Takayama #AI要約 ビットコイン急騰と資金フロー変化、金利・米国株への影響 🔳暗号資産市場の急騰継続",
+      "impression_count": 912,
+      "like_count": 2,
+      "linked_urls": [
+        "https://www.youtube.com/watch?v=F-CEnpiLvSY"
+      ],
+      "media_types": [],
+      "post_id": "2090577706383716381",
+      "post_url": "https://x.com/k_koga555/status/2090577706383716381",
+      "posted_at": "2026-08-20T23:12:20+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 39.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "https://t.co/nb9Wmx5Ees 【新たな上昇要因】仮想通貨・ビットコインが止まらない！ 仮想通貨チャンネル - Joe Takayama #AI要約 ビットコイン急騰と資金フロー変化、金利・米国株への影響 🔳暗号資産市場の急騰継続",
+      "topic": "japanese_market",
+      "why_trending": "表示912・投稿後364分・反応率0.4%・公式候補リンクあり"
     },
     {
       "author_followers": 131905,
