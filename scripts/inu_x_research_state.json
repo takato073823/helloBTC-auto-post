@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T05:17:17+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T06:05:33+00:00",
+  "last_deep_scan_at": "2026-08-21T07:29:42+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T07:29:42+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T07:11:49+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T08:06:37+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T08:06:37+00:00",
@@ -2280,6 +2268,19 @@
       "checked_at": "2026-08-21T06:05:33+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T07:29:42+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T07:29:42+00:00",
+      "result_count": 3,
+      "spike": false,
+      "topic": "chinese_market"
     }
   ],
   "signals": [
@@ -2718,6 +2719,35 @@
       "why_trending": "表示14,549・投稿後108分・反応率0.6%・公式候補リンクあり"
     },
     {
+      "author_followers": 25309,
+      "discovered_at": "2026-08-21T07:29:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "yijiangren",
+      "has_video": false,
+      "headline": "过去一年，大家看股票的视野被 AI 彻底打开了。 最开始所有人盯着美股。 后来港股科技、创新药起来，资金开始往港股走；存储行情起来以后，越来越多人每天开盘先看的反而是韩国——SK 海力士成了很多美股玩家的必看标的。 但还有一个市场，我觉得一直被低估了，就是日股。 https://t.co/OWZOm6OhcD https://t.co/qy5DPtpoIu",
+      "impression_count": 5745,
+      "like_count": 42,
+      "linked_urls": [
+        "https://x.com/yijiangren/status/2090643387565359387/photo/1",
+        "https://twitter.com/Gate_zh/status/2090620741456662989"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090643387565359387",
+      "post_url": "https://x.com/yijiangren/status/2090643387565359387",
+      "posted_at": "2026-08-21T03:33:20+00:00",
+      "quote_count": 1,
+      "reply_count": 38,
+      "repost_count": 0,
+      "score": 53.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "过去一年，大家看股票的视野被 AI 彻底打开了。 最开始所有人盯着美股。 后来港股科技、创新药起来，资金开始往港股走；存储行情起来以后，越来越多人每天开盘先看的反而是韩国——SK 海力士成了很多美股玩家的必看标的。 但还有一个市场，我觉得一直被低估了，就是日股。 https://t.co/OWZOm6OhcD https://t.co/qy5DPtpoIu",
+      "topic": "chinese_market",
+      "why_trending": "表示5,745・投稿後236分・反応率1.8%・公式候補リンクあり"
+    },
+    {
       "author_followers": 93375,
       "discovered_at": "2026-08-20T11:04:51+00:00",
       "discovery_type": "official_x_api",
@@ -3010,6 +3040,63 @@
       "summary": "JUST IN: Spot Bitcoin ETF volume surpasses $5.3 billion today. • BlackRock: $4,438,272,142 • Fidelity: $438,039,722 • Grayscale: $208,761,824 • Bitwise: $106,828,983 • ARK Invest: $72,899,488 • VanEck: $32,844,242 • Morgan Stanley: $14,801,590 • Franklin: $11,174,730 •",
       "topic": "watcher_guru",
       "why_trending": "表示247,650・投稿後329分・反応率1.5%"
+    },
+    {
+      "author_followers": 50575,
+      "discovered_at": "2026-08-21T07:29:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Qianbtcc",
+      "has_video": false,
+      "headline": "Gate 首发上线日股交易，USDT 直接买！ 之前有兄弟问我有没有日股交易所，现在，它来了，兄弟们你无需日本券商账户，也无需兑换日元，只需 USDT，就能在 Gate 平台直接交易约 300 只东京证券交易所热门股票！ https://t.co/2Qkh1UT1wF",
+      "impression_count": 148,
+      "like_count": 5,
+      "linked_urls": [
+        "https://x.com/Qianbtcc/status/2090673552097992746/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090673552097992746",
+      "post_url": "https://x.com/Qianbtcc/status/2090673552097992746",
+      "posted_at": "2026-08-21T05:33:12+00:00",
+      "quote_count": 0,
+      "reply_count": 4,
+      "repost_count": 0,
+      "score": 41.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Gate 首发上线日股交易，USDT 直接买！ 之前有兄弟问我有没有日股交易所，现在，它来了，兄弟们你无需日本券商账户，也无需兑换日元，只需 USDT，就能在 Gate 平台直接交易约 300 只东京证券交易所热门股票！ https://t.co/2Qkh1UT1wF",
+      "topic": "chinese_market",
+      "why_trending": "表示148・投稿後116分・反応率7.7%"
+    },
+    {
+      "author_followers": 9250,
+      "discovered_at": "2026-08-21T07:29:42+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "LongTreeLabs",
+      "has_video": true,
+      "headline": "🔥美国要把华尔街搬上链？白宫加密峰会释放三大信号 稳定币、美股 Token、预测市场、链上永续合约，这些原本分散在不同市场里的业务，正在被放进同一套政策叙事里。 这也是 SEC、CFTC、传统交易所和加密公司同时出现在白宫加密峰会上的原因： https://t.co/vNZlo7pN21 https://t.co/I1eNjVPmgl",
+      "impression_count": 210,
+      "like_count": 0,
+      "linked_urls": [
+        "https://x.com/LongTreeLabs/status/2090657734492639710/video/1",
+        "https://twitter.com/LongTreeLabs/status/2090603359095177492"
+      ],
+      "media_types": [
+        "video"
+      ],
+      "post_id": "2090657734492639710",
+      "post_url": "https://x.com/LongTreeLabs/status/2090657734492639710",
+      "posted_at": "2026-08-21T04:30:21+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 41.1,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🔥美国要把华尔街搬上链？白宫加密峰会释放三大信号 稳定币、美股 Token、预测市场、链上永续合约，这些原本分散在不同市场里的业务，正在被放进同一套政策叙事里。 这也是 SEC、CFTC、传统交易所和加密公司同时出现在白宫加密峰会上的原因： https://t.co/vNZlo7pN21 https://t.co/I1eNjVPmgl",
+      "topic": "chinese_market",
+      "why_trending": "表示210・投稿後179分・反応率0.0%・公式候補リンクあり・動画あり"
     },
     {
       "author_followers": 1517,
