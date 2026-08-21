@@ -2471,6 +2471,23 @@
       "topic_type": "x_reaction",
       "content_fingerprint": "61a653dfd3947c3deed7380dd7725bc110ad4eb4f0fd6829c01ac0ed12a595a1",
       "event_fingerprint": "9c9af3dc839a8b5e1384976c9a2906b06b4dadbb12c1d07ffb1d423bb9dd8a92"
+    },
+    {
+      "run_id": "32441678038",
+      "started_at": "2026-08-21T02:58:42.953358+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "failed_released"
+      },
+      "slot": "2026-08-21-11-a",
+      "post_id": "inu_overseas_kol_2090597250833744129",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "61a653dfd3947c3deed7380dd7725bc110ad4eb4f0fd6829c01ac0ed12a595a1",
+      "event_fingerprint": "9c9af3dc839a8b5e1384976c9a2906b06b4dadbb12c1d07ffb1d423bb9dd8a92",
+      "status": "retryable_delivery_failure",
+      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
+      "completed_at": "2026-08-21T02:58:43.121731+00:00"
     }
   ]
 }
