@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-21T17:12:34+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T17:12:34+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T18:03:38+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T11:53:32+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T11:53:32+00:00",
@@ -2284,6 +2278,12 @@
       "result_count": 2,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T18:03:38+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2394,6 +2394,30 @@
       "summary": "JUST IN: $77,000 Bitcoin",
       "topic": "watcher_guru",
       "why_trending": "表示53,138・投稿後5分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4724131,
+      "discovered_at": "2026-08-21T18:03:38+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Spot Bitcoin ETFs recorded $685 million in $BTC inflows yesterday.",
+      "impression_count": 73974,
+      "like_count": 500,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090859471174238432",
+      "post_url": "https://x.com/WatcherGuru/status/2090859471174238432",
+      "posted_at": "2026-08-21T17:51:58+00:00",
+      "quote_count": 7,
+      "reply_count": 63,
+      "repost_count": 38,
+      "score": 77.7,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Spot Bitcoin ETFs recorded $685 million in $BTC inflows yesterday.",
+      "topic": "watcher_guru",
+      "why_trending": "表示73,974・投稿後11分・反応率0.9%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4721121,
@@ -2560,30 +2584,6 @@
       "why_trending": "表示172,160・投稿後133分・反応率2.3%"
     },
     {
-      "author_followers": 4715928,
-      "discovered_at": "2026-08-20T19:19:25+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
-      "impression_count": 166843,
-      "like_count": 2869,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090495865085415918",
-      "post_url": "https://x.com/WatcherGuru/status/2090495865085415918",
-      "posted_at": "2026-08-20T17:47:08+00:00",
-      "quote_count": 31,
-      "reply_count": 126,
-      "repost_count": 371,
-      "score": 57.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
-      "topic": "watcher_guru",
-      "why_trending": "表示166,843・投稿後92分・反応率2.3%"
-    },
-    {
       "author_followers": 4721121,
       "discovered_at": "2026-08-21T11:04:01+00:00",
       "discovery_type": "official_x_api",
@@ -2663,30 +2663,6 @@
       "summary": "过去一年，大家看股票的视野被 AI 彻底打开了。 最开始所有人盯着美股。 后来港股科技、创新药起来，资金开始往港股走；存储行情起来以后，越来越多人每天开盘先看的反而是韩国——SK 海力士成了很多美股玩家的必看标的。 但还有一个市场，我觉得一直被低估了，就是日股。 https://t.co/OWZOm6OhcD https://t.co/qy5DPtpoIu",
       "topic": "chinese_market",
       "why_trending": "表示5,745・投稿後236分・反応率1.8%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 4715928,
-      "discovered_at": "2026-08-20T19:19:25+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
-      "impression_count": 153431,
-      "like_count": 1883,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090490052690514380",
-      "post_url": "https://x.com/WatcherGuru/status/2090490052690514380",
-      "posted_at": "2026-08-20T17:24:02+00:00",
-      "quote_count": 20,
-      "reply_count": 117,
-      "repost_count": 199,
-      "score": 52.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
-      "topic": "watcher_guru",
-      "why_trending": "表示153,431・投稿後115分・反応率1.6%"
     },
     {
       "author_followers": 2743,
@@ -2796,6 +2772,30 @@
       "why_trending": "表示68・投稿後30分・反応率2.9%"
     },
     {
+      "author_followers": 4724131,
+      "discovered_at": "2026-08-21T18:03:38+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Scammers are sending fake IRS letters with QR codes designed to steal crypto wallet credentials and exchange logins.",
+      "impression_count": 261468,
+      "like_count": 2618,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090806814795522381",
+      "post_url": "https://x.com/WatcherGuru/status/2090806814795522381",
+      "posted_at": "2026-08-21T14:22:44+00:00",
+      "quote_count": 70,
+      "reply_count": 168,
+      "repost_count": 497,
+      "score": 44.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Scammers are sending fake IRS letters with QR codes designed to steal crypto wallet credentials and exchange logins.",
+      "topic": "watcher_guru",
+      "why_trending": "表示261,468・投稿後220分・反応率1.5%"
+    },
+    {
       "author_followers": 81304,
       "discovered_at": "2026-08-21T02:13:07+00:00",
       "discovery_type": "official_x_api",
@@ -2822,6 +2822,30 @@
       "summary": "Daily Crypto News 📰 1️⃣ BTC breaks above $73K 🚀 Bitcoin is pushing to its highest levels since June as a massive short squeeze wipes out roughly $3B in bearish positions. 2️⃣ ETH explodes +18% ⚡ Ethereum surged toward $2,250 as the broader crypto rally accelerated. 3️⃣ $706M https://t.co/rbz0Wy6X4g",
       "topic": "regulation",
       "why_trending": "表示336・投稿後42分・反応率0.9%"
+    },
+    {
+      "author_followers": 4724131,
+      "discovered_at": "2026-08-21T18:03:38+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: 🇺🇸 US crypto stocks over the past 48 hours: • Robinhood $HOOD: +15% • Coinbase $COIN: +30% • Strategy $MSTR: +28% • Bitmine $BMNR: +22% • Gemini $GEMI: +28% • Circle $CRCL",
+      "impression_count": 293523,
+      "like_count": 2838,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090811508431499757",
+      "post_url": "https://x.com/WatcherGuru/status/2090811508431499757",
+      "posted_at": "2026-08-21T14:41:23+00:00",
+      "quote_count": 46,
+      "reply_count": 179,
+      "repost_count": 277,
+      "score": 43.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: 🇺🇸 US crypto stocks over the past 48 hours: • Robinhood $HOOD: +15% • Coinbase $COIN: +30% • Strategy $MSTR: +28% • Bitmine $BMNR: +22% • Gemini $GEMI: +28% • Circle $CRCL: +28% • $MARA: +33% • $RIOT: +10%",
+      "topic": "watcher_guru",
+      "why_trending": "表示293,523・投稿後202分・反応率1.3%"
     },
     {
       "author_followers": 4718889,
