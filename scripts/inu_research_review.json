@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T16:43:04.327114+00:00",
-  "slot": "2026-08-22-01-a",
+  "generated_at": "2026-08-21T18:04:19.311129+00:00",
+  "slot": "2026-08-22-03-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T16:43:04.327114+00:00",
-    "to": "2026-08-21T16:43:04.327114+00:00"
+    "from": "2026-08-20T18:04:19.311129+00:00",
+    "to": "2026-08-21T18:04:19.311129+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 Strategyの含み益が回復\n\n保有企業の損益分岐点が意識され、下落局面の財務負担を測る材料になる。"
+      "💧ステーブルコインの供給が2日で急増\n\nオンチェーンのドル流動性が増え、暗号資産市場への資金経路を追う材料になる。"
     ],
-    "public_compact_post": "📊 Strategyの含み益が回復\n\nStrategyは平均取得価格75,385ドルで840,447BTCを保有\nビットコインは投稿時点で約77,500ドル\n\n保有企業の損益分岐点が意識され、下落局面の財務負担を測る材料になる。"
+    "public_compact_post": "💧ステーブルコインの供給が2日で急増\n\nCircleとTetherは2日間で合計30億ドルのステーブルコインを発行\n$USDTと$USDCの合計供給量は2500億ドルを超えた\n\nオンチェーンのドル流動性が増え、暗号資産市場への資金経路を追う材料になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 Strategyの含み益が回復",
+    "selected_hook": "💧ステーブルコインの供給が2日で急増",
     "verified_facts": [],
-    "market_or_user_impact": "840,447BTCの平均取得価格と市場価格の差から、Strategyのポジション損益を具体的に把握できる。",
+    "market_or_user_impact": "発行増加が取引所やDeFiに流入しているかを確認する起点になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "企業のビットコイン保有量・平均取得価格・損益を継続的に追える。",
+    "next_watch": "ステーブルコイン供給と市場流動性の連動を継続して追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2090828858635292896",
+      "url": "https://x.com/coinbureau/status/2090821225056784892",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 41,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +47,80 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 41,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 3,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 2,
+          "used": 3,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 4,
+          "used": 6,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "etf_flow",
+        "hook": "🏦 IBIT、7.48億BTCを保有",
+        "published_at": "2026-08-11T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
+        "why_now": "過去24時間で注目されたETF流入報道を、発行体の最新掲載データで確認できる。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "📊 米国、州別雇用統計を更新",
+        "published_at": "2026-08-21T10:00:00-04:00",
+        "source_url": "https://www.bls.gov/schedule/2026",
+        "why_now": "8月21日に新しい雇用データが公表された公式日程を確認できる。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦 Metaplanet、2,100BTC投資を発表",
+        "published_at": "2026-08-18T00:00:00+09:00",
+        "source_url": "https://metaplanet.jp/en/disclosures",
+        "why_now": "過去24時間に話題化した日本企業の$BTC戦略を公式開示で再確認できる。"
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "🤖 Coinbase、AI効率が加速",
+        "published_at": "2026-07-30T00:00:00-04:00",
+        "source_url": "https://investor.coinbase.com/news/news-details/2026/Coinbase-Q2-Earnings-Everything-Exchange-Drives-3rd-Consecutive-Quarter-of-Record-Crypto-Trading-Volume-Market-Share-Revenue-Diversification-and-Resilience/default.aspx",
+        "why_now": "XでAIと暗号資産インフラの関係が話題となる中、企業IRの実測値で確認できる。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️ Solana、スロット短縮を進行",
+        "published_at": "2026-08-13T00:00:00+00:00",
+        "source_url": "https://solana.com/changelog",
+        "why_now": "主要アルトの技術更新が直近の市場回復局面で再注目されている。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: この系統の鮮度上限を超えています",
+      "一次探索2: 公表予定だけで具体的な変化がないため自動投稿できません",
+      "一次探索3: この系統の鮮度上限を超えています",
+      "一次探索4: この系統の鮮度上限を超えています",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: 過去24時間以内に確認できる、ログイン不要の発表主体一次HTMLで裏付けられた中央銀行・規制当局の新規変更は見つからなかった。topic_typeはpolicy_householdまたはregulatory_rule_changeを想定。",
+      "再探索1: この系統の鮮度上限を超えています",
+      "再探索2: この系統の鮮度上限を超えています",
+      "再探索3: この系統の鮮度上限を超えています",
+      "再探索4: この系統の鮮度上限を超えています"
+    ]
   }
 }
