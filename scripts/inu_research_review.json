@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T08:36:00.712317+00:00",
+  "generated_at": "2026-08-21T08:51:24.525334+00:00",
   "slot": "2026-08-21-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T08:36:00.712317+00:00",
-    "to": "2026-08-21T08:36:00.712317+00:00"
+    "from": "2026-08-20T08:51:24.525334+00:00",
+    "to": "2026-08-21T08:51:24.525334+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 暗号資産ETFに資金が戻る\n\n僕は、$BTCだけでなく複数銘柄へ資金が広がった点に注目しています。"
+      "📊 暗号資産ETFに資金流入\n\n主要銘柄へ同時に資金が向かい、上昇の裾野が広がっているかが焦点です。"
     ],
-    "public_compact_post": "📊 暗号資産ETFに資金が戻る\n\n$BTCに6.06億ドル流入し、3か月超ぶりの大きさ\n$ETHは2.207億ドル、$SOLは1450万ドル、$XRPは1320万ドルの流入\n\n僕は、$BTCだけでなく複数銘柄へ資金が広がった点に注目しています。"
+    "public_compact_post": "📊 暗号資産ETFに資金流入\n\n$BTCに6億600万ドル、$ETHに2億2070万ドルが流入\n$SOLは1450万ドル、$XRPは1320万ドルが流入し、$BTC・$SOLは3カ月超ぶり、$ETHは2025年10月以来の大きさ\n\n主要銘柄へ同時に資金が向かい、上昇の裾野が広がっているかが焦点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 暗号資産ETFに資金が戻る",
+    "selected_hook": "📊 暗号資産ETFに資金流入",
     "verified_facts": [],
-    "market_or_user_impact": "BTC以外にも資金が向かった規模と、各銘柄の流入ピーク時期を把握できる。",
+    "market_or_user_impact": "ETF経由の資金が主要銘柄へどの程度分散しているかを一目で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格だけでなくETF資金フローを軸に市場の変化を追える。",
+    "next_watch": "価格ではなくETFフローの規模と銘柄別の強弱を追う材料になる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/ashcrypto/status/2090711732414992833",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
