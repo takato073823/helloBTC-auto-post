@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T14:30:31.185933+00:00",
+  "generated_at": "2026-08-21T14:43:49.670733+00:00",
   "slot": "2026-08-21-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T14:30:31.185933+00:00",
-    "to": "2026-08-21T14:30:31.185933+00:00"
+    "from": "2026-08-20T14:43:49.670733+00:00",
+    "to": "2026-08-21T14:43:49.670733+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 ビットコイン、200日線を回復\n\n200日線を維持できるかが、反発の持続性を測る焦点になりそうです。"
+      "📊 ビットコインETFに週16億ドル流入\n\n資金流入の急増が続くか、価格上昇への追随かを見極めたい局面です。"
     ],
-    "public_compact_post": "📊 ビットコイン、200日線を回復\n\nDaily MA 200は6万9000ドル\n価格は約7万7000ドルで推移\n\n200日線を維持できるかが、反発の持続性を測る焦点になりそうです。"
+    "public_compact_post": "📊 ビットコインETFに週16億ドル流入\n\n木曜までにビットコインETFが16億ドルを購入\n週間流入額は10カ月ぶりの高水準\n\n資金流入の急増が続くか、価格上昇への追随かを見極めたい局面です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 ビットコイン、200日線を回復",
+    "selected_hook": "📊 ビットコインETFに週16億ドル流入",
     "verified_facts": [],
-    "market_or_user_impact": "現在値と重要移動平均線の水準を同時に確認できる。",
+    "market_or_user_impact": "ETF経由の実需が短期間で16億ドルに達した点を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "暗号資産の需給だけでなく、トレンド指標を継続的に追える。",
+    "next_watch": "流入が一時的な急増か継続的な資金配分かを追跡できる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/ashcrypto/status/2090764870933238182",
+      "url": "https://x.com/bitcoinarchive/status/2090789168746013057",
       "verified": false
     },
     "corroborating_sources": [],
