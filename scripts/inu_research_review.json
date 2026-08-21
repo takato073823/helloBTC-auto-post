@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T14:03:42.419893+00:00",
+  "generated_at": "2026-08-21T14:30:31.185933+00:00",
   "slot": "2026-08-21-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T14:03:42.419893+00:00",
-    "to": "2026-08-21T14:03:42.419893+00:00"
+    "from": "2026-08-20T14:30:31.185933+00:00",
+    "to": "2026-08-21T14:30:31.185933+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 ビットコイン、日足200MAを回復\n\n長期トレンドの分岐点として、200MAを維持できるかが次の焦点です。"
+      "📊 ビットコイン、200日線を回復\n\n200日線を維持できるかが、反発の持続性を測る焦点になりそうです。"
     ],
-    "public_compact_post": "📈 ビットコイン、日足200MAを回復\n\n日足200MAは69,000ドル\n現在価格は約77,000ドル\n\n長期トレンドの分岐点として、200MAを維持できるかが次の焦点です。"
+    "public_compact_post": "📊 ビットコイン、200日線を回復\n\nDaily MA 200は6万9000ドル\n価格は約7万7000ドルで推移\n\n200日線を維持できるかが、反発の持続性を測る焦点になりそうです。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈 ビットコイン、日足200MAを回復",
+    "selected_hook": "📊 ビットコイン、200日線を回復",
     "verified_facts": [],
-    "market_or_user_impact": "200MAの水準と価格の乖離を一目で確認できる。",
+    "market_or_user_impact": "現在値と重要移動平均線の水準を同時に確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格水準だけでなく、過去の相場局面との比較材料を追える。",
+    "next_watch": "暗号資産の需給だけでなく、トレンド指標を継続的に追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/ashcrypto/status/2090764870933238182",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 25,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 25,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
