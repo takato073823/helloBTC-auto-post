@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T22:19:34.981782+00:00",
+  "generated_at": "2026-08-21T22:33:12.601581+00:00",
   "slot": "2026-08-22-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T22:19:34.981782+00:00",
-    "to": "2026-08-21T22:19:34.981782+00:00"
+    "from": "2026-08-20T22:33:12.601581+00:00",
+    "to": "2026-08-21T22:33:12.601581+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 韓国取引所の売買が急増\n\n価格上昇に加えて現地の売買参加も戻り、 rallyの厚みを測る材料になる。"
+      "📊 韓国取引所の売買が急増\n\n現物市場の回転が戻ったのか、一時的な追随売買かが次の焦点です。"
     ],
-    "public_compact_post": "📊 韓国取引所の売買が急増\n\nUpbitの24時間取引高は273%増の18.4億ドル\n日次取引高は3月中旬以来の最高水準\n\n価格上昇に加えて現地の売買参加も戻り、 rallyの厚みを測る材料になる。"
+    "public_compact_post": "📊 韓国取引所の売買が急増\n\nUpbitの24時間取引高は273%増の18.4億ドル\n日次取引高は3月中旬以来の高水準\n\n現物市場の回転が戻ったのか、一時的な追随売買かが次の焦点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -27,9 +27,9 @@
     "selected_topic": "x_reaction",
     "selected_hook": "📊 韓国取引所の売買が急増",
     "verified_facts": [],
-    "market_or_user_impact": "価格だけでなく、取引高の急増が実需参加を伴う動きか確認できる。",
+    "market_or_user_impact": "価格だけでなく、韓国最大級取引所の売買活況を数値で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "INUで暗号資産市場の地域別フローと取引所データを追える。",
+    "next_watch": "BTC上昇が取引参加者の増加を伴っているか追跡する起点になる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/coinmarketcap/status/2090911115219816451",
@@ -56,7 +56,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 6,
+          "used": 7,
           "limit": 12
         },
         "openai_web_search": {
