@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-21T13:32:37+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T13:32:37+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T14:19:45+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T10:47:22+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T11:16:29+00:00",
@@ -2283,37 +2277,15 @@
       "result_count": 5,
       "spike": false,
       "topic": "crypto_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T14:19:45+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4713831,
-      "discovered_at": "2026-08-20T14:21:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Standard Chartered Bank predicts Bitcoin will hit $100,000 by the end of this year. https://t.co/FNg5h8urDD",
-      "impression_count": 88927,
-      "like_count": 887,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090439623927550317/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090439623927550317",
-      "post_url": "https://x.com/WatcherGuru/status/2090439623927550317",
-      "posted_at": "2026-08-20T14:03:39+00:00",
-      "quote_count": 22,
-      "reply_count": 114,
-      "repost_count": 89,
-      "score": 82.6,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Standard Chartered Bank predicts Bitcoin will hit $100,000 by the end of this year. https://t.co/FNg5h8urDD",
-      "topic": "watcher_guru",
-      "why_trending": "表示88,927・投稿後17分・反応率1.5%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4716645,
       "discovered_at": "2026-08-20T21:05:34+00:00",
@@ -2369,6 +2341,34 @@
       "summary": "JUST IN: Bitcoin surpasses $76,000 https://t.co/C5zhrBzzB6",
       "topic": "watcher_guru",
       "why_trending": "表示157,423・投稿後64分・反応率3.0%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4722633,
+      "discovered_at": "2026-08-21T14:19:45+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Bitcoin 'Fear &amp; Greed Index' rises to 72, greed. https://t.co/ajRsVlk54F",
+      "impression_count": 72244,
+      "like_count": 480,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090803876614254726/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090803876614254726",
+      "post_url": "https://x.com/WatcherGuru/status/2090803876614254726",
+      "posted_at": "2026-08-21T14:11:04+00:00",
+      "quote_count": 20,
+      "reply_count": 106,
+      "repost_count": 51,
+      "score": 80.6,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Bitcoin 'Fear &amp; Greed Index' rises to 72, greed. https://t.co/ajRsVlk54F",
+      "topic": "watcher_guru",
+      "why_trending": "表示72,244・投稿後8分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4714672,
