@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T11:04:01+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T12:03:09+00:00",
+  "last_deep_scan_at": "2026-08-21T13:32:37+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T13:32:37+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T09:50:53+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T10:47:22+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T10:47:22+00:00",
@@ -2282,6 +2270,19 @@
       "checked_at": "2026-08-21T12:03:09+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T13:32:37+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T13:32:37+00:00",
+      "result_count": 5,
+      "spike": false,
+      "topic": "crypto_market"
     }
   ],
   "signals": [
@@ -2422,34 +2423,6 @@
       "why_trending": "表示53,138・投稿後5分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4713831,
-      "discovered_at": "2026-08-20T14:21:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Peter Schiff says the Bitcoin rally is a \"fakeout\" and tells investors to sell $BTC for gold. https://t.co/oasoaUlniE",
-      "impression_count": 168383,
-      "like_count": 1403,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090429491764191355/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090429491764191355",
-      "post_url": "https://x.com/WatcherGuru/status/2090429491764191355",
-      "posted_at": "2026-08-20T13:23:23+00:00",
-      "quote_count": 56,
-      "reply_count": 376,
-      "repost_count": 103,
-      "score": 78.8,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Peter Schiff says the Bitcoin rally is a \"fakeout\" and tells investors to sell $BTC for gold. https://t.co/oasoaUlniE",
-      "topic": "watcher_guru",
-      "why_trending": "表示168,383・投稿後57分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
       "author_followers": 4721121,
       "discovered_at": "2026-08-21T11:04:01+00:00",
       "discovery_type": "official_x_api",
@@ -2476,34 +2449,6 @@
       "summary": "August 3rd: Jim Cramer said \"I am going to sell my Bitcoin.\" August 21st: Bitcoin is up 26% since, surpassing $79,000. https://t.co/vqto6maleJ",
       "topic": "fixed_primary_x",
       "why_trending": "表示137,202・投稿後62分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4713831,
-      "discovered_at": "2026-08-20T14:21:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "Crypto last week vs Crypto this week https://t.co/mctJuJu8TE",
-      "impression_count": 164699,
-      "like_count": 2752,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090424395449946607/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090424395449946607",
-      "post_url": "https://x.com/WatcherGuru/status/2090424395449946607",
-      "posted_at": "2026-08-20T13:03:08+00:00",
-      "quote_count": 32,
-      "reply_count": 199,
-      "repost_count": 231,
-      "score": 76.7,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "Crypto last week vs Crypto this week https://t.co/mctJuJu8TE",
-      "topic": "watcher_guru",
-      "why_trending": "表示164,699・投稿後78分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4716645,
@@ -2849,6 +2794,30 @@
       "why_trending": "表示169,297・投稿後183分・反応率2.1%"
     },
     {
+      "author_followers": 1883,
+      "discovered_at": "2026-08-21T13:32:37+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "SovereignField",
+      "has_video": false,
+      "headline": "Bitcoin moved nearly 20% toward $77,500, Ethereum jumped close to 18% toward $2,260 — one of the largest short-liquidation events on record, roughly $3B wiped out in a day, $2.7B o",
+      "impression_count": 68,
+      "like_count": 2,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090786554813792326",
+      "post_url": "https://x.com/SovereignField/status/2090786554813792326",
+      "posted_at": "2026-08-21T13:02:14+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 47.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Bitcoin moved nearly 20% toward $77,500, Ethereum jumped close to 18% toward $2,260 — one of the largest short-liquidation events on record, roughly $3B wiped out in a day, $2.7B of it forced shorts. Built on forced covering and genuine spot demand together. Open interest has",
+      "topic": "crypto_market",
+      "why_trending": "表示68・投稿後30分・反応率2.9%"
+    },
+    {
       "author_followers": 224,
       "discovered_at": "2026-08-20T18:09:13+00:00",
       "discovery_type": "official_x_api",
@@ -2931,34 +2900,6 @@
       "summary": "#Ethereum #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:49AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Ethereum `ETH` is trading around **$2,306**, with 24h performance of **+10.5%**, 7d performance of **+23.3%**, and 30d https://t.co/ViElpQUUX3",
       "topic": "crypto_market",
       "why_trending": "表示46・投稿後129分・反応率7.8%"
-    },
-    {
-      "author_followers": 5049,
-      "discovered_at": "2026-08-20T13:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "AidenSong_2025",
-      "has_video": false,
-      "headline": "加密对冲美债信用风险已经越来越成熟，这是目前唯一的避险属性 BTC大涨近10%，ETH大涨近20%，突然牛回，很多朋友措手不及。 1、核心原因还是长债收益率飙升，40万亿美债担忧再起 BTC走了对抗信用货币体系的根本逻辑，再次跟黄金，不跟美股。 https://t.co/ZkYkF7mNxv",
-      "impression_count": 195,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/AidenSong_2025/status/2090428322409054697/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090428322409054697",
-      "post_url": "https://x.com/AidenSong_2025/status/2090428322409054697",
-      "posted_at": "2026-08-20T13:18:44+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "加密对冲美债信用风险已经越来越成熟，这是目前唯一的避险属性 BTC大涨近10%，ETH大涨近20%，突然牛回，很多朋友措手不及。 1、核心原因还是长债收益率飙升，40万亿美债担忧再起 BTC走了对抗信用货币体系的根本逻辑，再次跟黄金，不跟美股。 https://t.co/ZkYkF7mNxv",
-      "topic": "chinese_market",
-      "why_trending": "表示195・投稿後15分・反応率0.5%"
     },
     {
       "author_followers": 81304,
@@ -3094,6 +3035,34 @@
       "summary": "https://t.co/nb9Wmx5Ees 【新たな上昇要因】仮想通貨・ビットコインが止まらない！ 仮想通貨チャンネル - Joe Takayama #AI要約 ビットコイン急騰と資金フロー変化、金利・米国株への影響 🔳暗号資産市場の急騰継続",
       "topic": "japanese_market",
       "why_trending": "表示912・投稿後364分・反応率0.4%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 104,
+      "discovered_at": "2026-08-21T13:32:37+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "Yaroslav_Glune",
+      "has_video": false,
+      "headline": "Bitcoin has broken decisively out of a six-week consolidation range, pushing past $72,700 as the total crypto market cap expanded to approximately $2.48 trillion — a 3.3% gain on t",
+      "impression_count": 89,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/Yaroslav_Glune/status/2090681328945463636/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090681328945463636",
+      "post_url": "https://x.com/Yaroslav_Glune/status/2090681328945463636",
+      "posted_at": "2026-08-21T06:04:06+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 1,
+      "score": 37.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Bitcoin has broken decisively out of a six-week consolidation range, pushing past $72,700 as the total crypto market cap expanded to approximately $2.48 trillion — a 3.3% gain on the day — while BTC dominance climbed to 58.6%, signaling that capital rotation is currently favoring https://t.co/7vCtvZDRmU",
+      "topic": "crypto_market",
+      "why_trending": "表示89・投稿後448分・反応率6.3%"
     },
     {
       "author_followers": 1772,
