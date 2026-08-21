@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T00:00:37+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T00:00:37+00:00",
+  "last_deep_scan_at": "2026-08-21T02:13:07+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T02:13:07+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T02:45:38+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T03:59:22+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T03:59:22+00:00",
@@ -2277,6 +2265,19 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T02:13:07+00:00",
+      "result_count": 9,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T02:13:07+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -2689,34 +2690,6 @@
       "why_trending": "表示14,746・投稿後109分・反応率0.5%・公式候補リンクあり"
     },
     {
-      "author_followers": 4710446,
-      "discovered_at": "2026-08-20T04:22:12+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $190,000,000,000 added to the crypto market cap in the past 24 hours. https://t.co/VWXibqrxHL",
-      "impression_count": 213195,
-      "like_count": 4923,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090228652474531850/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090228652474531850",
-      "post_url": "https://x.com/WatcherGuru/status/2090228652474531850",
-      "posted_at": "2026-08-20T00:05:19+00:00",
-      "quote_count": 95,
-      "reply_count": 272,
-      "repost_count": 636,
-      "score": 53.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: $190,000,000,000 added to the crypto market cap in the past 24 hours. https://t.co/VWXibqrxHL",
-      "topic": "watcher_guru",
-      "why_trending": "表示213,195・投稿後256分・反応率3.2%"
-    },
-    {
       "author_followers": 4715928,
       "discovered_at": "2026-08-20T19:19:25+00:00",
       "discovery_type": "official_x_api",
@@ -2903,6 +2876,34 @@
       "why_trending": "表示195・投稿後15分・反応率0.5%"
     },
     {
+      "author_followers": 81304,
+      "discovered_at": "2026-08-21T02:13:07+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "GroveXchange",
+      "has_video": false,
+      "headline": "Daily Crypto News 📰 1️⃣ BTC breaks above $73K 🚀 Bitcoin is pushing to its highest levels since June as a massive short squeeze wipes out roughly $3B in bearish positions. 2️⃣ ETH e",
+      "impression_count": 336,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/GroveXchange/status/2090612389460730144/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090612389460730144",
+      "post_url": "https://x.com/GroveXchange/status/2090612389460730144",
+      "posted_at": "2026-08-21T01:30:10+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 44.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Daily Crypto News 📰 1️⃣ BTC breaks above $73K 🚀 Bitcoin is pushing to its highest levels since June as a massive short squeeze wipes out roughly $3B in bearish positions. 2️⃣ ETH explodes +18% ⚡ Ethereum surged toward $2,250 as the broader crypto rally accelerated. 3️⃣ $706M https://t.co/rbz0Wy6X4g",
+      "topic": "regulation",
+      "why_trending": "表示336・投稿後42分・反応率0.9%"
+    },
+    {
       "author_followers": 98,
       "discovered_at": "2026-08-20T11:04:51+00:00",
       "discovery_type": "official_x_api",
@@ -2929,30 +2930,6 @@
       "summary": "ビットコインが急騰していますね。私も少し保有しています。今年2月の安値圏で買ったものですが、なかなか上がらなかったので、そのまま放置していました。 急騰の理由は直近 48 時間の 3 つの材料が重なったもののようです (約 64,000 → 70,000 ドル、円建てで 1,100 万円前後・24 時間 +7% 前後)。 https://t.co/dUsjUDbAWm",
       "topic": "japanese_market",
       "why_trending": "表示311・投稿後25分・反応率0.0%"
-    },
-    {
-      "author_followers": 56,
-      "discovered_at": "2026-08-20T03:30:36+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "YDDGO11922960",
-      "has_video": false,
-      "headline": "仮想通貨上昇⤴️ 始まったかもしれない。 ・米国債買戻し拡大による金利低下 ・大規模ショート精算 ・米国の暗号資産規制緩和期待 ・ホワイトハウスの積極姿勢 ・BTCの重要価格帯突破 ・ETHの2000$回復 ・米国株リスク資産の反発 ・ドル安 まだ若干弱い気もするが上昇基調に 期待したい所です。",
-      "impression_count": 40,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090243769308483759",
-      "post_url": "https://x.com/YDDGO11922960/status/2090243769308483759",
-      "posted_at": "2026-08-20T01:05:24+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 42.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "仮想通貨上昇⤴️ 始まったかもしれない。 ・米国債買戻し拡大による金利低下 ・大規模ショート精算 ・米国の暗号資産規制緩和期待 ・ホワイトハウスの積極姿勢 ・BTCの重要価格帯突破 ・ETHの2000$回復 ・米国株リスク資産の反発 ・ドル安 まだ若干弱い気もするが上昇基調に 期待したい所です。",
-      "topic": "japanese_market",
-      "why_trending": "表示40・投稿後145分・反応率2.5%"
     },
     {
       "author_followers": 131905,
@@ -3007,35 +2984,6 @@
       "summary": "$BTC Bitcoin briefly surpassed $72,000 Wednesday and Thursday, its highest level since early June, after more than $3 billion in short positions were liquidated in 24 hours. US spot Bitcoin ETFs recorded $1.004 billion in net inflows across August 17 to 19, reversing $248.4 https://t.co/ZO4ykTCsQU",
       "topic": "macro_rates",
       "why_trending": "表示935・投稿後249分・反応率1.7%"
-    },
-    {
-      "author_followers": 1796433,
-      "discovered_at": "2026-08-20T13:34:02+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "zaobaosg",
-      "has_video": false,
-      "headline": "加密货币交易所OKX已禁止驻香港或途经中国大陆的员工使用Anthropic人工智能模型Claude。此前，OKX的企业账户曾短暂遭到暂停。 https://t.co/bFQteGPB7C https://t.co/1myK2sqtLD",
-      "impression_count": 14229,
-      "like_count": 15,
-      "linked_urls": [
-        "https://www.zaobao.com.sg/news/china/story20260820-9545350",
-        "https://x.com/zaobaosg/status/2090241599645114811/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090241599645114811",
-      "post_url": "https://x.com/zaobaosg/status/2090241599645114811",
-      "posted_at": "2026-08-20T00:56:46+00:00",
-      "quote_count": 0,
-      "reply_count": 5,
-      "repost_count": 1,
-      "score": 36.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "加密货币交易所OKX已禁止驻香港或途经中国大陆的员工使用Anthropic人工智能模型Claude。此前，OKX的企业账户曾短暂遭到暂停。 https://t.co/bFQteGPB7C https://t.co/1myK2sqtLD",
-      "topic": "chinese_market",
-      "why_trending": "表示14,229・投稿後757分・反応率0.2%・公式候補リンクあり"
     },
     {
       "author_followers": 333,
