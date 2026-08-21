@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T00:03:44.404185+00:00",
-  "slot": "2026-08-21-09-a",
+  "generated_at": "2026-08-21T01:03:23.525181+00:00",
+  "slot": "2026-08-21-10-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T00:03:44.404185+00:00",
-    "to": "2026-08-21T00:03:44.404185+00:00"
+    "from": "2026-08-20T01:03:23.525181+00:00",
+    "to": "2026-08-21T01:03:23.525181+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦米国債買い戻し、1回40億ドル超も\n\n買い戻しの規模拡大は、長期債の流動性と需給を同時に動かす論点になる。"
+      "💵米国債の買い戻しに注文が集中\n\n僕は、長期債の需給偏りが金利と流動性の焦点になると見ます。"
     ],
-    "public_compact_post": "🏦米国債買い戻し、1回40億ドル超も\n\n米財務長官ベッセント氏は、国債買い戻しが1回あたり40億ドルを超える可能性に言及した\n債券市場について「市場が先走っている可能性がある」と述べた\n\n買い戻しの規模拡大は、長期債の流動性と需給を同時に動かす論点になる。"
+    "public_compact_post": "💵米国債の買い戻しに注文が集中\n\n10〜30年債を対象に、買い戻し上限は1回20億ドル\n火曜日は198.7億ドルの応募に対し、財務省の買い戻しは20億ドル\n\n僕は、長期債の需給偏りが金利と流動性の焦点になると見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🏦米国債買い戻し、1回40億ドル超も",
+    "selected_hook": "💵米国債の買い戻しに注文が集中",
     "verified_facts": [],
-    "market_or_user_impact": "買い戻しの規模と流動性支援が、債券価格や金利形成に影響し得る。",
+    "market_or_user_impact": "買い戻し政策が実際にどれほどの債券需要を吸収しているかを把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "財務省の買い戻し方針と長期債市場の反応を追う材料になる。",
+    "next_watch": "債券需給と金利変動を、買い戻しの応募額・実行額で追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinbureau/status/2090551950739669316",
+      "url": "https://x.com/coinbureau/status/2090580530563834327",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
