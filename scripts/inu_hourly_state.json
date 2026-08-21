@@ -1446,7 +1446,21 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-22-01-a",
+      "post_id": "inu_overseas_kol_2090834647316099120",
+      "source_url": "https://x.com/ashcrypto/status/2090834647316099120",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-21T16:28:00.185837+00:00",
+      "lease_expires_at": "2026-08-21T16:58:00.185837+00:00",
+      "content_fingerprint": "7e01150c0599463e2dbd62223032e612b047303584b32a2e00558021e4c7a659",
+      "event_fingerprint": "00115383d39f23611ae81b262dfc7373f8e5737705fd482121500c9abca096b8"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3044,8 +3058,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-21T16:03:40.062503+00:00",
-      "count": 84676,
+      "checked_at": "2026-08-21T16:28:00.185837+00:00",
+      "count": 84780,
       "fastest_fee": 2
     }
   },
@@ -3762,9 +3776,9 @@
   "api_usage": {
     "jst_date": "2026-08-22",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 2,
-      "grok_editorial": 1
+      "grok_x_search": 2,
+      "openai_web_search": 4,
+      "grok_editorial": 2
     },
     "claims": [
       {
@@ -3782,6 +3796,22 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-08-21T16:03:40.062503+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-08-21T16:28:00.185837+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-21T16:28:00.185837+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-21T16:28:00.185837+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-21T16:28:00.185837+00:00"
       }
     ]
   }

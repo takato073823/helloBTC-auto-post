@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T16:03:40.062503+00:00",
+  "generated_at": "2026-08-21T16:28:00.185837+00:00",
   "slot": "2026-08-22-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T16:03:40.062503+00:00",
-    "to": "2026-08-21T16:03:40.062503+00:00"
+    "from": "2026-08-20T16:28:00.185837+00:00",
+    "to": "2026-08-21T16:28:00.185837+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏗️ AIインフラの収益化\n\n僕は、電力契約を実際のARRへ変換できるかが評価の核心だと見ます。"
+      "📊 アルト市場、1000日サポートから反発\n\n僕は、アルトの自律的な強さより$BTC連動が続くかを見極めたいです"
     ],
-    "public_compact_post": "🏗️ AIインフラの収益化\n\nWolfe Researchは、Nebiusが2030年末にARR（年間経常収益）410億ドル超へ到達する可能性を示している\nNebiusは契約済み電力5GWをAIインフラ基盤へ転換する計画で、長期契約は1MWあたり約2,500万ドル\n\n僕は、電力契約を実際のARRへ変換できるかが評価の核心だと見ます。"
+    "public_compact_post": "📊 アルト市場、1000日サポートから反発\n\nアルト市場の時価総額は長期の1000日サポート帯から反発\n今週は15%上昇し、ビットコインが7.9万ドルに到達\n\n僕は、アルトの自律的な強さより$BTC連動が続くかを見極めたいです"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🏗️ AIインフラの収益化",
+    "selected_hook": "📊 アルト市場、1000日サポートから反発",
     "verified_facts": [],
-    "market_or_user_impact": "AIインフラ株の成長期待を、電力容量と契約単価から検討できる。",
+    "market_or_user_impact": "アルト全体の上昇が個別材料ではなくBTC主導かを判断する材料になる",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "半導体ではなく、電力・データセンター契約がAI投資の収益源になる構造を追える。",
+    "next_watch": "時価総額のサポート帯とBTC連動が維持されるか追跡できる",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/stocksavvyshay/status/2090806011888361877",
+      "url": "https://x.com/ashcrypto/status/2090834647316099120",
       "verified": false
     },
     "corroborating_sources": [],
@@ -52,15 +52,15 @@
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 1,
+          "used": 2,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 1,
+          "used": 2,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 2,
+          "used": 4,
           "limit": 8
         }
       },
@@ -68,59 +68,60 @@
     },
     "candidate_shortlist": [
       {
-        "topic_type": "institutional_custody",
-        "hook": "🏦Circle、米国信託銀行を承認",
-        "published_at": "2026-08-05T00:00:00-04:00",
-        "source_url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
-        "why_now": "米国信託銀行の承認で、USDC準備金とカストディの制度基盤が変わるためです。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "💵USDC流通量、週次更新",
-        "published_at": "2026-08-17T00:00:00-04:00",
-        "source_url": "https://www.circle.com/transparency",
-        "why_now": "市場上昇局面で、待機資金の裏付けと増減を公式データで確認できます。"
-      },
-      {
-        "topic_type": "developing_story",
-        "hook": "⚠️Coldcard事故、乱数生成が焦点",
-        "published_at": "2026-08-20T00:00:00+00:00",
-        "source_url": "https://www.ledger.com/blog-coldcard-incident",
-        "why_now": "ウォレット被害の規模と原因が公式技術解説で具体化したためです。"
-      },
-      {
-        "topic_type": "onchain",
-        "hook": "🪙Solana、slot timeを250msへ",
-        "published_at": "2026-08-13T00:00:00+00:00",
-        "source_url": "https://solana.com/changelog",
-        "why_now": "主要プロトコルの性能条件が350msから250msへ変わったためです。"
+        "topic_type": "etf_flow",
+        "hook": "🏦 IBITの保有BTC、74.8万枚",
+        "published_at": "2026-08-11T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
+        "why_now": "$BTC急伸局面で、現物ETFの保有規模を一次データで確認できます。"
       },
       {
         "topic_type": "institutional_flow",
-        "hook": "🏢Metaplanet、米国BTC事業を拡大",
-        "published_at": "2026-08-18T00:00:00+09:00",
+        "hook": "🏢 Metaplanet、米国BTC事業へ",
+        "published_at": "2026-08-18T00:00:00+00:00",
         "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "日本企業による具体的な2,100BTC規模の米国展開が確認できるためです。"
+        "why_now": "$BTC急騰後も企業保有戦略の拡大が確認できます。"
       },
       {
-        "topic_type": "adoption_kpi",
-        "hook": "📊Coinbase、USDC保有が200億ドル",
-        "published_at": "2026-07-30T00:00:00-04:00",
-        "source_url": "https://investor.coinbase.com/news/news-details/2026/Coinbase-Q2-Earnings-Everything-Exchange-Drives-3rd-Consecutive-Quarter-of-Record-Crypto-Trading-Volume-Market-Share-Revenue-Diversification-and-Resilience/default.aspx",
-        "why_now": "USDC保有額と取引シェアの具体的な過去最高が確認できるためです。"
+        "topic_type": "macro_event",
+        "hook": "🏛️ 米銀のステーブル規則、意見締切",
+        "published_at": "2026-08-21T00:00:00+00:00",
+        "source_url": "https://www.federalreserve.gov/frrs/federal-reserve-regulatory-service.htm",
+        "why_now": "2026年8月21日が意見提出期限で、制度化の節目です。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚙️ Solana、200ms化を段階導入",
+        "published_at": "2026-08-17T00:00:00+00:00",
+        "source_url": "https://solana.com/fr/upgrades/agave-4-2-release-overview",
+        "why_now": "主要アルトのネットワーク性能を左右する機能有効化が進行中です。"
+      },
+      {
+        "topic_type": "institutional_custody",
+        "hook": "🏦 Metaplanet、米国BTC基盤を新設",
+        "published_at": "2026-08-18T00:00:00+00:00",
+        "source_url": "https://metaplanet.jp/en/disclosures",
+        "why_now": "企業保有の枠組みが日本国内から米国市場へ拡張されています。"
+      },
+      {
+        "topic_type": "supply_event",
+        "hook": "🛠️ Solana、取引容量を3.3倍へ",
+        "published_at": "2026-08-17T00:00:00+00:00",
+        "source_url": "https://solana.com/fr/upgrades/agave-4-2-release-overview",
+        "why_now": "主要プロトコルの実装条件が変わり、アプリ開発の前提に影響します。"
       }
     ],
     "rejected_reasons": [
       "一次探索1: この系統の鮮度上限を超えています",
       "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: 根拠原文が一次資料ページ内に確認できません",
+      "一次探索3: 継続フォロー価値が公式発表の紹介だけになっています",
+      "一次探索4: この系統の鮮度上限を超えています",
       "一次探索5: この系統の鮮度上限を超えています",
       "一次探索6: この系統の鮮度上限を超えています",
-      "再探索1: 403 Client Error: Forbidden for url: https://www.bls.gov/news.release/laus.toc.htm",
-      "再探索2: 同一時間枠でこの一次サイトへの接続失敗を確認済みです",
-      "再探索3: 公表予定だけで具体的な変化がないため自動投稿できません",
-      "再探索4: この系統の鮮度上限を超えています"
+      "再探索1: この系統の鮮度上限を超えています",
+      "再探索2: 403 Client Error: Forbidden for url: https://www.bls.gov/news.release/laus.htm",
+      "再探索3: この系統の鮮度上限を超えています",
+      "再探索4: この系統の鮮度上限を超えています",
+      "再探索5: この系統の鮮度上限を超えています"
     ]
   }
 }
