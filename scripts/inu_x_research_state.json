@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-21T05:17:17+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T05:17:17+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T06:05:33+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T07:11:49+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T07:11:49+00:00",
@@ -2280,6 +2274,12 @@
       "result_count": 3,
       "spike": false,
       "topic": "japanese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T06:05:33+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2878,32 +2878,6 @@
       "summary": "#Ethereum #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:49AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Ethereum `ETH` is trading around **$2,306**, with 24h performance of **+10.5%**, 7d performance of **+23.3%**, and 30d https://t.co/ViElpQUUX3",
       "topic": "crypto_market",
       "why_trending": "表示46・投稿後129分・反応率7.8%"
-    },
-    {
-      "author_followers": 43,
-      "discovered_at": "2026-08-20T07:28:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "masato_zaizen",
-      "has_video": false,
-      "headline": "ビットコインが突然7万ドルへ。 でも今回の急騰、 「仮想通貨に好材料が出たから」だけではありません。 米国債、金利、ドル、ETFへの資金流入。 世界のお金の流れを追うと、今回の上昇がかなり見えてきます。 #ビットコイン #仮想通貨 #暗号資産 #投資 https://t.co/Rwmsl8q0zI",
-      "impression_count": 314,
-      "like_count": 0,
-      "linked_urls": [
-        "https://moneyplusultra.hatenablog.com/entry/2026/08/20/142413"
-      ],
-      "media_types": [],
-      "post_id": "2090309225193111614",
-      "post_url": "https://x.com/masato_zaizen/status/2090309225193111614",
-      "posted_at": "2026-08-20T05:25:30+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ビットコインが突然7万ドルへ。 でも今回の急騰、 「仮想通貨に好材料が出たから」だけではありません。 米国債、金利、ドル、ETFへの資金流入。 世界のお金の流れを追うと、今回の上昇がかなり見えてきます。 #ビットコイン #仮想通貨 #暗号資産 #投資 https://t.co/Rwmsl8q0zI",
-      "topic": "japanese_market",
-      "why_trending": "表示314・投稿後122分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 4712880,
