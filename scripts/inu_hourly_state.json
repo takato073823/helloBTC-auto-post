@@ -1446,21 +1446,7 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-22-03-a",
-      "post_id": "inu_overseas_kol_2090840546298237098",
-      "source_url": "https://x.com/arkham/status/2090840546298237098",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-21T18:30:39.993456+00:00",
-      "lease_expires_at": "2026-08-21T19:00:39.993456+00:00",
-      "content_fingerprint": "a768119abb7c85d569430ea7cc1d06c34c9f3cc1578a560dee0d12e1b0f221de",
-      "event_fingerprint": "0d1f8599a20047dbf655300940c6265f14874526b60c3087b3ece8b4db38e5b2"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3789,6 +3775,13 @@
       "slot": "2026-08-22-03-a",
       "post_id": "inu_overseas_kol_2090821225056784892",
       "failed_at": "2026-08-21T18:07:25.533861+00:00",
+      "stage": "publish",
+      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
+    },
+    {
+      "slot": "2026-08-22-03-a",
+      "post_id": "inu_overseas_kol_2090840546298237098",
+      "failed_at": "2026-08-21T18:30:55.392094+00:00",
       "stage": "publish",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
     }
