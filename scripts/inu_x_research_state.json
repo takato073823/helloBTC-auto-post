@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T17:12:34+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T18:03:38+00:00",
+  "last_deep_scan_at": "2026-08-21T19:58:14+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T19:58:14+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T11:53:32+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T13:09:03+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
     {
       "action": "search_error",
       "checked_at": "2026-08-08T13:09:03+00:00",
@@ -2284,6 +2272,19 @@
       "checked_at": "2026-08-21T18:03:38+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T19:58:14+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T19:58:14+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2981,34 +2982,6 @@
       "summary": "Bitcoin has broken decisively out of a six-week consolidation range, pushing past $72,700 as the total crypto market cap expanded to approximately $2.48 trillion — a 3.3% gain on the day — while BTC dominance climbed to 58.6%, signaling that capital rotation is currently favoring https://t.co/7vCtvZDRmU",
       "topic": "crypto_market",
       "why_trending": "表示89・投稿後448分・反応率6.3%"
-    },
-    {
-      "author_followers": 1772,
-      "discovered_at": "2026-08-21T00:00:37+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "NextFinAI",
-      "has_video": false,
-      "headline": "$BTC Bitcoin briefly surpassed $72,000 Wednesday and Thursday, its highest level since early June, after more than $3 billion in short positions were liquidated in 24 hours. US spo",
-      "impression_count": 935,
-      "like_count": 6,
-      "linked_urls": [
-        "https://x.com/NextFinAI/status/2090527130698530846/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090527130698530846",
-      "post_url": "https://x.com/NextFinAI/status/2090527130698530846",
-      "posted_at": "2026-08-20T19:51:22+00:00",
-      "quote_count": 1,
-      "reply_count": 0,
-      "repost_count": 4,
-      "score": 37.2,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "$BTC Bitcoin briefly surpassed $72,000 Wednesday and Thursday, its highest level since early June, after more than $3 billion in short positions were liquidated in 24 hours. US spot Bitcoin ETFs recorded $1.004 billion in net inflows across August 17 to 19, reversing $248.4 https://t.co/ZO4ykTCsQU",
-      "topic": "macro_rates",
-      "why_trending": "表示935・投稿後249分・反応率1.7%"
     },
     {
       "author_followers": 277,
