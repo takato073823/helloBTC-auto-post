@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-21T07:29:42+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T07:29:42+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T08:20:29+00:00",
   "scans": [
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T08:06:37+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T08:58:51+00:00",
@@ -2281,6 +2275,12 @@
       "result_count": 3,
       "spike": false,
       "topic": "chinese_market"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T08:20:29+00:00",
+      "result_count": 9,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2369,32 +2369,32 @@
       "why_trending": "表示86,130・投稿後22分・反応率2.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4711358,
-      "discovered_at": "2026-08-20T08:19:00+00:00",
+      "author_followers": 4720016,
+      "discovered_at": "2026-08-21T08:20:29+00:00",
       "discovery_type": "official_x_api",
       "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "JUST IN: $71,000 Bitcoin https://t.co/0qODdCDoHj",
-      "impression_count": 55549,
-      "like_count": 423,
+      "headline": "JUST IN: Bitcoin surpasses $76,000 https://t.co/C5zhrBzzB6",
+      "impression_count": 157423,
+      "like_count": 3426,
       "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090351325653389658/photo/1"
+        "https://x.com/WatcherGuru/status/2090699503485518249/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2090351325653389658",
-      "post_url": "https://x.com/WatcherGuru/status/2090351325653389658",
-      "posted_at": "2026-08-20T08:12:47+00:00",
-      "quote_count": 16,
-      "reply_count": 76,
-      "repost_count": 52,
-      "score": 81.2,
+      "post_id": "2090699503485518249",
+      "post_url": "https://x.com/WatcherGuru/status/2090699503485518249",
+      "posted_at": "2026-08-21T07:16:19+00:00",
+      "quote_count": 92,
+      "reply_count": 233,
+      "repost_count": 377,
+      "score": 81.0,
       "seen_count": 1,
       "source_priority": "watcherguru",
-      "summary": "JUST IN: $71,000 Bitcoin https://t.co/0qODdCDoHj",
+      "summary": "JUST IN: Bitcoin surpasses $76,000 https://t.co/C5zhrBzzB6",
       "topic": "watcher_guru",
-      "why_trending": "表示55,549・投稿後6分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
+      "why_trending": "表示157,423・投稿後64分・反応率3.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4712880,
@@ -2451,6 +2451,30 @@
       "summary": "JUST IN: Coinbase CEO Brain Armstrong predicts Bitcoin could reach $300,000-$400,000 by 2030. https://t.co/ckgsDSAX97",
       "topic": "fixed_primary_x",
       "why_trending": "表示106,193・投稿後22分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4720016,
+      "discovered_at": "2026-08-21T08:20:29+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $77,000 Bitcoin",
+      "impression_count": 53138,
+      "like_count": 389,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090714387153854670",
+      "post_url": "https://x.com/WatcherGuru/status/2090714387153854670",
+      "posted_at": "2026-08-21T08:15:28+00:00",
+      "quote_count": 11,
+      "reply_count": 74,
+      "repost_count": 50,
+      "score": 78.9,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $77,000 Bitcoin",
+      "topic": "watcher_guru",
+      "why_trending": "表示53,138・投稿後5分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4713831,
@@ -2535,6 +2559,30 @@
       "summary": "JUST IN: 🇺🇸 Coinbase CEO Brian Armstrong says the crypto Clarity Act will prevent another FTX collapse. https://t.co/uCf2CEke64",
       "topic": "watcher_guru",
       "why_trending": "表示129,261・投稿後66分・反応率1.9%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4720016,
+      "discovered_at": "2026-08-21T08:20:29+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Michael Saylor's Strategy now has $875,000,000 unrealized profit on its Bitcoin investment.",
+      "impression_count": 80878,
+      "like_count": 543,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090709583413248106",
+      "post_url": "https://x.com/WatcherGuru/status/2090709583413248106",
+      "posted_at": "2026-08-21T07:56:22+00:00",
+      "quote_count": 10,
+      "reply_count": 91,
+      "repost_count": 58,
+      "score": 74.2,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Michael Saylor's Strategy now has $875,000,000 unrealized profit on its Bitcoin investment.",
+      "topic": "watcher_guru",
+      "why_trending": "表示80,878・投稿後24分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4712880,
