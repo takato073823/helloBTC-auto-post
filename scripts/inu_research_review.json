@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T20:03:47.801743+00:00",
+  "generated_at": "2026-08-21T20:21:04.239791+00:00",
   "slot": "2026-08-22-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T20:03:47.801743+00:00",
-    "to": "2026-08-21T20:03:47.801743+00:00"
+    "from": "2026-08-20T20:21:04.239791+00:00",
+    "to": "2026-08-21T20:21:04.239791+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💧流動性が$BTC反発を支える？\n\n僕は、反発の持続性を判断するには買い戻しによる流動性効果の継続確認が残ると見ます。"
+      "🟣 $ETHステーキング、企業の保有戦略に組み込まれる\n\n企業による大量ステーキングは、$ETHの流通量と市場の流動性に影響し得る。"
     ],
-    "public_compact_post": "💧流動性が$BTC反発を支える？\n\nBernsteinのアナリストは、$BTCの8万ドル方向への反発について、米財務省の拡大した国債買い戻しプログラムに伴う流動性改善を反映している可能性があると指摘。\n\n僕は、反発の持続性を判断するには買い戻しによる流動性効果の継続確認が残ると見ます。"
+    "public_compact_post": "🟣 $ETHステーキング、企業の保有戦略に組み込まれる\n\nNasdaq上場のSharpLink Gamingが39,319 $ETHを追加でステーキング\n情報源としてLookonchainが示されている\n\n企業による大量ステーキングは、$ETHの流通量と市場の流動性に影響し得る。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "💧流動性がBTC反発を支える？",
+    "selected_hook": "🟣 ETHステーキング、企業の保有戦略に組み込まれる",
     "verified_facts": [],
-    "market_or_user_impact": "暗号資産価格だけでなく、米財務省の国債買い戻しが流動性経由で影響する構図を確認できる。",
+    "market_or_user_impact": "保有だけでなくステーキングまで進める企業の資本運用を追える。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "金融政策・国債市場と暗号資産の接点を追う材料になる。",
+    "next_watch": "今後の追加取得やステーキング規模の変化を継続的に確認できる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2090847703731167545",
+      "url": "https://x.com/coinmarketcap/status/2090856754506584223",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 40,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 40,
+        "signal_count": 24,
         "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 4,
+          "used": 5,
           "limit": 6
         },
         "grok_editorial": {
@@ -66,61 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "etf_flow",
-        "hook": "🏦 IBIT純資産、480億ドル台",
-        "published_at": "2026-08-17T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
-        "why_now": "IBITの最新確認値が480億ドル台で、$BTCの上昇局面における機関需要を測れるため。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "🇯🇵 メタプラネット、米国展開",
-        "published_at": "2026-08-18T00:00:00+09:00",
-        "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "過去24時間ではないものの、米国上場を伴う2,100BTCの事業転換が市場の機関化テーマに直結するため。"
-      },
-      {
-        "topic_type": "adoption_kpi",
-        "hook": "🌐 Circle、Arcを9月公開へ",
-        "published_at": "2026-08-05T00:00:00+00:00",
-        "source_url": "https://www.circle.com/pressroom/circle-announces-founding-validator-cohort-and-major-integrations-for-arc-ahead-of-september-16-mainnet-launch",
-        "why_now": "公開メインネット開始日と金融機関の参加者が明示され、ステーブルコイン決済の実装段階が進んだため。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "📊 米国、州別雇用統計を公表",
-        "published_at": "2026-08-21T10:00:00-04:00",
-        "source_url": "https://www.bls.gov/schedule/2026/home.htm",
-        "why_now": "8月21日の公式発表枠で、金利とリスク資産の判断材料が更新されるため。"
-      },
-      {
-        "topic_type": "market_microstructure",
-        "hook": "⚠️ Kraken、BTC機能は正常",
-        "published_at": "2026-08-21T00:00:00+00:00",
-        "source_url": "https://status.kraken.com",
-        "why_now": "急変局面で、主要取引所のBTC入出金やAPIに障害がないかを確認できるため。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "⚙️ Solana、処理能力を66％増強",
-        "published_at": "2026-08-13T00:00:00+00:00",
-        "source_url": "https://solana.com/changelog",
-        "why_now": "主要チェーンの性能改善が続き、暗号資産の利用拡大を測る具体的な数値があるため。"
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: 公表予定だけで具体的な変化がないため自動投稿できません",
-      "一次探索5: 同じ一次資料は投稿済みまたは予約済みです",
-      "一次探索6: この系統の鮮度上限を超えています",
-      "再探索1: 自動切り抜き可能な公式HTMLではありません",
-      "再探索2: 根拠原文が一次資料ページ内に確認できません",
-      "再探索3: 403 Client Error: Forbidden for url: https://www.bls.gov/news.release/laus.nr0.htm",
-      "再探索4: 固定探索先と追加検索で、現在時刻から24時間以内の新規一次資料を確認できませんでした。"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
