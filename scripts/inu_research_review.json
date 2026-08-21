@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T04:34:22.417680+00:00",
+  "generated_at": "2026-08-21T04:47:57.938194+00:00",
   "slot": "2026-08-21-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T04:34:22.417680+00:00",
-    "to": "2026-08-21T04:34:22.417680+00:00"
+    "from": "2026-08-20T04:47:57.938194+00:00",
+    "to": "2026-08-21T04:47:57.938194+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈$BTC、7.5万ドル突破でショート清算720百万ドル\n\n急騰の裏側でレバレッジ解消が進み、上昇の持続性を見極める局面です。"
+      "📉 欧州株、5日連続安は4月以来の長さ\n\n欧州株の弱さが続くなら、暗号資産への資金流入が地域間のリスク選好を映す可能性がある。"
     ],
-    "public_compact_post": "📈$BTC、7.5万ドル突破でショート清算720百万ドル\n\nBitcoinが75,000ドルを上回った\n24時間でショートポジション7.2億ドルが清算された\n\n急騰の裏側でレバレッジ解消が進み、上昇の持続性を見極める局面です。"
+    "public_compact_post": "📉 欧州株、5日連続安は4月以来の長さ\n\n欧州株は5営業日連続で下落\n今回の連続下落は4月以来で最長\n\n欧州株の弱さが続くなら、暗号資産への資金流入が地域間のリスク選好を映す可能性がある。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈BTC、7.5万ドル突破でショート清算720百万ドル",
+    "selected_hook": "📉 欧州株、5日連続安は4月以来の長さ",
     "verified_facts": [],
-    "market_or_user_impact": "価格上昇だけでなく、24時間で7.2億ドルのショート清算という需給要因を確認できる。",
+    "market_or_user_impact": "欧州株の連続下落という具体的な地合いを、暗号資産の動きと並べて判断できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "単なる節目突破ではなく、レバレッジ清算を併記した金融・暗号資産市場の材料。",
+    "next_watch": "株式市場の地域別ストレスと暗号資産の相関変化を追う起点になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bitcoinarchive/status/2090617036065870241",
+      "url": "https://x.com/barchart/status/2090627317961752655",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
