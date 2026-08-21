@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T13:32:37+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T14:19:45+00:00",
+  "last_deep_scan_at": "2026-08-21T17:12:34+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T17:12:34+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T11:16:29+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T11:16:29+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T11:53:32+00:00",
@@ -2283,6 +2271,19 @@
       "checked_at": "2026-08-21T14:19:45+00:00",
       "result_count": 8,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T17:12:34+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T17:12:34+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -2369,34 +2370,6 @@
       "summary": "JUST IN: Bitcoin 'Fear &amp; Greed Index' rises to 72, greed. https://t.co/ajRsVlk54F",
       "topic": "watcher_guru",
       "why_trending": "表示72,244・投稿後8分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4714672,
-      "discovered_at": "2026-08-20T16:06:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Coinbase CEO Brain Armstrong predicts Bitcoin could reach $300,000-$400,000 by 2030. https://t.co/ckgsDSAX97",
-      "impression_count": 106193,
-      "like_count": 1175,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090464981242536279/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090464981242536279",
-      "post_url": "https://x.com/WatcherGuru/status/2090464981242536279",
-      "posted_at": "2026-08-20T15:44:25+00:00",
-      "quote_count": 32,
-      "reply_count": 171,
-      "repost_count": 99,
-      "score": 79.6,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Coinbase CEO Brain Armstrong predicts Bitcoin could reach $300,000-$400,000 by 2030. https://t.co/ckgsDSAX97",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示106,193・投稿後22分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4720016,
@@ -2663,30 +2636,6 @@
       "why_trending": "表示188,825・投稿後154分・反応率2.0%"
     },
     {
-      "author_followers": 1887146,
-      "discovered_at": "2026-08-20T16:06:48+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Polymarket",
-      "has_video": false,
-      "headline": "BREAKING: Franklin Templeton receives U.S. regulatory clearance to bring tokenized assets into traditional investment funds.",
-      "impression_count": 36933,
-      "like_count": 632,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090452815680356365",
-      "post_url": "https://x.com/Polymarket/status/2090452815680356365",
-      "posted_at": "2026-08-20T14:56:04+00:00",
-      "quote_count": 12,
-      "reply_count": 22,
-      "repost_count": 97,
-      "score": 54.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BREAKING: Franklin Templeton receives U.S. regulatory clearance to bring tokenized assets into traditional investment funds.",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示36,933・投稿後70分・反応率2.4%"
-    },
-    {
       "author_followers": 25309,
       "discovered_at": "2026-08-21T07:29:42+00:00",
       "discovery_type": "official_x_api",
@@ -2738,6 +2687,35 @@
       "summary": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
       "topic": "watcher_guru",
       "why_trending": "表示153,431・投稿後115分・反応率1.6%"
+    },
+    {
+      "author_followers": 2743,
+      "discovered_at": "2026-08-21T17:12:34+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "saeifchain_",
+      "has_video": false,
+      "headline": "Let's Explore @Circle's @Arc Blockchain | Part 12 🧵 🌍 Why is FX such an important part of Arc? Moving money across borders isn't as simple as sending money from one wallet to anoth",
+      "impression_count": 25,
+      "like_count": 2,
+      "linked_urls": [
+        "https://x.com/saeifchain_/status/2090834099229294998/photo/1",
+        "https://twitter.com/saeifchain_/status/2087647561385738692"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090834099229294998",
+      "post_url": "https://x.com/saeifchain_/status/2090834099229294998",
+      "posted_at": "2026-08-21T16:11:09+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 51.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Let's Explore @Circle's @Arc Blockchain | Part 12 🧵 🌍 Why is FX such an important part of Arc? Moving money across borders isn't as simple as sending money from one wallet to another. Different countries use different currencies. Different financial institutions operate https://t.co/6e8lQEU6m2 https://t.co/0hnG8akXiq",
+      "topic": "onchain_exchange",
+      "why_trending": "表示25・投稿後61分・反応率8.0%・公式候補リンクあり"
     },
     {
       "author_followers": 201894,
@@ -2816,90 +2794,6 @@
       "summary": "Bitcoin moved nearly 20% toward $77,500, Ethereum jumped close to 18% toward $2,260 — one of the largest short-liquidation events on record, roughly $3B wiped out in a day, $2.7B of it forced shorts. Built on forced covering and genuine spot demand together. Open interest has",
       "topic": "crypto_market",
       "why_trending": "表示68・投稿後30分・反応率2.9%"
-    },
-    {
-      "author_followers": 224,
-      "discovered_at": "2026-08-20T18:09:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Alfred3o3",
-      "has_video": false,
-      "headline": "#Bitcoin #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:27AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Bitcoin `BTC` is trading ar",
-      "impression_count": 95,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Alfred3o3/status/2090461709198897156/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090461709198897156",
-      "post_url": "https://x.com/Alfred3o3/status/2090461709198897156",
-      "posted_at": "2026-08-20T15:31:25+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 1,
-      "score": 47.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "#Bitcoin #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:27AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Bitcoin `BTC` is trading around **$72,082**, with 24h performance of **+5.2%**, 7d performance of **+13.6%**, and 30d https://t.co/EgmlAxACTm",
-      "topic": "crypto_market",
-      "why_trending": "表示95・投稿後157分・反応率8.6%"
-    },
-    {
-      "author_followers": 224,
-      "discovered_at": "2026-08-20T18:09:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Alfred3o3",
-      "has_video": false,
-      "headline": "#Solana #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 9:06AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Solana `SOL` is trading arou",
-      "impression_count": 62,
-      "like_count": 3,
-      "linked_urls": [
-        "https://x.com/Alfred3o3/status/2090471239727083768/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090471239727083768",
-      "post_url": "https://x.com/Alfred3o3/status/2090471239727083768",
-      "posted_at": "2026-08-20T16:09:17+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 0,
-      "score": 47.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "#Solana #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 9:06AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Solana `SOL` is trading around **$87.17**, with 24h performance of **+7.0%**, 7d performance of **+15.4%**, and 30d performance https://t.co/cZ7oyiesvT",
-      "topic": "crypto_market",
-      "why_trending": "表示62・投稿後119分・反応率10.0%"
-    },
-    {
-      "author_followers": 224,
-      "discovered_at": "2026-08-20T18:09:13+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Alfred3o3",
-      "has_video": false,
-      "headline": "#Ethereum #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:49AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Ethereum `ETH` is trading ",
-      "impression_count": 46,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/Alfred3o3/status/2090468923959619595/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090468923959619595",
-      "post_url": "https://x.com/Alfred3o3/status/2090468923959619595",
-      "posted_at": "2026-08-20T16:00:05+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 45.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "#Ethereum #Crypto Deep Dive Scan - 2026-08-20 Generated: Thu 2026-08-20 8:49AM PT Disclaimer: Analysis only. Not financial advice. NFA. ## Executive Read Ethereum `ETH` is trading around **$2,306**, with 24h performance of **+10.5%**, 7d performance of **+23.3%**, and 30d https://t.co/ViElpQUUX3",
-      "topic": "crypto_market",
-      "why_trending": "表示46・投稿後129分・反応率7.8%"
     },
     {
       "author_followers": 81304,
@@ -3091,6 +2985,30 @@
       "summary": "$BTC Bitcoin briefly surpassed $72,000 Wednesday and Thursday, its highest level since early June, after more than $3 billion in short positions were liquidated in 24 hours. US spot Bitcoin ETFs recorded $1.004 billion in net inflows across August 17 to 19, reversing $248.4 https://t.co/ZO4ykTCsQU",
       "topic": "macro_rates",
       "why_trending": "表示935・投稿後249分・反応率1.7%"
+    },
+    {
+      "author_followers": 277,
+      "discovered_at": "2026-08-21T17:12:34+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "BitSignalAI",
+      "has_video": false,
+      "headline": "Why did 1,500 Bitcoin leave Binance today? $102M whale outflow hit cold storage as spot ETFs added $185M, led by BlackRock IBIT's $95M. Confirmed: $4.2B new USDT/USDC on Ethereum. ",
+      "impression_count": 7,
+      "like_count": 1,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090822860793086345",
+      "post_url": "https://x.com/BitSignalAI/status/2090822860793086345",
+      "posted_at": "2026-08-21T15:26:30+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 34.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Why did 1,500 Bitcoin leave Binance today? $102M whale outflow hit cold storage as spot ETFs added $185M, led by BlackRock IBIT's $95M. Confirmed: $4.2B new USDT/USDC on Ethereum. Sellable supply tightens as cash depth builds.",
+      "topic": "onchain_exchange",
+      "why_trending": "表示7・投稿後106分・反応率37.1%"
     }
   ],
   "trends": [],
