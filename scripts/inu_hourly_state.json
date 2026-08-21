@@ -1446,7 +1446,21 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-21-23-a",
+      "post_id": "inu_overseas_kol_2090764870933238182",
+      "source_url": "https://x.com/ashcrypto/status/2090764870933238182",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-21T14:03:42.419893+00:00",
+      "lease_expires_at": "2026-08-21T14:33:42.419893+00:00",
+      "content_fingerprint": "0db8e7ea0e9ae827a3798f444021090a549638567c71d49e73c6c1e813aad8d0",
+      "event_fingerprint": "0abc08a66c218750b4674db9084ead82664f2fad87f159c0d05cb03bf77432c1"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3044,9 +3058,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-21T12:04:01.521239+00:00",
-      "count": 87150,
-      "fastest_fee": 4
+      "checked_at": "2026-08-21T14:03:42.419893+00:00",
+      "count": 84765,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [

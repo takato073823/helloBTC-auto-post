@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T12:04:01.521239+00:00",
-  "slot": "2026-08-21-21-a",
+  "generated_at": "2026-08-21T14:03:42.419893+00:00",
+  "slot": "2026-08-21-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T12:04:01.521239+00:00",
-    "to": "2026-08-21T12:04:01.521239+00:00"
+    "from": "2026-08-20T14:03:42.419893+00:00",
+    "to": "2026-08-21T14:03:42.419893+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈ビットコイン、2024年以来最大の週足\n\n週足の大幅上昇後だけに、8万ドルでの需給確認が次の焦点になる。"
+      "📈 ビットコイン、日足200MAを回復\n\n長期トレンドの分岐点として、200MAを維持できるかが次の焦点です。"
     ],
-    "public_compact_post": "📈ビットコイン、2024年以来最大の週足\n\n週足の値幅は2024年以来最大\n8万ドルが強いレジスタンスで、過去にサポートとレジスタンスの双方として機能\n\n週足の大幅上昇後だけに、8万ドルでの需給確認が次の焦点になる。"
+    "public_compact_post": "📈 ビットコイン、日足200MAを回復\n\n日足200MAは69,000ドル\n現在価格は約77,000ドル\n\n長期トレンドの分岐点として、200MAを維持できるかが次の焦点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈ビットコイン、2024年以来最大の週足",
+    "selected_hook": "📈 ビットコイン、日足200MAを回復",
     "verified_facts": [],
-    "market_or_user_impact": "上昇の大きさと直近の抵抗帯をチャートで把握できる。",
+    "market_or_user_impact": "200MAの水準と価格の乖離を一目で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格だけでなく、週足と過去の支持抵抗帯を使って市場構造を追える。",
+    "next_watch": "価格水準だけでなく、過去の相場局面との比較材料を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/cryptorover/status/2090740191086686581",
+      "url": "https://x.com/ashcrypto/status/2090764870933238182",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,7 +47,7 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
+        "signal_count": 25,
         "status": "used"
       },
       "paid_api_usage": {
