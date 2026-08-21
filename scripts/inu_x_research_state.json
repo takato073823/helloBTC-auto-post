@@ -1,19 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T07:29:42+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T08:20:29+00:00",
+  "last_deep_scan_at": "2026-08-21T11:04:01+00:00",
+  "last_watcher_guru_scan_at": "2026-08-21T11:04:01+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search_error",
-      "checked_at": "2026-08-08T08:58:51+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search_error",
-      "checked_at": "2026-08-08T08:58:51+00:00",
-      "error": "402 Payment Required\ncredits depleted",
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search_error",
       "checked_at": "2026-08-08T09:50:53+00:00",
@@ -2281,6 +2269,19 @@
       "checked_at": "2026-08-21T08:20:29+00:00",
       "result_count": 9,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-21T11:04:01+00:00",
+      "result_count": 8,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-21T11:04:01+00:00",
+      "result_count": 6,
+      "spike": false,
+      "topic": "fixed_primary_x"
     }
   ],
   "signals": [
@@ -2505,6 +2506,34 @@
       "why_trending": "表示168,383・投稿後57分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
+      "author_followers": 4721121,
+      "discovered_at": "2026-08-21T11:04:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "August 3rd: Jim Cramer said \"I am going to sell my Bitcoin.\" August 21st: Bitcoin is up 26% since, surpassing $79,000. https://t.co/vqto6maleJ",
+      "impression_count": 137202,
+      "like_count": 2159,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090740982870618378/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090740982870618378",
+      "post_url": "https://x.com/WatcherGuru/status/2090740982870618378",
+      "posted_at": "2026-08-21T10:01:09+00:00",
+      "quote_count": 52,
+      "reply_count": 212,
+      "repost_count": 205,
+      "score": 76.7,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "August 3rd: Jim Cramer said \"I am going to sell my Bitcoin.\" August 21st: Bitcoin is up 26% since, surpassing $79,000. https://t.co/vqto6maleJ",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示137,202・投稿後62分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
       "author_followers": 4713831,
       "discovered_at": "2026-08-20T14:21:15+00:00",
       "discovery_type": "official_x_api",
@@ -2585,34 +2614,6 @@
       "why_trending": "表示80,878・投稿後24分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4712880,
-      "discovered_at": "2026-08-20T12:03:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $USDT issuer Tether CEO Paolo Ardoino says \"Bitcoin + Gold = hedge against doom.\" https://t.co/C7JiQiLC7X",
-      "impression_count": 125831,
-      "like_count": 1259,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090391382188081425/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090391382188081425",
-      "post_url": "https://x.com/WatcherGuru/status/2090391382188081425",
-      "posted_at": "2026-08-20T10:51:57+00:00",
-      "quote_count": 15,
-      "reply_count": 104,
-      "repost_count": 109,
-      "score": 71.4,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: $USDT issuer Tether CEO Paolo Ardoino says \"Bitcoin + Gold = hedge against doom.\" https://t.co/C7JiQiLC7X",
-      "topic": "watcher_guru",
-      "why_trending": "表示125,831・投稿後71分・反応率1.3%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
       "author_followers": 4718889,
       "discovered_at": "2026-08-21T04:24:17+00:00",
       "discovery_type": "official_x_api",
@@ -2641,32 +2642,60 @@
       "why_trending": "表示176,406・投稿後167分・反応率3.2%"
     },
     {
-      "author_followers": 4712880,
-      "discovered_at": "2026-08-20T12:03:15+00:00",
+      "author_followers": 4721121,
+      "discovered_at": "2026-08-21T11:04:01+00:00",
       "discovery_type": "official_x_api",
       "handle": "WatcherGuru",
       "has_video": false,
-      "headline": "JUST IN: $72,000 Bitcoin https://t.co/LslGvwTs70",
-      "impression_count": 193799,
-      "like_count": 4157,
+      "headline": "JUST IN: $79,000 Bitcoin. $250 million worth of shorts liquidated and counting… https://t.co/WbTYXBhgM3",
+      "impression_count": 170854,
+      "like_count": 3334,
       "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090368968544641378/photo/1"
+        "https://x.com/WatcherGuru/status/2090725625715671513/photo/1"
       ],
       "media_types": [
         "photo"
       ],
-      "post_id": "2090368968544641378",
-      "post_url": "https://x.com/WatcherGuru/status/2090368968544641378",
-      "posted_at": "2026-08-20T09:22:53+00:00",
-      "quote_count": 74,
-      "reply_count": 247,
-      "repost_count": 384,
-      "score": 61.3,
+      "post_id": "2090725625715671513",
+      "post_url": "https://x.com/WatcherGuru/status/2090725625715671513",
+      "posted_at": "2026-08-21T09:00:07+00:00",
+      "quote_count": 92,
+      "reply_count": 227,
+      "repost_count": 381,
+      "score": 60.8,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "JUST IN: $72,000 Bitcoin https://t.co/LslGvwTs70",
-      "topic": "watcher_guru",
-      "why_trending": "表示193,799・投稿後160分・反応率2.8%"
+      "summary": "JUST IN: $79,000 Bitcoin. $250 million worth of shorts liquidated and counting… https://t.co/WbTYXBhgM3",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示170,854・投稿後123分・反応率2.7%"
+    },
+    {
+      "author_followers": 4721121,
+      "discovered_at": "2026-08-21T11:04:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Bitcoin surpasses $78,000 $140 million worth of shorts liquidated from the crypto market in the past hour. https://t.co/DQBLg67JCR",
+      "impression_count": 172160,
+      "like_count": 2907,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090723335889895799/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090723335889895799",
+      "post_url": "https://x.com/WatcherGuru/status/2090723335889895799",
+      "posted_at": "2026-08-21T08:51:01+00:00",
+      "quote_count": 82,
+      "reply_count": 199,
+      "repost_count": 321,
+      "score": 58.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Bitcoin surpasses $78,000 $140 million worth of shorts liquidated from the crypto market in the past hour. https://t.co/DQBLg67JCR",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示172,160・投稿後133分・反応率2.3%"
     },
     {
       "author_followers": 4715928,
@@ -2691,6 +2720,34 @@
       "summary": "JUST IN: 🇺🇸 CFTC Chair Selig directs staff to create formal crypto market structure rules if the crypto Clarity Act fails to pass.",
       "topic": "watcher_guru",
       "why_trending": "表示166,843・投稿後92分・反応率2.3%"
+    },
+    {
+      "author_followers": 4721121,
+      "discovered_at": "2026-08-21T11:04:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Ethereum surpasses $2,400 https://t.co/NNP6XuoqPn",
+      "impression_count": 148316,
+      "like_count": 2305,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090719843871760812/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090719843871760812",
+      "post_url": "https://x.com/WatcherGuru/status/2090719843871760812",
+      "posted_at": "2026-08-21T08:37:09+00:00",
+      "quote_count": 37,
+      "reply_count": 140,
+      "repost_count": 226,
+      "score": 56.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Ethereum surpasses $2,400 https://t.co/NNP6XuoqPn",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示148,316・投稿後146分・反応率2.1%"
     },
     {
       "author_followers": 4718889,
@@ -2741,32 +2798,6 @@
       "why_trending": "表示36,933・投稿後70分・反応率2.4%"
     },
     {
-      "author_followers": 93375,
-      "discovered_at": "2026-08-20T11:04:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sho54639108",
-      "has_video": false,
-      "headline": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275jGO",
-      "impression_count": 14549,
-      "like_count": 51,
-      "linked_urls": [
-        "https://youtu.be/fJXK-AKNaqA"
-      ],
-      "media_types": [],
-      "post_id": "2090367338709156164",
-      "post_url": "https://x.com/Sho54639108/status/2090367338709156164",
-      "posted_at": "2026-08-20T09:16:25+00:00",
-      "quote_count": 0,
-      "reply_count": 16,
-      "repost_count": 2,
-      "score": 54.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275jGO",
-      "topic": "japanese_market",
-      "why_trending": "表示14,549・投稿後108分・反応率0.6%・公式候補リンクあり"
-    },
-    {
       "author_followers": 25309,
       "discovered_at": "2026-08-21T07:29:42+00:00",
       "discovery_type": "official_x_api",
@@ -2796,32 +2827,6 @@
       "why_trending": "表示5,745・投稿後236分・反応率1.8%・公式候補リンクあり"
     },
     {
-      "author_followers": 93375,
-      "discovered_at": "2026-08-20T11:04:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Sho54639108",
-      "has_video": false,
-      "headline": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275Rwm",
-      "impression_count": 14746,
-      "like_count": 41,
-      "linked_urls": [
-        "https://youtu.be/fJXK-AKNaqA"
-      ],
-      "media_types": [],
-      "post_id": "2090367022333124930",
-      "post_url": "https://x.com/Sho54639108/status/2090367022333124930",
-      "posted_at": "2026-08-20T09:15:09+00:00",
-      "quote_count": 0,
-      "reply_count": 15,
-      "repost_count": 2,
-      "score": 53.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "【日経平均急落止まらない⁉AI半導体株が弱すぎる‼】海外投資家が日本株大量買い‼出遅れ銘柄、高配当株強いぞ‼金利低下でドル円158円に円高、自動車株急騰。米国株、ハイテク株弱い。仮想通貨BTC急騰 https://t.co/UM99275Rwm",
-      "topic": "japanese_market",
-      "why_trending": "表示14,746・投稿後109分・反応率0.5%・公式候補リンクあり"
-    },
-    {
       "author_followers": 4715928,
       "discovered_at": "2026-08-20T19:19:25+00:00",
       "discovery_type": "official_x_api",
@@ -2844,6 +2849,32 @@
       "summary": "JUST IN: 🇺🇸 CFTC considers rules that could allow crypto exchanges to offer leverage and margin trading.",
       "topic": "watcher_guru",
       "why_trending": "表示153,431・投稿後115分・反応率1.6%"
+    },
+    {
+      "author_followers": 201894,
+      "discovered_at": "2026-08-21T11:04:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "fsa_JAPAN",
+      "has_video": false,
+      "headline": "関東財務局が、令和８年７月17日から18日にかけての大雨に伴う災害等で被災された栃木県内の方々への預金の払戻し等について、被災状況に応じてきめ細かく弾力的で迅速な対応に努めるよう金融機関に要請しました。 https://t.co/JkgPkoP57I",
+      "impression_count": 2232,
+      "like_count": 4,
+      "linked_urls": [
+        "https://www.fsa.go.jp/news/r8/ginkou/20260821.html"
+      ],
+      "media_types": [],
+      "post_id": "2090734017536758200",
+      "post_url": "https://x.com/fsa_JAPAN/status/2090734017536758200",
+      "posted_at": "2026-08-21T09:33:28+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 3,
+      "score": 48.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "関東財務局が、令和８年７月17日から18日にかけての大雨に伴う災害等で被災された栃木県内の方々への預金の払戻し等について、被災状況に応じてきめ細かく弾力的で迅速な対応に努めるよう金融機関に要請しました。 https://t.co/JkgPkoP57I",
+      "topic": "fixed_primary_x",
+      "why_trending": "表示2,232・投稿後90分・反応率0.4%・公式候補リンクあり"
     },
     {
       "author_followers": 4718889,
@@ -2958,30 +2989,6 @@
       "why_trending": "表示46・投稿後129分・反応率7.8%"
     },
     {
-      "author_followers": 4712880,
-      "discovered_at": "2026-08-20T12:03:15+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $250,000,000 worth of shorts liquidated from the crypto market in the past hour.",
-      "impression_count": 213575,
-      "like_count": 2714,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090358768227758447",
-      "post_url": "https://x.com/WatcherGuru/status/2090358768227758447",
-      "posted_at": "2026-08-20T08:42:21+00:00",
-      "quote_count": 41,
-      "reply_count": 197,
-      "repost_count": 209,
-      "score": 44.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: $250,000,000 worth of shorts liquidated from the crypto market in the past hour.",
-      "topic": "watcher_guru",
-      "why_trending": "表示213,575・投稿後200分・反応率1.7%"
-    },
-    {
       "author_followers": 5049,
       "discovered_at": "2026-08-20T13:34:02+00:00",
       "discovery_type": "official_x_api",
@@ -3036,34 +3043,6 @@
       "summary": "Daily Crypto News 📰 1️⃣ BTC breaks above $73K 🚀 Bitcoin is pushing to its highest levels since June as a massive short squeeze wipes out roughly $3B in bearish positions. 2️⃣ ETH explodes +18% ⚡ Ethereum surged toward $2,250 as the broader crypto rally accelerated. 3️⃣ $706M https://t.co/rbz0Wy6X4g",
       "topic": "regulation",
       "why_trending": "表示336・投稿後42分・反応率0.9%"
-    },
-    {
-      "author_followers": 98,
-      "discovered_at": "2026-08-20T11:04:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "jl03119",
-      "has_video": false,
-      "headline": "ビットコインが急騰していますね。私も少し保有しています。今年2月の安値圏で買ったものですが、なかなか上がらなかったので、そのまま放置していました。 急騰の理由は直近 48 時間の 3 つの材料が重なったもののようです (約 64,000 → 70,000 ドル、円建てで 1,100 万円前後・24 時間 +7% 前後)。 https://t.co/dUsjU",
-      "impression_count": 311,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/jl03119/status/2090388090833789155/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090388090833789155",
-      "post_url": "https://x.com/jl03119/status/2090388090833789155",
-      "posted_at": "2026-08-20T10:38:53+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 44.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "ビットコインが急騰していますね。私も少し保有しています。今年2月の安値圏で買ったものですが、なかなか上がらなかったので、そのまま放置していました。 急騰の理由は直近 48 時間の 3 つの材料が重なったもののようです (約 64,000 → 70,000 ドル、円建てで 1,100 万円前後・24 時間 +7% 前後)。 https://t.co/dUsjUDbAWm",
-      "topic": "japanese_market",
-      "why_trending": "表示311・投稿後25分・反応率0.0%"
     },
     {
       "author_followers": 4718889,
@@ -3173,32 +3152,6 @@
       "why_trending": "表示912・投稿後364分・反応率0.4%・公式候補リンクあり"
     },
     {
-      "author_followers": 131905,
-      "discovered_at": "2026-08-20T20:05:17+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "tehMoonwalkeR",
-      "has_video": false,
-      "headline": "A fully onchain BitMEX was impossible for a decade. On $Sui the pieces finally exist 🧵 📖 Why it was impossible → A perp exchange needs a real orderbook, instant matching, live liqu",
-      "impression_count": 3557,
-      "like_count": 36,
-      "linked_urls": [
-        "https://twitter.com/EmanAbio/status/2090232333693837803"
-      ],
-      "media_types": [],
-      "post_id": "2090376196366455194",
-      "post_url": "https://x.com/tehMoonwalkeR/status/2090376196366455194",
-      "posted_at": "2026-08-20T09:51:37+00:00",
-      "quote_count": 0,
-      "reply_count": 6,
-      "repost_count": 0,
-      "score": 38.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "A fully onchain BitMEX was impossible for a decade. On $Sui the pieces finally exist 🧵 📖 Why it was impossible → A perp exchange needs a real orderbook, instant matching, live liquidations, thousands of times per second → Ethereum: one order = one 12-second, $5 https://t.co/cHJjkBaQoE",
-      "topic": "onchain_exchange",
-      "why_trending": "表示3,557・投稿後613分・反応率1.3%・公式候補リンクあり"
-    },
-    {
       "author_followers": 1772,
       "discovered_at": "2026-08-21T00:00:37+00:00",
       "discovery_type": "official_x_api",
@@ -3225,34 +3178,6 @@
       "summary": "$BTC Bitcoin briefly surpassed $72,000 Wednesday and Thursday, its highest level since early June, after more than $3 billion in short positions were liquidated in 24 hours. US spot Bitcoin ETFs recorded $1.004 billion in net inflows across August 17 to 19, reversing $248.4 https://t.co/ZO4ykTCsQU",
       "topic": "macro_rates",
       "why_trending": "表示935・投稿後249分・反応率1.7%"
-    },
-    {
-      "author_followers": 333,
-      "discovered_at": "2026-08-20T11:04:51+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "mickyairu",
-      "has_video": false,
-      "headline": "🚀仮想通貨、なんでこんなに上がってるんだ？？ 今回の急騰は「ただの仮想通貨祭り」じゃない。 🇺🇸米財務省が長期国債の買い戻し規模を倍増 ↓ 長期金利が低下 ↓ リスク資産に追い風 さらに、 ・BTC ETFへの資金流入 ・トランプ政権の暗号資産政策への期待 ・大量のショートが強制決済 https://t.co/9LAaHFUokD",
-      "impression_count": 6,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/mickyairu/status/2090393393788866755/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090393393788866755",
-      "post_url": "https://x.com/mickyairu/status/2090393393788866755",
-      "posted_at": "2026-08-20T10:59:57+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 34.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚀仮想通貨、なんでこんなに上がってるんだ？？ 今回の急騰は「ただの仮想通貨祭り」じゃない。 🇺🇸米財務省が長期国債の買い戻し規模を倍増 ↓ 長期金利が低下 ↓ リスク資産に追い風 さらに、 ・BTC ETFへの資金流入 ・トランプ政権の暗号資産政策への期待 ・大量のショートが強制決済 https://t.co/9LAaHFUokD",
-      "topic": "japanese_market",
-      "why_trending": "表示6・投稿後4分・反応率0.0%"
     }
   ],
   "trends": [],
