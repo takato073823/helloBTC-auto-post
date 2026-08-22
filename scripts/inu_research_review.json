@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T18:22:48.416205+00:00",
+  "generated_at": "2026-08-22T18:41:01.014903+00:00",
   "slot": "2026-08-23-03-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T18:22:48.416205+00:00",
-    "to": "2026-08-22T18:22:48.416205+00:00"
+    "from": "2026-08-21T18:41:01.014903+00:00",
+    "to": "2026-08-22T18:41:01.014903+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 中国の決済網が映すドル依存の変化\n\n僕はCIPSの拡大が続くかを、ドル決済網の分散度を測る材料として見たいです。"
+      "⚠️ ETF時代の$BTC、株式と同じリスクバケットへ\n\n機関投資家の参加は流動性を増やす一方、株式市場との連動を強める論点が残る。"
     ],
-    "public_compact_post": "📊 中国の決済網が映すドル依存の変化\n\n中国CIPSの取引量を兆元単位で示したチャート\n「Treasury's War」と呼ばれる主要イベントを時系列で注記\n\n僕はCIPSの拡大が続くかを、ドル決済網の分散度を測る材料として見たいです。"
+    "public_compact_post": "⚠️ ETF時代の$BTC、株式と同じリスクバケットへ\n\nETF時代のBTCはテック株と同じリスクバケットに入っている\n今年のリスクオフ局面でBTCはNASDAQと同時に下落した\n\n機関投資家の参加は流動性を増やす一方、株式市場との連動を強める論点が残る。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 中国の決済網が映すドル依存の変化",
+    "selected_hook": "⚠️ ETF時代のBTC、株式と同じリスクバケットへ",
     "verified_facts": [],
-    "market_or_user_impact": "CIPSの取引量と主要イベントの関係を、画像で時系列に確認できます。",
+    "market_or_user_impact": "BTC固有の需給だけでなく、NASDAQのリスクオフが波及する構造を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "ドル決済網の変化を、暗号資産やマクロ市場とつなげて追えます。",
+    "next_watch": "暗号資産と伝統資産の相関変化を継続して追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/lukegromen/status/2091206254764974338",
+      "url": "https://x.com/coinbureau/status/2091225570587902334",
       "verified": false
     },
     "corroborating_sources": [],
