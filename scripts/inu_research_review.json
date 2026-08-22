@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T16:03:41.559656+00:00",
+  "generated_at": "2026-08-22T16:18:24.184127+00:00",
   "slot": "2026-08-23-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T16:03:41.559656+00:00",
-    "to": "2026-08-22T16:03:41.559656+00:00"
+    "from": "2026-08-21T16:18:24.184127+00:00",
+    "to": "2026-08-22T16:18:24.184127+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 ビットコインETFに週19.2億ドル\n\n機関投資家の資金流入が続く一方、現物需要が価格をどこまで支えられるかが焦点です。"
+      "📊 $BTCの注文が示す攻防\n\n短期的な下値支えと上値の売り圧力が同時に見える配置です。"
     ],
-    "public_compact_post": "📊 ビットコインETFに週19.2億ドル\n\nビットコインETFは今週19.2億ドルを買い越した\n過去10か月で最大の買い越し額とされている\n\n機関投資家の資金流入が続く一方、現物需要が価格をどこまで支えられるかが焦点です。"
+    "public_compact_post": "📊 $BTCの注文が示す攻防\n\n74,000〜75,000ドルに大口の買い注文\n80,000ドルに大口の売り注文\n\n短期的な下値支えと上値の売り圧力が同時に見える配置です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 ビットコインETFに週19.2億ドル",
+    "selected_hook": "📊 BTCの注文が示す攻防",
     "verified_facts": [],
-    "market_or_user_impact": "ETF経由の資金流入規模と過去10か月との比較を一目で確認できる。",
+    "market_or_user_impact": "支持帯と抵抗帯の価格水準を一目で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格だけでなくETFフローから市場構造を追える。",
+    "next_watch": "注文板や市場構造を数値で整理する投稿を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bitcoinarchive/status/2091156946720051468",
+      "url": "https://x.com/cryptorover/status/2091156936704118909",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 31,
+    "x_discovery_signal_count": 30,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,20 +47,20 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 31,
+        "signal_count": 30,
         "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 1,
+          "used": 2,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 0,
+          "used": 5,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 2,
+          "used": 4,
           "limit": 8
         }
       },
@@ -68,39 +68,39 @@
     },
     "candidate_shortlist": [
       {
-        "topic_type": "etf_flow",
-        "hook": "🏦 $BTC ETF、21日に3.08億ドル流入",
-        "published_at": "2026-08-21T00:00:00+00:00",
-        "source_url": "https://farside.co.uk/btc",
-        "why_now": "8月21日の最新日次フローが公式データ表に反映され、直近3営業日の流入拡大を確認できるため。"
+        "topic_type": "adoption_kpi",
+        "hook": "🏦 Circle、USDCを35チェーンへ",
+        "published_at": "2026-08-21T20:00:00+00:00",
+        "source_url": "https://www.circle.com/usdc",
+        "why_now": "35チェーン対応と機関向け1ドル償還が公式ページで更新されています。"
       },
       {
-        "topic_type": "prediction_market_shift",
-        "hook": "📊 Polymarket、$BTC72,000超を100%",
-        "published_at": "2026-08-22T00:00:00+00:00",
-        "source_url": "https://polymarket.com/event/bitcoin-price-on-august-22-2026",
-        "why_now": "8月22日決済対象市場の最新確率と累計取引量が更新されているため。"
+        "topic_type": "onchain",
+        "hook": "⚙️ Solana、処理容量を66%拡大",
+        "published_at": "2026-08-21T00:00:00+00:00",
+        "source_url": "https://solana.com/uk/upgrades",
+        "why_now": "公式アップグレードページで、100M CUがメインネット稼働中と確認できます。"
       },
       {
         "topic_type": "macro_event",
-        "hook": "🏦 FOMC議事要旨、7月会合を公開",
-        "published_at": "2026-08-19T18:00:00+00:00",
-        "source_url": "https://www.federalreserve.gov/recentpostings.htm",
-        "why_now": "8月21日時点でFRBの最新重要更新日が8月20〜21日に確認でき、週末のマクロ材料を整理できるため。"
+        "hook": "📊 米雇用統計、次回更新は8月28日",
+        "published_at": "2026-08-21T10:00:00-04:00",
+        "source_url": "https://www.bls.gov/schedule/2026/home.htm",
+        "why_now": "8月21日公表分と、8月28日の雇用統計改定予定が公式カレンダーで確認できます。"
       },
       {
-        "topic_type": "institutional_flow",
-        "hook": "🇯🇵 メタプラネット、米国BTC戦略を継続",
-        "published_at": "2026-08-18T00:00:00+00:00",
-        "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "過去24時間ではないが、8月21日時点で継続的な企業BTC需要として公式開示が確認できるため。"
+        "topic_type": "market_microstructure",
+        "hook": "⚠️ 取引所障害は新規確認なし",
+        "published_at": "2026-08-22T00:00:00+00:00",
+        "source_url": "https://status.coinbase.com",
+        "why_now": "過去24時間の安全性確認として、主要2取引所の公式ステータスを横断しました。"
       },
       {
-        "topic_type": "adoption_kpi",
-        "hook": "💳 Coinbase、Q2の取引シェア10.3%",
-        "published_at": "2026-07-30T00:00:00+00:00",
-        "source_url": "https://investor.coinbase.com/news/news-details/2026/Coinbase-Q2-Earnings-Everything-Exchange-Drives-3rd-Consecutive-Quarter-of-Record-Crypto-Trading-Volume-Market-Share-Revenue-Diversification-and-Resilience/default.aspx",
-        "why_now": "過去24時間の新規IRではないため速報候補ではないが、週末の市場インフラ評価に使える最新実績として比較対象に残す。"
+        "topic_type": "etf_flow",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
       },
       {
         "topic_type": "earnings",
@@ -111,16 +111,17 @@
       }
     ],
     "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
+      "一次探索1: 公式ページの説明だけでは自動投稿できません",
       "一次探索2: この系統の鮮度上限を超えています",
       "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: この系統の鮮度上限を超えています",
-      "一次探索5: この系統の鮮度上限を超えています",
-      "一次探索6: 8月22日01:03 JST時点の過去24時間に、ログイン不要の公式HTML一次資料で確認できる米国企業IR・AIの新規実績を特定できなかった。NVIDIAの確認できた公式発表は8月17日以前で、候補条件を満たさない。",
-      "再探索1: この系統の鮮度上限を超えています",
-      "再探索2: この系統の鮮度上限を超えています",
-      "再探索3: この系統の鮮度上限を超えています",
-      "再探索4: この系統の鮮度上限を超えています"
+      "一次探索4: 同じ一次資料は投稿済みまたは予約済みです",
+      "一次探索5: ETF発行体ページで過去24時間のフロー更新時刻を確認できず、採用不可。",
+      "一次探索6: 米国企業IR・AI、日本企業IR、中央銀行・規制当局で過去24時間以内の採用可能な一次資料を確認できず。",
+      "再探索1: 公式ページの説明だけでは自動投稿できません",
+      "再探索2: 403 Client Error: Forbidden for url: https://www.cmegroup.com/newsletters/infocus/2026/08/metals-and-crypto-futures-surge.html",
+      "再探索3: 公式ページの説明だけでは自動投稿できません",
+      "再探索4: 数字・条件・決定など、読者が判断できる変化がありません",
+      "再探索5: 24時間以内に確認できる、固定探索先由来の別発表主体による採用可能なHTML一次資料を追加で確認できなかった。CME・Circle以外の候補は更新時刻または一次資料条件を満たさないため除外。"
     ]
   }
 }

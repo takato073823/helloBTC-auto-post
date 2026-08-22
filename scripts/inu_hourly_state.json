@@ -1446,7 +1446,21 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-23-01-a",
+      "post_id": "inu_overseas_kol_2091156936704118909",
+      "source_url": "https://x.com/cryptorover/status/2091156936704118909",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-22T16:18:24.184127+00:00",
+      "lease_expires_at": "2026-08-22T16:48:24.184127+00:00",
+      "content_fingerprint": "b43d2fa0e6bfd43793f8dc4c2f5042df29031ebf2e6e60a2b6bdd14d6119cf7e",
+      "event_fingerprint": "38072c40c2b8f3517fa77270be8a53d7bfa4eb3d6a1fc59f42095d632a74980e"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3044,9 +3058,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-22T16:03:41.559656+00:00",
-      "count": 92110,
-      "fastest_fee": 4
+      "checked_at": "2026-08-22T16:18:24.184127+00:00",
+      "count": 86459,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -4021,8 +4035,9 @@
   "api_usage": {
     "jst_date": "2026-08-23",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 2
+      "grok_x_search": 2,
+      "openai_web_search": 4,
+      "grok_editorial": 5
     },
     "claims": [
       {
@@ -4036,6 +4051,38 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-08-22T16:03:41.559656+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-08-22T16:18:24.184127+00:00"
       }
     ]
   }
