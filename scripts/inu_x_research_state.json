@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-22T11:00:25+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T11:00:25+00:00",
+  "last_deep_scan_at": "2026-08-22T15:57:57+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T15:57:57+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T17:38:06+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-10T17:38:06+00:00",
-      "result_count": 5,
-      "spike": false,
-      "topic": "japanese_market"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-10T18:35:26+00:00",
@@ -2284,37 +2271,22 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T15:57:57+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-22T15:57:57+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4722633,
-      "discovered_at": "2026-08-21T14:19:45+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Bitcoin 'Fear &amp; Greed Index' rises to 72, greed. https://t.co/ajRsVlk54F",
-      "impression_count": 72244,
-      "like_count": 480,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090803876614254726/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090803876614254726",
-      "post_url": "https://x.com/WatcherGuru/status/2090803876614254726",
-      "posted_at": "2026-08-21T14:11:04+00:00",
-      "quote_count": 20,
-      "reply_count": 106,
-      "repost_count": 51,
-      "score": 80.6,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Bitcoin 'Fear &amp; Greed Index' rises to 72, greed. https://t.co/ajRsVlk54F",
-      "topic": "watcher_guru",
-      "why_trending": "表示72,244・投稿後8分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4724131,
       "discovered_at": "2026-08-21T18:03:38+00:00",
@@ -2449,54 +2421,6 @@
       "why_trending": "表示25・投稿後61分・反応率8.0%・公式候補リンクあり"
     },
     {
-      "author_followers": 1883,
-      "discovered_at": "2026-08-21T13:32:37+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "SovereignField",
-      "has_video": false,
-      "headline": "Bitcoin moved nearly 20% toward $77,500, Ethereum jumped close to 18% toward $2,260 — one of the largest short-liquidation events on record, roughly $3B wiped out in a day, $2.7B o",
-      "impression_count": 68,
-      "like_count": 2,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090786554813792326",
-      "post_url": "https://x.com/SovereignField/status/2090786554813792326",
-      "posted_at": "2026-08-21T13:02:14+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 47.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Bitcoin moved nearly 20% toward $77,500, Ethereum jumped close to 18% toward $2,260 — one of the largest short-liquidation events on record, roughly $3B wiped out in a day, $2.7B of it forced shorts. Built on forced covering and genuine spot demand together. Open interest has",
-      "topic": "crypto_market",
-      "why_trending": "表示68・投稿後30分・反応率2.9%"
-    },
-    {
-      "author_followers": 4724131,
-      "discovered_at": "2026-08-21T18:03:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Scammers are sending fake IRS letters with QR codes designed to steal crypto wallet credentials and exchange logins.",
-      "impression_count": 261468,
-      "like_count": 2618,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090806814795522381",
-      "post_url": "https://x.com/WatcherGuru/status/2090806814795522381",
-      "posted_at": "2026-08-21T14:22:44+00:00",
-      "quote_count": 70,
-      "reply_count": 168,
-      "repost_count": 497,
-      "score": 44.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Scammers are sending fake IRS letters with QR codes designed to steal crypto wallet credentials and exchange logins.",
-      "topic": "watcher_guru",
-      "why_trending": "表示261,468・投稿後220分・反応率1.5%"
-    },
-    {
       "author_followers": 4727145,
       "discovered_at": "2026-08-22T03:27:59+00:00",
       "discovery_type": "official_x_api",
@@ -2521,54 +2445,33 @@
       "why_trending": "表示185,224・投稿後297分・反応率1.9%"
     },
     {
-      "author_followers": 4724131,
-      "discovered_at": "2026-08-21T18:03:38+00:00",
+      "author_followers": 1154,
+      "discovered_at": "2026-08-22T15:57:57+00:00",
       "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
+      "handle": "Crypto__Falcon",
       "has_video": false,
-      "headline": "JUST IN: 🇺🇸 US crypto stocks over the past 48 hours: • Robinhood $HOOD: +15% • Coinbase $COIN: +30% • Strategy $MSTR: +28% • Bitmine $BMNR: +22% • Gemini $GEMI: +28% • Circle $CRCL",
-      "impression_count": 293523,
-      "like_count": 2838,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090811508431499757",
-      "post_url": "https://x.com/WatcherGuru/status/2090811508431499757",
-      "posted_at": "2026-08-21T14:41:23+00:00",
-      "quote_count": 46,
-      "reply_count": 179,
-      "repost_count": 277,
-      "score": 43.9,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: 🇺🇸 US crypto stocks over the past 48 hours: • Robinhood $HOOD: +15% • Coinbase $COIN: +30% • Strategy $MSTR: +28% • Bitmine $BMNR: +22% • Gemini $GEMI: +28% • Circle $CRCL: +28% • $MARA: +33% • $RIOT: +10%",
-      "topic": "watcher_guru",
-      "why_trending": "表示293,523・投稿後202分・反応率1.3%"
-    },
-    {
-      "author_followers": 1673,
-      "discovered_at": "2026-08-22T02:09:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "monimagnet4",
-      "has_video": false,
-      "headline": "🚨 This could be a major development for crypto regulation. 🇺🇸 If the CFTC is prepared to use its existing authority while the CLARITY Act remains stalled, the message is clear: reg",
-      "impression_count": 25,
-      "like_count": 1,
+      "headline": "🚨ALERT: 🚨IMPORTANT FACTORS THAT COULD PUT PRESSURE ON CRYPTO, 1️⃣ US DEBT $40T+ &amp; RISING 30Y YIELD 🇺🇸, US DEBT HAS CROSSED ($40T), WHILE RISING LONG-TERM YIELDS ARE KEEPING FIN",
+      "impression_count": 2,
+      "like_count": 0,
       "linked_urls": [
-        "https://twitter.com/DeFiMidas/status/2090772126227980452"
+        "https://x.com/Crypto__Falcon/status/2091184788824903948/photo/1",
+        "https://twitter.com/Crypto__Falcon/status/2090888588628226072"
       ],
-      "media_types": [],
-      "post_id": "2090787416630075665",
-      "post_url": "https://x.com/monimagnet4/status/2090787416630075665",
-      "posted_at": "2026-08-21T13:05:39+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2091184788824903948",
+      "post_url": "https://x.com/Crypto__Falcon/status/2091184788824903948",
+      "posted_at": "2026-08-22T15:24:40+00:00",
       "quote_count": 0,
       "reply_count": 0,
-      "repost_count": 1,
-      "score": 36.8,
+      "repost_count": 0,
+      "score": 37.4,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "🚨 This could be a major development for crypto regulation. 🇺🇸 If the CFTC is prepared to use its existing authority while the CLARITY Act remains stalled, the message is clear: regulatory action may not wait for Congress forever. That could have serious implications for https://t.co/Fsm4kvdsKT",
-      "topic": "regulation",
-      "why_trending": "表示25・投稿後783分・反応率12.0%・公式候補リンクあり"
+      "summary": "🚨ALERT: 🚨IMPORTANT FACTORS THAT COULD PUT PRESSURE ON CRYPTO, 1️⃣ US DEBT $40T+ &amp; RISING 30Y YIELD 🇺🇸, US DEBT HAS CROSSED ($40T), WHILE RISING LONG-TERM YIELDS ARE KEEPING FINANCIAL CONDITIONS TIGHT AND PRESSURING RISK ASSETS. 2️⃣ PCE INFLATION DATA, HIGHER-THAN-EXPECTED https://t.co/K6KcarqP7Y https://t.co/nVkJnpBxoB",
+      "topic": "macro_rates",
+      "why_trending": "表示2・投稿後33分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 8018,
@@ -2595,30 +2498,6 @@
       "summary": "BIG: 🇺🇸 CFTC Chair Michael Selig says the agency is preparing to explore new crypto market rules. If Congress fails to pass the CLARITY Act, the CFTC may move forward on its own. U.S. crypto regulation is entering a critical phase. 👀 #Crypto #Bitcoin #Regulation https://t.co/ypOkHVnrSQ",
       "topic": "regulation",
       "why_trending": "表示276・投稿後627分・反応率1.8%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 277,
-      "discovered_at": "2026-08-21T17:12:34+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "BitSignalAI",
-      "has_video": false,
-      "headline": "Why did 1,500 Bitcoin leave Binance today? $102M whale outflow hit cold storage as spot ETFs added $185M, led by BlackRock IBIT's $95M. Confirmed: $4.2B new USDT/USDC on Ethereum. ",
-      "impression_count": 7,
-      "like_count": 1,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090822860793086345",
-      "post_url": "https://x.com/BitSignalAI/status/2090822860793086345",
-      "posted_at": "2026-08-21T15:26:30+00:00",
-      "quote_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "score": 34.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Why did 1,500 Bitcoin leave Binance today? $102M whale outflow hit cold storage as spot ETFs added $185M, led by BlackRock IBIT's $95M. Confirmed: $4.2B new USDT/USDC on Ethereum. Sellable supply tightens as cash depth builds.",
-      "topic": "onchain_exchange",
-      "why_trending": "表示7・投稿後106分・反応率37.1%"
     }
   ],
   "trends": [],
