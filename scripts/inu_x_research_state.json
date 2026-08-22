@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-22T02:09:04+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T02:09:04+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T03:27:59+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T08:17:37+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-10T08:17:37+00:00",
@@ -2285,6 +2279,12 @@
       "result_count": 2,
       "spike": false,
       "topic": "regulation"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T03:27:59+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2586,6 +2586,34 @@
       "why_trending": "表示5,745・投稿後236分・反応率1.8%・公式候補リンクあり"
     },
     {
+      "author_followers": 4727145,
+      "discovered_at": "2026-08-22T03:27:59+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Ethereum $ETH officially surpasses $2,500 https://t.co/Hl6rXOXeNv",
+      "impression_count": 220394,
+      "like_count": 4489,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2090921491038695927/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090921491038695927",
+      "post_url": "https://x.com/WatcherGuru/status/2090921491038695927",
+      "posted_at": "2026-08-21T21:58:25+00:00",
+      "quote_count": 84,
+      "reply_count": 208,
+      "repost_count": 473,
+      "score": 51.5,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Ethereum $ETH officially surpasses $2,500 https://t.co/Hl6rXOXeNv",
+      "topic": "watcher_guru",
+      "why_trending": "表示220,394・投稿後329分・反応率2.7%"
+    },
+    {
       "author_followers": 2743,
       "discovered_at": "2026-08-21T17:12:34+00:00",
       "discovery_type": "official_x_api",
@@ -2689,6 +2717,30 @@
       "why_trending": "表示261,468・投稿後220分・反応率1.5%"
     },
     {
+      "author_followers": 4727145,
+      "discovered_at": "2026-08-22T03:27:59+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Spot Bitcoin &amp; Ethereum ETF volume surpasses $7.5 billion today.",
+      "impression_count": 185224,
+      "like_count": 2652,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2090929654504862207",
+      "post_url": "https://x.com/WatcherGuru/status/2090929654504862207",
+      "posted_at": "2026-08-21T22:30:51+00:00",
+      "quote_count": 24,
+      "reply_count": 140,
+      "repost_count": 276,
+      "score": 44.6,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "JUST IN: Spot Bitcoin &amp; Ethereum ETF volume surpasses $7.5 billion today.",
+      "topic": "watcher_guru",
+      "why_trending": "表示185,224・投稿後297分・反応率1.9%"
+    },
+    {
       "author_followers": 4724131,
       "discovered_at": "2026-08-21T18:03:38+00:00",
       "discovery_type": "official_x_api",
@@ -2768,34 +2820,6 @@
       "summary": "🔥美国要把华尔街搬上链？白宫加密峰会释放三大信号 稳定币、美股 Token、预测市场、链上永续合约，这些原本分散在不同市场里的业务，正在被放进同一套政策叙事里。 这也是 SEC、CFTC、传统交易所和加密公司同时出现在白宫加密峰会上的原因： https://t.co/vNZlo7pN21 https://t.co/I1eNjVPmgl",
       "topic": "chinese_market",
       "why_trending": "表示210・投稿後179分・反応率0.0%・公式候補リンクあり・動画あり"
-    },
-    {
-      "author_followers": 406,
-      "discovered_at": "2026-08-22T02:09:04+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "rajas2704",
-      "has_video": false,
-      "headline": "🚨 Crypto regulation update 🇺🇸 CFTC Chair Michael Selig says the agency is exploring new crypto market rules and could move forward independently if Congress fails to pass the CLARI",
-      "impression_count": 1426,
-      "like_count": 116,
-      "linked_urls": [
-        "https://x.com/rajas2704/status/2090637090199593416/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090637090199593416",
-      "post_url": "https://x.com/rajas2704/status/2090637090199593416",
-      "posted_at": "2026-08-21T03:08:19+00:00",
-      "quote_count": 0,
-      "reply_count": 2,
-      "repost_count": 14,
-      "score": 41.0,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨 Crypto regulation update 🇺🇸 CFTC Chair Michael Selig says the agency is exploring new crypto market rules and could move forward independently if Congress fails to pass the CLARITY Act. #Crypto #Bitcoin https://t.co/dKrnHFb6bV",
-      "topic": "regulation",
-      "why_trending": "表示1,426・投稿後1380分・反応率10.3%"
     },
     {
       "author_followers": 104,
