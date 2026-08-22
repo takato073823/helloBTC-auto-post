@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-21T19:58:14+00:00",
-  "last_watcher_guru_scan_at": "2026-08-21T21:01:45+00:00",
+  "last_deep_scan_at": "2026-08-22T02:09:04+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T02:09:04+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T06:02:30+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-10T06:02:30+00:00",
-      "result_count": 0,
-      "spike": false,
-      "topic": "fixed_primary_x"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-10T08:17:37+00:00",
@@ -2285,6 +2272,19 @@
       "checked_at": "2026-08-21T21:01:45+00:00",
       "result_count": 7,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T02:09:04+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-22T02:09:04+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -2445,34 +2445,6 @@
       "why_trending": "表示80,878・投稿後24分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4718889,
-      "discovered_at": "2026-08-21T04:24:17+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "BREAKING: $75,000 Bitcoin https://t.co/8wAlOSUaXK",
-      "impression_count": 176406,
-      "like_count": 4214,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090614160317165706/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090614160317165706",
-      "post_url": "https://x.com/WatcherGuru/status/2090614160317165706",
-      "posted_at": "2026-08-21T01:37:12+00:00",
-      "quote_count": 86,
-      "reply_count": 189,
-      "repost_count": 442,
-      "score": 61.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BREAKING: $75,000 Bitcoin https://t.co/8wAlOSUaXK",
-      "topic": "watcher_guru",
-      "why_trending": "表示176,406・投稿後167分・反応率3.2%"
-    },
-    {
       "author_followers": 4721121,
       "discovered_at": "2026-08-21T11:04:01+00:00",
       "discovery_type": "official_x_api",
@@ -2585,30 +2557,6 @@
       "why_trending": "表示148,316・投稿後146分・反応率2.1%"
     },
     {
-      "author_followers": 4718889,
-      "discovered_at": "2026-08-21T04:24:17+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $222,000,000 shorts liquidated from the cryptocurrency market in the past 60 minutes.",
-      "impression_count": 188825,
-      "like_count": 2858,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090617429928165432",
-      "post_url": "https://x.com/WatcherGuru/status/2090617429928165432",
-      "posted_at": "2026-08-21T01:50:11+00:00",
-      "quote_count": 70,
-      "reply_count": 177,
-      "repost_count": 259,
-      "score": 54.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: $222,000,000 shorts liquidated from the cryptocurrency market in the past 60 minutes.",
-      "topic": "watcher_guru",
-      "why_trending": "表示188,825・投稿後154分・反応率2.0%"
-    },
-    {
       "author_followers": 25309,
       "discovered_at": "2026-08-21T07:29:42+00:00",
       "discovery_type": "official_x_api",
@@ -2693,34 +2641,6 @@
       "why_trending": "表示2,232・投稿後90分・反応率0.4%・公式候補リンクあり"
     },
     {
-      "author_followers": 4718889,
-      "discovered_at": "2026-08-21T04:24:17+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $74,000 Bitcoin https://t.co/j5pp1VYg2J",
-      "impression_count": 169297,
-      "like_count": 2618,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090610055439933819/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090610055439933819",
-      "post_url": "https://x.com/WatcherGuru/status/2090610055439933819",
-      "posted_at": "2026-08-21T01:20:53+00:00",
-      "quote_count": 71,
-      "reply_count": 152,
-      "repost_count": 241,
-      "score": 48.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: $74,000 Bitcoin https://t.co/j5pp1VYg2J",
-      "topic": "watcher_guru",
-      "why_trending": "表示169,297・投稿後183分・反応率2.1%"
-    },
-    {
       "author_followers": 1883,
       "discovered_at": "2026-08-21T13:32:37+00:00",
       "discovery_type": "official_x_api",
@@ -2769,34 +2689,6 @@
       "why_trending": "表示261,468・投稿後220分・反応率1.5%"
     },
     {
-      "author_followers": 81304,
-      "discovered_at": "2026-08-21T02:13:07+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "GroveXchange",
-      "has_video": false,
-      "headline": "Daily Crypto News 📰 1️⃣ BTC breaks above $73K 🚀 Bitcoin is pushing to its highest levels since June as a massive short squeeze wipes out roughly $3B in bearish positions. 2️⃣ ETH e",
-      "impression_count": 336,
-      "like_count": 1,
-      "linked_urls": [
-        "https://x.com/GroveXchange/status/2090612389460730144/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090612389460730144",
-      "post_url": "https://x.com/GroveXchange/status/2090612389460730144",
-      "posted_at": "2026-08-21T01:30:10+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 44.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Daily Crypto News 📰 1️⃣ BTC breaks above $73K 🚀 Bitcoin is pushing to its highest levels since June as a massive short squeeze wipes out roughly $3B in bearish positions. 2️⃣ ETH explodes +18% ⚡ Ethereum surged toward $2,250 as the broader crypto rally accelerated. 3️⃣ $706M https://t.co/rbz0Wy6X4g",
-      "topic": "regulation",
-      "why_trending": "表示336・投稿後42分・反応率0.9%"
-    },
-    {
       "author_followers": 4724131,
       "discovered_at": "2026-08-21T18:03:38+00:00",
       "discovery_type": "official_x_api",
@@ -2819,30 +2711,6 @@
       "summary": "JUST IN: 🇺🇸 US crypto stocks over the past 48 hours: • Robinhood $HOOD: +15% • Coinbase $COIN: +30% • Strategy $MSTR: +28% • Bitmine $BMNR: +22% • Gemini $GEMI: +28% • Circle $CRCL: +28% • $MARA: +33% • $RIOT: +10%",
       "topic": "watcher_guru",
       "why_trending": "表示293,523・投稿後202分・反応率1.3%"
-    },
-    {
-      "author_followers": 4718889,
-      "discovered_at": "2026-08-21T04:24:17+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Spot Bitcoin ETF volume surpasses $5.3 billion today. • BlackRock: $4,438,272,142 • Fidelity: $438,039,722 • Grayscale: $208,761,824 • Bitwise: $106,828,983 • ARK Invest: ",
-      "impression_count": 247650,
-      "like_count": 2642,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090573348879176018",
-      "post_url": "https://x.com/WatcherGuru/status/2090573348879176018",
-      "posted_at": "2026-08-20T22:55:02+00:00",
-      "quote_count": 51,
-      "reply_count": 140,
-      "repost_count": 319,
-      "score": 43.1,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Spot Bitcoin ETF volume surpasses $5.3 billion today. • BlackRock: $4,438,272,142 • Fidelity: $438,039,722 • Grayscale: $208,761,824 • Bitwise: $106,828,983 • ARK Invest: $72,899,488 • VanEck: $32,844,242 • Morgan Stanley: $14,801,590 • Franklin: $11,174,730 •",
-      "topic": "watcher_guru",
-      "why_trending": "表示247,650・投稿後329分・反応率1.5%"
     },
     {
       "author_followers": 50575,
@@ -2902,30 +2770,32 @@
       "why_trending": "表示210・投稿後179分・反応率0.0%・公式候補リンクあり・動画あり"
     },
     {
-      "author_followers": 1517,
-      "discovered_at": "2026-08-21T05:17:17+00:00",
+      "author_followers": 406,
+      "discovered_at": "2026-08-22T02:09:04+00:00",
       "discovery_type": "official_x_api",
-      "handle": "k_koga555",
+      "handle": "rajas2704",
       "has_video": false,
-      "headline": "https://t.co/nb9Wmx5Ees 【新たな上昇要因】仮想通貨・ビットコインが止まらない！ 仮想通貨チャンネル - Joe Takayama #AI要約 ビットコイン急騰と資金フロー変化、金利・米国株への影響 🔳暗号資産市場の急騰継続",
-      "impression_count": 912,
-      "like_count": 2,
+      "headline": "🚨 Crypto regulation update 🇺🇸 CFTC Chair Michael Selig says the agency is exploring new crypto market rules and could move forward independently if Congress fails to pass the CLARI",
+      "impression_count": 1426,
+      "like_count": 116,
       "linked_urls": [
-        "https://www.youtube.com/watch?v=F-CEnpiLvSY"
+        "https://x.com/rajas2704/status/2090637090199593416/photo/1"
       ],
-      "media_types": [],
-      "post_id": "2090577706383716381",
-      "post_url": "https://x.com/k_koga555/status/2090577706383716381",
-      "posted_at": "2026-08-20T23:12:20+00:00",
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2090637090199593416",
+      "post_url": "https://x.com/rajas2704/status/2090637090199593416",
+      "posted_at": "2026-08-21T03:08:19+00:00",
       "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 1,
-      "score": 39.3,
+      "reply_count": 2,
+      "repost_count": 14,
+      "score": 41.0,
       "seen_count": 1,
       "source_priority": "",
-      "summary": "https://t.co/nb9Wmx5Ees 【新たな上昇要因】仮想通貨・ビットコインが止まらない！ 仮想通貨チャンネル - Joe Takayama #AI要約 ビットコイン急騰と資金フロー変化、金利・米国株への影響 🔳暗号資産市場の急騰継続",
-      "topic": "japanese_market",
-      "why_trending": "表示912・投稿後364分・反応率0.4%・公式候補リンクあり"
+      "summary": "🚨 Crypto regulation update 🇺🇸 CFTC Chair Michael Selig says the agency is exploring new crypto market rules and could move forward independently if Congress fails to pass the CLARITY Act. #Crypto #Bitcoin https://t.co/dKrnHFb6bV",
+      "topic": "regulation",
+      "why_trending": "表示1,426・投稿後1380分・反応率10.3%"
     },
     {
       "author_followers": 104,
@@ -2954,6 +2824,32 @@
       "summary": "Bitcoin has broken decisively out of a six-week consolidation range, pushing past $72,700 as the total crypto market cap expanded to approximately $2.48 trillion — a 3.3% gain on the day — while BTC dominance climbed to 58.6%, signaling that capital rotation is currently favoring https://t.co/7vCtvZDRmU",
       "topic": "crypto_market",
       "why_trending": "表示89・投稿後448分・反応率6.3%"
+    },
+    {
+      "author_followers": 1673,
+      "discovered_at": "2026-08-22T02:09:04+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "monimagnet4",
+      "has_video": false,
+      "headline": "🚨 This could be a major development for crypto regulation. 🇺🇸 If the CFTC is prepared to use its existing authority while the CLARITY Act remains stalled, the message is clear: reg",
+      "impression_count": 25,
+      "like_count": 1,
+      "linked_urls": [
+        "https://twitter.com/DeFiMidas/status/2090772126227980452"
+      ],
+      "media_types": [],
+      "post_id": "2090787416630075665",
+      "post_url": "https://x.com/monimagnet4/status/2090787416630075665",
+      "posted_at": "2026-08-21T13:05:39+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 1,
+      "score": 36.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "🚨 This could be a major development for crypto regulation. 🇺🇸 If the CFTC is prepared to use its existing authority while the CLARITY Act remains stalled, the message is clear: regulatory action may not wait for Congress forever. That could have serious implications for https://t.co/Fsm4kvdsKT",
+      "topic": "regulation",
+      "why_trending": "表示25・投稿後783分・反応率12.0%・公式候補リンクあり"
     },
     {
       "author_followers": 277,
