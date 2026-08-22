@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-22T06:02:15+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T07:21:00+00:00",
+  "last_deep_scan_at": "2026-08-22T09:04:39+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T09:04:39+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T14:06:54+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-10T14:06:54+00:00",
-      "result_count": 5,
-      "spike": false,
-      "topic": "regulation"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-10T15:39:32+00:00",
@@ -2284,6 +2271,19 @@
       "checked_at": "2026-08-22T07:21:00+00:00",
       "result_count": 7,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T09:04:39+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-22T09:04:39+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2314,30 +2314,6 @@
       "summary": "JUST IN: Bitcoin 'Fear &amp; Greed Index' rises to 72, greed. https://t.co/ajRsVlk54F",
       "topic": "watcher_guru",
       "why_trending": "表示72,244・投稿後8分・反応率1.1%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4720016,
-      "discovered_at": "2026-08-21T08:20:29+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $77,000 Bitcoin",
-      "impression_count": 53138,
-      "like_count": 389,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090714387153854670",
-      "post_url": "https://x.com/WatcherGuru/status/2090714387153854670",
-      "posted_at": "2026-08-21T08:15:28+00:00",
-      "quote_count": 11,
-      "reply_count": 74,
-      "repost_count": 50,
-      "score": 78.9,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: $77,000 Bitcoin",
-      "topic": "watcher_guru",
-      "why_trending": "表示53,138・投稿後5分・反応率1.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4724131,
@@ -2392,30 +2368,6 @@
       "why_trending": "表示137,202・投稿後62分・反応率2.2%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4720016,
-      "discovered_at": "2026-08-21T08:20:29+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Michael Saylor's Strategy now has $875,000,000 unrealized profit on its Bitcoin investment.",
-      "impression_count": 80878,
-      "like_count": 543,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090709583413248106",
-      "post_url": "https://x.com/WatcherGuru/status/2090709583413248106",
-      "posted_at": "2026-08-21T07:56:22+00:00",
-      "quote_count": 10,
-      "reply_count": 91,
-      "repost_count": 58,
-      "score": 74.2,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Michael Saylor's Strategy now has $875,000,000 unrealized profit on its Bitcoin investment.",
-      "topic": "watcher_guru",
-      "why_trending": "表示80,878・投稿後24分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
       "author_followers": 4728289,
       "discovered_at": "2026-08-22T07:21:00+00:00",
       "discovery_type": "official_x_api",
@@ -2438,34 +2390,6 @@
       "summary": "JUST IN: $550,000,000 worth of longs liquidated from the crypto market in the past 60 minutes.",
       "topic": "watcher_guru",
       "why_trending": "表示175,288・投稿後64分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4721121,
-      "discovered_at": "2026-08-21T11:04:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $79,000 Bitcoin. $250 million worth of shorts liquidated and counting… https://t.co/WbTYXBhgM3",
-      "impression_count": 170854,
-      "like_count": 3334,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090725625715671513/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090725625715671513",
-      "post_url": "https://x.com/WatcherGuru/status/2090725625715671513",
-      "posted_at": "2026-08-21T09:00:07+00:00",
-      "quote_count": 92,
-      "reply_count": 227,
-      "repost_count": 381,
-      "score": 60.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: $79,000 Bitcoin. $250 million worth of shorts liquidated and counting… https://t.co/WbTYXBhgM3",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示170,854・投稿後123分・反応率2.7%"
     },
     {
       "author_followers": 4725260,
@@ -2494,62 +2418,6 @@
       "summary": "JUST IN: Jim Cramer says \"go buy Bitcoin.\" https://t.co/lqsANSt8AR",
       "topic": "watcher_guru",
       "why_trending": "表示619,818・投稿後109分・反応率1.6%"
-    },
-    {
-      "author_followers": 4721121,
-      "discovered_at": "2026-08-21T11:04:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Bitcoin surpasses $78,000 $140 million worth of shorts liquidated from the crypto market in the past hour. https://t.co/DQBLg67JCR",
-      "impression_count": 172160,
-      "like_count": 2907,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090723335889895799/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090723335889895799",
-      "post_url": "https://x.com/WatcherGuru/status/2090723335889895799",
-      "posted_at": "2026-08-21T08:51:01+00:00",
-      "quote_count": 82,
-      "reply_count": 199,
-      "repost_count": 321,
-      "score": 58.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Bitcoin surpasses $78,000 $140 million worth of shorts liquidated from the crypto market in the past hour. https://t.co/DQBLg67JCR",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示172,160・投稿後133分・反応率2.3%"
-    },
-    {
-      "author_followers": 4721121,
-      "discovered_at": "2026-08-21T11:04:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Ethereum surpasses $2,400 https://t.co/NNP6XuoqPn",
-      "impression_count": 148316,
-      "like_count": 2305,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090719843871760812/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090719843871760812",
-      "post_url": "https://x.com/WatcherGuru/status/2090719843871760812",
-      "posted_at": "2026-08-21T08:37:09+00:00",
-      "quote_count": 37,
-      "reply_count": 140,
-      "repost_count": 226,
-      "score": 56.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Ethereum surpasses $2,400 https://t.co/NNP6XuoqPn",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示148,316・投稿後146分・反応率2.1%"
     },
     {
       "author_followers": 4727145,
