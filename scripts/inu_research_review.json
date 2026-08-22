@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T04:28:31.224263+00:00",
+  "generated_at": "2026-08-22T04:41:38.987648+00:00",
   "slot": "2026-08-22-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T04:28:31.224263+00:00",
-    "to": "2026-08-22T04:28:31.224263+00:00"
+    "from": "2026-08-21T04:41:38.987648+00:00",
+    "to": "2026-08-22T04:41:38.987648+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚠️ Anthropic上場でAI反発リスクを明記\n\nAI投資は成長性だけでなく、電力・データセンターへの社会的受容も評価軸になる。"
+      "⚡️ 強制清算が相場を押し上げた\n\n僕は、上昇の持続性を測るには新規資金とレバレッジの再拡大を分けて見る必要があると思う。"
     ],
-    "public_compact_post": "⚠️ Anthropic上場でAI反発リスクを明記\n\nAnthropicのIPO目論見書に、AIとデータセンターへの世論の反発がリスク要因として記載される予定と報じられた。\n\nAI投資は成長性だけでなく、電力・データセンターへの社会的受容も評価軸になる。"
+    "public_compact_post": "⚡️ 強制清算が相場を押し上げた\n\n今週、暗号資産市場に5000億ドルが加わった\nショートポジション50億ドル超が清算された\n\n僕は、上昇の持続性を測るには新規資金とレバレッジの再拡大を分けて見る必要があると思う。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚠️ Anthropic上場でAI反発リスクを明記",
+    "selected_hook": "⚡️ 強制清算が相場を押し上げた",
     "verified_facts": [],
-    "market_or_user_impact": "AI企業の成長投資に、規制・世論・インフラ負担という評価項目が加わる。",
+    "market_or_user_impact": "上昇が現物需要によるものか、ショートの買い戻しによるものかを考える材料になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AI投資とIPO開示の接点を、企業リスクの具体例で追える。",
+    "next_watch": "市場規模の変化とデリバティブ清算を組み合わせ、急変動の構造を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2090983591182213626",
+      "url": "https://x.com/cryptorover/status/2091020285679972558",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
