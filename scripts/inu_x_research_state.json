@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-22T15:57:57+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T17:00:27+00:00",
+  "last_deep_scan_at": "2026-08-22T17:58:44+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T17:58:44+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T19:43:14+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-10T19:43:14+00:00",
-      "result_count": 7,
-      "spike": false,
-      "topic": "chinese_market"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-10T20:24:40+00:00",
@@ -2284,33 +2271,22 @@
       "checked_at": "2026-08-22T17:00:27+00:00",
       "result_count": 6,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T17:58:44+00:00",
+      "result_count": 5,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-22T17:58:44+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
-    {
-      "author_followers": 4724131,
-      "discovered_at": "2026-08-21T18:03:38+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Spot Bitcoin ETFs recorded $685 million in $BTC inflows yesterday.",
-      "impression_count": 73974,
-      "like_count": 500,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090859471174238432",
-      "post_url": "https://x.com/WatcherGuru/status/2090859471174238432",
-      "posted_at": "2026-08-21T17:51:58+00:00",
-      "quote_count": 7,
-      "reply_count": 63,
-      "repost_count": 38,
-      "score": 77.7,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: Spot Bitcoin ETFs recorded $685 million in $BTC inflows yesterday.",
-      "topic": "watcher_guru",
-      "why_trending": "表示73,974・投稿後11分・反応率0.9%・Watcher.Guru速報を一次資料確認へ優先"
-    },
     {
       "author_followers": 4728289,
       "discovered_at": "2026-08-22T07:21:00+00:00",
@@ -2467,32 +2443,6 @@
       "summary": "🚨ALERT: 🚨IMPORTANT FACTORS THAT COULD PUT PRESSURE ON CRYPTO, 1️⃣ US DEBT $40T+ &amp; RISING 30Y YIELD 🇺🇸, US DEBT HAS CROSSED ($40T), WHILE RISING LONG-TERM YIELDS ARE KEEPING FINANCIAL CONDITIONS TIGHT AND PRESSURING RISK ASSETS. 2️⃣ PCE INFLATION DATA, HIGHER-THAN-EXPECTED https://t.co/K6KcarqP7Y https://t.co/nVkJnpBxoB",
       "topic": "macro_rates",
       "why_trending": "表示2・投稿後33分・反応率0.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 8018,
-      "discovered_at": "2026-08-22T04:17:49+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "TwinTulips",
-      "has_video": false,
-      "headline": "BIG: 🇺🇸 CFTC Chair Michael Selig says the agency is preparing to explore new crypto market rules. If Congress fails to pass the CLARITY Act, the CFTC may move forward on its own. U",
-      "impression_count": 276,
-      "like_count": 5,
-      "linked_urls": [
-        "https://twitter.com/coinmarketcap/status/2090588489125355811"
-      ],
-      "media_types": [],
-      "post_id": "2090859103019241582",
-      "post_url": "https://x.com/TwinTulips/status/2090859103019241582",
-      "posted_at": "2026-08-21T17:50:31+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 36.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "BIG: 🇺🇸 CFTC Chair Michael Selig says the agency is preparing to explore new crypto market rules. If Congress fails to pass the CLARITY Act, the CFTC may move forward on its own. U.S. crypto regulation is entering a critical phase. 👀 #Crypto #Bitcoin #Regulation https://t.co/ypOkHVnrSQ",
-      "topic": "regulation",
-      "why_trending": "表示276・投稿後627分・反応率1.8%・公式候補リンクあり"
     }
   ],
   "trends": [],
