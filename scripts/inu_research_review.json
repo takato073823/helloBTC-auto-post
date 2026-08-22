@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T06:03:42.553895+00:00",
+  "generated_at": "2026-08-22T06:32:48.739389+00:00",
   "slot": "2026-08-22-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T06:03:42.553895+00:00",
-    "to": "2026-08-22T06:03:42.553895+00:00"
+    "from": "2026-08-21T06:32:48.739389+00:00",
+    "to": "2026-08-22T06:32:48.739389+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡ 過去最大級のショート清算\n\n急騰を支えたレバレッジ解消後も、現物需要が続くかが焦点です。"
+      "🩸 数分で5億ドルのロング清算\n\n短時間の連鎖清算で、主要銘柄間の値動きの差が急拡大した。"
     ],
-    "public_compact_post": "⚡ 過去最大級のショート清算\n\n今週、暗号資産市場に5000億ドルが加わった\nショートポジション50億ドル超が清算された\n\n急騰を支えたレバレッジ解消後も、現物需要が続くかが焦点です。"
+    "public_compact_post": "🩸 数分で5億ドルのロング清算\n\n暗号資産市場で約5億ドルのロングポジションが清算された\n$BTCは1,935ドル（2.5%）、$ETHは130ドル（5%）、$SOLは11.50ドル（11.5%）、$XRPは0.60ドル（37%）下落した\n\n短時間の連鎖清算で、主要銘柄間の値動きの差が急拡大した。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚡ 過去最大級のショート清算",
+    "selected_hook": "🩸 数分で5億ドルのロング清算",
     "verified_facts": [],
-    "market_or_user_impact": "上昇の背景が現物買いなのか、ショートカバーなのかを考える材料になる。",
+    "market_or_user_impact": "BTCだけでなくETH・SOL・XRPの下落率を比較でき、レバレッジ解消の規模も把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "市場全体の資金流入とデリバティブ清算を同時に追える。",
+    "next_watch": "急変時の清算額と主要銘柄の値動きを継続的に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/cryptorover/status/2091020285679972558",
+      "url": "https://x.com/cryptorover/status/2091043602700837321",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
