@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-22T15:57:57+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T15:57:57+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T17:00:27+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T18:35:26+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-10T19:43:14+00:00",
@@ -2284,6 +2278,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T17:00:27+00:00",
+      "result_count": 6,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2364,6 +2364,30 @@
       "why_trending": "表示619,818・投稿後109分・反応率1.6%"
     },
     {
+      "author_followers": 4731419,
+      "discovered_at": "2026-08-22T17:00:27+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "FUN FACT: 10 years ago today, Bitcoin was $586",
+      "impression_count": 218807,
+      "like_count": 4039,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2091176250715079160",
+      "post_url": "https://x.com/WatcherGuru/status/2091176250715079160",
+      "posted_at": "2026-08-22T14:50:45+00:00",
+      "quote_count": 91,
+      "reply_count": 288,
+      "repost_count": 377,
+      "score": 58.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "FUN FACT: 10 years ago today, Bitcoin was $586",
+      "topic": "watcher_guru",
+      "why_trending": "表示218,807・投稿後129分・反応率2.5%"
+    },
+    {
       "author_followers": 4727145,
       "discovered_at": "2026-08-22T03:27:59+00:00",
       "discovery_type": "official_x_api",
@@ -2390,35 +2414,6 @@
       "summary": "JUST IN: Ethereum $ETH officially surpasses $2,500 https://t.co/Hl6rXOXeNv",
       "topic": "watcher_guru",
       "why_trending": "表示220,394・投稿後329分・反応率2.7%"
-    },
-    {
-      "author_followers": 2743,
-      "discovered_at": "2026-08-21T17:12:34+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "saeifchain_",
-      "has_video": false,
-      "headline": "Let's Explore @Circle's @Arc Blockchain | Part 12 🧵 🌍 Why is FX such an important part of Arc? Moving money across borders isn't as simple as sending money from one wallet to anoth",
-      "impression_count": 25,
-      "like_count": 2,
-      "linked_urls": [
-        "https://x.com/saeifchain_/status/2090834099229294998/photo/1",
-        "https://twitter.com/saeifchain_/status/2087647561385738692"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090834099229294998",
-      "post_url": "https://x.com/saeifchain_/status/2090834099229294998",
-      "posted_at": "2026-08-21T16:11:09+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 51.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Let's Explore @Circle's @Arc Blockchain | Part 12 🧵 🌍 Why is FX such an important part of Arc? Moving money across borders isn't as simple as sending money from one wallet to another. Different countries use different currencies. Different financial institutions operate https://t.co/6e8lQEU6m2 https://t.co/0hnG8akXiq",
-      "topic": "onchain_exchange",
-      "why_trending": "表示25・投稿後61分・反応率8.0%・公式候補リンクあり"
     },
     {
       "author_followers": 4727145,
