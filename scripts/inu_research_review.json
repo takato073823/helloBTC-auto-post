@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T02:03:34.395537+00:00",
+  "generated_at": "2026-08-22T02:50:46.419511+00:00",
   "slot": "2026-08-22-11-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T02:03:34.395537+00:00",
-    "to": "2026-08-22T02:03:34.395537+00:00"
+    "from": "2026-08-21T02:50:46.419511+00:00",
+    "to": "2026-08-22T02:50:46.419511+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🤖 AnthropicのIPO、史上最大規模か\n\nAI企業の評価額が公開市場で検証される局面が近づいている。"
+      "⚡️株式トークン、取引規模が拡大\n\n株式のオンチェーン化は、暗号資産市場と伝統的金融の接続点を広げている。"
     ],
-    "public_compact_post": "🤖 AnthropicのIPO、史上最大規模か\n\n1000億ドル超を調達するIPOが協議されている\n企業価値は約2兆ドルとされ、実現すれば過去最大のIPOになる\n\nAI企業の評価額が公開市場で検証される局面が近づいている。"
+    "public_compact_post": "⚡️株式トークン、取引規模が拡大\n\nUniswapはRobinhood Chain上の株式トークン取引高が10億ドルを超えたと発表\n\n株式のオンチェーン化は、暗号資産市場と伝統的金融の接続点を広げている。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🤖 AnthropicのIPO、史上最大規模か",
+    "selected_hook": "⚡️株式トークン、取引規模が拡大",
     "verified_facts": [],
-    "market_or_user_impact": "未上場AI企業の評価額と公開市場での資本調達規模を同時に把握できる。",
+    "market_or_user_impact": "株式取引がブロックチェーン上でどの規模まで拡大しているかを把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AI投資の大型案件と市場評価の変化を継続的に追える。",
+    "next_watch": "暗号資産と伝統的金融の接続を、取引高などの実績ベースで追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/wallstengine/status/2090958905627349145",
+      "url": "https://x.com/coinmarketcap/status/2090950118862172579",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 18,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 18,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
