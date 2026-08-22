@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T00:59:42.595509+00:00",
-  "slot": "2026-08-22-09-a",
+  "generated_at": "2026-08-22T02:03:34.395537+00:00",
+  "slot": "2026-08-22-11-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T00:59:42.595509+00:00",
-    "to": "2026-08-22T00:59:42.595509+00:00"
+    "from": "2026-08-21T02:03:34.395537+00:00",
+    "to": "2026-08-22T02:03:34.395537+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🚨 $ETH急騰、ショート清算は約11.7億ドル\n\n僕は、価格回復の裏側でレバレッジ解消が進んだ点に注目したい。"
+      "🤖 AnthropicのIPO、史上最大規模か\n\nAI企業の評価額が公開市場で検証される局面が近づいている。"
     ],
-    "public_compact_post": "🚨 $ETH急騰、ショート清算は約11.7億ドル\n\n$ETHが7か月ぶりに2,500ドルを回復\n過去24時間でショート約11.7億ドルが清算\n\n僕は、価格回復の裏側でレバレッジ解消が進んだ点に注目したい。"
+    "public_compact_post": "🤖 AnthropicのIPO、史上最大規模か\n\n1000億ドル超を調達するIPOが協議されている\n企業価値は約2兆ドルとされ、実現すれば過去最大のIPOになる\n\nAI企業の評価額が公開市場で検証される局面が近づいている。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🚨 ETH急騰、ショート清算は約11.7億ドル",
+    "selected_hook": "🤖 AnthropicのIPO、史上最大規模か",
     "verified_facts": [],
-    "market_or_user_impact": "上昇幅だけでなく、ショート清算が値動きを増幅した可能性を把握できる。",
+    "market_or_user_impact": "未上場AI企業の評価額と公開市場での資本調達規模を同時に把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格ニュースに清算データを加え、レバレッジ動向も追える。",
+    "next_watch": "AI投資の大型案件と市場評価の変化を継続的に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bearbulltraders/status/2090924941147508964",
+      "url": "https://x.com/wallstengine/status/2090958905627349145",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 18,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 18,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 5,
+          "used": 6,
           "limit": 6
         },
         "grok_editorial": {
@@ -66,17 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "developing_story",
-        "hook": "⚠️ Coinbase、調査中を表示",
-        "published_at": "2026-08-21T21:31:07.025000+00:00",
-        "source_url": "https://status.coinbase.com/incidents/nmrh7jmmzlp8",
-        "why_now": "取引所の公式ステータスが直近4時間以内に更新されたためです。"
-      }
-    ],
-    "rejected_reasons": [
-      "直接一次データ1: 数字・条件・決定など、読者が判断できる変化がありません"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
