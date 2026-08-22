@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-22T02:09:04+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T03:27:59+00:00",
+  "last_deep_scan_at": "2026-08-22T04:17:49+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T04:17:49+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-10T08:17:37+00:00",
-      "result_count": 3,
-      "spike": false,
-      "topic": "crypto_market"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T10:02:52+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-10T10:02:52+00:00",
@@ -2285,6 +2272,19 @@
       "checked_at": "2026-08-22T03:27:59+00:00",
       "result_count": 7,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T04:17:49+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-22T04:17:49+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "regulation"
     }
   ],
   "signals": [
@@ -2555,35 +2555,6 @@
       "summary": "JUST IN: Ethereum surpasses $2,400 https://t.co/NNP6XuoqPn",
       "topic": "fixed_primary_x",
       "why_trending": "表示148,316・投稿後146分・反応率2.1%"
-    },
-    {
-      "author_followers": 25309,
-      "discovered_at": "2026-08-21T07:29:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "yijiangren",
-      "has_video": false,
-      "headline": "过去一年，大家看股票的视野被 AI 彻底打开了。 最开始所有人盯着美股。 后来港股科技、创新药起来，资金开始往港股走；存储行情起来以后，越来越多人每天开盘先看的反而是韩国——SK 海力士成了很多美股玩家的必看标的。 但还有一个市场，我觉得一直被低估了，就是日股。 https://t.co/OWZOm6OhcD https://t.co/qy5DPtpoIu",
-      "impression_count": 5745,
-      "like_count": 42,
-      "linked_urls": [
-        "https://x.com/yijiangren/status/2090643387565359387/photo/1",
-        "https://twitter.com/Gate_zh/status/2090620741456662989"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090643387565359387",
-      "post_url": "https://x.com/yijiangren/status/2090643387565359387",
-      "posted_at": "2026-08-21T03:33:20+00:00",
-      "quote_count": 1,
-      "reply_count": 38,
-      "repost_count": 0,
-      "score": 53.8,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "过去一年，大家看股票的视野被 AI 彻底打开了。 最开始所有人盯着美股。 后来港股科技、创新药起来，资金开始往港股走；存储行情起来以后，越来越多人每天开盘先看的反而是韩国——SK 海力士成了很多美股玩家的必看标的。 但还有一个市场，我觉得一直被低估了，就是日股。 https://t.co/OWZOm6OhcD https://t.co/qy5DPtpoIu",
-      "topic": "chinese_market",
-      "why_trending": "表示5,745・投稿後236分・反応率1.8%・公式候補リンクあり"
     },
     {
       "author_followers": 4727145,
@@ -2874,6 +2845,32 @@
       "summary": "🚨 This could be a major development for crypto regulation. 🇺🇸 If the CFTC is prepared to use its existing authority while the CLARITY Act remains stalled, the message is clear: regulatory action may not wait for Congress forever. That could have serious implications for https://t.co/Fsm4kvdsKT",
       "topic": "regulation",
       "why_trending": "表示25・投稿後783分・反応率12.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 8018,
+      "discovered_at": "2026-08-22T04:17:49+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "TwinTulips",
+      "has_video": false,
+      "headline": "BIG: 🇺🇸 CFTC Chair Michael Selig says the agency is preparing to explore new crypto market rules. If Congress fails to pass the CLARITY Act, the CFTC may move forward on its own. U",
+      "impression_count": 276,
+      "like_count": 5,
+      "linked_urls": [
+        "https://twitter.com/coinmarketcap/status/2090588489125355811"
+      ],
+      "media_types": [],
+      "post_id": "2090859103019241582",
+      "post_url": "https://x.com/TwinTulips/status/2090859103019241582",
+      "posted_at": "2026-08-21T17:50:31+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 36.4,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "BIG: 🇺🇸 CFTC Chair Michael Selig says the agency is preparing to explore new crypto market rules. If Congress fails to pass the CLARITY Act, the CFTC may move forward on its own. U.S. crypto regulation is entering a critical phase. 👀 #Crypto #Bitcoin #Regulation https://t.co/ypOkHVnrSQ",
+      "topic": "regulation",
+      "why_trending": "表示276・投稿後627分・反応率1.8%・公式候補リンクあり"
     },
     {
       "author_followers": 277,
