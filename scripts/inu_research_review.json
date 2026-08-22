@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T08:23:40.324859+00:00",
-  "slot": "2026-08-22-17-a",
+  "generated_at": "2026-08-22T10:03:39.700697+00:00",
+  "slot": "2026-08-22-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T08:23:40.324859+00:00",
-    "to": "2026-08-22T08:23:40.324859+00:00"
+    "from": "2026-08-21T10:03:39.700697+00:00",
+    "to": "2026-08-22T10:03:39.700697+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🩸 数分で5億ドルのロング清算\n\n急落の主因がレバレッジ清算なら、反発局面でも建玉の偏りが残るかが焦点です。"
+      "🐋 3日でBTC7,700枚を売却\n\n短期の需給を見るうえで、大口売却後の残存保有量と買い需要が焦点になる。"
     ],
-    "public_compact_post": "🩸 数分で5億ドルのロング清算\n\n暗号資産市場で約5億ドルの遅行ロングが清算された\nBitcoinは2.5%、Ethereumは5%、Solanaは11.5%、$XRPは37%下落した\n\n急落の主因がレバレッジ清算なら、反発局面でも建玉の偏りが残るかが焦点です。"
+    "public_compact_post": "🐋 3日でBTC7,700枚を売却\n\n直近3日間で7,700 $BTCを売却\n今回の売却は2,700 $BTC、約2億1,180万ドル相当\n\n短期の需給を見るうえで、大口売却後の残存保有量と買い需要が焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🩸 数分で5億ドルのロング清算",
+    "selected_hook": "🐋 3日でBTC7,700枚を売却",
     "verified_facts": [],
-    "market_or_user_impact": "BTCだけでなくETH・SOL・XRPの下落率を比較でき、アルトコインへの波及規模が分かる。",
+    "market_or_user_impact": "大口の継続売却が、価格変動や取引所の売り圧力にどう反映されるか判断材料になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "急変時の清算データと銘柄別の下落差を短く追える。",
+    "next_watch": "オンチェーン上の大口移動と市場需給を追う投稿者で、暗号資産の資金フローを継続確認できる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/cryptorover/status/2091043602700837321",
+      "url": "https://x.com/lookonchain/status/2091079089692274893",
       "verified": false
     },
     "corroborating_sources": [],
