@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-22T04:17:49+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T05:07:24+00:00",
+  "last_deep_scan_at": "2026-08-22T06:02:15+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T06:02:15+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T11:34:53+00:00",
-      "result_count": 2,
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-10T11:34:53+00:00",
-      "result_count": 3,
-      "spike": false,
-      "topic": "macro_rates"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-10T12:32:53+00:00",
@@ -2284,6 +2271,19 @@
       "checked_at": "2026-08-22T05:07:24+00:00",
       "result_count": 7,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T06:02:15+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-22T06:02:15+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2733,34 +2733,6 @@
       "summary": "JUST IN: 🇺🇸 US crypto stocks over the past 48 hours: • Robinhood $HOOD: +15% • Coinbase $COIN: +30% • Strategy $MSTR: +28% • Bitmine $BMNR: +22% • Gemini $GEMI: +28% • Circle $CRCL: +28% • $MARA: +33% • $RIOT: +10%",
       "topic": "watcher_guru",
       "why_trending": "表示293,523・投稿後202分・反応率1.3%"
-    },
-    {
-      "author_followers": 50575,
-      "discovered_at": "2026-08-21T07:29:42+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Qianbtcc",
-      "has_video": false,
-      "headline": "Gate 首发上线日股交易，USDT 直接买！ 之前有兄弟问我有没有日股交易所，现在，它来了，兄弟们你无需日本券商账户，也无需兑换日元，只需 USDT，就能在 Gate 平台直接交易约 300 只东京证券交易所热门股票！ https://t.co/2Qkh1UT1wF",
-      "impression_count": 148,
-      "like_count": 5,
-      "linked_urls": [
-        "https://x.com/Qianbtcc/status/2090673552097992746/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090673552097992746",
-      "post_url": "https://x.com/Qianbtcc/status/2090673552097992746",
-      "posted_at": "2026-08-21T05:33:12+00:00",
-      "quote_count": 0,
-      "reply_count": 4,
-      "repost_count": 0,
-      "score": 41.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "Gate 首发上线日股交易，USDT 直接买！ 之前有兄弟问我有没有日股交易所，现在，它来了，兄弟们你无需日本券商账户，也无需兑换日元，只需 USDT，就能在 Gate 平台直接交易约 300 只东京证券交易所热门股票！ https://t.co/2Qkh1UT1wF",
-      "topic": "chinese_market",
-      "why_trending": "表示148・投稿後116分・反応率7.7%"
     },
     {
       "author_followers": 104,
