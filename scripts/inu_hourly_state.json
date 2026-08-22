@@ -1466,21 +1466,7 @@
     "inu_overseas_kol_2090740191086686581",
     "inu_overseas_kol_2091225570587902334"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-23-05-a",
-      "post_id": "inu_overseas_kol_2091240388438978935",
-      "source_url": "https://x.com/wallstengine/status/2091240388438978935",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-22T20:32:15.041347+00:00",
-      "lease_expires_at": "2026-08-22T21:02:15.041347+00:00",
-      "content_fingerprint": "465cd7509af31c2951f7c58bb4b48541693dee759ee57c14ed2ccc039831fb30",
-      "event_fingerprint": "f60e9f391af2faf8b11b03f15e6a36a9c7926db8c8cee70e1fe403e31757d529"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4115,6 +4101,13 @@
       "slot": "2026-08-23-05-a",
       "post_id": "inu_overseas_kol_2091247785425375699",
       "failed_at": "2026-08-22T20:18:26.399016+00:00",
+      "stage": "publish",
+      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
+    },
+    {
+      "slot": "2026-08-23-05-a",
+      "post_id": "inu_overseas_kol_2091240388438978935",
+      "failed_at": "2026-08-22T20:32:30.831224+00:00",
       "stage": "publish",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
     }
