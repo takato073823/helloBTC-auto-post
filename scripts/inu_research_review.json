@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T04:03:38.451063+00:00",
+  "generated_at": "2026-08-22T04:28:31.224263+00:00",
   "slot": "2026-08-22-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T04:03:38.451063+00:00",
-    "to": "2026-08-22T04:03:38.451063+00:00"
+    "from": "2026-08-21T04:28:31.224263+00:00",
+    "to": "2026-08-22T04:28:31.224263+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 ビットコインに戻る資金\n\n資金回帰と上値の節目が同時に意識され、次の焦点は82,000ドルでの需給になる。"
+      "⚠️ Anthropic上場でAI反発リスクを明記\n\nAI投資は成長性だけでなく、電力・データセンターへの社会的受容も評価軸になる。"
     ],
-    "public_compact_post": "📈 ビットコインに戻る資金\n\nPantera CapitalのCosmo Jiangは、スマートマネーがビットコインに戻っていると述べた\n次のレジスタンス水準として82,000ドル前後を挙げた\n\n資金回帰と上値の節目が同時に意識され、次の焦点は82,000ドルでの需給になる。"
+    "public_compact_post": "⚠️ Anthropic上場でAI反発リスクを明記\n\nAnthropicのIPO目論見書に、AIとデータセンターへの世論の反発がリスク要因として記載される予定と報じられた。\n\nAI投資は成長性だけでなく、電力・データセンターへの社会的受容も評価軸になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📈 ビットコインに戻る資金",
+    "selected_hook": "⚠️ Anthropic上場でAI反発リスクを明記",
     "verified_facts": [],
-    "market_or_user_impact": "機関投資家系の資金動向と、次に意識される価格帯を一度に確認できる。",
+    "market_or_user_impact": "AI企業の成長投資に、規制・世論・インフラ負担という評価項目が加わる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "BTCの資金フローと重要水準を継続的に追う材料になる。",
+    "next_watch": "AI投資とIPO開示の接点を、企業リスクの具体例で追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2091006237961802021",
+      "url": "https://x.com/coinmarketcap/status/2090983591182213626",
       "verified": false
     },
     "corroborating_sources": [],
