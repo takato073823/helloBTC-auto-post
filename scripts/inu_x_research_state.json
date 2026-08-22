@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-22T21:58:20+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T21:58:20+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T22:59:15+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-11T02:53:36+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-11T02:53:36+00:00",
@@ -2284,6 +2278,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T22:59:15+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2334,58 +2334,6 @@
       "summary": "FUN FACT: 10 years ago today, Bitcoin was $586",
       "topic": "watcher_guru",
       "why_trending": "表示218,807・投稿後129分・反応率2.5%"
-    },
-    {
-      "author_followers": 4727145,
-      "discovered_at": "2026-08-22T03:27:59+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Ethereum $ETH officially surpasses $2,500 https://t.co/Hl6rXOXeNv",
-      "impression_count": 220394,
-      "like_count": 4489,
-      "linked_urls": [
-        "https://x.com/WatcherGuru/status/2090921491038695927/photo/1"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2090921491038695927",
-      "post_url": "https://x.com/WatcherGuru/status/2090921491038695927",
-      "posted_at": "2026-08-21T21:58:25+00:00",
-      "quote_count": 84,
-      "reply_count": 208,
-      "repost_count": 473,
-      "score": 51.5,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Ethereum $ETH officially surpasses $2,500 https://t.co/Hl6rXOXeNv",
-      "topic": "watcher_guru",
-      "why_trending": "表示220,394・投稿後329分・反応率2.7%"
-    },
-    {
-      "author_followers": 4727145,
-      "discovered_at": "2026-08-22T03:27:59+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: Spot Bitcoin &amp; Ethereum ETF volume surpasses $7.5 billion today.",
-      "impression_count": 185224,
-      "like_count": 2652,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2090929654504862207",
-      "post_url": "https://x.com/WatcherGuru/status/2090929654504862207",
-      "posted_at": "2026-08-21T22:30:51+00:00",
-      "quote_count": 24,
-      "reply_count": 140,
-      "repost_count": 276,
-      "score": 44.6,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "JUST IN: Spot Bitcoin &amp; Ethereum ETF volume surpasses $7.5 billion today.",
-      "topic": "watcher_guru",
-      "why_trending": "表示185,224・投稿後297分・反応率1.9%"
     },
     {
       "author_followers": 1154,
