@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T20:32:15.041347+00:00",
+  "generated_at": "2026-08-22T20:52:17.972698+00:00",
   "slot": "2026-08-23-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T20:32:15.041347+00:00",
-    "to": "2026-08-22T20:32:15.041347+00:00"
+    "from": "2026-08-21T20:52:17.972698+00:00",
+    "to": "2026-08-22T20:52:17.972698+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🖥️ AIサーバー価格、15％超の上昇へ\n\n僕は、AI投資の拡大が続くほどサーバー価格と企業の導入コストが焦点になると見ます。"
+      "📊 8月の資金流入、QQQがビットコインETFの約6倍\n\nビットコインが好調な週でも資金の主役は伝統的テックで、リスク資金の選好差が残る。"
     ],
-    "public_compact_post": "🖥️ AIサーバー価格、15％超の上昇へ\n\nNVIDIAの一部顧客に、来年初め出荷のAIサーバー価格が多くの場合15％超上昇すると通知された\n対象にはVera RubinとGrace Blackwellが含まれ、値上げ幅はチップ世代で異なる\n\n僕は、AI投資の拡大が続くほどサーバー価格と企業の導入コストが焦点になると見ます。"
+    "public_compact_post": "📊 8月の資金流入、QQQがビットコインETFの約6倍\n\nQQQは8月に109億ドルを集め、過去最大の月間流入ペースにある\n同月の現物ビットコインETFへの流入は19.2億ドルだった\n\nビットコインが好調な週でも資金の主役は伝統的テックで、リスク資金の選好差が残る。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🖥️ AIサーバー価格、15％超の上昇へ",
+    "selected_hook": "📊 8月の資金流入、QQQがビットコインETFの約6倍",
     "verified_facts": [],
-    "market_or_user_impact": "GPU性能だけでなく、サーバー価格の上昇がAI投資額や導入企業の採算に影響する論点を確認できる。",
+    "market_or_user_impact": "暗号資産の上昇を価格だけでなく、株式市場との資金配分比較で判断できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "半導体の需給ではなく、AIインフラの実際の導入コストを追う材料になる。",
+    "next_watch": "QQQと現物ビットコインETFの流入差が縮小するか、翌月以降の資金動向を追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/wallstengine/status/2091240388438978935",
+      "url": "https://x.com/coinbureau/status/2091247785425375699",
       "verified": false
     },
     "corroborating_sources": [],
