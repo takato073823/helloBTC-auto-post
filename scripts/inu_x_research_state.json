@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-22T09:04:39+00:00",
-  "last_watcher_guru_scan_at": "2026-08-22T09:04:39+00:00",
+  "last_watcher_guru_scan_at": "2026-08-22T10:00:59+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-10T15:39:32+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-10T15:39:32+00:00",
@@ -2284,6 +2278,12 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-22T10:00:59+00:00",
+      "result_count": 7,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2475,32 +2475,6 @@
       "summary": "Let's Explore @Circle's @Arc Blockchain | Part 12 🧵 🌍 Why is FX such an important part of Arc? Moving money across borders isn't as simple as sending money from one wallet to another. Different countries use different currencies. Different financial institutions operate https://t.co/6e8lQEU6m2 https://t.co/0hnG8akXiq",
       "topic": "onchain_exchange",
       "why_trending": "表示25・投稿後61分・反応率8.0%・公式候補リンクあり"
-    },
-    {
-      "author_followers": 201894,
-      "discovered_at": "2026-08-21T11:04:01+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "fsa_JAPAN",
-      "has_video": false,
-      "headline": "関東財務局が、令和８年７月17日から18日にかけての大雨に伴う災害等で被災された栃木県内の方々への預金の払戻し等について、被災状況に応じてきめ細かく弾力的で迅速な対応に努めるよう金融機関に要請しました。 https://t.co/JkgPkoP57I",
-      "impression_count": 2232,
-      "like_count": 4,
-      "linked_urls": [
-        "https://www.fsa.go.jp/news/r8/ginkou/20260821.html"
-      ],
-      "media_types": [],
-      "post_id": "2090734017536758200",
-      "post_url": "https://x.com/fsa_JAPAN/status/2090734017536758200",
-      "posted_at": "2026-08-21T09:33:28+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 3,
-      "score": 48.7,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "関東財務局が、令和８年７月17日から18日にかけての大雨に伴う災害等で被災された栃木県内の方々への預金の払戻し等について、被災状況に応じてきめ細かく弾力的で迅速な対応に努めるよう金融機関に要請しました。 https://t.co/JkgPkoP57I",
-      "topic": "fixed_primary_x",
-      "why_trending": "表示2,232・投稿後90分・反応率0.4%・公式候補リンクあり"
     },
     {
       "author_followers": 1883,
