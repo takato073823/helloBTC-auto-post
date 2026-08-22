@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T20:17:49.642055+00:00",
+  "generated_at": "2026-08-22T20:32:15.041347+00:00",
   "slot": "2026-08-23-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T20:17:49.642055+00:00",
-    "to": "2026-08-22T20:17:49.642055+00:00"
+    "from": "2026-08-21T20:32:15.041347+00:00",
+    "to": "2026-08-22T20:32:15.041347+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊資金流入、テックが暗号資産を約6倍上回る\n\nビットコインが上昇しても、資金配分の主役がテックから移ったとはまだ言い切れない。"
+      "🖥️ AIサーバー価格、15％超の上昇へ\n\n僕は、AI投資の拡大が続くほどサーバー価格と企業の導入コストが焦点になると見ます。"
     ],
-    "public_compact_post": "📊資金流入、テックが暗号資産を約6倍上回る\n\n8月のQQQへの資金流入は109億ドル\n同月の現物ビットコインETFへの資金流入は19.2億ドル\n\nビットコインが上昇しても、資金配分の主役がテックから移ったとはまだ言い切れない。"
+    "public_compact_post": "🖥️ AIサーバー価格、15％超の上昇へ\n\nNVIDIAの一部顧客に、来年初め出荷のAIサーバー価格が多くの場合15％超上昇すると通知された\n対象にはVera RubinとGrace Blackwellが含まれ、値上げ幅はチップ世代で異なる\n\n僕は、AI投資の拡大が続くほどサーバー価格と企業の導入コストが焦点になると見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊資金流入、テックが暗号資産を約6倍上回る",
+    "selected_hook": "🖥️ AIサーバー価格、15％超の上昇へ",
     "verified_facts": [],
-    "market_or_user_impact": "暗号資産の上昇が市場全体の資金回帰なのか、テック主導の流れなのかを見極める材料になる。",
+    "market_or_user_impact": "GPU性能だけでなく、サーバー価格の上昇がAI投資額や導入企業の採算に影響する論点を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "ETFフローと株式ETFの資金配分を継続比較する起点になる。",
+    "next_watch": "半導体の需給ではなく、AIインフラの実際の導入コストを追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinbureau/status/2091247785425375699",
+      "url": "https://x.com/wallstengine/status/2091240388438978935",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
