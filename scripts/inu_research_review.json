@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T02:50:46.419511+00:00",
-  "slot": "2026-08-22-11-a",
+  "generated_at": "2026-08-22T04:03:38.451063+00:00",
+  "slot": "2026-08-22-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T02:50:46.419511+00:00",
-    "to": "2026-08-22T02:50:46.419511+00:00"
+    "from": "2026-08-21T04:03:38.451063+00:00",
+    "to": "2026-08-22T04:03:38.451063+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡️株式トークン、取引規模が拡大\n\n株式のオンチェーン化は、暗号資産市場と伝統的金融の接続点を広げている。"
+      "📈 ビットコインに戻る資金\n\n資金回帰と上値の節目が同時に意識され、次の焦点は82,000ドルでの需給になる。"
     ],
-    "public_compact_post": "⚡️株式トークン、取引規模が拡大\n\nUniswapはRobinhood Chain上の株式トークン取引高が10億ドルを超えたと発表\n\n株式のオンチェーン化は、暗号資産市場と伝統的金融の接続点を広げている。"
+    "public_compact_post": "📈 ビットコインに戻る資金\n\nPantera CapitalのCosmo Jiangは、スマートマネーがビットコインに戻っていると述べた\n次のレジスタンス水準として82,000ドル前後を挙げた\n\n資金回帰と上値の節目が同時に意識され、次の焦点は82,000ドルでの需給になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚡️株式トークン、取引規模が拡大",
+    "selected_hook": "📈 ビットコインに戻る資金",
     "verified_facts": [],
-    "market_or_user_impact": "株式取引がブロックチェーン上でどの規模まで拡大しているかを把握できる。",
+    "market_or_user_impact": "機関投資家系の資金動向と、次に意識される価格帯を一度に確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "暗号資産と伝統的金融の接続を、取引高などの実績ベースで追える。",
+    "next_watch": "BTCの資金フローと重要水準を継続的に追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinmarketcap/status/2090950118862172579",
+      "url": "https://x.com/coinmarketcap/status/2091006237961802021",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 23,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 23,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
