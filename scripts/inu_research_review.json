@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T18:03:36.599240+00:00",
+  "generated_at": "2026-08-22T18:22:48.416205+00:00",
   "slot": "2026-08-23-03-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T18:03:36.599240+00:00",
-    "to": "2026-08-22T18:03:36.599240+00:00"
+    "from": "2026-08-21T18:22:48.416205+00:00",
+    "to": "2026-08-22T18:22:48.416205+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💵 Circle、$USDC流通量を725億ドルと表示：8月20日時点\n\nCircle公式$USDCページは、2026年8月20日時点の$USDC流通量を72.7 billion dollarsと表示している。\n\n流通量の大きさは、$USDCが決済・取引の資金レールとして使われ続けていることを示します。"
+      "📊 中国の決済網が映すドル依存の変化\n\n僕はCIPSの拡大が続くかを、ドル決済網の分散度を測る材料として見たいです。"
     ],
-    "public_compact_post": "💵 Circle、$USDC流通量を725億ドルと表示：8月20日時点\n\nCircle公式$USDCページは、2026年8月20日時点の$USDC流通量を72.7 billion dollarsと表示している。\n\n流通量の大きさは、$USDCが決済・取引の資金レールとして使われ続けていることを示します。"
+    "public_compact_post": "📊 中国の決済網が映すドル依存の変化\n\n中国CIPSの取引量を兆元単位で示したチャート\n「Treasury's War」と呼ばれる主要イベントを時系列で注記\n\n僕はCIPSの拡大が続くかを、ドル決済網の分散度を測る材料として見たいです。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,22 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "adoption_kpi",
-    "selected_hook": "💵 Circle、USDC流通量を725億ドルと表示：8月20日時点",
-    "verified_facts": [
-      "Circle公式USDCページは、2026年8月20日時点のUSDC流通量を72.7 billion dollarsと表示している。",
-      "同ページはUSDCを1ドルに対して1対1で償還可能と説明し、準備資産は流通量以上の価値を持つとしている。"
-    ],
-    "market_or_user_impact": "暗号資産市場の売買余力を支えるドル連動資産の規模を具体的に把握できる。",
+    "selected_topic": "x_reaction",
+    "selected_hook": "📊 中国の決済網が映すドル依存の変化",
+    "verified_facts": [],
+    "market_or_user_impact": "CIPSの取引量と主要イベントの関係を、画像で時系列に確認できます。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "次はCircleの7日間発行・償還フローと流通量の前週比を確認する。",
+    "next_watch": "ドル決済網の変化を、暗号資産やマクロ市場とつなげて追えます。",
     "primary_source": {
-      "name": "Circle",
-      "url": "https://www.circle.com/usdc",
-      "verified": true
+      "name": "",
+      "url": "https://x.com/lukegromen/status/2091206254764974338",
+      "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 29,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -50,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 29,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -69,43 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "developing_story",
-        "hook": "⚡ Solana、200ms化を本格始動",
-        "published_at": "2026-08-22T00:00:00+00:00",
-        "source_url": "https://solana.com/200ms",
-        "why_now": "公式ページが段階的な高速化の進捗を示しているため。"
-      },
-      {
-        "topic_type": "whale_treasury",
-        "hook": "🏦 Metaplanet、2,100BTCを米国へ",
-        "published_at": "2026-08-18T00:00:00+09:00",
-        "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "過去24時間内ではないため速報ではなく、市場動向として掲載。"
-      },
-      {
-        "topic_type": "etf_flow",
-        "hook": "📊 IBIT、保有BTCは約74.8万枚",
-        "published_at": "2026-08-11T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
-        "why_now": "過去24時間の新規更新ではないため、最新確認できる公式保有データとして採用。"
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: SEC、CFTC、金融庁、FRBの公式ページで2026年8月22日から23日に該当する新規発表を確認できず、24時間条件を満たす採用候補なし。なお金融庁の暗号資産詐欺対策要請は2026年8月6日、Solanaの主要更新は8月19日以前、Metaplanetの開示は8月18日。金融庁・中央銀行の新規発表としては古く、候補から除外。",
-      "再探索1: Polymarketの変更前後の確率と変化幅がありません",
-      "再探索2: この系統の鮮度上限を超えています"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
