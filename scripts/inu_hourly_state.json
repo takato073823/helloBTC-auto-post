@@ -1341,6 +1341,25 @@
       "delivery_mode": "x_native_video_reference",
       "source_tweet_id": "2090740191086686581",
       "source_handle": "cryptorover"
+    },
+    {
+      "slot": "2026-08-23-03-a",
+      "post_id": "inu_overseas_kol_2091225570587902334",
+      "tweet_id": "2091234273583857936",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2091225570587902334",
+      "published_at": "2026-08-22T18:06:43+00:00",
+      "posted_at": "2026-08-22T18:41:18.914249+00:00",
+      "hook": "⚠️ ETF時代のBTC、株式と同じリスクバケットへ",
+      "follow_value": "暗号資産と伝統資産の相関変化を継続して追える。",
+      "content_fingerprint": "56f48931be56b0a9437209d5f7d68ef9810a5262a474cbb9a704dbb0f2639c9d",
+      "event_fingerprint": "a645104e23f0a0d0785865bea941566a741e654bb9a2b72216d8e17ac2556886",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2091225570587902334",
+      "source_handle": "coinbureau"
     }
   ],
   "posted_ids": [
@@ -1444,23 +1463,10 @@
     "inu_market_2026_08_21_07_a_crypto-ena-usd",
     "inu_overseas_kol_2090551950739669316",
     "inu_overseas_kol_2090580530563834327",
-    "inu_overseas_kol_2090740191086686581"
+    "inu_overseas_kol_2090740191086686581",
+    "inu_overseas_kol_2091225570587902334"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-23-03-a",
-      "post_id": "inu_overseas_kol_2091225570587902334",
-      "source_url": "https://x.com/coinbureau/status/2091225570587902334",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-22T18:41:01.014903+00:00",
-      "lease_expires_at": "2026-08-22T19:11:01.014903+00:00",
-      "content_fingerprint": "56f48931be56b0a9437209d5f7d68ef9810a5262a474cbb9a704dbb0f2639c9d",
-      "event_fingerprint": "a645104e23f0a0d0785865bea941566a741e654bb9a2b72216d8e17ac2556886"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2859,6 +2865,25 @@
       "delivery_mode": "x_native_video_reference",
       "source_tweet_id": "2090740191086686581",
       "source_handle": "cryptorover"
+    },
+    {
+      "slot": "2026-08-23-03-a",
+      "post_id": "inu_overseas_kol_2091225570587902334",
+      "tweet_id": "2091234273583857936",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2091225570587902334",
+      "published_at": "2026-08-22T18:06:43+00:00",
+      "posted_at": "2026-08-22T18:41:18.914249+00:00",
+      "hook": "⚠️ ETF時代のBTC、株式と同じリスクバケットへ",
+      "follow_value": "暗号資産と伝統資産の相関変化を継続して追える。",
+      "content_fingerprint": "56f48931be56b0a9437209d5f7d68ef9810a5262a474cbb9a704dbb0f2639c9d",
+      "event_fingerprint": "a645104e23f0a0d0785865bea941566a741e654bb9a2b72216d8e17ac2556886",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2091225570587902334",
+      "source_handle": "coinbureau"
     }
   ],
   "scheduled_checks": [
