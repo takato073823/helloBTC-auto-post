@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T22:03:41.555553+00:00",
+  "generated_at": "2026-08-22T22:17:34.543965+00:00",
   "slot": "2026-08-23-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-21T22:03:41.555553+00:00",
-    "to": "2026-08-22T22:03:41.555553+00:00"
+    "from": "2026-08-21T22:17:34.543965+00:00",
+    "to": "2026-08-22T22:17:34.543965+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊資金流入、暗号資産よりQQQが約6倍\n\n資金流入の規模差は、暗号資産への投資需要が株式市場ほど広がっていない現状を示します。"
+      "📊資金はまだテック株優位\n\n僕は暗号資産の上昇局面でも、機関投資家の資金配分は依然として株式中心だと見ます。"
     ],
-    "public_compact_post": "📊資金流入、暗号資産よりQQQが約6倍\n\n8月のQQQ流入額は109億ドル\nスポットBitcoin ETFの流入額は19.2億ドル\n\n資金流入の規模差は、暗号資産への投資需要が株式市場ほど広がっていない現状を示します。"
+    "public_compact_post": "📊資金はまだテック株優位\n\n8月のQQQ流入額は109億ドル\nスポットBitcoin ETFの流入額は19.2億ドルで、QQQの約6倍\n\n僕は暗号資産の上昇局面でも、機関投資家の資金配分は依然として株式中心だと見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊資金流入、暗号資産よりQQQが約6倍",
+    "selected_hook": "📊資金はまだテック株優位",
     "verified_facts": [],
-    "market_or_user_impact": "強い上昇局面でも、資金がどの市場に向かっているかを数値で把握できる。",
+    "market_or_user_impact": "暗号資産への資金回帰を判断する際、株式市場との相対的な流入規模を比較できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格ではなくETFフローで市場間の資金配分を追える。",
+    "next_watch": "暗号資産ETFと株式ETFの資金フローを継続比較する材料になる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/coinbureau/status/2091247785425375699",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
