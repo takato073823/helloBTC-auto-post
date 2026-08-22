@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-21T22:54:11.465396+00:00",
-  "slot": "2026-08-22-07-a",
+  "generated_at": "2026-08-22T00:03:51.086455+00:00",
+  "slot": "2026-08-22-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-20T22:54:11.465396+00:00",
-    "to": "2026-08-21T22:54:11.465396+00:00"
+    "from": "2026-08-21T00:03:51.086455+00:00",
+    "to": "2026-08-22T00:03:51.086455+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡ 韓国取引所の売買高が急増\n\nビットコイン上昇が韓国市場の売買回転にも波及した形で、短期資金の戻りが焦点になる。"
+      "📊 韓国取引所の売買が急増\n\n現物市場の回転が戻ったのか、一時的な急騰対応なのかが次の焦点です。"
     ],
-    "public_compact_post": "⚡ 韓国取引所の売買高が急増\n\nUpbitの24時間取引高が273%増の18.4億ドル\n日次取引高は3月半ば以来の高水準\n\nビットコイン上昇が韓国市場の売買回転にも波及した形で、短期資金の戻りが焦点になる。"
+    "public_compact_post": "📊 韓国取引所の売買が急増\n\nUpbitの24時間取引高は前日比273%増の18.4億ドル\n日次取引高として3月中旬以来の高水準\n\n現物市場の回転が戻ったのか、一時的な急騰対応なのかが次の焦点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,11 +25,11 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚡ 韓国取引所の売買高が急増",
+    "selected_hook": "📊 韓国取引所の売買が急増",
     "verified_facts": [],
-    "market_or_user_impact": "価格上昇が実際の売買活性化を伴っているか判断できる。",
+    "market_or_user_impact": "価格上昇だけでなく、Upbitで実際に売買が膨らんだ規模を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "アジア主要市場の資金流入と売買回転を継続的に追える。",
+    "next_watch": "地域別の取引高や市場参加の変化を継続して追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/coinmarketcap/status/2090911115219816451",
@@ -56,7 +56,7 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 8,
+          "used": 10,
           "limit": 12
         },
         "openai_web_search": {
@@ -70,13 +70,21 @@
       {
         "topic_type": "developing_story",
         "hook": "⚠️ Coinbase、調査中を表示",
+        "published_at": "2026-08-21T23:29:03.541000+00:00",
+        "source_url": "https://status.coinbase.com/incidents/0gt2psx39t12",
+        "why_now": "取引所の公式ステータスが直近4時間以内に更新されたためです。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️ Coinbase、調査中を表示",
         "published_at": "2026-08-21T21:31:07.025000+00:00",
         "source_url": "https://status.coinbase.com/incidents/nmrh7jmmzlp8",
         "why_now": "取引所の公式ステータスが直近4時間以内に更新されたためです。"
       }
     ],
     "rejected_reasons": [
-      "直接一次データ1: 数字・条件・決定など、読者が判断できる変化がありません"
+      "直接一次データ1: 数字・条件・決定など、読者が判断できる変化がありません",
+      "直接一次データ2: 数字・条件・決定など、読者が判断できる変化がありません"
     ]
   }
 }
