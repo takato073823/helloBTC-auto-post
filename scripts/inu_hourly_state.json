@@ -1446,21 +1446,7 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-23-03-a",
-      "post_id": "inu_auto_1dd31cb63dcd19",
-      "source_url": "https://www.circle.com/usdc",
-      "topic_type": "adoption_kpi",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-22T18:03:36.599240+00:00",
-      "lease_expires_at": "2026-08-22T18:33:36.599240+00:00",
-      "content_fingerprint": "6fc9c64228a99704e90e4837a5891c884aa7f42150896549f4b1ea7c6512849c",
-      "event_fingerprint": "d1f1cae206ddd8c55f44677c274f15f93c9a3a24f67123006aec70f89354874d"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4050,6 +4036,13 @@
       "failed_at": "2026-08-22T16:54:04.623074+00:00",
       "stage": "publish",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
+    },
+    {
+      "slot": "2026-08-23-03-a",
+      "post_id": "inu_auto_1dd31cb63dcd19",
+      "failed_at": "2026-08-22T18:05:28.579655+00:00",
+      "stage": "publish",
+      "reason": "X投稿に失敗しました。文字だけの代替投稿は行っていません"
     }
   ],
   "external_blocks": {},
