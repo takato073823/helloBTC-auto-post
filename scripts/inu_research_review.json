@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T06:54:17.141838+00:00",
-  "slot": "2026-08-23-15-a",
+  "generated_at": "2026-08-23T08:03:39.974866+00:00",
+  "slot": "2026-08-23-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T06:54:17.141838+00:00",
-    "to": "2026-08-23T06:54:17.141838+00:00"
+    "from": "2026-08-22T08:03:39.974866+00:00",
+    "to": "2026-08-23T08:03:39.974866+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚠️ レバレッジ清算が再加速\n\nロング清算が続けば、価格下落そのものよりポジション解消の連鎖が焦点になる。"
+      "🩸72時間で500億ドル超のポジションが消失\n\n僕は、方向感よりレバレッジ残高の急減が次の値動きの焦点だと見ます。"
     ],
-    "public_compact_post": "⚠️ レバレッジ清算が再加速\n\n過去48時間に7.5億ドル相当のロングが清算された\nビットコインは7万5000ドルまで下落した\n\nロング清算が続けば、価格下落そのものよりポジション解消の連鎖が焦点になる。"
+    "public_compact_post": "🩸72時間で500億ドル超のポジションが消失\n\nショートは27.4億ドル、ロングは18.2億ドル清算された\n当日も3.37億ドルが失われ、72時間の清算総額は50億ドル超\n\n僕は、方向感よりレバレッジ残高の急減が次の値動きの焦点だと見ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚠️ レバレッジ清算が再加速",
+    "selected_hook": "🩸72時間で500億ドル超のポジションが消失",
     "verified_facts": [],
-    "market_or_user_impact": "下落局面でレバレッジポジションがどの程度整理されたか確認できる。",
+    "market_or_user_impact": "上昇時のショート清算と反落時のロング清算を分けて把握でき、急変動の市場構造を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "清算額と価格水準の変化を追う材料になる。",
+    "next_watch": "価格だけでなく、レバレッジ解消の規模を継続的に追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/cryptorover/status/2091405885952450728",
+      "url": "https://x.com/coinbureau/status/2091427722375610673",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 23,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 23,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
