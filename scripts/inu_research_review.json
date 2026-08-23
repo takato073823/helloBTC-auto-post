@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T20:32:26.381298+00:00",
-  "slot": "2026-08-24-05-a",
+  "generated_at": "2026-08-23T22:03:50.227008+00:00",
+  "slot": "2026-08-24-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T20:32:26.381298+00:00",
-    "to": "2026-08-23T20:32:26.381298+00:00"
+    "from": "2026-08-22T22:03:50.227008+00:00",
+    "to": "2026-08-23T22:03:50.227008+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡️AIが電力需要を押し上げる\n\n僕はAI投資の次の制約が半導体だけでなく電力網になる点に注目したい。"
+      "⚡️AIの電力需要、2033年に世界で315GWへ\n\n僕はAI投資の次の制約が半導体供給だけでなく電力網になると見ている"
     ],
-    "public_compact_post": "⚡️AIが電力需要を押し上げる\n\nAIチップによる世界の電力需要は2033年に約315GWへ増える見通し\n2025年比で1,100%以上増加し、米国が新規需要の約64%（約200GW）を占める見通し\n\n僕はAI投資の次の制約が半導体だけでなく電力網になる点に注目したい。"
+    "public_compact_post": "⚡️AIの電力需要、2033年に世界で315GWへ\n\nAIチップ由来の電力需要は2033年に世界で約315GWへ拡大する見通し\n2025年比で1,100%以上増加し、米国が新規需要の約64%（約200GW）を占める見込み\n\n僕はAI投資の次の制約が半導体供給だけでなく電力網になると見ている"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚡️AIが電力需要を押し上げる",
+    "selected_hook": "⚡️AIの電力需要、2033年に世界で315GWへ",
     "verified_facts": [],
-    "market_or_user_impact": "AI関連企業の成長余地を、電力供給という物理的制約から考えられる。",
+    "market_or_user_impact": "AI拡大が発電・送電設備やデータセンター立地に及ぼす規模を数値で把握できる",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AIと電力インフラの接点を、需要規模と地域別構成で追える。",
+    "next_watch": "AIテーマを計算資源ではなく電力インフラの需給構造から追える",
     "primary_source": {
       "name": "",
       "url": "https://x.com/kobeissiletter/status/2091609670297485728",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 4,
+          "used": 5,
           "limit": 6
         },
         "grok_editorial": {
