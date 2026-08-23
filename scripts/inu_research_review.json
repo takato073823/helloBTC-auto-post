@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T06:03:44.858016+00:00",
+  "generated_at": "2026-08-23T06:34:16.902451+00:00",
   "slot": "2026-08-23-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T06:03:44.858016+00:00",
-    "to": "2026-08-23T06:03:44.858016+00:00"
+    "from": "2026-08-22T06:34:16.902451+00:00",
+    "to": "2026-08-23T06:34:16.902451+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🇯🇵 $XRPの国内取引基盤が一段進展\n\n大手金融機関の登録で、$XRPの国内取扱いを巡る制度面の確認材料が増えた。"
+      "⚠️レバレッジの巻き戻し\n\n急落局面ではロング清算が連鎖しやすく、反発後も建玉の再膨張が論点になる。"
     ],
-    "public_compact_post": "🇯🇵 $XRPの国内取引基盤が一段進展\n\nNomuraのLaser Digitalが、資金決済法に基づく暗号資産交換業者として日本で登録された\n登録番号は00032で、承認銘柄には$XRP、$BTC、$ETHが含まれる\n\n大手金融機関の登録で、$XRPの国内取扱いを巡る制度面の確認材料が増えた。"
+    "public_compact_post": "⚠️レバレッジの巻き戻し\n\n過去48時間で7.5億ドル相当のロングが清算された\nビットコインは7万5000ドルまで下落した\n\n急落局面ではロング清算が連鎖しやすく、反発後も建玉の再膨張が論点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🇯🇵 XRPの国内取引基盤が一段進展",
+    "selected_hook": "⚠️レバレッジの巻き戻し",
     "verified_facts": [],
-    "market_or_user_impact": "国内でXRPを扱う金融インフラの具体的な進展を把握できる。",
+    "market_or_user_impact": "価格下落が現物売りだけでなく、レバレッジ解消によって増幅された可能性を確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "今後の取扱開始時期や、他の登録業者への波及を追う材料になる。",
+    "next_watch": "清算額と価格の同時変化を追い、過熱したポジションの巻き戻しを見極める材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bankxrp/status/2091396910989148368",
+      "url": "https://x.com/cryptorover/status/2091405885952450728",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
