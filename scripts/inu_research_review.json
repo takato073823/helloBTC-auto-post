@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T04:45:45.527373+00:00",
-  "slot": "2026-08-23-13-a",
+  "generated_at": "2026-08-23T06:03:44.858016+00:00",
+  "slot": "2026-08-23-15-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T04:45:45.527373+00:00",
-    "to": "2026-08-23T04:45:45.527373+00:00"
+    "from": "2026-08-22T06:03:44.858016+00:00",
+    "to": "2026-08-23T06:03:44.858016+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊 政府契約と株価上昇が重なるPLTR\n\n政府契約と公職者の取引時期が重なるため、開示内容と利益相反の検証が残る。"
+      "🇯🇵 $XRPの国内取引基盤が一段進展\n\n大手金融機関の登録で、$XRPの国内取扱いを巡る制度面の確認材料が増えた。"
     ],
-    "public_compact_post": "📊 政府契約と株価上昇が重なるPLTR\n\nトランプ大統領は6月24日付でPalantir株の購入を届け出た\n8月4日、国防総省のメモはPalantir向けに最大2億4400万ドルを指示し、株価は購入後58%上昇した\n\n政府契約と公職者の取引時期が重なるため、開示内容と利益相反の検証が残る。"
+    "public_compact_post": "🇯🇵 $XRPの国内取引基盤が一段進展\n\nNomuraのLaser Digitalが、資金決済法に基づく暗号資産交換業者として日本で登録された\n登録番号は00032で、承認銘柄には$XRP、$BTC、$ETHが含まれる\n\n大手金融機関の登録で、$XRPの国内取扱いを巡る制度面の確認材料が増えた。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊 政府契約と株価上昇が重なるPLTR",
+    "selected_hook": "🇯🇵 XRPの国内取引基盤が一段進展",
     "verified_facts": [],
-    "market_or_user_impact": "契約規模2億4400万ドルと株価上昇率を同時に把握でき、政府案件が企業価値に与える影響を考える材料になる。",
+    "market_or_user_impact": "国内でXRPを扱う金融インフラの具体的な進展を把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "政府契約、要人取引、株価反応を数値で追う材料として保存価値がある。",
+    "next_watch": "今後の取扱開始時期や、他の登録業者への波及を追う材料になる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/quiverquant/status/2091342813317181493",
+      "url": "https://x.com/bankxrp/status/2091396910989148368",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 23,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 23,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
