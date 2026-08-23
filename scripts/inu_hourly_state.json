@@ -1376,6 +1376,25 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "a64c7c1a7618a7523e4a3667f81472cf2b713e1c9e9ac72f6a54878531123d1e",
       "event_fingerprint": "bec92a5f19883bcbeebaac1f816a7b3ea052ee53d35aef74887a284252800a90"
+    },
+    {
+      "slot": "2026-08-23-17-a",
+      "post_id": "inu_overseas_kol_2091427722375610673",
+      "tweet_id": "2091436271583289680",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2091427722375610673",
+      "published_at": "2026-08-23T07:30:00+00:00",
+      "posted_at": "2026-08-23T08:03:58.990900+00:00",
+      "hook": "🩸72時間で500億ドル超のポジションが消失",
+      "follow_value": "価格だけでなく、レバレッジ解消の規模を継続的に追う材料になる。",
+      "content_fingerprint": "0c6249808b6f5191123531cfbb56e957a759fb5958e596d4ab33ece77517f3f9",
+      "event_fingerprint": "15b1d0be7a71e06d917b021bb792f90ae3f017014b27120a72a861a89286679e",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2091427722375610673",
+      "source_handle": "coinbureau"
     }
   ],
   "posted_ids": [
@@ -1481,23 +1500,10 @@
     "inu_overseas_kol_2090580530563834327",
     "inu_overseas_kol_2090740191086686581",
     "inu_overseas_kol_2091225570587902334",
-    "inu_market_2026_08_23_09_a_crypto-trump-usd"
+    "inu_market_2026_08_23_09_a_crypto-trump-usd",
+    "inu_overseas_kol_2091427722375610673"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-23-17-a",
-      "post_id": "inu_overseas_kol_2091427722375610673",
-      "source_url": "https://x.com/coinbureau/status/2091427722375610673",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-23T08:03:39.974866+00:00",
-      "lease_expires_at": "2026-08-23T08:33:39.974866+00:00",
-      "content_fingerprint": "0c6249808b6f5191123531cfbb56e957a759fb5958e596d4ab33ece77517f3f9",
-      "event_fingerprint": "15b1d0be7a71e06d917b021bb792f90ae3f017014b27120a72a861a89286679e"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -2931,6 +2937,25 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "a64c7c1a7618a7523e4a3667f81472cf2b713e1c9e9ac72f6a54878531123d1e",
       "event_fingerprint": "bec92a5f19883bcbeebaac1f816a7b3ea052ee53d35aef74887a284252800a90"
+    },
+    {
+      "slot": "2026-08-23-17-a",
+      "post_id": "inu_overseas_kol_2091427722375610673",
+      "tweet_id": "2091436271583289680",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://x.com/coinbureau/status/2091427722375610673",
+      "published_at": "2026-08-23T07:30:00+00:00",
+      "posted_at": "2026-08-23T08:03:58.990900+00:00",
+      "hook": "🩸72時間で500億ドル超のポジションが消失",
+      "follow_value": "価格だけでなく、レバレッジ解消の規模を継続的に追う材料になる。",
+      "content_fingerprint": "0c6249808b6f5191123531cfbb56e957a759fb5958e596d4ab33ece77517f3f9",
+      "event_fingerprint": "15b1d0be7a71e06d917b021bb792f90ae3f017014b27120a72a861a89286679e",
+      "delivery_mode": "x_native_video_reference",
+      "source_tweet_id": "2091427722375610673",
+      "source_handle": "coinbureau"
     }
   ],
   "scheduled_checks": [
