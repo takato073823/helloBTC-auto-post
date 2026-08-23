@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T08:03:39.974866+00:00",
-  "slot": "2026-08-23-17-a",
+  "generated_at": "2026-08-23T10:03:43.890157+00:00",
+  "slot": "2026-08-23-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T08:03:39.974866+00:00",
-    "to": "2026-08-23T08:03:39.974866+00:00"
+    "from": "2026-08-22T10:03:43.890157+00:00",
+    "to": "2026-08-23T10:03:43.890157+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🩸72時間で500億ドル超のポジションが消失\n\n僕は、方向感よりレバレッジ残高の急減が次の値動きの焦点だと見ます。"
+      "📉 $ALIGN、24時間で-24.72％"
     ],
-    "public_compact_post": "🩸72時間で500億ドル超のポジションが消失\n\nショートは27.4億ドル、ロングは18.2億ドル清算された\n当日も3.37億ドルが失われ、72時間の清算総額は50億ドル超\n\n僕は、方向感よりレバレッジ残高の急減が次の値動きの焦点だと見ます。"
+    "public_compact_post": "📉 $ALIGN、24時間で-24.72％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.0149。24時間で-24.72％の下落。\n3日高値0.0284、安値0.0126。レンジ内14％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +24,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "x_reaction",
-    "selected_hook": "🩸72時間で500億ドル超のポジションが消失",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📉 $ALIGN、24時間で-24.72％",
     "verified_facts": [],
-    "market_or_user_impact": "上昇時のショート清算と反落時のロング清算を分けて把握でき、急変動の市場構造を確認できる。",
+    "market_or_user_impact": "ALIGNの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "価格だけでなく、レバレッジ解消の規模を継続的に追う材料になる。",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/coinbureau/status/2091427722375610673",
+      "url": "https://www.tradingview.com/symbols/COINBASE-ALIGNUSD",
       "verified": false
     },
     "corroborating_sources": [],

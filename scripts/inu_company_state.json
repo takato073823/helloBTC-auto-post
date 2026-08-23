@@ -5442,6 +5442,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "32632693845",
+      "started_at": "2026-08-23T10:03:43.887771+00:00",
+      "completed_at": "2026-08-23T10:04:14.911217+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-23-19-a",
+      "post_id": "inu_market_2026_08_23_19_a_crypto-align-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "12f44aad0fdf20be779c2e5a69edbc34ebfec7668c3f4cbc505b832d209f0531",
+      "event_fingerprint": "bfe48cef7b5633279b0d92327e2d48d7989ac4368437a09adee92d070407b082"
     }
   ]
 }
