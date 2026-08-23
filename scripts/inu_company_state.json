@@ -5031,6 +5031,22 @@
       "topic_type": "crypto_market",
       "content_fingerprint": "a64c7c1a7618a7523e4a3667f81472cf2b713e1c9e9ac72f6a54878531123d1e",
       "event_fingerprint": "bec92a5f19883bcbeebaac1f816a7b3ea052ee53d35aef74887a284252800a90"
+    },
+    {
+      "run_id": "32606851185",
+      "started_at": "2026-08-23T00:04:11.890076+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-08-23-09-a",
+      "post_id": "inu_market_2026_08_23_09_a_crypto-trump-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "a64c7c1a7618a7523e4a3667f81472cf2b713e1c9e9ac72f6a54878531123d1e",
+      "event_fingerprint": "bec92a5f19883bcbeebaac1f816a7b3ea052ee53d35aef74887a284252800a90",
+      "status": "published",
+      "completed_at": "2026-08-23T00:04:12.856016+00:00"
     }
   ]
 }
