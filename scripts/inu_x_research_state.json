@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-23T17:57:46+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T17:57:46+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T19:04:38+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T00:43:15+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-12T00:43:15+00:00",
@@ -2284,6 +2278,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T19:04:38+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
