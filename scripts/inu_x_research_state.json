@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-23T05:13:10+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T05:13:10+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T06:02:39+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-11T11:31:39+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-11T11:31:39+00:00",
@@ -2284,9 +2278,39 @@
       "result_count": 0,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T06:02:39+00:00",
+      "result_count": 3,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
+    {
+      "author_followers": 4735344,
+      "discovered_at": "2026-08-23T06:02:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: $100,000,000 worth of longs liquidated from the crypto market in the past hour as Bitcoin falls under $76,000",
+      "impression_count": 103820,
+      "like_count": 1001,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2091395817818997180",
+      "post_url": "https://x.com/WatcherGuru/status/2091395817818997180",
+      "posted_at": "2026-08-23T05:23:13+00:00",
+      "quote_count": 29,
+      "reply_count": 133,
+      "repost_count": 90,
+      "score": 76.5,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: $100,000,000 worth of longs liquidated from the crypto market in the past hour as Bitcoin falls under $76,000",
+      "topic": "watcher_guru",
+      "why_trending": "表示103,820・投稿後39分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
     {
       "author_followers": 4728289,
       "discovered_at": "2026-08-22T07:21:00+00:00",
