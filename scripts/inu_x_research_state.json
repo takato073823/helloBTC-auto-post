@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T05:13:10+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T06:02:39+00:00",
+  "last_deep_scan_at": "2026-08-23T08:02:01+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T08:02:01+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-11T11:31:39+00:00",
-      "result_count": 8,
-      "spike": false,
-      "topic": "japanese_market"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-11T12:29:22+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-11T14:06:52+00:00",
@@ -2284,6 +2271,19 @@
       "checked_at": "2026-08-23T06:02:39+00:00",
       "result_count": 3,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T08:02:01+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-23T08:02:01+00:00",
+      "result_count": 0,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2310,30 +2310,6 @@
       "summary": "JUST IN: $100,000,000 worth of longs liquidated from the crypto market in the past hour as Bitcoin falls under $76,000",
       "topic": "watcher_guru",
       "why_trending": "表示103,820・投稿後39分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
-    },
-    {
-      "author_followers": 4728289,
-      "discovered_at": "2026-08-22T07:21:00+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "JUST IN: $550,000,000 worth of longs liquidated from the crypto market in the past 60 minutes.",
-      "impression_count": 175288,
-      "like_count": 1877,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2091046889810444738",
-      "post_url": "https://x.com/WatcherGuru/status/2091046889810444738",
-      "posted_at": "2026-08-22T06:16:42+00:00",
-      "quote_count": 84,
-      "reply_count": 237,
-      "repost_count": 164,
-      "score": 71.9,
-      "seen_count": 1,
-      "source_priority": "watcherguru",
-      "summary": "JUST IN: $550,000,000 worth of longs liquidated from the crypto market in the past 60 minutes.",
-      "topic": "watcher_guru",
-      "why_trending": "表示175,288・投稿後64分・反応率1.6%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4731419,
