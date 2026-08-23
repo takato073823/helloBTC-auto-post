@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T13:21:16+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T14:00:56+00:00",
+  "last_deep_scan_at": "2026-08-23T15:58:53+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T15:58:53+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-11T19:47:20+00:00",
-      "result_count": 7,
-      "spike": false,
-      "topic": "onchain_exchange"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-11T20:28:29+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-11T22:24:46+00:00",
@@ -2284,6 +2271,19 @@
       "checked_at": "2026-08-23T14:00:56+00:00",
       "result_count": 3,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T15:58:53+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-23T15:58:53+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2340,30 +2340,6 @@
       "why_trending": "表示105,302・投稿後28分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
-      "author_followers": 4731419,
-      "discovered_at": "2026-08-22T17:00:27+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "WatcherGuru",
-      "has_video": false,
-      "headline": "FUN FACT: 10 years ago today, Bitcoin was $586",
-      "impression_count": 218807,
-      "like_count": 4039,
-      "linked_urls": [],
-      "media_types": [],
-      "post_id": "2091176250715079160",
-      "post_url": "https://x.com/WatcherGuru/status/2091176250715079160",
-      "posted_at": "2026-08-22T14:50:45+00:00",
-      "quote_count": 91,
-      "reply_count": 288,
-      "repost_count": 377,
-      "score": 58.3,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "FUN FACT: 10 years ago today, Bitcoin was $586",
-      "topic": "watcher_guru",
-      "why_trending": "表示218,807・投稿後129分・反応率2.5%"
-    },
-    {
       "author_followers": 403,
       "discovered_at": "2026-08-23T13:21:16+00:00",
       "discovery_type": "official_x_api",
@@ -2390,35 +2366,6 @@
       "summary": "Market Volatility Roadmap: Macro Events &amp; Crypto Level Breakdowns 🗓️📊 ​$BTC holds under the key resistance at $77,500. A weekly candle close above this level is required to sustain bullish momentum; failure to do so leaves downside risks open. ​🗓️ Key Macro Drivers This Week: 🔹 https://t.co/yAzKYgZT9y",
       "topic": "macro_rates",
       "why_trending": "表示126・投稿後141分・反応率4.4%"
-    },
-    {
-      "author_followers": 1154,
-      "discovered_at": "2026-08-22T15:57:57+00:00",
-      "discovery_type": "official_x_api",
-      "handle": "Crypto__Falcon",
-      "has_video": false,
-      "headline": "🚨ALERT: 🚨IMPORTANT FACTORS THAT COULD PUT PRESSURE ON CRYPTO, 1️⃣ US DEBT $40T+ &amp; RISING 30Y YIELD 🇺🇸, US DEBT HAS CROSSED ($40T), WHILE RISING LONG-TERM YIELDS ARE KEEPING FIN",
-      "impression_count": 2,
-      "like_count": 0,
-      "linked_urls": [
-        "https://x.com/Crypto__Falcon/status/2091184788824903948/photo/1",
-        "https://twitter.com/Crypto__Falcon/status/2090888588628226072"
-      ],
-      "media_types": [
-        "photo"
-      ],
-      "post_id": "2091184788824903948",
-      "post_url": "https://x.com/Crypto__Falcon/status/2091184788824903948",
-      "posted_at": "2026-08-22T15:24:40+00:00",
-      "quote_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "score": 37.4,
-      "seen_count": 1,
-      "source_priority": "",
-      "summary": "🚨ALERT: 🚨IMPORTANT FACTORS THAT COULD PUT PRESSURE ON CRYPTO, 1️⃣ US DEBT $40T+ &amp; RISING 30Y YIELD 🇺🇸, US DEBT HAS CROSSED ($40T), WHILE RISING LONG-TERM YIELDS ARE KEEPING FINANCIAL CONDITIONS TIGHT AND PRESSURING RISK ASSETS. 2️⃣ PCE INFLATION DATA, HIGHER-THAN-EXPECTED https://t.co/K6KcarqP7Y https://t.co/nVkJnpBxoB",
-      "topic": "macro_rates",
-      "why_trending": "表示2・投稿後33分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 905,
