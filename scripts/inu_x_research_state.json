@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T17:57:46+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T19:04:38+00:00",
+  "last_deep_scan_at": "2026-08-23T19:57:21+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T19:57:21+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-12T00:43:15+00:00",
-      "result_count": 9,
-      "spike": false,
-      "topic": "regulation"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T03:12:41+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-12T03:12:41+00:00",
@@ -2284,6 +2271,19 @@
       "checked_at": "2026-08-23T19:04:38+00:00",
       "result_count": 2,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T19:57:21+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-23T19:57:21+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2338,6 +2338,35 @@
       "summary": "JUST IN: Michael Saylor says Bitcoin's biggest breakthrough is turning economic energy into secure digital form. https://t.co/JoQmV2bD1n",
       "topic": "watcher_guru",
       "why_trending": "表示105,302・投稿後28分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 3625,
+      "discovered_at": "2026-08-23T19:57:21+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "risenfit",
+      "has_video": false,
+      "headline": "$ASST $SBET $PURR $BTC $ETH $HYPE 2018 vs. 2026 BTC HISTORY CAN RHYME, BUT DOES NOT NECESSARILY REPEAT. • The summer 2018 BTC squeeze is a useful historical comparison. • But the m",
+      "impression_count": 75,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/risenfit/status/2091615084183507186/photo/1",
+        "https://twitter.com/cryptorover/status/2091542142476783904"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2091615084183507186",
+      "post_url": "https://x.com/risenfit/status/2091615084183507186",
+      "posted_at": "2026-08-23T19:54:31+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 59.8,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "$ASST $SBET $PURR $BTC $ETH $HYPE 2018 vs. 2026 BTC HISTORY CAN RHYME, BUT DOES NOT NECESSARILY REPEAT. • The summer 2018 BTC squeeze is a useful historical comparison. • But the macro backdrop was fundamentally different • and far more hostile to #Bitcoin. ———————————— https://t.co/ARad7JGtsy https://t.co/e7L6B0k6px",
+      "topic": "macro_rates",
+      "why_trending": "表示75・投稿後2分・反応率1.3%・公式候補リンクあり"
     },
     {
       "author_followers": 403,
