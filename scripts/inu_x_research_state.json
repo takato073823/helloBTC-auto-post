@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-23T21:58:24+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T21:58:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T22:59:19+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T06:58:52+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-12T06:58:52+00:00",
@@ -2283,6 +2277,12 @@
       "result_count": 1,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T22:59:19+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
