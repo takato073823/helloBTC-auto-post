@@ -1560,7 +1560,21 @@
     "inu_overseas_kol_2091471407951782095",
     "inu_overseas_kol_2091520374261379323"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-08-24-05-a",
+      "post_id": "inu_overseas_kol_2091609670297485728",
+      "source_url": "https://x.com/kobeissiletter/status/2091609670297485728",
+      "topic_type": "x_reaction",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-08-23T20:17:33.649694+00:00",
+      "lease_expires_at": "2026-08-23T20:47:33.649694+00:00",
+      "content_fingerprint": "52268d17a625f61522144dda99cd8d99974c020d182b61a272e0a7135c37c69d",
+      "event_fingerprint": "2b00a7dbedb312d64e15be653902cc30ba9f22be41680694f64797cef50fa95a"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3266,9 +3280,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-23T20:03:43.895554+00:00",
-      "count": 82533,
-      "fastest_fee": 3
+      "checked_at": "2026-08-23T20:17:33.649694+00:00",
+      "count": 84587,
+      "fastest_fee": 4
     }
   },
   "delivery_failures": [
@@ -4460,8 +4474,8 @@
   "api_usage": {
     "jst_date": "2026-08-24",
     "counts": {
-      "grok_x_search": 3,
-      "openai_web_search": 6,
+      "grok_x_search": 4,
+      "openai_web_search": 8,
       "grok_editorial": 2
     },
     "claims": [
@@ -4508,6 +4522,18 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-08-23T20:03:43.895554+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-08-23T20:17:33.649694+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-23T20:17:33.649694+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-08-23T20:17:33.649694+00:00"
       }
     ]
   }

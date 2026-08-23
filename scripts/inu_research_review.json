@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T20:03:43.895554+00:00",
+  "generated_at": "2026-08-23T20:17:33.649694+00:00",
   "slot": "2026-08-24-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T20:03:43.895554+00:00",
-    "to": "2026-08-23T20:03:43.895554+00:00"
+    "from": "2026-08-22T20:17:33.649694+00:00",
+    "to": "2026-08-23T20:17:33.649694+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡️AI電力需要、2033年に315GWへ\n\n僕は、AI投資では半導体だけでなく電力インフラの制約も焦点になると見ます。"
+      "⚡️AIの電力需要、2033年に315GWへ\n\n僕はAI投資の次の制約が半導体供給から電力網へ移る点に注目したいです。"
     ],
-    "public_compact_post": "⚡️AI電力需要、2033年に315GWへ\n\nAIチップ由来の世界の電力需要は2033年に約315GWへ増える見通し\n2025年比で1,100%以上増加し、新規需要の約64%を米国が占める見通し\n\n僕は、AI投資では半導体だけでなく電力インフラの制約も焦点になると見ます。"
+    "public_compact_post": "⚡️AIの電力需要、2033年に315GWへ\n\nAIチップによる世界の電力需要は2033年に約315GWへ増える見込み\n2025年比で1,100%以上の増加に相当し、米国が新規需要の約64%・約200GWを占める見込み\n\n僕はAI投資の次の制約が半導体供給から電力網へ移る点に注目したいです。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚡️AI電力需要、2033年に315GWへ",
+    "selected_hook": "⚡️AIの電力需要、2033年に315GWへ",
     "verified_facts": [],
-    "market_or_user_impact": "AI成長の裏側で、発電・送電・データセンター関連への資本需要を考える材料になる。",
+    "market_or_user_impact": "AIの成長率だけでなく、データセンターを支える発電・送電投資の規模を考えられる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AIインフラの需要データと市場構造を追える。",
+    "next_watch": "AIインフラ需要を半導体以外の電力・公益セクターまで広げて追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/kobeissiletter/status/2091609670297485728",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 29,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 29,
+        "signal_count": 24,
         "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 3,
+          "used": 4,
           "limit": 6
         },
         "grok_editorial": {
@@ -60,68 +60,18 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 6,
+          "used": 8,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "etf_flow",
-        "hook": "📈 IBIT純資産、548億ドル",
-        "published_at": "2026-08-20T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
-        "why_now": "8月20日時点のETF純資産とNAVが公式ページで更新されている。"
-      },
-      {
-        "topic_type": "institutional_custody",
-        "hook": "🏦 Circle、米国信託銀行を承認",
-        "published_at": "2026-08-05T00:00:00+00:00",
-        "source_url": "https://www.circle.com/pressroom/circle-reports-second-quarter-2026-results",
-        "why_now": "公式決算発表で連邦信託銀行の最終承認とカストディ権限が具体化している。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "💵 USDC流通量、727億ドル",
-        "published_at": "2026-08-20T00:00:00+00:00",
-        "source_url": "https://www.circle.com/usdc",
-        "why_now": "8月20日更新の公式流通量が確認でき、ETF以外の市場流動性を示す。"
-      },
-      {
-        "topic_type": "adoption_kpi",
-        "hook": "🔗 Solana、100M CUを維持",
-        "published_at": "2026-07-30T00:00:00+00:00",
-        "source_url": "https://solana.com/news/solana-ecosystem-roundup-july-2026",
-        "why_now": "公式の現行アップグレード資料で容量拡大が継続確認できる。"
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      },
-      {
-        "topic_type": "earnings",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      }
-    ],
+    "candidate_shortlist": [],
     "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: この系統の鮮度上限を超えています",
-      "一次探索5: 過去24時間以内に確認できる、発表主体の公式一次資料による新規のSEC・CFTC・金融庁ルール変更を確認できませんでした。",
-      "一次探索6: 過去24時間以内に確認できる米国企業IR、日本企業IR、中央銀行、取引所障害の新規一次発表を確認できませんでした。",
-      "再探索1: 自動切り抜き可能な公式HTMLではありません",
-      "再探索2: 同じ一次資料は投稿済みまたは予約済みです",
+      "再探索1: この系統の鮮度上限を超えています",
+      "再探索2: この系統の鮮度上限を超えています",
       "再探索3: この系統の鮮度上限を超えています",
-      "再探索4: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索5: 過去24時間以内の発表・更新時刻を、固定探索先の公式HTMLページで確認できる候補は4件でした。残る候補は発表から24時間を超えるため、追加の候補としては採用しません。"
+      "再探索4: この系統の鮮度上限を超えています"
     ]
   }
 }
