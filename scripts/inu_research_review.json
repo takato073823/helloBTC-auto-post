@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T00:03:36.436835+00:00",
-  "slot": "2026-08-23-09-a",
+  "generated_at": "2026-08-23T01:04:03.675267+00:00",
+  "slot": "2026-08-23-10-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T00:03:36.436835+00:00",
-    "to": "2026-08-23T00:03:36.436835+00:00"
+    "from": "2026-08-22T01:04:03.675267+00:00",
+    "to": "2026-08-23T01:04:03.675267+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 $TRUMP、24時間で+27.65％"
+      "💥 5分で1,293万ドルの清算\n\n短時間に清算が集中し、ミームコイン市場のレバレッジ偏在が浮き彫りになった。"
     ],
-    "public_compact_post": "📈 $TRUMP、24時間で+27.65％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 2.383。24時間で+27.65％の上昇。\n3日高値3.697、安値1.606。レンジ内37％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "public_compact_post": "💥 5分で1,293万ドルの清算\n\n5分間に7ウォレットが清算された\n清算額は6,505万FARTCOIN、約1,293万ドル\n\n短時間に清算が集中し、ミームコイン市場のレバレッジ偏在が浮き彫りになった。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $TRUMP、24時間で+27.65％",
+    "selected_topic": "x_reaction",
+    "selected_hook": "💥 5分で1,293万ドルの清算",
     "verified_facts": [],
-    "market_or_user_impact": "TRUMPの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "清算規模と集中時間が具体的で、急変時の市場構造を把握しやすい。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "オンチェーンの大口清算を継続的に追える。",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-TRUMPUSD",
+      "url": "https://x.com/lookonchain/status/2091330058304843801",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {

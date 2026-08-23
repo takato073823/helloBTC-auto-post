@@ -5047,6 +5047,27 @@
       "event_fingerprint": "bec92a5f19883bcbeebaac1f816a7b3ea052ee53d35aef74887a284252800a90",
       "status": "published",
       "completed_at": "2026-08-23T00:04:12.856016+00:00"
+    },
+    {
+      "run_id": "32609423004",
+      "started_at": "2026-08-23T01:04:03.673214+00:00",
+      "completed_at": "2026-08-23T01:04:13.708364+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-23-10-a",
+      "post_id": "inu_overseas_kol_2091330058304843801",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "608c405849a25c0ed9a0f876d1958901b870fa45bcc10202f41aa72bf31477cf",
+      "event_fingerprint": "b2fa181f943634d15170146d2b84785460cc8087aaebc43ecc2e5f7edfba1928"
     }
   ]
 }
