@@ -5495,6 +5495,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "32638285445",
+      "started_at": "2026-08-23T12:03:49.459097+00:00",
+      "completed_at": "2026-08-23T12:04:11.302907+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-23-21-a",
+      "post_id": "inu_overseas_kol_2091481452915609886",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "762c6cd5debbe332858e453da8e82d1cf73cba5a4f7f75c7c6993cfa6c5e0998",
+      "event_fingerprint": "3e5e244b503fd22acd6ff4df314e3ffe70c387522a6ffa6feb874392713788ec"
     }
   ]
 }
