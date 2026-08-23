@@ -5479,6 +5479,22 @@
       "event_fingerprint": "bfe48cef7b5633279b0d92327e2d48d7989ac4368437a09adee92d070407b082",
       "status": "published",
       "completed_at": "2026-08-23T10:04:19.703539+00:00"
+    },
+    {
+      "run_id": "32633416868",
+      "started_at": "2026-08-23T10:19:34.235861+00:00",
+      "completed_at": "2026-08-23T10:19:34.241158+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "not_started",
+        "quality": "not_started",
+        "distribution": "not_started",
+        "reliability": "observed"
+      },
+      "status": "no_publishable_candidate"
     }
   ]
 }
