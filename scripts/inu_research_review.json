@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T02:03:45.477115+00:00",
+  "generated_at": "2026-08-23T02:58:24.799226+00:00",
   "slot": "2026-08-23-11-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T02:03:45.477115+00:00",
-    "to": "2026-08-23T02:03:45.477115+00:00"
+    "from": "2026-08-22T02:58:24.799226+00:00",
+    "to": "2026-08-23T02:58:24.799226+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚠️ 5分で6505万枚が清算\n\n短時間の大型清算は、薄い流動性とレバレッジ集中の脆さを浮き彫りにする。"
+      "🧠 NVIDIA、AI新興企業に総額70億ドル\n\n大型半導体企業がモデル開発人材と技術を同時に囲い込む構図が鮮明になった。"
     ],
-    "public_compact_post": "⚠️ 5分で6505万枚が清算\n\n7ウォレットが5分間に合計6505万FARTCOIN（1293万ドル）を清算された\n対象ウォレットのアドレスが投稿画像に示されている\n\n短時間の大型清算は、薄い流動性とレバレッジ集中の脆さを浮き彫りにする。"
+    "public_compact_post": "🧠 NVIDIA、AI新興企業に総額70億ドル\n\nPoolsideの技術ライセンスに60億ドルを支払う\nPoolsideへ10億ドルを投資し、評価額は投資前120億ドル\n\n大型半導体企業がモデル開発人材と技術を同時に囲い込む構図が鮮明になった。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚠️ 5分で6505万枚が清算",
+    "selected_hook": "🧠 NVIDIA、AI新興企業に総額70億ドル",
     "verified_facts": [],
-    "market_or_user_impact": "FARTCOINで一部ウォレットに清算が集中した規模を把握できる。",
+    "market_or_user_impact": "AI企業の評価額と大手半導体企業による技術・人材の取り込みを同時に確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "オンチェーンの大型資金移動や清算を継続的に確認できる。",
+    "next_watch": "半導体企業のAI投資や大型提携を、金額と条件付きで追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/lookonchain/status/2091330058304843801",
+      "url": "https://x.com/wallstengine/status/2091323345195413517",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
