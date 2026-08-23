@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T22:03:50.227008+00:00",
+  "generated_at": "2026-08-23T22:17:15.321515+00:00",
   "slot": "2026-08-24-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T22:03:50.227008+00:00",
-    "to": "2026-08-23T22:03:50.227008+00:00"
+    "from": "2026-08-22T22:17:15.321515+00:00",
+    "to": "2026-08-23T22:17:15.321515+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚡️AIの電力需要、2033年に世界で315GWへ\n\n僕はAI投資の次の制約が半導体供給だけでなく電力網になると見ている"
+      "📈 $TAO、24時間で+10.66％"
     ],
-    "public_compact_post": "⚡️AIの電力需要、2033年に世界で315GWへ\n\nAIチップ由来の電力需要は2033年に世界で約315GWへ拡大する見通し\n2025年比で1,100%以上増加し、米国が新規需要の約64%（約200GW）を占める見込み\n\n僕はAI投資の次の制約が半導体供給だけでなく電力網になると見ている"
+    "public_compact_post": "📈 $TAO、24時間で+10.66％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 244.66。24時間で+10.66％の上昇。\n3日高値250.25、安値208.00。レンジ内87％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "x_reaction",
-    "selected_hook": "⚡️AIの電力需要、2033年に世界で315GWへ",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📈 $TAO、24時間で+10.66％",
     "verified_facts": [],
-    "market_or_user_impact": "AI拡大が発電・送電設備やデータセンター立地に及ぼす規模を数値で把握できる",
+    "market_or_user_impact": "TAOの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "AIテーマを計算資源ではなく電力インフラの需給構造から追える",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/kobeissiletter/status/2091609670297485728",
+      "url": "https://www.tradingview.com/symbols/COINBASE-TAOUSD",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {

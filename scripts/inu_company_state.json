@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32242452470",
-      "started_at": "2026-08-19T10:24:17.933668+00:00",
-      "completed_at": "2026-08-19T10:24:28.334919+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-19-19-a",
-      "post_id": "inu_overseas_kol_2089981990523003048",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "be9e798975d51fba0a91b9876b430cc3bc6da16fbed185f03cfcb6019f563985",
-      "event_fingerprint": "d3b0b180604fb16efd59a1dc047b42a226d9330776dee44853fb502e7869b54f"
-    },
-    {
-      "run_id": "32242452470",
       "started_at": "2026-08-19T10:24:32.630607+00:00",
       "mode": "publish",
       "departments": {
@@ -5668,6 +5647,27 @@
       "status": "retryable_delivery_failure",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
       "completed_at": "2026-08-23T22:04:20.131276+00:00"
+    },
+    {
+      "run_id": "32670078552",
+      "started_at": "2026-08-23T22:17:15.318981+00:00",
+      "completed_at": "2026-08-23T22:17:49.313244+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-24-07-a",
+      "post_id": "inu_market_2026_08_24_07_a_crypto-tao-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "fa13fbd85bb49e05c34aa339494e2fa48b1bd1296192a3e9abab36b8343a75a0",
+      "event_fingerprint": "76e8be74a1c74589ee89933088e435035a5ea21b0d08cd97b60944fb7577c357"
     }
   ]
 }
