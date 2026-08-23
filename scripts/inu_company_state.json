@@ -2,22 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32222960588",
-      "started_at": "2026-08-19T06:20:32.017107+00:00",
-      "completed_at": "2026-08-19T06:20:46.871725+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "not_started",
-        "quality": "not_started",
-        "distribution": "not_started",
-        "reliability": "observed"
-      },
-      "status": "no_publishable_candidate"
-    },
-    {
       "run_id": "32223314149",
       "started_at": "2026-08-19T06:25:34.961613+00:00",
       "completed_at": "2026-08-19T06:25:51.846801+00:00",
@@ -5654,6 +5638,22 @@
       "topic_type": "x_reaction",
       "content_fingerprint": "6f131ef1a6992b3f522713f9f32674fb330b465604981cf60ef33e3ad5368880",
       "event_fingerprint": "f6de87a5514957c5c6f772ba6e75bd6a0bfa8b976d660491e30989980bd9b3e9"
+    },
+    {
+      "run_id": "32650463567",
+      "started_at": "2026-08-23T16:06:31.142038+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-08-24-01-a",
+      "post_id": "inu_overseas_kol_2091520374261379323",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "6f131ef1a6992b3f522713f9f32674fb330b465604981cf60ef33e3ad5368880",
+      "event_fingerprint": "f6de87a5514957c5c6f772ba6e75bd6a0bfa8b976d660491e30989980bd9b3e9",
+      "status": "published",
+      "completed_at": "2026-08-23T16:06:31.447314+00:00"
     }
   ]
 }
