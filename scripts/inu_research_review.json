@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T12:55:22.532044+00:00",
-  "slot": "2026-08-23-21-a",
+  "generated_at": "2026-08-23T14:03:44.985454+00:00",
+  "slot": "2026-08-23-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T12:55:22.532044+00:00",
-    "to": "2026-08-23T12:55:22.532044+00:00"
+    "from": "2026-08-22T14:03:44.985454+00:00",
+    "to": "2026-08-23T14:03:44.985454+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📊主要暗号資産、直近7日でそろって急伸\n\n僕は、広範囲の上昇が続くかを資金回転の持続性で見たい。"
+      "🏦 暗号資産企業が債券市場へ\n\n暗号資産企業の資金調達が、株式やトークン以外にも広がる転換点です。"
     ],
-    "public_compact_post": "📊主要暗号資産、直近7日でそろって急伸\n\n8月15〜22日の7日間で、$XRPは45.57%、ETHは33.63%、DOGEは30.74%上昇\nBTCは24.28%、SOLは24.31%、BNBは12.98%上昇し、主要銘柄で24か月ぶりの強い週間上昇率となった\n\n僕は、広範囲の上昇が続くかを資金回転の持続性で見たい。"
+    "public_compact_post": "🏦 暗号資産企業が債券市場へ\n\nRipple Primeが2.75億ドルの私募債を発行\nクーポン8.25%、満期2031年、KrollのBBB格付け\n\n暗号資産企業の資金調達が、株式やトークン以外にも広がる転換点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📊主要暗号資産、直近7日でそろって急伸",
+    "selected_hook": "🏦 暗号資産企業が債券市場へ",
     "verified_facts": [],
-    "market_or_user_impact": "BTCだけでなくXRP・ETH・DOGEなどの騰落率を同じ期間で比較できる。",
+    "market_or_user_impact": "暗号資産関連企業がどの条件で機関投資家から資金を調達するか分かる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "主要暗号資産の週間パフォーマンスを一覧で追える。",
+    "next_watch": "トークン価格ではなく、暗号資産業界の信用力と資本コストを追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/bankxrp/status/2091471407951782095",
+      "url": "https://x.com/bankxrp/status/2091494042794344781",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 23,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 23,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
