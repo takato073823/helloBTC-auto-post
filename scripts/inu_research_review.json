@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T14:03:44.985454+00:00",
+  "generated_at": "2026-08-23T14:19:22.215491+00:00",
   "slot": "2026-08-23-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T14:03:44.985454+00:00",
-    "to": "2026-08-23T14:03:44.985454+00:00"
+    "from": "2026-08-22T14:19:22.215491+00:00",
+    "to": "2026-08-23T14:19:22.215491+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦 暗号資産企業が債券市場へ\n\n暗号資産企業の資金調達が、株式やトークン以外にも広がる転換点です。"
+      "🏦 暗号資産企業が債券市場へ\n\n暗号資産企業の資金調達手段が、株式やトークン以外へ広がっている。"
     ],
-    "public_compact_post": "🏦 暗号資産企業が債券市場へ\n\nRipple Primeが2.75億ドルの私募債を発行\nクーポン8.25%、満期2031年、KrollのBBB格付け\n\n暗号資産企業の資金調達が、株式やトークン以外にも広がる転換点です。"
+    "public_compact_post": "🏦 暗号資産企業が債券市場へ\n\nRipple Primeが私募債で2億7500万ドルを調達\nクーポンは8.25%、満期は2031年、KrollのBBB格付け\n\n暗号資産企業の資金調達手段が、株式やトークン以外へ広がっている。"
   },
   "internal_research_summary": {
     "scope": [
@@ -27,16 +27,16 @@
     "selected_topic": "x_reaction",
     "selected_hook": "🏦 暗号資産企業が債券市場へ",
     "verified_facts": [],
-    "market_or_user_impact": "暗号資産関連企業がどの条件で機関投資家から資金を調達するか分かる。",
+    "market_or_user_impact": "調達額・利率・格付けを同時に見られ、企業金融の変化を比較しやすい。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "トークン価格ではなく、暗号資産業界の信用力と資本コストを追える。",
+    "next_watch": "暗号資産企業の資本政策と伝統金融との接続を追う材料になる。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/bankxrp/status/2091494042794344781",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 23,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 23,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
