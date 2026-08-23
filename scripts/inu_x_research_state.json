@@ -1,13 +1,7 @@
 {
   "last_deep_scan_at": "2026-08-23T13:21:16+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T13:21:16+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T14:00:56+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-11T19:47:20+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-11T19:47:20+00:00",
@@ -2284,6 +2278,12 @@
       "result_count": 2,
       "spike": false,
       "topic": "macro_rates"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T14:00:56+00:00",
+      "result_count": 3,
+      "topic": "watcher_guru"
     }
   ],
   "signals": [
@@ -2310,6 +2310,34 @@
       "summary": "JUST IN: $100,000,000 worth of longs liquidated from the crypto market in the past hour as Bitcoin falls under $76,000",
       "topic": "watcher_guru",
       "why_trending": "表示103,820・投稿後39分・反応率1.4%・Watcher.Guru速報を一次資料確認へ優先"
+    },
+    {
+      "author_followers": 4737560,
+      "discovered_at": "2026-08-23T14:00:56+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "WatcherGuru",
+      "has_video": false,
+      "headline": "JUST IN: Michael Saylor says Bitcoin's biggest breakthrough is turning economic energy into secure digital form. https://t.co/JoQmV2bD1n",
+      "impression_count": 105302,
+      "like_count": 728,
+      "linked_urls": [
+        "https://x.com/WatcherGuru/status/2091518945664856503/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2091518945664856503",
+      "post_url": "https://x.com/WatcherGuru/status/2091518945664856503",
+      "posted_at": "2026-08-23T13:32:29+00:00",
+      "quote_count": 5,
+      "reply_count": 121,
+      "repost_count": 57,
+      "score": 76.2,
+      "seen_count": 1,
+      "source_priority": "watcherguru",
+      "summary": "JUST IN: Michael Saylor says Bitcoin's biggest breakthrough is turning economic energy into secure digital form. https://t.co/JoQmV2bD1n",
+      "topic": "watcher_guru",
+      "why_trending": "表示105,302・投稿後28分・反応率1.0%・Watcher.Guru速報を一次資料確認へ優先"
     },
     {
       "author_followers": 4731419,
