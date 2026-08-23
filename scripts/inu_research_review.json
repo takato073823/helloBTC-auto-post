@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T16:03:39.284896+00:00",
-  "slot": "2026-08-24-01-a",
+  "generated_at": "2026-08-23T18:03:47.306327+00:00",
+  "slot": "2026-08-24-03-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T16:03:39.284896+00:00",
-    "to": "2026-08-23T16:03:39.284896+00:00"
+    "from": "2026-08-22T18:03:47.306327+00:00",
+    "to": "2026-08-23T18:03:47.306327+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📺 $BTC急騰の起点は国債市場\n\n僕は、国債の需給変化が暗号資産への資金移動と結びつく経路に注目したいです。"
+      "📊 世界の企業利益に広がるAI効果\n\n利益成長の裾野が広がる一方、AI投資が実際の利益に定着するかが次の論点です。"
     ],
-    "public_compact_post": "📺 $BTC急騰の起点は国債市場\n\nビットコインは6.4万ドルから7.9万ドルへ上昇した\n米財務省は長期債の最大発行規模を倍増させたと投稿で説明されている\n\n僕は、国債の需給変化が暗号資産への資金移動と結びつく経路に注目したいです。"
+    "public_compact_post": "📊 世界の企業利益に広がるAI効果\n\n前年比で利益減少が見込まれる国の割合は約5%\nこの水準は2021年以来の低さで、2004〜06年・2010〜11年の低水準にも近い\n\n利益成長の裾野が広がる一方、AI投資が実際の利益に定着するかが次の論点です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,22 +25,22 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "📺 BTC急騰の起点は国債市場",
+    "selected_hook": "📊 世界の企業利益に広がるAI効果",
     "verified_facts": [],
-    "market_or_user_impact": "価格チャートだけでは見えにくい、国債市場を起点とする資金フローの論点を動画で把握できる。",
+    "market_or_user_impact": "景気回復局面と比較できる利益見通しの分布を、画像で確認できます。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "暗号資産とマクロ市場の連動を、具体的な数値と制度要因から追える。",
+    "next_watch": "AI相場をテーマ株の値動きではなく、世界企業の利益見通しで追えます。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/alexmasoncrypto/status/2091520374261379323",
+      "url": "https://x.com/kobeissiletter/status/2091565378250084485",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 29,
+    "x_discovery_signal_count": 28,
     "research_engine_evidence": {
       "xai_x_search": {
-        "signal_count": 1,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "hermes_packet": {
         "signal_count": 0,
@@ -52,7 +52,7 @@
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 1,
+          "used": 2,
           "limit": 6
         },
         "grok_editorial": {
@@ -60,56 +60,50 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 2,
+          "used": 4,
           "limit": 8
         }
       },
-      "xai_signal_shortlist": [
-        {
-          "title": "カナダ首相Carney、米国との貿易「戦争」を宣言",
-          "url": "https://x.com/WatcherGuru/status/2091544486996484586",
-          "published": "2026-08-23T15:13:59+00:00"
-        }
-      ]
+      "xai_signal_shortlist": []
     },
     "candidate_shortlist": [
       {
-        "topic_type": "etf_flow",
-        "hook": "📈 IBIT純資産が587億ドル",
-        "published_at": "2026-08-21T00:00:00+00:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust?aff_unique2=unknown&code=unknown",
-        "why_now": "8月21日時点の最新公式ETFデータで純資産と保有BTCが更新されています。"
-      },
-      {
-        "topic_type": "prediction_market_shift",
-        "hook": "📊 Polymarketの上値予想が変化",
-        "published_at": "2026-08-23T16:03:39+00:00",
-        "source_url": "https://polymarket.com/crypto/bitcoin",
-        "why_now": "8月23日のライブ市場で到達確率が更新されています。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦 カナダが対米交渉を停止",
-        "published_at": "2026-08-21T00:00:00+00:00",
-        "source_url": "https://www.pm.gc.ca/en/news/statements/2026/08/21/statement-prime-minister-carney-canada-us-trade-negotiations",
-        "why_now": "8月24日の週明け市場を前に、対抗関税の発効方針が確認されています。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "🏢 Metaplanet、BTC2100枚投資を計画",
-        "published_at": "2026-08-18T00:00:00+00:00",
-        "source_url": "https://metaplanet.jp/en/disclosures",
-        "why_now": "直近24時間では新規発表はないものの、週明けも続く2100BTC計画が企業需給の焦点です。"
+        "topic_type": "developing_story",
+        "hook": "⚠️ Coinbase決済でUSDC障害",
+        "published_at": "2026-08-22T04:31:00-07:00",
+        "source_url": "https://status.coinbase.com",
+        "why_now": "過去24時間内も未解決で、現在の利用可否に直結する公式障害情報です。"
       },
       {
         "topic_type": "developing_story",
-        "hook": "⚠️ Solana、処理間隔を350msへ短縮",
-        "published_at": "2026-08-23T00:00:00+00:00",
-        "source_url": "https://solana.com/uk/upgrades/reduced-slot-times",
-        "why_now": "8月更新の公式計画で、メインネット導入の段階条件が明示されています。"
+        "hook": "⚠️ Krakenで3銘柄の入出金遅延",
+        "published_at": "2026-08-22T23:03:00+00:00",
+        "source_url": "https://status.kraken.com",
+        "why_now": "現在も公式ステータスで未解決の障害が複数表示されています。"
       },
       {
-        "topic_type": "breaking_news",
+        "topic_type": "onchain",
+        "hook": "⚙️ Solana、200ms化へ更新進む",
+        "published_at": "2026-08-19T00:00:00+00:00",
+        "source_url": "https://solana.com/news",
+        "why_now": "過去24時間内に公式ニュース一覧で更新が確認され、主要プロトコルの性能方針が変わりました。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "💳 Visa、ステーブルコイン基盤を開始",
+        "published_at": "2026-07-16T00:00:00+00:00",
+        "source_url": "https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-stablecoin-platform.html",
+        "why_now": "今回確認できた公式資料では、過去24時間以内の新規発表は確認できませんでした。"
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      },
+      {
+        "topic_type": "institutional_flow",
         "hook": "",
         "published_at": "",
         "source_url": "",
@@ -117,16 +111,17 @@
       }
     ],
     "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています",
-      "一次探索2: Polymarketの変更前後の確率と変化幅がありません",
+      "一次探索1: 同じ一次資料は投稿済みまたは予約済みです",
+      "一次探索2: 同じ一次資料は投稿済みまたは予約済みです",
       "一次探索3: この系統の鮮度上限を超えています",
       "一次探索4: この系統の鮮度上限を超えています",
-      "一次探索5: この系統の鮮度上限を超えています",
-      "一次探索6: 米国企業IR・AI、日本企業IR、中央銀行・規制当局について、2026年8月23日から24時間以内に条件を満たす新規のHTML一次発表を確認できなかったため。",
+      "一次探索5: 過去24時間以内に確認できる一次資料上の実績ある決算・業績変更なし。",
+      "一次探索6: 過去24時間以内に確認できる日本企業IRの具体的な業績・資本政策変更なし。",
       "再探索1: この系統の鮮度上限を超えています",
-      "再探索2: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-inu-evidence-target=\\\"inu-evidence-kqxnb0qjo4\\\"]\")\n    - locator resolved to visible <div class=\"product-stats__list cpn-stats_item-list\" data-inu-evid",
+      "再探索2: この系統の鮮度上限を超えています",
       "再探索3: この系統の鮮度上限を超えています",
-      "再探索4: この系統の鮮度上限を超えています"
+      "再探索4: この系統の鮮度上限を超えています",
+      "再探索5: この系統の鮮度上限を超えています"
     ]
   }
 }
