@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T04:03:38.510463+00:00",
+  "generated_at": "2026-08-23T04:32:32.384323+00:00",
   "slot": "2026-08-23-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T04:03:38.510463+00:00",
-    "to": "2026-08-23T04:03:38.510463+00:00"
+    "from": "2026-08-22T04:32:32.384323+00:00",
+    "to": "2026-08-23T04:32:32.384323+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🐋 2,555BTCがBinanceへ移動\n\n大口の取引所入金は、需給と短期的な売却圧力を見極める材料になる。"
+      "📊 $BTCとBitfinexの大口ポジションが逆行\n\n大口の積み上がりが続く局面では、ポジション解消と価格反応の順序が焦点になる。"
     ],
-    "public_compact_post": "🐋 2,555BTCがBinanceへ移動\n\nウォレット3NVeXmが2,555BTC（1億9,700万ドル）をBinanceへ入金した\n入金は投稿の13時間前に行われた\n\n大口の取引所入金は、需給と短期的な売却圧力を見極める材料になる。"
+    "public_compact_post": "📊 $BTCとBitfinexの大口ポジションが逆行\n\nBitfinexでは多頭ポジションが大規模に積み上がっている\n投稿では多頭ポジションの増加局面で$BTCが下落し、ポジション縮小局面で$BTCが上昇する逆相関を示している\n\n大口の積み上がりが続く局面では、ポジション解消と価格反応の順序が焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,14 +25,14 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🐋 2,555BTCがBinanceへ移動",
+    "selected_hook": "📊 BTCとBitfinexの大口ポジションが逆行",
     "verified_facts": [],
-    "market_or_user_impact": "大口送金の規模と移動先から、取引所での売買圧力を考えるきっかけになる。",
+    "market_or_user_impact": "価格だけでなく、大口のレバレッジ変化を同時に追う材料になる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "オンチェーン上の大口資金移動を、金額と取引所名付きで追える。",
+    "next_watch": "取引所別ポジションとBTC価格の逆相関を継続観測できる。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/lookonchain/status/2091336724815511680",
+      "url": "https://x.com/jason_chen998/status/2091360338176622820",
       "verified": false
     },
     "corroborating_sources": [],
