@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T19:57:21+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T20:59:30+00:00",
+  "last_deep_scan_at": "2026-08-23T21:58:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T21:58:24+00:00",
   "scans": [
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T05:19:19+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
-    {
-      "action": "search",
-      "checked_at": "2026-08-12T05:19:19+00:00",
-      "result_count": 4,
-      "spike": false,
-      "topic": "japanese_market"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-12T06:58:52+00:00",
@@ -2283,6 +2270,19 @@
       "checked_at": "2026-08-23T20:59:30+00:00",
       "result_count": 2,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T21:58:24+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-23T21:58:24+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -2418,6 +2418,30 @@
       "summary": "Cryptocurrency and Macroeconomic News - August 23, 2026. The market is entering a crucial week, with US interest rates, bond yields, the dollar, and the Jackson Hole symposium all playing pivotal roles. 1. Bitcoin Gains from Weaker Dollar and Bond Concerns Bitcoin rallied",
       "topic": "macro_rates",
       "why_trending": "表示27・投稿後17分・反応率0.0%"
+    },
+    {
+      "author_followers": 463,
+      "discovered_at": "2026-08-23T21:58:24+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "OnchainIns5699",
+      "has_video": false,
+      "headline": "📊 ONCHAIN INSIGHTS WEEKLY RECAP - AUGUST 17 - AUGUST 23, 2026 💠 CRYPTO - Week in Review • Bitcoin Volatility &amp; Leverage Dynamics: BTC rallied sharply mid-week on short liquidat",
+      "impression_count": 10,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2091645689306472919",
+      "post_url": "https://x.com/OnchainIns5699/status/2091645689306472919",
+      "posted_at": "2026-08-23T21:56:07+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.2,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "📊 ONCHAIN INSIGHTS WEEKLY RECAP - AUGUST 17 - AUGUST 23, 2026 💠 CRYPTO - Week in Review • Bitcoin Volatility &amp; Leverage Dynamics: BTC rallied sharply mid-week on short liquidations and institutional ETF inflows, but the advance was driven heavily by derivative positioning",
+      "topic": "onchain_exchange",
+      "why_trending": "表示10・投稿後2分・反応率0.0%"
     }
   ],
   "trends": [],
