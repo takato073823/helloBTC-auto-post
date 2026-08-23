@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T11:58:30+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T11:58:30+00:00",
+  "last_deep_scan_at": "2026-08-23T13:21:16+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T13:21:16+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-11T17:42:26+00:00",
-      "result_count": 6,
-      "spike": false,
-      "topic": "crypto_market"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-11T18:37:33+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "watcher_guru_search",
       "checked_at": "2026-08-11T19:47:20+00:00",
@@ -2284,6 +2271,19 @@
       "result_count": 0,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T13:21:16+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-23T13:21:16+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "macro_rates"
     }
   ],
   "signals": [
@@ -2336,6 +2336,34 @@
       "why_trending": "表示218,807・投稿後129分・反応率2.5%"
     },
     {
+      "author_followers": 403,
+      "discovered_at": "2026-08-23T13:21:16+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "fragoreeez",
+      "has_video": false,
+      "headline": "Market Volatility Roadmap: Macro Events &amp; Crypto Level Breakdowns 🗓️📊 ​$BTC holds under the key resistance at $77,500. A weekly candle close above this level is required to sus",
+      "impression_count": 126,
+      "like_count": 4,
+      "linked_urls": [
+        "https://x.com/fragoreeez/status/2091480608878821841/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2091480608878821841",
+      "post_url": "https://x.com/fragoreeez/status/2091480608878821841",
+      "posted_at": "2026-08-23T11:00:09+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 48.7,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Market Volatility Roadmap: Macro Events &amp; Crypto Level Breakdowns 🗓️📊 ​$BTC holds under the key resistance at $77,500. A weekly candle close above this level is required to sustain bullish momentum; failure to do so leaves downside risks open. ​🗓️ Key Macro Drivers This Week: 🔹 https://t.co/yAzKYgZT9y",
+      "topic": "macro_rates",
+      "why_trending": "表示126・投稿後141分・反応率4.4%"
+    },
+    {
       "author_followers": 1154,
       "discovered_at": "2026-08-22T15:57:57+00:00",
       "discovery_type": "official_x_api",
@@ -2363,6 +2391,30 @@
       "summary": "🚨ALERT: 🚨IMPORTANT FACTORS THAT COULD PUT PRESSURE ON CRYPTO, 1️⃣ US DEBT $40T+ &amp; RISING 30Y YIELD 🇺🇸, US DEBT HAS CROSSED ($40T), WHILE RISING LONG-TERM YIELDS ARE KEEPING FINANCIAL CONDITIONS TIGHT AND PRESSURING RISK ASSETS. 2️⃣ PCE INFLATION DATA, HIGHER-THAN-EXPECTED https://t.co/K6KcarqP7Y https://t.co/nVkJnpBxoB",
       "topic": "macro_rates",
       "why_trending": "表示2・投稿後33分・反応率0.0%・公式候補リンクあり"
+    },
+    {
+      "author_followers": 905,
+      "discovered_at": "2026-08-23T13:21:16+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "SimonMonkam",
+      "has_video": false,
+      "headline": "Cryptocurrency and Macroeconomic News - August 23, 2026. The market is entering a crucial week, with US interest rates, bond yields, the dollar, and the Jackson Hole symposium all ",
+      "impression_count": 27,
+      "like_count": 0,
+      "linked_urls": [],
+      "media_types": [],
+      "post_id": "2091511633583509877",
+      "post_url": "https://x.com/SimonMonkam/status/2091511633583509877",
+      "posted_at": "2026-08-23T13:03:26+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 34.9,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Cryptocurrency and Macroeconomic News - August 23, 2026. The market is entering a crucial week, with US interest rates, bond yields, the dollar, and the Jackson Hole symposium all playing pivotal roles. 1. Bitcoin Gains from Weaker Dollar and Bond Concerns Bitcoin rallied",
+      "topic": "macro_rates",
+      "why_trending": "表示27・投稿後17分・反応率0.0%"
     }
   ],
   "trends": [],
