@@ -2,23 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32225893264",
-      "started_at": "2026-08-19T07:02:08.654479+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "blocked_external"
-      },
-      "slot": "2026-08-19-16-a",
-      "post_id": "inu_auto_40393a03d287a6",
-      "topic_type": "regulatory_rule_change",
-      "content_fingerprint": "e38119472a4d7c712bafbafed1260fa28582cba6e1bbd740d3835496477395fa",
-      "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336",
-      "status": "blocked_external",
-      "reason": "X_API_CREDITS_DEPLETED",
-      "completed_at": "2026-08-19T07:02:09.193103+00:00"
-    },
-    {
       "run_id": "32226421927",
       "started_at": "2026-08-19T07:08:34.657414+00:00",
       "completed_at": "2026-08-19T07:08:50.641010+00:00",
@@ -5661,6 +5644,27 @@
       "status": "retryable_delivery_failure",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
       "completed_at": "2026-08-23T18:41:11.309619+00:00"
+    },
+    {
+      "run_id": "32663190146",
+      "started_at": "2026-08-23T20:03:43.892746+00:00",
+      "completed_at": "2026-08-23T20:05:09.389703+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-08-24-05-a",
+      "post_id": "inu_overseas_kol_2091609670297485728",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "1e9fadfa81c63aa26366ff88101e4482b2094b694064e7eb210c65478d8630ed",
+      "event_fingerprint": "ce7c6187e36e17779ab06dbfdff04e58373a86326b66dd283bc9a3fae6c7bcf6"
     }
   ]
 }
