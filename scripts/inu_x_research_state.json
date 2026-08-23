@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T21:58:24+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T22:59:19+00:00",
+  "last_deep_scan_at": "2026-08-23T23:58:01+00:00",
+  "last_watcher_guru_scan_at": "2026-08-23T23:58:01+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-12T06:58:52+00:00",
-      "result_count": 5,
-      "spike": false,
-      "topic": "chinese_market"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T08:52:31+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-12T08:52:31+00:00",
@@ -2283,6 +2270,19 @@
       "checked_at": "2026-08-23T22:59:19+00:00",
       "result_count": 2,
       "topic": "watcher_guru"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-23T23:58:01+00:00",
+      "result_count": 2,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-23T23:58:01+00:00",
+      "result_count": 1,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -2394,6 +2394,34 @@
       "summary": "Market Volatility Roadmap: Macro Events &amp; Crypto Level Breakdowns 🗓️📊 ​$BTC holds under the key resistance at $77,500. A weekly candle close above this level is required to sustain bullish momentum; failure to do so leaves downside risks open. ​🗓️ Key Macro Drivers This Week: 🔹 https://t.co/yAzKYgZT9y",
       "topic": "macro_rates",
       "why_trending": "表示126・投稿後141分・反応率4.4%"
+    },
+    {
+      "author_followers": 153,
+      "discovered_at": "2026-08-23T23:58:01+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "JoPoYo67",
+      "has_video": false,
+      "headline": "Term Labs suffers an estimated $8.5M governance exploit draining its lending vaults! 🎙️⚡ In today’s Daily Crypto Deep Dive, @cryptonewshq breaks down the vault breach, new EU platf",
+      "impression_count": 28,
+      "like_count": 1,
+      "linked_urls": [
+        "https://x.com/JoPoYo67/status/2091658242933825597/photo/1"
+      ],
+      "media_types": [
+        "photo"
+      ],
+      "post_id": "2091658242933825597",
+      "post_url": "https://x.com/JoPoYo67/status/2091658242933825597",
+      "posted_at": "2026-08-23T22:46:00+00:00",
+      "quote_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "score": 45.3,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "Term Labs suffers an estimated $8.5M governance exploit draining its lending vaults! 🎙️⚡ In today’s Daily Crypto Deep Dive, @cryptonewshq breaks down the vault breach, new EU platform bans, AI stablecoin payments, and Hyperliquid outperforming major tokens as Bitcoin tests https://t.co/SBMC6zD5bL",
+      "topic": "onchain_exchange",
+      "why_trending": "表示28・投稿後72分・反応率9.3%"
     },
     {
       "author_followers": 905,
