@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32225893264",
-      "started_at": "2026-08-19T07:01:46.968327+00:00",
-      "completed_at": "2026-08-19T07:02:04.160102+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-19-16-a",
-      "post_id": "inu_auto_40393a03d287a6",
-      "topic_type": "regulatory_rule_change",
-      "content_fingerprint": "e38119472a4d7c712bafbafed1260fa28582cba6e1bbd740d3835496477395fa",
-      "event_fingerprint": "ae185bc273dd37e48a0bbca512888a7351a1e5feea2f8e96225845a5dd8d1336"
-    },
-    {
-      "run_id": "32225893264",
       "started_at": "2026-08-19T07:02:08.654479+00:00",
       "mode": "publish",
       "departments": {
@@ -5665,6 +5644,23 @@
       "topic_type": "x_reaction",
       "content_fingerprint": "9b38b3a1854ef4f086d716b485f67960f03361662c64f5a72da1e5ba4d2e8dc2",
       "event_fingerprint": "ccdfee7c0691cada3d83b2b1b7f259c1e6f79985238cb6c9f8bf47143a22a320"
+    },
+    {
+      "run_id": "32658772069",
+      "started_at": "2026-08-23T18:41:11.136085+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "failed_released"
+      },
+      "slot": "2026-08-24-03-a",
+      "post_id": "inu_overseas_kol_2091565378250084485",
+      "topic_type": "x_reaction",
+      "content_fingerprint": "9b38b3a1854ef4f086d716b485f67960f03361662c64f5a72da1e5ba4d2e8dc2",
+      "event_fingerprint": "ccdfee7c0691cada3d83b2b1b7f259c1e6f79985238cb6c9f8bf47143a22a320",
+      "status": "retryable_delivery_failure",
+      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
+      "completed_at": "2026-08-23T18:41:11.309619+00:00"
     }
   ]
 }
