@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-23T22:17:15.321515+00:00",
-  "slot": "2026-08-24-07-a",
+  "generated_at": "2026-08-24T00:03:43.803949+00:00",
+  "slot": "2026-08-24-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-22T22:17:15.321515+00:00",
-    "to": "2026-08-23T22:17:15.321515+00:00"
+    "from": "2026-08-23T00:03:43.803949+00:00",
+    "to": "2026-08-24T00:03:43.803949+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 $TAO、24時間で+10.66％"
+      "📊 株より債券のインカムが優位に\n\n株式の配当利回りに対する債券利回りの優位性が、資産配分の重しになり得ます。"
     ],
-    "public_compact_post": "📈 $TAO、24時間で+10.66％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 244.66。24時間で+10.66％の上昇。\n3日高値250.25、安値208.00。レンジ内87％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "public_compact_post": "📊 株より債券のインカムが優位に\n\nS&P500構成銘柄で、10年米国債利回りを上回る配当利回りの銘柄は約3%。\nこの比率は2007年5月以来の低水準。\n\n株式の配当利回りに対する債券利回りの優位性が、資産配分の重しになり得ます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $TAO、24時間で+10.66％",
+    "selected_topic": "x_reaction",
+    "selected_hook": "📊 株より債券のインカムが優位に",
     "verified_facts": [],
-    "market_or_user_impact": "TAOの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "株式のインカム狙いと米国債の相対的な魅力を比較できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "株式と債券のバリュエーションを横断して追える。",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-TAOUSD",
+      "url": "https://x.com/kobeissiletter/status/2091636094832128172",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 5,
+          "used": 6,
           "limit": 6
         },
         "grok_editorial": {
