@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-24T02:12:39+00:00",
-  "last_watcher_guru_scan_at": "2026-08-24T02:12:39+00:00",
+  "last_deep_scan_at": "2026-08-24T03:39:24+00:00",
+  "last_watcher_guru_scan_at": "2026-08-24T03:39:24+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-12T10:43:00+00:00",
-      "result_count": 8,
-      "spike": false,
-      "topic": "crypto_market"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T12:33:15+00:00",
-      "result_count": 0,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-12T12:33:15+00:00",
@@ -2280,6 +2267,19 @@
     {
       "action": "search",
       "checked_at": "2026-08-24T02:12:39+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-24T03:39:24+00:00",
+      "result_count": 3,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-24T03:39:24+00:00",
       "result_count": 2,
       "spike": false,
       "topic": "onchain_exchange"
