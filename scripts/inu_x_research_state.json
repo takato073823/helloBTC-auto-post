@@ -1,20 +1,7 @@
 {
-  "last_deep_scan_at": "2026-08-23T23:58:01+00:00",
-  "last_watcher_guru_scan_at": "2026-08-23T23:58:01+00:00",
+  "last_deep_scan_at": "2026-08-24T02:12:39+00:00",
+  "last_watcher_guru_scan_at": "2026-08-24T02:12:39+00:00",
   "scans": [
-    {
-      "action": "search",
-      "checked_at": "2026-08-12T08:52:31+00:00",
-      "result_count": 0,
-      "spike": false,
-      "topic": "fixed_primary_x"
-    },
-    {
-      "action": "watcher_guru_search",
-      "checked_at": "2026-08-12T10:43:00+00:00",
-      "result_count": 1,
-      "topic": "watcher_guru"
-    },
     {
       "action": "search",
       "checked_at": "2026-08-12T10:43:00+00:00",
@@ -2283,6 +2270,19 @@
       "result_count": 1,
       "spike": false,
       "topic": "onchain_exchange"
+    },
+    {
+      "action": "watcher_guru_search",
+      "checked_at": "2026-08-24T02:12:39+00:00",
+      "result_count": 3,
+      "topic": "watcher_guru"
+    },
+    {
+      "action": "search",
+      "checked_at": "2026-08-24T02:12:39+00:00",
+      "result_count": 2,
+      "spike": false,
+      "topic": "onchain_exchange"
     }
   ],
   "signals": [
@@ -2422,6 +2422,32 @@
       "summary": "Term Labs suffers an estimated $8.5M governance exploit draining its lending vaults! 🎙️⚡ In today’s Daily Crypto Deep Dive, @cryptonewshq breaks down the vault breach, new EU platform bans, AI stablecoin payments, and Hyperliquid outperforming major tokens as Bitcoin tests https://t.co/SBMC6zD5bL",
       "topic": "onchain_exchange",
       "why_trending": "表示28・投稿後72分・反応率9.3%"
+    },
+    {
+      "author_followers": 3,
+      "discovered_at": "2026-08-24T02:12:39+00:00",
+      "discovery_type": "official_x_api",
+      "handle": "sentinelbtccom",
+      "has_video": false,
+      "headline": "A whale just moved 2,440 $BTC ($188.5M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owne",
+      "impression_count": 1,
+      "like_count": 0,
+      "linked_urls": [
+        "https://sentinelbtc.com/e/ux_1004r9m"
+      ],
+      "media_types": [],
+      "post_id": "2091699954410475709",
+      "post_url": "https://x.com/sentinelbtccom/status/2091699954410475709",
+      "posted_at": "2026-08-24T01:31:45+00:00",
+      "quote_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "score": 42.0,
+      "seen_count": 1,
+      "source_priority": "",
+      "summary": "A whale just moved 2,440 $BTC ($188.5M). Nobody knows who. INFERRED on-chain. No exchange or attributed entity behind it; identity unknown by design. SENTINEL never guesses an owner it can't cite. https://t.co/JYuigO4EvI #Bitcoin #Whale #OnChain",
+      "topic": "onchain_exchange",
+      "why_trending": "表示1・投稿後40分・反応率0.0%・公式候補リンクあり"
     },
     {
       "author_followers": 905,
