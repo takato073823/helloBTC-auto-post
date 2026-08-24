@@ -5,7 +5,7 @@ import unittest
 
 from PIL import Image
 
-from local_images import create_editorial_image
+from local_images import _is_explicit_market_chart_request, create_editorial_image
 
 
 class LocalImageTests(unittest.TestCase):
@@ -29,6 +29,12 @@ class LocalImageTests(unittest.TestCase):
         raw = create_editorial_image("bitcoin market chart", width=1200, height=630)
         # 代替画像は画像生成の文字品質検査を回避するため、文字列を埋め込まない。
         self.assertNotIn(b"helloBTC", raw)
+
+    def test_chart_is_used_only_for_an_explicit_price_chart_request(self):
+        self.assertTrue(_is_explicit_market_chart_request("BTC candlestick chart after a price breakout"))
+        self.assertFalse(_is_explicit_market_chart_request("Bitcoin and Ether ETF inflows"))
+        self.assertFalse(_is_explicit_market_chart_request("Term Finance governance exploit"))
+        self.assertFalse(_is_explicit_market_chart_request("Grayscale Zcash ETF SEC filing amendment"))
 
 
 if __name__ == "__main__":
