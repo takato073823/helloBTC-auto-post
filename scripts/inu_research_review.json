@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-24T02:59:22.580571+00:00",
-  "slot": "2026-08-24-11-a",
+  "generated_at": "2026-08-24T04:03:40.298218+00:00",
+  "slot": "2026-08-24-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-23T02:59:22.580571+00:00",
-    "to": "2026-08-24T02:59:22.580571+00:00"
+    "from": "2026-08-23T04:03:40.298218+00:00",
+    "to": "2026-08-24T04:03:40.298218+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "⚖️ 巨額ショートの裏で$ETH現物を買う動き\n\nデリバティブの売りと現物買いが同時なら、方向感よりヘッジ構造の確認が重要です。"
+      "🧩 空売りと現物買いが同時進行\n\n大口のヘッジが強まる局面では、方向感よりポジション構造の変化が焦点になる。"
     ],
-    "public_compact_post": "⚖️ 巨額ショートの裏で$ETH現物を買う動き\n\nHyperliquidで約7.83億ドルのショートポジションを構築\n過去4日間にBinanceから73,872ETH（約1億7,317万ドル）を引き出した\n\nデリバティブの売りと現物買いが同時なら、方向感よりヘッジ構造の確認が重要です。"
+    "public_compact_post": "🧩 空売りと現物買いが同時進行\n\nAbraxas CapitalはHyperliquidで約7.83億ドルのショートを構築\n過去4日間にBinanceから7万3,872ETH、約1億7,317万ドル相当を出金\n\n大口のヘッジが強まる局面では、方向感よりポジション構造の変化が焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "⚖️ 巨額ショートの裏でETH現物を買う動き",
+    "selected_hook": "🧩 空売りと現物買いが同時進行",
     "verified_facts": [],
-    "market_or_user_impact": "ETHの売りポジションを弱気の一方向ベットとみなせるか、現物ヘッジを含めて判断できる。",
+    "market_or_user_impact": "大口が単純な弱気ではなく、デリバティブと現物を組み合わせている点を把握できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "オンチェーンのポジション規模と取引所からの現物流出を組み合わせて追える。",
+    "next_watch": "オンチェーンの資金移動とポジション構築を継続的に追える。",
     "primary_source": {
       "name": "",
       "url": "https://x.com/lookonchain/status/2091693547414311078",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
