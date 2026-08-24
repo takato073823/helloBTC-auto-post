@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-08-24T01:02:04.197874+00:00",
-  "slot": "2026-08-24-10-a",
+  "generated_at": "2026-08-24T02:03:36.447273+00:00",
+  "slot": "2026-08-24-11-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-08-23T01:02:04.197874+00:00",
-    "to": "2026-08-24T01:02:04.197874+00:00"
+    "from": "2026-08-23T02:03:36.447273+00:00",
+    "to": "2026-08-24T02:03:36.447273+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏭 製造業景況感、2021年以来の水準へ\n\n地域調査ながら、製造業の景況改善が景気減速観測を見直す材料になる。"
+      "⚖️ ショートと現物買いが同時進行\n\n先物の下落ヘッジと現物保有を分けたポジション構造が焦点になる。"
     ],
-    "public_compact_post": "🏭 製造業景況感、2021年以来の水準へ\n\nフィラデルフィア連銀の製造業景況指数は8月に前月比6.0ポイント上昇し、47.4となった\n2021年4月以来の高水準となった\n\n地域調査ながら、製造業の景況改善が景気減速観測を見直す材料になる。"
+    "public_compact_post": "⚖️ ショートと現物買いが同時進行\n\nAbraxas CapitalはHyperliquidで約7.83億ドルのショートポジションを構築\n過去4日間にBinanceから73,872ETH（約1.7317億ドル）を引き出した\n\n先物の下落ヘッジと現物保有を分けたポジション構造が焦点になる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -25,18 +25,18 @@
       "X検索・トレンド・公開投稿"
     ],
     "selected_topic": "x_reaction",
-    "selected_hook": "🏭 製造業景況感、2021年以来の水準へ",
+    "selected_hook": "⚖️ ショートと現物買いが同時進行",
     "verified_facts": [],
-    "market_or_user_impact": "製造業の改善幅と水準を、株式・金利の景気織り込みと照合できる。",
+    "market_or_user_impact": "ETHの価格変動を、先物ポジションと現物移動の両面から読み取れる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "雇用や新規受注など他の製造業指標との整合性を追う起点になる。",
+    "next_watch": "オンチェーン資金移動とデリバティブの組み合わせを継続して追える。",
     "primary_source": {
       "name": "",
-      "url": "https://x.com/kobeissiletter/status/2091659126418141541",
+      "url": "https://x.com/lookonchain/status/2091693547414311078",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
