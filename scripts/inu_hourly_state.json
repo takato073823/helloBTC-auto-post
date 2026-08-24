@@ -1577,21 +1577,7 @@
     "inu_overseas_kol_2091520374261379323",
     "inu_market_2026_08_24_07_a_crypto-tao-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-08-24-11-a",
-      "post_id": "inu_overseas_kol_2091693547414311078",
-      "source_url": "https://x.com/lookonchain/status/2091693547414311078",
-      "topic_type": "x_reaction",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-08-24T02:59:22.580571+00:00",
-      "lease_expires_at": "2026-08-24T03:29:22.580571+00:00",
-      "content_fingerprint": "31848657880db2a0e38cf7280769cbd840043eb2512d1bcf1d19dec0a363f1e6",
-      "event_fingerprint": "8e685815fdb64649ef9ed77f33fe27164fe3bfcaff9c5ce91be59d8214e95353"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4541,6 +4527,13 @@
       "slot": "2026-08-24-11-a",
       "post_id": "inu_overseas_kol_2091693547414311078",
       "failed_at": "2026-08-24T02:03:56.582843+00:00",
+      "stage": "publish",
+      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
+    },
+    {
+      "slot": "2026-08-24-11-a",
+      "post_id": "inu_overseas_kol_2091693547414311078",
+      "failed_at": "2026-08-24T02:59:38.466268+00:00",
       "stage": "publish",
       "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません"
     }
