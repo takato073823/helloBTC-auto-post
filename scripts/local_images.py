@@ -78,6 +78,77 @@ def _draw_market_chart(draw: ImageDraw.ImageDraw, width: int, height: int, rng: 
     draw.line(points, fill=(247, 147, 26), width=5, joint="curve")
 
 
+def _draw_security_incident(draw: ImageDraw.ImageDraw, width: int, height: int) -> None:
+    """ガバナンス攻撃・流出など、セキュリティ事案向けの文字なし代替。"""
+    center_x, center_y = width // 2, height // 2
+    size = min(width, height) // 4
+    shield = [
+        (center_x, center_y - size),
+        (center_x + size, center_y - size // 2),
+        (center_x + int(size * 0.72), center_y + int(size * 0.72)),
+        (center_x, center_y + size),
+        (center_x - int(size * 0.72), center_y + int(size * 0.72)),
+        (center_x - size, center_y - size // 2),
+    ]
+    draw.polygon(shield, fill=(22, 54, 88), outline=(77, 190, 255), width=7)
+    draw.line(
+        [(center_x - size // 3, center_y - size // 2), (center_x + size // 8, center_y - size // 8),
+         (center_x - size // 8, center_y + size // 5), (center_x + size // 3, center_y + size // 2)],
+        fill=(245, 84, 84), width=9,
+    )
+    draw.rounded_rectangle(
+        (center_x - size // 5, center_y - size // 12, center_x + size // 5, center_y + size // 3),
+        radius=20, fill=(9, 19, 36), outline=(132, 177, 219), width=4,
+    )
+    draw.ellipse((center_x - size // 12, center_y, center_x + size // 12, center_y + size // 6), fill=(245, 84, 84))
+
+
+def _draw_etf_flow(draw: ImageDraw.ImageDraw, width: int, height: int) -> None:
+    """ETFの資金流入・流出を、価格チャートなしで表す。"""
+    left_x, right_x = int(width * 0.27), int(width * 0.73)
+    center_y = int(height * 0.56)
+    radius = int(min(width, height) * 0.16)
+    for x, color in ((left_x, (247, 176, 52)), (right_x, (125, 190, 242))):
+        draw.ellipse((x - radius, center_y - radius, x + radius, center_y + radius),
+                     fill=(17, 37, 62), outline=color, width=8)
+        draw.ellipse((x - radius + 18, center_y - radius + 18, x + radius - 18, center_y + radius - 18),
+                     outline=(230, 240, 250), width=3)
+    for offset in (-70, 0, 70):
+        draw.line((int(width * 0.08), center_y + offset, int(width * 0.44), center_y + offset),
+                  fill=(90, 209, 198), width=10)
+        draw.polygon([(int(width * 0.44), center_y + offset), (int(width * 0.40), center_y + offset - 18),
+                      (int(width * 0.40), center_y + offset + 18)], fill=(90, 209, 198))
+        draw.line((int(width * 0.92), center_y + offset, int(width * 0.56), center_y + offset),
+                  fill=(90, 209, 198), width=10)
+        draw.polygon([(int(width * 0.56), center_y + offset), (int(width * 0.60), center_y + offset - 18),
+                      (int(width * 0.60), center_y + offset + 18)], fill=(90, 209, 198))
+
+
+def _draw_regulatory_filing(draw: ImageDraw.ImageDraw, width: int, height: int) -> None:
+    """規制当局への提出・修正を、無地の書類と保管トレイで表す。"""
+    left, top = int(width * 0.20), int(height * 0.18)
+    page_w, page_h = int(width * 0.42), int(height * 0.58)
+    for offset, fill in ((32, (57, 72, 90)), (16, (76, 92, 111)), (0, (208, 217, 226))):
+        draw.rounded_rectangle(
+            (left + offset, top + offset, left + page_w + offset, top + page_h + offset),
+            radius=16, fill=fill, outline=(235, 240, 245), width=3,
+        )
+    seal_x, seal_y = int(width * 0.74), int(height * 0.50)
+    radius = int(min(width, height) * 0.18)
+    draw.ellipse((seal_x - radius, seal_y - radius, seal_x + radius, seal_y + radius),
+                 fill=(34, 50, 69), outline=(171, 187, 204), width=8)
+    draw.ellipse((seal_x - radius + 22, seal_y - radius + 22, seal_x + radius - 22, seal_y + radius - 22),
+                 outline=(104, 139, 173), width=4)
+
+
+def _is_explicit_market_chart_request(prompt: str) -> bool:
+    """価格チャートを明示した記事だけに限定し、銘柄名だけで発火させない。"""
+    text = prompt.lower()
+    return any(phrase in text for phrase in (
+        "candlestick chart", "price chart", "market chart", "trading chart", "ローソク足", "価格チャート",
+    ))
+
+
 def _draw_network(draw: ImageDraw.ImageDraw, width: int, height: int, rng: random.Random) -> None:
     nodes = [
         (rng.randint(int(width * 0.08), int(width * 0.92)), rng.randint(int(height * 0.14), int(height * 0.86)))
@@ -110,7 +181,13 @@ def create_editorial_image(
     overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
     prompt = seed_text.lower()
-    if any(word in prompt for word in ("chart", "trading", "market", "price", "bitcoin", "btc")):
+    if any(word in prompt for word in ("governance", "exploit", "attack", "hack", "breach", "security", "流出", "攻撃", "脆弱性")):
+        _draw_security_incident(draw, width, height)
+    elif any(word in prompt for word in ("sec filing", "regulatory filing", "amendment", "提出書類", "修正書類", "規制")):
+        _draw_regulatory_filing(draw, width, height)
+    elif any(word in prompt for word in ("etf", "inflow", "outflow", "fund flow", "資金流入", "資金流出")):
+        _draw_etf_flow(draw, width, height)
+    elif _is_explicit_market_chart_request(prompt):
         _draw_market_chart(draw, width, height, rng)
     else:
         _draw_network(draw, width, height, rng)

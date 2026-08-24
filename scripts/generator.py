@@ -873,7 +873,10 @@ def generate_featured_image(
         # アイキャッチとOGPを維持できる。
         from local_images import create_editorial_image
 
-        fallback_seed = " ".join(filter(None, [article_title, base_prompt, article_content]))
+        # 本文全体には「Bitcoin」など周辺銘柄も多数含まれる。本文の単語で
+        # 汎用チャートを選ぶと、資金流入・規制・セキュリティ事故といった主題を
+        # 無視した画像になるため、タイトルと抽出済みの視覚ブリーフだけを使う。
+        fallback_seed = " ".join(filter(None, [article_title, base_prompt]))
         logger.warning("生成画像が品質検査を通過しなかったため、文字なしの代替アイキャッチを使用します")
         return create_editorial_image(fallback_seed)
 
