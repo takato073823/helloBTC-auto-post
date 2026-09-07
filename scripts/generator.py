@@ -584,7 +584,7 @@ publish_decision を true にできるのは、次の条件をすべて満たす
 9. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 10. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
 11. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
-12. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない。さらに、記事の内容・感情・対象物に合う配色を明示し、暗号資産記事だからといって青・シアン系の画像へ固定してはならない。青系はその企業・技術・事象に意味がある場合だけ使う
+12. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない。さらに、記事の内容・感情・対象物に合う配色と明るさを明示し、暗号資産記事だからといって青・シアン系やダーク系の画像へ固定してはならない。青系・暗部はその企業・技術・事象に意味がある場合だけ使い、規制・ETF・企業・AI・解説記事などは明るい自然光または明るいスタジオ光を積極的に選ぶ
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
@@ -762,6 +762,35 @@ def _select_editorial_color_direction(
     )
 
 
+def _select_editorial_lighting_direction(
+    base_prompt: str,
+    article_title: str | None = None,
+    tags: list[str] | None = None,
+) -> str:
+    """主題に応じてライト系とダーク系を使い分け、暗い画像へ固定しない。"""
+    subject = " ".join(filter(None, [base_prompt, article_title, " ".join(tags or [])])).lower()
+
+    if any(word in subject for word in (
+        "hack", "exploit", "breach", "attack", "security", "drain", "iran", "war", "tension", "流出", "攻撃", "脆弱性", "緊張",
+    )):
+        return (
+            "Lighting direction: a serious but readable security or crisis scene; dark accents are allowed only to support "
+            "the event, while the primary subject remains clearly lit and visible. Do not make the whole frame near-black. "
+        )
+    if any(word in subject for word in (
+        "regulation", "regulatory", "sec", "senate", "law", "filing", "etf", "inflow", "outflow", "institutional", "treasury", "purchase",
+        "ai", "qwen", "model", "training data", "quantum", "protocol", "規制", "法案", "提出書類", "資金流入", "資金流出", "機関投資", "保有", "人工知能", "学習データ", "量子", "署名",
+    )):
+        return (
+            "Lighting direction: bright natural window light or high-key editorial studio lighting, with clear midtones and "
+            "a light-to-medium background. Avoid a dark, night-time, or near-black default. "
+        )
+    return (
+        "Lighting direction: prefer a bright, naturally lit editorial scene with clear subject separation. "
+        "Use a dark scene only when the verified event itself requires it; never default to a dark crypto aesthetic. "
+    )
+
+
 def _build_imagen_prompt(
     base_prompt: str,
     logo_brand: str | None,
@@ -776,6 +805,7 @@ def _build_imagen_prompt(
         re.search(r"\b(?:no text|no writing|no print|text-free)\b", base_prompt, re.IGNORECASE)
     )
     color_direction = _select_editorial_color_direction(base_prompt, article_title, tags)
+    lighting_direction = _select_editorial_lighting_direction(base_prompt, article_title, tags)
     if trusted_brand:
         logo_instruction = (
             f"The official {trusted_brand} brand mark must be clearly recognizable and visible as an integrated "
@@ -843,6 +873,7 @@ def _build_imagen_prompt(
         "not a reusable generic news scene. "
         f"{style_instruction}"
         f"{color_direction}"
+        f"{lighting_direction}"
         "Sharp focus on subject, news magazine quality, high resolution. "
         "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, report-page "
         "layout, presentation, infographic, poster, headline layout, caption bar, white text panel, or floating text "
@@ -869,7 +900,7 @@ def generate_featured_image(
     from google.genai import types
 
     api_key = os.environ["GOOGLE_API_KEY"]
-    base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
+    base_prompt = image_prompt or "single bitcoin custody token on a neutral natural surface in bright editorial daylight"
     full_prompt = _build_imagen_prompt(
         base_prompt, logo_brand, logo_domain, article_title, article_content, tags
     )
@@ -990,7 +1021,7 @@ def _generate_meta_json(html_content: str, article_type: str, chart_hint: str) -
   "slug": "article-topic-keyword（英語・ハイフン区切り・3〜5単語）",
   "tags": ["タグ1", "タグ2", "タグ3", "タグ4", "タグ5"],
   "tweet_bullets": ["要点1（25文字以内）", "要点2（25文字以内）", "要点3（25文字以内）"],
-  "featured_image_prompt": "Photorealistic scene, dramatic lighting, dark background. NO people, NO brand names, NO text. Max 15 words.",
+  "featured_image_prompt": "Photorealistic scene with article-appropriate color and bright-or-dark lighting chosen from the subject; never default to a dark background. NO people, NO brand names, NO text. Max 20 words.",
   "article_image_prompts": [
     "Photorealistic scene 1, dramatic lighting. NO people, NO brand names, NO text. Max 15 words.",
     "Photorealistic scene 2, dramatic lighting. NO people, NO brand names, NO text. Max 15 words."

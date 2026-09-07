@@ -6,7 +6,12 @@ from pathlib import Path
 
 from PIL import Image
 
-from generator import _image_text_review_prompt, _select_editorial_color_direction, resolve_logo_brand
+from generator import (
+    _image_text_review_prompt,
+    _select_editorial_color_direction,
+    _select_editorial_lighting_direction,
+    resolve_logo_brand,
+)
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -45,6 +50,19 @@ class FeaturedImagePolicyTests(unittest.TestCase):
         source = (REPO_ROOT / "scripts" / "generator.py").read_text(encoding="utf-8")
         self.assertNotIn('"Muted color grading, slightly desaturated, cool tones. "', source)
         self.assertIn("Do not default to a blue/cyan crypto aesthetic", source)
+
+    def test_lighting_direction_uses_light_scenes_when_the_topic_allows_it(self):
+        etf = _select_editorial_lighting_direction("Bitcoin ETF institutional inflow")
+        ai = _select_editorial_lighting_direction("AI training data model")
+        breach = _select_editorial_lighting_direction("bridge hack drains tokens")
+        self.assertIn("bright natural window light", etf)
+        self.assertIn("bright natural window light", ai)
+        self.assertIn("primary subject remains clearly lit", breach)
+
+    def test_featured_images_no_longer_default_to_dark_backgrounds(self):
+        source = (REPO_ROOT / "scripts" / "generator.py").read_text(encoding="utf-8")
+        self.assertNotIn('"Photorealistic scene, dramatic lighting, dark background.', source)
+        self.assertIn("never default to a dark crypto aesthetic", source)
 
     def test_no_template_fallback_is_used_for_failed_featured_images(self):
         source = (REPO_ROOT / "scripts" / "generator.py").read_text(encoding="utf-8")
