@@ -6,7 +6,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from generator import _image_text_review_prompt, resolve_logo_brand
+from generator import _image_text_review_prompt, _select_editorial_color_direction, resolve_logo_brand
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -30,6 +30,21 @@ class FeaturedImagePolicyTests(unittest.TestCase):
             ("Fidelity", "fidelity.com"),
             resolve_logo_brand("フィデリティの分析", [], "Fidelity", "fidelity.com"),
         )
+
+    def test_color_direction_varies_by_article_subject(self):
+        security = _select_editorial_color_direction("bridge hack drains tokens")
+        regulation = _select_editorial_color_direction("SEC filing amendment")
+        ai = _select_editorial_color_direction("AI training data model")
+        self.assertIn("warning-red", security)
+        self.assertIn("forest green", regulation)
+        self.assertIn("violet", ai)
+        self.assertNotEqual(security, regulation)
+        self.assertNotEqual(regulation, ai)
+
+    def test_featured_images_no_longer_force_cool_blue_tones(self):
+        source = (REPO_ROOT / "scripts" / "generator.py").read_text(encoding="utf-8")
+        self.assertNotIn('"Muted color grading, slightly desaturated, cool tones. "', source)
+        self.assertIn("Do not default to a blue/cyan crypto aesthetic", source)
 
     def test_no_template_fallback_is_used_for_failed_featured_images(self):
         source = (REPO_ROOT / "scripts" / "generator.py").read_text(encoding="utf-8")

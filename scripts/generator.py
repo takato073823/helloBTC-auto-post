@@ -584,7 +584,7 @@ publish_decision を true にできるのは、次の条件をすべて満たす
 9. 公式ソース（ツイート）が提供されている場合は、記事の流れに合わせて適切な位置に埋め込む
 10. 本文の先頭には、投稿タイトルと同じ意味を保ちながら表現を少し変えた h2 見出しを置く。この見出しは投稿タイトルと一字一句同じにしない
 11. 取引所・企業・財団など、ニュースを発表した当事者プロジェクトが記事の中心にある場合だけ、その組織名と公式サイトのドメインを指定する。CoinDeskなど出典メディア、報道機関、記者、競合メディアは絶対に指定しない。当事者がいない場合や公式ドメインを確信できない場合は両方を空文字にする
-12. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない
+12. アイキャッチは記事内容との一致を最優先にする。image_prompt には、元記事で確認できる中心的な出来事・対象物だけを具体的に描写する。汎用的な暗号資産ニュース画像や、記事に明記されない議事堂・政府建築・ランドマーク・国旗・都市景観を加えてはならない。建物、モニター、コイン、チャートも、元記事の中心的な対象である場合だけ指定する。書類・画面・看板が中心的対象なら使用してよいが、表示文字は正確な短い固有語・略称・数字だけを英語で引用符に入れて指定し、本文段落や架空の文字列を要求しない。さらに、記事の内容・感情・対象物に合う配色を明示し、暗号資産記事だからといって青・シアン系の画像へ固定してはならない。青系はその企業・技術・事象に意味がある場合だけ使う
 
 必ず以下のJSON形式のみで出力してください（前後に余計なテキストを含めないこと）:
 {{
@@ -596,7 +596,7 @@ publish_decision を true にできるのは、次の条件をすべて満たす
   "meta_description": "Google検索結果に表示されるメタディスクリプション（120〜160文字）",
   "tags": ["ビットコイン", "仮想通貨", "関連タグ3", "関連タグ4", "関連タグ5"],
   "slug": "bitcoin-etf-record-inflows (英語・小文字・ハイフン区切り・3〜5単語)",
-  "image_prompt": "Describe one full-bleed photorealistic scene that directly depicts the verified central subject. A physical document, screen, or sign is allowed only when central to the verified event. If visible copy is essential, include at most three exact short English terms, initials, dates, or numbers in quotation marks; never request paragraph copy, fake words, pseudo-text, garbled text, or a webpage/headline layout. Do not add generic crypto decoration or unrelated objects. NO people. Max 25 words.",
+  "image_prompt": "Describe one full-bleed photorealistic scene that directly depicts the verified central subject and specifies a scene-appropriate color palette. Do not default to blue or cyan just because the topic is crypto; use blue only when it is meaningful to the named subject. A physical document, screen, or sign is allowed only when central to the verified event. If visible copy is essential, include at most three exact short English terms, initials, dates, or numbers in quotation marks; never request paragraph copy, fake words, pseudo-text, garbled text, or a webpage/headline layout. Do not add generic crypto decoration or unrelated objects. NO people. Max 35 words.",
   "logo_brand": "ニュースを発表した当事者プロジェクト名。出典メディアは禁止。該当しなければ空文字",
   "logo_domain": "当事者プロジェクトの公式サイトドメイン。出典メディアは禁止。確信できなければ空文字。https://やパスは含めない",
   "tweet_bullets": ["この記事の要点1（25文字以内）", "この記事の要点2（25文字以内）", "この記事の要点3（25文字以内）"],
@@ -724,18 +724,58 @@ class FeaturedImageGenerationError(RuntimeError):
     """記事固有のアイキャッチを安全に用意できなかった場合に公開を止める。"""
 
 
+def _select_editorial_color_direction(
+    base_prompt: str,
+    article_title: str | None = None,
+    tags: list[str] | None = None,
+) -> str:
+    """記事の主題に応じて、定型の青系ではない報道写真の配色を指定する。"""
+    subject = " ".join(filter(None, [base_prompt, article_title, " ".join(tags or [])])).lower()
+
+    if any(word in subject for word in (
+        "hack", "exploit", "breach", "attack", "security", "drain", "流出", "攻撃", "脆弱性",
+    )):
+        return "Color direction: graphite and oxidized steel with contained amber and restrained warning-red accents; do not use a blue/cyan default. "
+    if any(word in subject for word in (
+        "regulation", "regulatory", "sec", "senate", "law", "filing", "規制", "法案", "提出書類",
+    )):
+        return "Color direction: warm paper, stone gray, muted forest green, and natural daylight; do not use a blue/cyan default. "
+    if any(word in subject for word in (
+        "iran", "oil", "fed", "tension", "war", "geopolitical", "中東", "原油", "緊張",
+    )):
+        return "Color direction: charcoal, petroleum amber, burgundy, and low natural tungsten light; do not use a blue/cyan default. "
+    if any(word in subject for word in (
+        "etf", "inflow", "outflow", "institutional", "treasury", "purchase", "資金流入", "資金流出", "機関投資", "保有",
+    )):
+        return "Color direction: brushed silver, warm gold, deep emerald, and neutral daylight; do not use a blue/cyan default. "
+    if any(word in subject for word in (
+        "ai", "qwen", "model", "training data", "人工知能", "学習データ",
+    )):
+        return "Color direction: graphite, violet, warm silver, and a small magenta accent; do not use a blue/cyan default. "
+    if any(word in subject for word in (
+        "quantum", "blockchain", "protocol", "mainnet", "signature", "量子", "ブロックチェーン", "署名",
+    )):
+        return "Color direction: graphite, violet, subtle teal, and warm metal highlights; avoid an all-blue or all-cyan palette. "
+    return (
+        "Color direction: choose natural, article-specific hues from the real scene and primary subject. "
+        "Do not default to a blue/cyan crypto aesthetic; blue is allowed only when it is meaningful to the subject. "
+    )
+
+
 def _build_imagen_prompt(
     base_prompt: str,
     logo_brand: str | None,
     logo_domain: str | None,
     article_title: str | None = None,
     article_content: str | None = None,
+    tags: list[str] | None = None,
 ) -> str:
     """記事内容を確認したうえで、報道写真と許可済みロゴの条件を組み立てる。"""
     trusted_brand = _trusted_project_logo(logo_brand, logo_domain)
     strict_text_free = bool(
         re.search(r"\b(?:no text|no writing|no print|text-free)\b", base_prompt, re.IGNORECASE)
     )
+    color_direction = _select_editorial_color_direction(base_prompt, article_title, tags)
     if trusted_brand:
         logo_instruction = (
             f"The official {trusted_brand} brand mark must be clearly recognizable and visible as an integrated "
@@ -802,7 +842,7 @@ def _build_imagen_prompt(
         "unless it is explicitly named in the opening brief. The image must be visually specific to this article, "
         "not a reusable generic news scene. "
         f"{style_instruction}"
-        "Muted color grading, slightly desaturated, cool tones. "
+        f"{color_direction}"
         "Sharp focus on subject, news magazine quality, high resolution. "
         "Create a full-bleed photographic scene only. Never create a webpage, news article screenshot, report-page "
         "layout, presentation, infographic, poster, headline layout, caption bar, white text panel, or floating text "
@@ -831,7 +871,7 @@ def generate_featured_image(
     api_key = os.environ["GOOGLE_API_KEY"]
     base_prompt = image_prompt or "gold bitcoin coins stacked on dark surface, dramatic side lighting"
     full_prompt = _build_imagen_prompt(
-        base_prompt, logo_brand, logo_domain, article_title, article_content
+        base_prompt, logo_brand, logo_domain, article_title, article_content, tags
     )
 
     client = genai.Client(api_key=api_key)
