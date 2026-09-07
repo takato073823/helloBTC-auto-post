@@ -220,6 +220,8 @@ SEO_METADATA_SCHEMA = {
 # ロゴ利用を許可する当事者プロジェクトと公式ドメイン。
 # 出典メディアや未確認ブランドを画像へ混入させないための許可リストとして使う。
 KNOWN_BRAND_DOMAINS = {
+    "AfterQuery": "afterquery.ai",
+    "Alibaba": "alibabagroup.com",
     "BitMart": "bitmart.com",
     "Binance": "binance.com",
     "Coinbase": "coinbase.com",
@@ -240,8 +242,14 @@ KNOWN_BRAND_DOMAINS = {
     "楽天ウォレット": "wallet.rakuten.co.jp",
     "MetaMask": "metamask.io",
     "Ethereum": "ethereum.org",
+    "Fidelity": "fidelity.com",
+    "Fogo": "fogo.io",
+    "Hargreaves Lansdown": "hl.co.uk",
+    "Liquid Network": "liquid.net",
     "Solana": "solana.com",
     "Ripple": "ripple.com",
+    "Strive": "strive.com",
+    "The Sandbox": "sandbox.game",
 }
 
 _VOID_HTML_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -392,6 +400,13 @@ def resolve_logo_brand(title: str, tags: list[str] | None = None,
     for brand, domain in KNOWN_BRAND_DOMAINS.items():
         if brand.lower() in searchable_lower:
             return brand, domain
+    # 日本語タイトルでは英字の会社名が省かれることがある。記事生成時に抽出した
+    # 当事者名と公式ドメインが管理済みリストに厳密一致する場合だけ補完する。
+    if logo_brand:
+        clean_domain = _valid_logo_domain(logo_domain)
+        for brand, domain in KNOWN_BRAND_DOMAINS.items():
+            if brand.lower() == logo_brand.strip().lower() and clean_domain == domain:
+                return brand, domain
     return None, None
 
 
@@ -616,8 +631,9 @@ def _image_article_context(article_title: str | None, article_content: str | Non
     """記事本文を画像モデルへ渡さず、文字の描画を誘発しない。"""
     if not (article_title or article_content):
         return ""
-    # 日本語の見出し・本文をImagenへ渡すと、ニュースページ風の文字列として
-    # 画像内に模写される。記事内容から抽出済みの英語image_promptだけを視覚指示に使う。
+    # 日本語の見出し・本文を画像モデルへ渡すと、ニュースページ風の文字列として
+    # 模写される。記事内容から抽出済みの英語image_promptだけを視覚指示に使い、
+    # 元のタイトルは公開前の画像検査でのみ主題照合に使用する。
     return (
         "The opening visual brief was derived from a verified Japanese article. Treat it only as semantic "
         "scene guidance. Never recreate, quote, typeset, translate, or imitate the article title or body. "
@@ -627,6 +643,7 @@ def _image_article_context(article_title: str | None, article_content: str | Non
 def _image_text_review_prompt(
     trusted_brand: str | None,
     visual_brief: str | None = None,
+    article_title: str | None = None,
 ) -> str:
     logo_rule = (
         f"The single authentic {trusted_brand} brand mark is allowed only as an integrated environmental logo. "
@@ -636,9 +653,16 @@ def _image_text_review_prompt(
     )
     brief = (visual_brief or "").strip()
     brief_rule = f"The intended visual brief is: {brief}." if brief else "No visual brief was supplied."
+    title = (article_title or "").strip()
+    title_rule = (
+        f"The verified article title is: {title}. The primary visual subject must directly depict its central entity and event; "
+        "reject a merely generic crypto, market, server, chart, or office scene."
+        if title else "No verified article title was supplied."
+    )
     return f"""
 Inspect this proposed Japanese news-site featured image at full resolution.
 {brief_rule}
+{title_rule}
 Every negative constraint in the visual brief is mandatory. If it says no text, no print, no symbols, no logos,
 or no other objects, reject any violation even when the added element is otherwise readable or well rendered.
 Short text naturally printed on an article-specific physical item such as a document, screen, sign, or device is
@@ -670,6 +694,7 @@ def _review_generated_image(
     raw_bytes: bytes,
     trusted_brand: str | None,
     visual_brief: str | None = None,
+    article_title: str | None = None,
 ) -> tuple[bool, str]:
     """Gemini Visionで文字の可読性と正確性を検査し、文字化け画像を拒否する。"""
     from google.genai import types
@@ -684,7 +709,7 @@ def _review_generated_image(
                 model=model_name,
                 contents=[
                     types.Part.from_bytes(data=raw_bytes, mime_type=mime_type),
-                    _image_text_review_prompt(trusted_brand, visual_brief),
+                    _image_text_review_prompt(trusted_brand, visual_brief, article_title),
                 ],
             )
             review = (response.text or "").strip()
@@ -693,6 +718,10 @@ def _review_generated_image(
             errors.append(f"{model_name}: {exc}")
             logger.warning("画像検査モデル%sを利用できません: %s", model_name, exc)
     raise ImageReviewUnavailableError(" / ".join(errors))
+
+
+class FeaturedImageGenerationError(RuntimeError):
+    """記事固有のアイキャッチを安全に用意できなかった場合に公開を止める。"""
 
 
 def _build_imagen_prompt(
@@ -842,7 +871,7 @@ def generate_featured_image(
                 if not candidate_bytes:
                     raise ValueError("画像データが返りませんでした")
                 passed, review = _review_generated_image(
-                    client, candidate_bytes, trusted_brand, base_prompt
+                    client, candidate_bytes, trusted_brand, base_prompt, article_title
                 )
                 if passed:
                     logger.info("画像内文字品質検査に合格（文字化け・疑似文字なし）")
@@ -868,17 +897,11 @@ def generate_featured_image(
             break
 
     if not raw_bytes:
-        # 品質検査を通過できない場合でも、記事を画像なしで公開しない。
-        # 文字を描かない決定論的な代替画像なら、壊れた文字や無関係なロゴを出さずに
-        # アイキャッチとOGPを維持できる。
-        from local_images import create_editorial_image
-
-        # 本文全体には「Bitcoin」など周辺銘柄も多数含まれる。本文の単語で
-        # 汎用チャートを選ぶと、資金流入・規制・セキュリティ事故といった主題を
-        # 無視した画像になるため、タイトルと抽出済みの視覚ブリーフだけを使う。
-        fallback_seed = " ".join(filter(None, [article_title, base_prompt]))
-        logger.warning("生成画像が品質検査を通過しなかったため、文字なしの代替アイキャッチを使用します")
-        return create_editorial_image(fallback_seed)
+        # 定型代替画像を公開すると、記事の主題・主役企業・ロゴ条件が失われる。
+        # 条件を満たせない記事は、画像付きで安全に公開できるまで保留にする。
+        raise FeaturedImageGenerationError(
+            "記事固有のアイキャッチが生成・検査を通過しなかったため、公開を保留します"
+        )
 
     image_data = fit_image_to_jpeg(raw_bytes, width=1200, height=630, quality=92)
     logger.info("縦横比を維持して1200×630に中央トリミング完了")

@@ -176,7 +176,9 @@ def main():
                     image_data, filename=f"featured-{int(time.time())}.jpg"
                 )
             except Exception as e:
-                logger.warning(f"画像生成/アップロード失敗（記事投稿は続行）: {e}")
+                # アイキャッチが条件を満たせない記事は、画像なし・定型画像のまま
+                # 公開しない。外側の例外処理で次候補へ進み、対象URLも未投稿のまま残す。
+                raise RuntimeError(f"アイキャッチ条件を満たせないため公開を保留: {e}") from e
 
             # WordPress に投稿
             result = wp.post_article(
@@ -284,7 +286,7 @@ def run_seo_article():
         )
         featured_media_id, featured_image_url = wp.upload_media(img_data, filename=f"seo-featured-{ts}.jpg")
     except Exception as e:
-        logger.warning(f"アイキャッチ生成失敗（続行）: {e}")
+        raise RuntimeError(f"アイキャッチ条件を満たせないためSEO記事作成を保留: {e}") from e
 
     # ── 記事内画像 1 ──────────────────────────────────────
     img1_prompts = generated.get("article_image_prompts", [])

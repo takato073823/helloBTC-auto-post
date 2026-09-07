@@ -28,7 +28,7 @@ jobs:
 
       - name: 投稿とSEOのルールを検証
         working-directory: scripts
-        run: python -m unittest test_news_post_rules.py test_wp_poster_seo.py
+        run: python -m unittest test_news_post_rules.py test_wp_poster_seo.py test_featured_image_policy.py
 
       - name: 記事を自動投稿
         env:
