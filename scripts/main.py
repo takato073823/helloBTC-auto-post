@@ -28,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 POSTED_URLS_FILE = Path(__file__).parent / "posted_urls.json"
-ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（現在は1日1回）
+ARTICLES_PER_RUN = 1  # 1回の実行で投稿する記事数（1日4回、各回1記事）
 MIN_CONTENT_LENGTH = 200  # 最低限必要な記事本文の長さ
 
 

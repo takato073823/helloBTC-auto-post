@@ -319,12 +319,12 @@ class NewsPostRuleTests(unittest.TestCase):
         )
         scrape_newsnow.assert_not_called()
 
-    def test_auto_post_runs_one_quality_review_per_day(self):
+    def test_auto_post_runs_four_quality_reviews_per_day(self):
         workflow = (
             Path(__file__).parents[1] / ".github" / "workflows" / "auto_post.yml"
         ).read_text(encoding="utf-8")
         self.assertEqual(1, workflow.count('- cron:'))
-        self.assertIn('cron: "0 22 * * *"', workflow)
+        self.assertIn('cron: "17 2,6,10,22 * * *"', workflow)
 
     def test_appends_a_safe_visible_source_link(self):
         actual = append_source_attribution(
