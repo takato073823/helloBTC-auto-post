@@ -22,7 +22,8 @@ def check_pixels(path, approved, example):
 
 
 def render(text, path: Path, code, *, example):
-    brief = text.removesuffix("\n\nCryptoAcademy｜" + code)
+    # The poster illustrates the lesson, not the CTA. Bind the full caption hash separately.
+    brief = text.rsplit("\n\n開設準備中。", 1)[0].removesuffix("\n\nCryptoAcademy｜" + code)
     prompt = ("日本語のX投稿用に、文字も数字も背景も含む完成した縦4:5の金融誌の表紙を1枚生成。"
               "濃紺とコバルトブルー、白の太い見出しと黄色の強調。ブランドは helloBTC ｜ クリプトアカデミー。"
               "教材のテーマから具体物をひとつ選び、ロゴや写真風の被写体で一目で主役がわかるように。"

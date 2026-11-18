@@ -53,6 +53,8 @@ class PilotTests(unittest.TestCase):
         picks = cases.rank([{"hook":"未確認"},{"hook":"24時間で3%変化"}], trend)
         self.assertEqual(picks[0]["hook"], "24時間で3%変化")
         self.assertIn("103,820", str(trend["references"]))
+        self.assertEqual([x["hook"] for x in cases.rank([{"hook":"企業が発表"}, {"hook":"24時間で3%変化"}], trend)],
+                         ["24時間で3%変化", "企業が発表"])
         slot, meta = next(planned())
         past = {"history":[{"tweet_id":"42","academy":{"format":meta["format"],"code":"CA01"}}]}
         with patch.object(cases, "read", return_value={"CA01":2}):
@@ -147,6 +149,10 @@ class PilotTests(unittest.TestCase):
             state = {}
             for slot, meta in planned():
                 i, c = await a.lesson(meta, slot, directory)
+                self.assertEqual(i["text"].count("開設準備中。"), 1)
+                self.assertTrue(i["text"].endswith("CryptoAcademy｜" + meta["code"]))
+                self.assertNotIn("https://", i["text"])
+                self.assertNotIn("開設準備中。", self.generate_image.call_args.args[0])
                 state = _reserve(state, i, c, slot, dt.datetime.now(dt.timezone.utc))
             self.assertEqual(len(state["reservations"]), 28)
         with tempfile.TemporaryDirectory(dir=a.ROOT) as path:

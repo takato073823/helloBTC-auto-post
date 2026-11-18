@@ -8,6 +8,7 @@ STUDY = "https://blog.ethereum.org/2026/02/17/ethereum-protocol-studies-26"
 LESSONS = {
     "learn": "学習目標を一つに絞り、具体例の後に自分で確かめられる答えを示す",
     "visual": "初心者が抱く疑問を一つ選び、本文と同じ要点に画像を絞る",
+    "next_step": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える",
     "quantity": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
     "speaker": "誰が何を発表・発言したかを特定できる候補を優先する",
 }
@@ -36,6 +37,9 @@ def research(slot, now, state, academy=None):
         cases.append((0, {"url":"https://business.x.com/ja/success-stories/solution-tree",
             "result":"教育イベント告知キャンペーンで35万表示以上", "observed":"2026-11-18 出典確認",
             "feature":"visual", "limit":"有料施策を含む表示実績。自然投稿の効果や参加完了数ではない。"}))
+        cases.append((0, {"url":"https://academy.trezor.io/", "result":"主催者発表：30カ国以上・参加者2,500人以上",
+            "observed":"2026-11-18 出典確認", "feature":"next_step",
+            "limit":"現地の教育施策全体の実績。Xの誘導文単体の参加効果ではない。"}))
     else:
         # Preserve measured exemplars when the live discovery cache rolls over.
         rows = {row["post_url"]:row for row in read("inu_case_examples.json")}
@@ -53,8 +57,12 @@ def research(slot, now, state, academy=None):
                 feature = "speaker"
             else:
                 continue
-            cases.append((n, {"url": url, "result": f"観測時 {n:,}表示", "observed": row["discovered_at"],
-                "feature": feature, "limit": "表示は到達の指標。見せ方の効果・参加や売買の根拠ではない。"}))
+            reposts = row.get("repost_count")
+            known = type(reposts) is int and 0 <= reposts <= n
+            rate = round(1000 * reposts / n, 3) if known else None
+            result = f"観測時 {n:,}表示" + (f"・{reposts}リポスト（1,000表示あたり{rate}）" if known else "・再共有数未計測")
+            cases.append((rate if known else -1, {"url": url, "result": result, "observed": row["discovered_at"],
+                "reposts_per_1000":rate, "feature": feature, "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。"}))
     if not cases:
         raise ValueError("出典と成果を確認できる成功事例なし")
     ordered = sorted(cases, key=lambda pair: -pair[0])
@@ -85,13 +93,17 @@ def rank(rows, review):
         return rows
     def score(row):
         text = " ".join(str(row.get(k, "")) for k in ("hook","facts","title","summary"))
-        return sum(matches(text, ref["feature"]) for ref in review["references"])
+        matching = [ref for ref in review["references"] if matches(text, ref["feature"])]
+        # Repost rate breaks ties between otherwise comparable formats; missing is not zero.
+        rates = [ref["reposts_per_1000"] for ref in matching if ref.get("reposts_per_1000") is not None]
+        return len(matching), max(rates, default=-1)
     return sorted(rows, key=score, reverse=True)  # stable on ties; never disables fact/quality checks
 
 
 def application(review, text):
     if review["goal"] == "集客":
-        return "1テーマの学習解説。読者が確かめられる要点を本文と画像の共通原稿に使用。"
+        cta = next((line for line in text.splitlines() if line.startswith("開設準備中。")), "")
+        return "1テーマの学習解説。本文と画像で要点を示す。" + (f" 公開前の案内：{cta}" if cta else "")
     used = [ref["application"] for ref in review["references"] if matches(text, ref["feature"])]
     return "／".join(used) if used else "事例は候補の比較に使用。最終稿に同じ型は確認できず、一次情報を優先。"
 

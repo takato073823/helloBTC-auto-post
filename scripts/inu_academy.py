@@ -59,17 +59,44 @@ QUESTIONS = [
 ]
 
 
+FIGURE_HOOKS = (
+    "10％下がった後、10％上がれば元通り？", "ETFに120億円入ったのに、純流入は20億円？",
+    "取引枚数が半分でも、売買代金が同じなのはなぜ？", "ドル価格が横ばいでも円では下がるのはなぜ？",
+    "時価総額2億円は、2億円が入ったという意味？", "同じ板に99円と101円。差の2円は何？",
+    "100円と130円で買った平均は115円？", "同じ手数料100円、少額送金ほど重いのはなぜ？",
+    "予測市場の50％→65％。差は何ポイント？", "片方の銘柄が倍でも、資産全体は何％増える？",
+    "10枚持ったまま、全体に占める割合が下がるのはなぜ？", "高値・安値・終値だけで、値動きの順番はわかる？",
+    "10枚の送金記録だけで、売却と判断できる？", "前日比プラスなら、一日中上がっていた？",
+)
+
+
+def prelaunch_caption(body, meta):
+    from inu_post import weighted_length, MAX_WEIGHTED_LENGTH
+    footer = "CryptoAcademy｜" + meta["code"]
+    invite = ("次に図解してほしい疑問は？" if meta["format"] == "初心者Q&A"
+              else "こうした図解を読みたい方はフォローを。")
+    for message in (f"開設準備中。{invite}", "開設準備中。次の疑問は？"):
+        text = f"{body.rstrip()}\n\n{message}\n{footer}"
+        if weighted_length(text) <= MAX_WEIGHTED_LENGTH:
+            return text
+    raise ValueError("事実と集客案内を削らずに収められないため別の教材を選びます")
+
+
 async def lesson(meta, slot, directory, *, review=None):
     from inu_live_post import validate_test_item
     qa = meta["format"] == "初心者Q&A"
     rows = QUESTIONS if qa else EXAMPLES
-    title, left, right, answer = rows[(meta["day"] + (7 if qa else 0)) % len(rows)]
+    index = (meta["day"] + (7 if qa else 0)) % len(rows)
+    title, left, right, answer = rows[index]
+    if not qa:
+        title = FIGURE_HOOKS[index]
     code = meta["code"]
     hook = ("💬 " if qa else "🔎 ") + title
-    text = f"{hook}\n\n仮の例：{left}、{right}。\n{answer}\n\nCryptoAcademy｜{code}"
+    body = f"{hook}\n\n仮の例：{left}、{right}。\n{answer}"
     if review and any(ref["feature"] == "learn" for ref in review["references"]):
         # Keep both approved example inputs and the answer; let the reader work it out first.
-        text = f"{hook}\n\n仮の例：\n{left}\n{right}\n\n{answer}\n\nCryptoAcademy｜{code}"
+        body = f"{hook}\n\n仮の例：\n{left}\n{right}\n\n{answer}"
+    text = prelaunch_caption(body, meta)
     directory.mkdir(parents=True, exist_ok=True)
     image = directory / f"{slot}-{code}.png"
     poster = inu_academy_poster.render(text, image, code, example=True)

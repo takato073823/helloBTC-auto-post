@@ -48,6 +48,15 @@ def candidate(**overrides) -> dict:
 
 
 class INUAutoHourlyTests(unittest.TestCase):
+    def test_cited_but_unverified_source_is_never_sent_to_paid_editor(self):
+        row = candidate()
+        with patch.object(inu_auto_hourly, "validate_candidate"), \
+             patch.object(inu_auto_hourly, "fetch_and_verify_source", side_effect=ValueError("no anchor")), \
+             patch.object(inu_auto_hourly, "_select_grok_editorial_copy") as paid:
+            with self.assertRaisesRegex(ValueError, "no anchor"):
+                inu_auto_hourly._build_item_from_candidate(row, [{"url": row["source_url"]}], {}, NOW, "slot")
+            paid.assert_not_called()
+
     def test_trend_turn_verifies_one_fresh_event_instead_of_generic_research(self):
         stale = {"url": "https://x.com/feed/status/10", "published": (NOW-dt.timedelta(hours=25)).isoformat()}
         fresh = {"url": "https://x.com/feed/status/11", "published": NOW.isoformat()}

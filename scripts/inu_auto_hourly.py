@@ -1570,7 +1570,7 @@ def _grok_editorial_copy_prompt(candidate: dict) -> str:
 絶対条件:
 - URL、出典名、媒体名、未確認の数値・固有名詞・推測は一切追加しない。
 - factsと根拠原文以外の事実は書かない。売買推奨、価格予想、煽り、定型句は禁止。
-- hookは出来事に合う絵文字1つで始め、短く「何が変わったか」を示す。
+- hookは絵文字1つ＋「何がどれだけ変化」か「誰が何を発表」。比較は期間と単位を明記。
 - opinionはfactsと重複しないニュース分析を18〜65文字の1文で書く。市場への意味、影響、
   または残る論点を示す。見解型では「僕は」を使ってよいが、毎回同じ型にしない。
   価格予測、売買判断、「注視したい」「追いたい」だけの感想は禁止。
@@ -2731,6 +2731,8 @@ def _build_item_from_candidate(
         required_topic=required_topic,
         include_editorial=False,
     )
+    if verified_url is None:
+        verified_url = fetch_and_verify_source(selected)
     # 事実・出典・鮮度を確定してからGrokに編集だけを依頼する。Grok案も同じ
     # 品質ゲートへ戻すため、もっともらしい創作やURL差し替えは公開へ進まない。
     selected = _select_grok_editorial_copy(
@@ -2742,8 +2744,6 @@ def _build_item_from_candidate(
     ) if use_editorial_api else selected
     # Grok案または元候補の最終文章欄を、一次情報の検証とは別に必ず審査する。
     validate_candidate(selected, sources, state, now, required_topic=required_topic)
-    if verified_url is None:
-        verified_url = fetch_and_verify_source(selected)
     selected["source_url"] = verified_url
     # リンクカード経路でも、次段のprepared.jsonを必ず保存できるようにする。
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
@@ -3445,7 +3445,7 @@ def prepare(args: argparse.Namespace) -> int:
                         item0, candidate0 = _build_item_from_candidate(
                             dict(raw, evidence_as_primary=True), direct_sources, state, now, slot,
                             use_editorial_api=False)
-                        item0["text"] += "\n\nCryptoAcademy｜" + academy["code"]
+                        item0["text"] = inu_academy.prelaunch_caption(item0["text"], academy)
                         validate_test_item(item0)
                         item, candidate = item0, candidate0
                         break
