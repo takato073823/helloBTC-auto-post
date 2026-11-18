@@ -3366,6 +3366,12 @@
       "checked_at": "2026-11-18T04:17:40.011023+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-11-18-17-a",
+      "checked_at": "2026-11-18T08:03:39.001655+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [
@@ -3408,8 +3414,8 @@
   ],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-18T06:03:41.554383+00:00",
-      "count": 61591,
+      "checked_at": "2026-11-18T08:03:39.001655+00:00",
+      "count": 61502,
       "fastest_fee": 2
     }
   },
@@ -4658,9 +4664,9 @@
   "api_usage": {
     "jst_date": "2026-11-18",
     "counts": {
-      "grok_editorial": 5,
-      "openai_web_search": 3,
-      "grok_x_search": 1
+      "grok_editorial": 8,
+      "openai_web_search": 5,
+      "grok_x_search": 2
     },
     "claims": [
       {
@@ -4698,7 +4704,58 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-18T06:03:41.554383+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-18T08:03:39.001655+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-18T08:03:39.001655+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-18T08:03:39.001655+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T08:03:39.001655+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T08:03:39.001655+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T08:03:39.001655+00:00"
       }
     ]
+  },
+  "success_case_audit": {
+    "2026-11-18-17-a": {
+      "slot": "2026-11-18-17-a",
+      "researched_at": "2026-11-18T08:03:39.001655+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "feature": "speaker",
+          "limit": "表示は到達の指標。見せ方の効果・参加や売買の根拠ではない。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "feature": "quantity",
+          "limit": "表示は到達の指標。見せ方の効果・参加や売買の根拠ではない。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        }
+      ],
+      "status": "調査済み"
+    }
   }
 }
