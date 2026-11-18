@@ -112,6 +112,7 @@ jobs:
         id: prepare
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
+          INU_ACADEMY_SCHEDULE: ${{ (github.event_name == 'schedule' || inputs.recovery == true) && 'true' || 'false' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           X_API_KEY: ${{ secrets.X_API_KEY }}
@@ -237,3 +238,18 @@ jobs:
             sleep $((attempt * 3))
           done
           exit 1
+
+      - name: CryptoAcademy投稿の反応と参加を分けて集計
+        if: success() && (github.event_name == 'schedule' || inputs.recovery == true)
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: |
+          python scripts/inu_academy_report.py --collect
+          git add docs/inu-academy-14d.md scripts/inu_academy_metrics.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh CryptoAcademy pilot report [skip ci]"
+            git pull --rebase && git push
+          fi

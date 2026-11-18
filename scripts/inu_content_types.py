@@ -40,6 +40,7 @@ def _policy(
 CONTENT_TYPES = {
     policy.key: policy
     for policy in (
+        _policy("academy_lesson", "学習用の仮例", "academy_worked_example", "auto", False, 0),
         _policy("breaking_news", "公式速報", "official_text_crop", "hybrid", True, 100),
         _policy("reported_breaking_news", "主要メディア速報", "reported_text_crop", "hybrid", False, 92),
         _policy("security_incident", "セキュリティ速報", "official_text_crop", "manual", True, 100),

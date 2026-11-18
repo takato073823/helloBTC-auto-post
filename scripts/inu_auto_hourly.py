@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 
 from inu_content_types import get_content_policy
 from inu_cost_control import claim_api_call, usage_snapshot
+import inu_academy
 from inu_editorial_policy import (
     AUTO_SELECTABLE_TOPIC_TYPES,
     AUTO_POST_PLAYBOOK,
@@ -2275,7 +2276,8 @@ def _write_research_review(
             }
         )
 
-    draft_posts = _review_draft_posts(candidate) if candidate and item else []
+    draft_posts = ([item["text"]] if item and item.get("academy") else
+                   _review_draft_posts(candidate) if candidate and item else [])
     xai_signals = [
         row for row in signals if str(row.get("discovery_type", "")) == "grok_x_search"
     ]
@@ -2685,6 +2687,7 @@ def _build_item_from_candidate(
     slot: str,
     *,
     required_topic: str | None = None,
+    use_editorial_api: bool = True,
 ) -> tuple[dict, dict]:
     """候補を検証し、根拠画像まで取得できた場合だけ投稿データを返す。"""
     selected = dict(candidate)
@@ -2721,7 +2724,7 @@ def _build_item_from_candidate(
         state,
         now,
         required_topic=required_topic,
-    )
+    ) if use_editorial_api else selected
     # Grok案または元候補の最終文章欄を、一次情報の検証とは別に必ず審査する。
     validate_candidate(selected, sources, state, now, required_topic=required_topic)
     if verified_url is None:
@@ -3403,6 +3406,33 @@ def prepare(args: argparse.Namespace) -> int:
                 # 昇格状態を保存できない場合は、投稿済み扱いにせず次回安全に再確認する。
                 logger.warning("発見シグナルの処理状態を保存できません: %s", exc)
 
+    academy = (inu_academy.assignment(slot) if priority == "scheduled" and not args.slot
+               and os.getenv("INU_ACADEMY_SCHEDULE") == "true" else None)
+    if academy:
+        if academy["format"] == "図で検証":
+            try:
+                direct_candidates, direct_sources = collect_direct_source_candidates(now, state)
+                for raw in direct_candidates:
+                    if raw.get("topic_type") not in {"onchain", "developing_story"}:
+                        continue
+                    try:
+                        item0, candidate0 = _build_item_from_candidate(
+                            dict(raw, evidence_as_primary=True), direct_sources, state, now, slot,
+                            use_editorial_api=False)
+                        item0["text"] += "\n\nCryptoAcademy｜" + academy["code"]
+                        validate_test_item(item0)
+                        item, candidate = item0, candidate0
+                        break
+                    except (ValueError, RuntimeError, requests.RequestException):
+                        continue
+            except Exception as exc:
+                logger.info("一次データ解説を使えないため学習用の仮例へ: %s", exc)
+        if item is None:
+            item, candidate = asyncio.run(inu_academy.lesson(academy, slot, ARTIFACT_DIR))
+        item["academy"] = academy
+        persist_review()
+        return stage_prepared(item, candidate, slot, now, args, state_path, state, priority)
+
     # OpenAIのWeb検索とは独立して、公式APIから取得できるオンチェーン急変と
     # 取引所ステータスを先に確認する。平常時の定型投稿には使わず、数値・状態が
     # 明確に変わった場合だけ候補として通す。
@@ -3712,6 +3742,15 @@ def prepare(args: argparse.Namespace) -> int:
             return 0
 
     persist_review()
+    result = stage_prepared(item, candidate, slot, now, args, state_path, state, priority)
+    if not args.dry_run:
+        if selected_signal is not None:
+            promotion_results.append((selected_signal, "reserved", "一次資料・画像・本文を検証済み", item["id"]))
+        persist_promotion_results()
+    return result
+
+
+def stage_prepared(item, candidate, slot, now, args, state_path, state, priority):
     prepared = {
         "slot": slot,
         "prepared_at": now.isoformat(),
@@ -3731,9 +3770,6 @@ def prepare(args: argparse.Namespace) -> int:
             state_path,
             _reserve(state, item, candidate, slot, now, priority=priority),
         )
-        if selected_signal is not None:
-            promotion_results.append((selected_signal, "reserved", "一次資料・画像・本文を検証済み", item["id"]))
-        persist_promotion_results()
     logger.info("毎時投稿を準備: %s / %s", item["id"], candidate["topic_type"])
     logger.info("投稿本文:\n%s", item["text"])
     _emit_output("ready", "true")
@@ -3790,6 +3826,8 @@ def publish(args: argparse.Namespace) -> int:
         "content_fingerprint": content_fingerprint(item.get("text", "")),
         "event_fingerprint": event_fingerprint(candidate),
     }
+    if item.get("academy"):
+        posted_row["academy"] = item["academy"]
     if delivery_mode:
         posted_row.update(
             {

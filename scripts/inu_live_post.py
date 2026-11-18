@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
@@ -155,6 +156,12 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
 
     media_path = _media_path(item["media_path"])
     manifest = _manifest(item["source_manifest"])
+    if item["topic_type"] == "academy_lesson":
+        if (not re.fullmatch(r"CA\d{2}", str(manifest.get("example_code", "")))
+                or not safe_text.endswith("｜" + manifest["example_code"])
+                or "仮の例：" not in safe_text
+                or hashlib.sha256(media_path.read_bytes()).hexdigest() != manifest.get("sha256")):
+            raise ValueError("学習用の仮例と画像が一致しません")
     visual_route = item["visual_route"]
     extra_media = item.get("additional_media", [])
     is_attention_visual = manifest.get("visual_role") == "attention_visual"
