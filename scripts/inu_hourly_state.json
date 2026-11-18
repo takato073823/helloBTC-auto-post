@@ -3294,13 +3294,19 @@
       "checked_at": "2026-08-19T06:57:53.024332+00:00",
       "kind": "watchdog",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-11-18-13-a",
+      "checked_at": "2026-11-18T04:17:40.011023+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-08-24T04:03:40.298218+00:00",
-      "count": 76383,
+      "checked_at": "2026-11-18T04:17:40.011023+00:00",
+      "count": 62684,
       "fastest_fee": 1
     }
   },
@@ -4547,76 +4553,19 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-08-24",
+    "jst_date": "2026-11-18",
     "counts": {
-      "grok_x_search": 6,
-      "openai_web_search": 8,
-      "grok_editorial": 2
+      "grok_editorial": 1,
+      "openai_web_search": 1
     },
     "claims": [
       {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-23T16:03:39.284896+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T16:03:39.284896+00:00"
-      },
-      {
         "action": "grok_editorial",
-        "claimed_at": "2026-08-23T16:03:39.284896+00:00"
+        "claimed_at": "2026-11-18T04:17:40.011023+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-08-23T16:03:39.284896+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-08-23T16:03:39.284896+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-23T18:03:47.306327+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T18:03:47.306327+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T18:03:47.306327+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-23T20:03:43.895554+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T20:03:43.895554+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T20:03:43.895554+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-23T20:17:33.649694+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T20:17:33.649694+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-08-23T20:17:33.649694+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-23T22:03:50.227008+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-08-24T00:03:43.803949+00:00"
+        "claimed_at": "2026-11-18T04:17:40.011023+00:00"
       }
     ]
   }
