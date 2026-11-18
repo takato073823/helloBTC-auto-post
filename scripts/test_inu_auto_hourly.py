@@ -48,6 +48,38 @@ def candidate(**overrides) -> dict:
 
 
 class INUAutoHourlyTests(unittest.TestCase):
+    def test_trend_turn_verifies_one_fresh_event_instead_of_generic_research(self):
+        stale = {"url": "https://x.com/feed/status/10", "published": (NOW-dt.timedelta(hours=25)).isoformat()}
+        fresh = {"url": "https://x.com/feed/status/11", "published": NOW.isoformat()}
+        with patch.object(inu_auto_hourly, "collect_official_x_api_signals", return_value=[stale]), \
+             patch.object(inu_auto_hourly, "collect_grok_discovery_signals", return_value=[fresh]), \
+             patch.object(inu_auto_hourly, "research_candidates") as verify:
+            inu_auto_hourly.research_candidates_with_grok(NOW, {}, prefer_trend=True)
+            verify.assert_called_once_with(NOW, {}, extra_signals=[stale, fresh], focus_signal=fresh)
+
+    def test_regular_trend_slots_precede_direct_data_and_fall_back(self):
+        from contextlib import ExitStack
+        mod = inu_auto_hourly
+        args = mod.build_parser().parse_args(["--prepare", "--dry-run"])
+        direct, trend = candidate(topic_type="onchain"), candidate()
+        for hour, verified, expected in [(13, True, trend), (17, False, direct), (11, True, direct)]:
+            with self.subTest(hour=hour), ExitStack() as stack:
+                def mock(name, **kw):
+                    return stack.enter_context(patch.object(mod, name, **kw))
+                stack.enter_context(patch.dict("os.environ", {"INU_ACADEMY_SCHEDULE":"true",
+                    "INU_ECONOMY_MODE":"true", "INU_SCHEDULE_RUN_KIND":"primary", "INU_KOL_NATIVE_QUOTE_ENABLED":"false"}))
+                mock("_scheduled_slot_key", return_value=f"2026-11-19-{hour}-a")
+                mock("load_state", return_value={})
+                mock("_should_run_paid_web_research", return_value=True)
+                mock("collect_direct_source_candidates", return_value=([direct], []))
+                research = mock("research_candidates_with_grok", return_value=([trend] if verified else [], [], []))
+                build = mock("_build_item_from_candidate", side_effect=lambda c,*a,**kw: ({"text":"draft"}, c))
+                mock("_write_research_review")
+                mock("stage_prepared", return_value=0)
+                self.assertEqual(mod.prepare(args), 0)
+                self.assertEqual(build.call_args.args[0], expected)
+                self.assertEqual(research.call_count, int(hour in {13,17}))
+
     def test_new_educational_categories_have_dedicated_visual_routes(self):
         self.assertEqual(
             "official_data_crop",

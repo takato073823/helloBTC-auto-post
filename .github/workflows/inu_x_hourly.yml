@@ -17,6 +17,11 @@ on:
         required: false
         default: false
         type: boolean
+      regular_slot:
+        description: "Macからの定時主実行（個別投稿では指定しない）"
+        required: false
+        default: false
+        type: boolean
       priority_url:
         description: "自動探索で発見済みの一次資料を再現テストするURL"
         required: false
@@ -112,7 +117,7 @@ jobs:
         id: prepare
         if: github.event_name == 'schedule' || inputs.live == true || inputs.live == 'true'
         env:
-          INU_ACADEMY_SCHEDULE: ${{ (github.event_name == 'schedule' || inputs.recovery == true) && 'true' || 'false' }}
+          INU_ACADEMY_SCHEDULE: ${{ (github.event_name == 'schedule' || inputs.regular_slot == true || inputs.recovery == true) && 'true' || 'false' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           X_API_KEY: ${{ secrets.X_API_KEY }}
@@ -123,7 +128,7 @@ jobs:
           INU_RESEARCH_MODEL: gpt-5.6-luna
           INU_ECONOMY_MODE: true
           INU_ECONOMY_WEB_RESEARCH_INTERVAL_HOURS: 4
-          INU_FORCE_PAID_RESEARCH: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
+          INU_FORCE_PAID_RESEARCH: ${{ github.event_name == 'workflow_dispatch' && !inputs.regular_slot && !inputs.recovery && 'true' || 'false' }}
           INU_GROK_X_SEARCH_ENABLED: true
           INU_GROK_EDITORIAL_ENABLED: true
           XAI_RESEARCH_MODEL: grok-4.3

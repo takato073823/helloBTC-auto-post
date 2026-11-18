@@ -1162,6 +1162,7 @@ def research_candidates_with_grok(
     state: dict,
     target_topic: str | None = None,
     focus_signal: dict[str, str] | None = None,
+    prefer_trend: bool = False,
 ) -> tuple[list[dict], list[dict[str, str]], list[dict[str, str]]]:
     """実測X APIとGrokの発見シグナルを併用し、失敗時もWeb調査で継続する。"""
     if focus_signal:
@@ -1194,6 +1195,17 @@ def research_candidates_with_grok(
         seen_urls.add(url)
         unique.append(signal)
     kwargs: dict[str, object] = {"extra_signals": unique}
+    if prefer_trend:
+        for signal in unique:
+            try:
+                age = now - _parse_timestamp(str(signal.get("published", "")))
+            except ValueError:
+                continue
+            if (is_x_url(signal["url"]) and "/status/" in signal["url"]
+                    and dt.timedelta(0) <= age <= dt.timedelta(hours=24)):
+                # Use the same search budget, but verify this exact event against a primary source.
+                kwargs["focus_signal"] = signal
+                break
     if target_topic:
         kwargs["target_topic"] = target_topic
     return research_candidates(now, state, **kwargs)
@@ -3440,6 +3452,10 @@ def prepare(args: argparse.Namespace) -> int:
         persist_review()
         return stage_prepared(item, candidate, slot, now, args, state_path, state, priority)
 
+    trend_turn = (priority == "scheduled" and not args.slot and scheduled_kind == "primary"
+                  and os.getenv("INU_ACADEMY_SCHEDULE") == "true"
+                  and slot.endswith(("-13-a", "-17-a")))
+
     # OpenAIのWeb検索とは独立して、公式APIから取得できるオンチェーン急変と
     # 取引所ステータスを先に確認する。平常時の定型投稿には使わず、数値・状態が
     # 明確に変わった場合だけ候補として通す。
@@ -3500,10 +3516,10 @@ def prepare(args: argparse.Namespace) -> int:
             except Exception as exc:
                 failure_reasons.append(f"海外KOL引用探索失敗: {exc}"[:260])
                 logger.info("海外KOLのネイティブ引用候補を見送り: %s", exc)
-        if item is None and paid_web_research and not economy_recovery and not direct_candidates:
+        if item is None and paid_web_research and not economy_recovery and (trend_turn or not direct_candidates):
             try:
                 candidates, sources, signals = research_candidates_with_grok(
-                    now, state, target_topic=target_topic
+                    now, state, target_topic=target_topic, **({"prefer_trend": True} if trend_turn else {})
                 )
             except Exception as exc:
                 if _is_paid_research_quota_error(exc):
@@ -3606,10 +3622,12 @@ def prepare(args: argparse.Namespace) -> int:
             _emit_output("ready", "false")
             return 0
 
+    if item is None and trend_turn and candidates:
+        try_candidates(candidates, sources, phase="トレンド優先探索")
     if item is None and direct_candidates:
         try_candidates(direct_candidates, direct_sources, phase="直接一次データ")
 
-    if item is None:
+    if item is None and not trend_turn:
         try_candidates(candidates, sources, phase="一次探索")
 
     # 外部X投稿は発見・一次資料照合に使う。ネイティブ引用は、アカウントの権限で
