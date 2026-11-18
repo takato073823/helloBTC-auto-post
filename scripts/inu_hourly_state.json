@@ -3372,51 +3372,20 @@
       "checked_at": "2026-11-18T08:03:39.001655+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
-    }
-  ],
-  "research_queue": [
+    },
     {
-      "candidate": {
-        "has_candidate": true,
-        "skip_reason": "",
-        "topic_type": "macro_event",
-        "hook": "🏦FOMC議事要旨を本日公表",
-        "facts": [
-          "米連邦準備制度は11月18日14時ETに議事要旨を公表予定。",
-          "直近会合では政策金利を3.75〜4.00%に維持した。"
-        ],
-        "opinion": "利下げ観測の変化が、暗号資産の流動性評価を左右します。",
-        "source_name": "Federal Reserve",
-        "source_url": "https://www.federalreserve.gov/monetarypolicy.htm?upgrade=true",
-        "published_at": "2026-11-18T00:00:00-05:00",
-        "evidence_anchor": "Nov. 18 FOMC Minutes",
-        "evidence_as_primary": false,
-        "visual_route": "official_data_crop",
-        "tags": [
-          "FOMC",
-          "金融政策"
-        ],
-        "why_now": "議事要旨の公開時刻が当日確定している",
-        "reader_interest": "金利見通しとリスク資産の反応を確認できます",
-        "follow_value": "次は議事要旨の利下げ議論を確認",
-        "is_primary_source": true,
-        "corroborating_source_urls": [],
-        "focus_signal_url": ""
-      },
-      "sources": [
-        {
-          "url": "https://www.federalreserve.gov/monetarypolicy.htm?upgrade=true",
-          "title": ""
-        }
-      ],
-      "queued_at": "2026-11-18T06:03:41.554383+00:00"
+      "slot": "2026-11-18-19-a",
+      "checked_at": "2026-11-18T10:03:42.257330+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
+  "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-18T08:03:39.001655+00:00",
-      "count": 61502,
-      "fastest_fee": 2
+      "checked_at": "2026-11-18T10:03:42.257330+00:00",
+      "count": 64919,
+      "fastest_fee": 3
     }
   },
   "delivery_failures": [
@@ -4664,7 +4633,7 @@
   "api_usage": {
     "jst_date": "2026-11-18",
     "counts": {
-      "grok_editorial": 8,
+      "grok_editorial": 9,
       "openai_web_search": 5,
       "grok_x_search": 2
     },
@@ -4728,6 +4697,10 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-18T08:03:39.001655+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T10:03:42.257330+00:00"
       }
     ]
   },
@@ -4753,6 +4726,33 @@
           "feature": "quantity",
           "limit": "表示は到達の指標。見せ方の効果・参加や売買の根拠ではない。",
           "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        }
+      ],
+      "status": "調査済み"
+    },
+    "2026-11-18-19-a": {
+      "slot": "2026-11-18-19-a",
+      "researched_at": "2026-11-18T10:03:42.257330+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
       "status": "調査済み"
