@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-11-18T10:03:42.257330+00:00",
-  "slot": "2026-11-18-19-a",
+  "generated_at": "2026-11-18T12:03:54.787419+00:00",
+  "slot": "2026-11-18-21-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-17T10:03:42.257330+00:00",
-    "to": "2026-11-18T10:03:42.257330+00:00"
+    "from": "2026-11-17T12:03:54.787419+00:00",
+    "to": "2026-11-18T12:03:54.787419+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,47 +34,97 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 26,
     "research_engine_evidence": {
       "xai_x_search": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 1,
+        "status": "used"
       },
       "hermes_packet": {
         "signal_count": 0,
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 3,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 9,
+          "used": 12,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 5,
+          "used": 7,
           "limit": 8
         }
       },
-      "xai_signal_shortlist": []
+      "xai_signal_shortlist": [
+        {
+          "title": "BTC・ETH現物ETF、7取引日で計17.33億ドル超純流出",
+          "url": "https://x.com/CoinankCN/status/2122967858091041154",
+          "published": "2026-11-18T08:19:14+00:00"
+        }
+      ]
     },
     "candidate_shortlist": [
       {
+        "topic_type": "institutional_custody",
+        "hook": "🏦 DBS、アジアで$USDC直結",
+        "published_at": "2026-11-18T00:00:00+00:00",
+        "source_url": "https://www.dbs.com/NewsPrinter.page?locale=en&newsId=mwgm942s",
+        "why_now": "11月18日に発表され、機関向けステーブルコイン決済の利用条件が変わった。"
+      },
+      {
+        "topic_type": "etf_flow",
+        "hook": "📉 IBIT純資産、500億ドル割れ",
+        "published_at": "2026-11-17T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-artificial-intelligence-and-tech-active-etf",
+        "why_now": "11月17日に最新残高が更新され、前営業日比で約8.18億ドル減った。"
+      },
+      {
         "topic_type": "macro_event",
-        "hook": "🏦FOMC議事要旨を本日公表",
-        "published_at": "2026-11-18T00:00:00-05:00",
-        "source_url": "https://www.federalreserve.gov/monetarypolicy.htm?upgrade=true",
-        "why_now": "議事要旨の公開時刻が当日確定している"
+        "hook": "🏦 米FOMC議事要旨を公表",
+        "published_at": "2026-11-18T00:00:00+00:00",
+        "source_url": "https://www.federalreserve.gov/newsevents.htm",
+        "why_now": "11月18日発表予定の議事要旨が、米金利とリスク資産の材料になる。"
+      },
+      {
+        "topic_type": "whale_treasury",
+        "hook": "🇯🇵 メタプラネット、$BTC4.4万枚",
+        "published_at": "2026-11-18T00:00:00+00:00",
+        "source_url": "https://metaplanet.jp/en?lang=ja",
+        "why_now": "公式サイトで最新保有数が確認でき、直近決算では通期予想も修正された。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "📊 NVIDIA売上1158億ドル",
+        "published_at": "2026-11-17T00:00:00+00:00",
+        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+        "why_now": "11月17日発表の決算が、暗号資産と株式のリスク選好を左右する材料になった。"
       }
     ],
     "rejected_reasons": [
-      "一次探索1: 継続フォローする具体的な価値が不足しています"
+      "一次探索1: 根拠原文が一次資料ページ内に確認できません",
+      "一次探索2: 同じ一次資料は投稿済みまたは予約済みです",
+      "一次探索3: 公表予定だけで具体的な変化がないため自動投稿できません",
+      "一次探索4: この系統の鮮度上限を超えています",
+      "一次探索5: 公式ページの説明だけでは自動投稿できません",
+      "一次探索6: 過去24時間以内に確認できる、ログイン不要の公式HTML一次資料で、暗号資産価格への直接的な新規影響を示す取引所・セキュリティ事案は確認できなかった。",
+      "再探索1: 金融機関のカストディに関する具体的な決定がありません",
+      "再探索2: 独立した裏付けURLがWeb検索の参照元一覧にありません",
+      "再探索3: 公表予定だけで具体的な変化がないため自動投稿できません",
+      "再探索4: 公表予定だけで具体的な変化がないため自動投稿できません"
     ]
   }
 }
