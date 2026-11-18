@@ -1481,6 +1481,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "b1430610e88c903ee6d35a74381158eb889cdf1375d75fff98419810889f05c1",
       "event_fingerprint": "d6ff8c57e0812ae9ff92197c25352af09ad8f0d07ae75106da5ab437d1ff7520"
+    },
+    {
+      "slot": "2026-11-18-15-a",
+      "post_id": "inu_auto_39147eaad10136",
+      "tweet_id": "2122934178690044358",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "published_at": "2026-11-17T00:00:00-05:00",
+      "posted_at": "2026-11-18T06:05:25.317197+00:00",
+      "hook": "📊NVIDIA、売上1158億ドル",
+      "follow_value": "次はデータセンター売上と株価反応を確認",
+      "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
+      "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
     }
   ],
   "posted_ids": [
@@ -1592,23 +1608,10 @@
     "inu_overseas_kol_2091471407951782095",
     "inu_overseas_kol_2091520374261379323",
     "inu_market_2026_08_24_07_a_crypto-tao-usd",
-    "inu_market_2026_11_18_13_a_crypto-icp-usd"
+    "inu_market_2026_11_18_13_a_crypto-icp-usd",
+    "inu_auto_39147eaad10136"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-18-15-a",
-      "post_id": "inu_auto_39147eaad10136",
-      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
-      "topic_type": "earnings",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-18T06:03:41.554383+00:00",
-      "lease_expires_at": "2026-11-18T06:33:41.554383+00:00",
-      "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
-      "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3147,6 +3150,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "b1430610e88c903ee6d35a74381158eb889cdf1375d75fff98419810889f05c1",
       "event_fingerprint": "d6ff8c57e0812ae9ff92197c25352af09ad8f0d07ae75106da5ab437d1ff7520"
+    },
+    {
+      "slot": "2026-11-18-15-a",
+      "post_id": "inu_auto_39147eaad10136",
+      "tweet_id": "2122934178690044358",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "published_at": "2026-11-17T00:00:00-05:00",
+      "posted_at": "2026-11-18T06:05:25.317197+00:00",
+      "hook": "📊NVIDIA、売上1158億ドル",
+      "follow_value": "次はデータセンター売上と株価反応を確認",
+      "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
+      "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
     }
   ],
   "scheduled_checks": [

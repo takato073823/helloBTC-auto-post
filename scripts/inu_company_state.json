@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32273676980",
-      "started_at": "2026-08-19T16:03:46.018516+00:00",
-      "completed_at": "2026-08-19T16:03:57.278231+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-20-01-a",
-      "post_id": "inu_overseas_kol_2090064939012775973",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "e2bea7cbc5a43321c24d61e56dcc3b8ccaf37870eb9a066d1deaaf0e5726c997",
-      "event_fingerprint": "b496523a34aa025907c0cacf493e0ee6193f528be39e1b5ca9038273f4dc2ea0"
-    },
-    {
-      "run_id": "32273676980",
       "started_at": "2026-08-19T16:04:01.191583+00:00",
       "mode": "publish",
       "departments": {
@@ -5665,6 +5644,22 @@
       "topic_type": "earnings",
       "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
       "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
+    },
+    {
+      "run_id": "44248488704",
+      "started_at": "2026-11-18T06:05:24.448621+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-18-15-a",
+      "post_id": "inu_auto_39147eaad10136",
+      "topic_type": "earnings",
+      "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
+      "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68",
+      "status": "published",
+      "completed_at": "2026-11-18T06:05:25.323124+00:00"
     }
   ]
 }
