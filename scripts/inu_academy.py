@@ -1,7 +1,7 @@
 """Finite CryptoAcademy pre-launch series. All slot decisions use Japan time."""
 import datetime as dt
 import hashlib
-import html
+import inu_academy_poster
 import json
 import re
 from pathlib import Path
@@ -60,7 +60,6 @@ QUESTIONS = [
 
 
 async def lesson(meta, slot, directory):
-    from playwright.async_api import async_playwright
     from inu_live_post import validate_test_item
     qa = meta["format"] == "初心者Q&A"
     rows = QUESTIONS if qa else EXAMPLES
@@ -70,18 +69,12 @@ async def lesson(meta, slot, directory):
     text = f"{hook}\n\n仮の例：{left}、{right}。\n{answer}\n\nCryptoAcademy｜{code}"
     directory.mkdir(parents=True, exist_ok=True)
     image = directory / f"{slot}-{code}.png"
-    parts = [html.escape(v) for v in (meta["format"], title, left, right, answer, code)]
-    markup = "<meta charset=utf-8><style>*{box-sizing:border-box}body{margin:0;background:#f0f6fa;color:#142c40;font:30px sans-serif;padding:56px}small{color:#256763}h1{font-size:46px;margin:32px 0}section{background:white;border-left:10px solid #238779;padding:18px;margin:12px 0}p{line-height:1.5;font-size:32px}</style>" + ("<small>CryptoAcademy ｜ {} ｜ 仮の例</small><h1>{}</h1><section>{}</section><section>{}</section><p>{}</p><small>{}</small>".format(*parts))
-    async with async_playwright() as p:
-        browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": 1000, "height": 680})
-        await page.set_content(markup)
-        await page.screenshot(path=str(image), full_page=True)
-        await browser.close()
+    poster = inu_academy_poster.render(text, image, code, example=True)
     source = image.with_suffix(".json")
     source.write_text(json.dumps({"evidence_type": "academy_worked_example", "example_code": code,
         "sha256": hashlib.sha256(image.read_bytes()).hexdigest()}))
     item = dict(id=f"academy_{code}", text=text, topic_type="academy_lesson", visual_route="academy_worked_example",
-                media_path=str(image.relative_to(ROOT)), source_manifest=str(source.relative_to(ROOT)))
+                media_path=str(image.relative_to(ROOT)), source_manifest=str(source.relative_to(ROOT)),
+                academy=meta, academy_poster=dict(poster, path=str(image.relative_to(ROOT))))
     validate_test_item(item)
     return item, dict(topic_type="academy_lesson", hook=hook, source_url="", published_at="", why_now="14日間の学習企画（仮例・ニュースではない）", follow_value=answer)

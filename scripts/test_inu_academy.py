@@ -14,6 +14,16 @@ import inu_auto_hourly as hourly
 
 
 class PilotTests(unittest.TestCase):
+    def setUp(self):
+        from PIL import Image
+        import inu_academy_poster as poster
+        def fake_image(prompt, path, **kwargs):
+            Image.new("RGB", (768, 960), "#153c70").save(path)
+        for name, effect in (("generate_image", fake_image), ("check_pixels", lambda *a: None)):
+            p = patch.object(poster, name, side_effect=effect)
+            setattr(self, name, p.start())
+            self.addCleanup(p.stop)
+
     def test_window_balance(self):
         slots = list(planned())
         self.assertEqual(len({m["code"] for _, m in slots}), 28)
@@ -36,7 +46,6 @@ class PilotTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render([], {}, {"CA01": 2})
 
-    @unittest.skipUnless(os.getenv("ACADEMY_RENDER_TEST"), "requires installed Chromium")
     def test_scheduled_pipeline_records_only_confirmed_publication(self):
         slot, meta = list(planned())[1]
         with tempfile.TemporaryDirectory(dir=a.ROOT) as path:
@@ -55,8 +64,45 @@ class PilotTests(unittest.TestCase):
                 self.assertEqual(hourly.prepare(args), 0)
                 self.assertEqual(json.loads(state.read_text())["history"][-1]["academy"], meta)
                 send.assert_called_once()
+                self.generate_image.assert_called_once()
 
-    @unittest.skipUnless(os.getenv("ACADEMY_RENDER_TEST"), "requires installed Chromium")
+    def test_failed_review_never_creates_publishable_lesson(self):
+        self.check_pixels.side_effect = ValueError("review failed")
+        slot, meta = next(planned())
+        with tempfile.TemporaryDirectory(dir=a.ROOT) as path:
+            with self.assertRaisesRegex(ValueError, "review failed"):
+                asyncio.run(a.lesson(meta, slot, Path(path)))
+            self.assertFalse(list(Path(path).glob("*.json")))
+
+    def test_official_source_attaches_only_the_checked_poster(self):
+        from PIL import Image
+        from inu_live_post import validated_media_paths
+        slot, meta = next(planned())
+        with tempfile.TemporaryDirectory(dir=a.ROOT) as tmp:
+            path = Path(tmp)
+            cap = path / "source.png"
+            Image.new("RGB", (640, 640)).save(cap)
+            manifest = path / "source.json"
+            manifest.write_text(json.dumps(dict(evidence_type="official_data_crop", is_primary_source=True,
+                                                 source_url="https://example.org/report")))
+            item = dict(id="onchain_1", text="ネットワークの利用状況を確認しました。", topic_type="onchain",
+                        visual_route="official_data_crop", media_path=str(cap.relative_to(a.ROOT)),
+                        source_manifest=str(manifest.relative_to(a.ROOT)))
+            candidate = dict(topic_type="onchain", why_now="test", source_url="https://example.org/report")
+            args = hourly.build_parser().parse_args(["--prepare","--dry-run","--state",str(path/"state.json")])
+            with patch.dict(os.environ, {"INU_ACADEMY_SCHEDULE":"true"}), \
+                    patch.object(hourly, "_scheduled_slot_key", return_value=slot), \
+                    patch.object(hourly, "collect_direct_source_candidates", return_value=([candidate], [])), \
+                    patch.object(hourly, "_build_item_from_candidate", return_value=(item,candidate)), \
+                    patch.object(hourly, "ARTIFACT_DIR", path), patch.object(hourly,"PREPARED_PATH",path/"prepared.json"), \
+                    patch.object(hourly, "RESEARCH_REVIEW_PATH", path/"review.json"):
+                self.assertEqual(hourly.prepare(args), 0)
+            actual = json.loads((path/"prepared.json").read_text())["item"]
+            self.assertEqual(actual["topic_type"], "onchain")
+            self.assertEqual(validated_media_paths(actual)[1], [path / (slot+"-"+meta["code"]+".png")])
+            with self.assertRaises(ValueError):
+                validated_media_paths(dict(actual, academy_poster={}))
+
     def test_all_lessons_pass_delivery_gates(self):
         async def simulate(directory):
             state = {}

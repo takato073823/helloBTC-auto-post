@@ -3429,7 +3429,14 @@ def prepare(args: argparse.Namespace) -> int:
                 logger.info("一次データ解説を使えないため学習用の仮例へ: %s", exc)
         if item is None:
             item, candidate = asyncio.run(inu_academy.lesson(academy, slot, ARTIFACT_DIR))
+        else:
+            # Keep the official capture as internal evidence, never as the attached poster.
+            from inu_academy_poster import render
+            path = ARTIFACT_DIR / f"{slot}-{academy['code']}.png"
+            item["academy_poster"] = dict(render(item["text"], path, academy["code"], example=False),
+                                          path=_repo_relative(path))
         item["academy"] = academy
+        validate_test_item(item)
         persist_review()
         return stage_prepared(item, candidate, slot, now, args, state_path, state, priority)
 

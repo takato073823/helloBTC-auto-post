@@ -231,6 +231,18 @@ def validated_media_paths(item: dict) -> tuple[str, list[Path]]:
         raise ValueError("投稿画像は4枚までです")
     if not evidence_found:
         raise ValueError("投稿の根拠画像がありません")
+    if item.get("academy") or item["topic_type"] == "academy_lesson":
+        poster = item.get("academy_poster") or {}
+        code = (item.get("academy") or {}).get("code", "")
+        if (not re.fullmatch(r"CA\d{2}", code) or not safe_text.endswith("｜" + code)
+                or poster.get("code") != code or poster.get("method") != "whole_image_generation"
+                or poster.get("review") != "passed"
+                or poster.get("caption_sha256") != hashlib.sha256(item["text"].encode()).hexdigest()):
+            raise ValueError("検証済みの集客ポスターがありません")
+        full = _media_path(poster["path"])
+        if hashlib.sha256(full.read_bytes()).hexdigest() != poster.get("sha256"):
+            raise ValueError("検証後に集客ポスターが変更されています")
+        return safe_text, [full]
     return safe_text, media_paths
 
 
