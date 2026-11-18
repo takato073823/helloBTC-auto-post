@@ -2993,6 +2993,40 @@ def _recent_market_fallback_products(state: dict, now: dt.datetime) -> set[str]:
     return products
 
 
+def _latest_market_post_is_within_cooldown(state: dict, now: dt.datetime) -> bool:
+    """直近の市場投稿が新しい場合だけ、連続する価格投稿を抑制する。
+
+    履歴はGitで永続化されるため、停止期間を挟むと数か月前の投稿が末尾に残る。
+    その古い投稿まで「直近」と見なすと、一次資料が少ない時間帯で市場投稿の
+    fallbackが永久に封じられ、定期枠が空になる。日時が残る行は同じ6時間の
+    クールダウンだけを適用し、日時がない旧形式の行だけは安全側で抑制する。
+    """
+    history = _recent_history(state)
+    if not history:
+        return False
+    latest = history[-1]
+    if str(latest.get("topic_type", "")) not in {
+        "crypto_market",
+        "us_stock",
+        "jp_stock",
+    }:
+        return False
+    timestamp = next(
+        (
+            latest.get(key)
+            for key in ("posted_at", "reserved_at", "published_at")
+            if latest.get(key)
+        ),
+        None,
+    )
+    if not timestamp:
+        return True
+    try:
+        return _parse_timestamp(str(timestamp)) >= now - MARKET_FALLBACK_PRODUCT_COOLDOWN
+    except (TypeError, ValueError):
+        return True
+
+
 def _stock_closed_candles(now: dt.datetime, asset: StockAsset) -> tuple[list[dict], dict]:
     """Yahoo Financeの確定済み1時間足を、銘柄画面との照合用に整形する。"""
     response = requests.get(
@@ -3088,8 +3122,7 @@ def build_market_data_fallback(
     slot: str,
 ) -> tuple[dict, dict]:
     """二度の一次情報探索が不発時だけ、強い市場変動だけを実画面で伝える。"""
-    last_topic = str((_recent_history(state) or [{}])[-1].get("topic_type", ""))
-    if last_topic in {"crypto_market", "us_stock", "jp_stock"}:
+    if _latest_market_post_is_within_cooldown(state, now):
         raise RuntimeError(
             "直近の定期投稿が価格速報のため、非価格カテゴリーの一次資料を優先します"
         )

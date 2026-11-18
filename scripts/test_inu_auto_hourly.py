@@ -269,6 +269,17 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "2026-08-04-21",
             )
 
+    def test_stale_market_post_does_not_block_a_new_fallback(self):
+        state = {
+            "history": [
+                {
+                    "topic_type": "crypto_market",
+                    "posted_at": (NOW - dt.timedelta(days=2)).isoformat(),
+                }
+            ]
+        }
+        self.assertFalse(inu_auto_hourly._latest_market_post_is_within_cooldown(state, NOW))
+
     def test_paid_research_quota_error_is_distinguished_from_source_errors(self):
         self.assertTrue(
             inu_auto_hourly._is_paid_research_quota_error(
