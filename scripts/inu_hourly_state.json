@@ -1594,7 +1594,21 @@
     "inu_market_2026_08_24_07_a_crypto-tao-usd",
     "inu_market_2026_11_18_13_a_crypto-icp-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-18-15-a",
+      "post_id": "inu_auto_39147eaad10136",
+      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "topic_type": "earnings",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-18T06:03:41.554383+00:00",
+      "lease_expires_at": "2026-11-18T06:33:41.554383+00:00",
+      "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
+      "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3335,11 +3349,48 @@
       "result": "no_verified_candidate"
     }
   ],
-  "research_queue": [],
+  "research_queue": [
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "macro_event",
+        "hook": "🏦FOMC議事要旨を本日公表",
+        "facts": [
+          "米連邦準備制度は11月18日14時ETに議事要旨を公表予定。",
+          "直近会合では政策金利を3.75〜4.00%に維持した。"
+        ],
+        "opinion": "利下げ観測の変化が、暗号資産の流動性評価を左右します。",
+        "source_name": "Federal Reserve",
+        "source_url": "https://www.federalreserve.gov/monetarypolicy.htm?upgrade=true",
+        "published_at": "2026-11-18T00:00:00-05:00",
+        "evidence_anchor": "Nov. 18 FOMC Minutes",
+        "evidence_as_primary": false,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "FOMC",
+          "金融政策"
+        ],
+        "why_now": "議事要旨の公開時刻が当日確定している",
+        "reader_interest": "金利見通しとリスク資産の反応を確認できます",
+        "follow_value": "次は議事要旨の利下げ議論を確認",
+        "is_primary_source": true,
+        "corroborating_source_urls": [],
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://www.federalreserve.gov/monetarypolicy.htm?upgrade=true",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-11-18T06:03:41.554383+00:00"
+    }
+  ],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-18T04:24:00.367182+00:00",
-      "count": 63808,
+      "checked_at": "2026-11-18T06:03:41.554383+00:00",
+      "count": 61591,
       "fastest_fee": 2
     }
   },
@@ -4588,8 +4639,9 @@
   "api_usage": {
     "jst_date": "2026-11-18",
     "counts": {
-      "grok_editorial": 3,
-      "openai_web_search": 2
+      "grok_editorial": 5,
+      "openai_web_search": 3,
+      "grok_x_search": 1
     },
     "claims": [
       {
@@ -4611,6 +4663,22 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-18T04:24:00.367182+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-18T06:03:41.554383+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-18T06:03:41.554383+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T06:03:41.554383+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T06:03:41.554383+00:00"
       }
     ]
   }
