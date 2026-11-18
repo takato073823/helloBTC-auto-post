@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32265525926",
-      "started_at": "2026-08-19T14:42:13.370222+00:00",
-      "completed_at": "2026-08-19T14:42:22.465588+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-19-23-a",
-      "post_id": "inu_overseas_kol_2090059729531965824",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "a0c047a149aa31ffcade1ca3dc876a365b46d267e1f938c9ec480ad7f4fb3593",
-      "event_fingerprint": "5f26b64978f6a367581968b652e94f2163149a7d4340bb6e7760bf10bd66039e"
-    },
-    {
-      "run_id": "32265525926",
       "started_at": "2026-08-19T14:42:27.280752+00:00",
       "mode": "publish",
       "departments": {
@@ -5666,6 +5645,22 @@
       "topic_type": "crypto_market",
       "content_fingerprint": "b1430610e88c903ee6d35a74381158eb889cdf1375d75fff98419810889f05c1",
       "event_fingerprint": "d6ff8c57e0812ae9ff92197c25352af09ad8f0d07ae75106da5ab437d1ff7520"
+    },
+    {
+      "run_id": "44236978715",
+      "started_at": "2026-11-18T04:25:35.713224+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-18-13-a",
+      "post_id": "inu_market_2026_11_18_13_a_crypto-icp-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "b1430610e88c903ee6d35a74381158eb889cdf1375d75fff98419810889f05c1",
+      "event_fingerprint": "d6ff8c57e0812ae9ff92197c25352af09ad8f0d07ae75106da5ab437d1ff7520",
+      "status": "published",
+      "completed_at": "2026-11-18T04:25:36.565412+00:00"
     }
   ]
 }
