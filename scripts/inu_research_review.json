@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-18T18:03:45.331381+00:00",
-  "slot": "2026-11-19-03-a",
+  "generated_at": "2026-11-18T20:03:39.806276+00:00",
+  "slot": "2026-11-19-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-17T18:03:45.331381+00:00",
-    "to": "2026-11-18T18:03:45.331381+00:00"
+    "from": "2026-11-17T20:03:39.806276+00:00",
+    "to": "2026-11-18T20:03:39.806276+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📉 $AERO、24時間で-4.53％"
+      "🏦 Circle、DBSと$USDC接続を拡大\n\nCircleは11月18日、DBSの機関投資家向けに$USDCの発行・償還を拡大。\n24時間・ほぼ即時のUSD-$USDC決済を提供する。\n\n銀行経由の$USDC流動性が増え、アジア機関投資家の利用障壁が下がる。"
     ],
-    "public_compact_post": "📉 $AERO、24時間で-4.53％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.4252。24時間で-4.53％の下落。\n3日高値0.4543、安値0.4090。レンジ内36％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "public_compact_post": "🏦 Circle、DBSと$USDC接続を拡大\n\nCircleは11月18日、DBSの機関投資家向けに$USDCの発行・償還を拡大。\n24時間・ほぼ即時のUSD-$USDC決済を提供する。\n\n銀行経由の$USDC流動性が増え、アジア機関投資家の利用障壁が下がる。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,22 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📉 $AERO、24時間で-4.53％",
-    "verified_facts": [],
-    "market_or_user_impact": "AEROの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "selected_topic": "institutional_flow",
+    "selected_hook": "🏦 Circle、DBSとUSDC接続を拡大",
+    "verified_facts": [
+      "Circleは11月18日、DBSの機関投資家向けにUSDCの発行・償還を拡大。",
+      "24時間・ほぼ即時のUSD-USDC決済を提供する。"
+    ],
+    "market_or_user_impact": "アジアの銀行経由でUSDCの資金移動が速くなる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "次はDBS経由の発行・償還額を確認する。",
     "primary_source": {
-      "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-AEROUSD",
-      "verified": false
+      "name": "Circle",
+      "url": "https://www.circle.com/pressroom",
+      "verified": true
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +50,69 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 0,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 0,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 0,
+          "used": 1,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
+    "candidate_shortlist": [
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦 Circle、DBSとUSDC接続を拡大",
+        "published_at": "2026-11-18T00:00:00+00:00",
+        "source_url": "https://www.circle.com/pressroom",
+        "why_now": "11月18日に新たな機関投資家向けアクセス拡大が発表された。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦FRB、トークン決済に信頼を要求",
+        "published_at": "2026-11-17T14:10:00-05:00",
+        "source_url": "https://www.federalreserve.gov/newsevents/speech/waller20261117a.htm",
+        "why_now": "直近のFRB理事発言で、制度設計の評価軸が明確になった。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️Coinbase、Injective送受信遅延",
+        "published_at": "2026-11-18T05:33:00-08:00",
+        "source_url": "https://status.coinbase.com",
+        "why_now": "過去24時間に実際の送受信障害と復旧が記録された。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "📈Coinbase、USDC保有220億ドル",
+        "published_at": "2026-10-29T00:00:00-07:00",
+        "source_url": "https://investor.coinbase.com/news/news-details/2026/Coinbase-Q3-2026-Earnings-Show-All-time-high-Coinbase-One-Subscribers-and-Prediction-Markets-Surpassing-200-Million-in-Annualized-Revenue",
+        "why_now": "過去24時間の市場材料として、取引所の最新開示からUSDC需給を確認できる。"
+      },
+      {
+        "topic_type": "supply_event",
+        "hook": "💵USDC流通量、680億ドル",
+        "published_at": "2026-11-16T00:00:00+00:00",
+        "source_url": "https://www.circle.com/transparency",
+        "why_now": "公式データが11月16日時点に更新され、直近の市場流動性を示す。"
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "📊NVIDIA、AI売上1076億ドル",
+        "published_at": "2026-11-17T00:00:00-08:00",
+        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+        "why_now": "11月17日の決算でAI需要の最新実績が更新された。"
+      }
+    ],
     "rejected_reasons": []
   }
 }

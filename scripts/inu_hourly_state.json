@@ -1611,7 +1611,22 @@
     "inu_market_2026_11_18_13_a_crypto-icp-usd",
     "inu_auto_39147eaad10136"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-19-05-a",
+      "post_id": "inu_auto_d05998135ab0d5",
+      "source_url": "https://www.circle.com/pressroom",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-18T20:03:39.806276+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-18T20:33:39.806276+00:00",
+      "content_fingerprint": "aac1c3c0001235422a2e5e9251964d1cfc4bfbb113c6a21451b45bd6326840bc",
+      "event_fingerprint": "197c90d5c27538e339893878b20034a5c6c9113940fea81c5ece9b05ab73a89d"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3401,9 +3416,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-18T18:03:45.331381+00:00",
-      "count": 78966,
-      "fastest_fee": 4
+      "checked_at": "2026-11-18T20:03:39.806276+00:00",
+      "count": 73137,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -4657,8 +4672,25 @@
   "external_blocks": {},
   "api_usage": {
     "jst_date": "2026-11-19",
-    "counts": {},
-    "claims": []
+    "counts": {
+      "grok_x_search": 1,
+      "openai_web_search": 1,
+      "grok_editorial": 1
+    },
+    "claims": [
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-18T20:03:39.806276+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-18T20:03:39.806276+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-18T20:03:39.806276+00:00"
+      }
+    ]
   },
   "success_case_audit": {
     "2026-11-18-17-a": {
@@ -4796,6 +4828,36 @@
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_19_03_a_crypto-aero-usd",
       "caption_hash": "5819924c015d5ebcb589214cff1241dd5c7335cb89835a3852a4dd59963eae29"
+    },
+    "2026-11-19-05-a": {
+      "slot": "2026-11-19-05-a",
+      "researched_at": "2026-11-18T20:03:39.806276+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_auto_d05998135ab0d5",
+      "caption_hash": "0e8782541dbde3dd4397236b8f4be67cb345273f2f93544ee1d728f8bc3519ed"
     }
   }
 }
