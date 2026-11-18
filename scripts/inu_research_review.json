@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-18T04:17:40.011023+00:00",
+  "generated_at": "2026-11-18T04:24:00.367182+00:00",
   "slot": "2026-11-18-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-17T04:17:40.011023+00:00",
-    "to": "2026-11-18T04:17:40.011023+00:00"
+    "from": "2026-11-17T04:24:00.367182+00:00",
+    "to": "2026-11-18T04:24:00.367182+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
     "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "posts": [
+      "📉 $ICP、24時間で-8.23％"
+    ],
+    "public_compact_post": "📉 $ICP、24時間で-8.23％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 2.261。24時間で-8.23％の下落。\n3日高値2.564、安値2.158。レンジ内25％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,15 +24,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📉 $ICP、24時間で-8.23％",
     "verified_facts": [],
-    "market_or_user_impact": "",
+    "market_or_user_impact": "ICPの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "",
+      "url": "https://www.tradingview.com/symbols/COINBASE-ICPUSD",
       "verified": false
     },
     "corroborating_sources": [],
@@ -54,11 +56,11 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 1,
+          "used": 3,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 1,
+          "used": 2,
           "limit": 8
         }
       },
@@ -75,7 +77,10 @@
     ],
     "rejected_reasons": [
       "直接一次データ1: 数字・条件・決定など、読者が判断できる変化がありません",
-      "再探索1: 2026年11月18日13:17 JST時点で、発表から24時間以内に該当する一次資料を確認できませんでした。BEAとBLSは当日の公開予定を示すページのみで、数値・条件・決定を含む公開済みHTML本文を確認できず、Strategy・SEC・CFTC・Coinbase Statusの確認済みページも24時間以内の新規発表ではありません。最低3件の候補を一次資料だけで成立させる条件を満たせないため、無理に候補化しません。"
+      "再探索1: 継続フォロー価値が公式発表の紹介だけになっています",
+      "再探索2: 403 Client Error: Forbidden for url: https://www.cftc.gov/PressRoom/PressReleases/9327-26",
+      "再探索3: 公開日時が未来です",
+      "再探索4: 現在時刻から24時間以内に公開済みで、数値・条件・決定を含む別主体の一次HTML資料を最低3件確認するには不足がありました。BLSとBEAは現時点で予定表示、Coinbase・Visa・Strategyの確認できた資料は24時間を超えています。"
     ]
   }
 }
