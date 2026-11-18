@@ -214,6 +214,8 @@ jobs:
       - name: 毎時投稿履歴を保存
         if: steps.publish.outcome == 'success'
         run: |
+          python scripts/inu_case_review.py
+          git add docs/inu-success-cases.md
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add scripts/inu_hourly_state.json scripts/inu_x_research_state.json

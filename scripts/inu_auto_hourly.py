@@ -22,6 +22,7 @@ from bs4 import BeautifulSoup
 from inu_content_types import get_content_policy
 from inu_cost_control import claim_api_call, usage_snapshot
 import inu_academy
+import inu_case_review
 from inu_editorial_policy import (
     AUTO_SELECTABLE_TOPIC_TYPES,
     AUTO_POST_PLAYBOOK,
@@ -1196,7 +1197,8 @@ def research_candidates_with_grok(
         unique.append(signal)
     kwargs: dict[str, object] = {"extra_signals": unique}
     if prefer_trend:
-        for signal in unique:
+        for signal in inu_case_review.rank(unique, state.get("success_case_audit", {}).get(
+                _scheduled_slot_key(now, _scheduled_run_kind()))):
             try:
                 age = now - _parse_timestamp(str(signal.get("published", "")))
             except ValueError:
@@ -2422,6 +2424,7 @@ def _reserve(
             "generated_editorial_visual": bool(candidate.get("generated_editorial_visual")),
             "market_key": str(candidate.get("market_key", "")),
             "reserved_at": now.isoformat(),
+            "requires_case_review": bool(item.get("requires_case_review")),
             "lease_expires_at": reservation_expiry(now),
             "content_fingerprint": item_fingerprint,
             "event_fingerprint": candidate_fingerprint,
@@ -3420,11 +3423,22 @@ def prepare(args: argparse.Namespace) -> int:
 
     academy = (inu_academy.assignment(slot) if priority == "scheduled" and not args.slot
                and os.getenv("INU_ACADEMY_SCHEDULE") == "true" else None)
+    review = None
+    if priority == "scheduled" and not args.slot and os.getenv("INU_ACADEMY_SCHEDULE") == "true":
+        try:
+            review = inu_case_review.research(slot, now, state, academy)
+        except (KeyError, ValueError, OSError) as exc:
+            logger.warning("成功事例の事前調査を確認できず、作成も公開もしません: %s", exc)
+            _emit_output("ready", "false")
+            return 0
+        state.setdefault("success_case_audit", {})[slot] = review
+        if not args.dry_run:
+            save_state(state_path, state)
     if academy:
         if academy["format"] == "図で検証":
             try:
                 direct_candidates, direct_sources = collect_direct_source_candidates(now, state)
-                for raw in direct_candidates:
+                for raw in inu_case_review.rank(direct_candidates, review):
                     if raw.get("topic_type") not in {"onchain", "developing_story"}:
                         continue
                     try:
@@ -3440,7 +3454,7 @@ def prepare(args: argparse.Namespace) -> int:
             except Exception as exc:
                 logger.info("一次データ解説を使えないため学習用の仮例へ: %s", exc)
         if item is None:
-            item, candidate = asyncio.run(inu_academy.lesson(academy, slot, ARTIFACT_DIR))
+            item, candidate = asyncio.run(inu_academy.lesson(academy, slot, ARTIFACT_DIR, review=review))
         else:
             # Keep the official capture as internal evidence, never as the attached poster.
             from inu_academy_poster import render
@@ -3544,7 +3558,7 @@ def prepare(args: argparse.Namespace) -> int:
         phase: str,
     ) -> None:
         nonlocal item, candidate
-        for position, option in enumerate(options, start=1):
+        for position, option in enumerate(inu_case_review.rank(options, review), start=1):
             host = (urlsplit(str(option.get("source_url", ""))).hostname or "").lower()
             if host and host in unreachable_hosts:
                 reason = "同一時間枠でこの一次サイトへの接続失敗を確認済みです"
@@ -3776,6 +3790,13 @@ def prepare(args: argparse.Namespace) -> int:
 
 
 def stage_prepared(item, candidate, slot, now, args, state_path, state, priority):
+    if priority == "scheduled" and not args.slot and os.getenv("INU_ACADEMY_SCHEDULE") == "true":
+        review = state.get("success_case_audit", {}).get(slot)
+        if not review or not review.get("references"):
+            raise ValueError("事前の成功事例分析がないため予約しません")
+        review.update(actual_use=inu_case_review.application(review, item["text"]), status="準備済み",
+                      post_id=item["id"], caption_hash=hashlib.sha256(item["text"].encode()).hexdigest())
+        item["requires_case_review"] = True
     prepared = {
         "slot": slot,
         "prepared_at": now.isoformat(),
@@ -3822,6 +3843,12 @@ def publish(args: argparse.Namespace) -> int:
     )
     if reservation is None:
         raise RuntimeError("永続化済みの投稿予約がないため公開しません")
+    review = state.get("success_case_audit", {}).get(slot)
+    if reservation.get("requires_case_review") or item.get("requires_case_review"):
+        if (not review or not review.get("references") or not review.get("actual_use")
+                or review.get("post_id") != item["id"]
+                or review.get("caption_hash") != hashlib.sha256(item["text"].encode()).hexdigest()):
+            raise RuntimeError("成功事例の履歴と公開原稿が一致しないため公開しません")
     if any(row.get("slot") == slot for row in state.get("posted_slots", [])):
         logger.info("この時間はすでに公開済みです: %s", slot)
         return 0
@@ -3853,6 +3880,8 @@ def publish(args: argparse.Namespace) -> int:
     }
     if item.get("academy"):
         posted_row["academy"] = item["academy"]
+    if reservation.get("requires_case_review"):
+        review.update(status="公開済み", tweet_id=str(tweet_id))
     if delivery_mode:
         posted_row.update(
             {

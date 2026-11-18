@@ -59,7 +59,7 @@ QUESTIONS = [
 ]
 
 
-async def lesson(meta, slot, directory):
+async def lesson(meta, slot, directory, *, review=None):
     from inu_live_post import validate_test_item
     qa = meta["format"] == "初心者Q&A"
     rows = QUESTIONS if qa else EXAMPLES
@@ -67,6 +67,9 @@ async def lesson(meta, slot, directory):
     code = meta["code"]
     hook = ("💬 " if qa else "🔎 ") + title
     text = f"{hook}\n\n仮の例：{left}、{right}。\n{answer}\n\nCryptoAcademy｜{code}"
+    if review and any(ref["feature"] == "learn" for ref in review["references"]):
+        # Keep both approved example inputs and the answer; let the reader work it out first.
+        text = f"{hook}\n\n仮の例：\n{left}\n{right}\n\n{answer}\n\nCryptoAcademy｜{code}"
     directory.mkdir(parents=True, exist_ok=True)
     image = directory / f"{slot}-{code}.png"
     poster = inu_academy_poster.render(text, image, code, example=True)
