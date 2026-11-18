@@ -93,10 +93,9 @@ jobs:
           INU_MAX_GROK_X_SEARCHES_PER_DAY: 6
           INU_MAX_GROK_EDITORIALS_PER_DAY: 12
           INU_MAX_OPENAI_WEB_SEARCHES_PER_DAY: 8
-          # 厳選済み海外KOLの新着動画・画像を、Xネイティブ引用の候補として使う。
-          # 元投稿はX APIで取得し、本文はOpenAIで事実を日本語化するだけに限定する。
-          # X投稿は発見に使い、公開候補は一次情報へ戻って検証する。
-          INU_KOL_NATIVE_QUOTE_ENABLED: true
+          # 海外KOLは発見・一次資料照合にだけ使う。外部投稿のネイティブ引用は
+          # X API権限により403となるため、通常の自動枠では使わない。
+          INU_KOL_NATIVE_QUOTE_ENABLED: false
           INU_ECONOMY_GENERATED_VISUALS: true
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
           INU_IMAGE_PROVIDER: openai
@@ -131,7 +130,7 @@ jobs:
           INU_MAX_GROK_X_SEARCHES_PER_DAY: 6
           INU_MAX_GROK_EDITORIALS_PER_DAY: 12
           INU_MAX_OPENAI_WEB_SEARCHES_PER_DAY: 8
-          INU_KOL_NATIVE_QUOTE_ENABLED: true
+          INU_KOL_NATIVE_QUOTE_ENABLED: false
           INU_ECONOMY_GENERATED_VISUALS: true
           INU_ECONOMY_MAX_GENERATED_VISUALS_PER_DAY: 6
           INU_IMAGE_PROVIDER: openai

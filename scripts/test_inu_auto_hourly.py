@@ -1845,6 +1845,8 @@ class INUAutoHourlyTests(unittest.TestCase):
                 "research_candidates",
                 return_value=(options, [{"url": row["source_url"], "title": "source"} for row in options], []),
             ), patch.object(
+                inu_auto_hourly, "collect_direct_source_candidates", return_value=([], [])
+            ), patch.object(
                 inu_auto_hourly,
                 "_build_item_from_candidate",
                 side_effect=[ValueError("first rejected"), (item, options[1])],
@@ -1916,6 +1918,8 @@ class INUAutoHourlyTests(unittest.TestCase):
         }
         with patch.dict("os.environ", {"INU_SCHEDULE_RUN_KIND": "fallback"}, clear=False), patch.object(
             inu_auto_hourly, "load_state", return_value=state
+        ), patch.object(
+            inu_auto_hourly, "collect_direct_source_candidates", return_value=([], [])
         ), patch.object(inu_auto_hourly, "research_candidates_with_grok") as research:
             with tempfile.TemporaryDirectory() as directory, patch.object(
                 inu_auto_hourly, "PREPARED_PATH", Path(directory) / "prepared.json"

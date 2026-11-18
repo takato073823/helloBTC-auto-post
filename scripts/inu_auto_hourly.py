@@ -3542,10 +3542,17 @@ def prepare(args: argparse.Namespace) -> int:
     if item is None:
         try_candidates(candidates, sources, phase="一次探索")
 
-    # 広域Web検索が同じX話題の一次資料を候補化できなかった場合でも、xAIが
-    # 公式URL・根拠原文・視覚素材を揃えたシグナルは捨てない。一次ページ本文を
-    # ローカルで再照合したうえで、元投稿の画像・動画を保持する引用へ昇格する。
-    if item is None and not priority_url and not target_topic and signals:
+    # 外部X投稿は発見・一次資料照合に使う。ネイティブ引用は、アカウントの権限で
+    # 拒否される環境があるため、明示的に許可したときだけ使う。通常の自動枠では
+    # 一次資料から作るINU独自の画像付き投稿を優先し、引用失敗で定時投稿全体を
+    # 止めない。
+    if (
+        item is None
+        and not priority_url
+        and not target_topic
+        and signals
+        and _kol_native_quote_enabled()
+    ):
         xai_quote = _build_xai_verified_quote_item(now, state, signals)
         if xai_quote:
             item, candidate = xai_quote
