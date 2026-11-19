@@ -1672,7 +1672,22 @@
     "inu_market_2026_11_19_17_a_crypto-irys-usd",
     "academy_CA02"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-19-23-a",
+      "post_id": "inu_market_2026_11_19_23_a_crypto-sky-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-SKYUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:SKY-USD",
+      "reserved_at": "2026-11-19T14:03:39.107851+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-19T14:33:39.107851+00:00",
+      "content_fingerprint": "56897c5c00ee1bc09221188e8b0818cb7346b3ba657569c8751211f08e6cb44a",
+      "event_fingerprint": "fc49ae2a6e311df355706a39365f74d036df34a1a0f507b43f8dc0a63f048bf4"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3532,9 +3547,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-19T10:03:50.196471+00:00",
-      "count": 68887,
-      "fastest_fee": 2
+      "checked_at": "2026-11-19T14:03:39.107851+00:00",
+      "count": 63084,
+      "fastest_fee": 4
     }
   },
   "delivery_failures": [
@@ -5164,6 +5179,36 @@
       "post_id": "academy_CA02",
       "caption_hash": "b5a3db21827bccac5d87d07b8b036c957de9764e933ae07e296256ad5917c6d7",
       "tweet_id": "2123386862714720311"
+    },
+    "2026-11-19-23-a": {
+      "slot": "2026-11-19-23-a",
+      "researched_at": "2026-11-19T14:03:39.107851+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_19_23_a_crypto-sky-usd",
+      "caption_hash": "5a6d3cd20f25bdb3cac1ad0cdf41ec7df610b5e7701a877cd39b43bbf4714a66"
     }
   }
 }

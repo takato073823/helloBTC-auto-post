@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T12:03:35.161289+00:00",
-  "slot": "2026-11-19-21-a",
+  "generated_at": "2026-11-19T14:03:39.107851+00:00",
+  "slot": "2026-11-19-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T12:03:35.161289+00:00",
-    "to": "2026-11-19T12:03:35.161289+00:00"
+    "from": "2026-11-18T14:03:39.107851+00:00",
+    "to": "2026-11-19T14:03:39.107851+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💬 手数料0.1％は100円？\n\n仮の例：\n取引額 1万円\n取引額 10万円\n\n同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA02"
+      "📉 $SKY、24時間で-15.50％"
     ],
-    "public_compact_post": "💬 手数料0.1％は100円？\n\n仮の例：\n取引額 1万円\n取引額 10万円\n\n同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA02"
+    "public_compact_post": "📉 $SKY、24時間で-15.50％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.0440。24時間で-15.50％の下落。\n3日高値0.0543、安値0.0428。レンジ内10％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +24,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "💬 手数料0.1％は100円？",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📉 $SKY、24時間で-15.50％",
     "verified_facts": [],
-    "market_or_user_impact": "",
+    "market_or_user_impact": "SKYの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "",
+      "url": "https://www.tradingview.com/symbols/COINBASE-SKYUSD",
       "verified": false
     },
     "corroborating_sources": [],
