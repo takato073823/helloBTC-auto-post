@@ -1650,7 +1650,22 @@
     "academy_CA01",
     "inu_market_2026_11_19_17_a_crypto-irys-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-19-21-a",
+      "post_id": "academy_CA02",
+      "source_url": "",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-19T12:03:35.161289+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-19T12:33:35.161289+00:00",
+      "content_fingerprint": "d97269181b7e52fdd1fcb796e1a8b52d721d15bd9fddbf367cc208ae887958ee",
+      "event_fingerprint": "e57d380cbc975afa421c71bf35397609c622bd235354ad0c4105ba47d7eda9ab"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -5084,6 +5099,42 @@
         }
       ],
       "status": "調査済み"
+    },
+    "2026-11-19-21-a": {
+      "slot": "2026-11-19-21-a",
+      "researched_at": "2026-11-19T12:03:35.161289+00:00",
+      "goal": "集客",
+      "compared": 3,
+      "references": [
+        {
+          "url": "https://blog.ethereum.org/2026/02/17/ethereum-protocol-studies-26",
+          "result": "主催者が累計数百人の学習参加を報告",
+          "observed": "2026-02-17",
+          "feature": "learn",
+          "limit": "クリプト教育の類例。個別のX投稿経由の入会数・理解度チェック単独の効果は不明。",
+          "application": "学習目標を一つに絞り、具体例の後に自分で確かめられる答えを示す"
+        },
+        {
+          "url": "https://business.x.com/ja/success-stories/solution-tree",
+          "result": "教育イベント告知キャンペーンで35万表示以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "visual",
+          "limit": "有料施策を含む表示実績。自然投稿の効果や参加完了数ではない。",
+          "application": "初心者が抱く疑問を一つ選び、本文と同じ要点に画像を絞る"
+        },
+        {
+          "url": "https://academy.trezor.io/",
+          "result": "主催者発表：30カ国以上・参加者2,500人以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "next_step",
+          "limit": "現地の教育施策全体の実績。Xの誘導文単体の参加効果ではない。",
+          "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
+      "post_id": "academy_CA02",
+      "caption_hash": "b5a3db21827bccac5d87d07b8b036c957de9764e933ae07e296256ad5917c6d7"
     }
   }
 }

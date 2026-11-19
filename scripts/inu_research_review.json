@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T10:03:50.196471+00:00",
-  "slot": "2026-11-19-19-a",
+  "generated_at": "2026-11-19T12:03:35.161289+00:00",
+  "slot": "2026-11-19-21-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T10:03:50.196471+00:00",
-    "to": "2026-11-19T10:03:50.196471+00:00"
+    "from": "2026-11-18T12:03:35.161289+00:00",
+    "to": "2026-11-19T12:03:35.161289+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
     "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "posts": [
+      "💬 手数料0.1％は100円？\n\n仮の例：\n取引額 1万円\n取引額 10万円\n\n同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA02"
+    ],
+    "public_compact_post": "💬 手数料0.1％は100円？\n\n仮の例：\n取引額 1万円\n取引額 10万円\n\n同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA02"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,12 +24,12 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
+    "selected_topic": "academy_lesson",
+    "selected_hook": "💬 手数料0.1％は100円？",
     "verified_facts": [],
     "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。",
     "primary_source": {
       "name": "",
       "url": "",
