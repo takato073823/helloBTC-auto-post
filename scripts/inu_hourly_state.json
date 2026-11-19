@@ -1497,6 +1497,27 @@
       "follow_value": "次はデータセンター売上と株価反応を確認",
       "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
       "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
+    },
+    {
+      "slot": "2026-11-19-09-a",
+      "post_id": "academy_CA01",
+      "tweet_id": "2123205725639917917",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-19T00:04:27.196873+00:00",
+      "hook": "🔎 10％下がった後、10％上がれば元通り？",
+      "follow_value": "10％下落の後、元の価格に戻るには約11.1％の上昇が必要。分母が違います。",
+      "content_fingerprint": "f8a98db7a05e25a2f02f00ab83f792caae7c5ebf539eab8d7707af172d063baf",
+      "event_fingerprint": "90a17f786ed663d80f416960fe4f89a6e8c7fc586309fe5465aafdc19cc05586",
+      "academy": {
+        "code": "CA01",
+        "day": 0,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -1609,24 +1630,10 @@
     "inu_overseas_kol_2091520374261379323",
     "inu_market_2026_08_24_07_a_crypto-tao-usd",
     "inu_market_2026_11_18_13_a_crypto-icp-usd",
-    "inu_auto_39147eaad10136"
+    "inu_auto_39147eaad10136",
+    "academy_CA01"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-19-09-a",
-      "post_id": "academy_CA01",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-19T00:03:46.176309+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-19T00:33:46.176309+00:00",
-      "content_fingerprint": "f8a98db7a05e25a2f02f00ab83f792caae7c5ebf539eab8d7707af172d063baf",
-      "event_fingerprint": "90a17f786ed663d80f416960fe4f89a6e8c7fc586309fe5465aafdc19cc05586"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3181,6 +3188,27 @@
       "follow_value": "次はデータセンター売上と株価反応を確認",
       "content_fingerprint": "acf991df2bbbb24f680efd4bb28ef21506c7b60a166993c53aa20de03dc03c29",
       "event_fingerprint": "3805bde4cea9f30bf23fd87c680e2cef9e51885abf334da9558be8cac8eb9b68"
+    },
+    {
+      "slot": "2026-11-19-09-a",
+      "post_id": "academy_CA01",
+      "tweet_id": "2123205725639917917",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-19T00:04:27.196873+00:00",
+      "hook": "🔎 10％下がった後、10％上がれば元通り？",
+      "follow_value": "10％下落の後、元の価格に戻るには約11.1％の上昇が必要。分母が違います。",
+      "content_fingerprint": "f8a98db7a05e25a2f02f00ab83f792caae7c5ebf539eab8d7707af172d063baf",
+      "event_fingerprint": "90a17f786ed663d80f416960fe4f89a6e8c7fc586309fe5465aafdc19cc05586",
+      "academy": {
+        "code": "CA01",
+        "day": 0,
+        "format": "図で検証"
+      }
     }
   ],
   "scheduled_checks": [
@@ -4897,10 +4925,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA01",
-      "caption_hash": "4cb4a8ea4e36e79d194c82a974b3fffe992355ba2b157ad90c17e88e3eea0bf3"
+      "caption_hash": "4cb4a8ea4e36e79d194c82a974b3fffe992355ba2b157ad90c17e88e3eea0bf3",
+      "tweet_id": "2123205725639917917"
     }
   }
 }

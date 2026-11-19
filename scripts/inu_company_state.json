@@ -2,22 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32298081626",
-      "started_at": "2026-08-19T20:22:16.186021+00:00",
-      "completed_at": "2026-08-19T20:22:16.189927+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "not_started",
-        "quality": "not_started",
-        "distribution": "not_started",
-        "reliability": "observed"
-      },
-      "status": "no_publishable_candidate"
-    },
-    {
       "run_id": "32306942489",
       "started_at": "2026-08-19T22:03:37.030387+00:00",
       "completed_at": "2026-08-19T22:05:25.870628+00:00",
@@ -5654,6 +5638,22 @@
       "topic_type": "academy_lesson",
       "content_fingerprint": "f8a98db7a05e25a2f02f00ab83f792caae7c5ebf539eab8d7707af172d063baf",
       "event_fingerprint": "90a17f786ed663d80f416960fe4f89a6e8c7fc586309fe5465aafdc19cc05586"
+    },
+    {
+      "run_id": "44425827326",
+      "started_at": "2026-11-19T00:04:25.995287+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-19-09-a",
+      "post_id": "academy_CA01",
+      "topic_type": "academy_lesson",
+      "content_fingerprint": "f8a98db7a05e25a2f02f00ab83f792caae7c5ebf539eab8d7707af172d063baf",
+      "event_fingerprint": "90a17f786ed663d80f416960fe4f89a6e8c7fc586309fe5465aafdc19cc05586",
+      "status": "published",
+      "completed_at": "2026-11-19T00:04:27.214567+00:00"
     }
   ]
 }
