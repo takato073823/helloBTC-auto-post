@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T00:03:46.176309+00:00",
-  "slot": "2026-11-19-09-a",
+  "generated_at": "2026-11-19T04:03:48.389665+00:00",
+  "slot": "2026-11-19-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T00:03:46.176309+00:00",
-    "to": "2026-11-19T00:03:46.176309+00:00"
+    "from": "2026-11-18T04:03:48.389665+00:00",
+    "to": "2026-11-19T04:03:48.389665+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "🔎 10％下がった後、10％上がれば元通り？\n\n仮の例：\n100円 → 90円\n翌日90円 → 100円\n\n10％下落の後、元の価格に戻るには約11.1％の上昇が必要。分母が違います。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA01"
-    ],
-    "public_compact_post": "🔎 10％下がった後、10％上がれば元通り？\n\n仮の例：\n100円 → 90円\n翌日90円 → 100円\n\n10％下落の後、元の価格に戻るには約11.1％の上昇が必要。分母が違います。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA01"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +22,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "🔎 10％下がった後、10％上がれば元通り？",
+    "selected_topic": "",
+    "selected_hook": "",
     "verified_facts": [],
     "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "10％下落の後、元の価格に戻るには約11.1％の上昇が必要。分母が違います。",
+    "next_watch": "",
     "primary_source": {
       "name": "",
       "url": "",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +45,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 1,
+          "used": 2,
           "limit": 6
         },
         "grok_editorial": {
@@ -60,13 +58,18 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 1,
+          "used": 3,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
     "candidate_shortlist": [],
-    "rejected_reasons": []
+    "rejected_reasons": [
+      "再探索1: 根拠原文が一次資料ページ内に確認できません",
+      "再探索2: この系統の鮮度上限を超えています",
+      "再探索3: 同じ一次資料は投稿済みまたは予約済みです",
+      "再探索4: この系統の鮮度上限を超えています"
+    ]
   }
 }

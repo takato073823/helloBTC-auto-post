@@ -3439,13 +3439,19 @@
       "checked_at": "2026-11-18T14:59:47.255724+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-11-19-13-a",
+      "checked_at": "2026-11-19T04:03:48.389665+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-19T00:03:46.176309+00:00",
-      "count": 66503,
+      "checked_at": "2026-11-19T04:03:48.389665+00:00",
+      "count": 62869,
       "fastest_fee": 1
     }
   },
@@ -4708,8 +4714,8 @@
   "api_usage": {
     "jst_date": "2026-11-19",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 1,
+      "grok_x_search": 2,
+      "openai_web_search": 3,
       "grok_editorial": 1
     },
     "claims": [
@@ -4724,6 +4730,18 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-18T20:03:39.806276+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-19T04:03:48.389665+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-19T04:03:48.389665+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-19T04:03:48.389665+00:00"
       }
     ]
   },
@@ -4930,6 +4948,33 @@
       "post_id": "academy_CA01",
       "caption_hash": "4cb4a8ea4e36e79d194c82a974b3fffe992355ba2b157ad90c17e88e3eea0bf3",
       "tweet_id": "2123205725639917917"
+    },
+    "2026-11-19-13-a": {
+      "slot": "2026-11-19-13-a",
+      "researched_at": "2026-11-19T04:03:48.389665+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "調査済み"
     }
   }
 }
