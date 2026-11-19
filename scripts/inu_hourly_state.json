@@ -1534,6 +1534,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "5c85aabd774d5b658e64a457e5acb43507a0beff9eac1837c5f193c244949fda",
       "event_fingerprint": "c1859360f32762e660fee543dc8cbaf9fccc2bab6ae9407db1ed279e9949f630"
+    },
+    {
+      "slot": "2026-11-19-21-a",
+      "post_id": "academy_CA02",
+      "tweet_id": "2123386862714720311",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-19T12:04:13.668601+00:00",
+      "hook": "💬 手数料0.1％は100円？",
+      "follow_value": "同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。",
+      "content_fingerprint": "d97269181b7e52fdd1fcb796e1a8b52d721d15bd9fddbf367cc208ae887958ee",
+      "event_fingerprint": "e57d380cbc975afa421c71bf35397609c622bd235354ad0c4105ba47d7eda9ab",
+      "academy": {
+        "code": "CA02",
+        "day": 0,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -1648,24 +1669,10 @@
     "inu_market_2026_11_18_13_a_crypto-icp-usd",
     "inu_auto_39147eaad10136",
     "academy_CA01",
-    "inu_market_2026_11_19_17_a_crypto-irys-usd"
+    "inu_market_2026_11_19_17_a_crypto-irys-usd",
+    "academy_CA02"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-19-21-a",
-      "post_id": "academy_CA02",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-19T12:03:35.161289+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-19T12:33:35.161289+00:00",
-      "content_fingerprint": "d97269181b7e52fdd1fcb796e1a8b52d721d15bd9fddbf367cc208ae887958ee",
-      "event_fingerprint": "e57d380cbc975afa421c71bf35397609c622bd235354ad0c4105ba47d7eda9ab"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3257,6 +3264,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "5c85aabd774d5b658e64a457e5acb43507a0beff9eac1837c5f193c244949fda",
       "event_fingerprint": "c1859360f32762e660fee543dc8cbaf9fccc2bab6ae9407db1ed279e9949f630"
+    },
+    {
+      "slot": "2026-11-19-21-a",
+      "post_id": "academy_CA02",
+      "tweet_id": "2123386862714720311",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-19T12:04:13.668601+00:00",
+      "hook": "💬 手数料0.1％は100円？",
+      "follow_value": "同じ0.1％でも手数料は10円と100円。率には、何に掛けるかという条件があります。",
+      "content_fingerprint": "d97269181b7e52fdd1fcb796e1a8b52d721d15bd9fddbf367cc208ae887958ee",
+      "event_fingerprint": "e57d380cbc975afa421c71bf35397609c622bd235354ad0c4105ba47d7eda9ab",
+      "academy": {
+        "code": "CA02",
+        "day": 0,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -5131,10 +5159,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA02",
-      "caption_hash": "b5a3db21827bccac5d87d07b8b036c957de9764e933ae07e296256ad5917c6d7"
+      "caption_hash": "b5a3db21827bccac5d87d07b8b036c957de9764e933ae07e296256ad5917c6d7",
+      "tweet_id": "2123386862714720311"
     }
   }
 }
