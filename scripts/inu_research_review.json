@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T14:03:39.107851+00:00",
-  "slot": "2026-11-19-23-a",
+  "generated_at": "2026-11-19T15:08:43.550609+00:00",
+  "slot": "2026-11-20-00-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T14:03:39.107851+00:00",
-    "to": "2026-11-19T14:03:39.107851+00:00"
+    "from": "2026-11-18T15:08:43.550609+00:00",
+    "to": "2026-11-19T15:08:43.550609+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "📉 $SKY、24時間で-15.50％"
-    ],
-    "public_compact_post": "📉 $SKY、24時間で-15.50％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.0440。24時間で-15.50％の下落。\n3日高値0.0543、安値0.0428。レンジ内10％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +22,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📉 $SKY、24時間で-15.50％",
+    "selected_topic": "",
+    "selected_hook": "",
     "verified_facts": [],
-    "market_or_user_impact": "SKYの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-SKYUSD",
+      "url": "",
       "verified": false
     },
     "corroborating_sources": [],
@@ -52,15 +50,15 @@
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 3,
+          "used": 0,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 1,
+          "used": 0,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 5,
+          "used": 0,
           "limit": 8
         }
       },
