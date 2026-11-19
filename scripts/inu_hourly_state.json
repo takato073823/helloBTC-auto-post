@@ -1633,7 +1633,22 @@
     "inu_auto_39147eaad10136",
     "academy_CA01"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-19-17-a",
+      "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-IRYSUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:IRYS-USD",
+      "reserved_at": "2026-11-19T08:03:43.576136+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-19T08:33:43.576136+00:00",
+      "content_fingerprint": "5c85aabd774d5b658e64a457e5acb43507a0beff9eac1837c5f193c244949fda",
+      "event_fingerprint": "c1859360f32762e660fee543dc8cbaf9fccc2bab6ae9407db1ed279e9949f630"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3450,8 +3465,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-19T04:03:48.389665+00:00",
-      "count": 62869,
+      "checked_at": "2026-11-19T08:03:43.576136+00:00",
+      "count": 67993,
       "fastest_fee": 1
     }
   },
@@ -4714,8 +4729,8 @@
   "api_usage": {
     "jst_date": "2026-11-19",
     "counts": {
-      "grok_x_search": 2,
-      "openai_web_search": 3,
+      "grok_x_search": 3,
+      "openai_web_search": 5,
       "grok_editorial": 1
     },
     "claims": [
@@ -4742,6 +4757,18 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-11-19T04:03:48.389665+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-19T08:03:43.576136+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-19T08:03:43.576136+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-19T08:03:43.576136+00:00"
       }
     ]
   },
@@ -4975,6 +5002,36 @@
         }
       ],
       "status": "調査済み"
+    },
+    "2026-11-19-17-a": {
+      "slot": "2026-11-19-17-a",
+      "researched_at": "2026-11-19T08:03:43.576136+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
+      "caption_hash": "b90c2719d1525b46439e895726053788ad70a63a24e8544b29d65a0a64a61858"
     }
   }
 }

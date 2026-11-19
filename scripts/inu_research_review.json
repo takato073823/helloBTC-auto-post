@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T04:03:48.389665+00:00",
-  "slot": "2026-11-19-13-a",
+  "generated_at": "2026-11-19T08:03:43.576136+00:00",
+  "slot": "2026-11-19-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T04:03:48.389665+00:00",
-    "to": "2026-11-19T04:03:48.389665+00:00"
+    "from": "2026-11-18T08:03:43.576136+00:00",
+    "to": "2026-11-19T08:03:43.576136+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
     "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "posts": [
+      "📈 $IRYS、24時間で+49.68％"
+    ],
+    "public_compact_post": "📈 $IRYS、24時間で+49.68％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.0236。24時間で+49.68％の上昇。\n3日高値0.0261、安値0.0140。レンジ内79％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,35 +24,35 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📈 $IRYS、24時間で+49.68％",
     "verified_facts": [],
-    "market_or_user_impact": "",
+    "market_or_user_impact": "IRYSの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "",
+      "url": "https://www.tradingview.com/symbols/COINBASE-IRYSUSD",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 1,
     "research_engine_evidence": {
       "xai_x_search": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 1,
+        "status": "used"
       },
       "hermes_packet": {
         "signal_count": 0,
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 3,
           "limit": 6
         },
         "grok_editorial": {
@@ -58,18 +60,21 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 3,
+          "used": 5,
           "limit": 8
         }
       },
-      "xai_signal_shortlist": []
+      "xai_signal_shortlist": [
+        {
+          "title": "韓国、初の年輸出額1兆ドル達成",
+          "url": "https://x.com/WatcherGuru/status/2123304540040724768",
+          "published": "2026-11-19T06:37:06+00:00"
+        }
+      ]
     },
     "candidate_shortlist": [],
     "rejected_reasons": [
-      "再探索1: 根拠原文が一次資料ページ内に確認できません",
-      "再探索2: この系統の鮮度上限を超えています",
-      "再探索3: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索4: この系統の鮮度上限を超えています"
+      "再探索失敗: OpenAIの出力が途中で終了しました: IncompleteDetails(reason='max_output_tokens')"
     ]
   }
 }
