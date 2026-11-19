@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T20:03:47.145056+00:00",
-  "slot": "2026-11-20-05-a",
+  "generated_at": "2026-11-19T22:53:03.693683+00:00",
+  "slot": "2026-11-20-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T20:03:47.145056+00:00",
-    "to": "2026-11-19T20:03:47.145056+00:00"
+    "from": "2026-11-18T22:53:03.693683+00:00",
+    "to": "2026-11-19T22:53:03.693683+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "🏦日銀植田総裁、11月19日に国会報告\n\n日銀の植田総裁は11月19日、通貨・金融の半期報告について参院財政金融委で説明。\n暗号資産の直接決定ではないが、円金利と流動性を左右する政策発言を確認する機会。\n\n円金利の見通しは、日本の投資家が見る暗号資産の資金環境にも波及します。"
-    ],
-    "public_compact_post": "🏦日銀植田総裁、11月19日に国会報告\n\n日銀の植田総裁は11月19日、通貨・金融の半期報告について参院財政金融委で説明。\n暗号資産の直接決定ではないが、円金利と流動性を左右する政策発言を確認する機会。\n\n円金利の見通しは、日本の投資家が見る暗号資産の資金環境にも波及します。"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,22 +22,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "policy_household",
-    "selected_hook": "🏦日銀植田総裁、11月19日に国会報告",
-    "verified_facts": [
-      "日銀の植田総裁は11月19日、通貨・金融の半期報告について参院財政金融委で説明。",
-      "暗号資産の直接決定ではないが、円金利と流動性を左右する政策発言を確認する機会。"
-    ],
-    "market_or_user_impact": "円金利とリスク資産の資金環境を確認できる。",
+    "selected_topic": "",
+    "selected_hook": "",
+    "verified_facts": [],
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "次は12月17・18日の金融政策会合を確認する。",
+    "next_watch": "",
     "primary_source": {
-      "name": "日本銀行",
-      "url": "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
-      "verified": true
+      "name": "",
+      "url": "",
+      "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -50,8 +45,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -71,50 +66,15 @@
     },
     "candidate_shortlist": [
       {
-        "topic_type": "regulatory_rule_change",
-        "hook": "⚠️SEC、暗号資産詐欺で8社を提訴",
-        "published_at": "2026-11-19T00:00:00-05:00",
-        "source_url": "https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors",
-        "why_now": "同日発表で、SNS経由の暗号資産詐欺被害額が3700万ドル超と具体化したため。"
-      },
-      {
         "topic_type": "prediction_market_shift",
         "hook": "📊Polymarket、$BTCの6.2万ドル超を84％",
         "published_at": "2026-11-20T05:03:47+09:00",
         "source_url": "https://polymarket.com/event/bitcoin-above-on-november-20-2026?marketSlug=bitcoin-above-60k-on-november-20-2026&outcomeIndex=0",
         "why_now": "11月20日判定の市場が進行中で、6.2万ドルの確率と取引量が更新されているため。"
-      },
-      {
-        "topic_type": "adoption_kpi",
-        "hook": "🏦DBS、機関投資家のUSDC利用を拡大",
-        "published_at": "2026-11-18T00:00:00+00:00",
-        "source_url": "https://www.circle.com/pressroom",
-        "why_now": "アジアの大手銀行経由で機関向けUSDCの発行・償還アクセスが更新されたため。"
-      },
-      {
-        "topic_type": "policy_household",
-        "hook": "🏦日銀植田総裁、11月19日に国会報告",
-        "published_at": "2026-11-19T00:00:00+09:00",
-        "source_url": "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
-        "why_now": "11月19日に日銀総裁の国会報告が公式更新され、円金利材料が追加されたため。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "📈IBIT、保有BTCは79万2005枚",
-        "published_at": "2026-11-10T00:00:00-05:00",
-        "source_url": "https://www.ishares.com/us/products/overview-v3-ishares-fund-data?portfolioId=333011&seoSlug=ishares-bit",
-        "why_now": "公式保有データが更新され、ETF経由の$BTC保有規模を定量確認できるため。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "💵USDC流通量、680億ドルに到達",
-        "published_at": "2026-11-16T00:00:00+00:00",
-        "source_url": "https://www.circle.com/usdc",
-        "why_now": "公式データでUSDC流通量が680億ドルと更新され、暗号資産のドル流動性を確認できるため。"
       }
     ],
     "rejected_reasons": [
-      "一次探索1: この系統の鮮度上限を超えています"
+      "一次探索1: 根拠原文が一次資料ページ内に確認できません"
     ]
   }
 }
