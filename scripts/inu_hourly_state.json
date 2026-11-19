@@ -3478,14 +3478,20 @@
       "checked_at": "2026-11-19T04:03:48.389665+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-11-19-19-a",
+      "checked_at": "2026-11-19T10:03:50.196471+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-19T08:03:43.576136+00:00",
-      "count": 67993,
-      "fastest_fee": 1
+      "checked_at": "2026-11-19T10:03:50.196471+00:00",
+      "count": 68887,
+      "fastest_fee": 2
     }
   },
   "delivery_failures": [
@@ -5051,6 +5057,33 @@
       "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
       "caption_hash": "b90c2719d1525b46439e895726053788ad70a63a24e8544b29d65a0a64a61858",
       "tweet_id": "2123326791670538441"
+    },
+    "2026-11-19-19-a": {
+      "slot": "2026-11-19-19-a",
+      "researched_at": "2026-11-19T10:03:50.196471+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "調査済み"
     }
   }
 }
