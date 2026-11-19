@@ -1571,6 +1571,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "56897c5c00ee1bc09221188e8b0818cb7346b3ba657569c8751211f08e6cb44a",
       "event_fingerprint": "fc49ae2a6e311df355706a39365f74d036df34a1a0f507b43f8dc0a63f048bf4"
+    },
+    {
+      "slot": "2026-11-20-05-a",
+      "post_id": "inu_auto_31063a051b7136",
+      "tweet_id": "2123508020844065220",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
+      "published_at": "2026-11-19T00:00:00+09:00",
+      "posted_at": "2026-11-19T20:05:39.967680+00:00",
+      "hook": "🏦日銀植田総裁、11月19日に国会報告",
+      "follow_value": "次は12月17・18日の金融政策会合を確認する。",
+      "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
+      "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
     }
   ],
   "posted_ids": [
@@ -1687,24 +1703,10 @@
     "academy_CA01",
     "inu_market_2026_11_19_17_a_crypto-irys-usd",
     "academy_CA02",
-    "inu_market_2026_11_19_23_a_crypto-sky-usd"
+    "inu_market_2026_11_19_23_a_crypto-sky-usd",
+    "inu_auto_31063a051b7136"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-20-05-a",
-      "post_id": "inu_auto_31063a051b7136",
-      "source_url": "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
-      "topic_type": "policy_household",
-      "priority": "scheduled",
-      "generated_editorial_visual": true,
-      "market_key": "",
-      "reserved_at": "2026-11-19T20:03:47.145056+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-19T20:33:47.145056+00:00",
-      "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
-      "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3333,6 +3335,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "56897c5c00ee1bc09221188e8b0818cb7346b3ba657569c8751211f08e6cb44a",
       "event_fingerprint": "fc49ae2a6e311df355706a39365f74d036df34a1a0f507b43f8dc0a63f048bf4"
+    },
+    {
+      "slot": "2026-11-20-05-a",
+      "post_id": "inu_auto_31063a051b7136",
+      "tweet_id": "2123508020844065220",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
+      "published_at": "2026-11-19T00:00:00+09:00",
+      "posted_at": "2026-11-19T20:05:39.967680+00:00",
+      "hook": "🏦日銀植田総裁、11月19日に国会報告",
+      "follow_value": "次は12月17・18日の金融政策会合を確認する。",
+      "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
+      "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
     }
   ],
   "scheduled_checks": [
@@ -5393,10 +5411,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
       "post_id": "inu_auto_31063a051b7136",
-      "caption_hash": "45aedde20fb87ed0a048d2285b59fad18b9c11ef7abd75b49047d8f42830e45d"
+      "caption_hash": "45aedde20fb87ed0a048d2285b59fad18b9c11ef7abd75b49047d8f42830e45d",
+      "tweet_id": "2123508020844065220"
     }
   }
 }

@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32323231443",
-      "started_at": "2026-08-20T02:03:47.750950+00:00",
-      "completed_at": "2026-08-20T02:04:22.370163+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-20-11-a",
-      "post_id": "inu_overseas_kol_2090218045478248533",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "135506ada45fab776eba9d3461e37c0d545f61440544dfc0efc35466a2cbb477",
-      "event_fingerprint": "03ef8a29ce4e19feb060e79e6c8b97db57bc018c40f9e1e6838bd80e57f8748b"
-    },
-    {
-      "run_id": "32323231443",
       "started_at": "2026-08-20T02:04:25.666784+00:00",
       "mode": "publish",
       "departments": {
@@ -5638,6 +5617,22 @@
       "topic_type": "policy_household",
       "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
       "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
+    },
+    {
+      "run_id": "44604636046",
+      "started_at": "2026-11-19T20:05:38.955610+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-20-05-a",
+      "post_id": "inu_auto_31063a051b7136",
+      "topic_type": "policy_household",
+      "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
+      "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4",
+      "status": "published",
+      "completed_at": "2026-11-19T20:05:39.973252+00:00"
     }
   ]
 }
