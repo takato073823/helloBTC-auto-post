@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T15:08:43.550609+00:00",
-  "slot": "2026-11-20-00-a",
+  "generated_at": "2026-11-19T16:03:33.812393+00:00",
+  "slot": "2026-11-20-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-18T15:08:43.550609+00:00",
-    "to": "2026-11-19T15:08:43.550609+00:00"
+    "from": "2026-11-18T16:03:33.812393+00:00",
+    "to": "2026-11-19T16:03:33.812393+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,7 +34,7 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,12 +45,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 0,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
@@ -58,13 +58,67 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 0,
+          "used": 2,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "breaking_news",
+        "hook": "⚠️ Ledger、改ざん端末を追加確認",
+        "published_at": "2026-11-18T00:00:00+00:00",
+        "source_url": "https://support.ledger.com/article/Update-on-the-Hardware-Implant-Incident-Investigation",
+        "why_now": "BerlinとDubaiで新たな対象地域が確認された。"
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "📉メタプラネット、通期予想を下方修正",
+        "published_at": "2026-11-13T15:30:00+09:00",
+        "source_url": "https://metaplanet.jp/disclosure-pdf/140120261113578723.pdf",
+        "why_now": "予想修正が$BTC保有企業の資金余力を変える。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦 Anthropic、IPO価格を83ドルに決定",
+        "published_at": "2026-11-18T00:00:00+00:00",
+        "source_url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+        "why_now": "大型AI上場が実施され、リスク資産の資金配分を変え得る。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦 FRB、11月19日に割引率を審議",
+        "published_at": "2026-11-13T00:00:00+00:00",
+        "source_url": "https://www.federalreserve.gov/aboutthefed/boardmeetings/20261119closed.htm",
+        "why_now": "割引率審議と準備預金データが同日市場を動かし得る。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "🤖 NVIDIA、AI売上1076億ドル",
+        "published_at": "2026-11-17T00:00:00-08:00",
+        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+        "why_now": "AI大手の実績と見通しが暗号資産のテーマ資金を左右する。"
+      },
+      {
+        "topic_type": "prediction_market_shift",
+        "hook": "📊 Anthropic上場、予測確率99％台",
+        "published_at": "2026-11-19T00:00:00+00:00",
+        "source_url": "https://polymarket.com/event/anthropic-ipo-date?via=bro",
+        "why_now": "上場直前の確率と取引量が短期の市場関心を示す。"
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: 同じ一次資料は投稿済みまたは予約済みです",
+      "一次探索2: この系統の鮮度上限を超えています",
+      "一次探索3: この系統の鮮度上限を超えています",
+      "一次探索4: この系統の鮮度上限を超えています",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: この系統の鮮度上限を超えています",
+      "再探索1: 根拠原文が一次資料ページ内に確認できません",
+      "再探索2: 根拠原文が一次資料ページ内に確認できません",
+      "再探索3: 根拠原文が一次資料ページ内に確認できません",
+      "再探索4: 根拠原文が一次資料ページ内に確認できません"
+    ]
   }
 }
