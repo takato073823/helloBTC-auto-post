@@ -1518,6 +1518,22 @@
         "day": 0,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-19-17-a",
+      "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
+      "tweet_id": "2123326791670538441",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:IRYS-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-IRYSUSD",
+      "published_at": "2026-11-19T08:00:00+00:00",
+      "posted_at": "2026-11-19T08:05:31.601543+00:00",
+      "hook": "📈 $IRYS、24時間で+49.68％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "5c85aabd774d5b658e64a457e5acb43507a0beff9eac1837c5f193c244949fda",
+      "event_fingerprint": "c1859360f32762e660fee543dc8cbaf9fccc2bab6ae9407db1ed279e9949f630"
     }
   ],
   "posted_ids": [
@@ -1631,24 +1647,10 @@
     "inu_market_2026_08_24_07_a_crypto-tao-usd",
     "inu_market_2026_11_18_13_a_crypto-icp-usd",
     "inu_auto_39147eaad10136",
-    "academy_CA01"
+    "academy_CA01",
+    "inu_market_2026_11_19_17_a_crypto-irys-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-19-17-a",
-      "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-IRYSUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:IRYS-USD",
-      "reserved_at": "2026-11-19T08:03:43.576136+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-19T08:33:43.576136+00:00",
-      "content_fingerprint": "5c85aabd774d5b658e64a457e5acb43507a0beff9eac1837c5f193c244949fda",
-      "event_fingerprint": "c1859360f32762e660fee543dc8cbaf9fccc2bab6ae9407db1ed279e9949f630"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3224,6 +3226,22 @@
         "day": 0,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-19-17-a",
+      "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
+      "tweet_id": "2123326791670538441",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:IRYS-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-IRYSUSD",
+      "published_at": "2026-11-19T08:00:00+00:00",
+      "posted_at": "2026-11-19T08:05:31.601543+00:00",
+      "hook": "📈 $IRYS、24時間で+49.68％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "5c85aabd774d5b658e64a457e5acb43507a0beff9eac1837c5f193c244949fda",
+      "event_fingerprint": "c1859360f32762e660fee543dc8cbaf9fccc2bab6ae9407db1ed279e9949f630"
     }
   ],
   "scheduled_checks": [
@@ -5028,10 +5046,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_19_17_a_crypto-irys-usd",
-      "caption_hash": "b90c2719d1525b46439e895726053788ad70a63a24e8544b29d65a0a64a61858"
+      "caption_hash": "b90c2719d1525b46439e895726053788ad70a63a24e8544b29d65a0a64a61858",
+      "tweet_id": "2123326791670538441"
     }
   }
 }
