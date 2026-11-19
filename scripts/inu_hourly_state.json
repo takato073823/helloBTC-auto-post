@@ -1689,7 +1689,22 @@
     "academy_CA02",
     "inu_market_2026_11_19_23_a_crypto-sky-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-20-05-a",
+      "post_id": "inu_auto_31063a051b7136",
+      "source_url": "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "reserved_at": "2026-11-19T20:03:47.145056+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-19T20:33:47.145056+00:00",
+      "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
+      "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3580,12 +3595,49 @@
       "result": "no_verified_candidate"
     }
   ],
-  "research_queue": [],
+  "research_queue": [
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "prediction_market_shift",
+        "hook": "📊Polymarket、$BTCの6.2万ドル超を84％",
+        "facts": [
+          "Polymarketでは、11月20日に$BTCが6万2000ドルを上回る確率が84％。",
+          "市場全体の取引量は約41万ドルで、確定情報ではなく参加者の予測。"
+        ],
+        "opinion": "急落局面でも6.2万ドル維持を見込む取引が優勢ですが、予測は保証ではありません。",
+        "source_name": "Polymarket",
+        "source_url": "https://polymarket.com/event/bitcoin-above-on-november-20-2026?marketSlug=bitcoin-above-60k-on-november-20-2026&outcomeIndex=0",
+        "published_at": "2026-11-20T05:03:47+09:00",
+        "evidence_anchor": "current frontrunner for \"Bitcoin above ___ on November 20?\" is \"58,000\" at 99%",
+        "evidence_as_primary": false,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "Polymarket",
+          "$BTC需給"
+        ],
+        "why_now": "11月20日判定の市場が進行中で、6.2万ドルの確率と取引量が更新されているため。",
+        "reader_interest": "下値の市場コンセンサスを短時間で把握できる。",
+        "follow_value": "次は6.2万ドルの確率が84％から動くか確認する。",
+        "is_primary_source": true,
+        "corroborating_source_urls": [],
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://polymarket.com/event/bitcoin-above-on-november-20-2026?marketSlug=bitcoin-above-60k-on-november-20-2026&outcomeIndex=0",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-11-19T20:03:47.145056+00:00"
+    }
+  ],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-19T18:03:40.509038+00:00",
-      "count": 67415,
-      "fastest_fee": 5
+      "checked_at": "2026-11-19T20:03:47.145056+00:00",
+      "count": 65026,
+      "fastest_fee": 4
     }
   },
   "delivery_failures": [
@@ -4847,8 +4899,9 @@
   "api_usage": {
     "jst_date": "2026-11-20",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 2
+      "grok_x_search": 2,
+      "openai_web_search": 3,
+      "grok_editorial": 1
     },
     "claims": [
       {
@@ -4862,6 +4915,18 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-11-19T16:03:33.812393+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-19T20:03:47.145056+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-19T20:03:47.145056+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-19T20:03:47.145056+00:00"
       }
     ]
   },
@@ -5302,6 +5367,36 @@
         }
       ],
       "status": "調査済み"
+    },
+    "2026-11-20-05-a": {
+      "slot": "2026-11-20-05-a",
+      "researched_at": "2026-11-19T20:03:47.145056+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
+      "post_id": "inu_auto_31063a051b7136",
+      "caption_hash": "45aedde20fb87ed0a048d2285b59fad18b9c11ef7abd75b49047d8f42830e45d"
     }
   }
 }

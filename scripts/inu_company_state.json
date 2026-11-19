@@ -2,23 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32319312551",
-      "started_at": "2026-08-20T01:00:53.960151+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "failed_released"
-      },
-      "slot": "2026-08-20-09-a",
-      "post_id": "inu_overseas_kol_2090218045478248533",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "1cd7844250b145af95bc608b6119fe5733723abeb7e7c7367c19051cd671dd50",
-      "event_fingerprint": "03ef8a29ce4e19feb060e79e6c8b97db57bc018c40f9e1e6838bd80e57f8748b",
-      "status": "retryable_delivery_failure",
-      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
-      "completed_at": "2026-08-20T01:00:54.162042+00:00"
-    },
-    {
       "run_id": "32323231443",
       "started_at": "2026-08-20T02:03:47.750950+00:00",
       "completed_at": "2026-08-20T02:04:22.370163+00:00",
@@ -5634,6 +5617,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "44604636046",
+      "started_at": "2026-11-19T20:03:47.143017+00:00",
+      "completed_at": "2026-11-19T20:05:34.518952+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-20-05-a",
+      "post_id": "inu_auto_31063a051b7136",
+      "topic_type": "policy_household",
+      "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
+      "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
     }
   ]
 }
