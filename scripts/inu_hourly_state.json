@@ -1767,7 +1767,22 @@
     "inu_market_2026_11_20_11_a_crypto-near-usd",
     "academy_CA04"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-21-01-a",
+      "post_id": "inu_auto_9f0be7feff865a",
+      "source_url": "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp261120~e52bcc4db2.pl.html",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-20T16:03:41.251498+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-20T16:33:41.251498+00:00",
+      "content_fingerprint": "592188f0c24afcca4d13fe97f46c0f716464d685abeb50b4410341606885a33d",
+      "event_fingerprint": "22a9ab9dc5bcdb570d597fea26637c55a2c242d95b50b7fe216993c61fd8a835"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3759,9 +3774,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-20T12:45:43.237095+00:00",
-      "count": 80207,
-      "fastest_fee": 6
+      "checked_at": "2026-11-20T16:03:41.251498+00:00",
+      "count": 62607,
+      "fastest_fee": 5
     }
   },
   "delivery_failures": [
@@ -5021,52 +5036,28 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-20",
+    "jst_date": "2026-11-21",
     "counts": {
-      "grok_x_search": 3,
-      "openai_web_search": 5,
+      "grok_x_search": 1,
+      "openai_web_search": 1,
       "grok_editorial": 2
     },
     "claims": [
       {
         "action": "grok_x_search",
-        "claimed_at": "2026-11-19T16:03:33.812393+00:00"
+        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-11-19T16:03:33.812393+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-19T16:03:33.812393+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-19T20:03:47.145056+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-19T20:03:47.145056+00:00"
+        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
       },
       {
         "action": "grok_editorial",
-        "claimed_at": "2026-11-19T20:03:47.145056+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-20T08:03:41.811259+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-20T08:03:41.811259+00:00"
+        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
       },
       {
         "action": "grok_editorial",
-        "claimed_at": "2026-11-20T08:03:41.811259+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-20T08:03:41.811259+00:00"
+        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
       }
     ]
   },
@@ -5751,6 +5742,36 @@
       "post_id": "academy_CA04",
       "caption_hash": "688a1771e0433e23a92661aa161f7b513489e8e45e2c6a3fcce548d1a5ff4146",
       "tweet_id": "2123759867529760846"
+    },
+    "2026-11-21-01-a": {
+      "slot": "2026-11-21-01-a",
+      "researched_at": "2026-11-20T16:03:41.251498+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "事例は候補の比較に使用。最終稿に同じ型は確認できず、一次情報を優先。",
+      "post_id": "inu_auto_9f0be7feff865a",
+      "caption_hash": "d351259f2cd41bf730fc8a82137f9943c8028d24532303ab2ce8786ee32b82ea"
     }
   }
 }
