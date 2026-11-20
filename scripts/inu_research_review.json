@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-20T02:03:32.039567+00:00",
-  "slot": "2026-11-20-11-a",
+  "generated_at": "2026-11-20T05:29:26.731108+00:00",
+  "slot": "2026-11-20-14-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-19T02:03:32.039567+00:00",
-    "to": "2026-11-20T02:03:32.039567+00:00"
+    "from": "2026-11-19T05:29:26.731108+00:00",
+    "to": "2026-11-20T05:29:26.731108+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "📉 $NEAR、24時間で-6.86％"
-    ],
-    "public_compact_post": "📉 $NEAR、24時間で-6.86％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 3.077。24時間で-6.86％の下落。\n3日高値3.474、安値3.072。レンジ内1％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +22,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📉 $NEAR、24時間で-6.86％",
+    "selected_topic": "",
+    "selected_hook": "",
     "verified_facts": [],
-    "market_or_user_impact": "NEARの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-NEARUSD",
+      "url": "",
       "verified": false
     },
     "corroborating_sources": [],
