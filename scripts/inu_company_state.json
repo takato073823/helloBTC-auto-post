@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32330442401",
-      "started_at": "2026-08-20T04:05:18.354354+00:00",
-      "completed_at": "2026-08-20T04:05:58.944525+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-20-13-a",
-      "post_id": "inu_overseas_kol_2090270058786549930",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "423e5a4ec67c2e6744f9bb75963f269705bc5e61cf088cffa2b4b0aeb9aa18e8",
-      "event_fingerprint": "1c7421216cbf0f65b99d1f01ba5dedbfa0b13489daeb30d829d43ce1b1e0cd4d"
-    },
-    {
-      "run_id": "32330442401",
       "started_at": "2026-08-20T04:06:03.334274+00:00",
       "mode": "publish",
       "departments": {
@@ -5631,6 +5610,27 @@
       "event_fingerprint": "4899836ab5d05641895ae8145f3436710b739d3c0d99d46b7c6f771c18c5d734",
       "status": "published",
       "completed_at": "2026-11-20T00:04:18.321043+00:00"
+    },
+    {
+      "run_id": "44657994732",
+      "started_at": "2026-11-20T02:03:32.037623+00:00",
+      "completed_at": "2026-11-20T02:03:52.705403+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-20-11-a",
+      "post_id": "inu_market_2026_11_20_11_a_crypto-near-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "a50e50d4f1bef29f199f9735203909048b0b938cb1eb1d73fb1bcff378b67f65",
+      "event_fingerprint": "95eaf0656e3101a0c6b0785da8856f3689bf7654b589c733f0e3c00e9a31664b"
     }
   ]
 }
