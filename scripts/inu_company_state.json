@@ -2,23 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32333040804",
-      "started_at": "2026-08-20T04:46:21.370896+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "failed_released"
-      },
-      "slot": "2026-08-20-13-a",
-      "post_id": "inu_overseas_kol_2090298412776185901",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "f21a53c2aad70fa69c687121018333e10cee33b51a8bbf3a38d688e030d1764d",
-      "event_fingerprint": "cc20852c686c963ba996dd252710ce3d3b09b87c7d826b4b7a0b90803c3205a1",
-      "status": "retryable_delivery_failure",
-      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
-      "completed_at": "2026-08-20T04:46:21.539670+00:00"
-    },
-    {
       "run_id": "32337982153",
       "started_at": "2026-08-20T06:03:41.323722+00:00",
       "completed_at": "2026-08-20T06:04:06.574092+00:00",
@@ -5619,6 +5602,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "44738405776",
+      "started_at": "2026-11-20T12:45:43.234613+00:00",
+      "completed_at": "2026-11-20T12:46:18.851676+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-20-21-a",
+      "post_id": "academy_CA04",
+      "topic_type": "academy_lesson",
+      "content_fingerprint": "44babb39eb80c962e16c4c679d6295b3907b0f083a0835d962073991d3f2fd67",
+      "event_fingerprint": "cd896aeb04604f4bf56e66f6465eaed02f5d2945d7941489a2ebc475358e705d"
     }
   ]
 }

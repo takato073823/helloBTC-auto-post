@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-20T08:03:41.811259+00:00",
-  "slot": "2026-11-20-17-a",
+  "generated_at": "2026-11-20T12:45:43.237095+00:00",
+  "slot": "2026-11-20-21-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-19T08:03:41.811259+00:00",
-    "to": "2026-11-20T08:03:41.811259+00:00"
+    "from": "2026-11-19T12:45:43.237095+00:00",
+    "to": "2026-11-20T12:45:43.237095+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
     "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "posts": [
+      "🔎 ETFに120億円入ったのに、純流入は20億円？\n\n仮の例：\n流入 120億円\n流出 100億円\n\n差額は20億円の純流入。売買代金が20億円だった、という意味ではありません。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA04"
+    ],
+    "public_compact_post": "🔎 ETFに120億円入ったのに、純流入は20億円？\n\n仮の例：\n流入 120億円\n流出 100億円\n\n差額は20億円の純流入。売買代金が20億円だった、という意味ではありません。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA04"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,19 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
+    "selected_topic": "academy_lesson",
+    "selected_hook": "🔎 ETFに120億円入ったのに、純流入は20億円？",
     "verified_facts": [],
     "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "差額は20億円の純流入。売買代金が20億円だった、という意味ではありません。",
     "primary_source": {
       "name": "",
       "url": "",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,8 +47,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -64,62 +66,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "institutional_flow",
-        "hook": "🏦 IBIT、78万BTCを保有",
-        "published_at": "2026-11-16T00:00:00-05:00",
-        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf",
-        "why_now": "11月16日時点の公式保有量とNAV変化が確認でき、下落局面のETF規模を測れます。"
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "⚠️ SEC、暗号資産詐欺で3700万ドル",
-        "published_at": "2026-11-19T00:00:00-05:00",
-        "source_url": "https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors",
-        "why_now": "過去24時間内にSECが被害額と手口を公表しました。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "⚠️ Binance、198銘柄のPoR更新",
-        "published_at": "2026-11-19T08:20:00+00:00",
-        "source_url": "https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71",
-        "why_now": "11月19日に事故後のPoR更新が行われ、利用者資産の裏付けを再確認できます。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦 日銀、物価2％維持を重視",
-        "published_at": "2026-11-19T00:00:00+00:00",
-        "source_url": "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf",
-        "why_now": "直近の国会報告で、政策判断に影響する物価と為替の条件が示されました。"
-      },
-      {
-        "topic_type": "earnings",
-        "hook": "🤖 NVIDIA、売上1158億ドル",
-        "published_at": "2026-11-17T00:00:00-08:00",
-        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
-        "why_now": "決算でAI需要の実績と中国を除く次四半期見通しが具体化しました。"
-      },
-      {
-        "topic_type": "developing_story",
-        "hook": "🔧 Ethereum、Glamsterdamを再検証",
-        "published_at": "2026-11-09T00:00:00+00:00",
-        "source_url": "https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038",
-        "why_now": "11月19日の開発者会議前後に、更新仕様と既存アプリへの影響が再評価されています。"
-      }
-    ],
-    "rejected_reasons": [
-      "トレンド優先探索1: 同じ一次資料は投稿済みまたは予約済みです",
-      "トレンド優先探索2: 根拠原文が一次資料ページ内に確認できません",
-      "トレンド優先探索3: 規制当局名・新ルール名・具体的な変更が不足しています",
-      "トレンド優先探索4: 根拠原文が一次資料ページ内に確認できません",
-      "トレンド優先探索5: 自動切り抜き可能な公式HTMLではありません",
-      "トレンド優先探索6: この系統の鮮度上限を超えています",
-      "再探索1: 根拠原文が一次資料ページ内に確認できません",
-      "再探索2: 独立した裏付けURLがWeb検索の参照元一覧にありません",
-      "再探索3: 根拠原文が一次資料ページ内に確認できません",
-      "再探索4: 根拠原文が一次資料ページ内に確認できません",
-      "再探索5: 公式HTMLで発表時刻と具体的な新規数値を24時間以内に確認できる、別主体の追加候補は今回の検索範囲では不足。"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
