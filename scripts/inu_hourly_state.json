@@ -1784,7 +1784,22 @@
     "academy_CA04",
     "inu_auto_9f0be7feff865a"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-21-05-a",
+      "post_id": "inu_auto_982dca0237c074",
+      "source_url": "https://newsroom.paypal-corp.com/2026-11-20-PayPal-Announces-Executive-Leadership-Appointments-to-Advance-Three-Year-Strategy",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-20T20:03:32.871430+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-20T20:33:32.871430+00:00",
+      "content_fingerprint": "c59e80a4ae4cb7240c4862a9e4ec07066f015441ca43a9462f79170b9501c926",
+      "event_fingerprint": "e3334c28f9f50ed617e7d0a90f3b239e1ecb0ce33ac3e11be719b831ac9b9bea"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3792,9 +3807,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-20T16:03:41.251498+00:00",
-      "count": 62607,
-      "fastest_fee": 5
+      "checked_at": "2026-11-20T20:03:32.871430+00:00",
+      "count": 65139,
+      "fastest_fee": 3
     }
   },
   "delivery_failures": [
@@ -5057,8 +5072,8 @@
     "jst_date": "2026-11-21",
     "counts": {
       "grok_x_search": 1,
-      "openai_web_search": 1,
-      "grok_editorial": 2
+      "openai_web_search": 2,
+      "grok_editorial": 4
     },
     "claims": [
       {
@@ -5076,6 +5091,18 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-20T16:03:41.251498+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-20T20:03:32.871430+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-20T20:03:32.871430+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-20T20:03:32.871430+00:00"
       }
     ]
   },
@@ -5791,6 +5818,36 @@
       "post_id": "inu_auto_9f0be7feff865a",
       "caption_hash": "d351259f2cd41bf730fc8a82137f9943c8028d24532303ab2ce8786ee32b82ea",
       "tweet_id": "2123809976170824046"
+    },
+    "2026-11-21-05-a": {
+      "slot": "2026-11-21-05-a",
+      "researched_at": "2026-11-20T20:03:32.871430+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
+      "post_id": "inu_auto_982dca0237c074",
+      "caption_hash": "3c99c44c9f3ee125320bce57929a0df4603dc1432f5c10aa8492424bce2b5f0f"
     }
   }
 }

@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-20T16:03:41.251498+00:00",
-  "slot": "2026-11-21-01-a",
+  "generated_at": "2026-11-20T20:03:32.871430+00:00",
+  "slot": "2026-11-21-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-19T16:03:41.251498+00:00",
-    "to": "2026-11-20T16:03:41.251498+00:00"
+    "from": "2026-11-19T20:03:32.871430+00:00",
+    "to": "2026-11-20T20:03:32.871430+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🏦ECBがトークン決済を中銀資金へ\n\nラガルド総裁は9月開始のPontesで、トークン取引を中央銀行マネーで決済すると説明。\n欧州はトークン化市場を統合し、域内ルールで管理する方針です。\n\n暗号資産単体より、既存金融の決済基盤への接続が進んでいます。"
+      "📊 PayPal、決済・暗号資産部門の責任者を交代\n\nPayPalは2026年11月20日、決済サービス・暗号資産部門の責任者にSuzan Kereere氏を任命すると発表した。\n\n暗号資産を含む決済部門を専任体制にし、次の収益化と実行力が焦点になります。"
     ],
-    "public_compact_post": "🏦ECBがトークン決済を中銀資金へ\n\nラガルド総裁は9月開始のPontesで、トークン取引を中央銀行マネーで決済すると説明。\n欧州はトークン化市場を統合し、域内ルールで管理する方針です。\n\n暗号資産単体より、既存金融の決済基盤への接続が進んでいます。"
+    "public_compact_post": "📊 PayPal、決済・暗号資産部門の責任者を交代\n\nPayPalは2026年11月20日、決済サービス・暗号資産部門の責任者にSuzan Kereere氏を任命すると発表した。\n\n暗号資産を含む決済部門を専任体制にし、次の収益化と実行力が焦点になります。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,22 +24,22 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "macro_event",
-    "selected_hook": "🏦ECBがトークン決済を中銀資金へ",
+    "selected_topic": "institutional_flow",
+    "selected_hook": "📊 PayPal、決済・暗号資産部門の責任者を交代",
     "verified_facts": [
-      "ラガルド総裁は9月開始のPontesで、トークン取引を中央銀行マネーで決済すると説明。",
-      "欧州はトークン化市場を統合し、域内ルールで管理する方針です。"
+      "PayPalは2026年11月20日、決済サービス・暗号資産部門の責任者にSuzan Kereere氏を任命すると発表した。",
+      "同社は同時に、CFOをClaire Bramley氏へ交代し、消費者金融サービス・Venmo部門の新責任者とAI事業変革部門の新設責任者も発表。第4四半期決算で3年戦略の進捗を説明する予定。"
     ],
-    "market_or_user_impact": "機関投資家のトークン化資産が既存決済網に近づきます。",
+    "market_or_user_impact": "人事変更だけでなく、暗号資産を含む決済部門を独立した責任範囲として位置づけた点が分かる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "次はPontesの参加金融機関と取扱資産を確認。",
+    "next_watch": "次回の2026年第4四半期決算で、3年戦略とPayment Services & Cryptoの具体的なKPIが示されるか。",
     "primary_source": {
-      "name": "欧州中央銀行（ECB）",
-      "url": "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp261120~e52bcc4db2.pl.html",
+      "name": "PayPal Newsroom",
+      "url": "https://newsroom.paypal-corp.com/2026-11-20-PayPal-Announces-Executive-Leadership-Appointments-to-Advance-Three-Year-Strategy",
       "verified": true
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -50,8 +50,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -59,11 +59,11 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 2,
+          "used": 4,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 1,
+          "used": 2,
           "limit": 8
         }
       },
@@ -71,51 +71,16 @@
     },
     "candidate_shortlist": [
       {
-        "topic_type": "institutional_custody",
-        "hook": "🏦MoonPayが国法信託銀行を申請",
-        "published_at": "2026-11-18T00:00:00-05:00",
-        "source_url": "https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html",
-        "why_now": "11月18日受理の新規申請が、暗号資産カストディの制度化を示すため。"
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "⚠️SECが偽暗号資産業者を提訴",
-        "published_at": "2026-11-19T00:00:00-05:00",
-        "source_url": "https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors",
-        "why_now": "過去24時間以内にSECが暗号資産詐欺の被害額を具体的に公表したため。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦ECBがトークン決済を中銀資金へ",
-        "published_at": "2026-11-20T00:00:00+01:00",
-        "source_url": "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp261120~e52bcc4db2.pl.html",
-        "why_now": "11月20日のECB総裁講演で、中央銀行マネー決済の実装状況が更新されたため。"
-      },
-      {
         "topic_type": "developing_story",
-        "hook": "⚠️Binanceが損失補填とPoR更新",
-        "published_at": "2026-11-19T08:20:00+00:00",
-        "source_url": "https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71",
-        "why_now": "11月19日更新で、補填・PoR・出金再開の進捗が同時に示されたため。"
-      },
-      {
-        "topic_type": "policy_household",
-        "hook": "📉FRB議事要旨、追加利上げを示唆",
-        "published_at": "2026-11-18T14:00:00-05:00",
-        "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
-        "why_now": "11月18日にFOMC議事要旨が公開され、追加利上げの判断が確認されたため。"
-      },
-      {
-        "topic_type": "adoption_kpi",
-        "hook": "🇯🇵メタプラネット、保有4.4万BTC",
-        "published_at": "2026-11-20T00:00:00+09:00",
-        "source_url": "https://metaplanet.jp/en",
-        "why_now": "日本時間の最新公式表示で保有量とBTC価格が同時更新されているため。"
+        "hook": "⚠️ Coinbase、調査中を表示",
+        "published_at": "2026-11-20T19:26:00.575000+00:00",
+        "source_url": "https://status.coinbase.com/incidents/gt9nygt10ks5",
+        "why_now": "取引所の公式ステータスが直近4時間以内に更新されたためです。"
       }
     ],
     "rejected_reasons": [
-      "一次探索1: 規制当局名・新ルール名・具体的な変更が不足しています",
-      "一次探索2: この系統の鮮度上限を超えています"
+      "直接一次データ1: 数字・条件・決定など、読者が判断できる変化がありません",
+      "再探索1: 同じ一次資料は投稿済みまたは予約済みです"
     ]
   }
 }
