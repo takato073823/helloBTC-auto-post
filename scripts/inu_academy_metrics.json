@@ -9,5 +9,16 @@
       "retweet_count": 0
     },
     "observed_at": "2026-11-20T14:29:31.256140+09:00"
+  },
+  "2123386862714720311": {
+    "metrics": {
+      "bookmark_count": 0,
+      "impression_count": 6,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "observed_at": "2026-11-20T21:46:26.806980+09:00"
   }
 }
