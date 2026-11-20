@@ -1661,6 +1661,22 @@
       "follow_value": "次はPontesの参加金融機関と取扱資産を確認。",
       "content_fingerprint": "592188f0c24afcca4d13fe97f46c0f716464d685abeb50b4410341606885a33d",
       "event_fingerprint": "22a9ab9dc5bcdb570d597fea26637c55a2c242d95b50b7fe216993c61fd8a835"
+    },
+    {
+      "slot": "2026-11-21-05-a",
+      "post_id": "inu_auto_982dca0237c074",
+      "tweet_id": "2123870205059231900",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://newsroom.paypal-corp.com/2026-11-20-PayPal-Announces-Executive-Leadership-Appointments-to-Advance-Three-Year-Strategy",
+      "published_at": "2026-11-20T00:00:00-08:00",
+      "posted_at": "2026-11-20T20:04:51.441091+00:00",
+      "hook": "📊 PayPal、決済・暗号資産部門の責任者を交代",
+      "follow_value": "次回の2026年第4四半期決算で、3年戦略とPayment Services & Cryptoの具体的なKPIが示されるか。",
+      "content_fingerprint": "c59e80a4ae4cb7240c4862a9e4ec07066f015441ca43a9462f79170b9501c926",
+      "event_fingerprint": "e3334c28f9f50ed617e7d0a90f3b239e1ecb0ce33ac3e11be719b831ac9b9bea"
     }
   ],
   "posted_ids": [
@@ -1782,24 +1798,10 @@
     "academy_CA03",
     "inu_market_2026_11_20_11_a_crypto-near-usd",
     "academy_CA04",
-    "inu_auto_9f0be7feff865a"
+    "inu_auto_9f0be7feff865a",
+    "inu_auto_982dca0237c074"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-21-05-a",
-      "post_id": "inu_auto_982dca0237c074",
-      "source_url": "https://newsroom.paypal-corp.com/2026-11-20-PayPal-Announces-Executive-Leadership-Appointments-to-Advance-Three-Year-Strategy",
-      "topic_type": "institutional_flow",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-20T20:03:32.871430+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-20T20:33:32.871430+00:00",
-      "content_fingerprint": "c59e80a4ae4cb7240c4862a9e4ec07066f015441ca43a9462f79170b9501c926",
-      "event_fingerprint": "e3334c28f9f50ed617e7d0a90f3b239e1ecb0ce33ac3e11be719b831ac9b9bea"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3518,6 +3520,22 @@
       "follow_value": "次はPontesの参加金融機関と取扱資産を確認。",
       "content_fingerprint": "592188f0c24afcca4d13fe97f46c0f716464d685abeb50b4410341606885a33d",
       "event_fingerprint": "22a9ab9dc5bcdb570d597fea26637c55a2c242d95b50b7fe216993c61fd8a835"
+    },
+    {
+      "slot": "2026-11-21-05-a",
+      "post_id": "inu_auto_982dca0237c074",
+      "tweet_id": "2123870205059231900",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://newsroom.paypal-corp.com/2026-11-20-PayPal-Announces-Executive-Leadership-Appointments-to-Advance-Three-Year-Strategy",
+      "published_at": "2026-11-20T00:00:00-08:00",
+      "posted_at": "2026-11-20T20:04:51.441091+00:00",
+      "hook": "📊 PayPal、決済・暗号資産部門の責任者を交代",
+      "follow_value": "次回の2026年第4四半期決算で、3年戦略とPayment Services & Cryptoの具体的なKPIが示されるか。",
+      "content_fingerprint": "c59e80a4ae4cb7240c4862a9e4ec07066f015441ca43a9462f79170b9501c926",
+      "event_fingerprint": "e3334c28f9f50ed617e7d0a90f3b239e1ecb0ce33ac3e11be719b831ac9b9bea"
     }
   ],
   "scheduled_checks": [
@@ -5844,10 +5862,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
       "post_id": "inu_auto_982dca0237c074",
-      "caption_hash": "3c99c44c9f3ee125320bce57929a0df4603dc1432f5c10aa8492424bce2b5f0f"
+      "caption_hash": "3c99c44c9f3ee125320bce57929a0df4603dc1432f5c10aa8492424bce2b5f0f",
+      "tweet_id": "2123870205059231900"
     }
   }
 }
