@@ -1624,6 +1624,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "a50e50d4f1bef29f199f9735203909048b0b938cb1eb1d73fb1bcff378b67f65",
       "event_fingerprint": "95eaf0656e3101a0c6b0785da8856f3689bf7654b589c733f0e3c00e9a31664b"
+    },
+    {
+      "slot": "2026-11-20-21-a",
+      "post_id": "academy_CA04",
+      "tweet_id": "2123759867529760846",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-20T12:46:24.913370+00:00",
+      "hook": "🔎 ETFに120億円入ったのに、純流入は20億円？",
+      "follow_value": "差額は20億円の純流入。売買代金が20億円だった、という意味ではありません。",
+      "content_fingerprint": "44babb39eb80c962e16c4c679d6295b3907b0f083a0835d962073991d3f2fd67",
+      "event_fingerprint": "cd896aeb04604f4bf56e66f6465eaed02f5d2945d7941489a2ebc475358e705d",
+      "academy": {
+        "code": "CA04",
+        "day": 1,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -1743,24 +1764,10 @@
     "inu_market_2026_11_19_23_a_crypto-sky-usd",
     "inu_auto_31063a051b7136",
     "academy_CA03",
-    "inu_market_2026_11_20_11_a_crypto-near-usd"
+    "inu_market_2026_11_20_11_a_crypto-near-usd",
+    "academy_CA04"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-20-21-a",
-      "post_id": "academy_CA04",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-20T12:45:43.237095+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-20T13:15:43.237095+00:00",
-      "content_fingerprint": "44babb39eb80c962e16c4c679d6295b3907b0f083a0835d962073991d3f2fd67",
-      "event_fingerprint": "cd896aeb04604f4bf56e66f6465eaed02f5d2945d7941489a2ebc475358e705d"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3442,6 +3449,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "a50e50d4f1bef29f199f9735203909048b0b938cb1eb1d73fb1bcff378b67f65",
       "event_fingerprint": "95eaf0656e3101a0c6b0785da8856f3689bf7654b589c733f0e3c00e9a31664b"
+    },
+    {
+      "slot": "2026-11-20-21-a",
+      "post_id": "academy_CA04",
+      "tweet_id": "2123759867529760846",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-20T12:46:24.913370+00:00",
+      "hook": "🔎 ETFに120億円入ったのに、純流入は20億円？",
+      "follow_value": "差額は20億円の純流入。売買代金が20億円だった、という意味ではありません。",
+      "content_fingerprint": "44babb39eb80c962e16c4c679d6295b3907b0f083a0835d962073991d3f2fd67",
+      "event_fingerprint": "cd896aeb04604f4bf56e66f6465eaed02f5d2945d7941489a2ebc475358e705d",
+      "academy": {
+        "code": "CA04",
+        "day": 1,
+        "format": "図で検証"
+      }
     }
   ],
   "scheduled_checks": [
@@ -5718,10 +5746,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA04",
-      "caption_hash": "688a1771e0433e23a92661aa161f7b513489e8e45e2c6a3fcce548d1a5ff4146"
+      "caption_hash": "688a1771e0433e23a92661aa161f7b513489e8e45e2c6a3fcce548d1a5ff4146",
+      "tweet_id": "2123759867529760846"
     }
   }
 }
