@@ -1645,6 +1645,22 @@
         "day": 1,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-21-01-a",
+      "post_id": "inu_auto_9f0be7feff865a",
+      "tweet_id": "2123809976170824046",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp261120~e52bcc4db2.pl.html",
+      "published_at": "2026-11-20T00:00:00+01:00",
+      "posted_at": "2026-11-20T16:05:31.757901+00:00",
+      "hook": "🏦ECBがトークン決済を中銀資金へ",
+      "follow_value": "次はPontesの参加金融機関と取扱資産を確認。",
+      "content_fingerprint": "592188f0c24afcca4d13fe97f46c0f716464d685abeb50b4410341606885a33d",
+      "event_fingerprint": "22a9ab9dc5bcdb570d597fea26637c55a2c242d95b50b7fe216993c61fd8a835"
     }
   ],
   "posted_ids": [
@@ -1765,24 +1781,10 @@
     "inu_auto_31063a051b7136",
     "academy_CA03",
     "inu_market_2026_11_20_11_a_crypto-near-usd",
-    "academy_CA04"
+    "academy_CA04",
+    "inu_auto_9f0be7feff865a"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-21-01-a",
-      "post_id": "inu_auto_9f0be7feff865a",
-      "source_url": "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp261120~e52bcc4db2.pl.html",
-      "topic_type": "macro_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-20T16:03:41.251498+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-20T16:33:41.251498+00:00",
-      "content_fingerprint": "592188f0c24afcca4d13fe97f46c0f716464d685abeb50b4410341606885a33d",
-      "event_fingerprint": "22a9ab9dc5bcdb570d597fea26637c55a2c242d95b50b7fe216993c61fd8a835"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3485,6 +3487,22 @@
         "day": 1,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-21-01-a",
+      "post_id": "inu_auto_9f0be7feff865a",
+      "tweet_id": "2123809976170824046",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp261120~e52bcc4db2.pl.html",
+      "published_at": "2026-11-20T00:00:00+01:00",
+      "posted_at": "2026-11-20T16:05:31.757901+00:00",
+      "hook": "🏦ECBがトークン決済を中銀資金へ",
+      "follow_value": "次はPontesの参加金融機関と取扱資産を確認。",
+      "content_fingerprint": "592188f0c24afcca4d13fe97f46c0f716464d685abeb50b4410341606885a33d",
+      "event_fingerprint": "22a9ab9dc5bcdb570d597fea26637c55a2c242d95b50b7fe216993c61fd8a835"
     }
   ],
   "scheduled_checks": [
@@ -5768,10 +5786,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "事例は候補の比較に使用。最終稿に同じ型は確認できず、一次情報を優先。",
       "post_id": "inu_auto_9f0be7feff865a",
-      "caption_hash": "d351259f2cd41bf730fc8a82137f9943c8028d24532303ab2ce8786ee32b82ea"
+      "caption_hash": "d351259f2cd41bf730fc8a82137f9943c8028d24532303ab2ce8786ee32b82ea",
+      "tweet_id": "2123809976170824046"
     }
   }
 }
