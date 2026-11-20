@@ -1587,6 +1587,27 @@
       "follow_value": "次は12月17・18日の金融政策会合を確認する。",
       "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
       "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
+    },
+    {
+      "slot": "2026-11-20-09-a",
+      "post_id": "academy_CA03",
+      "tweet_id": "2123568076171952543",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-20T00:04:18.314355+00:00",
+      "hook": "💬 60％から75％は何％の増加？",
+      "follow_value": "差と相対変化は別の数字。予測市場の表示は結果を保証しません。",
+      "content_fingerprint": "80d5dd750bb33979f27ab6052cb75e4cf7a9fd757dfdee0e94a2c6612e7179d7",
+      "event_fingerprint": "4899836ab5d05641895ae8145f3436710b739d3c0d99d46b7c6f771c18c5d734",
+      "academy": {
+        "code": "CA03",
+        "day": 1,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -1704,24 +1725,10 @@
     "inu_market_2026_11_19_17_a_crypto-irys-usd",
     "academy_CA02",
     "inu_market_2026_11_19_23_a_crypto-sky-usd",
-    "inu_auto_31063a051b7136"
+    "inu_auto_31063a051b7136",
+    "academy_CA03"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-20-09-a",
-      "post_id": "academy_CA03",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-20T00:03:37.302071+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-20T00:33:37.302071+00:00",
-      "content_fingerprint": "80d5dd750bb33979f27ab6052cb75e4cf7a9fd757dfdee0e94a2c6612e7179d7",
-      "event_fingerprint": "4899836ab5d05641895ae8145f3436710b739d3c0d99d46b7c6f771c18c5d734"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3366,6 +3373,27 @@
       "follow_value": "次は12月17・18日の金融政策会合を確認する。",
       "content_fingerprint": "748572ce73eb233970df675285765c5cb35d50209e8240f170871f6d91b3379c",
       "event_fingerprint": "18b5f296249b2b373bb151d5bf184f926ad9ce4f6daf3f933c78a7eb7a6008d4"
+    },
+    {
+      "slot": "2026-11-20-09-a",
+      "post_id": "academy_CA03",
+      "tweet_id": "2123568076171952543",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-20T00:04:18.314355+00:00",
+      "hook": "💬 60％から75％は何％の増加？",
+      "follow_value": "差と相対変化は別の数字。予測市場の表示は結果を保証しません。",
+      "content_fingerprint": "80d5dd750bb33979f27ab6052cb75e4cf7a9fd757dfdee0e94a2c6612e7179d7",
+      "event_fingerprint": "4899836ab5d05641895ae8145f3436710b739d3c0d99d46b7c6f771c18c5d734",
+      "academy": {
+        "code": "CA03",
+        "day": 1,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -5459,10 +5487,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA03",
-      "caption_hash": "9dcfc191e62c9e44bdc8a96936f4c966ad3702b399ee6f44c660c983d0bee3ee"
+      "caption_hash": "9dcfc191e62c9e44bdc8a96936f4c966ad3702b399ee6f44c660c983d0bee3ee",
+      "tweet_id": "2123568076171952543"
     }
   }
 }

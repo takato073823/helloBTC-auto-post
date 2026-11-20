@@ -2,23 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32326185456",
-      "started_at": "2026-08-20T02:53:10.396642+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "failed_released"
-      },
-      "slot": "2026-08-20-11-a",
-      "post_id": "inu_overseas_kol_2090228066480230519",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "b558119b7122b969759b6508770f16ccdb99c5fe7ea09c1ac67c99d5d5a816ca",
-      "event_fingerprint": "50e1f3e71652c46fc69e3337c40fd69fa8bf7119659a2de6614f5b68fc5f43e4",
-      "status": "retryable_delivery_failure",
-      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
-      "completed_at": "2026-08-20T02:53:10.535631+00:00"
-    },
-    {
       "run_id": "32330442401",
       "started_at": "2026-08-20T04:05:18.354354+00:00",
       "completed_at": "2026-08-20T04:05:58.944525+00:00",
@@ -5632,6 +5615,22 @@
       "topic_type": "academy_lesson",
       "content_fingerprint": "80d5dd750bb33979f27ab6052cb75e4cf7a9fd757dfdee0e94a2c6612e7179d7",
       "event_fingerprint": "4899836ab5d05641895ae8145f3436710b739d3c0d99d46b7c6f771c18c5d734"
+    },
+    {
+      "run_id": "44642657612",
+      "started_at": "2026-11-20T00:04:17.039571+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-20-09-a",
+      "post_id": "academy_CA03",
+      "topic_type": "academy_lesson",
+      "content_fingerprint": "80d5dd750bb33979f27ab6052cb75e4cf7a9fd757dfdee0e94a2c6612e7179d7",
+      "event_fingerprint": "4899836ab5d05641895ae8145f3436710b739d3c0d99d46b7c6f771c18c5d734",
+      "status": "published",
+      "completed_at": "2026-11-20T00:04:18.321043+00:00"
     }
   ]
 }
