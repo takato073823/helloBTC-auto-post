@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-21T12:03:40.679756+00:00",
-  "slot": "2026-11-21-21-a",
+  "generated_at": "2026-11-21T14:03:38.197499+00:00",
+  "slot": "2026-11-21-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-20T12:03:40.679756+00:00",
-    "to": "2026-11-21T12:03:40.679756+00:00"
+    "from": "2026-11-20T14:03:38.197499+00:00",
+    "to": "2026-11-21T14:03:38.197499+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💬 2日間それぞれ10％上がると合計20％？\n\n仮の例：\n100円 → 110円\n110円 → 121円\n\n2日目の基準は110円なので、最初からの上昇率は21％です。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA06"
+      "📉 $SUI、24時間で-4.47％"
     ],
-    "public_compact_post": "💬 2日間それぞれ10％上がると合計20％？\n\n仮の例：\n100円 → 110円\n110円 → 121円\n\n2日目の基準は110円なので、最初からの上昇率は21％です。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA06"
+    "public_compact_post": "📉 $SUI、24時間で-4.47％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.6517。24時間で-4.47％の下落。\n3日高値0.7332、安値0.5874。レンジ内44％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +24,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "💬 2日間それぞれ10％上がると合計20％？",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📉 $SUI、24時間で-4.47％",
     "verified_facts": [],
-    "market_or_user_impact": "",
+    "market_or_user_impact": "SUIの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "2日目の基準は110円なので、最初からの上昇率は21％です。",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "",
+      "url": "https://www.tradingview.com/symbols/COINBASE-SUIUSD",
       "verified": false
     },
     "corroborating_sources": [],

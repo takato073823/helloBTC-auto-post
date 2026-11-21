@@ -1845,7 +1845,22 @@
     "academy_CA05",
     "academy_CA06"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-21-23-a",
+      "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-SUIUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:SUI-USD",
+      "reserved_at": "2026-11-21T14:03:38.197499+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-21T14:33:38.197499+00:00",
+      "content_fingerprint": "44410157f96cfdb923cd725a63a25b207bf6ce1fd70e6b41d34bb7d9c6f9e50a",
+      "event_fingerprint": "58fc64d3a58802361d476c62a971a1dab1636cb47df2bec67598a04e98c46b92"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3911,9 +3926,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-21T00:03:43.044465+00:00",
-      "count": 63999,
-      "fastest_fee": 2
+      "checked_at": "2026-11-21T14:03:38.197499+00:00",
+      "count": 75803,
+      "fastest_fee": 3
     }
   },
   "delivery_failures": [
@@ -6027,6 +6042,36 @@
       "post_id": "academy_CA06",
       "caption_hash": "9b1aa6af3fa286217333fd87d1b33dd4e309c9ef26217a5c2ad7e047d29566db",
       "tweet_id": "2124111658390114457"
+    },
+    "2026-11-21-23-a": {
+      "slot": "2026-11-21-23-a",
+      "researched_at": "2026-11-21T14:03:38.197499+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
+      "caption_hash": "815991206441ea9f34772772fd45f635fef8145a146b8e808605aacd8a32ea46"
     }
   }
 }
