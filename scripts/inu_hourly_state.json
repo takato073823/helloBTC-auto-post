@@ -1751,6 +1751,22 @@
       "follow_value": "次は11月25日のBeige Bookを確認",
       "content_fingerprint": "191d21aa0968639cf345b4d4bbb151a61c70950e34e3fd2d015e0d452eed4dbe",
       "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446"
+    },
+    {
+      "slot": "2026-11-22-07-a",
+      "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
+      "tweet_id": "2124262559591100828",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:DRV-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-DRVUSD",
+      "published_at": "2026-11-21T22:00:00+00:00",
+      "posted_at": "2026-11-21T22:03:56.034929+00:00",
+      "hook": "📈 $DRV、24時間で+41.18％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
+      "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
     }
   ],
   "posted_ids": [
@@ -1877,24 +1893,10 @@
     "academy_CA05",
     "academy_CA06",
     "inu_market_2026_11_21_23_a_crypto-sui-usd",
-    "inu_auto_d20e033ee19cb4"
+    "inu_auto_d20e033ee19cb4",
+    "inu_market_2026_11_22_07_a_crypto-drv-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-22-07-a",
-      "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-DRVUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:DRV-USD",
-      "reserved_at": "2026-11-21T22:03:37.467452+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-21T22:33:37.467452+00:00",
-      "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
-      "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3703,6 +3705,22 @@
       "follow_value": "次は11月25日のBeige Bookを確認",
       "content_fingerprint": "191d21aa0968639cf345b4d4bbb151a61c70950e34e3fd2d015e0d452eed4dbe",
       "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446"
+    },
+    {
+      "slot": "2026-11-22-07-a",
+      "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
+      "tweet_id": "2124262559591100828",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:DRV-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-DRVUSD",
+      "published_at": "2026-11-21T22:00:00+00:00",
+      "posted_at": "2026-11-21T22:03:56.034929+00:00",
+      "hook": "📈 $DRV、24時間で+41.18％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
+      "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
     }
   ],
   "scheduled_checks": [
@@ -6180,10 +6198,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
-      "caption_hash": "17b7d12c2a65b2cf1106c4f8ec9b11c985b1f44549ce5c51ebf21d5f77927270"
+      "caption_hash": "17b7d12c2a65b2cf1106c4f8ec9b11c985b1f44549ce5c51ebf21d5f77927270",
+      "tweet_id": "2124262559591100828"
     }
   }
 }
