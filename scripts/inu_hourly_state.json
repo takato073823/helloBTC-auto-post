@@ -1862,7 +1862,22 @@
     "academy_CA06",
     "inu_market_2026_11_21_23_a_crypto-sui-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-22-01-a",
+      "post_id": "inu_auto_d20e033ee19cb4",
+      "source_url": "https://www.federalreserve.gov/newsevents/speech/cook20261120a.htm",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "reserved_at": "2026-11-21T16:03:42.651141+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-21T16:33:42.651141+00:00",
+      "content_fingerprint": "191d21aa0968639cf345b4d4bbb151a61c70950e34e3fd2d015e0d452eed4dbe",
+      "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3944,9 +3959,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-21T14:03:38.197499+00:00",
-      "count": 75803,
-      "fastest_fee": 3
+      "checked_at": "2026-11-21T16:03:42.651141+00:00",
+      "count": 73197,
+      "fastest_fee": 2
     }
   },
   "delivery_failures": [
@@ -5206,40 +5221,24 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-21",
+    "jst_date": "2026-11-22",
     "counts": {
       "grok_x_search": 1,
-      "openai_web_search": 2,
-      "grok_editorial": 4
+      "openai_web_search": 1,
+      "grok_editorial": 1
     },
     "claims": [
       {
         "action": "grok_x_search",
-        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
+        "claimed_at": "2026-11-21T16:03:42.651141+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
+        "claimed_at": "2026-11-21T16:03:42.651141+00:00"
       },
       {
         "action": "grok_editorial",
-        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-20T16:03:41.251498+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-20T20:03:32.871430+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-20T20:03:32.871430+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-20T20:03:32.871430+00:00"
+        "claimed_at": "2026-11-21T16:03:42.651141+00:00"
       }
     ]
   },
@@ -6091,6 +6090,36 @@
       "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
       "caption_hash": "815991206441ea9f34772772fd45f635fef8145a146b8e808605aacd8a32ea46",
       "tweet_id": "2124141831873048638"
+    },
+    "2026-11-22-01-a": {
+      "slot": "2026-11-22-01-a",
+      "researched_at": "2026-11-21T16:03:42.651141+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "事例は候補の比較に使用。最終稿に同じ型は確認できず、一次情報を優先。",
+      "post_id": "inu_auto_d20e033ee19cb4",
+      "caption_hash": "9e870848986235b3a81ae8b57cc00eb2ba97cff889857c3098a338640a0ffb71"
     }
   }
 }
