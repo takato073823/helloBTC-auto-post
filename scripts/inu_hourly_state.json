@@ -1879,7 +1879,22 @@
     "inu_market_2026_11_21_23_a_crypto-sui-usd",
     "inu_auto_d20e033ee19cb4"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-22-07-a",
+      "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-DRVUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:DRV-USD",
+      "reserved_at": "2026-11-21T22:03:37.467452+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-21T22:33:37.467452+00:00",
+      "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
+      "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3977,9 +3992,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-21T16:03:42.651141+00:00",
-      "count": 73197,
-      "fastest_fee": 2
+      "checked_at": "2026-11-21T22:03:37.467452+00:00",
+      "count": 71885,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -6139,6 +6154,36 @@
       "post_id": "inu_auto_d20e033ee19cb4",
       "caption_hash": "9e870848986235b3a81ae8b57cc00eb2ba97cff889857c3098a338640a0ffb71",
       "tweet_id": "2124172391584604413"
+    },
+    "2026-11-22-07-a": {
+      "slot": "2026-11-22-07-a",
+      "researched_at": "2026-11-21T22:03:37.467452+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
+      "caption_hash": "17b7d12c2a65b2cf1106c4f8ec9b11c985b1f44549ce5c51ebf21d5f77927270"
     }
   }
 }

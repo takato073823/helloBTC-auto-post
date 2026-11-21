@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32358799262",
-      "started_at": "2026-08-20T10:25:41.946014+00:00",
-      "completed_at": "2026-08-20T10:25:55.657158+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-20-19-a",
-      "post_id": "inu_overseas_kol_2090346789937283125",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "a3a6c5ab16fae667ef49888c3dee8a8af71d98d0e551780036bccfd9cfc66153",
-      "event_fingerprint": "e43898deb52c97a4ab422942d14ed0819c84ec666fe6d79c263cd8438b62fcf1"
-    },
-    {
-      "run_id": "32358799262",
       "started_at": "2026-08-20T10:26:00.898275+00:00",
       "mode": "publish",
       "departments": {
@@ -5611,6 +5590,27 @@
       "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446",
       "status": "published",
       "completed_at": "2026-11-21T16:05:38.329339+00:00"
+    },
+    {
+      "run_id": "44954682383",
+      "started_at": "2026-11-21T22:03:37.464092+00:00",
+      "completed_at": "2026-11-21T22:03:51.757235+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-22-07-a",
+      "post_id": "inu_market_2026_11_22_07_a_crypto-drv-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
+      "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
     }
   ]
 }
