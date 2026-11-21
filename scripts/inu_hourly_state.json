@@ -1719,6 +1719,22 @@
         "day": 2,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-21-23-a",
+      "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
+      "tweet_id": "2124141831873048638",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:SUI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-SUIUSD",
+      "published_at": "2026-11-21T14:00:00+00:00",
+      "posted_at": "2026-11-21T14:04:12.332720+00:00",
+      "hook": "📉 $SUI、24時間で-4.47％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "44410157f96cfdb923cd725a63a25b207bf6ce1fd70e6b41d34bb7d9c6f9e50a",
+      "event_fingerprint": "58fc64d3a58802361d476c62a971a1dab1636cb47df2bec67598a04e98c46b92"
     }
   ],
   "posted_ids": [
@@ -1843,24 +1859,10 @@
     "inu_auto_9f0be7feff865a",
     "inu_auto_982dca0237c074",
     "academy_CA05",
-    "academy_CA06"
+    "academy_CA06",
+    "inu_market_2026_11_21_23_a_crypto-sui-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-21-23-a",
-      "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-SUIUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:SUI-USD",
-      "reserved_at": "2026-11-21T14:03:38.197499+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-21T14:33:38.197499+00:00",
-      "content_fingerprint": "44410157f96cfdb923cd725a63a25b207bf6ce1fd70e6b41d34bb7d9c6f9e50a",
-      "event_fingerprint": "58fc64d3a58802361d476c62a971a1dab1636cb47df2bec67598a04e98c46b92"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3637,6 +3639,22 @@
         "day": 2,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-21-23-a",
+      "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
+      "tweet_id": "2124141831873048638",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:SUI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-SUIUSD",
+      "published_at": "2026-11-21T14:00:00+00:00",
+      "posted_at": "2026-11-21T14:04:12.332720+00:00",
+      "hook": "📉 $SUI、24時間で-4.47％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "44410157f96cfdb923cd725a63a25b207bf6ce1fd70e6b41d34bb7d9c6f9e50a",
+      "event_fingerprint": "58fc64d3a58802361d476c62a971a1dab1636cb47df2bec67598a04e98c46b92"
     }
   ],
   "scheduled_checks": [
@@ -6068,10 +6086,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_21_23_a_crypto-sui-usd",
-      "caption_hash": "815991206441ea9f34772772fd45f635fef8145a146b8e808605aacd8a32ea46"
+      "caption_hash": "815991206441ea9f34772772fd45f635fef8145a146b8e808605aacd8a32ea46",
+      "tweet_id": "2124141831873048638"
     }
   }
 }
