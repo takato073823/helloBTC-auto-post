@@ -1735,6 +1735,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "44410157f96cfdb923cd725a63a25b207bf6ce1fd70e6b41d34bb7d9c6f9e50a",
       "event_fingerprint": "58fc64d3a58802361d476c62a971a1dab1636cb47df2bec67598a04e98c46b92"
+    },
+    {
+      "slot": "2026-11-22-01-a",
+      "post_id": "inu_auto_d20e033ee19cb4",
+      "tweet_id": "2124172391584604413",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://www.federalreserve.gov/newsevents/speech/cook20261120a.htm",
+      "published_at": "2026-11-20T12:15:00-05:00",
+      "posted_at": "2026-11-21T16:05:38.321832+00:00",
+      "hook": "🏦FRB理事、金利3.75〜4%を確認",
+      "follow_value": "次は11月25日のBeige Bookを確認",
+      "content_fingerprint": "191d21aa0968639cf345b4d4bbb151a61c70950e34e3fd2d015e0d452eed4dbe",
+      "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446"
     }
   ],
   "posted_ids": [
@@ -1860,24 +1876,10 @@
     "inu_auto_982dca0237c074",
     "academy_CA05",
     "academy_CA06",
-    "inu_market_2026_11_21_23_a_crypto-sui-usd"
+    "inu_market_2026_11_21_23_a_crypto-sui-usd",
+    "inu_auto_d20e033ee19cb4"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-22-01-a",
-      "post_id": "inu_auto_d20e033ee19cb4",
-      "source_url": "https://www.federalreserve.gov/newsevents/speech/cook20261120a.htm",
-      "topic_type": "policy_household",
-      "priority": "scheduled",
-      "generated_editorial_visual": true,
-      "market_key": "",
-      "reserved_at": "2026-11-21T16:03:42.651141+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-21T16:33:42.651141+00:00",
-      "content_fingerprint": "191d21aa0968639cf345b4d4bbb151a61c70950e34e3fd2d015e0d452eed4dbe",
-      "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3670,6 +3672,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "44410157f96cfdb923cd725a63a25b207bf6ce1fd70e6b41d34bb7d9c6f9e50a",
       "event_fingerprint": "58fc64d3a58802361d476c62a971a1dab1636cb47df2bec67598a04e98c46b92"
+    },
+    {
+      "slot": "2026-11-22-01-a",
+      "post_id": "inu_auto_d20e033ee19cb4",
+      "tweet_id": "2124172391584604413",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://www.federalreserve.gov/newsevents/speech/cook20261120a.htm",
+      "published_at": "2026-11-20T12:15:00-05:00",
+      "posted_at": "2026-11-21T16:05:38.321832+00:00",
+      "hook": "🏦FRB理事、金利3.75〜4%を確認",
+      "follow_value": "次は11月25日のBeige Bookを確認",
+      "content_fingerprint": "191d21aa0968639cf345b4d4bbb151a61c70950e34e3fd2d015e0d452eed4dbe",
+      "event_fingerprint": "745570ed0fa71ad69b0fd198db9602f2de48e4e8e0b1169cc0ae4d944c5f4446"
     }
   ],
   "scheduled_checks": [
@@ -6116,10 +6134,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "事例は候補の比較に使用。最終稿に同じ型は確認できず、一次情報を優先。",
       "post_id": "inu_auto_d20e033ee19cb4",
-      "caption_hash": "9e870848986235b3a81ae8b57cc00eb2ba97cff889857c3098a338640a0ffb71"
+      "caption_hash": "9e870848986235b3a81ae8b57cc00eb2ba97cff889857c3098a338640a0ffb71",
+      "tweet_id": "2124172391584604413"
     }
   }
 }
