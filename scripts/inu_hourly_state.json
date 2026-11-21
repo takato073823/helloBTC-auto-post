@@ -1677,6 +1677,27 @@
       "follow_value": "次回の2026年第4四半期決算で、3年戦略とPayment Services & Cryptoの具体的なKPIが示されるか。",
       "content_fingerprint": "c59e80a4ae4cb7240c4862a9e4ec07066f015441ca43a9462f79170b9501c926",
       "event_fingerprint": "e3334c28f9f50ed617e7d0a90f3b239e1ecb0ce33ac3e11be719b831ac9b9bea"
+    },
+    {
+      "slot": "2026-11-21-09-a",
+      "post_id": "academy_CA05",
+      "tweet_id": "2123930482970632596",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-21T00:04:22.795487+00:00",
+      "hook": "🔎 取引枚数が半分でも、売買代金が同じなのはなぜ？",
+      "follow_value": "枚数は半分でも、売買代金はどちらも1,000円。比較するときは単位から。",
+      "content_fingerprint": "c3e7cec2369d1329fe3276a592053aa0a519956d933e8de9683c8da206878273",
+      "event_fingerprint": "2fa0949e31ca691a3f7a2bb451f4000d528575b09ff282e3b54a8789d0bfa121",
+      "academy": {
+        "code": "CA05",
+        "day": 2,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -1799,24 +1820,10 @@
     "inu_market_2026_11_20_11_a_crypto-near-usd",
     "academy_CA04",
     "inu_auto_9f0be7feff865a",
-    "inu_auto_982dca0237c074"
+    "inu_auto_982dca0237c074",
+    "academy_CA05"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-21-09-a",
-      "post_id": "academy_CA05",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-21T00:03:43.044465+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-21T00:33:43.044465+00:00",
-      "content_fingerprint": "c3e7cec2369d1329fe3276a592053aa0a519956d933e8de9683c8da206878273",
-      "event_fingerprint": "2fa0949e31ca691a3f7a2bb451f4000d528575b09ff282e3b54a8789d0bfa121"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3551,6 +3558,27 @@
       "follow_value": "次回の2026年第4四半期決算で、3年戦略とPayment Services & Cryptoの具体的なKPIが示されるか。",
       "content_fingerprint": "c59e80a4ae4cb7240c4862a9e4ec07066f015441ca43a9462f79170b9501c926",
       "event_fingerprint": "e3334c28f9f50ed617e7d0a90f3b239e1ecb0ce33ac3e11be719b831ac9b9bea"
+    },
+    {
+      "slot": "2026-11-21-09-a",
+      "post_id": "academy_CA05",
+      "tweet_id": "2123930482970632596",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-21T00:04:22.795487+00:00",
+      "hook": "🔎 取引枚数が半分でも、売買代金が同じなのはなぜ？",
+      "follow_value": "枚数は半分でも、売買代金はどちらも1,000円。比較するときは単位から。",
+      "content_fingerprint": "c3e7cec2369d1329fe3276a592053aa0a519956d933e8de9683c8da206878273",
+      "event_fingerprint": "2fa0949e31ca691a3f7a2bb451f4000d528575b09ff282e3b54a8789d0bfa121",
+      "academy": {
+        "code": "CA05",
+        "day": 2,
+        "format": "図で検証"
+      }
     }
   ],
   "scheduled_checks": [
@@ -5914,10 +5942,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA05",
-      "caption_hash": "3c667a0e87fa2b6d753e294485878eb235a3765dcace5ebbd158e6440a935a95"
+      "caption_hash": "3c667a0e87fa2b6d753e294485878eb235a3765dcace5ebbd158e6440a935a95",
+      "tweet_id": "2123930482970632596"
     }
   }
 }
