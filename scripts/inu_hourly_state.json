@@ -1823,7 +1823,22 @@
     "inu_auto_982dca0237c074",
     "academy_CA05"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-21-21-a",
+      "post_id": "academy_CA06",
+      "source_url": "",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-21T12:03:40.679756+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-21T12:33:40.679756+00:00",
+      "content_fingerprint": "66e03ccd341ffc84e1291c44baf64e435b23449f160ecd3e2849178d8a09a164",
+      "event_fingerprint": "6a462d102c3d277d99d6b5663d8889ce23996877b1e774a4dc9f39c3c6cfe984"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -5947,6 +5962,42 @@
       "post_id": "academy_CA05",
       "caption_hash": "3c667a0e87fa2b6d753e294485878eb235a3765dcace5ebbd158e6440a935a95",
       "tweet_id": "2123930482970632596"
+    },
+    "2026-11-21-21-a": {
+      "slot": "2026-11-21-21-a",
+      "researched_at": "2026-11-21T12:03:40.679756+00:00",
+      "goal": "集客",
+      "compared": 3,
+      "references": [
+        {
+          "url": "https://blog.ethereum.org/2026/02/17/ethereum-protocol-studies-26",
+          "result": "主催者が累計数百人の学習参加を報告",
+          "observed": "2026-02-17",
+          "feature": "learn",
+          "limit": "クリプト教育の類例。個別のX投稿経由の入会数・理解度チェック単独の効果は不明。",
+          "application": "学習目標を一つに絞り、具体例の後に自分で確かめられる答えを示す"
+        },
+        {
+          "url": "https://business.x.com/ja/success-stories/solution-tree",
+          "result": "教育イベント告知キャンペーンで35万表示以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "visual",
+          "limit": "有料施策を含む表示実績。自然投稿の効果や参加完了数ではない。",
+          "application": "初心者が抱く疑問を一つ選び、本文と同じ要点に画像を絞る"
+        },
+        {
+          "url": "https://academy.trezor.io/",
+          "result": "主催者発表：30カ国以上・参加者2,500人以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "next_step",
+          "limit": "現地の教育施策全体の実績。Xの誘導文単体の参加効果ではない。",
+          "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
+      "post_id": "academy_CA06",
+      "caption_hash": "9b1aa6af3fa286217333fd87d1b33dd4e309c9ef26217a5c2ad7e047d29566db"
     }
   }
 }
