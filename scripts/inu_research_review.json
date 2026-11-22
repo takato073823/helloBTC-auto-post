@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-21T22:03:37.467452+00:00",
-  "slot": "2026-11-22-07-a",
+  "generated_at": "2026-11-22T00:03:40.377114+00:00",
+  "slot": "2026-11-22-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-20T22:03:37.467452+00:00",
-    "to": "2026-11-21T22:03:37.467452+00:00"
+    "from": "2026-11-21T00:03:40.377114+00:00",
+    "to": "2026-11-22T00:03:40.377114+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 $DRV、24時間で+41.18％"
+      "💬 供給上限と流通量は同じ？\n\n仮の例：\n発行上限 1,000枚\n現在の流通量 400枚\n\n1枚100円なら、流通分の評価は4万円。上限すべてを掛けた10万円とは別です。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA07"
     ],
-    "public_compact_post": "📈 $DRV、24時間で+41.18％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.3451。24時間で+41.18％の上昇。\n3日高値0.3488、安値0.2351。レンジ内97％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "public_compact_post": "💬 供給上限と流通量は同じ？\n\n仮の例：\n発行上限 1,000枚\n現在の流通量 400枚\n\n1枚100円なら、流通分の評価は4万円。上限すべてを掛けた10万円とは別です。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA07"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +24,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $DRV、24時間で+41.18％",
+    "selected_topic": "academy_lesson",
+    "selected_hook": "💬 供給上限と流通量は同じ？",
     "verified_facts": [],
-    "market_or_user_impact": "DRVの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "1枚100円なら、流通分の評価は4万円。上限すべてを掛けた10万円とは別です。",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-DRVUSD",
+      "url": "",
       "verified": false
     },
     "corroborating_sources": [],
