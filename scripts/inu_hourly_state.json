@@ -1767,6 +1767,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
       "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
+    },
+    {
+      "slot": "2026-11-22-09-a",
+      "post_id": "academy_CA07",
+      "tweet_id": "2124292848384110684",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-22T00:04:17.444387+00:00",
+      "hook": "💬 供給上限と流通量は同じ？",
+      "follow_value": "1枚100円なら、流通分の評価は4万円。上限すべてを掛けた10万円とは別です。",
+      "content_fingerprint": "bc2325c65dd977d4d2828285cef5c963d4d0a165d916000addcdd0b88a958310",
+      "event_fingerprint": "28287e6979168e1ef9a7265d4b080a42f924a1c27ac827105c825515e4c6491f",
+      "academy": {
+        "code": "CA07",
+        "day": 3,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -1894,24 +1915,10 @@
     "academy_CA06",
     "inu_market_2026_11_21_23_a_crypto-sui-usd",
     "inu_auto_d20e033ee19cb4",
-    "inu_market_2026_11_22_07_a_crypto-drv-usd"
+    "inu_market_2026_11_22_07_a_crypto-drv-usd",
+    "academy_CA07"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-22-09-a",
-      "post_id": "academy_CA07",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-22T00:03:40.377114+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-22T00:33:40.377114+00:00",
-      "content_fingerprint": "bc2325c65dd977d4d2828285cef5c963d4d0a165d916000addcdd0b88a958310",
-      "event_fingerprint": "28287e6979168e1ef9a7265d4b080a42f924a1c27ac827105c825515e4c6491f"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3736,6 +3743,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "2b68486ed3ce67c8a51b932651101e90b8d0dcbaac036d0f49ebd013299e2b37",
       "event_fingerprint": "736ee283f629c3aecf10a3329c3d22927630e98ae9f507e756bb69c6f33785a4"
+    },
+    {
+      "slot": "2026-11-22-09-a",
+      "post_id": "academy_CA07",
+      "tweet_id": "2124292848384110684",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-22T00:04:17.444387+00:00",
+      "hook": "💬 供給上限と流通量は同じ？",
+      "follow_value": "1枚100円なら、流通分の評価は4万円。上限すべてを掛けた10万円とは別です。",
+      "content_fingerprint": "bc2325c65dd977d4d2828285cef5c963d4d0a165d916000addcdd0b88a958310",
+      "event_fingerprint": "28287e6979168e1ef9a7265d4b080a42f924a1c27ac827105c825515e4c6491f",
+      "academy": {
+        "code": "CA07",
+        "day": 3,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -6250,10 +6278,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA07",
-      "caption_hash": "eec40881b590004e5da43e7581194c46f787fcaa94ddfe2f7d76a1710b3169e7"
+      "caption_hash": "eec40881b590004e5da43e7581194c46f787fcaa94ddfe2f7d76a1710b3169e7",
+      "tweet_id": "2124292848384110684"
     }
   }
 }
