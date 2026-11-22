@@ -1788,6 +1788,27 @@
         "day": 3,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-22-21-a",
+      "post_id": "academy_CA08",
+      "tweet_id": "2124474118984589380",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-22T12:04:35.791367+00:00",
+      "hook": "🔎 ドル価格が横ばいでも円では下がるのはなぜ？",
+      "follow_value": "ドル価格が100ドルのままでも、円換算は15,000円から14,500円に変わります。",
+      "content_fingerprint": "513b1eea9262738196d4266163cc6994d5e32a487df6a468efb1ad2f7c281293",
+      "event_fingerprint": "a6f9243ca4802a68ea9f3c29d6b4be16dfc093c7311a58ab8a08100abbdb4b03",
+      "academy": {
+        "code": "CA08",
+        "day": 3,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -1916,24 +1937,10 @@
     "inu_market_2026_11_21_23_a_crypto-sui-usd",
     "inu_auto_d20e033ee19cb4",
     "inu_market_2026_11_22_07_a_crypto-drv-usd",
-    "academy_CA07"
+    "academy_CA07",
+    "academy_CA08"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-22-21-a",
-      "post_id": "academy_CA08",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-22T12:03:39.322314+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-22T12:33:39.322314+00:00",
-      "content_fingerprint": "513b1eea9262738196d4266163cc6994d5e32a487df6a468efb1ad2f7c281293",
-      "event_fingerprint": "a6f9243ca4802a68ea9f3c29d6b4be16dfc093c7311a58ab8a08100abbdb4b03"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3778,6 +3785,27 @@
         "code": "CA07",
         "day": 3,
         "format": "初心者Q&A"
+      }
+    },
+    {
+      "slot": "2026-11-22-21-a",
+      "post_id": "academy_CA08",
+      "tweet_id": "2124474118984589380",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-22T12:04:35.791367+00:00",
+      "hook": "🔎 ドル価格が横ばいでも円では下がるのはなぜ？",
+      "follow_value": "ドル価格が100ドルのままでも、円換算は15,000円から14,500円に変わります。",
+      "content_fingerprint": "513b1eea9262738196d4266163cc6994d5e32a487df6a468efb1ad2f7c281293",
+      "event_fingerprint": "a6f9243ca4802a68ea9f3c29d6b4be16dfc093c7311a58ab8a08100abbdb4b03",
+      "academy": {
+        "code": "CA08",
+        "day": 3,
+        "format": "図で検証"
       }
     }
   ],
@@ -6330,10 +6358,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA08",
-      "caption_hash": "1cb1d1dc6cc9aa4bfdbe8ac0cf24be30a80aafac4eac09996feb6d993c58e01b"
+      "caption_hash": "1cb1d1dc6cc9aa4bfdbe8ac0cf24be30a80aafac4eac09996feb6d993c58e01b",
+      "tweet_id": "2124474118984589380"
     }
   }
 }
