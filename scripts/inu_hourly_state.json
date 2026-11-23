@@ -1940,7 +1940,22 @@
     "academy_CA07",
     "academy_CA08"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-23-09-a",
+      "post_id": "academy_CA09",
+      "source_url": "",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-23T00:03:42.557354+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-23T00:33:42.557354+00:00",
+      "content_fingerprint": "b4bc5e70c38e1b70e0405ca8f8b117238c88f8e644e8656aaabaff3a9f8235b7",
+      "event_fingerprint": "0477fce46695e83e5c4a95db3908c2e9544ded4b8a0f07f7df12257e32f24372"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4096,8 +4111,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-22T12:03:39.322314+00:00",
-      "count": 55098,
+      "checked_at": "2026-11-23T00:03:42.557354+00:00",
+      "count": 73620,
       "fastest_fee": 2
     }
   },
@@ -5358,26 +5373,9 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-22",
-    "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 1,
-      "grok_editorial": 1
-    },
-    "claims": [
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-21T16:03:42.651141+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-21T16:03:42.651141+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-21T16:03:42.651141+00:00"
-      }
-    ]
+    "jst_date": "2026-11-23",
+    "counts": {},
+    "claims": []
   },
   "success_case_audit": {
     "2026-11-18-17-a": {
@@ -6363,6 +6361,42 @@
       "post_id": "academy_CA08",
       "caption_hash": "1cb1d1dc6cc9aa4bfdbe8ac0cf24be30a80aafac4eac09996feb6d993c58e01b",
       "tweet_id": "2124474118984589380"
+    },
+    "2026-11-23-09-a": {
+      "slot": "2026-11-23-09-a",
+      "researched_at": "2026-11-23T00:03:42.557354+00:00",
+      "goal": "集客",
+      "compared": 3,
+      "references": [
+        {
+          "url": "https://blog.ethereum.org/2026/02/17/ethereum-protocol-studies-26",
+          "result": "主催者が累計数百人の学習参加を報告",
+          "observed": "2026-02-17",
+          "feature": "learn",
+          "limit": "クリプト教育の類例。個別のX投稿経由の入会数・理解度チェック単独の効果は不明。",
+          "application": "学習目標を一つに絞り、具体例の後に自分で確かめられる答えを示す"
+        },
+        {
+          "url": "https://business.x.com/ja/success-stories/solution-tree",
+          "result": "教育イベント告知キャンペーンで35万表示以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "visual",
+          "limit": "有料施策を含む表示実績。自然投稿の効果や参加完了数ではない。",
+          "application": "初心者が抱く疑問を一つ選び、本文と同じ要点に画像を絞る"
+        },
+        {
+          "url": "https://academy.trezor.io/",
+          "result": "主催者発表：30カ国以上・参加者2,500人以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "next_step",
+          "limit": "現地の教育施策全体の実績。Xの誘導文単体の参加効果ではない。",
+          "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
+      "post_id": "academy_CA09",
+      "caption_hash": "cf361ac23d4e6c15f756bd73e3821431eba3a8a185040bf0634bc5db7e53384c"
     }
   }
 }
