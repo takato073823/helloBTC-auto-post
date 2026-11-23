@@ -1883,6 +1883,22 @@
         "day": 4,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-24-01-a",
+      "post_id": "inu_auto_3dc32e1bd77a4c",
+      "tweet_id": "2124897085799747903",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.okx.com/en-ae/learn/okxice-tsv-launch-going-live",
+      "published_at": "2026-11-23T00:00:00+00:00",
+      "posted_at": "2026-11-23T16:05:18.859384+00:00",
+      "hook": "🏦OKXICE、113資産を24時間取引",
+      "follow_value": "次は取引量、対象資産、SEC免除条件を確認します。",
+      "content_fingerprint": "6afd27305950e9840855d23e85f4dd349eec2d726c1f025ac76d6302ac3af5fe",
+      "event_fingerprint": "86e48eceed0750c07facf56e21dec7405a419bf0f195594f29f3cbbbccad2347"
     }
   ],
   "posted_ids": [
@@ -2016,24 +2032,10 @@
     "academy_CA09",
     "inu_auto_fe630d68ffa9cf",
     "inu_auto_78e02050e73d6a",
-    "academy_CA10"
+    "academy_CA10",
+    "inu_auto_3dc32e1bd77a4c"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-24-01-a",
-      "post_id": "inu_auto_3dc32e1bd77a4c",
-      "source_url": "https://www.okx.com/en-ae/learn/okxice-tsv-launch-going-live",
-      "topic_type": "institutional_flow",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-23T16:03:39.957222+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-23T16:33:39.957222+00:00",
-      "content_fingerprint": "6afd27305950e9840855d23e85f4dd349eec2d726c1f025ac76d6302ac3af5fe",
-      "event_fingerprint": "86e48eceed0750c07facf56e21dec7405a419bf0f195594f29f3cbbbccad2347"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3974,6 +3976,22 @@
         "day": 4,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-24-01-a",
+      "post_id": "inu_auto_3dc32e1bd77a4c",
+      "tweet_id": "2124897085799747903",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.okx.com/en-ae/learn/okxice-tsv-launch-going-live",
+      "published_at": "2026-11-23T00:00:00+00:00",
+      "posted_at": "2026-11-23T16:05:18.859384+00:00",
+      "hook": "🏦OKXICE、113資産を24時間取引",
+      "follow_value": "次は取引量、対象資産、SEC免除条件を確認します。",
+      "content_fingerprint": "6afd27305950e9840855d23e85f4dd349eec2d726c1f025ac76d6302ac3af5fe",
+      "event_fingerprint": "86e48eceed0750c07facf56e21dec7405a419bf0f195594f29f3cbbbccad2347"
     }
   ],
   "scheduled_checks": [
@@ -6725,10 +6743,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_auto_3dc32e1bd77a4c",
-      "caption_hash": "470565e586869acd90c7d47a846e3ed254d65675dbec30dab16f29ecff64bf4c"
+      "caption_hash": "470565e586869acd90c7d47a846e3ed254d65675dbec30dab16f29ecff64bf4c",
+      "tweet_id": "2124897085799747903"
     }
   }
 }
