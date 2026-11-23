@@ -2018,7 +2018,22 @@
     "inu_auto_78e02050e73d6a",
     "academy_CA10"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-24-01-a",
+      "post_id": "inu_auto_3dc32e1bd77a4c",
+      "source_url": "https://www.okx.com/en-ae/learn/okxice-tsv-launch-going-live",
+      "topic_type": "institutional_flow",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-23T16:03:39.957222+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-23T16:33:39.957222+00:00",
+      "content_fingerprint": "6afd27305950e9840855d23e85f4dd349eec2d726c1f025ac76d6302ac3af5fe",
+      "event_fingerprint": "86e48eceed0750c07facf56e21dec7405a419bf0f195594f29f3cbbbccad2347"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4254,8 +4269,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-23T10:39:55.130854+00:00",
-      "count": 67744,
+      "checked_at": "2026-11-23T16:03:39.957222+00:00",
+      "count": 66556,
       "fastest_fee": 2
     }
   },
@@ -5516,40 +5531,24 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-23",
+    "jst_date": "2026-11-24",
     "counts": {
-      "grok_x_search": 2,
-      "openai_web_search": 3,
-      "grok_editorial": 2
+      "grok_x_search": 1,
+      "openai_web_search": 1,
+      "grok_editorial": 1
     },
     "claims": [
       {
         "action": "grok_x_search",
-        "claimed_at": "2026-11-23T04:03:34.599786+00:00"
+        "claimed_at": "2026-11-23T16:03:39.957222+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-11-23T04:03:34.599786+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-23T04:03:34.599786+00:00"
+        "claimed_at": "2026-11-23T16:03:39.957222+00:00"
       },
       {
         "action": "grok_editorial",
-        "claimed_at": "2026-11-23T04:03:34.599786+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-23T08:03:40.305134+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-23T08:03:40.305134+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-23T08:03:40.305134+00:00"
+        "claimed_at": "2026-11-23T16:03:39.957222+00:00"
       }
     ]
   },
@@ -6700,6 +6699,36 @@
       "post_id": "academy_CA10",
       "caption_hash": "df9f986515eee4ce3e6ae51d0cbeab0995665aedb1d4bcdb2f2bfa183a026bdf",
       "tweet_id": "2124836493126664416"
+    },
+    "2026-11-24-01-a": {
+      "slot": "2026-11-24-01-a",
+      "researched_at": "2026-11-23T16:03:39.957222+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_auto_3dc32e1bd77a4c",
+      "caption_hash": "470565e586869acd90c7d47a846e3ed254d65675dbec30dab16f29ecff64bf4c"
     }
   }
 }

@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-23T12:03:49.279784+00:00",
-  "slot": "2026-11-23-21-a",
+  "generated_at": "2026-11-23T16:03:39.957222+00:00",
+  "slot": "2026-11-24-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-22T12:03:49.279784+00:00",
-    "to": "2026-11-23T12:03:49.279784+00:00"
+    "from": "2026-11-22T16:03:39.957222+00:00",
+    "to": "2026-11-23T16:03:39.957222+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💬 ローソク足のヒゲは終値？\n\n仮の例：\n期間中の高値 120円\n期間の終値 105円\n\n上ヒゲの先は高値。期間の最後に120円で取引された、という意味ではありません。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA10"
+      "🏦OKXICE、113資産を24時間取引\n\nOKXICEが米国の適格顧客向けに113資産の取引を開始。\n株式・ETF・ETPをオンチェーン化し、正午ETから24時間取引に対応。\n\n暗号資産取引所が株式市場の時間外流動性まで取り込む動きです。"
     ],
-    "public_compact_post": "💬 ローソク足のヒゲは終値？\n\n仮の例：\n期間中の高値 120円\n期間の終値 105円\n\n上ヒゲの先は高値。期間の最後に120円で取引された、という意味ではありません。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA10"
+    "public_compact_post": "🏦OKXICE、113資産を24時間取引\n\nOKXICEが米国の適格顧客向けに113資産の取引を開始。\n株式・ETF・ETPをオンチェーン化し、正午ETから24時間取引に対応。\n\n暗号資産取引所が株式市場の時間外流動性まで取り込む動きです。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,22 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "💬 ローソク足のヒゲは終値？",
-    "verified_facts": [],
-    "market_or_user_impact": "",
+    "selected_topic": "institutional_flow",
+    "selected_hook": "🏦OKXICE、113資産を24時間取引",
+    "verified_facts": [
+      "OKXICEが米国の適格顧客向けに113資産の取引を開始。",
+      "株式・ETF・ETPをオンチェーン化し、正午ETから24時間取引に対応。"
+    ],
+    "market_or_user_impact": "24時間取引の拡大で、暗号資産市場との流動性競争が変わります。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "上ヒゲの先は高値。期間の最後に120円で取引された、という意味ではありません。",
+    "next_watch": "次は取引量、対象資産、SEC免除条件を確認します。",
     "primary_source": {
-      "name": "",
-      "url": "",
-      "verified": false
+      "name": "OKX",
+      "url": "https://www.okx.com/en-ae/learn/okxice-tsv-launch-going-live",
+      "verified": true
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +50,69 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 2,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 3,
+          "used": 1,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
+    "candidate_shortlist": [
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏦OKXICE、113資産を24時間取引",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.okx.com/en-ae/learn/okxice-tsv-launch-going-live",
+        "why_now": "2026年11月23日にサービス開始が公式更新され、対象資産数と取引条件が確定したため。"
+      },
+      {
+        "topic_type": "onchain",
+        "hook": "⚠️Bitcoin Coreにノード停止修正",
+        "published_at": "2026-11-20T00:00:00+00:00",
+        "source_url": "https://bitcoincore.org/en/2026/11/20/disclose-orphan-inv-stall",
+        "why_now": "過去24時間内の公式更新は確認できないものの、11月20日公表の脆弱性がノード運用に継続的な影響を持つため。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "⚖️SEC、Bitcoin ETF規則を変更",
+        "published_at": "2026-11-16T14:36:00-05:00",
+        "source_url": "https://www.sec.gov/rules-regulations/self-regulatory-organization-rulemaking/sr-cboebzx-2026-093",
+        "why_now": "ETFの上場ルール変更とコメント期限が公式ページで確認できるため。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦FRB、11月24日は新決定なし",
+        "published_at": "2026-11-03T00:00:00+00:00",
+        "source_url": "https://www.federalreserve.gov/newsevents/2026-November.htm",
+        "why_now": "日本時間11月24日の市場材料を確認し、次の公式イベントが明確になっているため。"
+      },
+      {
+        "topic_type": "whale_treasury",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      }
+    ],
     "rejected_reasons": []
   }
 }
