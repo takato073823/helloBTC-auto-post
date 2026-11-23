@@ -1846,6 +1846,22 @@
       "follow_value": "11月25日の40年国債入札結果と応札状況を確認する。",
       "content_fingerprint": "ab4d228c3ac7a3cae618b0a0841d017f010ad2cf97b842e2a69c308e64943783",
       "event_fingerprint": "e748032cfb18a6f784846d334889dff3f979c0360b48d0eb517b247bb047a03e"
+    },
+    {
+      "slot": "2026-11-23-17-a",
+      "post_id": "inu_auto_78e02050e73d6a",
+      "tweet_id": "2124776421255966820",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://www.fsa.go.jp/en/news",
+      "published_at": "2026-11-23T00:00:00+09:00",
+      "posted_at": "2026-11-23T08:05:50.229775+00:00",
+      "hook": "⚠️金融庁、暗号資産関連の新規発表なし",
+      "follow_value": "次は金融庁の暗号資産WG更新を確認する。",
+      "content_fingerprint": "51f2de5b810f0b313fd1d4c399e0522543eb34df6b85db83f880a8274cff99b3",
+      "event_fingerprint": "40255f073604d0d95eb8466262bd09aac2023fac7c73334f7a7f1056e4582bde"
     }
   ],
   "posted_ids": [
@@ -1977,24 +1993,10 @@
     "academy_CA07",
     "academy_CA08",
     "academy_CA09",
-    "inu_auto_fe630d68ffa9cf"
+    "inu_auto_fe630d68ffa9cf",
+    "inu_auto_78e02050e73d6a"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-23-17-a",
-      "post_id": "inu_auto_78e02050e73d6a",
-      "source_url": "https://www.fsa.go.jp/en/news",
-      "topic_type": "policy_household",
-      "priority": "scheduled",
-      "generated_editorial_visual": true,
-      "market_key": "",
-      "reserved_at": "2026-11-23T08:03:40.305134+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-23T08:33:40.305134+00:00",
-      "content_fingerprint": "51f2de5b810f0b313fd1d4c399e0522543eb34df6b85db83f880a8274cff99b3",
-      "event_fingerprint": "40255f073604d0d95eb8466262bd09aac2023fac7c73334f7a7f1056e4582bde"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3898,6 +3900,22 @@
       "follow_value": "11月25日の40年国債入札結果と応札状況を確認する。",
       "content_fingerprint": "ab4d228c3ac7a3cae618b0a0841d017f010ad2cf97b842e2a69c308e64943783",
       "event_fingerprint": "e748032cfb18a6f784846d334889dff3f979c0360b48d0eb517b247bb047a03e"
+    },
+    {
+      "slot": "2026-11-23-17-a",
+      "post_id": "inu_auto_78e02050e73d6a",
+      "tweet_id": "2124776421255966820",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "source_url": "https://www.fsa.go.jp/en/news",
+      "published_at": "2026-11-23T00:00:00+09:00",
+      "posted_at": "2026-11-23T08:05:50.229775+00:00",
+      "hook": "⚠️金融庁、暗号資産関連の新規発表なし",
+      "follow_value": "次は金融庁の暗号資産WG更新を確認する。",
+      "content_fingerprint": "51f2de5b810f0b313fd1d4c399e0522543eb34df6b85db83f880a8274cff99b3",
+      "event_fingerprint": "40255f073604d0d95eb8466262bd09aac2023fac7c73334f7a7f1056e4582bde"
     }
   ],
   "scheduled_checks": [
@@ -6601,10 +6619,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
       "post_id": "inu_auto_78e02050e73d6a",
-      "caption_hash": "45aa3b93b864bbf28523980a1c8162d0712b27f9cd5f9ef240e1104bd7b02bcb"
+      "caption_hash": "45aa3b93b864bbf28523980a1c8162d0712b27f9cd5f9ef240e1104bd7b02bcb",
+      "tweet_id": "2124776421255966820"
     }
   }
 }
