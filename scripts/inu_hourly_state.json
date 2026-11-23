@@ -1809,6 +1809,27 @@
         "day": 3,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-23-09-a",
+      "post_id": "academy_CA09",
+      "tweet_id": "2124655257674273125",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-23T00:04:22.565751+00:00",
+      "hook": "🔎 時価総額2億円は、2億円が入ったという意味？",
+      "follow_value": "掛け算すると時価総額は2億円。実際に2億円が流入したわけではありません。",
+      "content_fingerprint": "b4bc5e70c38e1b70e0405ca8f8b117238c88f8e644e8656aaabaff3a9f8235b7",
+      "event_fingerprint": "0477fce46695e83e5c4a95db3908c2e9544ded4b8a0f07f7df12257e32f24372",
+      "academy": {
+        "code": "CA09",
+        "day": 4,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -1938,24 +1959,10 @@
     "inu_auto_d20e033ee19cb4",
     "inu_market_2026_11_22_07_a_crypto-drv-usd",
     "academy_CA07",
-    "academy_CA08"
+    "academy_CA08",
+    "academy_CA09"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-23-09-a",
-      "post_id": "academy_CA09",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-23T00:03:42.557354+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-23T00:33:42.557354+00:00",
-      "content_fingerprint": "b4bc5e70c38e1b70e0405ca8f8b117238c88f8e644e8656aaabaff3a9f8235b7",
-      "event_fingerprint": "0477fce46695e83e5c4a95db3908c2e9544ded4b8a0f07f7df12257e32f24372"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3820,6 +3827,27 @@
       "academy": {
         "code": "CA08",
         "day": 3,
+        "format": "図で検証"
+      }
+    },
+    {
+      "slot": "2026-11-23-09-a",
+      "post_id": "academy_CA09",
+      "tweet_id": "2124655257674273125",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-23T00:04:22.565751+00:00",
+      "hook": "🔎 時価総額2億円は、2億円が入ったという意味？",
+      "follow_value": "掛け算すると時価総額は2億円。実際に2億円が流入したわけではありません。",
+      "content_fingerprint": "b4bc5e70c38e1b70e0405ca8f8b117238c88f8e644e8656aaabaff3a9f8235b7",
+      "event_fingerprint": "0477fce46695e83e5c4a95db3908c2e9544ded4b8a0f07f7df12257e32f24372",
+      "academy": {
+        "code": "CA09",
+        "day": 4,
         "format": "図で検証"
       }
     }
@@ -6393,10 +6421,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA09",
-      "caption_hash": "cf361ac23d4e6c15f756bd73e3821431eba3a8a185040bf0634bc5db7e53384c"
+      "caption_hash": "cf361ac23d4e6c15f756bd73e3821431eba3a8a185040bf0634bc5db7e53384c",
+      "tweet_id": "2124655257674273125"
     }
   }
 }
