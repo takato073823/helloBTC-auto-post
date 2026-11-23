@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-23T00:03:42.557354+00:00",
-  "slot": "2026-11-23-09-a",
+  "generated_at": "2026-11-23T04:03:34.599786+00:00",
+  "slot": "2026-11-23-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-22T00:03:42.557354+00:00",
-    "to": "2026-11-23T00:03:42.557354+00:00"
+    "from": "2026-11-22T04:03:34.599786+00:00",
+    "to": "2026-11-23T04:03:34.599786+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🔎 時価総額2億円は、2億円が入ったという意味？\n\n仮の例：\n価格 200円\n流通量 100万枚\n\n掛け算すると時価総額は2億円。実際に2億円が流入したわけではありません。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA09"
+      "🇯🇵 11月23日、日本の主要経済指標発表はなし\n\n日本財務省の2026年11月23日週次予定では、11月23日の欄に発表項目が記載されていない。\n\nきょうは国内の新規材料が乏しく、次の金利材料は長期国債入札です。"
     ],
-    "public_compact_post": "🔎 時価総額2億円は、2億円が入ったという意味？\n\n仮の例：\n価格 200円\n流通量 100万枚\n\n掛け算すると時価総額は2億円。実際に2億円が流入したわけではありません。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA09"
+    "public_compact_post": "🇯🇵 11月23日、日本の主要経済指標発表はなし\n\n日本財務省の2026年11月23日週次予定では、11月23日の欄に発表項目が記載されていない。\n\nきょうは国内の新規材料が乏しく、次の金利材料は長期国債入札です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,22 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "🔎 時価総額2億円は、2億円が入ったという意味？",
-    "verified_facts": [],
-    "market_or_user_impact": "",
+    "selected_topic": "macro_event",
+    "selected_hook": "🇯🇵 11月23日、日本の主要経済指標発表はなし",
+    "verified_facts": [
+      "日本財務省の2026年11月23日週次予定では、11月23日の欄に発表項目が記載されていない。",
+      "次の主要予定は11月25日10:30の40年国債入札公告で、その後12:35に入札結果が予定されている。"
+    ],
+    "market_or_user_impact": "国内金利や円相場を動かす次の予定を、カレンダー頼みでなく財務省の公式日程で確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "掛け算すると時価総額は2億円。実際に2億円が流入したわけではありません。",
+    "next_watch": "11月25日の40年国債入札結果と応札状況を確認する。",
     "primary_source": {
-      "name": "",
-      "url": "",
-      "verified": false
+      "name": "Japan Ministry of Finance",
+      "url": "https://www.mof.go.jp/english/public_relations/weekly_schedule/index.htm",
+      "verified": true
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +50,77 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 0,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 0,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 0,
+          "used": 2,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "prediction_market_shift",
+        "hook": "📊$BTC予測、6万ドル台が優勢",
+        "published_at": "2026-11-23T13:03:34+09:00",
+        "source_url": "https://polymarket.com/event/bitcoin-price-on-november-23-2026",
+        "why_now": "11月23日終了予定の市場で、現在の最大確率帯が確認できるため。"
+      },
+      {
+        "topic_type": "institutional_custody",
+        "hook": "⚠️Binance、被害資産を補填完了",
+        "published_at": "2026-11-19T08:20:00+00:00",
+        "source_url": "https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71",
+        "why_now": "大規模インシデント後の補填完了と準備金スナップショットが更新されたため。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "🏦SEC、暗号資産ETFの上場基準を変更",
+        "published_at": "2026-11-19T00:00:00+00:00",
+        "source_url": "https://www.sec.gov/rules-regulations/self-regulatory-organization-rulemaking/sr-cboebzx-2026-093",
+        "why_now": "過去24時間内の更新ではないため速報扱いではありませんが、ETF制度面の継続的な影響があるため。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "💵FRB、11月23日は新規政策発表なし",
+        "published_at": "2026-11-23T13:03:34+09:00",
+        "source_url": "https://www.federalreserve.gov/newsevents/calendar.htm",
+        "why_now": "日本時間11月23日時点で、当日の公式スケジュールと次の政策関連日程が確認できるため。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "🤖Anthropic、IPOで11.27億株を発行",
+        "published_at": "2026-11-20T00:00:00+00:00",
+        "source_url": "https://investor.anthropic.com/news-and-events/news/default.aspx",
+        "why_now": "過去24時間を超えるため速報ではありませんが、AI投資とリスク資産の需給を考える継続材料です。"
+      },
+      {
+        "topic_type": "onchain",
+        "hook": "🔧Ethereum、Glamsterdamを試験中",
+        "published_at": "2026-10-16T00:00:00+00:00",
+        "source_url": "https://ethereum.org/roadmap/glamsterdam",
+        "why_now": "過去24時間の更新ではありませんが、主要プロトコルの進行状況を公式ページで確認できるため。"
+      }
+    ],
+    "rejected_reasons": [
+      "トレンド優先探索1: この系統の鮮度上限を超えています",
+      "トレンド優先探索2: 根拠原文が一次資料ページ内に確認できません",
+      "トレンド優先探索3: この系統の鮮度上限を超えています",
+      "トレンド優先探索4: 根拠原文が一次資料ページ内に確認できません",
+      "トレンド優先探索5: この系統の鮮度上限を超えています",
+      "トレンド優先探索6: 根拠原文が一次資料ページ内に確認できません",
+      "再探索1: この系統の鮮度上限を超えています"
+    ]
   }
 }
