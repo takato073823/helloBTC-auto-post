@@ -1979,7 +1979,22 @@
     "academy_CA09",
     "inu_auto_fe630d68ffa9cf"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-23-17-a",
+      "post_id": "inu_auto_78e02050e73d6a",
+      "source_url": "https://www.fsa.go.jp/en/news",
+      "topic_type": "policy_household",
+      "priority": "scheduled",
+      "generated_editorial_visual": true,
+      "market_key": "",
+      "reserved_at": "2026-11-23T08:03:40.305134+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-23T08:33:40.305134+00:00",
+      "content_fingerprint": "51f2de5b810f0b313fd1d4c399e0522543eb34df6b85db83f880a8274cff99b3",
+      "event_fingerprint": "40255f073604d0d95eb8466262bd09aac2023fac7c73334f7a7f1056e4582bde"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4169,12 +4184,49 @@
       "result": "no_verified_candidate"
     }
   ],
-  "research_queue": [],
+  "research_queue": [
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "prediction_market_shift",
+        "hook": "📉予測市場、$BTCは6万ドル台中心",
+        "facts": [
+          "Polymarketで11月23日の$BTC価格は6万〜6.2万ドルが38%で最多。",
+          "市場参加者の確率であり、確定情報や価格保証ではない。"
+        ],
+        "opinion": "短期の市場心理は、急反発より6万ドル近辺の持ち合いを織り込む形だ。",
+        "source_name": "Polymarket",
+        "source_url": "https://polymarket.com/event/bitcoin-price-on-november-23-2026",
+        "published_at": "2026-11-23T08:03:00+00:00",
+        "evidence_anchor": "60,000-62,000 38%",
+        "evidence_as_primary": true,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "予測市場",
+          "$BTC"
+        ],
+        "why_now": "当日決着の公式予測市場で確率と価格帯が更新されているため。",
+        "reader_interest": "短期投資家が市場の想定レンジを把握できる。",
+        "follow_value": "次は6万ドル台を維持できるか確認する。",
+        "is_primary_source": true,
+        "corroborating_source_urls": [],
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://polymarket.com/event/bitcoin-price-on-november-23-2026",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-11-23T08:03:40.305134+00:00"
+    }
+  ],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-23T04:03:34.599786+00:00",
-      "count": 74421,
-      "fastest_fee": 2
+      "checked_at": "2026-11-23T08:03:40.305134+00:00",
+      "count": 57430,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -5436,9 +5488,9 @@
   "api_usage": {
     "jst_date": "2026-11-23",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 2,
-      "grok_editorial": 1
+      "grok_x_search": 2,
+      "openai_web_search": 3,
+      "grok_editorial": 2
     },
     "claims": [
       {
@@ -5456,6 +5508,18 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-23T04:03:34.599786+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-23T08:03:40.305134+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-23T08:03:40.305134+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-23T08:03:40.305134+00:00"
       }
     ]
   },
@@ -6511,6 +6575,36 @@
       "post_id": "inu_auto_fe630d68ffa9cf",
       "caption_hash": "8f91d6ae1826ce11df33dad8096b6b11a71e1ec7f208a05e30aa7c9ca318c65a",
       "tweet_id": "2124716184289280024"
+    },
+    "2026-11-23-17-a": {
+      "slot": "2026-11-23-17-a",
+      "researched_at": "2026-11-23T08:03:40.305134+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
+      "post_id": "inu_auto_78e02050e73d6a",
+      "caption_hash": "45aa3b93b864bbf28523980a1c8162d0712b27f9cd5f9ef240e1104bd7b02bcb"
     }
   }
 }
