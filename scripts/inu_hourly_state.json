@@ -1862,6 +1862,27 @@
       "follow_value": "次は金融庁の暗号資産WG更新を確認する。",
       "content_fingerprint": "51f2de5b810f0b313fd1d4c399e0522543eb34df6b85db83f880a8274cff99b3",
       "event_fingerprint": "40255f073604d0d95eb8466262bd09aac2023fac7c73334f7a7f1056e4582bde"
+    },
+    {
+      "slot": "2026-11-23-21-a",
+      "post_id": "academy_CA10",
+      "tweet_id": "2124836493126664416",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-23T12:04:32.438726+00:00",
+      "hook": "💬 ローソク足のヒゲは終値？",
+      "follow_value": "上ヒゲの先は高値。期間の最後に120円で取引された、という意味ではありません。",
+      "content_fingerprint": "3e250d191cdf59a99a51dfd58b130763f7e0088fc30cbfbc219ef37fb80f20b7",
+      "event_fingerprint": "d9d146001a9f330c890333425ddb4bfd08e844d5b41e1b3d00ba385d02768883",
+      "academy": {
+        "code": "CA10",
+        "day": 4,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -1994,24 +2015,10 @@
     "academy_CA08",
     "academy_CA09",
     "inu_auto_fe630d68ffa9cf",
-    "inu_auto_78e02050e73d6a"
+    "inu_auto_78e02050e73d6a",
+    "academy_CA10"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-23-21-a",
-      "post_id": "academy_CA10",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-23T12:03:49.279784+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-23T12:33:49.279784+00:00",
-      "content_fingerprint": "3e250d191cdf59a99a51dfd58b130763f7e0088fc30cbfbc219ef37fb80f20b7",
-      "event_fingerprint": "d9d146001a9f330c890333425ddb4bfd08e844d5b41e1b3d00ba385d02768883"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -3931,6 +3938,27 @@
       "follow_value": "次は金融庁の暗号資産WG更新を確認する。",
       "content_fingerprint": "51f2de5b810f0b313fd1d4c399e0522543eb34df6b85db83f880a8274cff99b3",
       "event_fingerprint": "40255f073604d0d95eb8466262bd09aac2023fac7c73334f7a7f1056e4582bde"
+    },
+    {
+      "slot": "2026-11-23-21-a",
+      "post_id": "academy_CA10",
+      "tweet_id": "2124836493126664416",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-23T12:04:32.438726+00:00",
+      "hook": "💬 ローソク足のヒゲは終値？",
+      "follow_value": "上ヒゲの先は高値。期間の最後に120円で取引された、という意味ではありません。",
+      "content_fingerprint": "3e250d191cdf59a99a51dfd58b130763f7e0088fc30cbfbc219ef37fb80f20b7",
+      "event_fingerprint": "d9d146001a9f330c890333425ddb4bfd08e844d5b41e1b3d00ba385d02768883",
+      "academy": {
+        "code": "CA10",
+        "day": 4,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -6667,10 +6695,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA10",
-      "caption_hash": "df9f986515eee4ce3e6ae51d0cbeab0995665aedb1d4bcdb2f2bfa183a026bdf"
+      "caption_hash": "df9f986515eee4ce3e6ae51d0cbeab0995665aedb1d4bcdb2f2bfa183a026bdf",
+      "tweet_id": "2124836493126664416"
     }
   }
 }
