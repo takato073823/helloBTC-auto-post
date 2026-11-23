@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-23T08:03:40.305134+00:00",
-  "slot": "2026-11-23-17-a",
+  "generated_at": "2026-11-23T10:39:55.130854+00:00",
+  "slot": "2026-11-23-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-22T08:03:40.305134+00:00",
-    "to": "2026-11-23T08:03:40.305134+00:00"
+    "from": "2026-11-22T10:39:55.130854+00:00",
+    "to": "2026-11-23T10:39:55.130854+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "⚠️金融庁、暗号資産関連の新規発表なし\n\n金融庁の11月ページで、11月23日の暗号資産規制発表は確認できない。\n直近の暗号資産関連の公式論点は7月のトラベルルール改正。\n\n新制度の速報がない日は、既存ルールの適用範囲を誤解しないことが重要だ。"
-    ],
-    "public_compact_post": "⚠️金融庁、暗号資産関連の新規発表なし\n\n金融庁の11月ページで、11月23日の暗号資産規制発表は確認できない。\n直近の暗号資産関連の公式論点は7月のトラベルルール改正。\n\n新制度の速報がない日は、既存ルールの適用範囲を誤解しないことが重要だ。"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,22 +22,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "policy_household",
-    "selected_hook": "⚠️金融庁、暗号資産関連の新規発表なし",
-    "verified_facts": [
-      "金融庁の11月ページで、11月23日の暗号資産規制発表は確認できない。",
-      "直近の暗号資産関連の公式論点は7月のトラベルルール改正。"
-    ],
-    "market_or_user_impact": "新規規制と既存ルールを混同せずに判断できる。",
+    "selected_topic": "",
+    "selected_hook": "",
+    "verified_facts": [],
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "次は金融庁の暗号資産WG更新を確認する。",
+    "next_watch": "",
     "primary_source": {
-      "name": "金融庁",
-      "url": "https://www.fsa.go.jp/en/news",
-      "verified": true
+      "name": "",
+      "url": "",
+      "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -50,8 +45,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -71,48 +66,15 @@
     },
     "candidate_shortlist": [
       {
-        "topic_type": "market_microstructure",
-        "hook": "⚠️Krakenで障害表示、売買前に確認",
-        "published_at": "2026-11-23T01:42:55+00:00",
-        "source_url": "https://status.kraken.com/api",
-        "why_now": "公式ステータスが過去24時間以内に部分障害を示しているため。"
-      },
-      {
         "topic_type": "prediction_market_shift",
         "hook": "📉予測市場、$BTCは6万ドル台中心",
         "published_at": "2026-11-23T08:03:00+00:00",
         "source_url": "https://polymarket.com/event/bitcoin-price-on-november-23-2026",
         "why_now": "当日決着の公式予測市場で確率と価格帯が更新されているため。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "💵USDC流通量、11月19日時点で673億ドル",
-        "published_at": "2026-11-19T00:00:00+00:00",
-        "source_url": "https://www.circle.com/usdc",
-        "why_now": "過去24時間以内に公式ページで最新の流通量表示を確認できるため。"
-      },
-      {
-        "topic_type": "policy_household",
-        "hook": "⚠️金融庁、暗号資産関連の新規発表なし",
-        "published_at": "2026-11-23T00:00:00+09:00",
-        "source_url": "https://www.fsa.go.jp/en/news",
-        "why_now": "当日分の公式ニュース一覧を確認し、暗号資産関連の新規変更がないことを確認したため。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦FRB、政策金利は3.75〜4%を維持",
-        "published_at": "2026-11-23T21:15:00-05:00",
-        "source_url": "https://www.federalreserve.gov/newsevents/2026-November.htm",
-        "why_now": "11月23日に公式統計更新が予定・確認され、次回政策判断への材料になるため。"
       }
     ],
-    "rejected_reasons": []
+    "rejected_reasons": [
+      "一次探索1: 根拠原文が一次資料ページ内に確認できません"
+    ]
   }
 }
