@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-11-24T20:11:03.649162+00:00",
-  "slot": "2026-11-25-05-a",
+  "generated_at": "2026-11-24T22:09:11.334998+00:00",
+  "slot": "2026-11-25-07-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-23T20:11:03.649162+00:00",
-    "to": "2026-11-24T20:11:03.649162+00:00"
+    "from": "2026-11-23T22:09:11.334998+00:00",
+    "to": "2026-11-24T22:09:11.334998+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,19 +34,19 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 26,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
-        "signal_count": 1,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "hermes_packet": {
         "signal_count": 0,
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 25,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -62,70 +62,9 @@
           "limit": 8
         }
       },
-      "xai_signal_shortlist": [
-        {
-          "title": "CIAと米情報機関システムにハッカー侵入、非機密政府データ暴露",
-          "url": "https://x.com/WatcherGuru/status/2125316217611432251",
-          "published": "2026-11-24T19:50:47+00:00"
-        }
-      ]
+      "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "🏦CFTC、予測市場の報告規則を確定",
-        "published_at": "2026-11-23T00:00:00+00:00",
-        "source_url": "https://www.cftc.gov/PressRoom/PressReleases/9330-26",
-        "why_now": "CFTCが新ルールを承認し、暗号資産価格契約を含むイベント契約の監督条件が変わったため。"
-      },
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "🏦CFTC、BTCを担保資産として明確化",
-        "published_at": "2026-11-23T00:00:00+00:00",
-        "source_url": "https://www.cftc.gov/csl/26-31/download",
-        "why_now": "CFTCが登録取引所・清算機関の財務要件における暗号資産利用を新たに整理したため。"
-      },
-      {
-        "topic_type": "institutional_flow",
-        "hook": "📈Strategy、$BTCを457枚追加",
-        "published_at": "2026-11-23T00:00:00+00:00",
-        "source_url": "https://www.strategy.com/press/strategy-acquires-457-btc-repurchases-212-million-of-strc-increases-digital-credit-repurchase-program-by-1b-reallocates-1b-from-usd-reserve-to-usd-cash_11-23-2026",
-        "why_now": "最大級の企業保有者が過去24時間内に$BTC取得と資本政策の変更を同時に公表したため。"
-      },
-      {
-        "topic_type": "institutional_custody",
-        "hook": "⚠️COLDCARD欠陥、検査だけでは検出不能",
-        "published_at": "2026-11-21T00:00:00+00:00",
-        "source_url": "https://blog.coinkite.com/keylabs-coldcard-seed-generation-review",
-        "why_now": "独立レビューで欠陥の技術的原因が追加確認され、既存利用者の移行判断に影響するため。"
-      },
-      {
-        "topic_type": "developing_story",
-        "hook": "⚠️Kraken、BTC入出金を一時停止",
-        "published_at": "2026-11-24T14:10:00+00:00",
-        "source_url": "https://status.kraken.com",
-        "why_now": "過去24時間内に$BTCオンチェーン入出金の停止と復旧時刻が公式ステータスへ記録されたため。"
-      },
-      {
-        "topic_type": "policy_household",
-        "hook": "🇯🇵金融庁、監督指針を一部改正",
-        "published_at": "2026-11-24T00:00:00+09:00",
-        "source_url": "https://www.fsa.go.jp/recent/recent2026.html",
-        "why_now": "日本の金融監督指針改正とAI研究会の初回開催が11月24日に公表されたため。"
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: 根拠原文が一次資料ページ内に確認できません",
-      "一次探索2: この系統の鮮度上限を超えています",
-      "一次探索3: この系統の鮮度上限を超えています",
-      "一次探索4: この系統の鮮度上限を超えています",
-      "一次探索5: この系統の鮮度上限を超えています",
-      "一次探索6: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索1: 独立した裏付けURLがWeb検索の参照元一覧にありません",
-      "再探索2: この系統の鮮度上限を超えています",
-      "再探索3: この系統の鮮度上限を超えています",
-      "再探索4: 独立した裏付けURLがWeb検索の参照元一覧にありません",
-      "再探索5: この系統の鮮度上限を超えています"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
