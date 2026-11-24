@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-11-24T06:08:47.222473+00:00",
-  "slot": "2026-11-24-15-a",
+  "generated_at": "2026-11-24T08:03:35.306367+00:00",
+  "slot": "2026-11-24-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-23T06:08:47.222473+00:00",
-    "to": "2026-11-24T06:08:47.222473+00:00"
+    "from": "2026-11-23T08:03:35.306367+00:00",
+    "to": "2026-11-24T08:03:35.306367+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,7 +34,7 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,12 +45,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 3,
           "limit": 6
         },
         "grok_editorial": {
@@ -58,13 +58,64 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 3,
+          "used": 5,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "⚠️CFTC、$BTCを運用資源に算入",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.cftc.gov/PressRoom/PressReleases/9331-26",
+        "why_now": "デリバティブ業者の資本運用と暗号資産の制度的位置付けが変わります。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "📈Strategy、$BTCを457枚追加",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.strategy.com/press/strategy-acquires-457-btc-repurchases-212-million-of-strc-increases-digital-credit-repurchase-program-by-1b-reallocates-1b-from-usd-reserve-to-usd-cash_11-23-2026",
+        "why_now": "企業による買い増しと資金調達方針が同時に更新されました。"
+      },
+      {
+        "topic_type": "etf_flow",
+        "hook": "📉$BTC ETF、23日に5.70億ドル流出",
+        "published_at": "2026-11-24T00:00:00+00:00",
+        "source_url": "https://farside.co.uk/btc?from=article-links&trk=public_post_comment-text",
+        "why_now": "直近の取引日でETFから大規模な資金流出が確認されました。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦FRB、24日は金融データ更新日",
+        "published_at": "2026-11-24T13:00:00-05:00",
+        "source_url": "https://www.federalreserve.gov/newsevents.htm",
+        "why_now": "本日更新された金融データと翌日の景況感資料が市場材料になります。"
+      },
+      {
+        "topic_type": "onchain",
+        "hook": "⛓️$BTC手数料は低位、未確認52,125件",
+        "published_at": "2026-11-24T17:03:35+09:00",
+        "source_url": "https://mempool.space/charts",
+        "why_now": "現在のネットワーク混雑と手数料を実測できます。"
+      },
+      {
+        "topic_type": "supply_event",
+        "hook": "💵USDC流通量は673億ドル",
+        "published_at": "2026-11-19T00:00:00+00:00",
+        "source_url": "https://www.circle.com/transparency",
+        "why_now": "公式準備データが更新され、市場流動性の基礎値を確認できます。"
+      }
+    ],
+    "rejected_reasons": [
+      "トレンド優先探索1: 根拠原文が一次資料ページ内に確認できません",
+      "トレンド優先探索2: 公開日時が未来です",
+      "トレンド優先探索3: 403 Client Error: Forbidden for url: https://www.cftc.gov/PressRoom/PressReleases/9331-26",
+      "トレンド優先探索4: 403 Client Error: Forbidden for url: https://www.strategy.com/press/strategy-acquires-457-btc-repurchases-212-million-of-strc-increases-digital-credit-repurchase-program-by-1b-reallocates-1b-from-usd-reserve-to-usd-cash_11-23-2026",
+      "トレンド優先探索5: 一次資料として選定されていません",
+      "トレンド優先探索6: この系統の鮮度上限を超えています",
+      "再探索失敗: OpenAIの出力が途中で終了しました: IncompleteDetails(reason='max_output_tokens')"
+    ]
   }
 }

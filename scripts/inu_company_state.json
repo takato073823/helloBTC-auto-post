@@ -2,22 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32403766833",
-      "started_at": "2026-08-20T18:33:54.072094+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "published"
-      },
-      "slot": "2026-08-21-03-a",
-      "post_id": "inu_market_2026_08_21_03_a_crypto-btc-usd",
-      "topic_type": "crypto_market",
-      "content_fingerprint": "36a08f438836cbec73e652fa54a4a2cb5d198962dc13d4ad03810e23cdc62c1f",
-      "event_fingerprint": "27f9ff7b381a4e98e306167391802a1310a7cc49bb8e88a4e7ba98994f0ec9b0",
-      "status": "published",
-      "completed_at": "2026-08-20T18:33:54.960598+00:00"
-    },
-    {
       "run_id": "32411977058",
       "started_at": "2026-08-20T20:06:05.675269+00:00",
       "completed_at": "2026-08-20T20:10:19.305732+00:00",
@@ -5579,6 +5563,22 @@
       "run_id": "45338186228",
       "started_at": "2026-11-24T06:08:47.219704+00:00",
       "completed_at": "2026-11-24T06:08:48.630911+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "not_started",
+        "quality": "not_started",
+        "distribution": "not_started",
+        "reliability": "observed"
+      },
+      "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "45352775838",
+      "started_at": "2026-11-24T08:03:35.303730+00:00",
+      "completed_at": "2026-11-24T08:05:45.178297+00:00",
       "mode": "prepare",
       "departments": {
         "research": "completed",
