@@ -2,23 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32393539002",
-      "started_at": "2026-08-20T16:43:51.248384+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "failed_released"
-      },
-      "slot": "2026-08-21-01-a",
-      "post_id": "inu_overseas_kol_2090436744667656212",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "4e8962b60fa2abd34130774fb69c4a376378309e0501b33bf4f04e25b3901663",
-      "event_fingerprint": "431a6afa69446c931df06facb98568f11d776603119096d4198a5bb5b4d65d27",
-      "status": "retryable_delivery_failure",
-      "reason": "INU投稿を公開できませんでした。文字だけの代替投稿は行いません",
-      "completed_at": "2026-08-20T16:43:51.459648+00:00"
-    },
-    {
       "run_id": "32401035494",
       "started_at": "2026-08-20T18:04:00.018829+00:00",
       "completed_at": "2026-08-20T18:08:31.312587+00:00",
@@ -5597,6 +5580,27 @@
       "event_fingerprint": "1dde571e324847bcb0f8fc8b71a07b3066db8e20f33b5d595f2b99fe48ef9019",
       "status": "published",
       "completed_at": "2026-11-24T00:04:24.620221+00:00"
+    },
+    {
+      "run_id": "45323662581",
+      "started_at": "2026-11-24T04:03:45.660460+00:00",
+      "completed_at": "2026-11-24T04:06:06.097888+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-24-13-a",
+      "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
+      "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
     }
   ]
 }

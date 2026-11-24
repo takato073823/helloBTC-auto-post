@@ -2057,7 +2057,22 @@
     "inu_auto_3dc32e1bd77a4c",
     "academy_CA11"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-24-13-a",
+      "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-DBRUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:DBR-USD",
+      "reserved_at": "2026-11-24T04:03:45.664253+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-24T04:33:45.664253+00:00",
+      "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
+      "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4330,9 +4345,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-23T16:03:39.957222+00:00",
-      "count": 66556,
-      "fastest_fee": 2
+      "checked_at": "2026-11-24T04:03:45.664253+00:00",
+      "count": 54356,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -5594,9 +5609,9 @@
   "api_usage": {
     "jst_date": "2026-11-24",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 1,
-      "grok_editorial": 1
+      "grok_x_search": 2,
+      "openai_web_search": 3,
+      "grok_editorial": 2
     },
     "claims": [
       {
@@ -5610,6 +5625,22 @@
       {
         "action": "grok_editorial",
         "claimed_at": "2026-11-23T16:03:39.957222+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
       }
     ]
   },
@@ -6828,6 +6859,36 @@
       "post_id": "academy_CA11",
       "caption_hash": "24b0c63fb57ce94e2144535aac25d470d12474e9caf075a105e670e3d3e629ee",
       "tweet_id": "2125017654331343292"
+    },
+    "2026-11-24-13-a": {
+      "slot": "2026-11-24-13-a",
+      "researched_at": "2026-11-24T04:03:45.664253+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
+      "caption_hash": "5ff99cc303069af720d61f440c3026b3025bbbe4c4ff192fc5b2a83f20b849b8"
     }
   }
 }
