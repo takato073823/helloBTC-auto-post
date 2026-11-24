@@ -1899,6 +1899,27 @@
       "follow_value": "次は取引量、対象資産、SEC免除条件を確認します。",
       "content_fingerprint": "6afd27305950e9840855d23e85f4dd349eec2d726c1f025ac76d6302ac3af5fe",
       "event_fingerprint": "86e48eceed0750c07facf56e21dec7405a419bf0f195594f29f3cbbbccad2347"
+    },
+    {
+      "slot": "2026-11-24-09-a",
+      "post_id": "academy_CA11",
+      "tweet_id": "2125017654331343292",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-24T00:04:24.612564+00:00",
+      "hook": "💬 アドレスが2つなら利用者も2人？",
+      "follow_value": "アクティブアドレス数と人数は一致しません。利用状況を比べるときは指標の定義から。",
+      "content_fingerprint": "be8f19569afe469515366f674e0a032cfc3302b17e763c47f28210f1619637fc",
+      "event_fingerprint": "1dde571e324847bcb0f8fc8b71a07b3066db8e20f33b5d595f2b99fe48ef9019",
+      "academy": {
+        "code": "CA11",
+        "day": 5,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -2033,24 +2054,10 @@
     "inu_auto_fe630d68ffa9cf",
     "inu_auto_78e02050e73d6a",
     "academy_CA10",
-    "inu_auto_3dc32e1bd77a4c"
+    "inu_auto_3dc32e1bd77a4c",
+    "academy_CA11"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-24-09-a",
-      "post_id": "academy_CA11",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-24T00:03:45.667325+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-24T00:33:45.667325+00:00",
-      "content_fingerprint": "be8f19569afe469515366f674e0a032cfc3302b17e763c47f28210f1619637fc",
-      "event_fingerprint": "1dde571e324847bcb0f8fc8b71a07b3066db8e20f33b5d595f2b99fe48ef9019"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4007,6 +4014,27 @@
       "follow_value": "次は取引量、対象資産、SEC免除条件を確認します。",
       "content_fingerprint": "6afd27305950e9840855d23e85f4dd349eec2d726c1f025ac76d6302ac3af5fe",
       "event_fingerprint": "86e48eceed0750c07facf56e21dec7405a419bf0f195594f29f3cbbbccad2347"
+    },
+    {
+      "slot": "2026-11-24-09-a",
+      "post_id": "academy_CA11",
+      "tweet_id": "2125017654331343292",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-24T00:04:24.612564+00:00",
+      "hook": "💬 アドレスが2つなら利用者も2人？",
+      "follow_value": "アクティブアドレス数と人数は一致しません。利用状況を比べるときは指標の定義から。",
+      "content_fingerprint": "be8f19569afe469515366f674e0a032cfc3302b17e763c47f28210f1619637fc",
+      "event_fingerprint": "1dde571e324847bcb0f8fc8b71a07b3066db8e20f33b5d595f2b99fe48ef9019",
+      "academy": {
+        "code": "CA11",
+        "day": 5,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -6795,10 +6823,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA11",
-      "caption_hash": "24b0c63fb57ce94e2144535aac25d470d12474e9caf075a105e670e3d3e629ee"
+      "caption_hash": "24b0c63fb57ce94e2144535aac25d470d12474e9caf075a105e670e3d3e629ee",
+      "tweet_id": "2125017654331343292"
     }
   }
 }
