@@ -1936,6 +1936,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
       "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
+    },
+    {
+      "slot": "2026-11-25-03-a",
+      "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
+      "tweet_id": "2125290074870874326",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ZRO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ZROUSD",
+      "published_at": "2026-11-24T18:00:00+00:00",
+      "posted_at": "2026-11-24T18:06:54.784311+00:00",
+      "hook": "📉 $ZRO、24時間で-15.08％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "88c7f6bc2773dfe456b99d53754bcdf874e7a5e74edf23a3cdd2953ae0adff6c",
+      "event_fingerprint": "0e8591953f0fbdb1ca5e456e2f92473b6f0fadb59b8babc889fa2977b21ad1d9"
     }
   ],
   "posted_ids": [
@@ -2072,24 +2088,10 @@
     "academy_CA10",
     "inu_auto_3dc32e1bd77a4c",
     "academy_CA11",
-    "inu_market_2026_11_24_13_a_crypto-dbr-usd"
+    "inu_market_2026_11_24_13_a_crypto-dbr-usd",
+    "inu_market_2026_11_25_03_a_crypto-zro-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-25-03-a",
-      "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-ZROUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:ZRO-USD",
-      "reserved_at": "2026-11-24T18:06:19.244468+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-24T18:36:19.244468+00:00",
-      "content_fingerprint": "88c7f6bc2773dfe456b99d53754bcdf874e7a5e74edf23a3cdd2953ae0adff6c",
-      "event_fingerprint": "0e8591953f0fbdb1ca5e456e2f92473b6f0fadb59b8babc889fa2977b21ad1d9"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4083,6 +4085,22 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
       "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
+    },
+    {
+      "slot": "2026-11-25-03-a",
+      "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
+      "tweet_id": "2125290074870874326",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ZRO-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ZROUSD",
+      "published_at": "2026-11-24T18:00:00+00:00",
+      "posted_at": "2026-11-24T18:06:54.784311+00:00",
+      "hook": "📉 $ZRO、24時間で-15.08％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "88c7f6bc2773dfe456b99d53754bcdf874e7a5e74edf23a3cdd2953ae0adff6c",
+      "event_fingerprint": "0e8591953f0fbdb1ca5e456e2f92473b6f0fadb59b8babc889fa2977b21ad1d9"
     }
   ],
   "scheduled_checks": [
@@ -7021,10 +7039,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
-      "caption_hash": "c4478b1d5aeb797466e0cdb3c64cfbc8151bfe53702e3ba0e608de522b928a07"
+      "caption_hash": "c4478b1d5aeb797466e0cdb3c64cfbc8151bfe53702e3ba0e608de522b928a07",
+      "tweet_id": "2125290074870874326"
     }
   }
 }
