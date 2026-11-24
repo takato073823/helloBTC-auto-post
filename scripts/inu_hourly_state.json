@@ -2074,7 +2074,22 @@
     "academy_CA11",
     "inu_market_2026_11_24_13_a_crypto-dbr-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-25-03-a",
+      "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-ZROUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:ZRO-USD",
+      "reserved_at": "2026-11-24T18:06:19.244468+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-24T18:36:19.244468+00:00",
+      "content_fingerprint": "88c7f6bc2773dfe456b99d53754bcdf874e7a5e74edf23a3cdd2953ae0adff6c",
+      "event_fingerprint": "0e8591953f0fbdb1ca5e456e2f92473b6f0fadb59b8babc889fa2977b21ad1d9"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4387,9 +4402,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-24T10:03:42.077479+00:00",
-      "count": 60836,
-      "fastest_fee": 1
+      "checked_at": "2026-11-24T18:06:19.244468+00:00",
+      "count": 71521,
+      "fastest_fee": 2
     }
   },
   "delivery_failures": [
@@ -5649,54 +5664,9 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-24",
-    "counts": {
-      "grok_x_search": 3,
-      "openai_web_search": 5,
-      "grok_editorial": 2
-    },
-    "claims": [
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-23T16:03:39.957222+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-23T16:03:39.957222+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-23T16:03:39.957222+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-24T04:03:45.664253+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-24T08:03:35.306367+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-24T08:03:35.306367+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-24T08:03:35.306367+00:00"
-      }
-    ]
+    "jst_date": "2026-11-25",
+    "counts": {},
+    "claims": []
   },
   "success_case_audit": {
     "2026-11-18-17-a": {
@@ -7025,6 +6995,36 @@
         }
       ],
       "status": "調査済み"
+    },
+    "2026-11-25-03-a": {
+      "slot": "2026-11-25-03-a",
+      "researched_at": "2026-11-24T18:06:19.244468+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
+      "caption_hash": "c4478b1d5aeb797466e0cdb3c64cfbc8151bfe53702e3ba0e608de522b928a07"
     }
   }
 }
