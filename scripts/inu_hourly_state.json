@@ -1920,6 +1920,22 @@
         "day": 5,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-24-13-a",
+      "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
+      "tweet_id": "2125078496913322100",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:DBR-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-DBRUSD",
+      "published_at": "2026-11-24T04:00:00+00:00",
+      "posted_at": "2026-11-24T04:06:10.689607+00:00",
+      "hook": "📈 $DBR、24時間で+8.64％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
+      "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
     }
   ],
   "posted_ids": [
@@ -2055,24 +2071,10 @@
     "inu_auto_78e02050e73d6a",
     "academy_CA10",
     "inu_auto_3dc32e1bd77a4c",
-    "academy_CA11"
+    "academy_CA11",
+    "inu_market_2026_11_24_13_a_crypto-dbr-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-24-13-a",
-      "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-DBRUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:DBR-USD",
-      "reserved_at": "2026-11-24T04:03:45.664253+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-24T04:33:45.664253+00:00",
-      "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
-      "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4050,6 +4052,22 @@
         "day": 5,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-24-13-a",
+      "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
+      "tweet_id": "2125078496913322100",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:DBR-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-DBRUSD",
+      "published_at": "2026-11-24T04:00:00+00:00",
+      "posted_at": "2026-11-24T04:06:10.689607+00:00",
+      "hook": "📈 $DBR、24時間で+8.64％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "f97b6f6d0726f00211689dd5a2262d0fe2531795bff35f0ffa435798517e350e",
+      "event_fingerprint": "420fa8491fc99c2e7001a7dac94d74db7f29b1c2808b707b81e4c2483a473cda"
     }
   ],
   "scheduled_checks": [
@@ -6885,10 +6903,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_24_13_a_crypto-dbr-usd",
-      "caption_hash": "5ff99cc303069af720d61f440c3026b3025bbbe4c4ff192fc5b2a83f20b849b8"
+      "caption_hash": "5ff99cc303069af720d61f440c3026b3025bbbe4c4ff192fc5b2a83f20b849b8",
+      "tweet_id": "2125078496913322100"
     }
   }
 }
