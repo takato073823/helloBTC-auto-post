@@ -4415,13 +4415,19 @@
       "checked_at": "2026-11-24T10:03:42.077479+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-11-25-05-a",
+      "checked_at": "2026-11-24T20:11:03.649162+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-24T18:06:19.244468+00:00",
-      "count": 71521,
+      "checked_at": "2026-11-24T20:11:03.649162+00:00",
+      "count": 69847,
       "fastest_fee": 2
     }
   },
@@ -5683,8 +5689,24 @@
   "external_blocks": {},
   "api_usage": {
     "jst_date": "2026-11-25",
-    "counts": {},
-    "claims": []
+    "counts": {
+      "grok_x_search": 1,
+      "openai_web_search": 2
+    },
+    "claims": [
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-24T20:11:03.649162+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-24T20:11:03.649162+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-24T20:11:03.649162+00:00"
+      }
+    ]
   },
   "success_case_audit": {
     "2026-11-18-17-a": {
@@ -7044,6 +7066,33 @@
       "post_id": "inu_market_2026_11_25_03_a_crypto-zro-usd",
       "caption_hash": "c4478b1d5aeb797466e0cdb3c64cfbc8151bfe53702e3ba0e608de522b928a07",
       "tweet_id": "2125290074870874326"
+    },
+    "2026-11-25-05-a": {
+      "slot": "2026-11-25-05-a",
+      "researched_at": "2026-11-24T20:11:03.649162+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "調査済み"
     }
   }
 }
