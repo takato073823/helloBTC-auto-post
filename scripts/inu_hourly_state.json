@@ -4503,57 +4503,20 @@
       "checked_at": "2026-11-24T22:09:11.334998+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
-    }
-  ],
-  "research_queue": [
+    },
     {
-      "candidate": {
-        "has_candidate": true,
-        "skip_reason": "",
-        "topic_type": "macro_event",
-        "hook": "🏦米GDP、8:30発表で相場材料に",
-        "facts": [
-          "11月25日、米GDP改定値と10月個人所得・支出を発表予定。",
-          "暗号資産は金利観測を通じて反応しやすい局面です。"
-        ],
-        "opinion": "成長と物価の組み合わせ次第で、$BTCの金利感応度が強まりそうです。",
-        "source_name": "米国経済分析局（BEA）",
-        "source_url": "https://www.bea.gov/news/schedule/",
-        "published_at": "2026-11-25T00:00:00-05:00",
-        "evidence_anchor": "GDP (Second Estimate) and Corporate Profits, 3rd Quarter 2026",
-        "evidence_as_primary": false,
-        "visual_route": "official_data_crop",
-        "tags": [
-          "$BTC",
-          "マクロ経済"
-        ],
-        "why_now": "米国のGDP改定値と個人消費が本日8:30に公表されるため。",
-        "reader_interest": "金利見通しを左右する米経済指標を確認できます。",
-        "follow_value": "GDP改定値とコアPCEの実績を確認。",
-        "is_primary_source": true,
-        "corroborating_source_urls": [
-          "https://www.federalreserve.gov/newsevents.htm"
-        ],
-        "focus_signal_url": ""
-      },
-      "sources": [
-        {
-          "url": "https://www.bea.gov/news/schedule",
-          "title": ""
-        },
-        {
-          "url": "https://www.bea.gov/news/schedule",
-          "title": ""
-        }
-      ],
-      "queued_at": "2026-11-25T08:03:35.948728+00:00"
+      "slot": "2026-11-25-19-a",
+      "checked_at": "2026-11-25T10:03:42.007506+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
+  "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-25T08:03:35.948728+00:00",
-      "count": 66216,
-      "fastest_fee": 1
+      "checked_at": "2026-11-25T10:03:42.007506+00:00",
+      "count": 64449,
+      "fastest_fee": 2
     }
   },
   "delivery_failures": [
@@ -7363,6 +7326,33 @@
       "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
       "post_id": "inu_auto_b8d8ceff5f54d7",
       "caption_hash": "7cecd666d3f226ea38a6ae41cd3a933311962d907243a008eb983110a9889d59"
+    },
+    "2026-11-25-19-a": {
+      "slot": "2026-11-25-19-a",
+      "researched_at": "2026-11-25T10:03:42.007506+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "調査済み"
     }
   }
 }
