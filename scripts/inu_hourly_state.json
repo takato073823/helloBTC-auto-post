@@ -1952,6 +1952,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "88c7f6bc2773dfe456b99d53754bcdf874e7a5e74edf23a3cdd2953ae0adff6c",
       "event_fingerprint": "0e8591953f0fbdb1ca5e456e2f92473b6f0fadb59b8babc889fa2977b21ad1d9"
+    },
+    {
+      "slot": "2026-11-25-09-a",
+      "post_id": "academy_CA13",
+      "tweet_id": "2125381291340374434",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-25T00:09:22.462608+00:00",
+      "hook": "🔎 100円と130円で買った平均は115円？",
+      "follow_value": "平均は115円ではなく120円。合計360円を合計3枚で割ります。",
+      "content_fingerprint": "cf5ef2e3d0e877e8020726a9d519cc2a9d36bf1114cf073851c9f0dbd38a20e6",
+      "event_fingerprint": "ba199e4e3e805e6a3f32bec0debab53516fdc5d6c9c31330975cc3c3aaac7073",
+      "academy": {
+        "code": "CA13",
+        "day": 6,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -2089,24 +2110,10 @@
     "inu_auto_3dc32e1bd77a4c",
     "academy_CA11",
     "inu_market_2026_11_24_13_a_crypto-dbr-usd",
-    "inu_market_2026_11_25_03_a_crypto-zro-usd"
+    "inu_market_2026_11_25_03_a_crypto-zro-usd",
+    "academy_CA13"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-25-09-a",
-      "post_id": "academy_CA13",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-25T00:08:42.256445+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-25T00:38:42.256445+00:00",
-      "content_fingerprint": "cf5ef2e3d0e877e8020726a9d519cc2a9d36bf1114cf073851c9f0dbd38a20e6",
-      "event_fingerprint": "ba199e4e3e805e6a3f32bec0debab53516fdc5d6c9c31330975cc3c3aaac7073"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4116,6 +4123,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "88c7f6bc2773dfe456b99d53754bcdf874e7a5e74edf23a3cdd2953ae0adff6c",
       "event_fingerprint": "0e8591953f0fbdb1ca5e456e2f92473b6f0fadb59b8babc889fa2977b21ad1d9"
+    },
+    {
+      "slot": "2026-11-25-09-a",
+      "post_id": "academy_CA13",
+      "tweet_id": "2125381291340374434",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-25T00:09:22.462608+00:00",
+      "hook": "🔎 100円と130円で買った平均は115円？",
+      "follow_value": "平均は115円ではなく120円。合計360円を合計3枚で割ります。",
+      "content_fingerprint": "cf5ef2e3d0e877e8020726a9d519cc2a9d36bf1114cf073851c9f0dbd38a20e6",
+      "event_fingerprint": "ba199e4e3e805e6a3f32bec0debab53516fdc5d6c9c31330975cc3c3aaac7073",
+      "academy": {
+        "code": "CA13",
+        "day": 6,
+        "format": "図で検証"
+      }
     }
   ],
   "scheduled_checks": [
@@ -7173,10 +7201,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA13",
-      "caption_hash": "5136b57df34ef456957eee87b10f54291e12f6893de072a9cf0716290dec13c3"
+      "caption_hash": "5136b57df34ef456957eee87b10f54291e12f6893de072a9cf0716290dec13c3",
+      "tweet_id": "2125381291340374434"
     }
   }
 }
