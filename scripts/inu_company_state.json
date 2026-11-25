@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32438461642",
-      "started_at": "2026-08-21T02:03:45.128511+00:00",
-      "completed_at": "2026-08-21T02:04:05.264066+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-21-11-a",
-      "post_id": "inu_overseas_kol_2090606236521943513",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "336b8ab37787c9b74a0362408045c7aee73392685592b8155179c60c725def21",
-      "event_fingerprint": "b7cca0100b512e482f4b8436c1e9ed1f8898eb80344331cafe4b199cb754c1b2"
-    },
-    {
-      "run_id": "32438461642",
       "started_at": "2026-08-21T02:04:08.819704+00:00",
       "mode": "publish",
       "departments": {
@@ -5571,6 +5550,22 @@
       "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8",
       "status": "published",
       "completed_at": "2026-11-25T20:06:19.598645+00:00"
+    },
+    {
+      "run_id": "45699975022",
+      "started_at": "2026-11-25T20:58:52.774606+00:00",
+      "completed_at": "2026-11-25T20:58:52.782149+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "not_started",
+        "quality": "not_started",
+        "distribution": "not_started",
+        "reliability": "observed"
+      },
+      "status": "no_publishable_candidate"
     }
   ]
 }
