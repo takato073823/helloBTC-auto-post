@@ -2130,22 +2130,7 @@
     "academy_CA13",
     "inu_market_2026_11_25_15_a_crypto-bigtime-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-25-17-a",
-      "post_id": "inu_auto_b8d8ceff5f54d7",
-      "source_url": "https://metaplanet.jp/en",
-      "topic_type": "whale_treasury",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-25T08:03:35.948728+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-25T08:33:35.948728+00:00",
-      "content_fingerprint": "4362297f7083fe34c26eab99f4a4e898414a506356d5ac9f57bb594d8ef354b6",
-      "event_fingerprint": "ca5d75a1a1a3ba1816c549277a1284cfe6a5bf95231f02f139de6265b343ce86"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -5822,6 +5807,13 @@
       "slot": "2026-11-19-05-a",
       "post_id": "inu_auto_d05998135ab0d5",
       "failed_at": "2026-11-18T20:05:09.780290+00:00",
+      "stage": "publish",
+      "reason": "X投稿に失敗しました。文字だけの代替投稿は行っていません"
+    },
+    {
+      "slot": "2026-11-25-17-a",
+      "post_id": "inu_auto_b8d8ceff5f54d7",
+      "failed_at": "2026-11-25T08:05:15.739809+00:00",
       "stage": "publish",
       "reason": "X投稿に失敗しました。文字だけの代替投稿は行っていません"
     }
