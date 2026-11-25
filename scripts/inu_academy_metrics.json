@@ -97,5 +97,27 @@
       "retweet_count": 0
     },
     "observed_at": "2026-11-24T15:08:52.560162+09:00"
+  },
+  "2124836493126664416": {
+    "metrics": {
+      "bookmark_count": 0,
+      "impression_count": 8,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "observed_at": "2026-11-25T09:18:29.120502+09:00"
+  },
+  "2125017654331343292": {
+    "metrics": {
+      "bookmark_count": 0,
+      "impression_count": 3,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "observed_at": "2026-11-25T09:18:29.120502+09:00"
   }
 }
