@@ -2152,7 +2152,22 @@
     "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
     "academy_CA14"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-26-05-a",
+      "post_id": "inu_auto_04983f89e30f7b",
+      "source_url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-25T20:03:42.059863+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-25T20:33:42.059863+00:00",
+      "content_fingerprint": "b7430d808a52065f23691088e6e21156c13b243a705f8c38309f7932cf91e57e",
+      "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4563,8 +4578,8 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-25T10:49:18.562295+00:00",
-      "count": 64148,
+      "checked_at": "2026-11-25T20:03:42.059863+00:00",
+      "count": 74194,
       "fastest_fee": 1
     }
   },
@@ -5832,36 +5847,36 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-25",
+    "jst_date": "2026-11-26",
     "counts": {
-      "grok_x_search": 2,
-      "openai_web_search": 3,
-      "grok_editorial": 1
+      "grok_x_search": 1,
+      "openai_web_search": 2,
+      "grok_editorial": 3
     },
     "claims": [
       {
         "action": "grok_x_search",
-        "claimed_at": "2026-11-24T20:11:03.649162+00:00"
+        "claimed_at": "2026-11-25T20:03:42.059863+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-11-24T20:11:03.649162+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-24T20:11:03.649162+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-25T08:03:35.948728+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-25T08:03:35.948728+00:00"
+        "claimed_at": "2026-11-25T20:03:42.059863+00:00"
       },
       {
         "action": "grok_editorial",
-        "claimed_at": "2026-11-25T08:03:35.948728+00:00"
+        "claimed_at": "2026-11-25T20:03:42.059863+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-25T20:03:42.059863+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-25T20:03:42.059863+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-25T20:03:42.059863+00:00"
       }
     ]
   },
@@ -7439,6 +7454,36 @@
       "post_id": "academy_CA14",
       "caption_hash": "190e00af1de33ec73b3443eef5843a8c0958df4917b29c3a59a7e9e601bc444c",
       "tweet_id": "2125562462862823851"
+    },
+    "2026-11-26-05-a": {
+      "slot": "2026-11-26-05-a",
+      "researched_at": "2026-11-25T20:03:42.059863+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する／誰が何を発表・発言したかを特定できる候補を優先する",
+      "post_id": "inu_auto_04983f89e30f7b",
+      "caption_hash": "2b113058a702382d5bece9f2aebab1e641e399ed32ce5f91c85bd96c57c208b6"
     }
   }
 }

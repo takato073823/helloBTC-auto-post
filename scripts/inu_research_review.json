@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-25T12:08:19.270084+00:00",
-  "slot": "2026-11-25-21-a",
+  "generated_at": "2026-11-25T20:03:42.059863+00:00",
+  "slot": "2026-11-26-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-24T12:08:19.270084+00:00",
-    "to": "2026-11-25T12:08:19.270084+00:00"
+    "from": "2026-11-24T20:03:42.059863+00:00",
+    "to": "2026-11-25T20:03:42.059863+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💬 24時間騰落率と前日終値比は同じ？\n\n仮の例：\n24時間前 100円／今110円\n前日終値 105円\n\n24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA14"
+      "📈米PCE物価、10月は前年比3.8％上昇\n\n米BEAは11月25日、10月のPCE物価指数が前年同月比3.8％上昇したと発表した。\n食品とエネルギーを除くコアPCEも前年比3.3％上昇し、前月比では総合・コアとも0.3％上昇した。\n\n物価の粘着性が残り、金融緩和を急ぎにくい材料です。"
     ],
-    "public_compact_post": "💬 24時間騰落率と前日終値比は同じ？\n\n仮の例：\n24時間前 100円／今110円\n前日終値 105円\n\n24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA14"
+    "public_compact_post": "📈米PCE物価、10月は前年比3.8％上昇\n\n米BEAは11月25日、10月のPCE物価指数が前年同月比3.8％上昇したと発表した。\n食品とエネルギーを除くコアPCEも前年比3.3％上昇し、前月比では総合・コアとも0.3％上昇した。\n\n物価の粘着性が残り、金融緩和を急ぎにくい材料です。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,22 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "💬 24時間騰落率と前日終値比は同じ？",
-    "verified_facts": [],
-    "market_or_user_impact": "",
+    "selected_topic": "macro_event",
+    "selected_hook": "📈米PCE物価、10月は前年比3.8％上昇",
+    "verified_facts": [
+      "米BEAは11月25日、10月のPCE物価指数が前年同月比3.8％上昇したと発表した。",
+      "食品とエネルギーを除くコアPCEも前年比3.3％上昇し、前月比では総合・コアとも0.3％上昇した。"
+    ],
+    "market_or_user_impact": "PCEはFRBが重視する物価指標で、金利見通しを考える基礎になります。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。",
+    "next_watch": "12月のFOMCで、この3.8％の物価上昇を政策判断がどう扱うかを追います。",
     "primary_source": {
-      "name": "",
-      "url": "",
-      "verified": false
+      "name": "U.S. Bureau of Economic Analysis",
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026",
+      "verified": true
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +50,76 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 1,
+          "used": 3,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 3,
+          "used": 2,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "onchain",
+        "hook": "⚠️$BTC採掘の報酬が盗まれる攻撃",
+        "published_at": "2026-11-25T00:00:00+00:00",
+        "source_url": "https://braiins.com/blog/bitcoin-hashrate-hijacking-unencrypted-stratum-v1",
+        "why_now": "11月25日公開で、攻撃が継続中と公式警告されたため。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "🏛️CFTC、暗号資産を担保要件へ整理",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.cftc.gov/csl/26-31/download",
+        "why_now": "11月23日付の公式スタッフアドバイザリーが過去24時間内に確認対象となったため。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🇯🇵メタプラネット、$BTC保有4.4万枚",
+        "published_at": "2026-11-25T00:00:00+00:00",
+        "source_url": "https://analytics.metaplanet.jp?lang=en",
+        "why_now": "公式トラッカーが11月25日に更新され、保有量と評価倍率を確認できるため。"
+      },
+      {
+        "topic_type": "etf_flow",
+        "hook": "📊IBIT、保有量は79.2万BTC",
+        "published_at": "2026-11-10T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/overview-v3-ishares-fund-data?portfolioId=333011&seoSlug=ishares-bit",
+        "why_now": "公式保有データで機関投資家向け商品の現物残高を確認できるため。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️Binance攻撃、米司法省が11億ドル追跡",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.justice.gov/usao-dc/pr/united-states-files-action-recover-more-1-billion-cryptocurrency-assets-related-north",
+        "why_now": "司法省が11億ドル超の没収手続きを更新し、被害後の資金追跡が進んだため。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦日銀、政策金利1.25%を維持",
+        "published_at": "2026-11-25T00:00:00+00:00",
+        "source_url": "https://www.boj.or.jp/en",
+        "why_now": "日銀公式サイトの現行ガイドラインと次回会合日程を確認できるため。"
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: この系統の鮮度上限を超えています",
+      "一次探索2: 根拠原文が一次資料ページ内に確認できません",
+      "一次探索3: この系統の鮮度上限を超えています",
+      "一次探索4: 数字・条件・決定など、読者が判断できる変化がありません",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: 公式ページの説明だけでは自動投稿できません"
+    ]
   }
 }
