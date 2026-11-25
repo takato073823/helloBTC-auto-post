@@ -1973,6 +1973,22 @@
         "day": 6,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-25-15-a",
+      "post_id": "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
+      "tweet_id": "2125470582024376602",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BIGTIME-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BIGTIMEUSD",
+      "published_at": "2026-11-25T06:00:00+00:00",
+      "posted_at": "2026-11-25T06:04:11.012398+00:00",
+      "hook": "📈 $BIGTIME、24時間で+63.53％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "fc470e9ee0c8be63a3a18e2db28dbb531dad49ffc40c3fb3b7340e4691d0c05c",
+      "event_fingerprint": "53afdf87aa6ccf586e4434ea0485f275457e4deab668969c8a688b138d13cade"
     }
   ],
   "posted_ids": [
@@ -2111,24 +2127,10 @@
     "academy_CA11",
     "inu_market_2026_11_24_13_a_crypto-dbr-usd",
     "inu_market_2026_11_25_03_a_crypto-zro-usd",
-    "academy_CA13"
+    "academy_CA13",
+    "inu_market_2026_11_25_15_a_crypto-bigtime-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-25-15-a",
-      "post_id": "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-BIGTIMEUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:BIGTIME-USD",
-      "reserved_at": "2026-11-25T06:03:43.600321+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-25T06:33:43.600321+00:00",
-      "content_fingerprint": "fc470e9ee0c8be63a3a18e2db28dbb531dad49ffc40c3fb3b7340e4691d0c05c",
-      "event_fingerprint": "53afdf87aa6ccf586e4434ea0485f275457e4deab668969c8a688b138d13cade"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4159,6 +4161,22 @@
         "day": 6,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-25-15-a",
+      "post_id": "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
+      "tweet_id": "2125470582024376602",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:BIGTIME-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-BIGTIMEUSD",
+      "published_at": "2026-11-25T06:00:00+00:00",
+      "posted_at": "2026-11-25T06:04:11.012398+00:00",
+      "hook": "📈 $BIGTIME、24時間で+63.53％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "fc470e9ee0c8be63a3a18e2db28dbb531dad49ffc40c3fb3b7340e4691d0c05c",
+      "event_fingerprint": "53afdf87aa6ccf586e4434ea0485f275457e4deab668969c8a688b138d13cade"
     }
   ],
   "scheduled_checks": [
@@ -7247,10 +7265,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
-      "caption_hash": "314c49fc0fa27a4d4e1da9d971bd9d6cb20573404cc74956282f4e5bae6bc5f5"
+      "caption_hash": "314c49fc0fa27a4d4e1da9d971bd9d6cb20573404cc74956282f4e5bae6bc5f5",
+      "tweet_id": "2125470582024376602"
     }
   }
 }
