@@ -2010,6 +2010,22 @@
         "day": 6,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-26-05-a",
+      "post_id": "inu_auto_04983f89e30f7b",
+      "tweet_id": "2125682514387734941",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026",
+      "published_at": "2026-11-25T08:30:00-05:00",
+      "posted_at": "2026-11-25T20:06:19.587060+00:00",
+      "hook": "📈米PCE物価、10月は前年比3.8％上昇",
+      "follow_value": "12月のFOMCで、この3.8％の物価上昇を政策判断がどう扱うかを追います。",
+      "content_fingerprint": "b7430d808a52065f23691088e6e21156c13b243a705f8c38309f7932cf91e57e",
+      "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8"
     }
   ],
   "posted_ids": [
@@ -2150,24 +2166,10 @@
     "inu_market_2026_11_25_03_a_crypto-zro-usd",
     "academy_CA13",
     "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
-    "academy_CA14"
+    "academy_CA14",
+    "inu_auto_04983f89e30f7b"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-26-05-a",
-      "post_id": "inu_auto_04983f89e30f7b",
-      "source_url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026",
-      "topic_type": "macro_event",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-25T20:03:42.059863+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-25T20:33:42.059863+00:00",
-      "content_fingerprint": "b7430d808a52065f23691088e6e21156c13b243a705f8c38309f7932cf91e57e",
-      "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4235,6 +4237,22 @@
         "day": 6,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-26-05-a",
+      "post_id": "inu_auto_04983f89e30f7b",
+      "tweet_id": "2125682514387734941",
+      "topic_type": "macro_event",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026",
+      "published_at": "2026-11-25T08:30:00-05:00",
+      "posted_at": "2026-11-25T20:06:19.587060+00:00",
+      "hook": "📈米PCE物価、10月は前年比3.8％上昇",
+      "follow_value": "12月のFOMCで、この3.8％の物価上昇を政策判断がどう扱うかを追います。",
+      "content_fingerprint": "b7430d808a52065f23691088e6e21156c13b243a705f8c38309f7932cf91e57e",
+      "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8"
     }
   ],
   "scheduled_checks": [
@@ -7480,10 +7498,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する／誰が何を発表・発言したかを特定できる候補を優先する",
       "post_id": "inu_auto_04983f89e30f7b",
-      "caption_hash": "2b113058a702382d5bece9f2aebab1e641e399ed32ce5f91c85bd96c57c208b6"
+      "caption_hash": "2b113058a702382d5bece9f2aebab1e641e399ed32ce5f91c85bd96c57c208b6",
+      "tweet_id": "2125682514387734941"
     }
   }
 }
