@@ -2,22 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32431143049",
-      "started_at": "2026-08-21T00:04:04.763227+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "published"
-      },
-      "slot": "2026-08-21-09-a",
-      "post_id": "inu_overseas_kol_2090551950739669316",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "21fd2aa89b51084b98e36aa8904f5f030fb295057d8027cffa02f2b19fcfbfc3",
-      "event_fingerprint": "48cd50ff479b38b79d55bfbd23ec500742c3f5e8a814dd213fb1605c3df77c35",
-      "status": "published",
-      "completed_at": "2026-08-21T00:04:05.143717+00:00"
-    },
-    {
       "run_id": "32434896048",
       "started_at": "2026-08-21T01:03:23.522989+00:00",
       "completed_at": "2026-08-21T01:03:35.624803+00:00",
@@ -5571,6 +5555,22 @@
       "topic_type": "academy_lesson",
       "content_fingerprint": "d05f09e230e7bcfe1411c7e379945967c551c32fd16970688aedcbd109e013b8",
       "event_fingerprint": "a4f062d0469bec304ed84c3a2dabc1f3f3d206cb7b5ed9f07cb85f6c22fc0421"
+    },
+    {
+      "run_id": "45610804735",
+      "started_at": "2026-11-25T12:09:15.896386+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-25-21-a",
+      "post_id": "academy_CA14",
+      "topic_type": "academy_lesson",
+      "content_fingerprint": "d05f09e230e7bcfe1411c7e379945967c551c32fd16970688aedcbd109e013b8",
+      "event_fingerprint": "a4f062d0469bec304ed84c3a2dabc1f3f3d206cb7b5ed9f07cb85f6c22fc0421",
+      "status": "published",
+      "completed_at": "2026-11-25T12:09:17.356062+00:00"
     }
   ]
 }

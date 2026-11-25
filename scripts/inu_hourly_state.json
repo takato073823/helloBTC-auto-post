@@ -1989,6 +1989,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "fc470e9ee0c8be63a3a18e2db28dbb531dad49ffc40c3fb3b7340e4691d0c05c",
       "event_fingerprint": "53afdf87aa6ccf586e4434ea0485f275457e4deab668969c8a688b138d13cade"
+    },
+    {
+      "slot": "2026-11-25-21-a",
+      "post_id": "academy_CA14",
+      "tweet_id": "2125562462862823851",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-25T12:09:17.343894+00:00",
+      "hook": "💬 24時間騰落率と前日終値比は同じ？",
+      "follow_value": "24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。",
+      "content_fingerprint": "d05f09e230e7bcfe1411c7e379945967c551c32fd16970688aedcbd109e013b8",
+      "event_fingerprint": "a4f062d0469bec304ed84c3a2dabc1f3f3d206cb7b5ed9f07cb85f6c22fc0421",
+      "academy": {
+        "code": "CA14",
+        "day": 6,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -2128,24 +2149,10 @@
     "inu_market_2026_11_24_13_a_crypto-dbr-usd",
     "inu_market_2026_11_25_03_a_crypto-zro-usd",
     "academy_CA13",
-    "inu_market_2026_11_25_15_a_crypto-bigtime-usd"
+    "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
+    "academy_CA14"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-25-21-a",
-      "post_id": "academy_CA14",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-25T12:08:19.270084+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-25T12:38:19.270084+00:00",
-      "content_fingerprint": "d05f09e230e7bcfe1411c7e379945967c551c32fd16970688aedcbd109e013b8",
-      "event_fingerprint": "a4f062d0469bec304ed84c3a2dabc1f3f3d206cb7b5ed9f07cb85f6c22fc0421"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4192,6 +4199,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "fc470e9ee0c8be63a3a18e2db28dbb531dad49ffc40c3fb3b7340e4691d0c05c",
       "event_fingerprint": "53afdf87aa6ccf586e4434ea0485f275457e4deab668969c8a688b138d13cade"
+    },
+    {
+      "slot": "2026-11-25-21-a",
+      "post_id": "academy_CA14",
+      "tweet_id": "2125562462862823851",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-25T12:09:17.343894+00:00",
+      "hook": "💬 24時間騰落率と前日終値比は同じ？",
+      "follow_value": "24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。",
+      "content_fingerprint": "d05f09e230e7bcfe1411c7e379945967c551c32fd16970688aedcbd109e013b8",
+      "event_fingerprint": "a4f062d0469bec304ed84c3a2dabc1f3f3d206cb7b5ed9f07cb85f6c22fc0421",
+      "academy": {
+        "code": "CA14",
+        "day": 6,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -7406,10 +7434,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA14",
-      "caption_hash": "190e00af1de33ec73b3443eef5843a8c0958df4917b29c3a59a7e9e601bc444c"
+      "caption_hash": "190e00af1de33ec73b3443eef5843a8c0958df4917b29c3a59a7e9e601bc444c",
+      "tweet_id": "2125562462862823851"
     }
   }
 }
