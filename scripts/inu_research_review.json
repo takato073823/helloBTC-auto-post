@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-25T06:03:43.600321+00:00",
-  "slot": "2026-11-25-15-a",
+  "generated_at": "2026-11-25T08:03:35.948728+00:00",
+  "slot": "2026-11-25-17-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-24T06:03:43.600321+00:00",
-    "to": "2026-11-25T06:03:43.600321+00:00"
+    "from": "2026-11-24T08:03:35.948728+00:00",
+    "to": "2026-11-25T08:03:35.948728+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 $BIGTIME、24時間で+63.53％"
+      "🇯🇵メタプラネット、保有4.4万$BTC\n\n公式トラッカーで$BTC保有量は44,000 $BTC。\n最新開示ベースのため、新規購入の発表とは区別が必要です。\n\n保有規模は大きい一方、株主価値は$BTC価格と資本構成の両方に左右されます。"
     ],
-    "public_compact_post": "📈 $BIGTIME、24時間で+63.53％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.006600。24時間で+63.53％の上昇。\n3日高値0.007300、安値0.003827。レンジ内80％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "public_compact_post": "🇯🇵メタプラネット、保有4.4万$BTC\n\n公式トラッカーで$BTC保有量は44,000 $BTC。\n最新開示ベースのため、新規購入の発表とは区別が必要です。\n\n保有規模は大きい一方、株主価値は$BTC価格と資本構成の両方に左右されます。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,22 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $BIGTIME、24時間で+63.53％",
-    "verified_facts": [],
-    "market_or_user_impact": "BIGTIMEの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "selected_topic": "whale_treasury",
+    "selected_hook": "🇯🇵メタプラネット、保有4.4万BTC",
+    "verified_facts": [
+      "公式トラッカーでBTC保有量は44,000 BTC。",
+      "最新開示ベースのため、新規購入の発表とは区別が必要です。"
+    ],
+    "market_or_user_impact": "日本企業のBTC保有規模と市場価格を同時に見られます。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "次回IRで保有枚数と資金調達条件を確認。",
     "primary_source": {
-      "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-BIGTIMEUSD",
-      "verified": false
+      "name": "Metaplanet",
+      "url": "https://metaplanet.jp/en",
+      "verified": true
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +50,71 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 1,
+          "used": 2,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 0,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 2,
+          "used": 3,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦米GDP、8:30発表で相場材料に",
+        "published_at": "2026-11-25T00:00:00-05:00",
+        "source_url": "https://www.bea.gov/news/schedule",
+        "why_now": "米国のGDP改定値と個人消費が本日8:30に公表されるため。"
+      },
+      {
+        "topic_type": "market_microstructure",
+        "hook": "⚠️Kraken、注文受付を一時保守",
+        "published_at": "2026-11-23T16:40:00+00:00",
+        "source_url": "https://status.kraken.com",
+        "why_now": "保守時間帯が日本時間19:00〜20:00に当たり、欧米取引時間と重なるため。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "📈Strategy、$BTCを457枚追加",
+        "published_at": "2026-11-23T00:00:00-05:00",
+        "source_url": "https://www.strategy.com/press/strategy-acquires-457-btc-repurchases-212-million-of-strc-increases-digital-credit-repurchase-program-by-1b-reallocates-1b-from-usd-reserve-to-usd-cash_11-23-2026",
+        "why_now": "過去24時間に近い企業IRで、BTC保有と資金調達方針が同時に更新されたため。"
+      },
+      {
+        "topic_type": "whale_treasury",
+        "hook": "🇯🇵メタプラネット、保有4.4万BTC",
+        "published_at": "2026-11-25T00:00:00+09:00",
+        "source_url": "https://metaplanet.jp/en",
+        "why_now": "11月25日時点の公式サイトで保有量とBTC価格が更新されているため。"
+      },
+      {
+        "topic_type": "policy_household",
+        "hook": "🇯🇵日銀、11月25日に資産残高更新",
+        "published_at": "2026-11-25T08:50:00+09:00",
+        "source_url": "https://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac261120.htm",
+        "why_now": "11月25日に日銀の最新勘定が公表されたため。"
+      },
+      {
+        "topic_type": "prediction_market_shift",
+        "hook": "📉予測市場、$BTCは5.8万〜6万ドルが優勢",
+        "published_at": "2026-11-25T17:03:35+09:00",
+        "source_url": "https://polymarket.com/event/bitcoin-price-on-november-25-2026?marketSlug=will-the-price-of-bitcoin-be-between-64000-and-66000-on-november-25-2026&outcomeIndex=1",
+        "why_now": "11月25日の市場終了前に、価格帯の確率が更新されているため。"
+      }
+    ],
+    "rejected_reasons": [
+      "トレンド優先探索1: 独立した裏付けURLがWeb検索の参照元一覧にありません"
+    ]
   }
 }

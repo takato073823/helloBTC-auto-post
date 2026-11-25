@@ -2130,7 +2130,22 @@
     "academy_CA13",
     "inu_market_2026_11_25_15_a_crypto-bigtime-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-25-17-a",
+      "post_id": "inu_auto_b8d8ceff5f54d7",
+      "source_url": "https://metaplanet.jp/en",
+      "topic_type": "whale_treasury",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-25T08:03:35.948728+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-25T08:33:35.948728+00:00",
+      "content_fingerprint": "4362297f7083fe34c26eab99f4a4e898414a506356d5ac9f57bb594d8ef354b6",
+      "event_fingerprint": "ca5d75a1a1a3ba1816c549277a1284cfe6a5bf95231f02f139de6265b343ce86"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4505,12 +4520,55 @@
       "result": "no_verified_candidate"
     }
   ],
-  "research_queue": [],
+  "research_queue": [
+    {
+      "candidate": {
+        "has_candidate": true,
+        "skip_reason": "",
+        "topic_type": "macro_event",
+        "hook": "🏦米GDP、8:30発表で相場材料に",
+        "facts": [
+          "11月25日、米GDP改定値と10月個人所得・支出を発表予定。",
+          "暗号資産は金利観測を通じて反応しやすい局面です。"
+        ],
+        "opinion": "成長と物価の組み合わせ次第で、$BTCの金利感応度が強まりそうです。",
+        "source_name": "米国経済分析局（BEA）",
+        "source_url": "https://www.bea.gov/news/schedule/",
+        "published_at": "2026-11-25T00:00:00-05:00",
+        "evidence_anchor": "GDP (Second Estimate) and Corporate Profits, 3rd Quarter 2026",
+        "evidence_as_primary": false,
+        "visual_route": "official_data_crop",
+        "tags": [
+          "$BTC",
+          "マクロ経済"
+        ],
+        "why_now": "米国のGDP改定値と個人消費が本日8:30に公表されるため。",
+        "reader_interest": "金利見通しを左右する米経済指標を確認できます。",
+        "follow_value": "GDP改定値とコアPCEの実績を確認。",
+        "is_primary_source": true,
+        "corroborating_source_urls": [
+          "https://www.federalreserve.gov/newsevents.htm"
+        ],
+        "focus_signal_url": ""
+      },
+      "sources": [
+        {
+          "url": "https://www.bea.gov/news/schedule",
+          "title": ""
+        },
+        {
+          "url": "https://www.bea.gov/news/schedule",
+          "title": ""
+        }
+      ],
+      "queued_at": "2026-11-25T08:03:35.948728+00:00"
+    }
+  ],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-25T06:03:43.600321+00:00",
-      "count": 65239,
-      "fastest_fee": 2
+      "checked_at": "2026-11-25T08:03:35.948728+00:00",
+      "count": 66216,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -5772,8 +5830,9 @@
   "api_usage": {
     "jst_date": "2026-11-25",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 2
+      "grok_x_search": 2,
+      "openai_web_search": 3,
+      "grok_editorial": 1
     },
     "claims": [
       {
@@ -5787,6 +5846,18 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-11-24T20:11:03.649162+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-25T08:03:35.948728+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-25T08:03:35.948728+00:00"
+      },
+      {
+        "action": "grok_editorial",
+        "claimed_at": "2026-11-25T08:03:35.948728+00:00"
       }
     ]
   },
@@ -7270,6 +7341,36 @@
       "post_id": "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
       "caption_hash": "314c49fc0fa27a4d4e1da9d971bd9d6cb20573404cc74956282f4e5bae6bc5f5",
       "tweet_id": "2125470582024376602"
+    },
+    "2026-11-25-17-a": {
+      "slot": "2026-11-25-17-a",
+      "researched_at": "2026-11-25T08:03:35.948728+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "誰が何を発表・発言したかを特定できる候補を優先する",
+      "post_id": "inu_auto_b8d8ceff5f54d7",
+      "caption_hash": "7cecd666d3f226ea38a6ae41cd3a933311962d907243a008eb983110a9889d59"
     }
   }
 }
