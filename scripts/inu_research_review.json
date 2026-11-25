@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-25T10:49:18.562295+00:00",
-  "slot": "2026-11-25-19-a",
+  "generated_at": "2026-11-25T12:08:19.270084+00:00",
+  "slot": "2026-11-25-21-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-24T10:49:18.562295+00:00",
-    "to": "2026-11-25T10:49:18.562295+00:00"
+    "from": "2026-11-24T12:08:19.270084+00:00",
+    "to": "2026-11-25T12:08:19.270084+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
     "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "posts": [
+      "💬 24時間騰落率と前日終値比は同じ？\n\n仮の例：\n24時間前 100円／今110円\n前日終値 105円\n\n24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA14"
+    ],
+    "public_compact_post": "💬 24時間騰落率と前日終値比は同じ？\n\n仮の例：\n24時間前 100円／今110円\n前日終値 105円\n\n24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA14"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,12 +24,12 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
+    "selected_topic": "academy_lesson",
+    "selected_hook": "💬 24時間騰落率と前日終値比は同じ？",
     "verified_facts": [],
     "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "24時間比は10％、前日終値比は約4.8％。基準時刻が違えば、数字も変わります。",
     "primary_source": {
       "name": "",
       "url": "",
