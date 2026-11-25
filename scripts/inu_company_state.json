@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32423884724",
-      "started_at": "2026-08-20T22:22:08.252392+00:00",
-      "completed_at": "2026-08-20T22:22:18.096630+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-21-07-a",
-      "post_id": "inu_overseas_kol_2090533144042905944",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "3b003ce0d8ff031a6c4ef14f0cbdb11695268355c0ab6e8041435e69ce68d3b8",
-      "event_fingerprint": "8ba3b2317c569cb02ea8c0a0bca75a01b896f17834afe12ec5fc8215932be003"
-    },
-    {
-      "run_id": "32423884724",
       "started_at": "2026-08-20T22:22:21.399446+00:00",
       "mode": "publish",
       "departments": {
@@ -5577,6 +5556,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "45557764866",
+      "started_at": "2026-11-25T06:03:43.597433+00:00",
+      "completed_at": "2026-11-25T06:04:06.730931+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-25-15-a",
+      "post_id": "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
+      "topic_type": "crypto_market",
+      "content_fingerprint": "fc470e9ee0c8be63a3a18e2db28dbb531dad49ffc40c3fb3b7340e4691d0c05c",
+      "event_fingerprint": "53afdf87aa6ccf586e4434ea0485f275457e4deab668969c8a688b138d13cade"
     }
   ]
 }
