@@ -4509,14 +4509,20 @@
       "checked_at": "2026-11-25T10:03:42.007506+00:00",
       "kind": "primary",
       "result": "no_verified_candidate"
+    },
+    {
+      "slot": "2026-11-25-19-a",
+      "checked_at": "2026-11-25T10:49:18.562295+00:00",
+      "kind": "primary",
+      "result": "no_verified_candidate"
     }
   ],
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-25T10:03:42.007506+00:00",
-      "count": 64449,
-      "fastest_fee": 2
+      "checked_at": "2026-11-25T10:49:18.562295+00:00",
+      "count": 64148,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -7329,7 +7335,7 @@
     },
     "2026-11-25-19-a": {
       "slot": "2026-11-25-19-a",
-      "researched_at": "2026-11-25T10:03:42.007506+00:00",
+      "researched_at": "2026-11-25T10:49:18.562295+00:00",
       "goal": "通常",
       "compared": 2,
       "references": [

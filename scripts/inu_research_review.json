@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-11-25T10:03:42.007506+00:00",
+  "generated_at": "2026-11-25T10:49:18.562295+00:00",
   "slot": "2026-11-25-19-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-24T10:03:42.007506+00:00",
-    "to": "2026-11-25T10:03:42.007506+00:00"
+    "from": "2026-11-24T10:49:18.562295+00:00",
+    "to": "2026-11-25T10:49:18.562295+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -64,17 +64,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦米GDP、8:30発表で相場材料に",
-        "published_at": "2026-11-25T00:00:00-05:00",
-        "source_url": "https://www.bea.gov/news/schedule",
-        "why_now": "米国のGDP改定値と個人消費が本日8:30に公表されるため。"
-      }
-    ],
-    "rejected_reasons": [
-      "一次探索1: 独立した裏付けURLがWeb検索の参照元一覧にありません"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
