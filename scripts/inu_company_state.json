@@ -2,22 +2,6 @@
   "version": 1,
   "runs": [
     {
-      "run_id": "32415080330",
-      "started_at": "2026-08-20T20:38:15.304462+00:00",
-      "mode": "publish",
-      "departments": {
-        "quality": "reapproved",
-        "distribution": "published"
-      },
-      "slot": "2026-08-21-05-a",
-      "post_id": "inu_overseas_kol_2090494526494568608",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "17ab20804a0f7cfc83aca16501aaa59b58495f7303a41c12148af36a75596b0e",
-      "event_fingerprint": "03ebbe50340bc8a1e6b5bb397c9912060abe98eeec6e82e081f8194d2ffb12a6",
-      "status": "published",
-      "completed_at": "2026-08-20T20:38:15.581002+00:00"
-    },
-    {
       "run_id": "32422435440",
       "started_at": "2026-08-20T22:03:54.831446+00:00",
       "completed_at": "2026-08-20T22:06:08.162310+00:00",
@@ -5578,6 +5562,27 @@
         "reliability": "observed"
       },
       "status": "no_publishable_candidate"
+    },
+    {
+      "run_id": "45515670934",
+      "started_at": "2026-11-25T00:08:42.253195+00:00",
+      "completed_at": "2026-11-25T00:09:17.120154+00:00",
+      "mode": "prepare",
+      "departments": {
+        "research": "completed",
+        "hermes_x_discovery": "disabled",
+        "xai_x_search": "enabled",
+        "editorial": "completed",
+        "quality": "approved",
+        "distribution": "reserved",
+        "reliability": "observed"
+      },
+      "status": "approved_outbox",
+      "slot": "2026-11-25-09-a",
+      "post_id": "academy_CA13",
+      "topic_type": "academy_lesson",
+      "content_fingerprint": "cf5ef2e3d0e877e8020726a9d519cc2a9d36bf1114cf073851c9f0dbd38a20e6",
+      "event_fingerprint": "ba199e4e3e805e6a3f32bec0debab53516fdc5d6c9c31330975cc3c3aaac7073"
     }
   ]
 }

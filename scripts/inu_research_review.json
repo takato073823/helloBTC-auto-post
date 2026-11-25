@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-24T22:09:11.334998+00:00",
-  "slot": "2026-11-25-07-a",
+  "generated_at": "2026-11-25T00:08:42.256445+00:00",
+  "slot": "2026-11-25-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-23T22:09:11.334998+00:00",
-    "to": "2026-11-24T22:09:11.334998+00:00"
+    "from": "2026-11-24T00:08:42.256445+00:00",
+    "to": "2026-11-25T00:08:42.256445+00:00"
   },
-  "status": "no_publishable_candidate",
+  "status": "ready",
   "draft": {
     "format": "single",
-    "posts": [],
-    "public_compact_post": ""
+    "posts": [
+      "🔎 100円と130円で買った平均は115円？\n\n仮の例：\n1枚を100円で購入\n2枚を130円で購入\n\n平均は115円ではなく120円。合計360円を合計3枚で割ります。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA13"
+    ],
+    "public_compact_post": "🔎 100円と130円で買った平均は115円？\n\n仮の例：\n1枚を100円で購入\n2枚を130円で購入\n\n平均は115円ではなく120円。合計360円を合計3枚で割ります。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA13"
   },
   "internal_research_summary": {
     "scope": [
@@ -22,12 +24,12 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "",
-    "selected_hook": "",
+    "selected_topic": "academy_lesson",
+    "selected_hook": "🔎 100円と130円で買った平均は115円？",
     "verified_facts": [],
     "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "",
+    "next_watch": "平均は115円ではなく120円。合計360円を合計3枚で割ります。",
     "primary_source": {
       "name": "",
       "url": "",
