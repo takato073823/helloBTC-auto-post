@@ -2026,6 +2026,27 @@
       "follow_value": "12月のFOMCで、この3.8％の物価上昇を政策判断がどう扱うかを追います。",
       "content_fingerprint": "b7430d808a52065f23691088e6e21156c13b243a705f8c38309f7932cf91e57e",
       "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8"
+    },
+    {
+      "slot": "2026-11-26-09-a",
+      "post_id": "academy_CA15",
+      "tweet_id": "2125742487193206955",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-26T00:04:38.251030+00:00",
+      "hook": "💬 半値になった後、50％戻れば元通り？",
+      "follow_value": "半値から元に戻るには100％の上昇が必要。上げ下げの率は足し算できません。",
+      "content_fingerprint": "782a76761bb84a7f90a8e448604bfdd5cf75bf786f80d4a1fa419fc38c9f4b5d",
+      "event_fingerprint": "963cacc6e0f543fbce1a7d3243abf830c1783549fe599aa48aa7957c349ee36c",
+      "academy": {
+        "code": "CA15",
+        "day": 7,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -2167,24 +2188,10 @@
     "academy_CA13",
     "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
     "academy_CA14",
-    "inu_auto_04983f89e30f7b"
+    "inu_auto_04983f89e30f7b",
+    "academy_CA15"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-26-09-a",
-      "post_id": "academy_CA15",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-26T00:03:43.776660+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-26T00:33:43.776660+00:00",
-      "content_fingerprint": "782a76761bb84a7f90a8e448604bfdd5cf75bf786f80d4a1fa419fc38c9f4b5d",
-      "event_fingerprint": "963cacc6e0f543fbce1a7d3243abf830c1783549fe599aa48aa7957c349ee36c"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4268,6 +4275,27 @@
       "follow_value": "12月のFOMCで、この3.8％の物価上昇を政策判断がどう扱うかを追います。",
       "content_fingerprint": "b7430d808a52065f23691088e6e21156c13b243a705f8c38309f7932cf91e57e",
       "event_fingerprint": "ce914cfa44b99ea0c0a15f1fb5c1665f0dbade0e9b7900e805d618e9a46ba0f8"
+    },
+    {
+      "slot": "2026-11-26-09-a",
+      "post_id": "academy_CA15",
+      "tweet_id": "2125742487193206955",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-26T00:04:38.251030+00:00",
+      "hook": "💬 半値になった後、50％戻れば元通り？",
+      "follow_value": "半値から元に戻るには100％の上昇が必要。上げ下げの率は足し算できません。",
+      "content_fingerprint": "782a76761bb84a7f90a8e448604bfdd5cf75bf786f80d4a1fa419fc38c9f4b5d",
+      "event_fingerprint": "963cacc6e0f543fbce1a7d3243abf830c1783549fe599aa48aa7957c349ee36c",
+      "academy": {
+        "code": "CA15",
+        "day": 7,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -7550,10 +7578,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA15",
-      "caption_hash": "5a8a06a7a55c6ec7efcd60f6787c174847173cee5a4fef6c8c0141bf473ce296"
+      "caption_hash": "5a8a06a7a55c6ec7efcd60f6787c174847173cee5a4fef6c8c0141bf473ce296",
+      "tweet_id": "2125742487193206955"
     }
   }
 }

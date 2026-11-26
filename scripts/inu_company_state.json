@@ -3,27 +3,6 @@
   "runs": [
     {
       "run_id": "32441678038",
-      "started_at": "2026-08-21T02:58:32.846050+00:00",
-      "completed_at": "2026-08-21T02:58:38.951785+00:00",
-      "mode": "prepare",
-      "departments": {
-        "research": "completed",
-        "hermes_x_discovery": "disabled",
-        "xai_x_search": "enabled",
-        "editorial": "completed",
-        "quality": "approved",
-        "distribution": "reserved",
-        "reliability": "observed"
-      },
-      "status": "approved_outbox",
-      "slot": "2026-08-21-11-a",
-      "post_id": "inu_overseas_kol_2090597250833744129",
-      "topic_type": "x_reaction",
-      "content_fingerprint": "61a653dfd3947c3deed7380dd7725bc110ad4eb4f0fd6829c01ac0ed12a595a1",
-      "event_fingerprint": "9c9af3dc839a8b5e1384976c9a2906b06b4dadbb12c1d07ffb1d423bb9dd8a92"
-    },
-    {
-      "run_id": "32441678038",
       "started_at": "2026-08-21T02:58:42.953358+00:00",
       "mode": "publish",
       "departments": {
@@ -5570,6 +5549,22 @@
       "topic_type": "academy_lesson",
       "content_fingerprint": "782a76761bb84a7f90a8e448604bfdd5cf75bf786f80d4a1fa419fc38c9f4b5d",
       "event_fingerprint": "963cacc6e0f543fbce1a7d3243abf830c1783549fe599aa48aa7957c349ee36c"
+    },
+    {
+      "run_id": "45725894246",
+      "started_at": "2026-11-26T00:04:37.254566+00:00",
+      "mode": "publish",
+      "departments": {
+        "quality": "reapproved",
+        "distribution": "published"
+      },
+      "slot": "2026-11-26-09-a",
+      "post_id": "academy_CA15",
+      "topic_type": "academy_lesson",
+      "content_fingerprint": "782a76761bb84a7f90a8e448604bfdd5cf75bf786f80d4a1fa419fc38c9f4b5d",
+      "event_fingerprint": "963cacc6e0f543fbce1a7d3243abf830c1783549fe599aa48aa7957c349ee36c",
+      "status": "published",
+      "completed_at": "2026-11-26T00:04:38.263866+00:00"
     }
   ]
 }
