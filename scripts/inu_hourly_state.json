@@ -2047,6 +2047,27 @@
         "day": 7,
         "format": "初心者Q&A"
       }
+    },
+    {
+      "slot": "2026-11-26-21-a",
+      "post_id": "academy_CA16",
+      "tweet_id": "2125923604408017280",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-26T12:04:19.958504+00:00",
+      "hook": "🔎 同じ手数料100円、少額送金ほど重いのはなぜ？",
+      "follow_value": "負担率は10％。同じ手数料でも送金額が1万円なら1％です。",
+      "content_fingerprint": "d942355dde63f220cb3be84a37470fb4baaaecb8e5379c61b6cc8ad3650aab2f",
+      "event_fingerprint": "ebf898944e1af047d87db825b08fde705852cac3b038cfed2034a9af2d350076",
+      "academy": {
+        "code": "CA16",
+        "day": 7,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -2189,24 +2210,10 @@
     "inu_market_2026_11_25_15_a_crypto-bigtime-usd",
     "academy_CA14",
     "inu_auto_04983f89e30f7b",
-    "academy_CA15"
+    "academy_CA15",
+    "academy_CA16"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-26-21-a",
-      "post_id": "academy_CA16",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-26T12:03:39.335444+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-26T12:33:39.335444+00:00",
-      "content_fingerprint": "d942355dde63f220cb3be84a37470fb4baaaecb8e5379c61b6cc8ad3650aab2f",
-      "event_fingerprint": "ebf898944e1af047d87db825b08fde705852cac3b038cfed2034a9af2d350076"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4310,6 +4317,27 @@
         "code": "CA15",
         "day": 7,
         "format": "初心者Q&A"
+      }
+    },
+    {
+      "slot": "2026-11-26-21-a",
+      "post_id": "academy_CA16",
+      "tweet_id": "2125923604408017280",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-26T12:04:19.958504+00:00",
+      "hook": "🔎 同じ手数料100円、少額送金ほど重いのはなぜ？",
+      "follow_value": "負担率は10％。同じ手数料でも送金額が1万円なら1％です。",
+      "content_fingerprint": "d942355dde63f220cb3be84a37470fb4baaaecb8e5379c61b6cc8ad3650aab2f",
+      "event_fingerprint": "ebf898944e1af047d87db825b08fde705852cac3b038cfed2034a9af2d350076",
+      "academy": {
+        "code": "CA16",
+        "day": 7,
+        "format": "図で検証"
       }
     }
   ],
@@ -7630,10 +7658,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA16",
-      "caption_hash": "b414e53e19bc0271089acce77b7b41659021a5f416d71411896d268b61c1df7f"
+      "caption_hash": "b414e53e19bc0271089acce77b7b41659021a5f416d71411896d268b61c1df7f",
+      "tweet_id": "2125923604408017280"
     }
   }
 }
