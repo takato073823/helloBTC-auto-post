@@ -2213,7 +2213,22 @@
     "academy_CA15",
     "academy_CA16"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-27-07-a",
+      "post_id": "inu_market_2026_11_27_07_a_crypto-akt-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-AKTUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:AKT-USD",
+      "reserved_at": "2026-11-26T22:46:56.631774+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-26T23:16:56.631774+00:00",
+      "content_fingerprint": "31aa6b26ef8b9dc51059feb4ade3622c93f4f2ccec5efcb615d2164fbca01dc8",
+      "event_fingerprint": "78383c78be86148a5a434e53be06ebfd616bd88b5d3be4ab4062388f7e2c4912"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4679,49 +4694,12 @@
       "result": "no_verified_candidate"
     }
   ],
-  "research_queue": [
-    {
-      "candidate": {
-        "has_candidate": true,
-        "skip_reason": "",
-        "topic_type": "prediction_market_shift",
-        "hook": "📊Polymarketで11月27日$BTC予想が分岐",
-        "facts": [
-          "11月27日の予測市場では、$BTCが6万ドル超の確率は67%、6.2万ドル超は30%。",
-          "これは確定情報ではなく、参加者が付けたリアルタイム確率。"
-        ],
-        "opinion": "短期の市場参加者は6万ドル近辺を重要な分岐点と見ている。",
-        "source_name": "Polymarket",
-        "source_url": "https://polymarket.com/event/bitcoin-above-on-november-27-2026",
-        "published_at": "2026-11-26T16:03:36+00:00",
-        "evidence_anchor": "60,000 67%",
-        "evidence_as_primary": true,
-        "visual_route": "official_data_crop",
-        "tags": [
-          "Bitcoin",
-          "prediction market"
-        ],
-        "why_now": "11月27日判定の確率が現在の短期需給を数値化している。",
-        "reader_interest": "短期センチメントの節目を価格以外の指標で確認できる。",
-        "follow_value": "次は6万ドルと6.2万ドルの確率差を追う。",
-        "is_primary_source": true,
-        "corroborating_source_urls": [],
-        "focus_signal_url": ""
-      },
-      "sources": [
-        {
-          "url": "https://polymarket.com/event/bitcoin-above-on-november-27-2026",
-          "title": ""
-        }
-      ],
-      "queued_at": "2026-11-26T16:03:36.153319+00:00"
-    }
-  ],
+  "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-26T16:03:36.153319+00:00",
-      "count": 73260,
-      "fastest_fee": 4
+      "checked_at": "2026-11-26T22:46:56.631774+00:00",
+      "count": 67173,
+      "fastest_fee": 1
     }
   },
   "delivery_failures": [
@@ -7725,6 +7703,36 @@
       "actual_use": "事例は候補の比較に使用。最終稿に同じ型は確認できず、一次情報を優先。",
       "post_id": "inu_auto_9357115bb10f75",
       "caption_hash": "3b30a983ef855f0fb572c35a0cab92c92fe4704dc44cce6786b57ddff19e6869"
+    },
+    "2026-11-27-07-a": {
+      "slot": "2026-11-27-07-a",
+      "researched_at": "2026-11-26T22:46:56.631774+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_27_07_a_crypto-akt-usd",
+      "caption_hash": "fa370c4b354255ab65335a691f2b5122fade7c896f60e21a58591aa58d809bf3"
     }
   }
 }
