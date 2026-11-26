@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-26T12:03:39.335444+00:00",
-  "slot": "2026-11-26-21-a",
+  "generated_at": "2026-11-26T16:03:36.153319+00:00",
+  "slot": "2026-11-27-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-25T12:03:39.335444+00:00",
-    "to": "2026-11-26T12:03:39.335444+00:00"
+    "from": "2026-11-25T16:03:36.153319+00:00",
+    "to": "2026-11-26T16:03:36.153319+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🔎 同じ手数料100円、少額送金ほど重いのはなぜ？\n\n仮の例：\n定額手数料 100円\n送金額 1,000円\n\n負担率は10％。同じ手数料でも送金額が1万円なら1％です。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA16"
+      "🏦スイス初の現物$BTC ETFが上場\n\nSIXは11月26日、BBITを上場。CHF・USD建てで、経費率は0.19%。\n現物$BTCをオフライン保管し、スイス規制下の投資信託として提供。\n\n欧州の証券口座から現物$BTCへアクセスする選択肢が増えた。"
     ],
-    "public_compact_post": "🔎 同じ手数料100円、少額送金ほど重いのはなぜ？\n\n仮の例：\n定額手数料 100円\n送金額 1,000円\n\n負担率は10％。同じ手数料でも送金額が1万円なら1％です。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA16"
+    "public_compact_post": "🏦スイス初の現物$BTC ETFが上場\n\nSIXは11月26日、BBITを上場。CHF・USD建てで、経費率は0.19%。\n現物$BTCをオフライン保管し、スイス規制下の投資信託として提供。\n\n欧州の証券口座から現物$BTCへアクセスする選択肢が増えた。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,31 +24,39 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "🔎 同じ手数料100円、少額送金ほど重いのはなぜ？",
-    "verified_facts": [],
-    "market_or_user_impact": "",
+    "selected_topic": "etf_flow",
+    "selected_hook": "🏦スイス初の現物$BTC ETFが上場",
+    "verified_facts": [
+      "SIXは11月26日、BBITを上場。CHF・USD建てで、経費率は0.19%。",
+      "現物$BTCをオフライン保管し、スイス規制下の投資信託として提供。"
+    ],
+    "market_or_user_impact": "欧州の新規ETFが資金流入の受け皿になるか確認できる。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "負担率は10％。同じ手数料でも送金額が1万円なら1％です。",
+    "next_watch": "次はBBITの純資産と初日の売買代金を確認する。",
     "primary_source": {
-      "name": "",
-      "url": "",
-      "verified": false
+      "name": "SIX Swiss Exchange",
+      "url": "https://www.six-group.com/en/newsroom/media-releases/2026/20261126-bit-etf-issuer.html",
+      "verified": true
     },
-    "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "corroborating_sources": [
+      {
+        "title": "",
+        "url": "https://www.finma.ch/en/news/2026/10/20261020-mm-finma-bitcoin-etf"
+      }
+    ],
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 1,
+        "status": "used"
       },
       "hermes_packet": {
         "signal_count": 0,
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -56,17 +64,68 @@
           "limit": 6
         },
         "grok_editorial": {
-          "used": 3,
+          "used": 1,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 2,
+          "used": 1,
           "limit": 8
         }
       },
-      "xai_signal_shortlist": []
+      "xai_signal_shortlist": [
+        {
+          "title": "スイス、初のスポットBitcoin ETFをSIX Swiss Exchangeで承認",
+          "url": "https://x.com/WatcherGuru/status/2125933915076743212",
+          "published": "2026-11-26T12:45:17+00:00"
+        }
+      ]
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "etf_flow",
+        "hook": "🏦スイス初の現物$BTC ETFが上場",
+        "published_at": "2026-11-26T00:00:00+00:00",
+        "source_url": "https://www.six-group.com/en/newsroom/media-releases/2026/20261126-bit-etf-issuer.html",
+        "why_now": "11月26日に新ETFの上場と商品条件が公式確認された。"
+      },
+      {
+        "topic_type": "prediction_market_shift",
+        "hook": "📊Polymarketで11月27日$BTC予想が分岐",
+        "published_at": "2026-11-26T16:03:36+00:00",
+        "source_url": "https://polymarket.com/event/bitcoin-above-on-november-27-2026",
+        "why_now": "11月27日判定の確率が現在の短期需給を数値化している。"
+      },
+      {
+        "topic_type": "onchain",
+        "hook": "⛏️ビットコイン難易度、次回は約8.5%上昇見込み",
+        "published_at": "2026-11-27T01:03:36+09:00",
+        "source_url": "https://mempool.space/graphs/mining/hashrate-difficulty",
+        "why_now": "最新の難易度予測が更新され、マイナー収益環境の見通しが変わった。"
+      },
+      {
+        "topic_type": "adoption_kpi",
+        "hook": "💵USDC流通量は11月23日時点で678億ドル",
+        "published_at": "2026-11-24T19:00:00+00:00",
+        "source_url": "https://www.circle.com/usdc",
+        "why_now": "公式表示の流通量が更新され、ドル連動資産の市場規模を確認できる。"
+      },
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️Kraken APIが部分障害表示に",
+        "published_at": "2026-11-26T03:23:23+00:00",
+        "source_url": "https://status.kraken.com/api",
+        "why_now": "APIの障害ステータスが過去24時間内に更新された。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏢Strategy、$BTC457枚を追加取得",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.strategy.com/press/strategy-acquires-457-btc-repurchases-212-million-of-strc-increases-digital-credit-repurchase-program-by-1b-reallocates-1b-from-usd-reserve-to-usd-cash_11-23-2026",
+        "why_now": "24時間外だが、企業の大口取得と資本政策の影響が継続している。"
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: この系統の鮮度上限を超えています"
+    ]
   }
 }
