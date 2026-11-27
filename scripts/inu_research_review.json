@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-26T22:46:56.631774+00:00",
-  "slot": "2026-11-27-07-a",
+  "generated_at": "2026-11-27T00:03:48.931192+00:00",
+  "slot": "2026-11-27-09-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-25T22:46:56.631774+00:00",
-    "to": "2026-11-26T22:46:56.631774+00:00"
+    "from": "2026-11-26T00:03:48.931192+00:00",
+    "to": "2026-11-27T00:03:48.931192+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "📈 $AKT、24時間で+8.04％"
+      "🔎 予測市場の50％→65％。差は何ポイント？\n\n仮の例：\n確率表示 50％\n更新後 65％\n\n差は15ポイント。参加者がつけた価格の変化で、結果が確定したわけではありません。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA17"
     ],
-    "public_compact_post": "📈 $AKT、24時間で+8.04％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.5065。24時間で+8.04％の上昇。\n3日高値0.5112、安値0.4448。レンジ内93％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "public_compact_post": "🔎 予測市場の50％→65％。差は何ポイント？\n\n仮の例：\n確率表示 50％\n更新後 65％\n\n差は15ポイント。参加者がつけた価格の変化で、結果が確定したわけではありません。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA17"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,15 +24,15 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $AKT、24時間で+8.04％",
+    "selected_topic": "academy_lesson",
+    "selected_hook": "🔎 予測市場の50％→65％。差は何ポイント？",
     "verified_facts": [],
-    "market_or_user_impact": "AKTの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "差は15ポイント。参加者がつけた価格の変化で、結果が確定したわけではありません。",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-AKTUSD",
+      "url": "",
       "verified": false
     },
     "corroborating_sources": [],
