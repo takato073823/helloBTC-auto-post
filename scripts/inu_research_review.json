@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-27T08:03:34.013669+00:00",
-  "slot": "2026-11-27-17-a",
+  "generated_at": "2026-11-27T14:03:41.545348+00:00",
+  "slot": "2026-11-27-23-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-26T08:03:34.013669+00:00",
-    "to": "2026-11-27T08:03:34.013669+00:00"
+    "from": "2026-11-26T14:03:41.545348+00:00",
+    "to": "2026-11-27T14:03:41.545348+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "📈 $PONS、24時間で+22.03％"
-    ],
-    "public_compact_post": "📈 $PONS、24時間で+22.03％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.1047。24時間で+22.03％の上昇。\n3日高値0.1069、安値0.0790。レンジ内92％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +22,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $PONS、24時間で+22.03％",
+    "selected_topic": "",
+    "selected_hook": "",
     "verified_facts": [],
-    "market_or_user_impact": "PONSの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-PONSUSD",
+      "url": "",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +45,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -66,61 +64,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "developing_story",
-        "hook": "⚠️Binance出金停止を全面解除",
-        "published_at": "2026-11-26T18:30:00+00:00",
-        "source_url": "https://www.binance.com/en/support/announcement/detail/95c463396a034f1ab3994814225e6d69",
-        "why_now": "安全性事案後の出金制限が正式解除され、資産移動の実用性が変わったため。"
-      },
-      {
-        "topic_type": "policy_household",
-        "hook": "🇯🇵金融庁、トークン化監視報告",
-        "published_at": "2026-11-27T00:00:00+09:00",
-        "source_url": "https://www.fsa.go.jp/inter/ios/20261127/20261127-2.html",
-        "why_now": "日本時間11月27日に金融庁が最新の国際監視報告を掲載したため。"
-      },
-      {
-        "topic_type": "adoption_kpi",
-        "hook": "📈NVIDIA、AI売上が前年比2倍超",
-        "published_at": "2026-11-17T00:00:00-08:00",
-        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027",
-        "why_now": "AI需要を示す最新決算の具体的な売上数値が確認できるため。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦日銀、政策金利1.25%を維持",
-        "published_at": "2026-11-27T00:00:00+09:00",
-        "source_url": "https://www.boj.or.jp/en",
-        "why_now": "現行政策金利と次回会合日程が日本時間11月27日時点で公式表示されているため。"
-      },
-      {
-        "topic_type": "etf_flow",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      },
-      {
-        "topic_type": "breaking_news",
-        "hook": "",
-        "published_at": "",
-        "source_url": "",
-        "why_now": ""
-      }
-    ],
-    "rejected_reasons": [
-      "トレンド優先探索1: この系統の鮮度上限を超えています",
-      "トレンド優先探索2: 公表予定だけで具体的な変化がないため自動投稿できません",
-      "トレンド優先探索3: この系統の鮮度上限を超えています",
-      "トレンド優先探索4: 公式ページの説明だけでは自動投稿できません",
-      "トレンド優先探索5: ETF公式ページで今回検索時点に過去24時間以内のフロー公開を確認できず、最新表示は11月16日以前だったため。",
-      "トレンド優先探索6: Ethereumの公式発表で過去24時間以内の新規更新を確認できず、既存のHoodi延期情報は対象期間外のため。",
-      "再探索1: 根拠原文が一次資料ページ内に確認できません",
-      "再探索2: この系統の鮮度上限を超えています",
-      "再探索3: 同じ一次資料は投稿済みまたは予約済みです",
-      "再探索4: この系統の鮮度上限を超えています"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
