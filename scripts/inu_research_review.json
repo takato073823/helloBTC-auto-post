@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-11-27T14:03:41.545348+00:00",
-  "slot": "2026-11-27-23-a",
+  "generated_at": "2026-11-27T20:03:36.918133+00:00",
+  "slot": "2026-11-28-05-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-26T14:03:41.545348+00:00",
-    "to": "2026-11-27T14:03:41.545348+00:00"
+    "from": "2026-11-26T20:03:36.918133+00:00",
+    "to": "2026-11-27T20:03:36.918133+00:00"
   },
   "status": "no_publishable_candidate",
   "draft": {
@@ -34,7 +34,7 @@
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 25,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -45,12 +45,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 25,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 2,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
@@ -58,13 +58,68 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 3,
+          "used": 2,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "developing_story",
+        "hook": "⚠️ Binance出金停止を全面解除",
+        "published_at": "2026-11-27T00:00:00+08:00",
+        "source_url": "https://www.binance.com/en/square/post/392614643875657",
+        "why_now": "大規模事故後の出金制限が解除され、利用者の資金アクセスが変わった。"
+      },
+      {
+        "topic_type": "prediction_market_shift",
+        "hook": "📉 Polymarketは$BTC下値を警戒",
+        "published_at": "2026-11-28T05:03:36+09:00",
+        "source_url": "https://polymarket.com/predictions/bitcoin-prices",
+        "why_now": "11月28日の短期価格帯予測が更新され、下値警戒の度合いを数値で確認できる。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "🏦 FRBがステーブルコイン案を審議中",
+        "published_at": "2026-11-27T00:00:00+00:00",
+        "source_url": "https://www.federalreserve.gov/frrs/federal-reserve-regulatory-service.htm",
+        "why_now": "意見募集の締切が11月30日に迫り、制度設計への参加期限が近い。"
+      },
+      {
+        "topic_type": "etf_flow",
+        "hook": "📊 IBITは78.5万BTCを保有",
+        "published_at": "2026-11-16T00:00:00+00:00",
+        "source_url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf",
+        "why_now": "最新公開データで最大級の現物ETF保有量を確認できる。"
+      },
+      {
+        "topic_type": "macro_event",
+        "hook": "🏦 FRB統計が11月27日に更新",
+        "published_at": "2026-11-27T00:00:00+00:00",
+        "source_url": "https://www.federalreserve.gov/newsevents/2026-November.htm",
+        "why_now": "11月27日公表予定だった主要金融統計の確認タイミングに当たる。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🏢 Strategyの保有BTCは84.8万枚",
+        "published_at": "2026-10-29T00:00:00+00:00",
+        "source_url": "https://www.strategy.com/press/strategy-announces-third-quarter-2026-financial-results_10-29-2026",
+        "why_now": "企業保有の代表例として、最新の公式決算資料に具体的な保有量がある。"
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: 公表予定だけで具体的な変化がないため自動投稿できません",
+      "一次探索2: この系統の鮮度上限を超えています",
+      "一次探索3: Polymarketの変更前後の確率と変化幅がありません",
+      "一次探索4: 規制当局名・新ルール名・具体的な変更が不足しています",
+      "一次探索5: 根拠原文が一次資料ページ内に確認できません",
+      "一次探索6: この系統の鮮度上限を超えています",
+      "再探索1: この系統の鮮度上限を超えています",
+      "再探索2: この系統の鮮度上限を超えています",
+      "再探索3: この系統の鮮度上限を超えています",
+      "再探索4: 根拠原文が一次資料ページ内に確認できません",
+      "再探索5: 公式ページで確認できる変更はあるが、予定・販促であり、自動投稿の対象となる市場変化としては弱いため。"
+    ]
   }
 }
