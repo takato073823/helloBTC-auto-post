@@ -2084,6 +2084,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "31aa6b26ef8b9dc51059feb4ade3622c93f4f2ccec5efcb615d2164fbca01dc8",
       "event_fingerprint": "78383c78be86148a5a434e53be06ebfd616bd88b5d3be4ab4062388f7e2c4912"
+    },
+    {
+      "slot": "2026-11-27-09-a",
+      "post_id": "academy_CA17",
+      "tweet_id": "2126104867534156002",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-27T00:04:36.441875+00:00",
+      "hook": "🔎 予測市場の50％→65％。差は何ポイント？",
+      "follow_value": "差は15ポイント。参加者がつけた価格の変化で、結果が確定したわけではありません。",
+      "content_fingerprint": "bfbc2180199007a05d97ca5fa840f7e79ce4cff072f6fa982d93f3de411f5ce2",
+      "event_fingerprint": "d45387fade63c1fd93fae11bb778f7f1284d7bd16ec811acfc9100cdbfaa1a63",
+      "academy": {
+        "code": "CA17",
+        "day": 8,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -2228,24 +2249,10 @@
     "inu_auto_04983f89e30f7b",
     "academy_CA15",
     "academy_CA16",
-    "inu_market_2026_11_27_07_a_crypto-akt-usd"
+    "inu_market_2026_11_27_07_a_crypto-akt-usd",
+    "academy_CA17"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-27-09-a",
-      "post_id": "academy_CA17",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-27T00:03:48.931192+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-27T00:33:48.931192+00:00",
-      "content_fingerprint": "bfbc2180199007a05d97ca5fa840f7e79ce4cff072f6fa982d93f3de411f5ce2",
-      "event_fingerprint": "d45387fade63c1fd93fae11bb778f7f1284d7bd16ec811acfc9100cdbfaa1a63"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4387,6 +4394,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "31aa6b26ef8b9dc51059feb4ade3622c93f4f2ccec5efcb615d2164fbca01dc8",
       "event_fingerprint": "78383c78be86148a5a434e53be06ebfd616bd88b5d3be4ab4062388f7e2c4912"
+    },
+    {
+      "slot": "2026-11-27-09-a",
+      "post_id": "academy_CA17",
+      "tweet_id": "2126104867534156002",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-27T00:04:36.441875+00:00",
+      "hook": "🔎 予測市場の50％→65％。差は何ポイント？",
+      "follow_value": "差は15ポイント。参加者がつけた価格の変化で、結果が確定したわけではありません。",
+      "content_fingerprint": "bfbc2180199007a05d97ca5fa840f7e79ce4cff072f6fa982d93f3de411f5ce2",
+      "event_fingerprint": "d45387fade63c1fd93fae11bb778f7f1284d7bd16ec811acfc9100cdbfaa1a63",
+      "academy": {
+        "code": "CA17",
+        "day": 8,
+        "format": "図で検証"
+      }
     }
   ],
   "scheduled_checks": [
@@ -7799,10 +7827,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA17",
-      "caption_hash": "7aea247731a1d1a87a30884dacba2fc193be3749fbe06d65a3253144ccbbc2f0"
+      "caption_hash": "7aea247731a1d1a87a30884dacba2fc193be3749fbe06d65a3253144ccbbc2f0",
+      "tweet_id": "2126104867534156002"
     }
   }
 }
