@@ -2105,6 +2105,22 @@
         "day": 8,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-27-17-a",
+      "post_id": "inu_market_2026_11_27_17_a_crypto-pons-usd",
+      "tweet_id": "2126226065185984535",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PONS-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PONSUSD",
+      "published_at": "2026-11-27T08:00:00+00:00",
+      "posted_at": "2026-11-27T08:06:12.374621+00:00",
+      "hook": "📈 $PONS、24時間で+22.03％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "32abf46450ea5a34d47a893af9655ff13eb642b1cb30753c3ceec8bac2216b33",
+      "event_fingerprint": "b7f79f04d0d71e31022500e33ba0c5da8b880900175a9a4ec14f83cdcb7448e0"
     }
   ],
   "posted_ids": [
@@ -2250,24 +2266,10 @@
     "academy_CA15",
     "academy_CA16",
     "inu_market_2026_11_27_07_a_crypto-akt-usd",
-    "academy_CA17"
+    "academy_CA17",
+    "inu_market_2026_11_27_17_a_crypto-pons-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-27-17-a",
-      "post_id": "inu_market_2026_11_27_17_a_crypto-pons-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-PONSUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:PONS-USD",
-      "reserved_at": "2026-11-27T08:03:34.013669+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-27T08:33:34.013669+00:00",
-      "content_fingerprint": "32abf46450ea5a34d47a893af9655ff13eb642b1cb30753c3ceec8bac2216b33",
-      "event_fingerprint": "b7f79f04d0d71e31022500e33ba0c5da8b880900175a9a4ec14f83cdcb7448e0"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4430,6 +4432,22 @@
         "day": 8,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-27-17-a",
+      "post_id": "inu_market_2026_11_27_17_a_crypto-pons-usd",
+      "tweet_id": "2126226065185984535",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:PONS-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-PONSUSD",
+      "published_at": "2026-11-27T08:00:00+00:00",
+      "posted_at": "2026-11-27T08:06:12.374621+00:00",
+      "hook": "📈 $PONS、24時間で+22.03％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "32abf46450ea5a34d47a893af9655ff13eb642b1cb30753c3ceec8bac2216b33",
+      "event_fingerprint": "b7f79f04d0d71e31022500e33ba0c5da8b880900175a9a4ec14f83cdcb7448e0"
     }
   ],
   "scheduled_checks": [
@@ -7893,10 +7911,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_27_17_a_crypto-pons-usd",
-      "caption_hash": "e7764c33b3e3f79bf04bbddf05ddc9fb083d38a431bc0ac813733c9b061fdb29"
+      "caption_hash": "e7764c33b3e3f79bf04bbddf05ddc9fb083d38a431bc0ac813733c9b061fdb29",
+      "tweet_id": "2126226065185984535"
     }
   }
 }
