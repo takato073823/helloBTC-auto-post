@@ -2158,6 +2158,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "95781952c58319f28814ee2a99a32d23127abb9b370cb81a1837d0a35dfb9055",
       "event_fingerprint": "75cbe063d8f6933ce23d64e8dfbba86f9a1bf0e388def156ed662c0c2099bc7d"
+    },
+    {
+      "slot": "2026-11-28-21-a",
+      "post_id": "academy_CA20",
+      "tweet_id": "2126648352410304645",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-28T12:04:13.404390+00:00",
+      "hook": "🔎 片方の銘柄が倍でも、資産全体は何％増える？",
+      "follow_value": "合計は1,000円から1,100円へ。2銘柄の騰落率の単純平均とは違います。",
+      "content_fingerprint": "0c1d9050db6324c727be234e4578d63db6a2c92f384ebe8f28f43e4963e3456c",
+      "event_fingerprint": "d892fd7bb2c5a8528e5775db8e398220b61ee58a88d08323c88efe66102abd7f",
+      "academy": {
+        "code": "CA20",
+        "day": 9,
+        "format": "図で検証"
+      }
     }
   ],
   "posted_ids": [
@@ -2306,24 +2327,10 @@
     "academy_CA17",
     "inu_market_2026_11_27_17_a_crypto-pons-usd",
     "academy_CA19",
-    "inu_market_2026_11_28_17_a_crypto-cfg-usd"
+    "inu_market_2026_11_28_17_a_crypto-cfg-usd",
+    "academy_CA20"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-28-21-a",
-      "post_id": "academy_CA20",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-28T12:03:30.386281+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-28T12:33:30.386281+00:00",
-      "content_fingerprint": "0c1d9050db6324c727be234e4578d63db6a2c92f384ebe8f28f43e4963e3456c",
-      "event_fingerprint": "d892fd7bb2c5a8528e5775db8e398220b61ee58a88d08323c88efe66102abd7f"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4539,6 +4546,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "95781952c58319f28814ee2a99a32d23127abb9b370cb81a1837d0a35dfb9055",
       "event_fingerprint": "75cbe063d8f6933ce23d64e8dfbba86f9a1bf0e388def156ed662c0c2099bc7d"
+    },
+    {
+      "slot": "2026-11-28-21-a",
+      "post_id": "academy_CA20",
+      "tweet_id": "2126648352410304645",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-28T12:04:13.404390+00:00",
+      "hook": "🔎 片方の銘柄が倍でも、資産全体は何％増える？",
+      "follow_value": "合計は1,000円から1,100円へ。2銘柄の騰落率の単純平均とは違います。",
+      "content_fingerprint": "0c1d9050db6324c727be234e4578d63db6a2c92f384ebe8f28f43e4963e3456c",
+      "event_fingerprint": "d892fd7bb2c5a8528e5775db8e398220b61ee58a88d08323c88efe66102abd7f",
+      "academy": {
+        "code": "CA20",
+        "day": 9,
+        "format": "図で検証"
+      }
     }
   ],
   "scheduled_checks": [
@@ -8292,10 +8320,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
       "post_id": "academy_CA20",
-      "caption_hash": "02fbcb8779a5752b7c41df75cad87987fa726a3b406c8e7a268216d8e06bf6c5"
+      "caption_hash": "02fbcb8779a5752b7c41df75cad87987fa726a3b406c8e7a268216d8e06bf6c5",
+      "tweet_id": "2126648352410304645"
     }
   }
 }
