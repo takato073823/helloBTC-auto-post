@@ -2291,7 +2291,22 @@
     "inu_market_2026_11_27_17_a_crypto-pons-usd",
     "academy_CA19"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-28-13-a",
+      "post_id": "inu_market_2026_11_28_13_a_crypto-grass-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-GRASSUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:GRASS-USD",
+      "reserved_at": "2026-11-28T04:03:41.493140+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-28T04:33:41.493140+00:00",
+      "content_fingerprint": "ecd873ee7d7b74dfbfc59398dce78e8488bd78c9b9d4b1701f51b5a224a0fb9f",
+      "event_fingerprint": "6b50932ddb4f60ecd9768bbb4194a681d061ff3d0feaeec8104dfcfaf90acd8e"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4846,9 +4861,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-27T20:03:36.918133+00:00",
-      "count": 75335,
-      "fastest_fee": 4
+      "checked_at": "2026-11-28T04:03:41.493140+00:00",
+      "count": 65576,
+      "fastest_fee": 2
     }
   },
   "delivery_failures": [
@@ -6124,8 +6139,8 @@
   "api_usage": {
     "jst_date": "2026-11-28",
     "counts": {
-      "grok_x_search": 1,
-      "openai_web_search": 2,
+      "grok_x_search": 2,
+      "openai_web_search": 4,
       "grok_editorial": 3
     },
     "claims": [
@@ -6152,6 +6167,18 @@
       {
         "action": "openai_web_search",
         "claimed_at": "2026-11-27T20:03:36.918133+00:00"
+      },
+      {
+        "action": "grok_x_search",
+        "claimed_at": "2026-11-28T04:03:41.493140+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-28T04:03:41.493140+00:00"
+      },
+      {
+        "action": "openai_web_search",
+        "claimed_at": "2026-11-28T04:03:41.493140+00:00"
       }
     ]
   },
@@ -8054,6 +8081,36 @@
       "post_id": "academy_CA19",
       "caption_hash": "d3c3fdf830dfe080662846b5510129f08cae60943d035c615b99b6390f8d2fc7",
       "tweet_id": "2126467191390482662"
+    },
+    "2026-11-28-13-a": {
+      "slot": "2026-11-28-13-a",
+      "researched_at": "2026-11-28T04:03:41.493140+00:00",
+      "goal": "トレンド",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_28_13_a_crypto-grass-usd",
+      "caption_hash": "89941c1f0d538445b88140ddf23567b5302063c88a1277b7b141778e7c107fdf"
     }
   }
 }

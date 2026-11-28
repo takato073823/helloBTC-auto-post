@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-28T00:03:37.875768+00:00",
-  "slot": "2026-11-28-09-a",
+  "generated_at": "2026-11-28T04:03:41.493140+00:00",
+  "slot": "2026-11-28-13-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-27T00:03:37.875768+00:00",
-    "to": "2026-11-28T00:03:37.875768+00:00"
+    "from": "2026-11-27T04:03:41.493140+00:00",
+    "to": "2026-11-28T04:03:41.493140+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "💬 取引回数が多い方が売買代金も大きい？\n\n仮の例：\n100円の取引 × 10回\n2,000円の取引 × 1回\n\n回数が少ない後者の売買代金は前者の2倍。何を数えた数字か確認しましょう。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA19"
+      "📉 $GRASS、24時間で-5.78％"
     ],
-    "public_compact_post": "💬 取引回数が多い方が売買代金も大きい？\n\n仮の例：\n100円の取引 × 10回\n2,000円の取引 × 1回\n\n回数が少ない後者の売買代金は前者の2倍。何を数えた数字か確認しましょう。\n\n開設準備中。次に図解してほしい疑問は？\nCryptoAcademy｜CA19"
+    "public_compact_post": "📉 $GRASS、24時間で-5.78％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.3668。24時間で-5.78％の下落。\n3日高値0.3967、安値0.3400。レンジ内47％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "💬 取引回数が多い方が売買代金も大きい？",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📉 $GRASS、24時間で-5.78％",
     "verified_facts": [],
-    "market_or_user_impact": "",
+    "market_or_user_impact": "GRASSの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "回数が少ない後者の売買代金は前者の2倍。何を数えた数字か確認しましょう。",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "",
+      "url": "https://www.tradingview.com/symbols/COINBASE-GRASSUSD",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,12 +47,12 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 1,
+          "used": 2,
           "limit": 6
         },
         "grok_editorial": {
@@ -60,13 +60,18 @@
           "limit": 12
         },
         "openai_web_search": {
-          "used": 2,
+          "used": 4,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
     "candidate_shortlist": [],
-    "rejected_reasons": []
+    "rejected_reasons": [
+      "再探索1: 自動切り抜き可能な公式HTMLではありません",
+      "再探索2: 同じ一次資料は投稿済みまたは予約済みです",
+      "再探索3: この系統の鮮度上限を超えています",
+      "再探索4: 同じ一次資料は投稿済みまたは予約済みです"
+    ]
   }
 }
