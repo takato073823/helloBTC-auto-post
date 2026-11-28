@@ -2330,7 +2330,22 @@
     "inu_market_2026_11_28_17_a_crypto-cfg-usd",
     "academy_CA20"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-29-01-a",
+      "post_id": "inu_market_2026_11_29_01_a_crypto-wlfi-usd",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-WLFIUSD",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:WLFI-USD",
+      "reserved_at": "2026-11-28T16:03:36.765912+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-28T16:33:36.765912+00:00",
+      "content_fingerprint": "e100be641203f74b8d14ed007318967945c434a24614db49d70d06f14ad7a75f",
+      "event_fingerprint": "8b6c1dd4269fec87179f21a2592b7145de688e2de3de9f766494a6f4bf081256"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4934,9 +4949,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-28T12:03:30.386281+00:00",
-      "count": 68135,
-      "fastest_fee": 3
+      "checked_at": "2026-11-28T16:03:36.765912+00:00",
+      "count": 75793,
+      "fastest_fee": 5
     }
   },
   "delivery_failures": [
@@ -6217,60 +6232,23 @@
   ],
   "external_blocks": {},
   "api_usage": {
-    "jst_date": "2026-11-28",
+    "jst_date": "2026-11-29",
     "counts": {
-      "grok_x_search": 3,
-      "openai_web_search": 6,
-      "grok_editorial": 3
+      "grok_x_search": 1,
+      "openai_web_search": 2
     },
     "claims": [
       {
         "action": "grok_x_search",
-        "claimed_at": "2026-11-27T20:03:36.918133+00:00"
+        "claimed_at": "2026-11-28T16:03:36.765912+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-11-27T20:03:36.918133+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-27T20:03:36.918133+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-27T20:03:36.918133+00:00"
-      },
-      {
-        "action": "grok_editorial",
-        "claimed_at": "2026-11-27T20:03:36.918133+00:00"
+        "claimed_at": "2026-11-28T16:03:36.765912+00:00"
       },
       {
         "action": "openai_web_search",
-        "claimed_at": "2026-11-27T20:03:36.918133+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-28T04:03:41.493140+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-28T04:03:41.493140+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-28T04:03:41.493140+00:00"
-      },
-      {
-        "action": "grok_x_search",
-        "claimed_at": "2026-11-28T08:03:40.272300+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-28T08:03:40.272300+00:00"
-      },
-      {
-        "action": "openai_web_search",
-        "claimed_at": "2026-11-28T08:03:40.272300+00:00"
+        "claimed_at": "2026-11-28T16:03:36.765912+00:00"
       }
     ]
   },
@@ -8325,6 +8303,36 @@
       "post_id": "academy_CA20",
       "caption_hash": "02fbcb8779a5752b7c41df75cad87987fa726a3b406c8e7a268216d8e06bf6c5",
       "tweet_id": "2126648352410304645"
+    },
+    "2026-11-29-01-a": {
+      "slot": "2026-11-29-01-a",
+      "researched_at": "2026-11-28T16:03:36.765912+00:00",
+      "goal": "通常",
+      "compared": 2,
+      "references": [
+        {
+          "url": "https://x.com/WatcherGuru/status/2091395817818997180",
+          "result": "観測時 103,820表示・90リポスト（1,000表示あたり0.867）",
+          "observed": "2026-08-23T06:02:39+00:00",
+          "reposts_per_1000": 0.867,
+          "feature": "quantity",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する"
+        },
+        {
+          "url": "https://x.com/WatcherGuru/status/2091518945664856503",
+          "result": "観測時 105,302表示・57リポスト（1,000表示あたり0.541）",
+          "observed": "2026-08-23T14:00:56+00:00",
+          "reposts_per_1000": 0.541,
+          "feature": "speaker",
+          "limit": "再共有の観測値。投稿者・題材・観測時刻は揃わず、因果や参加は不明。",
+          "application": "誰が何を発表・発言したかを特定できる候補を優先する"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
+      "post_id": "inu_market_2026_11_29_01_a_crypto-wlfi-usd",
+      "caption_hash": "5737b309525ed417f0eb147ce2650a5f75be1fa6e13758f21c6d38b200055d8b"
     }
   }
 }

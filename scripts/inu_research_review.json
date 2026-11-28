@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-11-28T12:03:30.386281+00:00",
-  "slot": "2026-11-28-21-a",
+  "generated_at": "2026-11-28T16:03:36.765912+00:00",
+  "slot": "2026-11-29-01-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-27T12:03:30.386281+00:00",
-    "to": "2026-11-28T12:03:30.386281+00:00"
+    "from": "2026-11-27T16:03:36.765912+00:00",
+    "to": "2026-11-28T16:03:36.765912+00:00"
   },
   "status": "ready",
   "draft": {
     "format": "single",
     "posts": [
-      "🔎 片方の銘柄が倍でも、資産全体は何％増える？\n\n仮の例：\n銘柄A：100円分が倍\n銘柄B：900円分が横ばい\n\n合計は1,000円から1,100円へ。2銘柄の騰落率の単純平均とは違います。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA20"
+      "📉 $WLFI、24時間で-53.97％"
     ],
-    "public_compact_post": "🔎 片方の銘柄が倍でも、資産全体は何％増える？\n\n仮の例：\n銘柄A：100円分が倍\n銘柄B：900円分が横ばい\n\n合計は1,000円から1,100円へ。2銘柄の騰落率の単純平均とは違います。\n\n開設準備中。こうした図解を読みたい方はフォローを。\nCryptoAcademy｜CA20"
+    "public_compact_post": "📉 $WLFI、24時間で-53.97％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.0177。24時間で-53.97％の下落。\n3日高値0.0432、安値0.0177。レンジ内0％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +24,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "academy_lesson",
-    "selected_hook": "🔎 片方の銘柄が倍でも、資産全体は何％増える？",
+    "selected_topic": "crypto_market",
+    "selected_hook": "📉 $WLFI、24時間で-53.97％",
     "verified_facts": [],
-    "market_or_user_impact": "",
+    "market_or_user_impact": "WLFIの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "合計は1,000円から1,100円へ。2銘柄の騰落率の単純平均とは違います。",
+    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
     "primary_source": {
       "name": "",
-      "url": "",
+      "url": "https://www.tradingview.com/symbols/COINBASE-WLFIUSD",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 0,
+    "x_discovery_signal_count": 24,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,26 +47,80 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 0,
-        "status": "no_accepted_signal"
+        "signal_count": 24,
+        "status": "used"
       },
       "paid_api_usage": {
         "grok_x_search": {
-          "used": 3,
+          "used": 1,
           "limit": 6
         },
         "grok_editorial": {
-          "used": 3,
+          "used": 0,
           "limit": 12
         },
         "openai_web_search": {
-          "used": 6,
+          "used": 2,
           "limit": 8
         }
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [],
-    "rejected_reasons": []
+    "candidate_shortlist": [
+      {
+        "topic_type": "whale_treasury",
+        "hook": "🏦Binance、SAFUを再配分",
+        "published_at": "2026-11-28T00:00:00+00:00",
+        "source_url": "https://www.binance.com/en/square/profile/binance_announcement",
+        "why_now": "7,500 $BTCの移管が11月28日に公式発表された。"
+      },
+      {
+        "topic_type": "regulatory_rule_change",
+        "hook": "⚠️CFTC、暗号資産担保を明確化",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.cftc.gov/PressRoom/PressReleases?c=1039200&page=0",
+        "why_now": "過去24時間の新規発表は確認できないが、直近公表の制度変更が市場インフラに影響する。"
+      },
+      {
+        "topic_type": "supply_event",
+        "hook": "💵USDC、準備資産を週次開示",
+        "published_at": "2026-11-23T00:00:00+00:00",
+        "source_url": "https://www.circle.com/transparency",
+        "why_now": "USDCの準備資産ページが直近更新され、流通量と裏付けを確認できる。"
+      },
+      {
+        "topic_type": "earnings",
+        "hook": "🤖NVIDIA、AI売上が110%増",
+        "published_at": "2026-11-17T00:00:00+00:00",
+        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+        "why_now": "AI大手の実績と見通しが公開され、暗号資産と同じ成長株の需給判断に影響する。"
+      },
+      {
+        "topic_type": "institutional_flow",
+        "hook": "🇯🇵メタプラネット、$BTC保有44,000枚",
+        "published_at": "2026-10-05T00:00:00+00:00",
+        "source_url": "https://metaplanet.jp/en/home?lang=ja",
+        "why_now": "過去24時間の新規IRではないため速報ではないが、国内企業の保有規模を確認できる。"
+      },
+      {
+        "topic_type": "etf_flow",
+        "hook": "",
+        "published_at": "",
+        "source_url": "",
+        "why_now": ""
+      }
+    ],
+    "rejected_reasons": [
+      "一次探索1: 同じ一次資料は投稿済みまたは予約済みです",
+      "一次探索2: この系統の鮮度上限を超えています",
+      "一次探索3: 根拠原文が一次資料ページ内に確認できません",
+      "一次探索4: この系統の鮮度上限を超えています",
+      "一次探索5: この系統の鮮度上限を超えています",
+      "一次探索6: 過去24時間以内に公開日時を確認できる、ログイン不要のETF純流入一次データを特定できなかった。ETFページの最新値は11月25日時点で、時間条件を満たさない。",
+      "再探索1: この系統の鮮度上限を超えています",
+      "再探索2: 根拠原文が一次資料ページ内に確認できません",
+      "再探索3: この系統の鮮度上限を超えています",
+      "再探索4: 追加検索で、発表から24時間以内かつPDF・検索結果URLを除いた、独立主体の一次HTML資料を3件以上確保できなかった。固定探索先のSEC、FRB、BOJ、BLS、Treasuryには条件を満たす新規HTML発表を確認できず、Coinbase Statusも11月28日の新規インシデントを示していない。"
+    ]
   }
 }
