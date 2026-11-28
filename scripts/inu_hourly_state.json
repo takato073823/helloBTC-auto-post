@@ -2179,6 +2179,22 @@
         "day": 9,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-29-01-a",
+      "post_id": "inu_market_2026_11_29_01_a_crypto-wlfi-usd",
+      "tweet_id": "2126709047760216434",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:WLFI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-WLFIUSD",
+      "published_at": "2026-11-28T16:00:00+00:00",
+      "posted_at": "2026-11-28T16:05:24.264673+00:00",
+      "hook": "📉 $WLFI、24時間で-53.97％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "e100be641203f74b8d14ed007318967945c434a24614db49d70d06f14ad7a75f",
+      "event_fingerprint": "8b6c1dd4269fec87179f21a2592b7145de688e2de3de9f766494a6f4bf081256"
     }
   ],
   "posted_ids": [
@@ -2328,24 +2344,10 @@
     "inu_market_2026_11_27_17_a_crypto-pons-usd",
     "academy_CA19",
     "inu_market_2026_11_28_17_a_crypto-cfg-usd",
-    "academy_CA20"
+    "academy_CA20",
+    "inu_market_2026_11_29_01_a_crypto-wlfi-usd"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-29-01-a",
-      "post_id": "inu_market_2026_11_29_01_a_crypto-wlfi-usd",
-      "source_url": "https://www.tradingview.com/symbols/COINBASE-WLFIUSD",
-      "topic_type": "crypto_market",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "crypto:WLFI-USD",
-      "reserved_at": "2026-11-28T16:03:36.765912+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-28T16:33:36.765912+00:00",
-      "content_fingerprint": "e100be641203f74b8d14ed007318967945c434a24614db49d70d06f14ad7a75f",
-      "event_fingerprint": "8b6c1dd4269fec87179f21a2592b7145de688e2de3de9f766494a6f4bf081256"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4582,6 +4584,22 @@
         "day": 9,
         "format": "図で検証"
       }
+    },
+    {
+      "slot": "2026-11-29-01-a",
+      "post_id": "inu_market_2026_11_29_01_a_crypto-wlfi-usd",
+      "tweet_id": "2126709047760216434",
+      "topic_type": "crypto_market",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "crypto:WLFI-USD",
+      "source_url": "https://www.tradingview.com/symbols/COINBASE-WLFIUSD",
+      "published_at": "2026-11-28T16:00:00+00:00",
+      "posted_at": "2026-11-28T16:05:24.264673+00:00",
+      "hook": "📉 $WLFI、24時間で-53.97％",
+      "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+      "content_fingerprint": "e100be641203f74b8d14ed007318967945c434a24614db49d70d06f14ad7a75f",
+      "event_fingerprint": "8b6c1dd4269fec87179f21a2592b7145de688e2de3de9f766494a6f4bf081256"
     }
   ],
   "scheduled_checks": [
@@ -8329,10 +8347,11 @@
           "application": "誰が何を発表・発言したかを特定できる候補を優先する"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "数字だけを強調せず、対象と比較期間が読み取れる候補を優先する",
       "post_id": "inu_market_2026_11_29_01_a_crypto-wlfi-usd",
-      "caption_hash": "5737b309525ed417f0eb147ce2650a5f75be1fa6e13758f21c6d38b200055d8b"
+      "caption_hash": "5737b309525ed417f0eb147ce2650a5f75be1fa6e13758f21c6d38b200055d8b",
+      "tweet_id": "2126709047760216434"
     }
   }
 }
