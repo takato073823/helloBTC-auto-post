@@ -141,5 +141,38 @@
       "retweet_count": 0
     },
     "observed_at": "2026-11-27T07:47:14.014721+09:00"
+  },
+  "2125742487193206955": {
+    "metrics": {
+      "bookmark_count": 0,
+      "impression_count": 1,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "observed_at": "2026-11-28T09:59:54.112291+09:00"
+  },
+  "2125923604408017280": {
+    "metrics": {
+      "bookmark_count": 0,
+      "impression_count": 4,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "observed_at": "2026-11-28T09:59:54.112291+09:00"
+  },
+  "2126104867534156002": {
+    "metrics": {
+      "bookmark_count": 0,
+      "impression_count": 3,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "observed_at": "2026-11-28T09:59:54.112291+09:00"
   }
 }
