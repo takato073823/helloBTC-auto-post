@@ -2308,7 +2308,22 @@
     "academy_CA19",
     "inu_market_2026_11_28_17_a_crypto-cfg-usd"
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "slot": "2026-11-28-21-a",
+      "post_id": "academy_CA20",
+      "source_url": "",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "reserved_at": "2026-11-28T12:03:30.386281+00:00",
+      "requires_case_review": true,
+      "lease_expires_at": "2026-11-28T12:33:30.386281+00:00",
+      "content_fingerprint": "0c1d9050db6324c727be234e4578d63db6a2c92f384ebe8f28f43e4963e3456c",
+      "event_fingerprint": "d892fd7bb2c5a8528e5775db8e398220b61ee58a88d08323c88efe66102abd7f"
+    }
+  ],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4891,9 +4906,9 @@
   "research_queue": [],
   "direct_source_metrics": {
     "mempool": {
-      "checked_at": "2026-11-28T10:03:35.346174+00:00",
-      "count": 59732,
-      "fastest_fee": 1
+      "checked_at": "2026-11-28T12:03:30.386281+00:00",
+      "count": 68135,
+      "fastest_fee": 3
     }
   },
   "delivery_failures": [
@@ -8245,6 +8260,42 @@
         }
       ],
       "status": "調査済み"
+    },
+    "2026-11-28-21-a": {
+      "slot": "2026-11-28-21-a",
+      "researched_at": "2026-11-28T12:03:30.386281+00:00",
+      "goal": "集客",
+      "compared": 3,
+      "references": [
+        {
+          "url": "https://blog.ethereum.org/2026/02/17/ethereum-protocol-studies-26",
+          "result": "主催者が累計数百人の学習参加を報告",
+          "observed": "2026-02-17",
+          "feature": "learn",
+          "limit": "クリプト教育の類例。個別のX投稿経由の入会数・理解度チェック単独の効果は不明。",
+          "application": "学習目標を一つに絞り、具体例の後に自分で確かめられる答えを示す"
+        },
+        {
+          "url": "https://business.x.com/ja/success-stories/solution-tree",
+          "result": "教育イベント告知キャンペーンで35万表示以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "visual",
+          "limit": "有料施策を含む表示実績。自然投稿の効果や参加完了数ではない。",
+          "application": "初心者が抱く疑問を一つ選び、本文と同じ要点に画像を絞る"
+        },
+        {
+          "url": "https://academy.trezor.io/",
+          "result": "主催者発表：30カ国以上・参加者2,500人以上",
+          "observed": "2026-11-18 出典確認",
+          "feature": "next_step",
+          "limit": "現地の教育施策全体の実績。Xの誘導文単体の参加効果ではない。",
+          "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
+        }
+      ],
+      "status": "準備済み",
+      "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。こうした図解を読みたい方はフォローを。",
+      "post_id": "academy_CA20",
+      "caption_hash": "02fbcb8779a5752b7c41df75cad87987fa726a3b406c8e7a268216d8e06bf6c5"
     }
   }
 }
