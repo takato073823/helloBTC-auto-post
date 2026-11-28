@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "generated_at": "2026-11-28T08:03:40.272300+00:00",
-  "slot": "2026-11-28-17-a",
+  "generated_at": "2026-11-28T09:44:33.408018+00:00",
+  "slot": "2026-11-28-18-a",
   "research_window": {
     "hours": 24,
-    "from": "2026-11-27T08:03:40.272300+00:00",
-    "to": "2026-11-28T08:03:40.272300+00:00"
+    "from": "2026-11-27T09:44:33.408018+00:00",
+    "to": "2026-11-28T09:44:33.408018+00:00"
   },
-  "status": "ready",
+  "status": "no_publishable_candidate",
   "draft": {
     "format": "single",
-    "posts": [
-      "📈 $CFG、24時間で+12.55％"
-    ],
-    "public_compact_post": "📈 $CFG、24時間で+12.55％\n\n時価総額上位30銘柄と話題通貨で変動が大きい銘柄です。\nCoinbase確定1時間足: 0.0610。24時間で+12.55％の上昇。\n3日高値0.0727、安値0.0443。レンジ内59％。\n注意: 価格変動だけで売買を判断しないでください。\n次の確認: 出来高と直近高値・安値の更新。"
+    "posts": [],
+    "public_compact_post": ""
   },
   "internal_research_summary": {
     "scope": [
@@ -24,19 +22,19 @@
       "取引所・セキュリティリスク",
       "X検索・トレンド・公開投稿"
     ],
-    "selected_topic": "crypto_market",
-    "selected_hook": "📈 $CFG、24時間で+12.55％",
+    "selected_topic": "",
+    "selected_hook": "",
     "verified_facts": [],
-    "market_or_user_impact": "CFGの大幅な価格変動と、過去3日レンジ内での現在位置を同時に確認できるためです。",
+    "market_or_user_impact": "",
     "risk_note": "噂・価格予想・個別投資助言を除外し、公開情報だけを整理しています。",
-    "next_watch": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
+    "next_watch": "",
     "primary_source": {
       "name": "",
-      "url": "https://www.tradingview.com/symbols/COINBASE-CFGUSD",
+      "url": "",
       "verified": false
     },
     "corroborating_sources": [],
-    "x_discovery_signal_count": 24,
+    "x_discovery_signal_count": 0,
     "research_engine_evidence": {
       "xai_x_search": {
         "signal_count": 0,
@@ -47,8 +45,8 @@
         "status": "not_used"
       },
       "official_x_api": {
-        "signal_count": 24,
-        "status": "used"
+        "signal_count": 0,
+        "status": "no_accepted_signal"
       },
       "paid_api_usage": {
         "grok_x_search": {
@@ -66,61 +64,7 @@
       },
       "xai_signal_shortlist": []
     },
-    "candidate_shortlist": [
-      {
-        "topic_type": "regulatory_rule_change",
-        "hook": "⚠️金融庁、無登録業者を警告",
-        "published_at": "2026-11-27T00:00:00+09:00",
-        "source_url": "https://www.fsa.go.jp/recent/recent2026.html",
-        "why_now": "11月27日に警告書と一覧更新が公開され、過去24時間の利用者保護情報に該当する。"
-      },
-      {
-        "topic_type": "developing_story",
-        "hook": "⚠️Kraken、注文処理障害を解消",
-        "published_at": "2026-11-27T16:07:00+00:00",
-        "source_url": "https://status.kraken.com",
-        "why_now": "過去24時間内に発生と解消が公式ステータスへ記録されている。"
-      },
-      {
-        "topic_type": "onchain",
-        "hook": "📊$BTCメンプール、6.8万件待機",
-        "published_at": "2026-11-28T17:03:40+09:00",
-        "source_url": "https://mempool.space/graphs/price",
-        "why_now": "現在値として取得できる実測データで、送金需給を確認できる。"
-      },
-      {
-        "topic_type": "supply_event",
-        "hook": "💵USDC流通量、678億ドル",
-        "published_at": "2026-11-23T00:00:00+00:00",
-        "source_url": "https://www.circle.com/usdc",
-        "why_now": "過去24時間内に公式ページが取得でき、最新掲載値を確認できる。"
-      },
-      {
-        "topic_type": "institutional_custody",
-        "hook": "🏦Citi、$BTCカストディを年内開始",
-        "published_at": "2026-08-18T00:00:00+00:00",
-        "source_url": "https://www.citigroup.com/global/news/press-release/2026/citi-custody-plus-suite-near-real-time-custody-solutions",
-        "why_now": "公式発表で$BTCカストディ開始計画が具体化しているが、発表は24時間超のため市場動向として採用。"
-      },
-      {
-        "topic_type": "macro_event",
-        "hook": "🏦日銀、トークン化決済を説明",
-        "published_at": "2026-11-27T00:00:00+00:00",
-        "source_url": "https://www.boj.or.jp/en/about/press/koen_2026/data/ko261127a.pdf",
-        "why_now": "11月27日に中央銀行幹部の公式講演資料が公開された。"
-      }
-    ],
-    "rejected_reasons": [
-      "トレンド優先探索1: 根拠原文が一次資料ページ内に確認できません",
-      "トレンド優先探索2: この系統の鮮度上限を超えています",
-      "トレンド優先探索3: この系統の鮮度上限を超えています",
-      "トレンド優先探索4: 同じ一次資料は投稿済みまたは予約済みです",
-      "トレンド優先探索5: この系統の鮮度上限を超えています",
-      "トレンド優先探索6: 自動切り抜き可能な公式HTMLではありません",
-      "再探索1: この系統の鮮度上限を超えています",
-      "再探索2: 根拠原文が一次資料ページ内に確認できません",
-      "再探索3: 根拠原文が一次資料ページ内に確認できません",
-      "再探索4: この系統の鮮度上限を超えています"
-    ]
+    "candidate_shortlist": [],
+    "rejected_reasons": []
   }
 }
