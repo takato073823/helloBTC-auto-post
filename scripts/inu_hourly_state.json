@@ -2121,6 +2121,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "32abf46450ea5a34d47a893af9655ff13eb642b1cb30753c3ceec8bac2216b33",
       "event_fingerprint": "b7f79f04d0d71e31022500e33ba0c5da8b880900175a9a4ec14f83cdcb7448e0"
+    },
+    {
+      "slot": "2026-11-28-09-a",
+      "post_id": "academy_CA19",
+      "tweet_id": "2126467191390482662",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-28T00:04:21.177551+00:00",
+      "hook": "💬 取引回数が多い方が売買代金も大きい？",
+      "follow_value": "回数が少ない後者の売買代金は前者の2倍。何を数えた数字か確認しましょう。",
+      "content_fingerprint": "c207dcd4545bbaf3524fc34616dea84b53138691a0729573ff27ec3b6e1f00d9",
+      "event_fingerprint": "cba556cf7a273b78f6a204f80d440e2eec20d234322af17e31be24e439c60adf",
+      "academy": {
+        "code": "CA19",
+        "day": 9,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "posted_ids": [
@@ -2267,24 +2288,10 @@
     "academy_CA16",
     "inu_market_2026_11_27_07_a_crypto-akt-usd",
     "academy_CA17",
-    "inu_market_2026_11_27_17_a_crypto-pons-usd"
+    "inu_market_2026_11_27_17_a_crypto-pons-usd",
+    "academy_CA19"
   ],
-  "reservations": [
-    {
-      "slot": "2026-11-28-09-a",
-      "post_id": "academy_CA19",
-      "source_url": "",
-      "topic_type": "academy_lesson",
-      "priority": "scheduled",
-      "generated_editorial_visual": false,
-      "market_key": "",
-      "reserved_at": "2026-11-28T00:03:37.875768+00:00",
-      "requires_case_review": true,
-      "lease_expires_at": "2026-11-28T00:33:37.875768+00:00",
-      "content_fingerprint": "c207dcd4545bbaf3524fc34616dea84b53138691a0729573ff27ec3b6e1f00d9",
-      "event_fingerprint": "cba556cf7a273b78f6a204f80d440e2eec20d234322af17e31be24e439c60adf"
-    }
-  ],
+  "reservations": [],
   "history": [
     {
       "post_id": "yamaha_motor_q2_2026_08_04",
@@ -4463,6 +4470,27 @@
       "follow_value": "大きく動いた銘柄の価格・出来高・関連する一次情報を継続して確認できます。",
       "content_fingerprint": "32abf46450ea5a34d47a893af9655ff13eb642b1cb30753c3ceec8bac2216b33",
       "event_fingerprint": "b7f79f04d0d71e31022500e33ba0c5da8b880900175a9a4ec14f83cdcb7448e0"
+    },
+    {
+      "slot": "2026-11-28-09-a",
+      "post_id": "academy_CA19",
+      "tweet_id": "2126467191390482662",
+      "topic_type": "academy_lesson",
+      "priority": "scheduled",
+      "generated_editorial_visual": false,
+      "market_key": "",
+      "source_url": "",
+      "published_at": "",
+      "posted_at": "2026-11-28T00:04:21.177551+00:00",
+      "hook": "💬 取引回数が多い方が売買代金も大きい？",
+      "follow_value": "回数が少ない後者の売買代金は前者の2倍。何を数えた数字か確認しましょう。",
+      "content_fingerprint": "c207dcd4545bbaf3524fc34616dea84b53138691a0729573ff27ec3b6e1f00d9",
+      "event_fingerprint": "cba556cf7a273b78f6a204f80d440e2eec20d234322af17e31be24e439c60adf",
+      "academy": {
+        "code": "CA19",
+        "day": 9,
+        "format": "初心者Q&A"
+      }
     }
   ],
   "scheduled_checks": [
@@ -8021,10 +8049,11 @@
           "application": "学べる内容を先に実演し、参加受付前は質問または次の図解の案内を一つだけ添える"
         }
       ],
-      "status": "準備済み",
+      "status": "公開済み",
       "actual_use": "1テーマの学習解説。本文と画像で要点を示す。 公開前の案内：開設準備中。次に図解してほしい疑問は？",
       "post_id": "academy_CA19",
-      "caption_hash": "d3c3fdf830dfe080662846b5510129f08cae60943d035c615b99b6390f8d2fc7"
+      "caption_hash": "d3c3fdf830dfe080662846b5510129f08cae60943d035c615b99b6390f8d2fc7",
+      "tweet_id": "2126467191390482662"
     }
   }
 }
